@@ -1,0 +1,554 @@
+@import "tailwindcss";
+
+/* Custom-css-start */
+
+@font-face {
+  font-family: "Navigo";
+  src: url("../fonts/Navigo-Black.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Black.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Black.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Navigo";
+  src: url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
+    url("./assets/fonts/Navigo-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  font-family: "Navigo";
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+/* In your main CSS file or a dedicated CSS file imported into your project */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #00a8e9;
+  border-radius: 25px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+}
+
+strong {
+  font-weight: 800;
+  color: #000;
+}
+
+a {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  font-weight: 400;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+hr {
+  background-color: #333;
+  opacity: 1;
+}
+
+input:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.form-control,
+.form-select {
+  box-shadow: none !important;
+}
+.primary-text {
+  color: #0088dc !important;
+}
+.border-color {
+  border-color: #0088dc !important;
+}
+.bg-blue-theme {
+  background-color: #0088dc;
+}
+.thm-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #0088dc;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 10px;
+  text-align: center;
+}
+.thm-btn.danger {
+  background-color: #ff3b30;
+}
+.main-h {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.welcome-new {
+  width: 100%;
+}
+.main-wrapper {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  padding-top: 80px;
+  overflow-x: hidden;
+}
+.home-wrapper {
+  background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
+}
+.main-header {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 9;
+}
+.innr-header {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1020;
+}
+
+.dashboard-wrapper {
+  overflow-y: auto;
+}
+
+.dashboard-cards a {
+  display: block;
+}
+.thm-footer {
+  background-color: #f0f5ff;
+  max-width: 800px;
+}
+.thm-footer li a img {
+  height: 25px;
+  width: 30px;
+}
+
+.feel-list {
+  padding-left: 200px;
+  position: relative;
+}
+
+.gradient-bar {
+  background: linear-gradient(to right, green, yellow, orange, red);
+}
+.line-1 {
+  background-color: #328a44;
+  margin-left: -4px;
+}
+
+.line-2 {
+  background: linear-gradient(to top, #69a835, #65a537);
+}
+.line-3 {
+  background: linear-gradient(to top, #99c12a, #99c12a);
+}
+.line-4 {
+  background: linear-gradient(to top, #c4da27, #c3d927);
+}
+.line-5 {
+  background: #eff223;
+}
+.line-5 {
+  background: linear-gradient(to top, #f2d21b, #f2d11a);
+}
+.line-6 {
+  background: linear-gradient(to top, #f3ae11, #f3af11);
+}
+.line-7 {
+  background: linear-gradient(to top, #f28708, #f28507);
+}
+.line-8 {
+  background: linear-gradient(to top, #ec5902, #ec5802);
+}
+.line-9 {
+  background: linear-gradient(to top, #ec5802, #ec5a02);
+}
+.line-10 {
+  background: linear-gradient(to top, #df2901, #df2901);
+}
+.line-11 {
+  background: #d40201;
+  margin-right: -4px;
+}
+.modal-overlay {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -9;
+}
+.custom-modal {
+  width: 345px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  z-index: 999;
+  right: 30px;
+  top: auto;
+  margin-top: 15px;
+}
+.card-img-h {
+    overflow: hidden;
+}
+.card-img-h img {
+    width: 100%;
+    height: 130px;
+    object-fit: contain;
+}
+  .howoften-page{
+    padding-top: 0;
+  }
+@media (max-width: 799px) {
+
+  .sidebar .font-normal.text-black.flex {
+    font-size: 15px;
+  }
+  .summary-main {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .summary-main .arrow-right {
+    transform: rotate(90deg);
+  }
+  .calendar-main span.font-bold {
+    font-size: 20px;
+  }
+  .calendar-main button.flex.items-center.justify-center {
+    padding: 10px;
+  }
+}
+
+@media (orientation: landscape) {
+  .main-wrapper {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 699px) {
+  .thm-footer .flex {
+    gap: 40px;
+  }
+  .emotion-cards .dashboard-cards p {
+    font-size: 15px;
+  }
+  .main-header h2 {
+    font-size: 20px;
+  }
+  .innr-header h2,
+  .innr-header h1 {
+    font-size: 20px;
+  }
+  .calendar-main button.flex.items-center.justify-center .check-mark {
+    height: 20px;
+    width: 20px;
+  }
+  .setting-cards span.text-lg.text-black-800 {
+    font-size: 15px;
+  }
+  .decision-cards div.flex.items-center p.font-medium {
+    font-size: 20px;
+  }
+  .decision-cards div.flex.items-center img {
+    width: 20px;
+  }
+  .bttm-txt-bar {
+    gap: 15px;
+  }
+  .bttm-txt-bar span {
+    font-size: 14px;
+  }
+  .text-bar .text-2xl {
+    font-size: 15px;
+  }
+  .feel-list-main .feel-list a {
+    gap: 10px;
+  }
+  .feel-list-main .feel-list span.font-medium.color-black {
+    font-size: 20px;
+  }
+  .feel-list-main .feel-list img {
+    width: 60px;
+  }
+}
+@media (max-width: 599px) {
+  .emoji-bar {
+    gap: 20px;
+  }
+  .emoji-bar img {
+    width: 60px;
+  }
+  .emoji-bar span.px-5 {
+    padding: 5px 20px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 550px) {
+  .upload-frm {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .upload-frm div {
+    width: 100%;
+  }
+
+  .upload-frm .text-center label {
+    margin-bottom: 5px;
+  }
+  .calendar-main span.font-bold {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .setting-cards
+    div.flex.items-center.justify-between.py-4.border-b.border-white {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .setting-cards .p6 {
+    padding: 10px;
+  }
+  .calendar-bttm {
+    flex-direction: column;
+  }
+  .calendar-bttm button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .setting-cards span.text-lg.text-black-800 {
+    margin-bottom: 10px;
+  }
+  .feel-list {
+    padding-left: 120px;
+  }
+}
+@media (max-width: 400px) {
+  .calendar-buttons {
+    flex-direction: column;
+  }
+  .calendar-buttons button.bg-red-500 {
+    width: 100%;
+  }
+  .calendar-buttons div.flex.rounded-full.bg-gray-100.p-1 {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+  
