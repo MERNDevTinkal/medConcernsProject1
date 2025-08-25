@@ -9,7 +9,6 @@ const DecisionCard = () => {
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        
         <Link to="/pain-feel">
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">

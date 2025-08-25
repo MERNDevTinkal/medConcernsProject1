@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ArrowLeft, Check } from "lucide-react"; // Removed Calendar icon as we'll use a custom SVG
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
+import { useNavigate } from "react-router-dom"
+import { GlobalContext } from "../../context/DiseaseContext";
 
 // Custom Calendar Icon with Month Name inside
 function Howoften({ monthName, isSelected }) {
@@ -61,9 +63,25 @@ export default function TabsCalendar() {
     "DEC",
   ];
 
+  const navigate = useNavigate();
+  const { updateDisease } = useContext(GlobalContext);
+  useEffect(() => {
+    let payload = null;
+    if (activeTab === "day") {
+      payload = { type: "day", value: selectedDayItem };
+    } else if (activeTab === "week") {
+      payload = { type: "week", value: selectedWeekDay };
+    } else if (activeTab === "month") {
+      payload = { type: "month", value: selectedMonth };
+    }
+    if (payload) {
+      updateDisease("Howoften", payload);
+    }
+  }, [activeTab, selectedDayItem, selectedWeekDay, selectedMonth])
+
   return (
     <>
-     
+
       <div className="main-wrapper home-wrapper howoften-page ">
         <div className="w-full flex justify-center items-center p-4 sm:p-6 calendar-main">
           <div
@@ -78,11 +96,10 @@ export default function TabsCalendar() {
               <div className="flex rounded-full bg-gray-100 p-1" role="tablist">
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${
-                          activeTab === "day"
-                            ? "bg-blue-theme text-white"
-                            : "text-gray-700 hover:bg-gray-200"
-                        }
+                        ${activeTab === "day"
+                      ? "bg-blue-theme text-white"
+                      : "text-gray-700 hover:bg-gray-200"
+                    }
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                   onClick={() => setActiveTab("day")}
                   role="tab"
@@ -92,11 +109,10 @@ export default function TabsCalendar() {
                 </button>
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${
-                          activeTab === "week"
-                            ? "bg-blue-theme text-white"
-                            : "text-gray-700 hover:bg-gray-200"
-                        }
+                        ${activeTab === "week"
+                      ? "bg-blue-theme text-white"
+                      : "text-gray-700 hover:bg-gray-200"
+                    }
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                   onClick={() => setActiveTab("week")}
                   role="tab"
@@ -106,11 +122,10 @@ export default function TabsCalendar() {
                 </button>
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${
-                          activeTab === "month"
-                            ? "bg-blue-theme text-white"
-                            : "text-gray-700 hover:bg-gray-200"
-                        }
+                        ${activeTab === "month"
+                      ? "bg-blue-theme text-white"
+                      : "text-gray-700 hover:bg-gray-200"
+                    }
                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                   onClick={() => setActiveTab("month")}
                   role="tab"
@@ -145,11 +160,10 @@ export default function TabsCalendar() {
                       <button
                         key={item}
                         className={`flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                      ${
-                        selectedDayItem === item
-                          ? "bg-blue-50"
-                          : "bg-white hover:bg-gray-50"
-                      }
+                      ${selectedDayItem === item
+                            ? "bg-blue-50"
+                            : "bg-white hover:bg-gray-50"
+                          }
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                         onClick={() => setSelectedDayItem(item)}
                         role="option"
@@ -186,11 +200,10 @@ export default function TabsCalendar() {
                       <button
                         key={dayName + "-check"}
                         className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                      ${
-                        selectedWeekDay === index
-                          ? "bg-blue-50"
-                          : "bg-white hover:bg-gray-50"
-                      }
+                      ${selectedWeekDay === index
+                            ? "bg-blue-50"
+                            : "bg-white hover:bg-gray-50"
+                          }
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                         onClick={() => setSelectedWeekDay(index)}
                         role="option"

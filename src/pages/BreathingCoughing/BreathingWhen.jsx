@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../../Component/Layout/Header/Header";
-import { Link } from "react-router-dom";
-import Footer from "../../Component/Layout/Footer/Footer"; 
+import { Link, useNavigate } from "react-router-dom";
+import Footer from "../../Component/Layout/Footer/Footer";
 import dashimg01 from "../../assets/images/All-Day.png";
 import dashimg02 from "../../assets/images/Evening-Night.png";
 import dashimg03 from "../../assets/images/Morning.png";
@@ -29,15 +29,24 @@ import dashimg24 from "../../assets/images/Since-Fall.png";
 import dashimg25 from "../../assets/images/I-dont-know.png";
 import dashimg26 from "../../assets/images/concern-img-03.png";
 import dashimg27 from "../../assets/images/something-else.png";
+import { GlobalContext } from "../../context/DiseaseContext";
 
 const BreathingWhen = () => {
+  const navigate = useNavigate();
+  const { updateDisease, diseases } = useContext(GlobalContext);
+  const handleBreathingWhen = (value, path) => {
+    if (value && path) {
+      updateDisease("BreathingWhen", value)
+      navigate(path)
+    }
+  }
   return (
     <>
       <Header />
       <div className="main-wrapper home-wrapper ">
         {/* grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 */}
         <div className="dashboard-h grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3.5 px-4 py-1.5">
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Morning", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg03} className="w-full" />
@@ -45,7 +54,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">Morning</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("All Day", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg01} className="w-full" />
@@ -53,7 +62,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">All Day</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Evening / Night", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg02} className="w-full" />
@@ -63,7 +72,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Just Started", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg07} className="w-full" />
@@ -71,7 +80,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">Just Started</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Comes and Goes", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg06} className="w-full" />
@@ -81,7 +90,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("When Standing", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg12} className="w-full" />
@@ -89,7 +98,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">When Standing</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("When Sitting", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg10} className="w-full" />
@@ -97,7 +106,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">When Sitting</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("When Lying Down", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg09} className="w-full" />
@@ -107,16 +116,16 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
-          
-          <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
-            <div className="dashboard-img card-img-h rounded-2xl">
-              <img src={dashimg11} className="w-full" />
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("When Sleeping", "/confrm-step-when") }}>
+
+            <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
+              <div className="dashboard-img card-img-h rounded-2xl">
+                <img src={dashimg11} className="w-full" />
+              </div>
+              <p className="text-[16px] mt-3 mb-2 color-black">When Sleeping</p>
             </div>
-            <p className="text-[16px] mt-3 mb-2 color-black">When Sleeping</p>
-          </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("When Walking", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg14} className="w-full" />
@@ -124,7 +133,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">When Walking</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("With Activity", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg15} className="w-full" />
@@ -132,7 +141,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">With Activity</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("With Transfer/Repositioning", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg20} className="w-full" />
@@ -142,7 +151,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("With Movement", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg19} className="w-full" />
@@ -151,7 +160,7 @@ const BreathingWhen = () => {
             </div>
           </Link>
 
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("With Swallowing", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg26} className="w-full" />
@@ -161,7 +170,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("With Medication", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg18} className="w-full" />
@@ -171,7 +180,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("When Eating / Drinking", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg08} className="w-full" />
@@ -181,7 +190,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("When Toileting", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg13} className="w-full" />
@@ -191,7 +200,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("With Blood Sugar / Pressure", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg16} className="w-full" />
@@ -201,7 +210,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("With Tube Feed", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg21} className="w-full" />
@@ -211,7 +220,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("After Procedure", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg04} className="w-full" />
@@ -221,7 +230,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Since My Stroke / Injury", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg22} className="w-full" />
@@ -231,7 +240,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Since Illness", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg23} className="w-full" />
@@ -239,7 +248,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">Since Illness</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Since Fall / Injury", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg24} className="w-full" />
@@ -249,7 +258,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Always / Chronic", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg05} className="w-full" />
@@ -259,7 +268,7 @@ const BreathingWhen = () => {
               </p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("I don’t know", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg25} className="w-full" />
@@ -267,7 +276,7 @@ const BreathingWhen = () => {
               <p className="text-[16px] mt-3 mb-2 color-black">I don’t know</p>
             </div>
           </Link>
-          <Link to="/confrm-step-when">
+          <Link to="/confrm-step-when" onClick={() => { handleBreathingWhen("Something Else", "/confrm-step-when") }}>
             <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={dashimg27} className="w-full" />

@@ -1,13 +1,21 @@
-import React, { createContext, useState } from "react";
+// src/context/DiseaseContext.jsx
+import { createContext, useState } from "react";
 
-export const DiseaseContext = createContext();
+export const GlobalContext = createContext();
 
-export const DiseaseProvider = ({ children }) => {
-    const [diseases, setDiseases] = useState([]);
+export const GlobalProvider = ({ children }) => {
+  const [diseases, setDiseases] = useState({});
 
-    return (
-        <DiseaseContext.Provider value={{ diseases, setDiseases }}>
-            {children}
-        </DiseaseContext.Provider>
-    );
+  const updateDisease = (key, value) => {
+    setDiseases((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  return (
+    <GlobalContext.Provider value={{ diseases, updateDisease }}>
+      {children}
+    </GlobalContext.Provider>
+  );
 };
