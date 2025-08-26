@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
@@ -6,17 +6,20 @@ import { GlobalContext } from "../../context/DiseaseContext";
 
 const DecisionCardFeeling = () => {
   const navigate = useNavigate();
+ 
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleBreathingYesNo = (value, path) => {
     if (value && path) {
-      updateDisease("breathingyesno", value)
+      updateDisease("concenyesno", value)
       navigate(path)
     }
   }
+
+
+
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-
         <Link to="/breathing-problem" onClick={() => { handleBreathingYesNo("YES", "/breathing-problem") }}>
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">

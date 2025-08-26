@@ -1,0 +1,43 @@
+// concernData.js
+import ConcernImg1 from "../../assets/images/concern-img-01.png";
+import ConcernImg2 from "../../assets/images/concern-img-02.png";
+import ConcernImg3 from "../../assets/images/concern-img-03.png";
+import ConcernImg4 from "../../assets/images/concern-img-04.png";
+import ConcernImg5 from "../../assets/images/concern-img-05.png";
+import ConcernImg6 from "../../assets/images/concern-img-06.png";
+import ConcernImg7 from "../../assets/images/concern-img-07.png";
+import ConcernImg8 from "../../assets/images/concern-img-08.png";
+import ConcernImg9 from "../../assets/images/pain-medication.png";
+import ConcernImg10 from "../../assets/images/vision.png";
+import ConcernImg11 from "../../assets/images/hearing.png";
+import ConcernImg12 from "../../assets/images/Illness.png";
+import ConcernImg13 from "../../assets/images/something-happened.png";
+import ConcernImg14 from "../../assets/images/wound.png";
+import ConcernImg15 from "../../assets/images/mucus-color.png";
+import ConcernImg17 from "../../assets/images/trach_img.png";
+import ConcernImg18 from "../../assets/images/something-else.png";
+
+export const concerns = [
+    { id: 1, name: "Pain", image: ConcernImg1, path: "/concern/pain-front/1" },
+    { id: 2, name: "Breathing/Coughing", image: ConcernImg2, path: "/concern/breathing-yes-no/2" },
+    { id: 3, name: "Swallowing", image: ConcernImg3, path: "/concern/swallowing-yes-no/3" },
+    { id: 4, name: "Nausea", image: ConcernImg4, path: "/concern/nausea-step-yesno/4" },
+    { id: 5, name: "Bowels", image: ConcernImg5, path: "/concern/concern-pain/5" },
+    { id: 6, name: "Urination", image: ConcernImg6, path: "/concern/concern-pain/6" },
+    { id: 7, name: "Fatigue", image: ConcernImg7, path: "/concern/concern-pain/7" },
+    { id: 8, name: "Eating / Drinking", image: ConcernImg8, path: "/concern/concern-pain/8" },
+    { id: 9, name: "Medication", image: ConcernImg9, path: "/concern/concern-pain/9" },
+    { id: 10, name: "Emotions / Feelings", image: ConcernImg8, path: "/concern/concern-pain/10" },
+    { id: 11, name: "Movement", image: ConcernImg8, path: "/concern/concern-pain/11" },
+    { id: 12, name: "Communication / Thinking", image: ConcernImg8, path: "/concern/concern-pain/12" },
+    { id: 13, name: "Vision", image: ConcernImg10, path: "/concern/concern-pain/13" },
+    { id: 14, name: "Hearing", image: ConcernImg11, path: "/concern/concern-pain/14" },
+    { id: 15, name: "Illness", image: ConcernImg12, path: "/concern/concern-pain/15" },
+    { id: 16, name: "Something Happened", image: ConcernImg13, path: "/concern/concern-pain/16" },
+    { id: 17, name: "Wound / Incision", image: ConcernImg14, path: "/concern/concern-pain/17" },
+    { id: 18, name: "Mucus / Secretions", image: ConcernImg15, path: "/concern/concern-pain/18" },
+    { id: 19, name: "Feeding Tube", image: ConcernImg8, path: "/concern/concern-pain/19" },
+    { id: 20, name: "Trach", image: ConcernImg17, path: "/concern/concern-pain/20" },
+    { id: 21, name: "Something Else", image: ConcernImg18, path: "/concern/concern-pain/21" },
+    { id: 22, name: "No Concerns", image: ConcernImg8, path: "/concern/b/concern-pain/22" },
+];

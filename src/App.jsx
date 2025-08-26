@@ -86,7 +86,7 @@ function App() {
         <Route path="/feeling-list-pain" element={<FeelingListPain />} />
         <Route path="/feeling-yes-no" element={<FeelingYesNo />} />
         <Route path="/pain-when" element={<PainWhen />} />
-        <Route path="/breathing-yes-no" element={<BreathingYesNo />} />
+        {/* <Route path="/breathing-yes-no" element={<BreathingYesNo />} /> */}
         <Route path="/breathing-problem" element={<BreathingProblem />} />
         <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} />
         <Route path="/breathing-when" element={<BreathingWhen />} />
@@ -100,6 +100,7 @@ function App() {
         <Route path="/nausea-problem" element={<NauseaProblem />} />
         <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} />
         <Route path="/nausea-when" element={<NauseaWhen />} />
+        <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
         <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
       </Routes>
     </Router>

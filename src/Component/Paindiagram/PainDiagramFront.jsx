@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, {useContext, useState } from "react";
 import DigramFront from "../../assets/images/digram-front.svg";
-
+import { GlobalContext } from "../../context/DiseaseContext";
+import { useNavigate } from "react-router-dom"
 const PainDiagram = () => {
   const [painPoints, setPainPoints] = useState([]);
+
+  const navigate = useNavigate();
+  const { updateDisease } = useContext(GlobalContext);
+  const handleYesNo = (value, path) => {
+    if (value && path) {
+      updateDisease("yesno", value)
+      navigate(path)
+    }
+  }
 
   const handlePainClick = (x, y) => {
     setPainPoints([{ x, y }]);
