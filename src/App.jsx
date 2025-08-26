@@ -86,18 +86,19 @@ function App() {
         <Route path="/feeling-list-pain" element={<FeelingListPain />} />
         <Route path="/feeling-yes-no" element={<FeelingYesNo />} />
         <Route path="/pain-when" element={<PainWhen />} />
-        {/* <Route path="/breathing-yes-no" element={<BreathingYesNo />} /> */}
-        <Route path="/breathing-problem" element={<BreathingProblem />} />
-        <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} />
+        {/* <Route path="/breathing-problem" element={<BreathingProblem />} /> */}
+        <Route path="/:name-problem" element={<BreathingProblem />} />
+        {/* <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} /> */}
+        <Route path="/:name/confrm-step-yesno/:id" element={<ConfrmStepYesNo />} />
         <Route path="/breathing-when" element={<BreathingWhen />} />
         <Route path="/confrm-step-when" element={<ConfrmStepWhen />} />
         <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
         <Route path="/decision-swallowing" element={<DecisionSwallowing />} />
-        <Route path="/swallowing-problem" element={<SwallowingProblem />} />
+        {/* <Route path="/swallowing-problem" element={<SwallowingProblem />} /> */}
         <Route path="/heartburn" element={<Heartburn />} />
         <Route path="/heartburn-step-yesno" element={<HeartburnStepYesNo />} />
         <Route path="/nausea-step-yesno" element={<NauseaStep />} />
-        <Route path="/nausea-problem" element={<NauseaProblem />} />
+        {/* <Route path="/nausea-problem" element={<NauseaProblem />} /> */}
         <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} />
         <Route path="/nausea-when" element={<NauseaWhen />} />
         <Route path="/concern/:name/:id" element={<BreathingYesNo />} />

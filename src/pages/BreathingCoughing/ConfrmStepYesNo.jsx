@@ -15,7 +15,7 @@ function ConfrmStepYesNo() {
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleConfrmStepYesNo = (value, path) => {
     if (value && path) {
-      updateDisease("ConfrmStepYesNo", value)
+      updateDisease("ConfirmStepYesNo", value)
       navigate(path)
     }
   }

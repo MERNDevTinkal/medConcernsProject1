@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { concerns } from "../ConcernData/concernData";
+import { concerns } from "../DiseasesData/concernData";
 
 const ConcernCard = () => {
   const navigate = useNavigate();

@@ -3,10 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
+import { useParams } from "react-router-dom";
 
-const DecisionCardFeeling = () => {
+const DecisionCardFeeling = ({ slugName }) => {
+  const { name } = useParams();
   const navigate = useNavigate();
- 
+  const [pathUrl, setPathUrl] = useState("")
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleBreathingYesNo = (value, path) => {
     if (value && path) {
@@ -14,13 +16,17 @@ const DecisionCardFeeling = () => {
       navigate(path)
     }
   }
-
-
-
+  useEffect(() => {
+    if (!name) return;
+    const [firstPart] = name.split("-");
+    console.log("inside", slugName)
+    const newPath = `/${firstPart}-problem`;
+    setPathUrl(newPath);
+  }, [name]);
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        <Link to="/breathing-problem" onClick={() => { handleBreathingYesNo("YES", "/breathing-problem") }}>
+        <Link to={pathUrl} onClick={() => { handleBreathingYesNo("YES", pathUrl) }}>
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-green-600">YES</p>
