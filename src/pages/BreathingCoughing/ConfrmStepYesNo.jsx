@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Header from "../../Component/Layout/Header/Header";
 import ConcernImg1 from "../../assets/images/pain-img.png";
@@ -9,9 +9,12 @@ import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import dashimg01 from "../../assets/images/Shortness-of-Breath.png";
 import { GlobalContext } from "../../context/DiseaseContext";
-
+import { useParams } from "react-router-dom";
+import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 function ConfrmStepYesNo() {
+  const { name, id } = useParams();
   const navigate = useNavigate();
+  const [selectedConcers, setSelectedConcers] = useState({})
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleConfrmStepYesNo = (value, path) => {
     if (value && path) {
@@ -19,6 +22,12 @@ function ConfrmStepYesNo() {
       navigate(path)
     }
   }
+  useEffect(() => {
+    console.log(name)
+    const selectediseasesArray = diseasesData[`/${name}`];
+    const selectedFilds = selectediseasesArray.find((item) => (item.id == id));
+    setSelectedConcers(selectedFilds)
+  }, [name, id])
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
@@ -26,17 +35,18 @@ function ConfrmStepYesNo() {
           onClick={() => {
             navigate(-1);
           }}
+          style={{ cursor: "pointer" }}
         >
           <img src={BackArrow} />
         </div>
-        <h2 className="text-[25px] font-normal text-black text-center">Pain</h2>
+        <h2 className="text-[25px] font-normal text-black text-center">{selectedConcers.name}</h2>
         <button></button>
       </div>
       <div className="main-wrapper home-wrapper ">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
           <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
             <div className="dashboard-img rounded-2xl">
-              <img src={dashimg01} className="w-full" />
+              <img src={selectedConcers.image} className="w-full" />
             </div>
           </div>
           <div>

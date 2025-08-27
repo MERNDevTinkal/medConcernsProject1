@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Header from "../../Component/Layout/Header/Header";
 import ConcernImg1 from "../../assets/images/pain-img.png";
@@ -9,30 +9,37 @@ import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import dashimg01 from "../../assets/images/All-Day.png";
 import { GlobalContext } from "../../context/DiseaseContext";
-
+import { breathingWhenOptions } from "../../Component/DiseasesData/whenData"
+import { useParams } from "react-router-dom";
 function ConfrmStepWhen() {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const [confirmData, setConfirmData] = useState({});
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleConfrmStepWhen = (value, path) => {
     if (value && path) {
-      updateDisease("ConfrmStepWhen", value)
+      updateDisease("ConfirmStepWhen", value)
       navigate(path)
     }
   }
+  useEffect(() => {
+    const getSelectedTime = breathingWhenOptions.find((item) => { return item.id == id });
+    setConfirmData(getSelectedTime)
+  }, [id])
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
         <Link to="/" >
           <img src={BackArrow} />
         </Link>
-        <h2 className="text-[25px] font-normal text-black text-center">Pain</h2>
+        <h2 className="text-[25px] font-normal text-black text-center">{confirmData.name}</h2>
         <button></button>
       </div>
       <div className="main-wrapper home-wrapper ">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
           <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
             <div className="dashboard-img rounded-2xl">
-              <img src={dashimg01} className="w-full" />
+              <img src={confirmData.image} className="w-full" />
             </div>
           </div>
           <div>

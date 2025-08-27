@@ -4,7 +4,7 @@ import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate } from "react-router-dom"
 import { GlobalContext } from "../../context/DiseaseContext";
-
+import SaveModel from "../../Component/saveASModel/saveModel";
 // Custom Calendar Icon with Month Name inside
 function Howoften({ monthName, isSelected }) {
   const iconColor = isSelected ? "#0088dc" : "currentColor"; // currentColor will pick up text-gray-800
@@ -46,7 +46,7 @@ export default function TabsCalendar() {
   const [selectedDayItem, setSelectedDayItem] = useState("morning"); // 'morning', 'afternoon', 'evening'
   const [selectedWeekDay, setSelectedWeekDay] = useState(1); // 0-6 for S-S, 1 for Monday as per image
   const [selectedMonth, setSelectedMonth] = useState(0); // 0-11 for JAN-DEC, 0 for January as per image
-
+  const [ShowSaveModal, setShowSaveModal] = useState(false);
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
   const monthsOfYear = [
     "JAN",
@@ -77,7 +77,9 @@ export default function TabsCalendar() {
     if (payload) {
       updateDisease("Howoften", payload);
     }
-  }, [activeTab, selectedDayItem, selectedWeekDay, selectedMonth])
+  }, [activeTab, selectedDayItem, selectedWeekDay, selectedMonth]);
+
+
 
   return (
     <>
@@ -230,7 +232,11 @@ export default function TabsCalendar() {
                         className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
                       ${selectedMonth === index ? "text-blue" : ""}
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                        onClick={() => setSelectedMonth(index)}
+                        onClick={() => {
+                          setShowSaveModal(true);   // or whatever value you need
+                          setSelectedMonth(index);
+                        }}
+
                         role="option"
                         aria-selected={selectedMonth === index}
                       >
@@ -247,6 +253,9 @@ export default function TabsCalendar() {
           </div>
         </div>
       </div>
+      {ShowSaveModal && (
+        <SaveModel setShowSaveModal={setShowSaveModal} />
+      )}
       <Footer />
     </>
   );

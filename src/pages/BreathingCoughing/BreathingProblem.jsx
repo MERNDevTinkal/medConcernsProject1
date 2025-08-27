@@ -16,10 +16,11 @@ const BreathingProblem = () => {
     if (value && path) {
       console.log("pathpathpathpath", path)
       updateDisease("problems", value)
-       navigate(path)
+      navigate(path)
     }
   }
   useEffect(() => {
+    console.log("===>path", path)
     setProblems(diseasesData[path])
   }, [path])
   return (
@@ -27,8 +28,8 @@ const BreathingProblem = () => {
       <Header />
       <div className="main-wrapper home-wrapper">
         <div className="dashboard-h grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3.5 px-4 py-1.5 emotion-cards">
-          {problem.length > 0 && problem.map((data) => (
-            <Link to={`/${data?.name?.toLowerCase()}/confrm-step-yesno/${data?.id}`} key={data?.id} onClick={() => { handleBreathingProblem(data?.name, `/${data?.name?.toLowerCase()}/confrm-step-yesno/${data?.id}`) }}>
+          {problem?.length > 0 && problem.map((data) => (
+            <Link to={`${path}/confrm-step-yesno/${data?.id}`} key={data?.id} onClick={() => { handleBreathingProblem(data?.name, `${path}/confrm-step-yesno/${data?.id}`) }}>
               <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
                 <div className="dashboard-img card-img-h rounded-2xl">
                   <img src={data?.image} className="w-full" />

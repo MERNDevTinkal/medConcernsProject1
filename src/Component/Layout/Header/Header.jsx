@@ -41,17 +41,16 @@ const Header = () => {
           <button type="button" onClick={toggleSidebar}>
             <img src={hamburger} alt="" />
           </button>
-          <h2 className="text-[25px] font-normal text-black">When?</h2>
+          <h2 className="text-[25px] font-normal text-black">Concerns</h2>
           <Link >
             <img src={NextArrow} alt="" />
           </Link>
         </div>
         <aside
-          className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
-            isSidebarOpen
+          className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
               ? "translate-x-0"
               : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-          }`}
+            }`}
         >
           <button
             className="close-btn absolute top-5 right-5"
