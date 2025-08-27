@@ -5,6 +5,7 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate } from "react-router-dom"
 import { GlobalContext } from "../../context/DiseaseContext";
 import SaveModel from "../../Component/saveASModel/saveModel";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 // Custom Calendar Icon with Month Name inside
 function Howoften({ monthName, isSelected }) {
   const iconColor = isSelected ? "#0088dc" : "currentColor"; // currentColor will pick up text-gray-800
@@ -43,8 +44,8 @@ function Howoften({ monthName, isSelected }) {
 
 export default function TabsCalendar() {
   const [activeTab, setActiveTab] = useState("day"); // 'day', 'week', 'month'
-  const [selectedDayItem, setSelectedDayItem] = useState("morning"); // 'morning', 'afternoon', 'evening'
-  const [selectedWeekDay, setSelectedWeekDay] = useState(1); // 0-6 for S-S, 1 for Monday as per image
+  const [selectedDayItem, setSelectedDayItem] = useState(""); // 'morning', 'afternoon', 'evening'
+  const [selectedWeekDay, setSelectedWeekDay] = useState(0); // 0-6 for S-S, 1 for Monday as per image
   const [selectedMonth, setSelectedMonth] = useState(0); // 0-11 for JAN-DEC, 0 for January as per image
   const [ShowSaveModal, setShowSaveModal] = useState(false);
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
@@ -64,22 +65,65 @@ export default function TabsCalendar() {
   ];
 
   const navigate = useNavigate();
-  const { updateDisease } = useContext(GlobalContext);
+  const { updateDisease, diseases } = useContext(GlobalContext);
+  // when changing tabs, clear the other states
+  useEffect(() => {
+    if (activeTab === "day") {
+      setSelectedWeekDay(null);
+      setSelectedMonth(null);
+    } else if (activeTab === "week") {
+      setSelectedDayItem(null);
+      setSelectedMonth(null);
+    } else if (activeTab === "month") {
+      setSelectedDayItem(null);
+      setSelectedWeekDay(null);
+    }
+  }, [activeTab]);
+
+  const weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+
   useEffect(() => {
     let payload = null;
-    if (activeTab === "day") {
+    let selectedValue = "";
+    if ((activeTab === "day" && selectedDayItem)) {
+      selectedValue = selectedDayItem;
       payload = { type: "day", value: selectedDayItem };
-    } else if (activeTab === "week") {
+    } else if ((activeTab === "week" && selectedWeekDay) || selectedWeekDay === 0) {
+      selectedValue = weekDays[selectedWeekDay];
       payload = { type: "week", value: selectedWeekDay };
-    } else if (activeTab === "month") {
+    } else if ((activeTab === "month" && selectedMonth) || selectedMonth === 0) {
+      selectedValue = months[selectedMonth];
       payload = { type: "month", value: selectedMonth };
     }
     if (payload) {
+      getTextToSpeech(selectedValue)
       updateDisease("Howoften", payload);
     }
   }, [activeTab, selectedDayItem, selectedWeekDay, selectedMonth]);
-
-
 
   return (
     <>
@@ -167,7 +211,7 @@ export default function TabsCalendar() {
                             : "bg-white hover:bg-gray-50"
                           }
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                        onClick={() => setSelectedDayItem(item)}
+                        onClick={() => { setShowSaveModal(true); setSelectedDayItem(item) }}
                         role="option"
                         aria-selected={selectedDayItem === item}
                       >
@@ -187,27 +231,26 @@ export default function TabsCalendar() {
                   </h3>
                   <div className="grid grid-cols-7 border-t border-l border-gray-200 rounded-lg overflow-hidden">
                     {/* Week Day Labels Row */}
-                    {daysOfWeek.map((dayName) => (
+                    {daysOfWeek.map((dayName, index) => (
                       <div
-                        key={dayName}
+                        key={dayName + index}
                         className="flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 bg-white"
                       >
-                        <span className="font-bold text-[24px]  text-gray-800">
-                          {dayName}
-                        </span>
+                        <span className="font-bold text-[24px] text-gray-800">{dayName}</span>
                       </div>
                     ))}
+
                     {/* Checkmark Row */}
                     {daysOfWeek.map((dayName, index) => (
                       <button
-                        key={dayName + "-check"}
+                        key={dayName + index + "-check"}
                         className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
                       ${selectedWeekDay === index
                             ? "bg-blue-50"
                             : "bg-white hover:bg-gray-50"
                           }
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                        onClick={() => setSelectedWeekDay(index)}
+                        onClick={() => { setShowSaveModal(true); setSelectedWeekDay(index) }}
                         role="option"
                         aria-selected={selectedWeekDay === index}
                       >
@@ -233,7 +276,7 @@ export default function TabsCalendar() {
                       ${selectedMonth === index ? "text-blue" : ""}
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                         onClick={() => {
-                          setShowSaveModal(true);   // or whatever value you need
+                          setShowSaveModal(true);
                           setSelectedMonth(index);
                         }}
 

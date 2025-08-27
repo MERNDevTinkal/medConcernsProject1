@@ -7,7 +7,7 @@ import Footer from "../../Component/Layout/Footer/Footer";
 const Concern = () => {
   return (
     <>
-      <Header />
+      <Header name={'Concerns'} />
       <div className="main-wrapper home-wrapper ">
         <div className="dashboard-wrapper px-4 py-1.5">
           <div className="dashboard-h grid  gap-7 sm:grid-cols-3 md:grid-cols-4 grid-cols-2 py-3">

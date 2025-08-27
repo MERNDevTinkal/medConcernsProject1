@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { concerns } from "../DiseasesData/concernData";
-
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 const ConcernCard = () => {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
 
-  const handleConcern = (value, path) => {
+  const handleConcern = async (value, path) => {
     if (value && path) {
+      await getTextToSpeech(value)
       updateDisease("concern", value);
       navigate(path);
     }

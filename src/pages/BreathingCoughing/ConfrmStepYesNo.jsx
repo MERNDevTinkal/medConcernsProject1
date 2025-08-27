@@ -11,19 +11,20 @@ import dashimg01 from "../../assets/images/Shortness-of-Breath.png";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 function ConfrmStepYesNo() {
   const { name, id } = useParams();
   const navigate = useNavigate();
   const [selectedConcers, setSelectedConcers] = useState({})
   const { updateDisease, diseases } = useContext(GlobalContext);
-  const handleConfrmStepYesNo = (value, path) => {
+  const handleConfrmStepYesNo = async (value, path) => {
     if (value && path) {
+      await getTextToSpeech(value)
       updateDisease("ConfirmStepYesNo", value)
       navigate(path)
     }
   }
   useEffect(() => {
-    console.log(name)
     const selectediseasesArray = diseasesData[`/${name}`];
     const selectedFilds = selectediseasesArray.find((item) => (item.id == id));
     setSelectedConcers(selectedFilds)
@@ -51,7 +52,7 @@ function ConfrmStepYesNo() {
           </div>
           <div>
             <div className="w-full overflow-hidden decision-cards">
-              <Link to="/breathing-when" onClick={() => { handleConfrmStepYesNo("YES", "/breathing-when") }}>
+              <div to="/breathing-when" onClick={() => { handleConfrmStepYesNo("YES", "/breathing-when") }}>
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-green-600">
@@ -62,9 +63,9 @@ function ConfrmStepYesNo() {
                     <img src={Checked} alt="" />
                   </div>
                 </div>
-              </Link>
+              </div>
 
-              <Link to="/" onClick={() => { handleConfrmStepYesNo("NO", "/") }}>
+              <div to="/" onClick={() => { handleConfrmStepYesNo("NO", "/") }}>
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-red-600">NO</p>
@@ -73,7 +74,7 @@ function ConfrmStepYesNo() {
                     <img src={Close} />
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
         </div>

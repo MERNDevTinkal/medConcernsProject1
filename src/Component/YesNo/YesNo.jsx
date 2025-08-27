@@ -5,11 +5,13 @@ import Close from "../../assets/images/close.svg";
 import Question from "../../assets/images/question.svg";
 import WomenIcon from "../../assets/images/women.png";
 import { GlobalContext } from "../../context/DiseaseContext";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 const YesNo = () => {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
-  const handleYesNo = (value, path) => {
+  const handleYesNo = async (value, path) => {
     if (value && path) {
+      await getTextToSpeech(value)
       updateDisease("yesno", value)
       navigate(path)
     }
@@ -17,7 +19,7 @@ const YesNo = () => {
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        <Link to="/concern" onClick={() => { handleYesNo("YES", "/concern") }}>
+        <div onClick={() => { handleYesNo("YES", "/concern") }}>
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-green-600">YES</p>
@@ -26,8 +28,8 @@ const YesNo = () => {
               <img src={Checked} alt="" />
             </div>
           </div>
-        </Link>
-        <Link to="" onClick={() => { handleYesNo("NO", "") }}>
+        </div>
+        <div onClick={() => { handleYesNo("NO", "") }}>
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-red-600">NO</p>
@@ -36,7 +38,7 @@ const YesNo = () => {
               <img src={Close} />
             </div>
           </div>
-        </Link>
+        </div>
       </div>
     </>
   );

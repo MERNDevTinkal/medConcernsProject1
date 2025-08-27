@@ -78,7 +78,7 @@ function App() {
         <Route path="/guide-info-aphasia" element={<GuideInfoAphasia />} />
         <Route path="/white-board-list" element={<WhiteBoardList />} />
         <Route path="/how-are-you" element={<HowAreYou />} />
-        <Route path="/yes-and-no" element={<YesAndNo />} />
+        {/* <Route path="/yes-and-no" element={<YesAndNo />} /> */}
         <Route path="/yes-and-no/:id" element={<YesAndNo />} />
         <Route path="/pain-feel" element={<PainFeel />} />
         <Route path="/feel-pain" element={<FeelPainYesNo />} />

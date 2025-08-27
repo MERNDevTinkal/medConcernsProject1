@@ -11,13 +11,15 @@ import dashimg01 from "../../assets/images/All-Day.png";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { breathingWhenOptions } from "../../Component/DiseasesData/whenData"
 import { useParams } from "react-router-dom";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 function ConfrmStepWhen() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [confirmData, setConfirmData] = useState({});
   const { updateDisease, diseases } = useContext(GlobalContext);
-  const handleConfrmStepWhen = (value, path) => {
+  const handleConfrmStepWhen = async (value, path) => {
     if (value && path) {
+      await getTextToSpeech(value)
       updateDisease("ConfirmStepWhen", value)
       navigate(path)
     }
@@ -45,7 +47,7 @@ function ConfrmStepWhen() {
           <div>
             <div className="w-full overflow-hidden decision-cards">
 
-              <Link to="/howoften" onClick={() => { handleConfrmStepWhen('YES', '/howoften') }}>
+              <div to="/howoften" onClick={() => { handleConfrmStepWhen('YES', '/howoften') }}>
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-green-600">YES</p>
@@ -54,9 +56,9 @@ function ConfrmStepWhen() {
                     <img src={Checked} alt="" />
                   </div>
                 </div>
-              </Link>
+              </div>
 
-              <Link to="/" onClick={() => { handleConfrmStepWhen('NO', '/') }}>
+              <div to="/" onClick={() => { handleConfrmStepWhen('NO', '/') }}>
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-red-600">NO</p>
@@ -65,7 +67,7 @@ function ConfrmStepWhen() {
                     <img src={Close} />
                   </div>
                 </div>
-              </Link>
+              </div>
 
             </div>
           </div>

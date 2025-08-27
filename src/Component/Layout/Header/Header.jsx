@@ -30,7 +30,7 @@ import MenuIcon26 from "../../../assets/images/sidebar-icon-32.svg";
 import MenuIcon27 from "../../../assets/images/sidebar-icon-33.svg";
 import CloseIcon from "../../../assets/images/close2.svg";
 
-const Header = () => {
+const Header = ({ name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -41,15 +41,15 @@ const Header = () => {
           <button type="button" onClick={toggleSidebar}>
             <img src={hamburger} alt="" />
           </button>
-          <h2 className="text-[25px] font-normal text-black">Concerns</h2>
+          <h2 className="text-[25px] font-normal text-black">{name ?? 'Concerns'}</h2>
           <Link >
             <img src={NextArrow} alt="" />
           </Link>
         </div>
         <aside
           className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+            ? "translate-x-0"
+            : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
             }`}
         >
           <button
