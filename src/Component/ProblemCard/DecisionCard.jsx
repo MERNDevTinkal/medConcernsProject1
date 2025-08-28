@@ -30,7 +30,7 @@ const DecisionCard = () => {
             </div>
           </div>
         </Link>
-        {!["/concern-pain", "/face-pain"].includes(location.pathname) && (
+        {/* {!["/concern-pain", "/face-pain"].includes(location.pathname) && ( */}
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <img src={WomenIcon} alt="" className="w-15 h-15" />
@@ -39,7 +39,7 @@ const DecisionCard = () => {
               <img src={Question} />
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
     </>
   );

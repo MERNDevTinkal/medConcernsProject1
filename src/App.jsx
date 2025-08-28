@@ -90,7 +90,7 @@ function App() {
         <Route path="/:name-problem" element={<BreathingProblem />} />
         {/* <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} /> */}
         <Route path="/:name/confrm-step-yesno/:id" element={<ConfrmStepYesNo />} />
-        <Route path="/breathing-when" element={<BreathingWhen />} />
+        <Route path="/when" element={<BreathingWhen />} />
         <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
         <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
         <Route path="/decision-swallowing" element={<DecisionSwallowing />} />

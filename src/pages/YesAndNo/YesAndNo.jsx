@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
 import YesNo from "../../Component/YesNo/YesNo";
-
+import { useNavigate } from "react-router-dom";
 import HowAreYouImg1 from "../../assets/images/good.png";
 import HowAreYouImg2 from "../../assets/images/okay.png";
 import HowAreYouImg3 from "../../assets/images/bad.png";
@@ -16,6 +16,7 @@ import HowAreYouImg7 from "../../assets/images/concern-img-08.png";
 import HowAreYouImg8 from "../../assets/images/i-dont-know.png";
 
 function YesAndNo() {
+  const navigate = useNavigate()
   const options = [
     { id: 1, text: "Good", image: HowAreYouImg1 },
     { id: 2, text: "Okay", image: HowAreYouImg2 },
@@ -33,9 +34,12 @@ function YesAndNo() {
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <Link to="/dashboard">
+        <div onClick={() => {
+          navigate(-1);
+        }}
+          style={{ cursor: "pointer" }}>
           <img src={BackArrow} />
-        </Link>
+        </div>
         <h2 className="text-[25px] font-normal text-black text-center">
           {option?.text || "Pain"}
         </h2>

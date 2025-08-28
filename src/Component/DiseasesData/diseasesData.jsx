@@ -38,19 +38,57 @@ import nausea05 from "../../assets/images/something-else.png";
 
 export const diseasesData = {
     "/breathing-problem": [
-        { "id": "1", "name": "Shortness of Breath", "image": dashimg01, "path": "/" },
-        { "id": "2", "name": "Coughing", "image": dashimg02, "path": "/" },
-        { "id": "3", "name": "Chest Pain", "image": dashimg03, "path": "/" },
-        { "id": "4", "name": "Choking", "image": dashimg04, "path": "/" },
-        { "id": "5", "name": "Mucus / Secretions", "image": dashimg05, "path": "/" },
-        { "id": "6", "name": "Congested or Runny Nose", "image": dashimg06, "path": "/" },
-        { "id": "7", "name": "Heavy / Thick", "image": dashimg07, "path": "/" },
-        { "id": "8", "name": "CPAP / BiPAP", "image": dashimg08, "path": "/" },
-        { "id": "9", "name": "Breathing Treatment", "image": dashimg09, "path": "/" },
-        { "id": "10", "name": "Trach", "image": dashimg10, "path": "/" },
-        { "id": "11", "name": "Something Else", "image": dashimg11, "path": "/" }
+        { "id": "1", "name": "Shortness of Breath", "image": dashimg01, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "2", "name": "Coughing", "image": dashimg02, "secPath": "/coughing-problem", "path": "" },
+        { "id": "3", "name": "Chest Pain", "image": dashimg03, "secPath": "/chestpain-problem", "path": "" },
+        { "id": "4", "name": "Choking", "image": dashimg04, "secPath": "/choking-problem", "path": "" },
+        { "id": "5", "name": "Mucus / Secretions", "image": dashimg05, "secPath": "/mucus-problem", "path": "" },
+        { "id": "6", "name": "Congested or Runny Nose", "image": dashimg06, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "7", "name": "Heavy / Thick", "image": dashimg07, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "8", "name": "CPAP / BiPAP", "image": dashimg08, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "9", "name": "Breathing Treatment", "image": dashimg09, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "10", "name": "Trach", "image": dashimg10, "secPath": "trach-problem", "path": "" },
+        { "id": "11", "name": "Something Else", "image": dashimg11, "secPath": "something-else-problem", "path": "" }
     ],
-
+    "/coughing-problem": [
+        { "id": "1", "name": "Mucus / Secretions", "image": dashimg04, "secPath": "/mucus-problem-sub", "path": "/when" },
+        { "id": "2", "name": "Tickle in My Throat", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "3", "name": "Swallowing", "image": dashimg04, "secPath": "/swallowing-problem-sub", "path": "/when" },
+        { "id": "4", "name": "Trach", "image": dashimg04, "secPath": "/trach-problem-sub", "path": "/when" },
+        { "id": "5", "name": "Feeding Tube", "image": dashimg04, "secPath": "/feeding-tube-problem-sub", "path": "/when" },
+        { "id": "6", "name": "Something Else", "image": dashimg04, "secPath": "/something-else-problem", "path": "/when" }
+    ],
+    "/mucus-problem-sub": [
+        { "id": "1", "name": "Shortness of Breath", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "2", "name": "Suction", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "3", "name": "Thick Mucus", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "4", "name": "Dry Mouth", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "5", "name": "Too Much", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "6", "name": "Color", "image": dashimg04, "secPath": "/color-problem-sub", "path": "/howoften" },
+        { "id": "7", "name": "Something Else", "image": dashimg04, "secPath": "/Whiteboard", "path": "/howoften" }
+    ],
+    "/color-problem-sub": [
+        { "id": "1", "name": "Green", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "2", "name": "Yellow", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "3", "name": "Brown", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "4", "name": "White", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "5", "name": "Blood ", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    ],
+    "/color-problem": [
+        { "id": "1", "name": "Green", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "2", "name": "Yellow", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "3", "name": "Brown", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "4", "name": "White", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "5", "name": "Blood ", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    ],
+    "/mucus-problem": [
+        { "id": "1", "name": "Shortness of Breath", "image": swallowingimg04, "path": "/" },
+        { "id": "2", "name": "Suction", "image": swallowingimg04, "path": "/" },
+        { "id": "3", "name": "Thick Mucus", "image": swallowingimg04, "path": "/" },
+        { "id": "4", "name": "Dry Mouth", "image": swallowingimg04, "path": "/" },
+        { "id": "5", "name": "Too Much", "image": swallowingimg04, "path": "/" },
+        { "id": "6", "name": "Color", "image": swallowingimg04, "path": "/" }
+    ],
     "/swallowing-problem": [
         { "id": "1", "name": "Choking", "image": swallowingimg04, "path": "/" },
         { "id": "2", "name": "Food Sticking", "image": swallowingimg04, "path": "/" },
@@ -67,6 +105,23 @@ export const diseasesData = {
         { "id": "13", "name": "Trach", "image": swallowingimg13, "path": "/" },
         { "id": "14", "name": "Feeding Tube", "image": swallowingimg04, "path": "/" },
         { "id": "15", "name": "Something Else", "image": swallowingimg14, "path": "/" }
+    ],
+
+    "/swallowing-problem-sub": [
+        { "id": "1", "name": "Choking", "image": swallowingimg04, "secPath": "/choking-problem", "path": "/howoften" },
+        { "id": "2", "name": "Food Sticking", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "3", "name": "Heartburn", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "4", "name": "Coughing", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "5", "name": "Reflux", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "6", "name": "Nausea", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "7", "name": "Pain with Swallowing", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "8", "name": "Fear of Swallowing", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "9", "name": "Losing Weight Without Trying", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "10", "name": "Dry Mouth", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "11", "name": "Too Much", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "12", "name": "No Appetite", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "13", "name": "Trach", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "14", "name": "Feeding Tube", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
     ],
 
     "/nausea-problem": [
@@ -224,14 +279,7 @@ export const diseasesData = {
         { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/" }
     ],
 
-    "/mucus-problem": [
-        { "id": "1", "name": "Shortness of Breath", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Suction", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Thick Mucus", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Dry Mouth", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Too Much", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Color", "image": swallowingimg04, "path": "/" }
-    ],
+
 
     "/feeding-problem": [
         { "id": "1", "name": "Pain", "image": swallowingimg04, "path": "/" },

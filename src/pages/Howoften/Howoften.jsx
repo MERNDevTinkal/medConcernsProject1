@@ -1,20 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
-import { ArrowLeft, Check } from "lucide-react"; // Removed Calendar icon as we'll use a custom SVG
+import React, { useState, useContext } from "react";
+import { ArrowLeft, Check } from "lucide-react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import SaveModel from "../../Component/saveASModel/saveModel";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
-// Custom Calendar Icon with Month Name inside
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 function Howoften({ monthName, isSelected }) {
-  const iconColor = isSelected ? "#0088dc" : "currentColor"; // currentColor will pick up text-gray-800
+  const iconColor = isSelected ? "#0088dc" : "currentColor";
   const textColor = isSelected ? "#0088dc" : "black";
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="127" // Increased size to better fit text
+      width="127"
       height="127"
       viewBox="0 0 24 24"
       fill="none"
@@ -30,10 +29,10 @@ function Howoften({ monthName, isSelected }) {
       <line x1="3" x2="21" y1="10" y2="10" />
       <text
         x="12"
-        y="16" // Adjust Y to center vertically
+        y="16"
         textAnchor="middle"
         dominantBaseline="middle"
-        fontSize="5" // Adjust font size to fit
+        fontSize="5"
         strokeWidth="0.6"
       >
         {monthName}
@@ -44,96 +43,58 @@ function Howoften({ monthName, isSelected }) {
 
 export default function TabsCalendar() {
   const [activeTab, setActiveTab] = useState("day"); // 'day', 'week', 'month'
-  const [selectedDayItem, setSelectedDayItem] = useState(""); // 'morning', 'afternoon', 'evening'
-  const [selectedWeekDay, setSelectedWeekDay] = useState(0); // 0-6 for S-S, 1 for Monday as per image
-  const [selectedMonth, setSelectedMonth] = useState(0); // 0-11 for JAN-DEC, 0 for January as per image
+  const [selectedDayItem, setSelectedDayItem] = useState("");
+  const [selectedWeekDay, setSelectedWeekDay] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
+
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
   const monthsOfYear = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC",
+    "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
   ];
 
-  const navigate = useNavigate();
-  const { updateDisease, diseases } = useContext(GlobalContext);
-  // when changing tabs, clear the other states
-  useEffect(() => {
-    if (activeTab === "day") {
-      setSelectedWeekDay(null);
-      setSelectedMonth(null);
-    } else if (activeTab === "week") {
-      setSelectedDayItem(null);
-      setSelectedMonth(null);
-    } else if (activeTab === "month") {
-      setSelectedDayItem(null);
-      setSelectedWeekDay(null);
-    }
-  }, [activeTab]);
-
   const weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "Sunday", "Monday", "Tuesday", "Wednesday",
+    "Thursday", "Friday", "Saturday"
   ];
 
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
   ];
 
+  const navigate = useNavigate();
+  const { updateDisease } = useContext(GlobalContext);
 
-  useEffect(() => {
-    let payload = null;
-    let selectedValue = "";
-    if ((activeTab === "day" && selectedDayItem)) {
-      selectedValue = selectedDayItem;
-      payload = { type: "day", value: selectedDayItem };
-    } else if ((activeTab === "week" && selectedWeekDay) || selectedWeekDay === 0) {
-      selectedValue = weekDays[selectedWeekDay];
-      payload = { type: "week", value: selectedWeekDay };
-    } else if ((activeTab === "month" && selectedMonth) || selectedMonth === 0) {
-      selectedValue = months[selectedMonth];
-      payload = { type: "month", value: selectedMonth };
-    }
-    if (payload) {
-      getTextToSpeech(selectedValue)
-      updateDisease("Howoften", payload);
-    }
-  }, [activeTab, selectedDayItem, selectedWeekDay, selectedMonth]);
+  // ✅ Handle user selections
+  const handleDaySelect = (item) => {
+    setSelectedDayItem(item);
+    setShowSaveModal(true);
+    getTextToSpeech(item);
+    updateDisease("Howoften", { type: "day", value: item });
+  };
+
+  const handleWeekSelect = (index) => {
+    setSelectedWeekDay(index);
+    setShowSaveModal(true);
+    getTextToSpeech(weekDays[index]);
+    updateDisease("Howoften", { type: "week", value: index });
+  };
+
+  const handleMonthSelect = (index) => {
+    setSelectedMonth(index);
+    setShowSaveModal(true);
+    getTextToSpeech(months[index]);
+    updateDisease("Howoften", { type: "month", value: index });
+  };
 
   return (
     <>
-
       <div className="main-wrapper home-wrapper howoften-page ">
         <div className="w-full flex justify-center items-center p-4 sm:p-6 calendar-main">
-          <div
-            className="w-full  bg-white rounded-xl  overflow-hidden
-                    "
-          >
+          <div className="w-full bg-white rounded-xl overflow-hidden">
             {/* Tabs */}
             <div className="flex items-center justify-end p-4 sm:p-6 calendar-buttons">
               <button className="px-4 py-2 mr-2 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
@@ -145,9 +106,12 @@ export default function TabsCalendar() {
                         ${activeTab === "day"
                       ? "bg-blue-theme text-white"
                       : "text-gray-700 hover:bg-gray-200"
-                    }
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                  onClick={() => setActiveTab("day")}
+                    }`}
+                  onClick={() => {
+                    setActiveTab("day");
+                    setSelectedWeekDay(null);
+                    setSelectedMonth(null);
+                  }}
                   role="tab"
                   aria-selected={activeTab === "day"}
                 >
@@ -158,9 +122,12 @@ export default function TabsCalendar() {
                         ${activeTab === "week"
                       ? "bg-blue-theme text-white"
                       : "text-gray-700 hover:bg-gray-200"
-                    }
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                  onClick={() => setActiveTab("week")}
+                    }`}
+                  onClick={() => {
+                    setActiveTab("week");
+                    setSelectedDayItem(null);
+                    setSelectedMonth(null);
+                  }}
                   role="tab"
                   aria-selected={activeTab === "week"}
                 >
@@ -171,9 +138,12 @@ export default function TabsCalendar() {
                         ${activeTab === "month"
                       ? "bg-blue-theme text-white"
                       : "text-gray-700 hover:bg-gray-200"
-                    }
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                  onClick={() => setActiveTab("month")}
+                    }`}
+                  onClick={() => {
+                    setActiveTab("month");
+                    setSelectedDayItem(null);
+                    setSelectedWeekDay(null);
+                  }}
                   role="tab"
                   aria-selected={activeTab === "month"}
                 >
@@ -182,15 +152,15 @@ export default function TabsCalendar() {
               </div>
             </div>
 
-            {/* Content based on active tab */}
+            {/* Content */}
             <div className="p-4 sm:p-6 pt-0">
+              {/* Day Tab */}
               {activeTab === "day" && (
                 <div className="grid gap-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
                     TODAY
                   </h3>
                   <div className="grid grid-cols-3 border-t border-l border-gray-200 rounded-lg overflow-hidden">
-                    {/* Day Labels Row */}
                     {["MORNING", "AFTERNOON", "EVENING"].map((label) => (
                       <div
                         key={label}
@@ -201,17 +171,12 @@ export default function TabsCalendar() {
                         </span>
                       </div>
                     ))}
-                    {/* Checkmark Row */}
                     {["morning", "afternoon", "evening"].map((item) => (
                       <button
                         key={item}
                         className={`flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                      ${selectedDayItem === item
-                            ? "bg-blue-50"
-                            : "bg-white hover:bg-gray-50"
-                          }
-                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                        onClick={() => { setShowSaveModal(true); setSelectedDayItem(item) }}
+                          ${selectedDayItem === item ? "bg-blue-50" : "bg-white hover:bg-gray-50"}`}
+                        onClick={() => handleDaySelect(item)}
                         role="option"
                         aria-selected={selectedDayItem === item}
                       >
@@ -224,13 +189,13 @@ export default function TabsCalendar() {
                 </div>
               )}
 
+              {/* Week Tab */}
               {activeTab === "week" && (
                 <div className="grid gap-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
                     WEEK
                   </h3>
                   <div className="grid grid-cols-7 border-t border-l border-gray-200 rounded-lg overflow-hidden">
-                    {/* Week Day Labels Row */}
                     {daysOfWeek.map((dayName, index) => (
                       <div
                         key={dayName + index}
@@ -239,18 +204,12 @@ export default function TabsCalendar() {
                         <span className="font-bold text-[24px] text-gray-800">{dayName}</span>
                       </div>
                     ))}
-
-                    {/* Checkmark Row */}
                     {daysOfWeek.map((dayName, index) => (
                       <button
                         key={dayName + index + "-check"}
                         className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                      ${selectedWeekDay === index
-                            ? "bg-blue-50"
-                            : "bg-white hover:bg-gray-50"
-                          }
-                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                        onClick={() => { setShowSaveModal(true); setSelectedWeekDay(index) }}
+                          ${selectedWeekDay === index ? "bg-blue-50" : "bg-white hover:bg-gray-50"}`}
+                        onClick={() => handleWeekSelect(index)}
                         role="option"
                         aria-selected={selectedWeekDay === index}
                       >
@@ -263,6 +222,7 @@ export default function TabsCalendar() {
                 </div>
               )}
 
+              {/* Month Tab */}
               {activeTab === "month" && (
                 <div className="grid gap-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
@@ -273,13 +233,8 @@ export default function TabsCalendar() {
                       <button
                         key={month}
                         className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
-                      ${selectedMonth === index ? "text-blue" : ""}
-                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-                        onClick={() => {
-                          setShowSaveModal(true);
-                          setSelectedMonth(index);
-                        }}
-
+                          ${selectedMonth === index ? "text-blue" : ""}`}
+                        onClick={() => handleMonthSelect(index)}
                         role="option"
                         aria-selected={selectedMonth === index}
                       >
@@ -296,9 +251,8 @@ export default function TabsCalendar() {
           </div>
         </div>
       </div>
-      {ShowSaveModal && (
-        <SaveModel setShowSaveModal={setShowSaveModal} />
-      )}
+
+      {ShowSaveModal && <SaveModel setShowSaveModal={setShowSaveModal} />}
       <Footer />
     </>
   );

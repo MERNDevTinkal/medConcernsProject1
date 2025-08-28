@@ -42,9 +42,11 @@ const Header = ({ name }) => {
             <img src={hamburger} alt="" />
           </button>
           <h2 className="text-[25px] font-normal text-black">{name ?? 'Concerns'}</h2>
-          <Link >
+          <div style={{ cursor: "pointer" }} onClick={() => {
+            navigate(+1);
+          }} >
             <img src={NextArrow} alt="" />
-          </Link>
+          </div>
         </div>
         <aside
           className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen

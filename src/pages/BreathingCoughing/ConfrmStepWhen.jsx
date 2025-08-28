@@ -31,9 +31,11 @@ function ConfrmStepWhen() {
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <Link to="/" >
+        <div onClick={() => {
+          navigate(-1);
+        }} style={{cursor:"pointer"}} >
           <img src={BackArrow} />
-        </Link>
+        </div>
         <h2 className="text-[25px] font-normal text-black text-center">{confirmData.name}</h2>
         <button></button>
       </div>

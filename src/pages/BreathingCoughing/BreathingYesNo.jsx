@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
 import ConcernImg2 from "../../assets/images/concern-img-02.png";
@@ -9,7 +9,7 @@ import ConcernImg8 from "../../assets/images/concern-img-08.png";
 import { useParams } from "react-router-dom";
 
 function BreathingYesNo() {
-
+  const navigate = useNavigate();
   const { id } = useParams();
   const [concernValues, setConcernValues] = useState({});
   const [slugName, setslugName] = useState("");
@@ -24,9 +24,9 @@ function BreathingYesNo() {
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <Link to="/">
+        <div style={{ cursor: "pointer" }} onClick={() => { navigate(-1); }}>
           <img src={BackArrow} />
-        </Link>
+        </div>
         <h2 className="text-[25px] font-normal text-black text-center">{concernValues.name || ""}</h2>
         <button></button>
       </div>

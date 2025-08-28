@@ -18,14 +18,14 @@ const ConcernCard = () => {
   return (
     <>
       {concerns?.map(({ id, name, image, path }) => (
-        <Link key={id} to={path} onClick={() => handleConcern(name, path)}>
+        <div style={{ cursor: "pointer" }} key={id} onClick={() => handleConcern(name, path)}>
           <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
             <div className="dashboard-img card-img-h rounded-2xl">
               <img src={image} alt={name} className="w-full" />
             </div>
             <p className="text-[16px] mt-3 mb-2 text-black">{name}</p>
           </div>
-        </Link>
+        </div>
       ))}
     </>
   );

@@ -32,7 +32,7 @@ export default function HowAreYou() {
         <div className="dashboard-wrapper px-4 py-1.5">
           <div className="dashboard-h grid  gap-7 sm:grid-cols-3 md:grid-cols-3 grid-cols-2 py-3">
             {howareyou.map(({ id, text, image, link }) => (
-              <div onClick={() => { handleValue(`/yes-and-no/${id}`, text) }} key={id}>
+              <div style={{cursor:"pointer"}} onClick={() => { handleValue(`/yes-and-no/${id}`, text) }} key={id}>
                 <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
                   <div className="dashboard-img card-img-h rounded-2xl">
                     <img src={image} className="w-full" alt={text} />

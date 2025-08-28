@@ -22,7 +22,7 @@ const BreathingWhen = () => {
       <div className="main-wrapper home-wrapper ">
         <div className="dashboard-h grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3.5 px-4 py-1.5">
           {breathingWhenOptions?.length > 0 && breathingWhenOptions?.map((item, index) => (
-            <div key={item.id} onClick={() => { handleBreathingWhen(item.name, `/confrm-step-when/${item?.id}`) }}>
+            <div style={{ cursor: "pointer" }} key={item.id} onClick={() => { handleBreathingWhen(item.name, `/confrm-step-when/${item?.id}`) }}>
               <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
                 <div className="dashboard-img card-img-h rounded-2xl">
                   <img src={item.image} className="w-full" />
