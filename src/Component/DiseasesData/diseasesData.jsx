@@ -33,7 +33,73 @@ import nausea03 from "../../assets/images/pain-stomach.jpeg";
 import nausea04 from "../../assets/images/nausea.png";
 import nausea05 from "../../assets/images/something-else.png";
 
+const swallowingDesises = [
+    { "id": "1", "name": "With Medication", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "With Food / Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "With Saliva", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "Just Swallowing", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "5", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
+const heartburnDesises = [
+    { "id": "1", "name": "With Medication", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "With Food / Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "Just Swallowing", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
 
+const painwithswallowingDesises = [
+    { "id": "1", "name": "With Food", "image": swallowingimg04, "secPath": "", "path": "" },
+    { "id": "2", "name": "With Drinks", "image": swallowingimg04, "secPath": "", "path": "" },
+    { "id": "3", "name": "With Medication", "image": swallowingimg04, "secPath": "", "path": "" },
+    { "id": "4", "name": "With Food / Drinks", "image": swallowingimg04, "secPath": "", "path": "" },
+    { "id": "5", "name": "With Saliva", "image": swallowingimg04, "secPath": "", "path": "" },
+    { "id": "6", "name": "Just Swallowing", "image": swallowingimg04, "secPath": "", "path": "" },
+    { "id": "7", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "" },
+]
+const fearofswallowingDesises = [
+    { "id": "1", "name": "With Food", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "With Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "With Medication", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "With Food / Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "5", "name": "With Saliva", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "6", "name": "Just Swallowing", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "7", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
+const drymouthDesises = [
+    { "id": "1", "name": "With Food", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "With Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "With Medication", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "With Food / Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "5", "name": "With Saliva", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "6", "name": "Just Swallowing", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "7", "name": "Just Dry/Uncomfortable", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "8", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
+const trachproblemDesises = [
+    { "id": "1", "name": "Mucus/Secretions", "image": swallowingimg04, "secPath": "/mucussecretions-problem", "path": "/howoften" },
+    { "id": "2", "name": "Suction", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "3", "name": "Cap", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "4", "name": "Speaking Valve ", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "5", "name": "Remove", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "6", "name": "Pain", "image": swallowingimg04, "secPath": "", "path": "/when" },
+    { "id": "7", "name": "Tight", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "8", "name": "Itchy", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "9", "name": "Leaking", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "10", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
+
+const mucussecretionsDesises = [
+    { "id": "1", "name": "Shortness of breath", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "Suction", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "Thick Mucus", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "Too Much", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+]
+const feedingtubeDesises = [
+    { "id": "1", "name": "Pain", "image": swallowingimg04, "secPath": "", "path": "" },
+    { "id": "2", "name": "Remove", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "Too Much", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
 
 
 export const diseasesData = {
@@ -48,15 +114,16 @@ export const diseasesData = {
         { "id": "8", "name": "CPAP / BiPAP", "image": dashimg08, "secPath": "/confrm-step-yesno", "path": "/howoften" },
         { "id": "9", "name": "Breathing Treatment", "image": dashimg09, "secPath": "/confrm-step-yesno", "path": "/when" },
         { "id": "10", "name": "Trach", "image": dashimg10, "secPath": "trach-problem", "path": "" },
-        { "id": "11", "name": "Something Else", "image": dashimg11, "secPath": "something-else-problem", "path": "" }
+        { "id": "11", "name": "Something Else", "image": dashimg11, "secPath": "/Whiteboard", "path": "" }
     ],
     "/coughing-problem": [
         { "id": "1", "name": "Mucus / Secretions", "image": dashimg04, "secPath": "/mucus-problem-sub", "path": "/when" },
         { "id": "2", "name": "Tickle in My Throat", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
         { "id": "3", "name": "Swallowing", "image": dashimg04, "secPath": "/swallowing-problem-sub", "path": "/when" },
-        { "id": "4", "name": "Trach", "image": dashimg04, "secPath": "/trach-problem-sub", "path": "/when" },
-        { "id": "5", "name": "Feeding Tube", "image": dashimg04, "secPath": "/feeding-tube-problem-sub", "path": "/when" },
-        { "id": "6", "name": "Something Else", "image": dashimg04, "secPath": "/something-else-problem", "path": "/when" }
+        { "id": "4", "name": "Shortness of Breath ", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "5", "name": "With Activity  ", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "6", "name": "Trach", "image": dashimg04, "secPath": "/trach-problem-sub", "path": "/when" },
+        { "id": "7", "name": "Something Else", "image": dashimg04, "secPath": "/Whiteboard", "path": "/when" }
     ],
     "/mucus-problem-sub": [
         { "id": "1", "name": "Shortness of Breath", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
@@ -108,21 +175,26 @@ export const diseasesData = {
     ],
 
     "/swallowing-problem-sub": [
-        { "id": "1", "name": "Choking", "image": swallowingimg04, "secPath": "/choking-problem", "path": "/howoften" },
-        { "id": "2", "name": "Food Sticking", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "3", "name": "Heartburn", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "4", "name": "Coughing", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "5", "name": "Reflux", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "6", "name": "Nausea", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "7", "name": "Pain with Swallowing", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "8", "name": "Fear of Swallowing", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "9", "name": "Losing Weight Without Trying", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "10", "name": "Dry Mouth", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "11", "name": "Too Much", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "12", "name": "No Appetite", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "13", "name": "Trach", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
-        { "id": "14", "name": "Feeding Tube", "image": swallowingimg04, "secPath": "/color-problem", "path": "/howoften" },
+        { "id": "1", "name": "Choking", "image": swallowingimg04, "secPath": "/choking-problem-sub", "path": "/howoften" },
+        { "id": "2", "name": "Food Sticking", "image": swallowingimg04, "secPath": "/foodsticking-problem", "path": "/howoften" },
+        { "id": "3", "name": "Heartburn", "image": swallowingimg04, "secPath": "/heartburn-problem", "path": "/howoften" },
+        { "id": "4", "name": "Pain with Swallowing", "image": swallowingimg04, "secPath": "/painwithswallowing-problem", "path": "/howoften" },
+        { "id": "5", "name": "Fear of Swallowing", "image": swallowingimg04, "secPath": "/fearofswallowing-problem", "path": "/howoften" },
+        { "id": "6", "name": "Dry Mouth", "image": swallowingimg04, "secPath": "/drymouth-problem", "path": "/howoften" },
+        { "id": "7", "name": "Too Much", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+        { "id": "8", "name": "Trach", "image": swallowingimg04, "secPath": "/trachswallowingsub-problem", "path": "/howoften" },
+        { "id": "9", "name": "Feeding Tube", "image": swallowingimg04, "secPath": "/feeding-tube-problem-sub", "path": "/howoften" },
     ],
+
+    "/choking-problem-sub": swallowingDesises,
+    "/foodsticking-problem": swallowingDesises,
+    "/heartburn-problem": heartburnDesises,
+    "/painwithswallowing-problem": painwithswallowingDesises,
+    "/fearofswallowing-problem": fearofswallowingDesises,
+    "/drymouth-problem": drymouthDesises,
+    "/trachswallowingsub-problem": trachproblemDesises,
+    "/mucussecretions-problem": mucussecretionsDesises,
+    "/feeding-tube-problem-sub": feedingtubeDesises,
 
     "/nausea-problem": [
         { "id": "1", "name": "Vomiting", "image": swallowingimg04, "path": "/" },
@@ -132,6 +204,7 @@ export const diseasesData = {
         { "id": "5", "name": "Just Nausea", "image": nausea04, "path": "/" },
         { "id": "6", "name": "Something Else", "image": nausea05, "path": "/" }
     ],
+
 
     "/bowels-problem": [
         { "id": "1", "name": "Constipation", "image": swallowingimg04, "path": "/" },

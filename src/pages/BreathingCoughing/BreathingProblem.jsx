@@ -28,7 +28,6 @@ const BreathingProblem = () => {
       <div className="main-wrapper home-wrapper">
         <div className="dashboard-h grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3.5 px-4 py-1.5 emotion-cards">
           {problem.map((data) => {
-            console.log("==>datadata", data)
             return (
               <div style={{ cursor: "pointer" }} key={data?.id} onClick={() => {
                 handleBreathingProblem(
