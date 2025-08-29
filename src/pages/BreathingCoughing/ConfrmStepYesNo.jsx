@@ -40,7 +40,7 @@ function ConfrmStepYesNo() {
         >
           <img src={BackArrow} />
         </div>
-        <h2 className="text-[25px] font-normal text-black text-center">{selectedConcers.name}</h2>
+        <h2 className="text-[25px] font-normal text-black text-center">{selectedConcers.name || 'Pain'}</h2>
         <button></button>
       </div>
       <div className="main-wrapper home-wrapper ">
@@ -65,7 +65,7 @@ function ConfrmStepYesNo() {
                 </div>
               </div>
 
-              <div to="/" onClick={() => { handleConfrmStepYesNo("NO", "/") }}>
+              <div onClick={() => { handleConfrmStepYesNo("NO", "/") }}>
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-red-600">NO</p>

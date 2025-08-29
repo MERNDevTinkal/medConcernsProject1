@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { GlobalContext } from "../../context/DiseaseContext";
 import BackArrow from "../../assets/images/back-arrow.svg";
-import Emo1 from "../../assets/images/emo-01.svg";
-import Emo2 from "../../assets/images/emo-02.svg";
-import Emo3 from "../../assets/images/emo-03.svg";
-import Emo4 from "../../assets/images/emo-04.svg";
-import Emo5 from "../../assets/images/emo-05.svg";
-import Emo6 from "../../assets/images/emo-06.svg";
-import { Link } from "react-router-dom";
+import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
-
+import { useNavigate, useLocation } from "react-router-dom";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 const FeelingListPain = () => {
+  const location = useLocation();
+  const path = location.pathname;
+  const navigate = useNavigate();
+  const [painFeelParams, setPainFeelParams] = useState([]);
+  const { updateDisease, diseases } = useContext(GlobalContext);
+  const handlegetPain = async (value, path, painFeel) => {
+    if (value && path) {
+      await getTextToSpeech(painFeel)
+      updateDisease("painfeel", value)
+      navigate(path)
+    }
+  }
+  useEffect(() => {
+    setPainFeelParams(diseasesData[path])
+  }, [path]);
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
@@ -71,54 +82,21 @@ const FeelingListPain = () => {
 
             {/* <!-- Emoji Faces --> */}
             <div className="flex flex-wrap justify-between items-center emoji-bar">
-                <Link to={"/feeling-yes-no"}> 
-              <div className="flex flex-col items-center space-y-1  mb-3">
-                <img src={Emo1} alt="" />
-                <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  0
-                </span>
-              </div>
-                </Link>
-                 <Link to={"/feeling-yes-no"}> 
-              <div className="flex flex-col items-center space-y-2  mb-3">
-                <img src={Emo2} alt="" />
-                <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  1 - 2
-                </span>
-              </div>
-               </Link>
-                 <Link to={"/feeling-yes-no"}> 
-              <div className="flex flex-col items-center space-y-2 mb-3">
-                <img src={Emo3} alt="" />
-                <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  3 - 4
-                </span>
-              </div>
-               </Link>
-                 <Link to={"/feeling-yes-no"}> 
-              <div className="flex flex-col items-center space-y-2 mb-3">
-                <img src={Emo4} alt="" />
-                <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  5- 6
-                </span>
-              </div>
-               </Link>
-                 <Link to={"/feeling-yes-no"}> 
-              <div className="flex flex-col items-center space-y-2 mb-3">
-                <img src={Emo5} alt="" />
-                <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  7 - 8
-                </span>
-              </div>
-               </Link>
-                 <Link to={"/feeling-yes-no"}> 
-              <div className="flex flex-col items-center space-y-2 mb-3">
-                <img src={Emo6} alt="" />
-                <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  9-10
-                </span>
-              </div>
-               </Link>
+              {painFeelParams.map((data, index) => (
+                <div key={data.id}>
+                  <div className={`flex flex-col items-center space-y-${index}  mb-3`}>
+                    <img src={data.image} alt="" />
+                    <span onClick={() => {
+                      handlegetPain(data.params, data?.secPath?.includes("/confrm-step-yesno")
+                        ? `${path}${data?.secPath}/${data?.id}`
+                        : `${data?.secPath}`, data.painFeel)
+                    }} className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      {data.params ?? "0"}
+                    </span>
+                  </div>
+                </div>
+              ))}
+
             </div>
           </div>
         </div>
