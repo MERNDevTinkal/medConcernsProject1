@@ -132,7 +132,7 @@ const trachproblemsubDesises = [
     { "id": "8", name: "Itchy", "path": "/howoften", "image": swallowingimg04, "secPath": "/confrm-step-yesno" },
     { "id": "9", name: "Leaking", "path": "/howoften", "image": swallowingimg04, "secPath": "/confrm-step-yesno" },
     { "id": "10", name: "Swallowing", "path": "", "image": swallowingimg04, "secPath": "/trachswallowing-problem" },
-    { "id": "11", name: "Something Else", "path": "/Whiteboard", "image": swallowingimg04, "secPath": "/confrm-step-yesno" }
+    { "id": "11", name: "Something Else", "path": "/Whiteboard", "image": swallowingimg04, "secPath": "/Whiteboard" }
 ];
 
 const trachmucusSecretionsDesises = [
@@ -195,6 +195,76 @@ const SwallowingTrachDesies = [
     { id: "11", name: "Swallowing", path: "", image: dashimg04, secPath: "/swallowingtrachswallowing-problem" },
     { id: "12", name: "Something Else", path: "/Whiteboard", image: dashimg04, secPath: "/confrm-step-yesno" }
 ];
+const MedicationSidEffectsDesies = [
+    { id: "1", name: "Nausea", path: "", image: dashimg04, secPath: "/medicationNausea-problem" },
+    { id: "2", name: "Fatigue ", path: "/howoften", image: dashimg04, secPath: "/medicationFatigue-problem" },
+    { id: "3", name: "Bowels", path: "/howoften", image: dashimg04, secPath: "/medicationBowels-problem" },
+    { id: "4", name: "Urination ", path: "/howoften", image: dashimg04, secPath: "/medicationUrination-problem" },
+    { id: "5", name: "Medication Allergy", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "6", name: "Dry Mouth", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "7", name: "Swallowing", path: "", image: dashimg04, secPath: "/medicationswallowing-problem" },
+    { id: "8", name: "Appetite", path: "", image: dashimg04, secPath: "/medicationSidEffectsAppetite-problem" },
+    { id: "9", name: "Itchy", path: "/when", image: dashimg04, secPath: "/" },
+    { id: "10", name: "Something Else", path: "/when", image: dashimg04, secPath: "/Whiteboard" },
+]
+
+const medicationswallowing = [
+    { id: "1", name: "Choking", path: "", image: dashimg04, secPath: "/medicationswallowingChoking-problem" },
+    { id: "2", name: "Food Sticking", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "3", name: "Heartburn", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "4", name: "Coughing", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "5", name: "Nausea", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "6", name: "Pain with Swallowing", path: "", image: dashimg04, secPath: "/medicationPainwithSwallowing-problem" },
+    { id: "7", name: "Fear of Swallowing", path: "", image: dashimg04, secPath: "/medicationFearofSwallowing-problem" },
+    { id: "8", name: "Dry Mouth", path: "", image: dashimg04, secPath: "/medicationswallowingdryMouth-problem" },
+    { id: "9", name: "Too Much", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "10", name: "No Appetite", path: "/howoften", image: dashimg04, secPath: "/medicationnoAppetite-problem" },
+    { id: "11", name: "Losing Weight Without Trying", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "12", name: "Information", path: "", image: dashimg04, secPath: "/Whiteboard" },
+    { id: "13", name: "Something Else", path: "", image: dashimg04, secPath: "/Whiteboard" }
+]
+const medicationnoAppetite = [
+    { id: "1", name: "No Appetite ", path: "", image: dashimg04, secPath: "/medicationnoAppetiteNoAppetite-problem" },
+    { id: "2", name: "Taste Changes ", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "3", name: "Nausea ", path: "", image: dashimg04, secPath: "/medicationswallowingChoking-problem" },
+    { id: "4", name: "Itchy ", path: "", image: dashimg04, secPath: "/medicationswallowingChoking-problem" },
+    { id: "5", name: "Something Else ", path: "", image: dashimg04, secPath: "/Whiteboard" },
+]
+const medicationSidEffectsAppetite = [
+    { id: "1", name: "No Appetite ", path: "", image: dashimg04, secPath: "/medicationnoAppetiteNoAppetite-problem" },
+    { id: "2", name: "Taste Changes ", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "3", name: "Nausea ", path: "", image: dashimg04, secPath: "/medicationSidEffectsAppetiteNausea-problem" },
+    { id: "4", name: "Itchy ", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "5", name: "Something Else ", path: "", image: dashimg04, secPath: "/Whiteboard" },
+]
+
+
+const medicationBowels =
+    [
+        { id: "1", name: "Constipation", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "2", name: "Diarrhea", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "3", name: "Gas/Bloating", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "4", name: "Cramping", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "5", name: "Blood", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "6", name: "Need Changed", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "7", name: "Colostomy / Ostomy", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "8", name: "Something Else", path: "/howoften", image: dashimg04, secPath: "/Whiteboard" }
+    ]
+
+const medicationUrination =
+    [
+
+        { id: "1", name: "Burning", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "2", name: "Frequent", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "3", name: "Urgency", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "4", name: "Very Little/Infrequent", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "5", name: "Blood", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "6", name: "Need Changed", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "7", name: "Something Else", path: "/howoften", image: dashimg04, secPath: "/Whiteboard" }
+    ]
+
+
+
 
 
 
@@ -223,7 +293,7 @@ const noappetiteDesies = [
     { "id": "3", name: "Nausea", "secPath": "/confrm-step-yesno", "path": "/howoften", image: dashimg04 },
     { "id": "4", name: "Feel Full", "secPath": "/confrm-step-yesno", "path": "/howoften", image: dashimg04 },
     { "id": "5", name: "Smell of Food", "secPath": "/confrm-step-yesno", "path": "/howoften", image: dashimg04 },
-    { "id": "6", name: "Something Else", "secPath": "/confrm-step-yesno", "path": "/Whiteboard", image: dashimg04 }
+    { "id": "6", name: "Something Else", "secPath": "/Whiteboard", "path": "/Whiteboard", image: dashimg04 }
 ];
 
 
@@ -247,6 +317,136 @@ const swallowingfeedingtubebowelsDesiese = [
     { id: "7", name: "Something Else", path: "/Whiteboard", image: dashimg04, secPath: "/Whiteboard" }
 ];
 
+
+
+const bowelsfeedingtubeDesiese = [
+    { id: "1", name: "Constipation", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "2", name: "Diarrhea", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "3", name: "Gas/Bloating", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "4", name: "Cramping", path: "/howoften", image: dashimg04, secPath: "/confrm-step-yesno" },
+    { id: "5", name: "Something Else", path: "/Whiteboard", image: dashimg04, secPath: "/Whiteboard" }
+];
+
+const fatigueTroubleSleeping = [
+    { id: "1", name: "Insomnia", "secPath": "/confrm-step-yesno", "path": "/howoften", image: dashimg04, },
+    { id: "2", name: "Noisy", "secPath": "/confrm-step-yesno", "path": "/howoften", image: dashimg04, },
+    { id: "3", name: "Too Much Light", "secPath": "/confrm-step-yesno", "path": "/howoften", image: dashimg04, },
+    { id: "4", name: "Emotions/Feelings", "secPath": "/confrm-step-yesno", "path": "/howoften", image: dashimg04, },
+    { id: "5", name: "Interruptions", image: dashimg04, secpath: "/summary-list" },
+    { id: "6", name: "Something Else", "secPath": "/Whiteboard", image: dashimg04, secpath: "/Whiteboard" }
+];
+
+const emotions = [
+    { id: "1", name: "Anxious", path: "", image: "", secpath: "Anxious" },
+    { id: "2", name: "Depressed", path: "", image: "", secpath: "Depressed" },
+    { id: "3", name: "Scared", path: "", image: "", secpath: "Scared" },
+    { id: "4", name: "Angry", path: "", image: "", secpath: "Angry" },
+    { id: "5", name: "Frustrated", path: "", image: "", secpath: "Frustrated" },
+    { id: "6", name: "Frustrated", path: "", image: "", secpath: "Frustrated" },
+    { id: "7", name: "Sad", path: "", image: "", secpath: "Sad" },
+    { id: "8", name: "Grief", path: "", image: "", secpath: "Grief" },
+    { id: "9", name: "Guilty or Worry", path: "", image: "", secpath: "Guilty or Worry" },
+    { id: "10", name: "Feel Hopeless", path: "", image: "", secpath: "Feel Hopeless" },
+    { id: "11", name: "Something went wrong", path: "", image: "", secpath: "Something went wrong" }
+]
+
+
+const EatingdrinkingNoAppetite = [
+    { id: "1", name: "Don’t Want", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "2", name: "Taste Changes", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "3", name: "Nausea", path: "", image: dashimg04, secPath: "/eatingdrinkingNoAppetiteNausea-problem" },
+    { id: "4", name: "Feel Full", path: "", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "5", name: "Smell of Food", path: "", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "6", name: "Something Else", path: "", image: dashimg04, "secPath": "/Whiteboard", "path": "/howoften" }
+]
+
+const eatingdrinkingNoAppetiteNausea = [
+    { id: "1", name: "Vomiting", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "2", name: "Constipation", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "3", name: "Diarrhea", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "4", name: "Cramping", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "5", name: "Just Nausea", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "6", name: "Something Else", image: dashimg04, "secPath": "/Whiteboard" }
+]
+const medicationNausea = [
+    { id: "1", name: "Vomiting", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "2", name: "Diarrhea", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "3", name: "Cramping", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "4", name: "Constipation", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "5", name: "Just Nausea", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { id: "6", name: "Something Else", image: dashimg04, "secPath": "/Whiteboard" }
+]
+
+const medicationFatigue = [
+    { id: "1", name: "Wake Up Tired", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "2", name: "Trouble Sleeping", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "3", name: "More than Usual", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "4", name: "With Activity", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "5", name: "All Day", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "6", name: "With Medication", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { id: "7", name: "Something Else", image: dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" }
+]
+
+
+
+const eatingDonoteatThis = [
+    { id: "1", name: "Not Allowed to Eat & Drink", path: "", image: dashimg04, secPath: "/" },
+    { id: "2", name: "Wrong Tray", path: "", image: dashimg04, secPath: "Don’t Eat This → Wrong Tray" },
+    { id: "3", name: "Food Allergy", path: "", image: dashimg04, secPath: "Don’t Eat This → Food Allergy" },
+    { id: "4", name: "Special Diet", path: "", image: dashimg04, secPath: "/eatingDonoteatspecialdiet-problem" },
+    { id: "5", name: "Something Else?", path: "", image: dashimg04, secPath: "Don’t Eat This → Something Else?" }
+]
+
+const eatingDonoteatspecialdiet = [
+    { id: "1", name: "Vegetarian / Vegan", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Vegetarian / Vegan" },
+    { id: "2", name: "Kosher", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Kosher" },
+    { id: "3", name: "Halal", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Halal" },
+    { id: "4", name: "No Dairy", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → No Dairy" },
+    { id: "5", name: "Gluten-Free", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Gluten-Free" },
+    { id: "6", name: "Nut-Free", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Nut-Free" },
+    { id: "7", name: "Low Sodium", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Low Sodium" },
+    { id: "8", name: "Diabetic / Carb-Controlled", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Diabetic / Carb-Controlled" },
+    { id: "9", name: "Texture Modified", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Texture Modified" },
+    { id: "10", name: "Something Else", path: "", image: dashimg04, secPath: "Don’t Eat This → Special Diet → Something Else" }
+]
+const medicationSidEffectsAppetiteNausea = [
+    { "id": "1", "name": "Vomiting", "image": swallowingimg04, secPath: "/confrm-step-yesno", path: "/howoften" },
+    { "id": "2", "name": "Constipation", "image": nausea02, secPath: "/confrm-step-yesno", path: "/howoften" },
+    { "id": "3", "name": "With Medication", "image": nausea04, secPath: "/confrm-step-yesno", path: "/howoften" },
+    { "id": "4", "name": "With Food/Drink", "image": nausea04, secPath: "/confrm-step-yesno", path: "/howoften" },
+    { "id": "5", "name": "Diarrhea", "image": nausea02, secPath: "/confrm-step-yesno", path: "/howoften" },
+    { "id": "6", "name": "Cramping", "image": nausea03, secPath: "/confrm-step-yesno", path: "/howoften" },
+    { "id": "7", "name": "Something Else", "image": nausea05, secPath: "/confrm-step-yesno", path: "/howoften" },
+    { "id": "8", "name": "Losing Weight Without Trying", "image": swallowingimg04, secPath: "/confrm-step-yesno", path: "/howoften" }
+]
+const medicationHardtoSwallow = [
+    { "id": "1", "name": "Too Many", "image": swallowingimg04, secPath: "/new-problem", path: "" },
+    { "id": "2", "name": "Too Big", "image": swallowingimg04, secPath: "/new-problem", path: "" },
+    { "id": "3", "name": "Whole/Crushed/Liquid", "image": swallowingimg04, secPath: "/medicationHardtoSwallowwholeliquid-problem", path: "" },
+    { "id": "4", "name": "Dry Mouth", "image": swallowingimg04, secPath: "/medicationHardtoSwallowDryMouth-problem", path: "" },
+    { "id": "5", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", path: "" },
+]
+
+const medicationHardtoSwallowwholeliquid = [
+    { "id": "1", "name": "Whole", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "2", "name": "Crushed", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "3", "name": "Liquid", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "4", "name": "Something Else", "image": swallowingimg04, secPath: "/Whiteboard", path: "" },
+]
+
+const medicationTiming = [
+    { "id": "1", "name": "Schedule Pain Meds", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "2", "name": "Different Times", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "3", "name": "Spread Out", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "4", "name": "Something Else", "image": swallowingimg04, secPath: "/whiteboard", path: "" },
+]
+
+const medicationWholeCrushedLiquid = [
+    { "id": "1", "name": "Whole", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "2", "name": "Crushed", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "3", "name": "Liquid", "image": swallowingimg04, secPath: "/summary-list", path: "" },
+    { "id": "4", "name": "Something Else", "image": swallowingimg04, secPath: "/whiteboard", path: "" },
+]
 
 export const diseasesData = {
     "/breathing-problem": [
@@ -356,6 +556,31 @@ export const diseasesData = {
     "/swallowingtrachswallowing-problem": fearofswallowingDesises,
     "/swallowingfeedingtube-problem": swallowingfeedingtube,
     "/swallowingfeedingtubebowels-problem": swallowingfeedingtubebowelsDesiese,
+    "/bowelsfeedingtube-problem": bowelsfeedingtubeDesiese,
+    "/fatigueTroubleSleeping-problem": fatigueTroubleSleeping,
+    "/eatingNoAppetite-problem": EatingdrinkingNoAppetite,
+    "/eatingdrinkingNoAppetiteNausea-problem": eatingdrinkingNoAppetiteNausea,
+    "/eatingDonoteatThis-problem": eatingDonoteatThis,
+    "/eatingDonoteatspecialdiet-problem": eatingDonoteatspecialdiet,
+    "/medicationSideEffects-problem": MedicationSidEffectsDesies,
+    "/medicationNausea-problem": medicationNausea,
+    "/medicationFatigue-problem": medicationFatigue,
+    "/medicationBowels-problem": medicationBowels,
+    "/medicationUrination-problem": medicationUrination,
+    "/medicationswallowing-problem": medicationswallowing,
+    "/medicationswallowingChoking-problem": swallowingDesises,
+    "/medicationPainwithSwallowing-problem": trachswallowingDesises,
+    "/medicationFearofSwallowing-problem": heartburnswallowingDesises,
+    "/medicationswallowingdryMouth-problem": drymouthDesises,
+    "/medicationnoAppetite-problem": medicationnoAppetite,
+    "/medicationSidEffectsAppetite-problem": medicationSidEffectsAppetite,
+    "/medicationnoAppetiteNoAppetite-problem": noappetiteDesies,
+    "/medicationSidEffectsAppetiteNausea-problem": medicationSidEffectsAppetiteNausea,
+    "/medicationHardtoSwallow-problem": medicationHardtoSwallow,
+    "/medicationHardtoSwallowwholeliquid-problem": medicationHardtoSwallowwholeliquid,
+    "/medicationHardtoSwallowDryMouth-problem": drymouthDesises,
+    "/medicationTiming-problem": medicationTiming,
+    "/medicationWholeCrushedLiquid-problem": medicationWholeCrushedLiquid,
     "/nausea-problem": [
         { "id": "1", "name": "Vomiting", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
         { "id": "2", "name": "Constipation", "image": nausea02, "secPath": "/confrm-step-yesno", "path": "/when" },
@@ -365,65 +590,65 @@ export const diseasesData = {
         { "id": "6", "name": "Something Else", "image": nausea05, "secPath": "/Whiteboard", "path": "/when" }
     ],
     "/bowels-problem": [
-        { "id": "1", "name": "Constipation", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Diarrhea", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Gas / Bloating", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Cramping", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Blood", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Bed Pan", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Toilet", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Colostomy / Ostomy Bag", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Need Changed", "image": swallowingimg04, "path": "/" },
-        { "id": "10", "name": "Feeding Tube", "image": swallowingimg04, "path": "/" },
-        { "id": "11", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "1", "name": "Constipation", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "2", "name": "Diarrhea", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "3", "name": "Gas / Bloating", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "4", "name": "Cramping", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "5", "name": "Blood", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "6", "name": "Bed Pan", "image": swallowingimg04, "secPath": "/summary-list", "path": "/when" },
+        { "id": "7", "name": "Toilet", "image": swallowingimg04, "secPath": "/summary-list", "path": "/when" },
+        { "id": "8", "name": "Colostomy / Ostomy Bag", "image": swallowingimg04, "secPath": "/summary-list", "path": "/when" },
+        { "id": "9", "name": "Need Changed", "image": swallowingimg04, "secPath": "/summary-list", "path": "/when" },
+        { "id": "10", "name": "Feeding Tube", "image": swallowingimg04, "secPath": "/bowelsfeedingtube-problem", "path": "/when" },
+        { "id": "11", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/when" }
     ],
 
     "/urination-problem": [
-        { "id": "1", "name": "Burning", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Frequent", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Urgency", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Very Little / Infrequent", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Blood", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Need Changed", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Catheter", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Toilet/Urinal", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "1", "name": "Burning", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "2", "name": "Frequent", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "3", "name": "Urgency", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "4", "name": "Very Little / Infrequent", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "5", "name": "Blood", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "6", "name": "Need Changed", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "7", "name": "Catheter", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+        { "id": "8", "name": "Toilet/Urinal", "image": swallowingimg04, "secPath": "/summary-list", "path": "/when" },
+        { "id": "9", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/when" }
     ],
 
     "/fatigue-problem": [
-        { "id": "1", "name": "Wake up Tired", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Trouble Sleeping", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "More than Usual", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "With Activity", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "All Day", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "With Medication", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "After Procedure", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "1", "name": "Wake up Tired", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "2", "name": "Trouble Sleeping", "image": swallowingimg04, "path": "/howoften", "secPath": "/fatigueTroubleSleeping-problem" },
+        { "id": "3", "name": "More than Usual", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "4", "name": "With Activity", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "5", "name": "All Day", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "6", "name": "With Medication", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "7", "name": "After Procedure", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/eating-problem": [
-        { "id": "1", "name": "No Appetite", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Hungry / Thirsty", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Food Allergy", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Don’t Eat This", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Need Help Eating", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Losing Weight Without Trying", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Swallowing", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Taste Changes", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Dry Mouth", "image": swallowingimg04, "path": "/" },
-        { "id": "10", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "1", "name": "No Appetite", "image": swallowingimg04, "path": "/when", "secPath": "/eatingNoAppetite-problem" },
+        { "id": "2", "name": "Hungry / Thirsty", "image": swallowingimg04, "path": "/howoften", "secPath": "/summary-list" },
+        { "id": "3", "name": "Food Allergy", "image": swallowingimg04, "path": "/", "secPath": "/summary-list" },
+        { "id": "4", "name": "Don’t Eat This", "image": swallowingimg04, "secPath": "/eatingDonoteatThis-problem" },
+        { "id": "5", "name": "Need Help Eating", "image": swallowingimg04, "secPath": "/summary-list" },
+        { "id": "6", "name": "Losing Weight Without Trying", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "7", "name": "Swallowing", "image": swallowingimg04, "secPath": "/swallowing-problem" },
+        { "id": "8", "name": "Taste Changes", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "9", "name": "Dry Mouth", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "10", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard" }
     ],
 
     "/medication-problem": [
-        { "id": "1", "name": "Side Effects", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Hard to Swallow", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Information", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Too Many", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Too Little", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Timing", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Whole / Crushed / Liquid", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Don’t Want", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "1", "name": "Side Effects", "image": swallowingimg04, "secPath": "/medicationSideEffects-problem" },
+        { "id": "2", "name": "Hard to Swallow", "image": swallowingimg04, "secPath": "/medicationHardtoSwallow-problem" },
+        { "id": "3", "name": "Information", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" },
+        { "id": "4", "name": "Too Many", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "5", "name": "Too Little", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "6", "name": "Timing", "image": swallowingimg04, "path": "/medicationTiming-problem", "secPath": "/medicationTiming-problem" },
+        { "id": "7", "name": "Whole / Crushed / Liquid", "image": swallowingimg04, "path": "/", "secPath": "/medicationWholeCrushedLiquid-problem" },
+        { "id": "8", "name": "Don’t Want", "image": swallowingimg04, "path": "/", "secPath": "/new-problem" },
+        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/movement-problem": [
@@ -433,7 +658,7 @@ export const diseasesData = {
         { "id": "4", "name": "Numbness / Tingling", "image": swallowingimg04, "path": "/" },
         { "id": "5", "name": "Dizzy", "image": swallowingimg04, "path": "/" },
         { "id": "6", "name": "Trouble Walking", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "7", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/communication-problem": [
@@ -445,7 +670,7 @@ export const diseasesData = {
         { "id": "6", "name": "Wrong words come out", "image": swallowingimg04, "path": "/" },
         { "id": "7", "name": "Don’t know where I am", "image": swallowingimg04, "path": "/" },
         { "id": "8", "name": "Memory trouble", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/vision-problem": [
@@ -456,7 +681,7 @@ export const diseasesData = {
         { "id": "5", "name": "Glasses", "image": swallowingimg04, "path": "/" },
         { "id": "6", "name": "Dizzy", "image": swallowingimg04, "path": "/" },
         { "id": "7", "name": "Headache", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/hearing-problem": [
@@ -467,7 +692,7 @@ export const diseasesData = {
         { "id": "5", "name": "Plugged", "image": swallowingimg04, "path": "/" },
         { "id": "6", "name": "Dizzy", "image": swallowingimg04, "path": "/" },
         { "id": "7", "name": "Write it Down", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/illness-problem": [
@@ -481,7 +706,7 @@ export const diseasesData = {
         { "id": "8", "name": "Congested or Runny Nose", "image": swallowingimg04, "path": "/" },
         { "id": "9", "name": "Mucus / Secretions", "image": swallowingimg04, "path": "/" },
         { "id": "10", "name": "Appetite", "image": swallowingimg04, "path": "/" },
-        { "id": "11", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "11", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/something-problem": [
@@ -495,7 +720,7 @@ export const diseasesData = {
         { "id": "8", "name": "Waited Too Long", "image": swallowingimg04, "path": "/" },
         { "id": "9", "name": "Feeding Tube Removed", "image": swallowingimg04, "path": "/" },
         { "id": "10", "name": "Trach Removed", "image": swallowingimg04, "path": "/" },
-        { "id": "11", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "11", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/wound-problem": [
@@ -507,7 +732,7 @@ export const diseasesData = {
         { "id": "6", "name": "Itchy", "image": swallowingimg04, "path": "/" },
         { "id": "7", "name": "Dressing Change", "image": swallowingimg04, "path": "/" },
         { "id": "8", "name": "Reposition", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
 
@@ -520,7 +745,7 @@ export const diseasesData = {
         { "id": "5", "name": "Reflux", "image": swallowingimg04, "path": "/" },
         { "id": "6", "name": "Bowels", "image": swallowingimg04, "path": "/" },
         { "id": "7", "name": "Information", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/trach-problem": [
@@ -535,6 +760,6 @@ export const diseasesData = {
         { "id": "9", "name": "Itchy", "image": swallowingimg04, "path": "/" },
         { "id": "10", "name": "Leaking", "image": swallowingimg04, "path": "/" },
         { "id": "11", "name": "Swallowing", "image": swallowingimg04, "path": "/" },
-        { "id": "12", "name": "Something Else", "image": swallowingimg04, "path": "/" }
+        { "id": "12", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ]
 }
