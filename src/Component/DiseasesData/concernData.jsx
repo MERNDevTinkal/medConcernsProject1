@@ -38,6 +38,6 @@ export const concerns = [
     { id: 18, name: "Mucus / Secretions", image: ConcernImg15, path: "/concern/mucus-secretions-yes-no/18" },
     { id: 19, name: "Feeding Tube", image: ConcernImg8, path: "/concern/feeding-tube-yes-no/19" },
     { id: 20, name: "Trach", image: ConcernImg17, path: "/concern/trach-yes-no/20" },
-    { id: 21, name: "Something Else", image: ConcernImg18, path: "/concern/something-else-yes-no/21" },
-    { id: 22, name: "No Concerns", image: ConcernImg8, path: "/concern/no-concerns-yes-no/22" },
+    { id: 21, name: "Something Else", image: ConcernImg18, path: "/Whiteboard" },
+    { id: 22, name: "No Concerns", image: ConcernImg8, path: "/summary-list" },
 ];

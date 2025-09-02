@@ -40,6 +40,43 @@ import Emo4 from "../../assets/images/emo-04.svg";
 import Emo5 from "../../assets/images/emo-05.svg";
 import Emo6 from "../../assets/images/emo-06.svg";
 
+
+
+import PainImg1 from "../../assets/images/squeezing.png";
+import PainImg2 from "../../assets/images/Burning.png";
+import PainImg3 from "../../assets/images/dullpain.png";
+import PainImg4 from "../../assets/images/stabbingpain.jpg";
+import PainImg5 from "../../assets/images/numbness-tingling-rev.jpeg";
+import PainImg6 from "../../assets/images/spasming.png";
+import PainImg7 from "../../assets/images/pins-and-needles.png";
+import PainImg8 from "../../assets/images/pain-stomach.jpeg";
+import PainImg9 from "../../assets/images/heavy-pain.png";
+import PainImg10 from "../../assets/images/shooting-pain.png";
+import PainImg11 from "../../assets/images/headache.png";
+import PainImg12 from "../../assets/images/itching.png";
+import PainImg13 from "../../assets/images/PEG-pain.png";
+import PainImg14 from "../../assets/images/trach-pain.png";
+import PainImg15 from "../../assets/images/something-else.png";
+
+
+const painCards = [
+    { id: "1", name: "Squeezing / Tight", image: PainImg1, secPath: "/feeling-list-pain", path: "" },
+    { id: "2", name: "Burning", image: PainImg2, secPath: "/feeling-list-pain", path: "" },
+    { id: "3", name: "Aching / Dull", image: PainImg3, secPath: "/feeling-list-pain", path: "" },
+    { id: "4", name: "Sharp / Stabbing", image: PainImg4, secPath: "/feeling-list-pain", path: "" },
+    { id: "5", name: "Numb / Tingling", image: PainImg5, secPath: "/feeling-list-pain", path: "" },
+    { id: "6", name: "Spasming", image: PainImg6, secPath: "/feeling-list-pain", path: "" },
+    { id: "7", name: "Pins and Needles", image: PainImg7, secPath: "/feeling-list-pain", path: "" },
+    { id: "8", name: "Cramping", image: PainImg8, secPath: "/feeling-list-pain", path: "" },
+    { id: "9", name: "Heavy", image: PainImg9, secPath: "/feeling-list-pain", path: "" },
+    { id: "10", name: "Shooting", image: PainImg10, secPath: "/feeling-list-pain", path: "" },
+    { id: "11", name: "Throbbing", image: PainImg11, secPath: "/feeling-list-pain", path: "" },
+    { id: "12", name: "Itching", image: PainImg12, secPath: "/feeling-list-pain", path: "" },
+    { id: "13", name: "PEG Pain", image: PainImg13, secPath: "/feeling-list-pain", path: "" },
+    { id: "14", name: "Trach Pain", image: PainImg14, secPath: "/feeling-list-pain", path: "" },
+    { id: "15", name: "Something Else", image: PainImg15, secPath: "/feeling-list-pain", path: "" },
+];
+
 const swallowingDesises = [
     { "id": "1", "name": "With Medication", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
     { "id": "2", "name": "With Food / Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
@@ -72,6 +109,15 @@ const painwithswallowingDesises = [
     { "id": "6", "name": "Just Swallowing", "image": swallowingimg04, "secPath": "/feeling-list-pain", "path": "/when" },
     { "id": "7", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/when" },
 ]
+const trachSwallowingFoodStickingDesises = [
+    { "id": "1", "name": "With Food", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "With Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "With Medication", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "With Food / Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "5", "name": "With Saliva", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "6", "name": "Just Swallowing", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "7", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/when" },
+]
 const fearofswallowingDesises = [
     { "id": "1", "name": "With Food", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
     { "id": "2", "name": "With Drinks", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
@@ -102,6 +148,18 @@ const trachproblemDesises = [
     { "id": "6", "name": "Pain", "image": swallowingimg04, "secPath": "", "path": "/when" },
     { "id": "7", "name": "Tight", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
     { "id": "8", "name": "Itchy", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "9", "name": "Leaking", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "10", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
+const trachDesises = [
+    { "id": "1", "name": "Mucus/Secretions", "image": swallowingimg04, "secPath": "/trachmucussecretions-problem", "path": "/howoften" },
+    { "id": "2", "name": "Suction", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "3", "name": "Cap", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "4", "name": "Speaking Valve ", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "5", "name": "Remove", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
+    { "id": "6", "name": "Breathing/Coughing ", "image": swallowingimg04, "secPath": "/trachBreathing-problem", "path": "/when" },
+    { "id": "7", "name": "Pain", "image": swallowingimg04, "secPath": "/pain-front", "path": "/when" },
+    { "id": "8", "name": "Tight", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
     { "id": "9", "name": "Leaking", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
     { "id": "10", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
 ]
@@ -448,6 +506,115 @@ const medicationWholeCrushedLiquid = [
     { "id": "4", "name": "Something Else", "image": swallowingimg04, secPath: "/whiteboard", path: "" },
 ]
 
+const visionGlasses = [
+    { "id": "1", "name": "Lost Glasses", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "Not Working / Broken", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "Need My Glasses", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "4", "name": "Check My Vision", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "5", "name": "Something Else", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "" },
+]
+
+const hearingAids = [
+    { "id": "1", "name": "Need My Hearing Aids", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "2", "name": "Need Batteries ", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "3", "name": "Needs Charging ", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "4", "name": "Not Working / Broken", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "5", "name": "Can’t Hear ", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "6", "name": "Check My Hearing ", "image": swallowingimg04, "secPath": "/summary-list", "path": "/howoften" },
+    { "id": "7", "name": "Something Else  ", "image": swallowingimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
+const mucusProblemsub = [
+    { "id": "1", "name": "Shortness of Breath", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "Suction", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "Thick Mucus", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "Dry Mouth", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "5", "name": "Too Much", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "6", "name": "Color", "image": dashimg04, "secPath": "/color-problem-sub", "path": "/howoften" },
+    { "id": "7", "name": "Something Else", "image": dashimg04, "secPath": "/Whiteboard", "path": "/howoften" }
+]
+
+const illnessAppetite = [
+    { "id": "1", "name": "No Appetite", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "2", "name": "Taste Changes", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "3", "name": "Nausea", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "4", "name": "Smell of Food", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
+    { "id": "5", "name": "Something Else", "image": dashimg04, "secPath": "/Whiteboard", "path": "/Whiteboard" },
+]
+const somethingHappenedStrokeSymptoms = [
+    { "id": "1", "name": "Movement", "image": dashimg04, "secPath": "/somethingHappenedStrokeSymptomsMovement-problem", "path": "/howoften" },
+    { "id": "2", "name": "Communication / Thinking", "image": dashimg04, "secPath": "/somethingHappenedStrokeSymptomsCommunication-problem", "path": "/howoften" },
+    { "id": "3", "name": "Hearing", "image": dashimg04, "secPath": "/somethingHappenedStrokeSymptomsHearing-problem", "path": "/howoften" },
+    { "id": "4", "name": "Vision", "image": dashimg04, "secPath": "/somethingHappenedStrokeSymptomsVision-problem", "path": "/howoften" },
+    { "id": "5", "name": "Something Else", "image": dashimg04, "secPath": "/Whiteboard", "path": "/howoften" },
+]
+
+const movementconcerns = [
+    { "id": "1", "name": "Weakness", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "2", "name": "Weak on One Side", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "3", "name": "Clumsy / Off Balance", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "4", "name": "Numbness / Tingling", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "5", "name": "Dizzy", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "6", "name": "Trouble Walking", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "7", "name": "Something Else", "image": swallowingimg04, "path": "", "secPath": "/Whiteboard" }
+]
+
+const communicationConcerns = [
+    { "id": "1", "name": "Hard to understand you", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "2", "name": "Can’t find my words", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "3", "name": "Hard to talk", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "4", "name": "No Voice", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "5", "name": "I’m confused", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "6", "name": "Wrong words come out", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "7", "name": "Don’t know where I am", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "8", "name": "Memory trouble", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
+]
+
+const hearingConcers = [
+    { "id": "1", "name": "Hearing Aids", "image": swallowingimg04, "path": "/", "secPath": "/hearingAids-problem" },
+    { "id": "2", "name": "Can’t Hear", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "3", "name": "Ringing", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+    { "id": "4", "name": "Ear Pain", "image": swallowingimg04, "path": "/", "secPath": "/pain-feel" },
+    { "id": "5", "name": "Plugged", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "6", "name": "Dizzy", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+    { "id": "7", "name": "Write it Down", "image": swallowingimg04, "path": "/", "secPath": "/summary-list" },
+    { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
+]
+
+const visionConcers = [
+    { "id": "1", "name": "Double Vision", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+    { "id": "2", "name": "Blurry", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+    { "id": "3", "name": "Can’t See Left", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+    { "id": "4", "name": "Can’t See Right", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+    { "id": "5", "name": "Glasses", "image": swallowingimg04, "path": "/", "secPath": "/visionGlasses-problem" },
+    { "id": "6", "name": "Dizzy", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+    { "id": "7", "name": "Headache", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+    { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
+]
+
+const feedingBowels =
+    [
+        { id: "1", name: "Constipation", path: "/when", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "2", name: "Diarrhea", path: "/when", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "3", name: "Gas/Bloating", path: "/when", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "4", name: "Cramping", path: "/when", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "5", name: "Blood", path: "/when", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "6", name: "Bed Pan ", path: "/when", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "7", name: "Colostomy / Ostomy", path: "/when", image: dashimg04, secPath: "/summary-list" },
+        { id: "8", name: "Need Changed", path: "/when", image: dashimg04, secPath: "/confrm-step-yesno" },
+        { id: "9", name: "Something Else", path: "/when", image: dashimg04, secPath: "/Whiteboard" }
+    ]
+
+const trachSwallowing =
+    [
+        { id: "1", name: "Choking", path: "/when", image: dashimg04, secPath: "/trachSwallowingChoking-problem" },
+        { id: "2", name: "Food Sticking", path: "/when", image: dashimg04, secPath: "/trachSwallowingFoodSticking-problem" },
+        { id: "3", name: "Heartburn", path: "/when", image: dashimg04, secPath: "/trachSwallowingHeartburn-problem" },
+        { id: "4", name: "Coughing", path: "/when", image: dashimg04, secPath: "/trachSwallowingCoughing-problem" },
+        { id: "5", name: "Trach", path: "/when", image: dashimg04, secPath: "/trachSwallowingsuboptios-problem" },
+    ]
+
+
 export const diseasesData = {
     "/breathing-problem": [
         { "id": "1", "name": "Shortness of Breath", "image": dashimg01, "secPath": "/confrm-step-yesno", "path": "/when" },
@@ -471,15 +638,7 @@ export const diseasesData = {
         { "id": "6", "name": "Trach", "image": dashimg04, "secPath": "/trach-problem-sub", "path": "/when" },
         { "id": "7", "name": "Something Else", "image": dashimg04, "secPath": "/Whiteboard", "path": "/when" }
     ],
-    "/mucus-problem-sub": [
-        { "id": "1", "name": "Shortness of Breath", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
-        { "id": "2", "name": "Suction", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
-        { "id": "3", "name": "Thick Mucus", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
-        { "id": "4", "name": "Dry Mouth", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
-        { "id": "5", "name": "Too Much", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
-        { "id": "6", "name": "Color", "image": dashimg04, "secPath": "/color-problem-sub", "path": "/howoften" },
-        { "id": "7", "name": "Something Else", "image": dashimg04, "secPath": "/Whiteboard", "path": "/howoften" }
-    ],
+    "/mucus-problem-sub": mucusProblemsub,
     "/color-problem-sub": [
         { "id": "1", "name": "Green", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
         { "id": "2", "name": "Yellow", "image": dashimg04, "secPath": "/confrm-step-yesno", "path": "/howoften" },
@@ -494,7 +653,7 @@ export const diseasesData = {
         { "id": "3", "name": "Thick Mucus", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
         { "id": "4", "name": "Dry Mouth", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
         { "id": "5", "name": "Too Much", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
-        { "id": "6", "name": "Color", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" }
+        { "id": "6", "name": "Color", "image": swallowingimg04, "path": "/howoften", "secPath": "/mucusColor-problem" }
     ],
     "/swallowing-problem": [
         { "id": "1", "name": "Choking", "image": swallowingimg04, "path": "/howoften", "secPath": "/swallowingwith-problem" },
@@ -581,6 +740,26 @@ export const diseasesData = {
     "/medicationHardtoSwallowDryMouth-problem": drymouthDesises,
     "/medicationTiming-problem": medicationTiming,
     "/medicationWholeCrushedLiquid-problem": medicationWholeCrushedLiquid,
+    "/visionGlasses-problem": visionGlasses,
+    "/hearingAids-problem": hearingAids,
+    "/illnessMucus-problem": mucusProblemsub,
+    "/illnessAppetite-problem": illnessAppetite,
+    "/somethingHappenedStrokeSymptoms-problem": somethingHappenedStrokeSymptoms,
+    "/somethingHappenedStrokeSymptomsMovement-problem": movementconcerns,
+    "/somethingHappenedStrokeSymptomsCommunication-problem": communicationConcerns,
+    "/somethingHappenedStrokeSymptomsHearing-problem": hearingConcers,
+    "/somethingHappenedStrokeSymptomsVision-problem": visionConcers,
+    "/mucusColor-problem": colorDesies,
+    "/pain-feel": painCards,
+    "/feedingBowels-problem": feedingBowels,
+    "/trachSwallowing-problem": trachSwallowing,
+    "/trachSwallowingChoking-problem": trachSwallowingFoodStickingDesises,
+    "/trachSwallowingFoodSticking-problem": trachSwallowingFoodStickingDesises,
+    "/trachSwallowingHeartburn-problem": trachSwallowingFoodStickingDesises,
+    "/trachSwallowingCoughing-problem": trachSwallowingFoodStickingDesises,
+    "/trachSwallowingsuboptios-problem": trachDesises,
+    "/trachmucussecretions-problem": trachmucusSecretionsDesises,
+    "/trachBreathing-problem": fearofswallowingDesises,
     "/nausea-problem": [
         { "id": "1", "name": "Vomiting", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
         { "id": "2", "name": "Constipation", "image": nausea02, "secPath": "/confrm-step-yesno", "path": "/when" },
@@ -651,115 +830,79 @@ export const diseasesData = {
         { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
-    "/movement-problem": [
-        { "id": "1", "name": "Weakness", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Weak on One Side", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Clumsy / Off Balance", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Numbness / Tingling", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Dizzy", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Trouble Walking", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
-    ],
+    "/movement-problem": movementconcerns,
 
-    "/communication-problem": [
-        { "id": "1", "name": "Hard to understand you", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Can’t find my words", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Hard to talk", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "No Voice", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "I’m confused", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Wrong words come out", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Don’t know where I am", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Memory trouble", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
-    ],
+    "/communication-problem": communicationConcerns,
 
-    "/vision-problem": [
-        { "id": "1", "name": "Double Vision", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Blurry", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Can’t See Left", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Can’t See Right", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Glasses", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Dizzy", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Headache", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
-    ],
+    "/vision-problem": visionConcers,
 
-    "/hearing-problem": [
-        { "id": "1", "name": "Hearing Aids", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Can’t Hear", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Ringing", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Ear Pain", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Plugged", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Dizzy", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Write it Down", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
-    ],
+    "/hearing-problem": hearingConcers,
 
     "/illness-problem": [
-        { "id": "1", "name": "Fever", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Chills", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Achy", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Sore Throat", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Coughing", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Nausea/Vomiting", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Diarrhea", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Congested or Runny Nose", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Mucus / Secretions", "image": swallowingimg04, "path": "/" },
-        { "id": "10", "name": "Appetite", "image": swallowingimg04, "path": "/" },
+        { "id": "1", "name": "Fever", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "2", "name": "Chills", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "3", "name": "Achy", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "4", "name": "Sore Throat", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "5", "name": "Coughing", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "6", "name": "Nausea/Vomiting", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "7", "name": "Diarrhea", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "8", "name": "Congested or Runny Nose", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "9", "name": "Mucus / Secretions", "image": swallowingimg04, "path": "/", "secPath": "/illnessMucus-problem" },
+        { "id": "10", "name": "Appetite", "image": swallowingimg04, "path": "/illnessAppetite-problem", "secPath": "/illnessAppetite-problem" },
         { "id": "11", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/something-problem": [
-        { "id": "1", "name": "Stroke Symptoms", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Fall", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Argument", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Trouble Sleeping", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Bloodwork/X-ray", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Need Changed", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Bad Touch", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Waited Too Long", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Feeding Tube Removed", "image": swallowingimg04, "path": "/" },
-        { "id": "10", "name": "Trach Removed", "image": swallowingimg04, "path": "/" },
+        { "id": "1", "name": "Stroke Symptoms", "image": swallowingimg04, "path": "/", "secPath": "/somethingHappenedStrokeSymptoms-problem" },
+        { "id": "2", "name": "Fall", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "3", "name": "Argument", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "4", "name": "Trouble Sleeping", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "5", "name": "Bloodwork/X-ray", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "6", "name": "Need Changed", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "7", "name": "Bad Touch", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "8", "name": "Waited Too Long", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "9", "name": "Feeding Tube Removed", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "10", "name": "Trach Removed", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
         { "id": "11", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/wound-problem": [
-        { "id": "1", "name": "Infection", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Stitches/Staples", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Pain", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Swelling", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Leaking", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Itchy", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Dressing Change", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Reposition", "image": swallowingimg04, "path": "/" },
+        { "id": "1", "name": "Infection", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "2", "name": "Stitches/Staples", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "3", "name": "Pain", "image": swallowingimg04, "path": "/howoften", "secPath": "/pain-feel" },
+        { "id": "4", "name": "Swelling", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "5", "name": "Leaking", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "6", "name": "Itchy", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "7", "name": "Dressing Change", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "8", "name": "Reposition", "image": swallowingimg04, "path": "/howoften", "secPath": "/summary-list" },
         { "id": "9", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
 
 
     "/feeding-problem": [
-        { "id": "1", "name": "Pain", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Remove", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Leaking", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Feel Full", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Reflux", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Bowels", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Information", "image": swallowingimg04, "path": "/" },
+        { "id": "1", "name": "Pain", "image": swallowingimg04, "path": "/howoften", "secPath": "/full-body" },
+        { "id": "2", "name": "Remove", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "3", "name": "Leaking", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "4", "name": "Feel Full", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "5", "name": "Reflux", "image": swallowingimg04, "path": "/howoften", "secPath": "/confrm-step-yesno" },
+        { "id": "6", "name": "Bowels", "image": swallowingimg04, "path": "/howoften", "secPath": "/feedingBowels-problem" },
+        { "id": "7", "name": "Information", "image": swallowingimg04, "path": "/howoften", "secPath": "/Whiteboard" },
         { "id": "8", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ],
 
     "/trach-problem": [
-        { "id": "1", "name": "Mucus/Secretions", "image": swallowingimg04, "path": "/" },
-        { "id": "2", "name": "Suction", "image": swallowingimg04, "path": "/" },
-        { "id": "3", "name": "Cap", "image": swallowingimg04, "path": "/" },
-        { "id": "4", "name": "Speaking Valve", "image": swallowingimg04, "path": "/" },
-        { "id": "5", "name": "Remove", "image": swallowingimg04, "path": "/" },
-        { "id": "6", "name": "Breathing/Coughing", "image": swallowingimg04, "path": "/" },
-        { "id": "7", "name": "Pain", "image": swallowingimg04, "path": "/" },
-        { "id": "8", "name": "Tight", "image": swallowingimg04, "path": "/" },
-        { "id": "9", "name": "Itchy", "image": swallowingimg04, "path": "/" },
-        { "id": "10", "name": "Leaking", "image": swallowingimg04, "path": "/" },
-        { "id": "11", "name": "Swallowing", "image": swallowingimg04, "path": "/" },
+        { "id": "1", "name": "Mucus/Secretions", "image": swallowingimg04, "path": "/", secPath: "/trachmucusSecretions-problem" },
+        { "id": "2", "name": "Suction", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+        { "id": "3", "name": "Cap", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+        { "id": "4", "name": "Speaking Valve", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+        { "id": "5", "name": "Remove", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+        { "id": "6", "name": "Breathing/Coughing", "image": swallowingimg04, "path": "/when", "secPath": "/breathing-problem" },
+        { "id": "7", "name": "Pain", "image": swallowingimg04, "path": "/when", "secPath": "/pain-front" },
+        { "id": "8", "name": "Tight", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+        { "id": "9", "name": "Itchy", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+        { "id": "10", "name": "Leaking", "image": swallowingimg04, "path": "/when", "secPath": "/confrm-step-yesno" },
+        { "id": "11", "name": "Swallowing", "image": swallowingimg04, "path": "/when", "secPath": "/trachSwallowing-problem" },
         { "id": "12", "name": "Something Else", "image": swallowingimg04, "path": "/", "secPath": "/Whiteboard" }
     ]
 }

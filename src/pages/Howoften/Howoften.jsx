@@ -68,7 +68,6 @@ export default function TabsCalendar() {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
 
-  // ✅ Handle user selections
   const handleDaySelect = (item) => {
     setSelectedDayItem(item);
     setShowSaveModal(true);
@@ -88,6 +87,7 @@ export default function TabsCalendar() {
     setShowSaveModal(true);
     getTextToSpeech(months[index]);
     updateDisease("Howoften", { type: "month", value: index });
+    navigate("/new-problem")
   };
 
   return (
