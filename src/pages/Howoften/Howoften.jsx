@@ -68,24 +68,26 @@ export default function TabsCalendar() {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
 
-  const handleDaySelect = (item) => {
+  const handleDaySelect = async (item) => {
     setSelectedDayItem(item);
     setShowSaveModal(true);
-    getTextToSpeech(item);
+    await getTextToSpeech(item);
     updateDisease("Howoften", { type: "day", value: item });
+    navigate("/new-problem")
   };
 
-  const handleWeekSelect = (index) => {
+  const handleWeekSelect = async (index) => {
     setSelectedWeekDay(index);
     setShowSaveModal(true);
-    getTextToSpeech(weekDays[index]);
+    await getTextToSpeech(weekDays[index]);
     updateDisease("Howoften", { type: "week", value: index });
+    navigate("/new-problem")
   };
 
-  const handleMonthSelect = (index) => {
+  const handleMonthSelect = async (index) => {
     setSelectedMonth(index);
     setShowSaveModal(true);
-    getTextToSpeech(months[index]);
+    await getTextToSpeech(months[index]);
     updateDisease("Howoften", { type: "month", value: index });
     navigate("/new-problem")
   };
@@ -252,7 +254,7 @@ export default function TabsCalendar() {
         </div>
       </div>
 
-      {ShowSaveModal && <SaveModel setShowSaveModal={setShowSaveModal} />}
+      {/* {ShowSaveModal && <SaveModel setShowSaveModal={setShowSaveModal} />} */}
       <Footer />
     </>
   );
