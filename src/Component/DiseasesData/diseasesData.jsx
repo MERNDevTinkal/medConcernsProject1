@@ -72,6 +72,16 @@ const feelOptions = [
     { id: "4", name: "Low/Sad", image: feel04, path: "/low-sad", secPath: "" },
     { id: "5", name: "Very down", image: feel05, path: "/very-down", secPath: "" },
 ];
+const Optionsquestions = [
+    { id: "1", name: "Do you feel depressed?", path: "/good", secPath: "" },
+    { id: "2", name: "Do you feel afraid ?", path: "/little-off", secPath: "" },
+    { id: "3", name: "Do you have difficulty sleeping ?", path: "/not-good", secPath: "" },
+    { id: "4", name: "Do you feel guilty or worry about needing help ?", path: "/low-sad", secPath: "" },
+    { id: "5", name: "Do you feel hopeless ?", path: "/very-down", secPath: "" },
+];
+
+
+
 const painCards = [
     { id: "1", name: "Squeezing / Tight", image: PainImg1, secPath: "/feeling-list-pain", path: "" },
     { id: "2", name: "Burning", image: PainImg2, secPath: "/feeling-list-pain", path: "" },
@@ -774,6 +784,7 @@ export const diseasesData = {
     "/trachmucussecretions-problem": trachmucusSecretionsDesises,
     "/trachBreathing-problem": fearofswallowingDesises,
     "/feel": feelOptions,
+    "/feelOptions": Optionsquestions,
     "/nausea-problem": [
         { "id": "1", "name": "Vomiting", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
         { "id": "2", "name": "Constipation", "image": nausea02, "secPath": "/confrm-step-yesno", "path": "/when" },

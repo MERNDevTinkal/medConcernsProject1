@@ -48,7 +48,7 @@ import NauseaProblem from "./pages/Nausea/NauseaProblem";
 import ProblemYesNo from "./pages/Nausea/ProblemYesNo";
 import NauseaWhen from "./pages/Nausea/NauseaWhen";
 import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
-
+import FeelOptions from "./pages/feelOptions/feelOptions"
 function App() {
   return (
     <Router>
@@ -62,7 +62,7 @@ function App() {
         <Route path="/concern" element={<Concern />} />
         <Route path="/concern-pain" element={<ConcernPain />} />
         <Route path="/new-problem" element={<NewProblem />} />
-        <Route path="/full-body" element={<FullBody />} />/male-body
+        <Route path="/full-body" element={<FullBody />} />
         <Route path="/pain-front" element={<PainFront />} />
         <Route path="/back-pain" element={<BackPain />} />
         <Route path="/face-pain" element={<FacePain />} />
@@ -104,6 +104,7 @@ function App() {
         <Route path="/nausea-when" element={<NauseaWhen />} />
         <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
         <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
+        <Route path="/feelOptions" element={<FeelOptions />} />
       </Routes>
     </Router>
   );
