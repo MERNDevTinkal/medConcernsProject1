@@ -1,63 +1,59 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import EmotionsImg1 from "../../assets/images/emotion-img-01.png";
-import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
-import EmotionsImg3 from "../../assets/images/emotion-img-03.png";
-import EmotionsImg4 from "../../assets/images/emotion-img-04.png";
-import EmotionsImg5 from "../../assets/images/emotion-img-05.png";
-import EmotionsImg6 from "../../assets/images/emotion-img-06.png";
-
+import React, { useContext, useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { diseasesData } from "../../Component/DiseasesData/diseasesData";
+import { GlobalContext } from "../../context/DiseaseContext";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import FeelingPOpUP from "../FeelingPopUp/feelingPopUp"
 const CardsList = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [feelingsicons, setFeelingsicons] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const mainpath = location.pathname;
+  const { updateDisease } = useContext(GlobalContext);
+
+  const handleCardClick = async (item) => {
+    setSelected(item);
+    await getTextToSpeech(item.name);
+    setShowPopup(true);
+  };
+
+  const handlePopupResponse = async (response) => {
+    setShowPopup(false);
+    if (selected) {
+
+      updateDisease(mainpath, [selected.name]);
+      if (response === "no") {
+        navigate("/summary-list");
+      }
+    }
+  };
+
+  useEffect(() => {
+    setFeelingsicons(diseasesData[mainpath]);
+  }, [mainpath]);
+
   return (
     <>
-      <Link to="/feeling">
-        <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
-          <div className="dashboard-img">
-            <img src={EmotionsImg1} className="w-full" />
+      {showPopup && (
+        <FeelingPOpUP handlePopupResponse={handlePopupResponse} />
+      )}
+      {feelingsicons.map((item) => (
+        <div
+          style={{ cursor: "pointer" }}
+          key={item.id}
+          onClick={() => handleCardClick(item)}
+        >
+          <div className="dashboard-cards rounded-2xl bg-white text-center pb-3 shadow hover:shadow-lg transition">
+            <div className="dashboard-img">
+              <img src={item.image} className="w-full rounded-t-2xl" alt={item.name} />
+            </div>
+            <p className="text-[21px] mt-3 text-black font-medium">{item.name}</p>
           </div>
-          <p className="text-[21px] mt-3 color-black">Anxious</p>
         </div>
-      </Link>
-      <Link to="/feeling">
-        <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
-          <div className="dashboard-img">
-            <img src={EmotionsImg2} className="w-full" />
-          </div>
-          <p className="text-[21px] mt-3 color-black">Depressed</p>
-        </div>
-      </Link>
-      <Link to="/feeling">
-        <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
-          <div className="dashboard-img">
-            <img src={EmotionsImg3} className="w-full" />
-          </div>
-          <p className="text-[21px] mt-3 color-black">Scared</p>
-        </div>
-      </Link>
-      <Link to="/feeling">
-        <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
-          <div className="dashboard-img">
-            <img src={EmotionsImg4} className="w-full" />
-          </div>
-          <p className="text-[21px] mt-3 color-black">Angry</p>
-        </div>
-      </Link>
-      <Link to="/feeling">
-        <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
-          <div className="dashboard-img">
-            <img src={EmotionsImg5} className="w-full" />
-          </div>
-          <p className="text-[21px] mt-3 color-black">Frustrated</p>
-        </div>
-      </Link>
-      <Link to="/feeling">
-        <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
-          <div className="dashboard-img">
-            <img src={EmotionsImg6} className="w-full" />
-          </div>
-          <p className="text-[21px] mt-3 color-black">Frustrated</p>
-        </div>
-      </Link>
+      ))}
     </>
   );
 };

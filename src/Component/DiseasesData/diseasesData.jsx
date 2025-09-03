@@ -65,6 +65,31 @@ import feel03 from "../../assets/images/feel-icon-03.svg";
 import feel04 from "../../assets/images/feel-icon-04.svg";
 import feel05 from "../../assets/images/feel-icon-05.svg";
 
+
+import EmotionsImg1 from "../../assets/images/emotion-img-01.png";
+import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
+import EmotionsImg3 from "../../assets/images/emotion-img-03.png";
+import EmotionsImg4 from "../../assets/images/emotion-img-04.png";
+import EmotionsImg5 from "../../assets/images/emotion-img-05.png";
+import EmotionsImg6 from "../../assets/images/emotion-img-06.png";
+
+
+const emotionsData = [
+    { id: 1, name: "Anxious", image: EmotionsImg1, path: "", secPath: "/when" },
+    { id: 2, name: "Depressed", image: EmotionsImg2, path: "", secPath: "/when" },
+    { id: 3, name: "Scared", image: EmotionsImg3, path: "", secPath: "/when" },
+    { id: 4, name: "Angry", image: EmotionsImg4, path: "", secPath: "/when" },
+    { id: 5, name: "Frustrated", image: EmotionsImg5, path: "", secPath: "/when" },
+    { id: 6, name: "Frustrated", image: EmotionsImg6, path: "", secPath: "/when" },
+    { id: 7, name: "Sad", path: "", image: dashimg04, secPath: "/when" },
+    { id: 8, name: "Grief", path: "", image: dashimg04, secPath: "/when" },
+    { id: 9, name: "Guilty or Worry", path: "", image: dashimg04, secPath: "/when" },
+    { id: 10, name: "Feel Hopeless", path: "", image: dashimg04, secPath: "/when" },
+    { id: 11, name: "Something went wrong", path: "", image: PainImg15, secPath: "/whiteboard" }
+];
+
+
+
 const feelOptions = [
     { id: "1", name: "Good/Ok", image: feel01, path: "/good", secPath: "" },
     { id: "2", name: "A little off", image: feel02, path: "/little-off", secPath: "" },
@@ -73,11 +98,11 @@ const feelOptions = [
     { id: "5", name: "Very down", image: feel05, path: "/very-down", secPath: "" },
 ];
 const Optionsquestions = [
-    { id: "1", name: "Do you feel depressed?", path: "/good", secPath: "" },
-    { id: "2", name: "Do you feel afraid ?", path: "/little-off", secPath: "" },
-    { id: "3", name: "Do you have difficulty sleeping ?", path: "/not-good", secPath: "" },
-    { id: "4", name: "Do you feel guilty or worry about needing help ?", path: "/low-sad", secPath: "" },
-    { id: "5", name: "Do you feel hopeless ?", path: "/very-down", secPath: "" },
+    { id: "1", name: "Do you feel depressed?", path: "/good", secPath: "/emotions" },
+    { id: "2", name: "Do you feel afraid ?", path: "/little-off", secPath: "/emotions" },
+    { id: "3", name: "Do you have difficulty sleeping ?", path: "/not-good", secPath: "/emotions" },
+    { id: "4", name: "Do you feel guilty or worry about needing help ?", path: "/low-sad", secPath: "/emotions" },
+    { id: "5", name: "Do you feel hopeless ?", path: "/very-down", secPath: "/emotions" },
 ];
 
 
@@ -417,19 +442,7 @@ const fatigueTroubleSleeping = [
     { id: "6", name: "Something Else", "secPath": "/Whiteboard", image: dashimg04, secpath: "/Whiteboard" }
 ];
 
-const emotions = [
-    { id: "1", name: "Anxious", path: "", image: "", secpath: "Anxious" },
-    { id: "2", name: "Depressed", path: "", image: "", secpath: "Depressed" },
-    { id: "3", name: "Scared", path: "", image: "", secpath: "Scared" },
-    { id: "4", name: "Angry", path: "", image: "", secpath: "Angry" },
-    { id: "5", name: "Frustrated", path: "", image: "", secpath: "Frustrated" },
-    { id: "6", name: "Frustrated", path: "", image: "", secpath: "Frustrated" },
-    { id: "7", name: "Sad", path: "", image: "", secpath: "Sad" },
-    { id: "8", name: "Grief", path: "", image: "", secpath: "Grief" },
-    { id: "9", name: "Guilty or Worry", path: "", image: "", secpath: "Guilty or Worry" },
-    { id: "10", name: "Feel Hopeless", path: "", image: "", secpath: "Feel Hopeless" },
-    { id: "11", name: "Something went wrong", path: "", image: "", secpath: "Something went wrong" }
-]
+
 
 
 const EatingdrinkingNoAppetite = [
@@ -785,6 +798,7 @@ export const diseasesData = {
     "/trachBreathing-problem": fearofswallowingDesises,
     "/feel": feelOptions,
     "/feelOptions": Optionsquestions,
+    "/emotions": emotionsData,
     "/nausea-problem": [
         { "id": "1", "name": "Vomiting", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
         { "id": "2", "name": "Constipation", "image": nausea02, "secPath": "/confrm-step-yesno", "path": "/when" },
