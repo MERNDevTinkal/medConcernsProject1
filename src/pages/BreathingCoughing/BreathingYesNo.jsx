@@ -20,7 +20,6 @@ function BreathingYesNo() {
       setConcernValues(concern)
     }
   }, [id])
-
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
@@ -38,7 +37,7 @@ function BreathingYesNo() {
             </div>
           </div>
           <div>
-            <DecisionCardFeeling />
+            <DecisionCardFeeling concenFell={concernValues?.secPath} />
           </div>
         </div>
         <Footer />

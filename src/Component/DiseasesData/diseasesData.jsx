@@ -59,6 +59,19 @@ import PainImg14 from "../../assets/images/trach-pain.png";
 import PainImg15 from "../../assets/images/something-else.png";
 
 
+import feel01 from "../../assets/images/feel-icon-01.svg";
+import feel02 from "../../assets/images/feel-icon-02.svg";
+import feel03 from "../../assets/images/feel-icon-03.svg";
+import feel04 from "../../assets/images/feel-icon-04.svg";
+import feel05 from "../../assets/images/feel-icon-05.svg";
+
+const feelOptions = [
+    { id: "1", name: "Good/Ok", image: feel01, path: "/good", secPath: "" },
+    { id: "2", name: "A little off", image: feel02, path: "/little-off", secPath: "" },
+    { id: "3", name: "Not good", image: feel03, path: "/not-good", secPath: "" },
+    { id: "4", name: "Low/Sad", image: feel04, path: "/low-sad", secPath: "" },
+    { id: "5", name: "Very down", image: feel05, path: "/very-down", secPath: "" },
+];
 const painCards = [
     { id: "1", name: "Squeezing / Tight", image: PainImg1, secPath: "/feeling-list-pain", path: "" },
     { id: "2", name: "Burning", image: PainImg2, secPath: "/feeling-list-pain", path: "" },
@@ -760,6 +773,7 @@ export const diseasesData = {
     "/trachSwallowingsuboptios-problem": trachDesises,
     "/trachmucussecretions-problem": trachmucusSecretionsDesises,
     "/trachBreathing-problem": fearofswallowingDesises,
+    "/feel": feelOptions,
     "/nausea-problem": [
         { "id": "1", "name": "Vomiting", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
         { "id": "2", "name": "Constipation", "image": nausea02, "secPath": "/confrm-step-yesno", "path": "/when" },

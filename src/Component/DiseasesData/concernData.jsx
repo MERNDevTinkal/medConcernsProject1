@@ -27,7 +27,7 @@ export const concerns = [
     { id: 7, name: "Fatigue", image: ConcernImg7, path: "/concern/fatigue-yes-no/7" },
     { id: 8, name: "Eating / Drinking", image: ConcernImg8, path: "/concern/eating-drinking-yes-no/8" },
     { id: 9, name: "Medication", image: ConcernImg9, path: "/concern/medication-yes-no/9" },
-    { id: 10, name: "Emotions / Feelings", image: ConcernImg8, path: "/concern/emotions-feelings-yes-no/10" },
+    { id: 10, name: "Emotions / Feelings", image: ConcernImg8, path: "/concern/emotions-feelings-yes-no/10", secPath: "/feel" },
     { id: 11, name: "Movement", image: ConcernImg8, path: "/concern/movement-yes-no/11" },
     { id: 12, name: "Communication / Thinking", image: ConcernImg8, path: "/concern/communication-thinking-yes-no/12" },
     { id: 13, name: "Vision", image: ConcernImg10, path: "/concern/vision-yes-no/13" },
