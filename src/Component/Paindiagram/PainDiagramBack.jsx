@@ -1,19 +1,35 @@
 import React, { useState } from "react";
 import DigramBack from "../../assets/images/digram-back.png";
+import DigramFront from "../../assets/images/digram-front.svg";
+import Refresh from "../../assets/images/refresh_17981405.png";
 
 const PainDiagramBack = () => {
   const [painPoints, setPainPoints] = useState([]);
-
+  const [isfront, setIsFront] = useState(true);
   const handlePainClick = (x, y) => {
     setPainPoints([{ x, y }]);
   };
+
+  const handleRefresh = () => {
+    setIsFront(pre => !pre)
+  };
+
   return (
     <div>
+      <div className="flex justify-end mt-4">
+        <button
+          onClick={() => { handleRefresh() }}
+          className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
+        >
+          <img src={Refresh} alt="refresh" className="w-6 h-6" />
+        </button>
+      </div>
+
       <div className="flex flex-col items-center mt-10">
         <div className="relative w-[350px] md:w-[500px]">
           <img
-            src={DigramBack}
-            alt=""
+            src={isfront ? DigramFront : DigramBack}
+            alt="diagram back"
             className="w-full h-auto"
             onClick={(e) => {
               const rect = e.target.getBoundingClientRect();

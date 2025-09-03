@@ -56,12 +56,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/male-body" element={<BackPain />} />
         <Route path="/feel" element={<Feel />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/concern" element={<Concern />} />
         <Route path="/concern-pain" element={<ConcernPain />} />
         <Route path="/new-problem" element={<NewProblem />} />
-        <Route path="/full-body" element={<FullBody />} />
+        <Route path="/full-body" element={<FullBody />} />/male-body
         <Route path="/pain-front" element={<PainFront />} />
         <Route path="/back-pain" element={<BackPain />} />
         <Route path="/face-pain" element={<FacePain />} />

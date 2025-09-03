@@ -12,11 +12,6 @@ const BackPain = () => {
         <div className="px-4 my-5 flex justify-center items-center">
           <div className="w-full p-5 bg-white shadow-sm rounded-md">
             <PainDiagramBack />
-            <div className="flex justify-end">
-              <Link className="thm-btn" to="/face-pain">
-                Next
-              </Link>
-            </div>
           </div>
         </div>
       </div>
