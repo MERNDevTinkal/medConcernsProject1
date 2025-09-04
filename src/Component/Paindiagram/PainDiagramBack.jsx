@@ -390,7 +390,7 @@ const regions = [
   makeRegion("Left Foot / Toe", 460, 50, 495, 70),
 ];
 
-const PADDING = 12; // 🔥 extra clickable margin around each region
+const PADDING = 12;
 
 const PainDiagram = () => {
   const [croppedParts, setCroppedParts] = useState([]);
@@ -410,8 +410,8 @@ const PainDiagram = () => {
     const realX = clickX * scaleX;
     const realY = clickY * scaleY;
 
-    // ✅ Find clicked region with padding
-    const clickedRegion = regions.find(
+    // ✅ First try to find inside a region with padding
+    let clickedRegion = regions.find(
       (r) =>
         realX >= r.x1 - PADDING &&
         realX <= r.x2 + PADDING &&
@@ -419,11 +419,22 @@ const PainDiagram = () => {
         realY <= r.y2 + PADDING
     );
 
-    if (clickedRegion) {
-      getTextToSpeech(clickedRegion.name); // always speak name
-    } else {
-      getTextToSpeech("Body"); // fallback so never undefined
+    // ✅ If not found, find nearest region by distance
+    if (!clickedRegion) {
+      let minDist = Infinity;
+      regions.forEach((r) => {
+        const centerX = (r.x1 + r.x2) / 2;
+        const centerY = (r.y1 + r.y2) / 2;
+        const dist = Math.sqrt((realX - centerX) ** 2 + (realY - centerY) ** 2);
+        if (dist < minDist) {
+          minDist = dist;
+          clickedRegion = r;
+        }
+      });
     }
+
+    // ✅ Always speak correct region name
+    getTextToSpeech(clickedRegion.name);
 
     // ✅ Crop Image
     const imageObj = new Image();
