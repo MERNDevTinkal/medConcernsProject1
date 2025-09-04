@@ -1,120 +1,475 @@
-// import React, { useState } from "react";
+// import React, { useState, useRef } from "react";
 // import DigramBack from "../../assets/images/digram-back.png";
 // import DigramFront from "../../assets/images/digram-front.svg";
 // import Refresh from "../../assets/images/refresh_17981405.png";
+// import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 
-// const PainDiagramBack = () => {
-//   const [painPoints, setPainPoints] = useState([]);
-//   const [isfront, setIsFront] = useState(true);
-//   const [xy, setXy] = useState({ xseries: "", yseries: "" })
-//   const handlePainClick = (x, y) => {
-//     setXy({ xseries: x, yseries: y })
-//     setPainPoints([{ x, y }]);
+// const PainDiagram = () => {
+//   const [croppedParts, setCroppedParts] = useState([]);
+//   const [markers, setMarkers] = useState([]);
+//   const [isfront, setIsfront] = useState(false);
+//   const canvasRef = useRef(null);
+//   const cropSize = 100;
+//   const handleImageClick = (e) => {
+//     const img = e.target;
+//     const rect = img.getBoundingClientRect();
+//     const clickX = e.clientX - rect.left;
+//     const clickY = e.clientY - rect.top;
+//     const scaleX = img.naturalWidth / img.width;
+//     const scaleY = img.naturalHeight / img.height;
+//     const realX = clickX * scaleX;
+//     const realY = clickY * scaleY;
+//     const imageObj = new Image();
+//     imageObj.src = isfront ? DigramBack : DigramFront;
+//     imageObj.onload = () => {
+//       const canvas = canvasRef.current;
+//       const ctx = canvas.getContext("2d");
+//       let startX = realX - cropSize / 2;
+//       let startY = realY - cropSize / 2;
+//       if (startX < 0) startX = 0;
+//       if (startY < 0) startY = 0;
+//       if (startX + cropSize > imageObj.naturalWidth)
+//         startX = imageObj.naturalWidth - cropSize;
+//       if (startY + cropSize > imageObj.naturalHeight)
+//         startY = imageObj.naturalHeight - cropSize;
+//       canvas.width = cropSize;
+//       canvas.height = cropSize;
+//       ctx.drawImage(
+//         imageObj,
+//         startX,
+//         startY,
+//         cropSize,
+//         cropSize,
+//         0,
+//         0,
+//         cropSize,
+//         cropSize
+//       );
+//       const croppedData = canvas.toDataURL("image/png");
+//       setCroppedParts((prev) => [...prev, croppedData]);
+//       setMarkers((prev) => [...prev, { x: clickX, y: clickY }]);
+//     };
 //   };
+
 //   const handleRefresh = () => {
-//     setIsFront(pre => !pre)
-//   };
-
-//   const handleClick = (val) => {
-//     console.log("===>val", val)
+//     setIsfront(pre => !pre)
+//     setCroppedParts([]);
+//     setMarkers([]);
 //   }
 
 //   return (
-//     <div>
+//     <>      <div className="flex justify-end mt-4">
+//       <button
+//         onClick={() => { handleRefresh() }}
+//         className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
+//       >
+//         <img src={Refresh} alt="refresh" className="w-6 h-6" />
+//       </button>
+//     </div>
+//       <div className="flex flex-col items-center">
+
+//         <div className="relative w-[350px] md:w-[500px]">
+//           <img
+//             usemap="#image-body"
+//             src={isfront ? DigramBack : DigramFront}
+//             alt="body diagram"
+//             className="w-full h-auto"
+//             onClick={handleImageClick}
+//           />
+//           {markers.map((m, idx) => (
+//             <div
+//               key={idx}
+//               className="absolute w-4 h-4 rounded-full bg-red-500 border-2 border-white"
+//               style={{
+//                 left: m.x - 8,
+//                 top: m.y - 8,
+//               }}
+//             />
+//           ))}
+//         </div>
+//         <canvas ref={canvasRef} style={{ display: "none" }} />
+//         <div className="grid grid-cols-3 gap-4 mt-6">
+//           {croppedParts.map((part, idx) => (
+//             <div key={idx} className="p-2 border rounded shadow">
+//               <img src={part} alt={`Cropped ${idx}`} className="w-24 h-24 object-contain" />
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//       <map name="workmap">
+//         <area target="" alt="" title="Face" href="" coords="95,71,10,131" shape="rect" />
+//         <area target="" alt="" title="Neck" href="" coords="113,71,88,130" shape="rect" />
+//         <area target="" alt="" title="Left shoulder" href="" coords="181,22,111,52" shape="rect" />
+//         <area target="" alt="" title="Left arm" href="" coords="345,7,115,51" shape="rect" />
+//         <area target="" alt="" title="Chest" href="" coords="173,55,118,152" shape="rect" />
+//         <area target="" alt="" title="Right shoulder" href="" coords="151,140,110,172" shape="rect" />
+//         <area target="" alt="" title="Right arm" href="" coords="347,198,157,155" shape="rect" />
+//         <area target="" alt="" title="Stomach" href="" coords="285,142,209,59" shape="rect" />
+//         <area target="" alt="" title="left thigh" href="" coords="398,96,306,44" shape="rect" />
+//         <area target="" alt="" title="Leg" href="" coords="565,95,437,52" shape="rect" />
+//         <area target="" alt="" title="Left foot" href="" coords="607,94,566,59" shape="rect" />
+//         <area target="" alt="" title="Right foot" href="" coords="608,149,567,106" shape="rect" />
+//         <area target="" alt="" title="Leg" href="" coords="560,147,434,107" shape="rect" />
+//         <area target="" alt="" title="Right thigh" href="" coords="396,157,289,110" shape="rect" />
+
+//       </map>
+//     </>
+//   );
+// };
+
+// export default PainDiagram;
+
+
+// import React, { useState, useRef } from "react";
+// import { useNavigate } from "react-router-dom"; // navigation
+// import DigramBack from "../../assets/images/digram-back.png";
+// import DigramFront from "../../assets/images/digram-front.svg";
+// import Refresh from "../../assets/images/refresh_17981405.png";
+// import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+
+// const PainDiagram = () => {
+//   const [croppedParts, setCroppedParts] = useState([]);
+//   const [markers, setMarkers] = useState([]);
+//   const [isfront, setIsfront] = useState(false);
+//   const canvasRef = useRef(null);
+//   const cropSize = 100;
+//   const navigate = useNavigate();
+
+//   // 🔹 helper function to crop given coords
+//   const cropArea = (coords, imgSrc, partName) => {
+//     const [x1, y1, x2, y2] = coords.map(Number);
+//     const width = x2 - x1;
+//     const height = y2 - y1;
+
+//     const imageObj = new Image();
+//     imageObj.src = imgSrc;
+
+//     imageObj.onload = () => {
+//       const canvas = canvasRef.current;
+//       const ctx = canvas.getContext("2d");
+
+//       canvas.width = width;
+//       canvas.height = height;
+
+//       ctx.drawImage(
+//         imageObj,
+//         x1,
+//         y1,
+//         width,
+//         height,
+//         0,
+//         0,
+//         width,
+//         height
+//       );
+
+//       const croppedData = canvas.toDataURL("image/png");
+
+//       // store in state
+//       setCroppedParts((prev) => [...prev, croppedData]);
+//       console.log("===>partName", partName)
+//       // 🔹 navigate to next page with partName + image
+//       // navigate("/nextpage", { state: { partName, croppedData } });
+
+//       // 🔹 speak unless it's face
+//       if (partName.toLowerCase() !== "face") {
+//         getTextToSpeech(partName);
+//       }
+//     };
+//   };
+
+//   const handleAreaClick = (e, coords, partName) => {
+//     console.log("====>partName", partName)
+//     e.preventDefault();
+//     const imgSrc = isfront ? DigramBack : DigramFront;
+//     cropArea(coords, imgSrc, partName);
+//   };
+
+//   const handleRefresh = () => {
+//     setIsfront((pre) => !pre);
+//     setCroppedParts([]);
+//     setMarkers([]);
+//   };
+
+//   return (
+//     <>
 //       <div className="flex justify-end mt-4">
 //         <button
-//           onClick={() => { handleRefresh() }}
+//           onClick={handleRefresh}
 //           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
 //         >
 //           <img src={Refresh} alt="refresh" className="w-6 h-6" />
 //         </button>
 //       </div>
-//       <div className="flex flex-col items-center mt-10">
-//         <div className="relative w-[350px] md:w-[500px]">
+
+//       <div className="flex flex-col items-center">
+//         <div className="relative w-[500px] h-[169px]"> {/* fixed size */}
 //           <img
-//             src={isfront ? DigramFront : DigramBack}
-//             useMap="#image-map"
-//             alt="diagram back"
-//             className="w-full h-auto"
-//             onClick={(e) => {
-//               const rect = e.target.getBoundingClientRect();
-//               const x = e.clientX - rect.left;
-//               const y = e.clientY - rect.top;
-//               handlePainClick(x, y);
-//             }}
+//             src={isfront ? DigramBack : DigramFront}
+//             alt="body diagram"
+//             className="w-full h-full object-contain"
+//             useMap="#body-map"
 //           />
-//           {painPoints.map((point, idx) => (
-//             <div
-//               key={idx}
-//               className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
-//               style={{
-//                 left: point.x - 32,
-//                 top: point.y - 32,
-//               }}
-//             />
+//         </div>
+
+//         <canvas ref={canvasRef} style={{ display: "none" }} />
+
+//         <div className="grid grid-cols-3 gap-4 mt-6">
+//           {croppedParts.map((part, idx) => (
+//             <div key={idx} className="p-2 border rounded shadow">
+//               <img src={part} alt={`Cropped ${idx}`} className="w-24 h-24 object-contain" />
+//             </div>
 //           ))}
 //         </div>
 //       </div>
-//       <map name="image-map">
+
+//       {/* 🔹 clickable body areas */}
+//       <map name="body-map">
 //         <area
-//           alt="head"
-//           title="head"
-//           shape="circle"
-//           coords={`11,74,38,128`}
+//           alt="Face"
+//           title="Face"
+//           shape="rect"
+//           coords="10,71,95,131"
 //           href="#"
-//           onClick={(e) => {
-//             e.preventDefault();
-//             handleClick("Head");
-//           }}
+//           onClick={(e) => handleAreaClick(e, [10, 71, 95, 131], "Face")}
 //         />
 //         <area
-//           alt="left eye"
-//           title="left eye"
-//           shape="circle"
-//           coords={`48,81,58,98`}
+//           alt="Neck"
+//           title="Neck"
+//           shape="rect"
+//           coords="113,71,88,130"
 //           href="#"
-//           onClick={(e) => {
-//             e.preventDefault();
-//             handleClick("left eye");
-//           }}
+//           onClick={(e) => handleAreaClick(e, [113,81,88,130], "Neck")}
+//         />
+//         <area
+//           alt="Left shoulder"
+//           title="Left shoulder"
+//           shape="rect"
+//           coords="181,22,111,52"
+//           href="#"
+//           onClick={(e) =>
+//             handleAreaClick(e, [181,22,111,52], "Left shoulder")
+//           }
 //         />
 
+//         {/* <area target="" alt="" title="Face" href="" coords="95,71,10,131" shape="rect" />
+//         <area target="" alt="" title="Neck" href="" coords="113,71,88,130" shape="rect" />
+//         <area target="" alt="" title="Left shoulder" href="" coords="181,22,111,52" shape="rect" />
+//         <area target="" alt="" title="Left arm" href="" coords="345,7,115,51" shape="rect" />
+//         <area target="" alt="" title="Chest" href="" coords="173,55,118,152" shape="rect" />
+//         <area target="" alt="" title="Right shoulder" href="" coords="151,140,110,172" shape="rect" />
+//         <area target="" alt="" title="Right arm" href="" coords="347,198,157,155" shape="rect" />
+//         <area target="" alt="" title="Stomach" href="" coords="285,142,209,59" shape="rect" />
+//         <area target="" alt="" title="left thigh" href="" coords="398,96,306,44" shape="rect" />
+//         <area target="" alt="" title="Leg" href="" coords="565,95,437,52" shape="rect" />
+//         <area target="" alt="" title="Left foot" href="" coords="607,94,566,59" shape="rect" />
+//         <area target="" alt="" title="Right foot" href="" coords="608,149,567,106" shape="rect" />
+//         <area target="" alt="" title="Leg" href="" coords="560,147,434,107" shape="rect" />
+//         <area target="" alt="" title="Right thigh" href="" coords="396,157,289,110" shape="rect" /> */}
+
 //       </map>
+//     </>
+//   );
+// };
+
+// export default PainDiagram;
+// import React, { useRef, useState } from "react";
+// import DigramFront from "../../assets/images/digram-front.svg";
+
+// const CoordinatePicker = () => {
+//   const imgRef = useRef(null);
+//   const [coords, setCoords] = useState(null);
+//   const [dragStart, setDragStart] = useState(null);
+
+//   // Start dragging (first corner)
+//   const handleMouseDown = (e) => {
+//     const rect = imgRef.current.getBoundingClientRect();
+//     const x = Math.round(e.clientX - rect.left);
+//     const y = Math.round(e.clientY - rect.top);
+//     setDragStart({ x, y });
+//   };
+
+//   // End dragging (second corner)
+//   const handleMouseUp = (e) => {
+//     if (!dragStart) return;
+//     const rect = imgRef.current.getBoundingClientRect();
+//     const x2 = Math.round(e.clientX - rect.left);
+//     const y2 = Math.round(e.clientY - rect.top);
+
+//     // coords = x1,y1,x2,y2
+//     const x1 = Math.min(dragStart.x, x2);
+//     const y1 = Math.min(dragStart.y, y2);
+//     const w = Math.abs(x2 - dragStart.x);
+//     const h = Math.abs(y2 - dragStart.y);
+
+//     setCoords({ x1, y1, x2, y2, w, h });
+//     setDragStart(null);
+
+//     console.log(`coords="${x1},${y1},${x2},${y2}"`);
+//   };
+
+//   return (
+//     <div className="flex flex-col items-center mt-10">
+//       <div className="relative">
+//         <img
+//           ref={imgRef}
+//           src={DigramFront}
+//           alt="body diagram"
+//           className="w-[500px] h-auto border"
+//           onMouseDown={handleMouseDown}
+//           onMouseUp={handleMouseUp}
+//         />
+
+//         {/* Draw selection box */}
+//         {coords && (
+//           <div
+//             className="absolute border-2 border-red-500 bg-red-200 bg-opacity-30"
+//             style={{
+//               left: coords.x1,
+//               top: coords.y1,
+//               width: coords.w,
+//               height: coords.h,
+//             }}
+//           />
+//         )}
+//       </div>
+
+//       {/* Show coords */}
+//       {coords && (
+//         <div className="mt-4 p-3 bg-gray-100 rounded shadow">
+//           <p>
+//             <b>coords:</b> {coords.x1},{coords.y1},{coords.x2},{coords.y2}
+//           </p>
+//           <p>
+//             <b>width/height:</b> {coords.w} × {coords.h}
+//           </p>
+//         </div>
+//       )}
 //     </div>
 //   );
 // };
 
-// export default PainDiagramBack;
-
-
-import React, { useState } from "react";
+// export default CoordinatePicker;
+import React, { useState, useRef } from "react";
 import DigramBack from "../../assets/images/digram-back.png";
 import DigramFront from "../../assets/images/digram-front.svg";
 import Refresh from "../../assets/images/refresh_17981405.png";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 
-const PainDiagramBack = () => {
-  const [painPoints, setPainPoints] = useState([]);
-  const [isfront, setIsFront] = useState(true);
-  const [selectedArea, setSelectedArea] = useState(null); // <-- stores clicked area name
-
-  const handlePainClick = (x, y) => {
-    setPainPoints([{ x, y }]);
-    setSelectedArea(null); // clear area name if random click
+function makeRegion(name, x1, y1, x2, y2) {
+  return {
+    name,
+    x1: Math.min(x1, x2),
+    y1: Math.min(y1, y2),
+    x2: Math.max(x1, x2),
+    y2: Math.max(y1, y2),
   };
+}
 
-  const handleAreaClick = (name) => {
-    setSelectedArea(name);
-    setPainPoints([]); // clear markers if clicked on defined area
+const regions = [
+  makeRegion("Forehead", 14, 72, 32, 92),
+  makeRegion("Left Eye", 35, 65, 50, 75),
+  makeRegion("Right Eye", 35, 88, 55, 98),
+  makeRegion("Nose", 45, 76, 55, 86),
+  makeRegion("Mouth", 57, 78, 70, 90),
+  makeRegion("Neck", 72, 75, 95, 95),
+  makeRegion("Left Shoulder", 100, 20, 125, 45),
+  makeRegion("Right Shoulder", 95, 115, 120, 140),
+  makeRegion("Right Arm", 120, 140, 280, 160),
+  makeRegion("Left Arm", 120, 0, 280, 25),
+  makeRegion("Chest", 120, 40, 140, 120),
+  makeRegion("Stomach", 170, 75, 235, 90),
+  makeRegion("Pelvis / Genitals", 230, 75, 270, 90),
+  makeRegion("Right Hip", 220, 85, 260, 120),
+  makeRegion("Left Hip", 240, 30, 275, 80),
+  makeRegion("Right Thigh", 260, 100, 330, 120),
+  makeRegion("Left Thigh", 260, 50, 330, 70),
+  makeRegion("Left Lower Leg", 330, 60, 460, 80),
+  makeRegion("Right Lower Leg", 330, 100, 460, 120),
+  makeRegion("Right Foot / Toe", 460, 95, 495, 110),
+  makeRegion("Left Foot / Toe", 460, 50, 495, 70),
+];
+
+const PADDING = 12; // 🔥 extra clickable margin around each region
+
+const PainDiagram = () => {
+  const [croppedParts, setCroppedParts] = useState([]);
+  const [markers, setMarkers] = useState([]);
+  const [isfront, setIsfront] = useState(false);
+  const canvasRef = useRef(null);
+  const cropSize = 100;
+
+  const handleImageClick = (e) => {
+    const img = e.target;
+    const rect = img.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+
+    const scaleX = img.naturalWidth / img.width;
+    const scaleY = img.naturalHeight / img.height;
+    const realX = clickX * scaleX;
+    const realY = clickY * scaleY;
+
+    // ✅ Find clicked region with padding
+    const clickedRegion = regions.find(
+      (r) =>
+        realX >= r.x1 - PADDING &&
+        realX <= r.x2 + PADDING &&
+        realY >= r.y1 - PADDING &&
+        realY <= r.y2 + PADDING
+    );
+
+    if (clickedRegion) {
+      getTextToSpeech(clickedRegion.name); // always speak name
+    } else {
+      getTextToSpeech("Body"); // fallback so never undefined
+    }
+
+    // ✅ Crop Image
+    const imageObj = new Image();
+    imageObj.src = isfront ? DigramBack : DigramFront;
+    imageObj.onload = () => {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+
+      let startX = realX - cropSize / 2;
+      let startY = realY - cropSize / 2;
+
+      if (startX < 0) startX = 0;
+      if (startY < 0) startY = 0;
+      if (startX + cropSize > imageObj.naturalWidth)
+        startX = imageObj.naturalWidth - cropSize;
+      if (startY + cropSize > imageObj.naturalHeight)
+        startY = imageObj.naturalHeight - cropSize;
+
+      canvas.width = cropSize;
+      canvas.height = cropSize;
+      ctx.drawImage(
+        imageObj,
+        startX,
+        startY,
+        cropSize,
+        cropSize,
+        0,
+        0,
+        cropSize,
+        cropSize
+      );
+
+      const croppedData = canvas.toDataURL("image/png");
+      setCroppedParts((prev) => [...prev, croppedData]);
+      setMarkers((prev) => [...prev, { x: clickX, y: clickY }]);
+    };
   };
 
   const handleRefresh = () => {
-    setIsFront((prev) => !prev);
-    setPainPoints([]);
-    setSelectedArea(null);
+    setIsfront((pre) => !pre);
+    setCroppedParts([]);
+    setMarkers([]);
   };
 
   return (
-    <div>
+    <>
       <div className="flex justify-end mt-4">
         <button
           onClick={handleRefresh}
@@ -124,72 +479,39 @@ const PainDiagramBack = () => {
         </button>
       </div>
 
-      <div className="flex flex-col items-center mt-10">
+      <div className="flex flex-col items-center">
         <div className="relative w-[350px] md:w-[500px]">
           <img
-            src={isfront ? DigramFront : DigramBack}
-            useMap="#image-map"
-            alt="diagram back"
+            src={isfront ? DigramBack : DigramFront}
+            alt="body diagram"
             className="w-full h-auto"
-            onClick={(e) => {
-              const rect = e.target.getBoundingClientRect();
-              const x = e.clientX - rect.left;
-              const y = e.clientY - rect.top;
-
-              // only add marker if not clicking on <area>
-              if (!e.target.closest("area")) {
-                handlePainClick(x, y);
-              }
-            }}
+            onClick={handleImageClick}
           />
-
-          {/* Red pain marker */}
-          {painPoints.map((point, idx) => (
+          {markers.map((m, idx) => (
             <div
               key={idx}
-              className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
-              style={{
-                left: point.x - 32,
-                top: point.y - 32,
-              }}
+              className="absolute w-4 h-4 rounded-full bg-red-500 border-2 border-white"
+              style={{ left: m.x - 8, top: m.y - 8 }}
             />
           ))}
+        </div>
 
-          {/* Show area name if clicked */}
-          {selectedArea && (
-            <div className="absolute top-2 left-2 bg-white px-3 py-1 rounded shadow text-sm font-semibold">
-              {selectedArea}
+        <canvas ref={canvasRef} style={{ display: "none" }} />
+
+        <div className="grid grid-cols-3 gap-4 mt-6">
+          {croppedParts.map((part, idx) => (
+            <div key={idx} className="p-2 border rounded shadow">
+              <img
+                src={part}
+                alt={`Cropped ${idx}`}
+                className="w-24 h-24 object-contain"
+              />
             </div>
-          )}
+          ))}
         </div>
       </div>
-
-      <map name="image-map">
-        <area
-          alt="head"
-          title="head"
-          shape="circle"
-          coords="11,74,38,128"
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            handleAreaClick("Head");
-          }}
-        />
-        <area
-          alt="left eye"
-          title="left eye"
-          shape="circle"
-          coords="48,81,58,98"
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            handleAreaClick("Left Eye");
-          }}
-        />
-      </map>
-    </div>
+    </>
   );
 };
 
-export default PainDiagramBack;
+export default PainDiagram;
