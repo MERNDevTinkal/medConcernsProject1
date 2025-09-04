@@ -9,7 +9,7 @@ import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import dashimg01 from "../../assets/images/Shortness-of-Breath.png";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 function ConfrmStepYesNo() {
@@ -17,10 +17,12 @@ function ConfrmStepYesNo() {
   const navigate = useNavigate();
   const [selectedConcers, setSelectedConcers] = useState({})
   const { updateDisease, diseases } = useContext(GlobalContext);
+  const location = useLocation();
+  const pathprimary = location.pathname;
   const handleConfrmStepYesNo = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(value)
-      updateDisease("ConfirmStepYesNo", value)
+      updateDisease(pathprimary.replace("/", ""), value)
       navigate(path)
     }
   }
@@ -65,7 +67,7 @@ function ConfrmStepYesNo() {
                 </div>
               </div>
 
-              <div onClick={() => { handleConfrmStepYesNo("NO", "/") }}>
+              <div onClick={() => { handleConfrmStepYesNo("NO", navigate(-1)) }}>
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-red-600">NO</p>

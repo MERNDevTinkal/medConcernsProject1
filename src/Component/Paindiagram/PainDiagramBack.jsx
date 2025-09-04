@@ -529,13 +529,15 @@
 
 
 // new 
-import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useRef, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import DigramBack from "../../assets/images/digram-back.png";
 import DigramFront from "../../assets/images/digram-front.svg";
 import Refresh from "../../assets/images/refresh_17981405.png";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 
+import { GlobalContext } from "../../context/DiseaseContext";
+import { concerns } from "../DiseasesData/concernData";
 function makeRegion(name, x1, y1, x2, y2) {
   return {
     name,
@@ -579,7 +581,9 @@ const PainDiagram = () => {
   const canvasRef = useRef(null);
   const cropSize = 100;
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const path = location.pathname;
+  const { updateDisease } = useContext(GlobalContext);
   const handleImageClick = (e) => {
     const img = e.target;
     const rect = img.getBoundingClientRect();
@@ -590,8 +594,6 @@ const PainDiagram = () => {
     const scaleY = img.naturalHeight / img.height;
     const realX = clickX * scaleX;
     const realY = clickY * scaleY;
-
-    // ✅ Find region
     let clickedRegion = regions.find(
       (r) =>
         realX >= r.x1 - PADDING &&
@@ -649,6 +651,7 @@ const PainDiagram = () => {
       const croppedData = canvas.toDataURL("image/png");
       setMarker({ x: clickX, y: clickY });
       setCroppedPart(croppedData);
+      updateDisease("summaryList", [{ "image": croppedData, name: clickedRegion.name }]);
       navigate("/concern-pain", {
         state: { partName: clickedRegion.name, image: croppedData },
       });

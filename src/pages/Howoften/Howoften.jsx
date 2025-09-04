@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { ArrowLeft, Check } from "lucide-react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import SaveModel from "../../Component/saveASModel/saveModel";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
@@ -47,7 +47,8 @@ export default function TabsCalendar() {
   const [selectedWeekDay, setSelectedWeekDay] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
-
+  const location = useLocation();
+  const pathprimary = location.pathname;
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
   const monthsOfYear = [
     "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
@@ -72,7 +73,7 @@ export default function TabsCalendar() {
     setSelectedDayItem(item);
     setShowSaveModal(true);
     await getTextToSpeech(item);
-    updateDisease("Howoften", { type: "day", value: item });
+    updateDisease(pathprimary.replace("/", ""), { type: "day", value: item });
     navigate("/new-problem")
   };
 
@@ -80,7 +81,7 @@ export default function TabsCalendar() {
     setSelectedWeekDay(index);
     setShowSaveModal(true);
     await getTextToSpeech(weekDays[index]);
-    updateDisease("Howoften", { type: "week", value: index });
+    updateDisease(pathprimary.replace("/", ""), { type: "week", value: weekDays[index] });
     navigate("/new-problem")
   };
 
@@ -88,7 +89,7 @@ export default function TabsCalendar() {
     setSelectedMonth(index);
     setShowSaveModal(true);
     await getTextToSpeech(months[index]);
-    updateDisease("Howoften", { type: "month", value: index });
+    updateDisease(pathprimary.replace("/", ""), { type: "month", value: months[index] });
     navigate("/new-problem")
   };
 

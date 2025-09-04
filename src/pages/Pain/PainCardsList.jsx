@@ -12,8 +12,8 @@ const PainCardsList = () => {
   const [painFeelParams, setPainFeelParams] = useState([]);
   const handleConcern = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value)
-      updateDisease(pathprimary.replace("/", ""), value);
+      await getTextToSpeech(value.name)
+      updateDisease("summaryList", [value]);
       navigate(path);
     }
   };
@@ -22,13 +22,13 @@ const PainCardsList = () => {
   }, [pathprimary]);
   return (
     <>
-      {painFeelParams.map(({ id, name, secPath, image }) => (
-        <div style={{ cursor: "pointer" }} key={id} onClick={() => handleConcern(name, secPath)}>
+      {painFeelParams.map((item) => (
+        <div style={{ cursor: "pointer" }} key={item.id} onClick={() => handleConcern(item, item.secPath)}>
           <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
             <div className="dashboard-cards card-img-h card-img-h ">
-              <img src={image} className="w-full" />
+              <img src={item.image} className="w-full" />
             </div>
-            <p className="text-[21px] mt-3 color-black">{name}</p>
+            <p className="text-[21px] mt-3 color-black">{item.name}</p>
           </div>
         </div>
       ))}

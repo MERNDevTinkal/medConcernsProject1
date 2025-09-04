@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Header from "../../Component/Layout/Header/Header";
 import ConcernImg1 from "../../assets/images/pain-img.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
 import Checked from "../../assets/images/checked.svg";
@@ -17,10 +17,12 @@ function ConfrmStepWhen() {
   const navigate = useNavigate();
   const [confirmData, setConfirmData] = useState({});
   const { updateDisease, diseases } = useContext(GlobalContext);
+  const location = useLocation();
+  const pathprimary = location.pathname;
   const handleConfrmStepWhen = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(value)
-      updateDisease("ConfirmStepWhen", value)
+      updateDisease(pathprimary.replace("/", ""), value)
       navigate(path)
     }
   }
@@ -33,7 +35,7 @@ function ConfrmStepWhen() {
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
         <div onClick={() => {
           navigate(-1);
-        }} style={{cursor:"pointer"}} >
+        }} style={{ cursor: "pointer" }} >
           <img src={BackArrow} />
         </div>
         <h2 className="text-[25px] font-normal text-black text-center">{confirmData.name}</h2>

@@ -7,6 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 const FeelingListPain = () => {
   const location = useLocation();
+  const pathprimary = location.pathname;
   const path = location.pathname;
   const navigate = useNavigate();
   const [painFeelParams, setPainFeelParams] = useState([]);
@@ -14,7 +15,7 @@ const FeelingListPain = () => {
   const handlegetPain = async (value, path, painFeel) => {
     if (value && path) {
       await getTextToSpeech(painFeel)
-      updateDisease("painfeel", value)
+      updateDisease("summaryList", [value])
       navigate(path)
     }
   }
@@ -87,7 +88,7 @@ const FeelingListPain = () => {
                   <div className={`flex flex-col items-center space-y-${index}  mb-3`}>
                     <img src={data.image} alt="" />
                     <span onClick={() => {
-                      handlegetPain(data.params, data?.secPath?.includes("/confrm-step-yesno")
+                      handlegetPain(data, data?.secPath?.includes("/confrm-step-yesno")
                         ? `${path}${data?.secPath}/${data?.id}`
                         : `${data?.secPath}`, data.painFeel)
                     }} className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
