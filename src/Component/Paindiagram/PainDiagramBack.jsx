@@ -350,7 +350,187 @@
 // };
 
 // export default CoordinatePicker;
+// import React, { useState, useRef } from "react";
+// import DigramBack from "../../assets/images/digram-back.png";
+// import DigramFront from "../../assets/images/digram-front.svg";
+// import Refresh from "../../assets/images/refresh_17981405.png";
+// import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+
+// function makeRegion(name, x1, y1, x2, y2) {
+//   return {
+//     name,
+//     x1: Math.min(x1, x2),
+//     y1: Math.min(y1, y2),
+//     x2: Math.max(x1, x2),
+//     y2: Math.max(y1, y2),
+//   };
+// }
+
+// const regions = [
+//   makeRegion("Forehead", 14, 72, 32, 92),
+//   makeRegion("Left Eye", 35, 65, 50, 75),
+//   makeRegion("Right Eye", 35, 88, 55, 98),
+//   makeRegion("Nose", 45, 76, 55, 86),
+//   makeRegion("Mouth", 57, 78, 70, 90),
+//   makeRegion("Neck", 72, 75, 95, 95),
+//   makeRegion("Left Shoulder", 100, 20, 125, 45),
+//   makeRegion("Right Shoulder", 95, 115, 120, 140),
+//   makeRegion("Right Arm", 120, 140, 280, 160),
+//   makeRegion("Left Arm", 120, 0, 280, 25),
+//   makeRegion("Chest", 120, 40, 140, 120),
+//   makeRegion("Stomach", 170, 75, 235, 90),
+//   makeRegion("Pelvis / Genitals", 230, 75, 270, 90),
+//   makeRegion("Right Hip", 220, 85, 260, 120),
+//   makeRegion("Left Hip", 240, 30, 275, 80),
+//   makeRegion("Right Thigh", 260, 100, 330, 120),
+//   makeRegion("Left Thigh", 260, 50, 330, 70),
+//   makeRegion("Left Lower Leg", 330, 60, 460, 80),
+//   makeRegion("Right Lower Leg", 330, 100, 460, 120),
+//   makeRegion("Right Foot / Toe", 460, 95, 495, 110),
+//   makeRegion("Left Foot / Toe", 460, 50, 495, 70),
+// ];
+
+// const PADDING = 12;
+
+// const PainDiagram = () => {
+//   const [croppedParts, setCroppedParts] = useState([]);
+//   const [markers, setMarkers] = useState([]);
+//   const [isfront, setIsfront] = useState(false);
+//   const canvasRef = useRef(null);
+//   const cropSize = 100;
+
+//   const handleImageClick = (e) => {
+//     const img = e.target;
+//     const rect = img.getBoundingClientRect();
+//     const clickX = e.clientX - rect.left;
+//     const clickY = e.clientY - rect.top;
+
+//     const scaleX = img.naturalWidth / img.width;
+//     const scaleY = img.naturalHeight / img.height;
+//     const realX = clickX * scaleX;
+//     const realY = clickY * scaleY;
+
+//     // ✅ First try to find inside a region with padding
+//     let clickedRegion = regions.find(
+//       (r) =>
+//         realX >= r.x1 - PADDING &&
+//         realX <= r.x2 + PADDING &&
+//         realY >= r.y1 - PADDING &&
+//         realY <= r.y2 + PADDING
+//     );
+
+//     // ✅ If not found, find nearest region by distance
+//     if (!clickedRegion) {
+//       let minDist = Infinity;
+//       regions.forEach((r) => {
+//         const centerX = (r.x1 + r.x2) / 2;
+//         const centerY = (r.y1 + r.y2) / 2;
+//         const dist = Math.sqrt((realX - centerX) ** 2 + (realY - centerY) ** 2);
+//         if (dist < minDist) {
+//           minDist = dist;
+//           clickedRegion = r;
+//         }
+//       });
+//     }
+
+//     // ✅ Always speak correct region name
+//     getTextToSpeech(clickedRegion.name);
+
+//     // ✅ Crop Image
+//     const imageObj = new Image();
+//     imageObj.src = isfront ? DigramBack : DigramFront;
+//     imageObj.onload = () => {
+//       const canvas = canvasRef.current;
+//       const ctx = canvas.getContext("2d");
+
+//       let startX = realX - cropSize / 2;
+//       let startY = realY - cropSize / 2;
+
+//       if (startX < 0) startX = 0;
+//       if (startY < 0) startY = 0;
+//       if (startX + cropSize > imageObj.naturalWidth)
+//         startX = imageObj.naturalWidth - cropSize;
+//       if (startY + cropSize > imageObj.naturalHeight)
+//         startY = imageObj.naturalHeight - cropSize;
+
+//       canvas.width = cropSize;
+//       canvas.height = cropSize;
+//       ctx.drawImage(
+//         imageObj,
+//         startX,
+//         startY,
+//         cropSize,
+//         cropSize,
+//         0,
+//         0,
+//         cropSize,
+//         cropSize
+//       );
+
+//       const croppedData = canvas.toDataURL("image/png");
+//       setCroppedParts((prev) => [...prev, croppedData]);
+//       setMarkers((prev) => [...prev, { x: clickX, y: clickY }]);
+//     };
+//   };
+
+//   const handleRefresh = () => {
+//     setIsfront((pre) => !pre);
+//     setCroppedParts([]);
+//     setMarkers([]);
+//   };
+
+//   return (
+//     <>
+//       <div className="flex justify-end mt-4">
+//         <button
+//           onClick={handleRefresh}
+//           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
+//         >
+//           <img src={Refresh} alt="refresh" className="w-6 h-6" />
+//         </button>
+//       </div>
+
+//       <div className="flex flex-col items-center">
+//         <div className="relative w-[350px] md:w-[500px]">
+//           <img
+//             src={isfront ? DigramBack : DigramFront}
+//             alt="body diagram"
+//             className="w-full h-auto"
+//             onClick={handleImageClick}
+//           />
+//           {markers.map((m, idx) => (
+//             <div
+//               key={idx}
+//               className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
+//               style={{ left: m.x - 8, top: m.y - 8 }}
+//             />
+//           ))}
+//         </div>
+
+//         <canvas ref={canvasRef} style={{ display: "none" }} />
+
+//         <div className="grid grid-cols-3 gap-4 mt-6">
+//           {croppedParts.map((part, idx) => (
+//             <div key={idx} className="p-2 border rounded shadow">
+//               <img
+//                 src={part}
+//                 alt={`Cropped ${idx}`}
+//                 className="w-24 h-24 object-contain"
+//               />
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default PainDiagram;
+
+
+// new 
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import DigramBack from "../../assets/images/digram-back.png";
 import DigramFront from "../../assets/images/digram-front.svg";
 import Refresh from "../../assets/images/refresh_17981405.png";
@@ -393,11 +573,12 @@ const regions = [
 const PADDING = 12;
 
 const PainDiagram = () => {
-  const [croppedParts, setCroppedParts] = useState([]);
-  const [markers, setMarkers] = useState([]);
+  const [marker, setMarker] = useState(null);
+  const [croppedPart, setCroppedPart] = useState(null);
   const [isfront, setIsfront] = useState(false);
   const canvasRef = useRef(null);
   const cropSize = 100;
+  const navigate = useNavigate();
 
   const handleImageClick = (e) => {
     const img = e.target;
@@ -410,7 +591,7 @@ const PainDiagram = () => {
     const realX = clickX * scaleX;
     const realY = clickY * scaleY;
 
-    // ✅ First try to find inside a region with padding
+    // ✅ Find region
     let clickedRegion = regions.find(
       (r) =>
         realX >= r.x1 - PADDING &&
@@ -419,7 +600,6 @@ const PainDiagram = () => {
         realY <= r.y2 + PADDING
     );
 
-    // ✅ If not found, find nearest region by distance
     if (!clickedRegion) {
       let minDist = Infinity;
       regions.forEach((r) => {
@@ -433,7 +613,6 @@ const PainDiagram = () => {
       });
     }
 
-    // ✅ Always speak correct region name
     getTextToSpeech(clickedRegion.name);
 
     // ✅ Crop Image
@@ -468,15 +647,18 @@ const PainDiagram = () => {
       );
 
       const croppedData = canvas.toDataURL("image/png");
-      setCroppedParts((prev) => [...prev, croppedData]);
-      setMarkers((prev) => [...prev, { x: clickX, y: clickY }]);
+      setMarker({ x: clickX, y: clickY });
+      setCroppedPart(croppedData);
+      navigate("/concern-pain", {
+        state: { partName: clickedRegion.name, image: croppedData },
+      });
     };
   };
 
   const handleRefresh = () => {
     setIsfront((pre) => !pre);
-    setCroppedParts([]);
-    setMarkers([]);
+    setCroppedPart(null);
+    setMarker(null);
   };
 
   return (
@@ -498,28 +680,25 @@ const PainDiagram = () => {
             className="w-full h-auto"
             onClick={handleImageClick}
           />
-          {markers.map((m, idx) => (
+          {marker && (
             <div
-              key={idx}
-              className="absolute w-4 h-4 rounded-full bg-red-500 border-2 border-white"
-              style={{ left: m.x - 8, top: m.y - 8 }}
+              className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
+              style={{ left: marker.x - 8, top: marker.y - 8 }}
             />
-          ))}
+          )}
         </div>
 
         <canvas ref={canvasRef} style={{ display: "none" }} />
 
-        <div className="grid grid-cols-3 gap-4 mt-6">
-          {croppedParts.map((part, idx) => (
-            <div key={idx} className="p-2 border rounded shadow">
-              <img
-                src={part}
-                alt={`Cropped ${idx}`}
-                className="w-24 h-24 object-contain"
-              />
-            </div>
-          ))}
-        </div>
+        {croppedPart && (
+          <div className="p-2 border rounded shadow mt-6">
+            <img
+              src={croppedPart}
+              alt="Selected Part"
+              className="w-24 h-24 object-contain"
+            />
+          </div>
+        )}
       </div>
     </>
   );
