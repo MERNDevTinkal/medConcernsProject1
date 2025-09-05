@@ -3,7 +3,8 @@ import { createContext, useState } from "react";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [diseases, setDiseases] = useState({ summaryList: [] });
+  const initialState = { summaryList: [] };
+  const [diseases, setDiseases] = useState(initialState);
   const updateDisease = (key, value) => {
     setDiseases((prev) => {
       let newValue;

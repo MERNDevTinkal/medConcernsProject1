@@ -74,6 +74,14 @@ import EmotionsImg5 from "../../assets/images/emotion-img-05.png";
 import EmotionsImg6 from "../../assets/images/emotion-img-06.png";
 
 
+import BoardImg1 from "../../assets/images/board-img-01.png";
+import BoardImg2 from "../../assets/images/board-img-02.png";
+import BoardImg3 from "../../assets/images/board-img-03.png";
+import BoardImg4 from "../../assets/images/board-img-04.png";
+import BoardImg5 from "../../assets/images/board-img-05.png";
+import BoardImg6 from "../../assets/images/board-img-06.png";
+
+
 const emotionsData = [
     { id: 1, name: "Anxious", image: EmotionsImg1, secPath: "/confrm-step-yesno", path: "/when" },
     { id: 2, name: "Depressed", image: EmotionsImg2, secPath: "/confrm-step-yesno", path: "/when" },
@@ -88,6 +96,53 @@ const emotionsData = [
     { id: 11, name: "Something went wrong", secPath: "/confrm-step-yesno", image: PainImg15, path: "/whiteboard" }
 ];
 
+const needBoard = [
+    { id: 1, name: "Bathroom", image: BoardImg1, },
+    { id: 2, name: "Bed", image: BoardImg2 },
+    { id: 3, name: "Food", image: BoardImg3, },
+    { id: 4, name: "Drink", image: BoardImg4, },
+    { id: 5, name: "Glassess", image: BoardImg5, },
+    { id: 6, name: "Medication", image: BoardImg6, },
+    { id: 7, name: "Hearing Aids", image: dashimg04, },
+    { id: 8, name: "Dentures", image: dashimg04, },
+    { id: 9, name: "Tissue", image: dashimg04, },
+    { id: 10, name: "Call Light", image: dashimg04, },
+    { id: 11, name: "Blanket/Pillow", image: dashimg04 },
+    { id: 12, name: "Room Temperature", image: dashimg04 },
+    { id: 13, name: "Open for Me", image: dashimg04 },
+    { id: 14, name: "TV", image: dashimg04 },
+    { id: 15, name: "Music", image: dashimg04 },
+    { id: 16, name: "Call Family", image: dashimg04 },
+    { id: 17, name: "Change Clothes", image: dashimg04 },
+    { id: 18, name: "Need Socks", image: dashimg04 },
+    { id: 19, name: "Cervical Collar", image: dashimg04 },
+    { id: 20, name: "Helmet", image: dashimg04 },
+    { id: 21, name: "Adjust Clothes", image: dashimg04 },
+    { id: 22, name: "Change Underwear", image: dashimg04 },
+    { id: 23, name: "Light", image: dashimg04 },
+    { id: 24, name: "Please Leave", image: dashimg04 },
+    { id: 25, name: "Reposition", image: dashimg04 },
+    { id: 26, name: "Suction", image: dashimg04 },
+    { id: 27, name: "Catheter", image: dashimg04 },
+    { id: 28, name: "Soiled", image: dashimg04 },
+    { id: 29, name: "Pain Meds", image: dashimg04 },
+    { id: 30, name: "Ice", image: dashimg04 },
+    { id: 31, name: "Door", image: dashimg04 },
+    { id: 32, name: "Ice Pack", image: dashimg04 },
+    { id: 33, name: "Heating Pad", image: dashimg04 },
+    { id: 34, name: "Phone/Tablet", image: dashimg04 },
+    { id: 35, name: "Inhaler/Breathing Treatment", image: dashimg04 },
+    { id: 36, name: "Need Straw", image: dashimg04 },
+    { id: 37, name: "Plug in Phone/Tablet", image: dashimg04 },
+    { id: 38, name: "PEG", image: dashimg04 },
+    { id: 39, name: "Trach", image: dashimg04 },
+    { id: 40, name: "Respiratory Therapist", image: dashimg04 },
+    { id: 41, name: "Doctor", image: dashimg04 },
+    { id: 42, name: "Nurse", image: dashimg04 },
+    { id: 43, name: "Nursing Aide", image: dashimg04 },
+    { id: 44, name: "Occupational /Physical Therapist", image: dashimg04 },
+    { id: 45, name: "Speech Therapist", image: dashimg04 },
+];
 
 
 const feelOptions = [
@@ -800,6 +855,7 @@ export const diseasesData = {
     "/feel": feelOptions,
     "/feelOptions": Optionsquestions,
     "/emotions": emotionsData,
+    "/board": needBoard,
     "/nausea-problem": [
         { "id": "1", "name": "Vomiting", "image": swallowingimg04, "secPath": "/confrm-step-yesno", "path": "/when" },
         { "id": "2", "name": "Constipation", "image": nausea02, "secPath": "/confrm-step-yesno", "path": "/when" },

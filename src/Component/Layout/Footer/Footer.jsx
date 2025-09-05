@@ -17,7 +17,7 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link to="/concern">
+            <Link to="/board">
               <img src={icon02} />
             </Link>
           </li>

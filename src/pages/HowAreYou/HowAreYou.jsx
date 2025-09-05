@@ -10,11 +10,12 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
 export default function HowAreYou() {
 
   const navigate = useNavigate();
-  const { updateDisease } = useContext(GlobalContext);
+  const { updateDisease, resetDiseases } = useContext(GlobalContext);
 
   const handleValue = async (path, item) => {
     if (path && item.name) {
       try {
+        resetDiseases()
         await getTextToSpeech(item.name);
         updateDisease("summaryList", [item]);
         navigate(path);
