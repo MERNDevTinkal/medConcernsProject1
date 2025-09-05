@@ -7,7 +7,6 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
 const Concern = () => {
   const location = useLocation();
-  console.log("location",)
   return (
     <>
       <Header name={'Concerns'} />

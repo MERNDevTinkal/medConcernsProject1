@@ -7,10 +7,11 @@ const ConcernCard = () => {
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
-  const { updateDisease } = useContext(GlobalContext);
+  const { updateDisease, resetDiseases } = useContext(GlobalContext);
 
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
+      resetDiseases();
       await getTextToSpeech(value.name)
       updateDisease(path.replace("/", ""), value);
       // updateDisease("summaryList", [value]);
