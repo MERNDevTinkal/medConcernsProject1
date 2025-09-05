@@ -12,7 +12,7 @@ const SummaryList = () => {
   )
   return (
     <>
-      <Header />
+      <Header  name={"Summery List"}/>
       {(diseases?.concern?.name || diseases?.summaryList.length > 0) ? (
         <div className="main-wrapper home-wrapper">
           <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
