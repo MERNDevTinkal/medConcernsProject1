@@ -3,9 +3,7 @@ import { createContext, useState } from "react";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  // const [diseases, setDiseases] = useState({});
   const [diseases, setDiseases] = useState({ summaryList: [] });
-
   const updateDisease = (key, value) => {
     setDiseases((prev) => {
       let newValue;
@@ -26,10 +24,13 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
-
+  const resetDiseases = () => {
+    setDiseases(initialState);
+    localStorage.removeItem("diseases");
+  };
 
   return (
-    <GlobalContext.Provider value={{ diseases, updateDisease }}>
+    <GlobalContext.Provider value={{ diseases, updateDisease, resetDiseases }}>
       {children}
     </GlobalContext.Provider>
   );

@@ -13,10 +13,9 @@ export default function HowAreYou() {
   const { updateDisease } = useContext(GlobalContext);
 
   const handleValue = async (path, item) => {
-    if (path && name) {
+    if (path && item.name) {
       try {
-        await getTextToSpeech(name);
-        // updateDisease("howareyou", name);
+        await getTextToSpeech(item.name);
         updateDisease("summaryList", [item]);
         navigate(path);
       } catch (error) {

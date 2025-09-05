@@ -12,12 +12,12 @@ const SummaryCards = ({ SummaryConcernData }) => {
   }, [SummaryConcernData])
   return (
     <>
-      <div className="dashboard-cards rounded-2xl bg-white text-center py-4 px-3 shadow-sm cursor-pointer">
+      <div className="dashboard-cards rounded-2xl h-[200px] bg-white text-center py-4 px-3 shadow-sm cursor-pointer">
         <div className="dashboard-img ">
-          <img src={getData?.image || ConcernImg1} className="w-full" />
+          <img src={getData?.image} className="w-full" />
         </div>
         <Link to="" className="text-[21px] font-normal color-black">
-          {getData?.name || "Pain"}
+          {getData?.name || ""}
         </Link>
       </div>
     </>

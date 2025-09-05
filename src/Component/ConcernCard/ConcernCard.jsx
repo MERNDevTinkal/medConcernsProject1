@@ -12,8 +12,8 @@ const ConcernCard = () => {
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
       await getTextToSpeech(value.name)
-      // updateDisease(path.replace("/", ""), value);
-      updateDisease("summaryList", [value]);
+      updateDisease(path.replace("/", ""), value);
+      // updateDisease("summaryList", [value]);
       navigate(mainpath);
     }
   };

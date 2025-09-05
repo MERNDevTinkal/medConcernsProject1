@@ -13,7 +13,7 @@ const TopicBoard = () => {
     if (value && mainpath) {
       await getTextToSpeech(value.name)
       // updateDisease(path.replace("/", ""), value);
-      updateDisease("summaryList", [value]);
+       updateDisease("summaryList", [value]);
       navigate(mainpath);
     }
   };

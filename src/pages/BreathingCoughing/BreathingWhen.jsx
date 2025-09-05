@@ -17,7 +17,7 @@ const BreathingWhen = () => {
       navigate(path)
     }
   }
-
+  console.log("===>diseaseswhen", diseases)
   return (
     <>
       <Header name={'When?'} />
