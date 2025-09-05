@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
 import ConcernImg2 from "../../assets/images/concern-img-02.png";
 import DecisionCardFeeling from "./DecisionCardFeeling-l";
+import TopicBoard from "../Topicboard/topicBoard";
 import { concerns } from "../../Component/DiseasesData/concernData";
 import ConcernImg8 from "../../assets/images/concern-img-08.png";
 import { useParams } from "react-router-dom";
 
 function BreathingYesNo() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const { id } = useParams();
   const [concernValues, setConcernValues] = useState({});
   const [slugName, setslugName] = useState("");
@@ -31,13 +34,23 @@ function BreathingYesNo() {
       </div>
       <div className="main-wrapper home-wrapper ">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
-          <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
-            <div className="dashboard-img rounded-2xl">
-              <img src={concernValues?.image || ConcernImg8} className="w-full" />
-            </div>
+          {/* <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3"> */}
+          <div className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 ${location.pathname.includes("/topicboard/") ? 'h-[200px] flex justify-center items-center' : ''} `}>
+            {location.pathname.includes("/topicboard/") ? (<p>
+              {concernValues?.name}
+            </p>) : (
+              <div className="dashboard-img rounded-2xl">
+                <img src={concernValues?.image} className="w-full" />
+              </div>
+            )}
+
+
           </div>
           <div>
-            <DecisionCardFeeling concenFell={concernValues?.secPath} />
+            {location.pathname.includes("/topicboard/") ? (
+              <TopicBoard concenFell={concernValues?.secPath} />
+            ) : <DecisionCardFeeling concenFell={concernValues?.secPath} />}
+
           </div>
         </div>
         <Footer />

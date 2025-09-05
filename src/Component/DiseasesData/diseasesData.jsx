@@ -743,6 +743,7 @@ export const diseasesData = {
     "/swallowingpain-problem": painwithswallowingDesises,
     "/swallowingfear-problem": fearofswallowingDesises,
     "/feeling-list-pain": painEmoji,
+    "/feeling": painEmoji,
     "/swallowingdrymouth-problem": drymouthDesises,
     "/noappetite-problem": noappetiteDesies,
     "/swallowingtrach-problem": SwallowingTrachDesies,

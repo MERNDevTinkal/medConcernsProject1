@@ -55,19 +55,23 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/dashboard" element={<BreathingWhen />} />
         <Route path="/male-body" element={<BackPain />} />
         <Route path="/feel" element={<Feel />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/topic-board" element={<Concern />} />
         <Route path="/concern" element={<Concern />} />
         <Route path="/concern-pain" element={<ConcernPain />} />
         <Route path="/new-problem" element={<NewProblem />} />
+        <Route path="/yes-no-concerns" element={<NewProblem />} />
         <Route path="/full-body" element={<FullBody />} />
         <Route path="/pain-front" element={<PainFront />} />
         <Route path="/back-pain" element={<BackPain />} />
         <Route path="/face-pain" element={<FacePain />} />
         <Route path="/summary-list" element={<SummaryList />} />
-        <Route path="/feeling" element={<FeelingList />} />
+        {/* <Route path="/feeling" element={<FeelingList />} /> */}
+        <Route path="/feeling" element={<FeelingListPain />} />
         <Route path="/emotions" element={<EmotionsList />} />
         <Route path="/board" element={<NeedBoard />} />
         <Route path="/board-upload" element={<NeedBoardUpload />} />
@@ -103,6 +107,7 @@ function App() {
         <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} />
         <Route path="/nausea-when" element={<NauseaWhen />} />
         <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
+        <Route path="/topicboard/:name/:id" element={<BreathingYesNo />} />
         <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
         <Route path="/feelOptions" element={<FeelOptions />} />
       </Routes>

@@ -75,7 +75,7 @@ const Header = ({ name }) => {
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon4} />
-              <Link to="/feeling">How are you?</Link>
+              <Link to="/how-are-you">How are you?</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon5} />
@@ -87,7 +87,7 @@ const Header = ({ name }) => {
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon7} />
-              <Link to="/new-problem">Yes / No / ? Board</Link>
+              <Link to="/yes-no-concerns">Yes / No / ? Board</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon8} />
@@ -95,11 +95,11 @@ const Header = ({ name }) => {
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon9} />
-              <Link to="/emotions">Topic Board</Link>
+              <Link to="/topic-board">Topic Board</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon10} />
-              <Link to="/dashboard">When?</Link>
+              <Link to="/when">When?</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon11} />
@@ -111,31 +111,31 @@ const Header = ({ name }) => {
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon13} />
-              <Link to="/concern-pain">Bowel</Link>
+              <Link to="/bowels-problem">Bowel</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon5} />
-              <Link to="/concern-pain">Breathing / Coughing</Link>
+              <Link to="/breathing-problem">Breathing / Coughing</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon15} />
-              <Link to="/concern-pain">Fatigue</Link>
+              <Link to="/fatigue-problem">Fatigue</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon12} />
-              <Link to="/concern-pain">Illness</Link>
+              <Link to="/illness-problem">Illness</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon12} />
-              <Link to="/face-pain">Hearing</Link>
+              <Link to="/hearing-problem">Hearing</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon16} />
-              <Link>Medication</Link>
+              <Link to="/medication-problem">Medication</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon12} />
-              <Link to="/concern-pain">Mucus/Secretions</Link>
+              <Link to="/mucussecretions-problem">Mucus/Secretions</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon17} />
