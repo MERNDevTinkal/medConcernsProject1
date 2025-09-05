@@ -14,8 +14,9 @@ const BreathingProblem = () => {
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleBreathingProblem = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value)
-      updateDisease("problems", value)
+      await getTextToSpeech(value.name)
+      // updateDisease("problems", value)
+       updateDisease("summaryList", [value]);
       navigate(path)
     }
   }
@@ -31,7 +32,7 @@ const BreathingProblem = () => {
             return (
               <div style={{ cursor: "pointer" }} key={data?.id + "-" + index} onClick={() => {
                 handleBreathingProblem(
-                  data?.name,
+                  data,
                   data?.secPath?.includes("/confrm-step-yesno")
                     ? `${path}${data?.secPath}/${data?.id}`
                     : `${data?.secPath}`

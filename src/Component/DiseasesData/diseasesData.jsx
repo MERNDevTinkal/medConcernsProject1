@@ -75,17 +75,17 @@ import EmotionsImg6 from "../../assets/images/emotion-img-06.png";
 
 
 const emotionsData = [
-    { id: 1, name: "Anxious", image: EmotionsImg1, path: "", secPath: "/when" },
-    { id: 2, name: "Depressed", image: EmotionsImg2, path: "", secPath: "/when" },
-    { id: 3, name: "Scared", image: EmotionsImg3, path: "", secPath: "/when" },
-    { id: 4, name: "Angry", image: EmotionsImg4, path: "", secPath: "/when" },
-    { id: 5, name: "Frustrated", image: EmotionsImg5, path: "", secPath: "/when" },
-    { id: 6, name: "Frustrated", image: EmotionsImg6, path: "", secPath: "/when" },
-    { id: 7, name: "Sad", path: "", image: dashimg04, secPath: "/when" },
-    { id: 8, name: "Grief", path: "", image: dashimg04, secPath: "/when" },
-    { id: 9, name: "Guilty or Worry", path: "", image: dashimg04, secPath: "/when" },
-    { id: 10, name: "Feel Hopeless", path: "", image: dashimg04, secPath: "/when" },
-    { id: 11, name: "Something went wrong", path: "", image: PainImg15, secPath: "/whiteboard" }
+    { id: 1, name: "Anxious", image: EmotionsImg1, secPath: "/confrm-step-yesno", path: "/when" },
+    { id: 2, name: "Depressed", image: EmotionsImg2, secPath: "/confrm-step-yesno", path: "/when" },
+    { id: 3, name: "Scared", image: EmotionsImg3, secPath: "/confrm-step-yesno", path: "/when" },
+    { id: 4, name: "Angry", image: EmotionsImg4, secPath: "/confrm-step-yesno", path: "/when" },
+    { id: 5, name: "Frustrated", image: EmotionsImg5, secPath: "/confrm-step-yesno", path: "/when" },
+    { id: 6, name: "Frustrated", image: EmotionsImg6, secPath: "/confrm-step-yesno", path: "/when" },
+    { id: 7, name: "Sad", secPath: "/confrm-step-yesno", image: dashimg04, path: "/when" },
+    { id: 8, name: "Grief", secPath: "/confrm-step-yesno", image: dashimg04, path: "/when" },
+    { id: 9, name: "Guilty or Worry", secPath: "/confrm-step-yesno", image: dashimg04, path: "/when" },
+    { id: 10, name: "Feel Hopeless", secPath: "/confrm-step-yesno", image: dashimg04, path: "/when" },
+    { id: 11, name: "Something went wrong", secPath: "/confrm-step-yesno", image: PainImg15, path: "/whiteboard" }
 ];
 
 

@@ -118,6 +118,10 @@ const Header = ({ name }) => {
               <Link to="/breathing-problem">Breathing / Coughing</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
+              <img src={MenuIcon12} />
+              <Link to="/emotions">Emotions / Feelings</Link>
+            </li>
+            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon15} />
               <Link to="/fatigue-problem">Fatigue</Link>
             </li>

@@ -14,9 +14,10 @@ const Feel = () => {
   useEffect(() => {
     setEmotionsicons(diseasesData[path])
   }, [path])
-  const handleRoutes = async (name, path) => {
-    if (name && path) {
-      await getTextToSpeech(name)
+  const handleRoutes = async (item, path) => {
+    if (item && path) {
+      await getTextToSpeech(item.name);
+      updateDisease("summaryList", [value]);
       navigate(path)
     }
 
@@ -35,12 +36,12 @@ const Feel = () => {
       <div className="main-wrapper home-wrapper ">
         <div className="dashboard-wrapper px-4 py-1.5 feel-list-main">
           <ul className="flex flex-col gap-10 feel-list relative before:content-[''] before:absolute before:left-[50px] before:top-0 before:h-full before:w-[27px] before:bg-[linear-gradient(180deg,_#7ebe01_0%,_#fbcc00_25%,_#fbcc00_37.5%,_#f78d11_50%,_#f78d11_75%,_#f36218_87.5%,_#e92f1a_100%)]">
-            {emotionsicons.map(({ id, name, image, path }) => (
-              <li key={id} onClick={() => { handleRoutes(name, "/feelOptions") }} style={{ cursor: "pointer" }}>
+            {emotionsicons.map((item) => (
+              <li key={item?.id} onClick={() => { handleRoutes(item, "/feelOptions") }} style={{ cursor: "pointer" }}>
                 <div className="flex gap-12 items-center">
-                  <img src={image} className="w-30" alt="" />
+                  <img src={item?.image} className="w-30" alt="" />
                   <span className="text-[40px] font-medium color-black">
-                    {name}
+                    {item?.name}
                   </span>
                 </div>
               </li>

@@ -10,23 +10,25 @@ const CardsList = () => {
   const [feelingsicons, setFeelingsicons] = useState([]);
   const [selected, setSelected] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
-
+  const path = location.pathname;
   const mainpath = location.pathname;
   const { updateDisease } = useContext(GlobalContext);
 
-  const handleCardClick = async (item) => {
+  const handleCardClick = async (item, path) => {
     setSelected(item);
     await getTextToSpeech(item.name);
-    setShowPopup(true);
+    updateDisease("summaryList", [item]);
+     navigate(path)
   };
 
   const handlePopupResponse = async (response) => {
-    setShowPopup(false);
+    // setShowPopup(false);
+    console.log("===>", [response, selected])
     if (selected) {
 
       updateDisease(mainpath, [selected.name]);
       if (response === "no") {
-        navigate("/summary-list");
+        // navigate("/summary-list");
       }
     }
   };
@@ -37,14 +39,16 @@ const CardsList = () => {
 
   return (
     <>
-      {showPopup && (
+      {/* {showPopup && (
         <FeelingPOpUP handlePopupResponse={handlePopupResponse} />
-      )}
+      )} */}
       {feelingsicons.map((item) => (
         <div
           style={{ cursor: "pointer" }}
           key={item.id}
-          onClick={() => handleCardClick(item)}
+          onClick={() => handleCardClick(item, item?.secPath?.includes("/confrm-step-yesno")
+            ? `${path}${item?.secPath}/${item?.id}`
+            : `${item?.secPath}`)}
         >
           <div className="dashboard-cards rounded-2xl bg-white text-center pb-3 shadow hover:shadow-lg transition">
             <div className="dashboard-img">

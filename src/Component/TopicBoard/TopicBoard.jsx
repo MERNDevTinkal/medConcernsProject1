@@ -12,7 +12,8 @@ const TopicBoard = () => {
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
       await getTextToSpeech(value.name)
-      updateDisease(path.replace("/", ""), value);
+      // updateDisease(path.replace("/", ""), value);
+      updateDisease("summaryList", [value]);
       navigate(mainpath);
     }
   };
