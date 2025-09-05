@@ -6,6 +6,7 @@ import ConcernImg2 from "../../assets/images/concern-img-02.png";
 import DecisionCardFeeling from "./DecisionCardFeeling-l";
 import TopicBoard from "../Topicboard/topicBoard";
 import { concerns } from "../../Component/DiseasesData/concernData";
+import { topicBoard } from "../../Component/DiseasesData/concernData";
 import ConcernImg8 from "../../assets/images/concern-img-08.png";
 import { useParams } from "react-router-dom";
 
@@ -18,7 +19,7 @@ function BreathingYesNo() {
   const [slugName, setslugName] = useState("");
   useEffect(() => {
     if (concerns?.length > 0) {
-      const concern = concerns.find((c) => c.id == id);
+      const concern = location.pathname.includes("/topicboard/") ? topicBoard.find((c) => c.id == id) : concerns.find((c) => c.id == id);
       setslugName(concern?.name);
       setConcernValues(concern)
     }
@@ -34,9 +35,8 @@ function BreathingYesNo() {
       </div>
       <div className="main-wrapper home-wrapper ">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
-          {/* <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3"> */}
           <div className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 ${location.pathname.includes("/topicboard/") ? 'h-[200px] flex justify-center items-center' : ''} `}>
-            {location.pathname.includes("/topicboard/") ? (<p>
+            {location.pathname.includes("/topicboard/") ? (<p className="text-xl">
               {concernValues?.name}
             </p>) : (
               <div className="dashboard-img rounded-2xl">
@@ -50,7 +50,6 @@ function BreathingYesNo() {
             {location.pathname.includes("/topicboard/") ? (
               <TopicBoard concenFell={concernValues?.secPath} />
             ) : <DecisionCardFeeling concenFell={concernValues?.secPath} />}
-
           </div>
         </div>
         <Footer />
