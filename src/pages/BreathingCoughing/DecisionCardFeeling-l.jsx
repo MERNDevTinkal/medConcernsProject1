@@ -14,6 +14,9 @@ const DecisionCardFeeling = ({ concenFell }) => {
     if (value && path) {
       await getTextToSpeech(value)
       updateDisease("concenyesno", value)
+      if (path === "/pain-problem") {
+        return navigate("/male-body")
+      }
       navigate(path)
     }
   }
@@ -22,7 +25,7 @@ const DecisionCardFeeling = ({ concenFell }) => {
     const [firstPart] = name.split("-");
     const newPath = `/${firstPart}-problem`;
     if (newPath === "/emotions-problem" && concenFell === "/feel") {
-     return setPathUrl(concenFell);
+      return setPathUrl(concenFell);
     }
 
     setPathUrl(newPath);

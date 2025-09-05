@@ -18,7 +18,7 @@ import ConcernImg17 from "../../assets/images/trach_img.png";
 import ConcernImg18 from "../../assets/images/something-else.png";
 
 export const concerns = [
-    { id: 1, name: "Pain", image: ConcernImg1, path: "/male-body" },
+    { id: 1, name: "Pain", image: ConcernImg1, path: "/concern/pain-yes-no/1" },
     { id: 2, name: "Breathing/Coughing", image: ConcernImg2, path: "/concern/breathing-coughing-yes-no/2" },
     { id: 3, name: "Swallowing", image: ConcernImg3, path: "/concern/swallowing-yes-no/3" },
     { id: 4, name: "Nausea", image: ConcernImg4, path: "/concern/nausea-yes-no/4" },

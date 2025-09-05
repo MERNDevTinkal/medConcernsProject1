@@ -67,7 +67,7 @@ const Header = ({ name }) => {
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon2} />
-              <Link to="/front-pain">Patient Education</Link>
+              <Link to="/male-body">Patient Education</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon3} />
