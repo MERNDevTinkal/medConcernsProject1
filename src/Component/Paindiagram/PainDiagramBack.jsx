@@ -868,7 +868,7 @@ const PainDiagram = () => {
   const canvasRef = useRef(null);
   const cropSize = 100;
   const navigate = useNavigate();
-  const { updateDisease } = useContext(GlobalContext);
+  const { updateDisease, diseases } = useContext(GlobalContext);
 
   const handleImageClick = (e) => {
     const img = e.target;

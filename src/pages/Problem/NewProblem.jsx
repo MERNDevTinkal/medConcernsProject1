@@ -3,17 +3,24 @@ import BackArrow from "../../assets/images/back-arrow.svg";
 import NextArrow from "../../assets/images/next-arrow.svg";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 const NewProblem = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <button onClick={() => { navigate(-1) }}>
+        <button
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
           <img src={BackArrow} />
         </button>
         <h1 className="text-[25px] font-normal text-black">
-          How do you feel overall?
+          {location.pathname === "/new-problem"
+            ? "Is this a new problem"
+            : "How do you feel overall?"}
         </h1>
         <button>
           <img src={NextArrow} />

@@ -5,7 +5,7 @@ import Close from "../../assets/images/close.svg";
 import Question from "../../assets/images/question.svg";
 import WomenIcon from "../../assets/images/women.png";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 const DecisionCard = ({ partName }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,15 +13,22 @@ const DecisionCard = ({ partName }) => {
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleDecision = async (value, mainpath) => {
     if (value && mainpath) {
-      await getTextToSpeech(value)
-      updateDisease(path.replace("/", ""), value)
-      navigate(mainpath)
+      await getTextToSpeech(value);
+      updateDisease(path.replace("/", ""), value);
+      navigate(mainpath);
     }
-  }
+  };
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        <div onClick={() => { handleDecision("Yes", path === "/new-problem" ? "/summary-list" : "/pain-feel") }}>
+        <div
+          onClick={() => {
+            handleDecision(
+              "Yes",
+              path === "/new-problem" ? "/summary-list" : "/pain-feel"
+            );
+          }}
+        >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-green-600">YES</p>
@@ -32,7 +39,11 @@ const DecisionCard = ({ partName }) => {
           </div>
         </div>
 
-        <div onClick={() => { handleDecision("No", navigate(-1),) }}>
+        <div
+          onClick={() => {
+            handleDecision("No", navigate(-1));
+          }}
+        >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-red-600">NO</p>
@@ -43,16 +54,22 @@ const DecisionCard = ({ partName }) => {
           </div>
         </div>
         {/* {!["/concern-pain", "/face-pain"].includes(location.pathname) && ( */}
-        {(!partName && !["/concern-pain", "/face-pain"].includes(location.pathname)) && (
-          <div onClick={() => { handleDecision("Don't Know", "/summary-list",) }} className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-            <div className="flex items-center">
-              <img src={WomenIcon} alt="" className="w-15 h-15" />
+        {!partName &&
+          !["/concern-pain", "/face-pain"].includes(location.pathname) && (
+            <div
+              onClick={() => {
+                handleDecision("Don't Know", "/summary-list");
+              }}
+              className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+            >
+              <div className="flex items-center">
+                <img src={WomenIcon} alt="" className="w-15 h-15" />
+              </div>
+              <div>
+                <img src={Question} />
+              </div>
             </div>
-            <div>
-              <img src={Question} />
-            </div>
-          </div>
-        )}
+          )}
         {/* )} */}
       </div>
     </>

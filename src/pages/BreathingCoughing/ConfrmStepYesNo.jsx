@@ -11,26 +11,26 @@ import dashimg01 from "../../assets/images/Shortness-of-Breath.png";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams, useLocation } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 function ConfrmStepYesNo() {
   const { name, id } = useParams();
   const navigate = useNavigate();
-  const [selectedConcers, setSelectedConcers] = useState({})
+  const [selectedConcers, setSelectedConcers] = useState({});
   const { updateDisease, diseases } = useContext(GlobalContext);
   const location = useLocation();
   const pathprimary = location.pathname;
   const handleConfrmStepYesNo = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value)
-      updateDisease(pathprimary.replace("/", ""), value)
-      navigate(path)
+      await getTextToSpeech(value);
+      updateDisease(pathprimary.replace("/", ""), value);
+      navigate(path);
     }
-  }
+  };
   useEffect(() => {
     const selectediseasesArray = diseasesData[`/${name}`];
-    const selectedFilds = selectediseasesArray.find((item) => (item.id == id));
-    setSelectedConcers(selectedFilds)
-  }, [name, id])
+    const selectedFilds = selectediseasesArray.find((item) => item.id == id);
+    setSelectedConcers(selectedFilds);
+  }, [name, id]);
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
@@ -42,7 +42,9 @@ function ConfrmStepYesNo() {
         >
           <img src={BackArrow} />
         </div>
-        <h2 className="text-[25px] font-normal text-black text-center">{selectedConcers.name || 'Pain'}</h2>
+        <h2 className="text-[25px] font-normal text-black text-center">
+          {selectedConcers?.name ?? selectedConcers?.painFeel}
+        </h2>
         <button></button>
       </div>
       <div className="main-wrapper home-wrapper ">
@@ -54,7 +56,11 @@ function ConfrmStepYesNo() {
           </div>
           <div>
             <div className="w-full overflow-hidden decision-cards">
-              <div onClick={() => { handleConfrmStepYesNo("YES", selectedConcers.path) }}>
+              <div
+                onClick={() => {
+                  handleConfrmStepYesNo("YES", selectedConcers.path);
+                }}
+              >
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-green-600">
@@ -67,7 +73,11 @@ function ConfrmStepYesNo() {
                 </div>
               </div>
 
-              <div onClick={() => { handleConfrmStepYesNo("NO", navigate(-1)) }}>
+              <div
+                onClick={() => {
+                  handleConfrmStepYesNo("NO", navigate(-1));
+                }}
+              >
                 <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                   <div className="flex items-center">
                     <p className="text-[32px] font-medium text-red-600">NO</p>

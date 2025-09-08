@@ -1,23 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Header from "../../Component/Layout/Header/Header";
 import ConcernImg1 from "../../assets/images/pain-img.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
-
+import { GlobalContext } from "../../context/DiseaseContext";
 function ConcernPain() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { partName, image } = state || {};
-
+  const { deleteLastSummaryItem } = useContext(GlobalContext);
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <Link to={navigate(-1)}>
+        <Link
+          to="#"
+          onClick={(e) => {
+            e.preventDefault();
+            deleteLastSummaryItem();
+            navigate(-1);
+          }}
+        >
           <img src={BackArrow} />
         </Link>
-        <h2 className="text-[25px] font-normal text-black text-center">{partName || 'Pain'}</h2>
+        <h2 className="text-[25px] font-normal text-black text-center">
+          {partName || "Pain"}
+        </h2>
         <button></button>
       </div>
       <div className="main-wrapper home-wrapper ">

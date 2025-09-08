@@ -4,7 +4,7 @@ import BackArrow from "../../assets/images/back-arrow.svg";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate, useLocation } from "react-router-dom";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 const FeelingListPain = () => {
   const location = useLocation();
   const pathprimary = location.pathname;
@@ -14,13 +14,13 @@ const FeelingListPain = () => {
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handlegetPain = async (value, path, painFeel) => {
     if (value && path) {
-      await getTextToSpeech(painFeel)
-      updateDisease("summaryList", [value])
-      navigate(path)
+      await getTextToSpeech(painFeel);
+      updateDisease("summaryList", [value]);
+      navigate(path);
     }
-  }
+  };
   useEffect(() => {
-    setPainFeelParams(diseasesData[path])
+    setPainFeelParams(diseasesData[path]);
   }, [path]);
   return (
     <>
@@ -85,19 +85,37 @@ const FeelingListPain = () => {
             <div className="flex flex-wrap justify-between items-center emoji-bar">
               {painFeelParams.map((data, index) => (
                 <div key={data.id}>
-                  <div className={`flex flex-col items-center space-y-${index}  mb-3`}>
+                  <div
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      handlegetPain(
+                        data,
+                        data?.secPath?.includes("/confrm-step-yesno")
+                          ? `${path}${data?.secPath}/${data?.id}`
+                          : `${data?.secPath}`,
+                        data.painFeel
+                      );
+                    }}
+                    className={`flex flex-col items-center space-y-${index}  mb-3`}
+                  >
                     <img src={data.image} alt="" />
-                    <span onClick={() => {
-                      handlegetPain(data, data?.secPath?.includes("/confrm-step-yesno")
-                        ? `${path}${data?.secPath}/${data?.id}`
-                        : `${data?.secPath}`, data.painFeel)
-                    }} className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <span
+                      onClick={() => {
+                        handlegetPain(
+                          data,
+                          data?.secPath?.includes("/confrm-step-yesno")
+                            ? `${path}${data?.secPath}/${data?.id}`
+                            : `${data?.secPath}`,
+                          data.painFeel
+                        );
+                      }}
+                      className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                    >
                       {data.params ?? "0"}
                     </span>
                   </div>
                 </div>
               ))}
-
             </div>
           </div>
         </div>
