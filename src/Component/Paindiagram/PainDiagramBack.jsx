@@ -786,232 +786,6 @@
 // export default CoordinatePicker;
 
 // very new
-// import React, { useState, useRef, useContext } from "react";
-// import { useNavigate } from "react-router-dom";
-// import DigramBack from "../../assets/images/digram-back.png";
-// import DigramFront from "../../assets/images/digram-front.svg";
-// import Refresh from "../../assets/images/refresh_17981405.png";
-// import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-// import { GlobalContext } from "../../context/DiseaseContext";
-
-// function makeRegion(name, x1, y1, x2, y2) {
-//   return {
-//     name,
-//     x1: Math.min(x1, x2),
-//     y1: Math.min(y1, y2),
-//     x2: Math.max(x1, x2),
-//     y2: Math.max(y1, y2),
-//   };
-// }
-// function makeRegionFromPairs(name, yAx, yAy, yBx, yBy, xAx, xAy, xBx, xBy) {
-//   const x1 = Math.min(yAx, yBx);
-//   const x2 = Math.max(yAx, yBx);
-//   const y1 = Math.min(xAy, xBy);
-//   const y2 = Math.max(xAy, xBy);
-//   return makeRegion(name, x1, y1, x2, y2);
-// }
-
-// const backRegions = [
-//   makeRegionFromPairs("Back Center", 91, 83, 208, 84, 162, 126, 168, 45),
-//   makeRegionFromPairs("Elbow", 177, 23, 193, 24, 186, 37, 183, 12),
-
-//   makeRegionFromPairs("Butt", 209, 82, 261, 85, 244, 133, 241, 41),
-//   makeRegionFromPairs("Left Lower Leg", 337, 64, 458, 69, 405, 76, 408, 50),
-//   makeRegionFromPairs("Right Lower Leg", 345, 111, 461, 103, 385, 121, 397, 92),
-// ];
-
-// const frontRegions = [
-//   makeRegionFromPairs("Forehead", 13, 82, 32, 81, 27, 101, 29, 64),
-
-//   makeRegionFromPairs("Left Eye", 34, 71, 47, 72, 43, 77, 40, 62),
-//   makeRegionFromPairs("Right Eye", 34, 94, 47, 94, 38, 99, 42, 84),
-
-//   makeRegionFromPairs("Nose", 41, 81, 55, 81, 51, 83, 51, 76),
-//   makeRegionFromPairs("Mouth", 58, 81, 63, 82, 61, 89, 60, 75),
-
-//   makeRegionFromPairs("Left Ear", 41, 60, 55, 63, 46, 62, 49, 57),
-//   makeRegionFromPairs("Right Ear", 41, 105, 57, 101, 47, 100, 47, 105),
-
-//   makeRegionFromPairs("Neck", 74, 81, 91, 81, 76, 95, 77, 65),
-
-//   makeRegionFromPairs("Chest & Breast", 95, 79, 165, 81, 133, 120, 126, 42),
-//   makeRegionFromPairs("Abdomen", 169, 81, 221, 81, 196, 116, 196, 46),
-//   makeRegionFromPairs("Pelvis / Genitals", 241, 81, 268, 80, 250, 92, 253, 71),
-
-//   makeRegionFromPairs("Left Hip", 213, 49, 267, 37, 262, 64, 260, 35),
-//   makeRegionFromPairs("Right Hip", 217, 109, 270, 109, 241, 129, 246, 105),
-
-//   makeRegionFromPairs("Right Thigh", 260, 105, 314, 101, 287, 128, 289, 89),
-//   makeRegionFromPairs("Left Thigh", 271, 53, 313, 57, 287, 76, 284, 36),
-
-//   makeRegionFromPairs("Left Knee", 325, 63, 356, 65, 337, 74, 338, 45),
-//   makeRegionFromPairs("Right Knee", 321, 107, 361, 104, 346, 117, 353, 91),
-//   makeRegionFromPairs("Left Knee (Alt)", 331, 57, 364, 60, 349, 71, 349, 46),
-
-//   makeRegionFromPairs("Left Lower Leg", 359, 61, 457, 67, 401, 72, 403, 45),
-//   makeRegionFromPairs("Right Lower Leg", 361, 105, 456, 102, 397, 116, 401, 89),
-
-//   makeRegionFromPairs("Right Foot / Toe", 460, 100, 490, 107, 477, 111, 476, 89),
-//   makeRegionFromPairs("Left Foot / Toe", 457, 65, 489, 58, 469, 74, 477, 53),
-
-//   makeRegionFromPairs("Right Shoulder", 90, 125, 117, 132, 94, 134, 100, 119),
-//   makeRegionFromPairs("Right Arm (Upper)", 126, 128, 232, 151, 165, 153, 177, 130),
-//   makeRegionFromPairs("Right Arm (Lower)", 240, 152, 261, 154, 253, 158, 257, 143),
-//   makeRegionFromPairs("Right Fingers", 265, 153, 277, 151, 264, 160, 263, 148),
-
-//   makeRegionFromPairs("Left Shoulder", 97, 32, 128, 30, 131, 41, 125, 19),
-//   makeRegionFromPairs("Left Arm", 137, 32, 234, 15, 169, 32, 169, 9),
-//   makeRegionFromPairs("Left Hand", 240, 16, 263, 8, 253, 19, 257, 4),
-//   makeRegionFromPairs("Left Fingers", 264, 8, 277, 10, 270, 14, 265, 4),
-// ];
-
-// const PADDING = 0;
-
-// const PainDiagram = () => {
-//   const [marker, setMarker] = useState(null);
-//   const [croppedPart, setCroppedPart] = useState(null);
-//   // NOTE: true = BACK image (as you requested), false = FRONT image
-//   const [isfront, setIsfront] = useState(false);
-//   const canvasRef = useRef(null);
-//   const cropSize = 100;
-//   const navigate = useNavigate();
-//   const { updateDisease } = useContext(GlobalContext);
-
-//   const handleImageClick = (e) => {
-//     const img = e.target;
-//     const rect = img.getBoundingClientRect();
-//     const clickX = e.clientX - rect.left;
-//     const clickY = e.clientY - rect.top;
-
-//     const scaleX = img.naturalWidth / img.width;
-//     const scaleY = img.naturalHeight / img.height;
-//     const realX = clickX * scaleX;
-//     const realY = clickY * scaleY;
-
-//     // Choose side-specific regions
-//     const activeRegions = isfront ? backRegions : frontRegions;
-
-//     // Try inside-with-padding first
-//     let clickedRegion =
-//       activeRegions.find(
-//         (r) =>
-//           realX >= r.x1 - PADDING &&
-//           realX <= r.x2 + PADDING &&
-//           realY >= r.y1 - PADDING &&
-//           realY <= r.y2 + PADDING
-//       ) || null;
-
-//     // If not found, pick nearest region center (no "Body" fallback)
-//     if (!clickedRegion) {
-//       let minDist = Infinity;
-//       activeRegions.forEach((r) => {
-//         const cx = (r.x1 + r.x2) / 2;
-//         const cy = (r.y1 + r.y2) / 2;
-//         const d = Math.hypot(realX - cx, realY - cy);
-//         if (d < minDist) {
-//           minDist = d;
-//           clickedRegion = r;
-//         }
-//       });
-//     }
-
-//     // Speak the selected name
-//     getTextToSpeech(clickedRegion.name);
-
-//     // Crop around the click point
-//     const imageObj = new Image();
-//     imageObj.src = isfront ? DigramBack : DigramFront; // true = back, false = front
-//     imageObj.onload = () => {
-//       const canvas = canvasRef.current;
-//       const ctx = canvas.getContext("2d");
-
-//       let startX = realX - cropSize / 2;
-//       let startY = realY - cropSize / 2;
-
-//       if (startX < 0) startX = 0;
-//       if (startY < 0) startY = 0;
-//       if (startX + cropSize > imageObj.naturalWidth)
-//         startX = imageObj.naturalWidth - cropSize;
-//       if (startY + cropSize > imageObj.naturalHeight)
-//         startY = imageObj.naturalHeight - cropSize;
-
-//       canvas.width = cropSize;
-//       canvas.height = cropSize;
-//       ctx.drawImage(
-//         imageObj,
-//         startX,
-//         startY,
-//         cropSize,
-//         cropSize,
-//         0,
-//         0,
-//         cropSize,
-//         cropSize
-//       );
-
-//       const croppedData = canvas.toDataURL("image/png");
-//       setMarker({ x: clickX, y: clickY });
-//       setCroppedPart(croppedData);
-
-//       // push to global + navigate
-//       updateDisease("summaryList", [{ image: croppedData, name: clickedRegion.name }]);
-//       navigate("/concern-pain", {
-//         state: { partName: clickedRegion.name, image: croppedData },
-//       });
-//     };
-//   };
-
-//   const handleRefresh = () => {
-//     setIsfront((prev) => !prev); // toggle image (true = back, false = front)
-//     setCroppedPart(null);
-//     setMarker(null);
-//   };
-
-//   return (
-//     <>
-//       <div className="flex justify-end mt-4">
-//         <button
-//           onClick={handleRefresh}
-//           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
-//         >
-//           <img src={Refresh} alt="refresh" className="w-6 h-6" />
-//         </button>
-//       </div>
-
-//       <div className="flex flex-col items-center">
-//         <div className="relative w-[350px] md:w-[500px]">
-//           <img
-//             src={isfront ? DigramBack : DigramFront} // true = back, false = front
-//             alt="body diagram"
-//             className="w-full h-auto"
-//             onClick={handleImageClick}
-//           />
-//           {marker && (
-//             <div
-//               className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
-//               style={{ left: marker.x - 8, top: marker.y - 8 }}
-//             />
-//           )}
-//         </div>
-
-//         <canvas ref={canvasRef} style={{ display: "none" }} />
-
-//         {croppedPart && (
-//           <div className="p-2 border rounded shadow mt-6">
-//             <img
-//               src={croppedPart}
-//               alt="Selected Part"
-//               className="w-24 h-24 object-contain"
-//             />
-//           </div>
-//         )}
-//       </div>
-//     </>
-//   );
-// };
-
-// export default PainDiagram;
-
 import React, { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import DigramBack from "../../assets/images/digram-back.png";
@@ -1020,7 +794,6 @@ import Refresh from "../../assets/images/refresh_17981405.png";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
 
-// Create region from 4 points
 function makeRegion(name, x1, y1, x2, y2) {
   return {
     name,
@@ -1030,76 +803,68 @@ function makeRegion(name, x1, y1, x2, y2) {
     y2: Math.max(y1, y2),
   };
 }
-
-// Clearer naming
-function makeRegionFromPairs(name, xA, yA, xB, yB, xC, yC, xD, yD) {
-  const x1 = Math.min(xA, xB, xC, xD);
-  const x2 = Math.max(xA, xB, xC, xD);
-  const y1 = Math.min(yA, yB, yC, yD);
-  const y2 = Math.max(yA, yB, yC, yD);
+function makeRegionFromPairs(name, yAx, yAy, yBx, yBy, xAx, xAy, xBx, xBy) {
+  const x1 = Math.min(yAx, yBx);
+  const x2 = Math.max(yAx, yBx);
+  const y1 = Math.min(xAy, xBy);
+  const y2 = Math.max(xAy, xBy);
   return makeRegion(name, x1, y1, x2, y2);
 }
 
-// Your original regions remain unchanged
 const backRegions = [
   makeRegionFromPairs("Back Center", 91, 83, 208, 84, 162, 126, 168, 45),
   makeRegionFromPairs("Elbow", 177, 23, 193, 24, 186, 37, 183, 12),
+
   makeRegionFromPairs("Butt", 209, 82, 261, 85, 244, 133, 241, 41),
   makeRegionFromPairs("Left Lower Leg", 337, 64, 458, 69, 405, 76, 408, 50),
   makeRegionFromPairs("Right Lower Leg", 345, 111, 461, 103, 385, 121, 397, 92),
 ];
 
-// first box up and down according increase value or decrease
-//second right the box if encrease value
-// fourth left the box
-//third bottom the box
 const frontRegions = [
-  // makeRegion("Forehead", 13, 64, 32, 101),
-  // makeRegion("Left Eye", 34, 62, 47, 77),
-  // makeRegion("Right Eye", 34, 84, 47, 99),
-  // makeRegion("Nose", 41, 76, 55, 83),
-  // makeRegion("Mouth", 58, 75, 63, 89),
-  // makeRegion("Left Ear", 41, 57, 55, 63),
-  // makeRegion("Right Ear", 41, 100, 57, 105),
-  // makeRegion("Neck", 90, 80, 110, 120),
+  makeRegion("Forehead", 13, 64, 32, 101),
+  makeRegion("Left Eye", 34, 62, 47, 77),
+  makeRegion("Right Eye", 34, 84, 47, 99),
+  makeRegion("Nose", 41, 76, 55, 83),
+  makeRegion("Mouth", 58, 75, 63, 89),
+  makeRegion("Left Ear", 41, 57, 55, 63),
+  makeRegion("Right Ear", 41, 100, 57, 105),
+  makeRegion("Neck", 90, 80, 110, 120),
   makeRegion("Chest & Breast", 120, 50, 185, 150),
-  // makeRegion("Abdomen", 220, 145, 265, 60),
-  // makeRegion("Pelvis / Genitals", 241, 71, 268, 92),
-  // makeRegion("Left Hip", 280, 45, 350, 80),
-  // makeRegion("Right Hip", 350, 150, 260, 129),
-  // makeRegion("Right Thigh", 260, 89, 314, 128),
-  // makeRegion("Left Thigh", 271, 36, 313, 76),
-  // makeRegion("Left Knee", 325, 45, 356, 74),
-  // makeRegion("Right Knee", 321, 91, 361, 117),
-  // makeRegion("Left Knee (Alt)", 331, 46, 364, 71),
-  // makeRegion("Left Lower Leg", 359, 45, 457, 72),
-  // makeRegion("Right Lower Leg", 361, 89, 456, 116),
-  // makeRegion("Right Foot / Toe", 460, 89, 490, 111),
-  // makeRegion("Left Foot / Toe", 457, 53, 489, 74),
+  makeRegion("Abdomen", 220, 145, 265, 60),
+  makeRegion("Pelvis / Genitals", 290, 88, 330, 110),
+  makeRegion("Left Hip", 280, 45, 320, 70),
+  makeRegion("Right Hip", 280, 160, 320, 135),
+  makeRegion("Right Thigh", 320, 115, 385, 160),
+  makeRegion("Left Thigh", 320, 45, 385, 90),
+  makeRegion("Left Knee", 400, 90, 440, 55),
+  makeRegion("Right Knee", 400, 110, 440, 145),
+  makeRegion("Left Lower Leg", 450, 58, 560, 90),
+  makeRegion("Right Lower Leg", 450, 107, 560, 140),
+  makeRegion("left Lower Leg", 570, 110, 610, 134),
+  makeRegion("Left Foot / Toe", 570, 65, 610, 90),
   makeRegion("Right Shoulder", 180, 160, 117, 175),
-  // makeRegion("Right Arm (Upper)", 126, 128, 232, 153),
-  // makeRegion("Right Arm (Lower)", 240, 143, 261, 158),
-  // makeRegion("Right Fingers", 263, 148, 277, 160),
+  makeRegion("Right Arm ", 126, 170, 290, 190),
+  makeRegion("Right Hand", 298, 178, 321, 200),
+  makeRegion("Right Finger", 330, 178, 340, 200),
   makeRegion("Left Shoulder", 97, 19, 131, 41),
-  // makeRegion("Left Arm", 137, 9, 234, 32),
-  // makeRegion("Left Hand", 240, 4, 263, 19),
-  // makeRegion("Left Fingers", 264, 4, 277, 14),
+  makeRegion("Left Arm", 137, 9, 300, 32),
+  makeRegion("Left Hand", 300, 8, 330, 20),
+  makeRegion("Left Finger", 330, 12, 340, 30),
 ];
-
 const PADDING = 0;
 
 const PainDiagram = () => {
   const [marker, setMarker] = useState(null);
   const [croppedPart, setCroppedPart] = useState(null);
-  const [isfront, setIsfront] = useState(false); // true = back
+  // NOTE: true = BACK image (as you requested), false = FRONT image
+  const [isfront, setIsfront] = useState(false);
   const canvasRef = useRef(null);
-  const imageRef = useRef(null);
   const cropSize = 100;
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
 
   const handleImageClick = (e) => {
-    const img = imageRef.current;
+    const img = e.target;
     const rect = img.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const clickY = e.clientY - rect.top;
@@ -1109,12 +874,10 @@ const PainDiagram = () => {
     const realX = clickX * scaleX;
     const realY = clickY * scaleY;
 
-    console.log(
-      `Clicked at (real): X=${realX.toFixed(2)}, Y=${realY.toFixed(2)}`
-    );
-
+    // Choose side-specific regions
     const activeRegions = isfront ? backRegions : frontRegions;
 
+    // Try inside-with-padding first
     let clickedRegion =
       activeRegions.find(
         (r) =>
@@ -1123,7 +886,8 @@ const PainDiagram = () => {
           realY >= r.y1 - PADDING &&
           realY <= r.y2 + PADDING
       ) || null;
-    console.log("===>clickedRegionclickedRegionclickedRegion", clickedRegion);
+
+    // If not found, pick nearest region center (no "Body" fallback)
     if (!clickedRegion) {
       let minDist = Infinity;
       activeRegions.forEach((r) => {
@@ -1137,10 +901,12 @@ const PainDiagram = () => {
       });
     }
 
+    // Speak the selected name
     getTextToSpeech(clickedRegion.name);
 
+    // Crop around the click point
     const imageObj = new Image();
-    imageObj.src = isfront ? DigramBack : DigramFront;
+    imageObj.src = isfront ? DigramBack : DigramFront; // true = back, false = front
     imageObj.onload = () => {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
@@ -1173,6 +939,7 @@ const PainDiagram = () => {
       setMarker({ x: clickX, y: clickY });
       setCroppedPart(croppedData);
 
+      // push to global + navigate
       updateDisease("summaryList", [
         { image: croppedData, name: clickedRegion.name },
       ]);
@@ -1183,12 +950,10 @@ const PainDiagram = () => {
   };
 
   const handleRefresh = () => {
-    setIsfront((prev) => !prev);
+    setIsfront((prev) => !prev); // toggle image (true = back, false = front)
     setCroppedPart(null);
     setMarker(null);
   };
-
-  const imageWidth = 350;
 
   return (
     <>
@@ -1204,68 +969,17 @@ const PainDiagram = () => {
       <div className="flex flex-col items-center">
         <div className="relative w-[350px] md:w-[500px]">
           <img
-            ref={imageRef}
-            src={isfront ? DigramBack : DigramFront}
+            src={isfront ? DigramBack : DigramFront} // true = back, false = front
             alt="body diagram"
             className="w-full h-auto"
             onClick={handleImageClick}
           />
-
-          {/* Marker for click */}
           {marker && (
             <div
               className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
               style={{ left: marker.x - 8, top: marker.y - 8 }}
             />
           )}
-
-          {/* Region Boxes (Debug Overlay) */}
-          {/* Region labels and boxes */}
-          {(isfront ? backRegions : frontRegions).map((region, i) => {
-            const img = imageRef.current;
-            if (!img) return null;
-
-            const scale = img.clientWidth / img.naturalWidth;
-
-            const left = region.x1 * scale;
-            const top = region.y1 * scale;
-            const width = (region.x2 - region.x1) * scale;
-            const height = (region.y2 - region.y1) * scale;
-
-            // Compute center of region to place label
-            const centerX = left + width / 2;
-            const centerY = top + height / 2;
-
-            return (
-              <React.Fragment key={i}>
-                {/* Optional: Thin border around region */}
-                <div
-                  className="absolute border border-blue-400 opacity-20 rounded"
-                  style={{
-                    left,
-                    top,
-                    width,
-                    height,
-                    pointerEvents: "none",
-                  }}
-                />
-
-                {/* Label in center */}
-                <div
-                  className="absolute bg-white text-xs text-blue-800 font-semibold px-2 py-[2px] rounded-full shadow"
-                  style={{
-                    top: centerY - 10,
-                    left: centerX - region.name.length * 2.5,
-                    pointerEvents: "none",
-                    whiteSpace: "nowrap",
-                    opacity: 0.9,
-                  }}
-                >
-                  {region.name}
-                </div>
-              </React.Fragment>
-            );
-          })}
         </div>
 
         <canvas ref={canvasRef} style={{ display: "none" }} />
@@ -1285,3 +999,276 @@ const PainDiagram = () => {
 };
 
 export default PainDiagram;
+
+// import React, { useState, useRef, useContext } from "react";
+// import { useNavigate } from "react-router-dom";
+// import DigramBack from "../../assets/images/digram-back.png";
+// import DigramFront from "../../assets/images/digram-front.svg";
+// import Refresh from "../../assets/images/refresh_17981405.png";
+// import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+// import { GlobalContext } from "../../context/DiseaseContext";
+
+// // Create region from 4 points
+// function makeRegion(name, x1, y1, x2, y2) {
+//   return {
+//     name,
+//     x1: Math.min(x1, x2),
+//     y1: Math.min(y1, y2),
+//     x2: Math.max(x1, x2),
+//     y2: Math.max(y1, y2),
+//   };
+// }
+
+// // Clearer naming
+// function makeRegionFromPairs(name, xA, yA, xB, yB, xC, yC, xD, yD) {
+//   const x1 = Math.min(xA, xB, xC, xD);
+//   const x2 = Math.max(xA, xB, xC, xD);
+//   const y1 = Math.min(yA, yB, yC, yD);
+//   const y2 = Math.max(yA, yB, yC, yD);
+//   return makeRegion(name, x1, y1, x2, y2);
+// }
+
+// // Your original regions remain unchanged
+// const backRegions = [
+//   makeRegionFromPairs("Back Center", 91, 83, 208, 84, 162, 126, 168, 45),
+//   makeRegionFromPairs("Elbow", 177, 23, 193, 24, 186, 37, 183, 12),
+//   makeRegionFromPairs("Butt", 209, 82, 261, 85, 244, 133, 241, 41),
+//   makeRegionFromPairs("Left Lower Leg", 337, 64, 458, 69, 405, 76, 408, 50),
+//   makeRegionFromPairs("Right Lower Leg", 345, 111, 461, 103, 385, 121, 397, 92),
+// ];
+
+// // first box up and down according increase value or decrease
+// //second right the box if encrease value
+// // fourth left the box
+// //third bottom the box
+// const frontRegions = [
+//   makeRegion("Forehead", 13, 64, 32, 101),
+//   makeRegion("Left Eye", 34, 62, 47, 77),
+//   makeRegion("Right Eye", 34, 84, 47, 99),
+//   makeRegion("Nose", 41, 76, 55, 83),
+//   makeRegion("Mouth", 58, 75, 63, 89),
+//   makeRegion("Left Ear", 41, 57, 55, 63),
+//   makeRegion("Right Ear", 41, 100, 57, 105),
+//   makeRegion("Neck", 90, 80, 110, 120),
+//   makeRegion("Chest & Breast", 120, 50, 185, 150),
+//   makeRegion("Abdomen", 220, 145, 265, 60),
+//   makeRegion("Pelvis / Genitals", 290, 88, 330, 110),
+//   makeRegion("Left Hip", 280, 45, 320, 70),
+//   makeRegion("Right Hip", 280, 160, 320, 135),
+//   makeRegion("Right Thigh", 320, 115, 385, 160),
+//   makeRegion("Left Thigh", 320, 45, 385, 90),
+//   makeRegion("Left Knee", 400, 90, 440, 55),
+//   makeRegion("Right Knee", 400, 110, 440, 145),
+//   makeRegion("Left Lower Leg", 450, 58, 560, 90),
+//   makeRegion("Right Lower Leg", 450, 107, 560, 140),
+//   makeRegion("left Lower Leg", 570, 110, 610, 134),
+//   makeRegion("Left Foot / Toe", 570, 65, 610, 90),
+//   makeRegion("Right Shoulder", 180, 160, 117, 175),
+//   makeRegion("Right Arm ", 126, 170, 290, 190),
+//   makeRegion("Right Hand", 298, 178, 321, 200),
+//   makeRegion("Right Finger", 330, 178, 340, 200),
+//   makeRegion("Left Shoulder", 97, 19, 131, 41),
+//   makeRegion("Left Arm", 137, 9, 300, 32),
+//   makeRegion("Left Hand", 300, 8, 330, 20),
+//   makeRegion("Left Finger", 330, 12, 340, 30),
+// ];
+
+// const PADDING = 0;
+
+// const PainDiagram = () => {
+//   const [marker, setMarker] = useState(null);
+//   const [croppedPart, setCroppedPart] = useState(null);
+//   const [isfront, setIsfront] = useState(false); // true = back
+//   const canvasRef = useRef(null);
+//   const imageRef = useRef(null);
+//   const cropSize = 100;
+//   const navigate = useNavigate();
+//   const { updateDisease } = useContext(GlobalContext);
+
+//   const handleImageClick = (e) => {
+//     const img = imageRef.current;
+//     const rect = img.getBoundingClientRect();
+//     const clickX = e.clientX - rect.left;
+//     const clickY = e.clientY - rect.top;
+
+//     const scaleX = img.naturalWidth / img.width;
+//     const scaleY = img.naturalHeight / img.height;
+//     const realX = clickX * scaleX;
+//     const realY = clickY * scaleY;
+
+//     console.log(
+//       `Clicked at (real): X=${realX.toFixed(2)}, Y=${realY.toFixed(2)}`
+//     );
+
+//     const activeRegions = isfront ? backRegions : frontRegions;
+
+//     let clickedRegion =
+//       activeRegions.find(
+//         (r) =>
+//           realX >= r.x1 - PADDING &&
+//           realX <= r.x2 + PADDING &&
+//           realY >= r.y1 - PADDING &&
+//           realY <= r.y2 + PADDING
+//       ) || null;
+//     console.log("===>clickedRegionclickedRegionclickedRegion", clickedRegion);
+//     if (!clickedRegion) {
+//       let minDist = Infinity;
+//       activeRegions.forEach((r) => {
+//         const cx = (r.x1 + r.x2) / 2;
+//         const cy = (r.y1 + r.y2) / 2;
+//         const d = Math.hypot(realX - cx, realY - cy);
+//         if (d < minDist) {
+//           minDist = d;
+//           clickedRegion = r;
+//         }
+//       });
+//     }
+
+//     getTextToSpeech(clickedRegion.name);
+
+//     const imageObj = new Image();
+//     imageObj.src = isfront ? DigramBack : DigramFront;
+//     imageObj.onload = () => {
+//       const canvas = canvasRef.current;
+//       const ctx = canvas.getContext("2d");
+
+//       let startX = realX - cropSize / 2;
+//       let startY = realY - cropSize / 2;
+
+//       if (startX < 0) startX = 0;
+//       if (startY < 0) startY = 0;
+//       if (startX + cropSize > imageObj.naturalWidth)
+//         startX = imageObj.naturalWidth - cropSize;
+//       if (startY + cropSize > imageObj.naturalHeight)
+//         startY = imageObj.naturalHeight - cropSize;
+
+//       canvas.width = cropSize;
+//       canvas.height = cropSize;
+//       ctx.drawImage(
+//         imageObj,
+//         startX,
+//         startY,
+//         cropSize,
+//         cropSize,
+//         0,
+//         0,
+//         cropSize,
+//         cropSize
+//       );
+
+//       const croppedData = canvas.toDataURL("image/png");
+//       setMarker({ x: clickX, y: clickY });
+//       setCroppedPart(croppedData);
+
+//       updateDisease("summaryList", [
+//         { image: croppedData, name: clickedRegion.name },
+//       ]);
+//       navigate("/concern-pain", {
+//         state: { partName: clickedRegion.name, image: croppedData },
+//       });
+//     };
+//   };
+
+//   const handleRefresh = () => {
+//     setIsfront((prev) => !prev);
+//     setCroppedPart(null);
+//     setMarker(null);
+//   };
+
+//   const imageWidth = 350;
+
+//   return (
+//     <>
+//       <div className="flex justify-end mt-4">
+//         <button
+//           onClick={handleRefresh}
+//           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
+//         >
+//           <img src={Refresh} alt="refresh" className="w-6 h-6" />
+//         </button>
+//       </div>
+
+//       <div className="flex flex-col items-center">
+//         <div className="relative w-[350px] md:w-[500px]">
+//           <img
+//             ref={imageRef}
+//             src={isfront ? DigramBack : DigramFront}
+//             alt="body diagram"
+//             className="w-full h-auto"
+//             onClick={handleImageClick}
+//           />
+
+//           {/* Marker for click */}
+//           {marker && (
+//             <div
+//               className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
+//               style={{ left: marker.x - 8, top: marker.y - 8 }}
+//             />
+//           )}
+
+//           {/* Region Boxes (Debug Overlay) */}
+//           {/* Region labels and boxes */}
+//           {(isfront ? backRegions : frontRegions).map((region, i) => {
+//             const img = imageRef.current;
+//             if (!img) return null;
+
+//             const scale = img.clientWidth / img.naturalWidth;
+
+//             const left = region.x1 * scale;
+//             const top = region.y1 * scale;
+//             const width = (region.x2 - region.x1) * scale;
+//             const height = (region.y2 - region.y1) * scale;
+
+//             // Compute center of region to place label
+//             const centerX = left + width / 2;
+//             const centerY = top + height / 2;
+
+//             return (
+//               <React.Fragment key={i}>
+//                 {/* Optional: Thin border around region */}
+//                 <div
+//                   className="absolute border border-blue-400 opacity-20 rounded"
+//                   style={{
+//                     left,
+//                     top,
+//                     width,
+//                     height,
+//                     pointerEvents: "none",
+//                   }}
+//                 />
+
+//                 {/* Label in center */}
+//                 <div
+//                   className="absolute bg-white text-xs text-blue-800 font-semibold px-2 py-[2px] rounded-full shadow"
+//                   style={{
+//                     top: centerY - 10,
+//                     left: centerX - region.name.length * 2.5,
+//                     pointerEvents: "none",
+//                     whiteSpace: "nowrap",
+//                     opacity: 0.9,
+//                   }}
+//                 >
+//                   {region.name}
+//                 </div>
+//               </React.Fragment>
+//             );
+//           })}
+//         </div>
+
+//         <canvas ref={canvasRef} style={{ display: "none" }} />
+
+//         {croppedPart && (
+//           <div className="p-2 border rounded shadow mt-6">
+//             <img
+//               src={croppedPart}
+//               alt="Selected Part"
+//               className="w-24 h-24 object-contain"
+//             />
+//           </div>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
+
+// export default PainDiagram;
