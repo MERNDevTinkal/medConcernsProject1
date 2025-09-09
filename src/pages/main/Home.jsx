@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logoicon from "../../assets/images/logo-icon.svg";
 import mainimg from "../../assets/images/main-img.png";
 import download from "../../assets/images/download.svg";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [promptEvent, setPromptEvent] = useState(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setPromptEvent(e);
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+    return () =>
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+  }, []);
+  const handleInstallClick = async () => {
+    if (promptEvent) {
+      promptEvent.prompt();
+      const { outcome } = await promptEvent.userChoice;
+      if (outcome === "accepted") {
+        console.log("PWA installed");
+      } else {
+        console.log("PWA install dismissed");
+      }
+      setPromptEvent(null);
+    } else {
+      alert("Install prompt not available. Make sure PWA is installable.");
+    }
+  };
   return (
     <div>
       <div className="welcome-new bg-[#DCECFC]">
@@ -29,12 +59,14 @@ const Home = () => {
             <div>
               <img src={mainimg} className="w-full mx-auto mb-4 mt-4" alt="" />
             </div>
-            <Link
+            <div
+              onClick={handleInstallClick}
+              disabled={!promptEvent}
               to="/main"
               className="flex justify-center gap-2 bg-[#008CFF] text-white py-3 px-5 text-base mt-3 rounded-xl text-center text-[18px]"
             >
               Download Now <img src={download} alt="" />
-            </Link>
+            </div>
             <div>
               <h4 className="text-[18px] font-medium mt-5">
                 Are you a hospital admin? <br />
