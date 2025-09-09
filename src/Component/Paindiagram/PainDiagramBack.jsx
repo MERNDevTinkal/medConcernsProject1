@@ -168,7 +168,7 @@ const PainDiagram = () => {
   };
 
   const handleRefresh = () => {
-    setIsfront((prev) => !prev); // toggle image (true = back, false = front)
+    setIsfront((prev) => !prev);
     setCroppedPart(null);
     setMarker(null);
   };

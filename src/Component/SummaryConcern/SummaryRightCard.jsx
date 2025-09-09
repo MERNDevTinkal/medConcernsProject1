@@ -9,19 +9,32 @@ import SummaryImg6 from "../../assets/images/summary-img-06.png";
 import { Link } from "react-router-dom";
 
 const SummaryRightCard = ({ SummaryDetail }) => {
-  console.log("===>SummaryDetail", SummaryDetail)
+  console.log("===>SummaryDetail", SummaryDetail);
   return (
     <>
-      {SummaryDetail.flat().map((item, index) => (
-        <div key={index}>
-          <div className="dashboard-cards rounded-2xl bg-white text-center px-5 py-4 h-full border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
-            <div className="dashboard-img flex justify-center items-center">
-              <img style={{ width: "89px", height: "69px" }} src={item?.image || SummaryImg1} />
+      {SummaryDetail.flat().map((item, index) => {
+        return (
+          <div key={index}>
+            <div className="dashboard-cards rounded-2xl bg-white text-center px-5 py-4 h-full border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+              <div className="dashboard-img flex justify-center items-center">
+                <img
+                  style={{ width: "89px", height: "69px" }}
+                  src={item?.image ?? item?.data[0]?.image}
+                />
+              </div>
+              <p className="text-[14px] mt-3 color-black">
+                {item?.name
+                  ? item?.name
+                  : item?.painFeel
+                  ? item?.painFeel
+                  : item?.data[0]?.name
+                  ? item?.data[0]?.name
+                  : item?.data[0]?.painFeel}
+              </p>
             </div>
-            <p className="text-[14px] mt-3 color-black">{item?.name ? item?.name : item?.painFeel }</p>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </>
   );
 };
