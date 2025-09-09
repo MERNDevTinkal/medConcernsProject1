@@ -6,9 +6,33 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import SummaryRightCard from "../../Component/SummaryConcern/SummaryRightCard";
 import { GlobalContext } from "../../context/DiseaseContext";
 import SaveModel from "../../Component/saveASModel/saveModel";
+import api from "../../Component/apiCall/apiCall";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SummaryList = () => {
   const { diseases } = useContext(GlobalContext);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
+  const [saveAs, setSaveAs] = useState("");
+  const saveData = () => {
+    const licenses_id = sessionStorage.getItem("license_key");
+    const payload = new FormData();
+    payload.append("licenses_id", licenses_id);
+    payload.append("name_key", saveAs);
+    payload.append("summary_data", JSON.stringify(diseases));
+    api
+      .post("summaries", payload)
+      .then(({ data }) => {
+        if (data.status) {
+          setShowSaveModal(false);
+          toast.success(data.msg);
+        }
+      })
+      .catch(({ response }) => {
+        if (response.data.status) {
+          toast.error(response.data.message);
+        }
+      });
+  };
   return (
     <>
       <Header name={"Summery List"} />
@@ -49,7 +73,14 @@ const SummaryList = () => {
           <h1 className="text-2xl font-semibold">No Summary Available</h1>
         </div>
       )}
-      {ShowSaveModal && <SaveModel setShowSaveModal={setShowSaveModal} />}
+      {ShowSaveModal && (
+        <SaveModel
+          saveData={saveData}
+          setSaveAs={setSaveAs}
+          setShowSaveModal={setShowSaveModal}
+        />
+      )}
+      <ToastContainer />
       <Footer />
     </>
   );

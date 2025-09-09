@@ -8,7 +8,8 @@ import Feel from "./pages/Overall/Feel";
 import Disclaimer from "./pages/Disclaimer";
 import Concern from "./pages/Concern/Concern";
 import NewProblem from "./pages/Problem/NewProblem";
-import SummaryList from "./pages/Summary/SummaryList";
+import Summary from "./pages/Summary/SummaryList";
+import SummaryList from "./pages/SummaryList/SummaryList";
 import FeelingList from "./pages/Feeling/FeelingList";
 import EmotionsList from "./pages/Emotions/EmotionsList";
 import NeedBoard from "./pages/Board/NeedBoard";
@@ -49,69 +50,80 @@ import ProblemYesNo from "./pages/Nausea/ProblemYesNo";
 import NauseaWhen from "./pages/Nausea/NauseaWhen";
 import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
 import FeelOptions from "./pages/feelOptions/feelOptions";
+import PrivateRoute from "./Component/PrivateRoute/privateRoute";
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/dashboard" element={<BreathingWhen />} />
-        <Route path="/male-body" element={<BackPain />} />
-        <Route path="/feel" element={<Feel />} />
-        <Route path="/disclaimer" element={<Disclaimer />} />
-        <Route path="/topic-board" element={<Concern />} />
-        <Route path="/concern" element={<Concern />} />
-        <Route path="/concern-pain" element={<ConcernPain />} />
-        <Route path="/new-problem" element={<NewProblem />} />
-        <Route path="/yes-no-concerns" element={<NewProblem />} />
-        <Route path="/full-body" element={<FullBody />} />
-        <Route path="/pain-front" element={<PainFront />} />
-        <Route path="/back-pain" element={<BackPain />} />
-        <Route path="/face-pain" element={<FacePain />} />
-        <Route path="/summary-list" element={<SummaryList />} />
-        {/* <Route path="/feeling" element={<FeelingList />} /> */}
-        <Route path="/feeling" element={<FeelingListPain />} />
-        <Route path="/emotions" element={<EmotionsList />} />
-        <Route path="/board" element={<NeedBoard />} />
-        <Route path="/board-upload" element={<NeedBoardUpload />} />
-        <Route path="/whiteboard" element={<Whiteboard />} />
-        <Route path="/howoften" element={<Howoften />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/depressed" element={<DepressedFeel />} />
-        <Route path="/guide-info" element={<GuideInfo />} />
-        <Route path="/guide-info-aphasia" element={<GuideInfoAphasia />} />
-        <Route path="/white-board-list" element={<WhiteBoardList />} />
-        <Route path="/how-are-you" element={<HowAreYou />} />
-        {/* <Route path="/yes-and-no" element={<YesAndNo />} /> */}
-        <Route path="/yes-and-no/:id" element={<YesAndNo />} />
-        <Route path="/pain-feel" element={<PainFeel />} />
-        <Route path="/feel-pain" element={<FeelPainYesNo />} />
-        <Route path="/concern-pain-feeling" element={<ConcernPainFeeling />} />
-        <Route path="/feeling-list-pain" element={<FeelingListPain />} />
-        <Route path="/feeling-yes-no" element={<FeelingYesNo />} />
-        <Route path="/pain-when" element={<PainWhen />} />
-        {/* <Route path="/breathing-problem" element={<BreathingProblem />} /> */}
-        <Route path="/:name-problem" element={<BreathingProblem />} />
-        {/* <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} /> */}
-        <Route
-          path="/:name/confrm-step-yesno/:id"
-          element={<ConfrmStepYesNo />}
-        />
-        <Route path="/when" element={<BreathingWhen />} />
-        <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
-        <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
-        <Route path="/decision-swallowing" element={<DecisionSwallowing />} />
-        {/* <Route path="/swallowing-problem" element={<SwallowingProblem />} /> */}
-        <Route path="/heartburn" element={<Heartburn />} />
-        <Route path="/heartburn-step-yesno" element={<HeartburnStepYesNo />} />
-        <Route path="/nausea-step-yesno" element={<NauseaStep />} />
-        {/* <Route path="/nausea-problem" element={<NauseaProblem />} /> */}
-        <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} />
-        <Route path="/nausea-when" element={<NauseaWhen />} />
-        <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
-        <Route path="/topicboard/:name/:id" element={<BreathingYesNo />} />
-        <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
-        <Route path="/feelOptions" element={<FeelOptions />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<BreathingWhen />} />
+          <Route path="/male-body" element={<BackPain />} />
+          <Route path="/feel" element={<Feel />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/topic-board" element={<Concern />} />
+          <Route path="/concern" element={<Concern />} />
+          <Route path="/concern-pain" element={<ConcernPain />} />
+          <Route path="/new-problem" element={<NewProblem />} />
+          <Route path="/yes-no-concerns" element={<NewProblem />} />
+          <Route path="/full-body" element={<FullBody />} />
+          <Route path="/pain-front" element={<PainFront />} />
+          <Route path="/back-pain" element={<BackPain />} />
+          <Route path="/face-pain" element={<FacePain />} />
+          <Route path="/summary" element={<Summary />} />
+          <Route path="/summary-list" element={<SummaryList />} />
+          {/* <Route path="/feeling" element={<FeelingList />} /> */}
+          <Route path="/feeling" element={<FeelingListPain />} />
+          <Route path="/emotions" element={<EmotionsList />} />
+          <Route path="/board" element={<NeedBoard />} />
+          <Route path="/board-upload" element={<NeedBoardUpload />} />
+          <Route path="/whiteboard" element={<Whiteboard />} />
+          <Route path="/howoften" element={<Howoften />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/depressed" element={<DepressedFeel />} />
+          <Route path="/guide-info" element={<GuideInfo />} />
+          <Route path="/guide-info-aphasia" element={<GuideInfoAphasia />} />
+          <Route path="/white-board-list" element={<WhiteBoardList />} />
+          <Route path="/how-are-you" element={<HowAreYou />} />
+          {/* <Route path="/yes-and-no" element={<YesAndNo />} /> */}
+          <Route path="/yes-and-no/:id" element={<YesAndNo />} />
+          <Route path="/pain-feel" element={<PainFeel />} />
+          <Route path="/feel-pain" element={<FeelPainYesNo />} />
+          <Route
+            path="/concern-pain-feeling"
+            element={<ConcernPainFeeling />}
+          />
+          <Route path="/feeling-list-pain" element={<FeelingListPain />} />
+          <Route path="/feeling-yes-no" element={<FeelingYesNo />} />
+          <Route path="/pain-when" element={<PainWhen />} />
+          {/* <Route path="/breathing-problem" element={<BreathingProblem />} /> */}
+          <Route path="/:name-problem" element={<BreathingProblem />} />
+          {/* <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} /> */}
+          <Route
+            path="/:name/confrm-step-yesno/:id"
+            element={<ConfrmStepYesNo />}
+          />
+          <Route path="/when" element={<BreathingWhen />} />
+          <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
+          <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
+          <Route path="/decision-swallowing" element={<DecisionSwallowing />} />
+          {/* <Route path="/swallowing-problem" element={<SwallowingProblem />} /> */}
+          <Route path="/heartburn" element={<Heartburn />} />
+          <Route
+            path="/heartburn-step-yesno"
+            element={<HeartburnStepYesNo />}
+          />
+          <Route path="/nausea-step-yesno" element={<NauseaStep />} />
+          {/* <Route path="/nausea-problem" element={<NauseaProblem />} /> */}
+          <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} />
+          <Route path="/nausea-when" element={<NauseaWhen />} />
+          <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
+          <Route path="/topicboard/:name/:id" element={<BreathingYesNo />} />
+          <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
+          <Route path="/feelOptions" element={<FeelOptions />} />
+        </Route>
       </Routes>
     </Router>
   );

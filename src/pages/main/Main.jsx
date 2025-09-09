@@ -1,15 +1,44 @@
-"use client";
 import { useState } from "react";
 import logo from "../../assets/images/logo.png";
 import close from "../../assets/images/close.svg";
 import CloseIcon from "../../assets/images/close2.svg";
 import { Link } from "react-router-dom";
+import api from "../../Component/apiCall/apiCall";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Main = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [licenseKey, setLicenseKey] = useState("");
   const toggleModal = () => setIsOpen(!isOpen);
+  const loginUser = async () => {
+    if (!licenseKey.trim()) {
+      toast.error("Please enter a license key");
+      return;
+    }
+    try {
+      const response = await api.post("license_key", {
+        license_key: licenseKey,
+      });
+      const data = response.data;
+      if (data?.status) {
+        sessionStorage.setItem("token", data?.data?.token);
+        sessionStorage.setItem("license_key", data?.data?.license_key);
+        toast.success("License key verified successfully!");
+        setIsOpen(true);
+      } else {
+        toast.error(data?.message || "License key verification failed.");
+      }
+    } catch (error) {
+      console.log("====>errorerror", error);
+      const message = error.response?.data?.message;
+      toast.error(message);
+    }
+  };
+
   return (
     <div>
+      <ToastContainer position="top-right" autoClose={3000} />
       <div className="welcome-new bg-[#DCECFC]">
         <div className="min-h-screen main-h  flex items-center justify-center">
           <div className="w-full flex flex-col items-center text-center px-5">
@@ -31,17 +60,29 @@ const Main = () => {
                 type="text"
                 placeholder="Enter your license key"
                 className="w-full px-4 py-3 rounded border text-[#000] text-base border-[#ABCEFA] focus:outline-none  h-[46px] placeholder:text-black"
+                value={licenseKey}
+                onChange={(e) => setLicenseKey(e.target.value)}
               />
-              <button type="button" className="absolute right-3 top-12.5">
-                <img src={close} />
-              </button>
+              {licenseKey && (
+                <button
+                  type="button"
+                  className="absolute right-3 top-12.5"
+                  onClick={() => setLicenseKey("")}
+                  aria-label="Clear input"
+                >
+                  <img src={close} alt="Clear" />
+                </button>
+              )}
             </div>
 
             {/* Button */}
-
-            <Link to="" onClick={toggleModal} className="thm-btn w-full mt-3">
+            <button
+              type="button"
+              onClick={loginUser}
+              className="thm-btn w-full mt-3"
+            >
               Continue
-            </Link>
+            </button>
 
             {/* modal */}
             {isOpen && (
@@ -51,6 +92,7 @@ const Main = () => {
                   <div
                     className="fixed inset-0 bg-black opacity-60 transition-opacity modal-overlay"
                     aria-hidden="true"
+                    onClick={toggleModal}
                   ></div>
 
                   {/* For vertical alignment */}
@@ -72,8 +114,9 @@ const Main = () => {
                       className="close-btn"
                       type="button"
                       onClick={toggleModal}
+                      aria-label="Close modal"
                     >
-                      <img src={CloseIcon} />
+                      <img src={CloseIcon} alt="Close" />
                     </button>
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 text-center">
                       <h2 className="text-[24px] mb-3 font-medium">

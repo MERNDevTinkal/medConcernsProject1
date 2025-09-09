@@ -27,7 +27,7 @@ const CardsList = () => {
     if (selected) {
       updateDisease(mainpath, [selected.name]);
       if (response === "no") {
-        // navigate("/summary-list");
+        // navigate("/summary");
       }
     }
   };

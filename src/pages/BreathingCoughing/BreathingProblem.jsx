@@ -37,7 +37,7 @@ const BreathingProblem = () => {
                   handleBreathingProblem(
                     data,
                     data?.secPath?.includes("/confrm-step-yesno")
-                      ? `${path}${data?.secPath}/${data?.id}`
+                      ? `${Mainpath}${data?.secPath}/${data?.id}`
                       : `${data?.secPath}`
                   );
                 }}

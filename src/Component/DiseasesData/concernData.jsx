@@ -135,7 +135,7 @@ export const concerns = [
     path: "/concern/trach-yes-no/20",
   },
   { id: 21, name: "Something Else", image: ConcernImg18, path: "/Whiteboard" },
-  { id: 22, name: "No Concerns", image: ConcernImg8, path: "/summary-list" },
+  { id: 22, name: "No Concerns", image: ConcernImg8, path: "/summary" },
 ];
 export const topicBoard = [
   {

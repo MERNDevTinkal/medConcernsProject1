@@ -25,7 +25,7 @@ const DecisionCard = ({ partName }) => {
           onClick={() => {
             handleDecision(
               "Yes",
-              path === "/new-problem" ? "/summary-list" : "/pain-feel"
+              path === "/new-problem" ? "/summary" : "/pain-feel"
             );
           }}
         >
@@ -43,7 +43,7 @@ const DecisionCard = ({ partName }) => {
           onClick={() => {
             handleDecision(
               "No",
-              path === "/new-problem" ? "/summary-list" : navigate(-1)
+              path === "/new-problem" ? "/summary" : navigate(-1)
             );
           }}
         >
@@ -61,7 +61,7 @@ const DecisionCard = ({ partName }) => {
           !["/concern-pain", "/face-pain"].includes(location.pathname) && (
             <div
               onClick={() => {
-                handleDecision("Don't Know", "/summary-list");
+                handleDecision("Don't Know", "/summary");
               }}
               className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
             >
