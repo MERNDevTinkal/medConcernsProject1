@@ -48,14 +48,13 @@ import NauseaProblem from "./pages/Nausea/NauseaProblem";
 import ProblemYesNo from "./pages/Nausea/ProblemYesNo";
 import NauseaWhen from "./pages/Nausea/NauseaWhen";
 import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
-import FeelOptions from "./pages/feelOptions/feelOptions"
+import FeelOptions from "./pages/feelOptions/feelOptions";
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/dashboard" element={<BreathingWhen />} />
         <Route path="/male-body" element={<BackPain />} />
         <Route path="/feel" element={<Feel />} />
@@ -94,7 +93,10 @@ function App() {
         {/* <Route path="/breathing-problem" element={<BreathingProblem />} /> */}
         <Route path="/:name-problem" element={<BreathingProblem />} />
         {/* <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} /> */}
-        <Route path="/:name/confrm-step-yesno/:id" element={<ConfrmStepYesNo />} />
+        <Route
+          path="/:name/confrm-step-yesno/:id"
+          element={<ConfrmStepYesNo />}
+        />
         <Route path="/when" element={<BreathingWhen />} />
         <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
         <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />

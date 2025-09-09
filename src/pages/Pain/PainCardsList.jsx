@@ -1,29 +1,34 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { Link } from "react-router-dom";
-import { diseasesData } from "../../Component/DiseasesData/diseasesData"
+import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { useNavigate, useLocation } from "react-router-dom";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 const PainCardsList = () => {
-  const { updateDisease, diseases } = useContext(GlobalContext);
+  const { updateDisease, diseases, addOrUpdateSummary } =
+    useContext(GlobalContext);
   const navigate = useNavigate();
   const location = useLocation();
   const pathprimary = location.pathname;
   const [painFeelParams, setPainFeelParams] = useState([]);
   const handleConcern = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value.name)
-      updateDisease("summaryList", [value]);
+      await getTextToSpeech(value.name);
+      addOrUpdateSummary(pathprimary, [value]);
       navigate(path);
     }
   };
   useEffect(() => {
-    setPainFeelParams(diseasesData[pathprimary])
+    setPainFeelParams(diseasesData[pathprimary]);
   }, [pathprimary]);
   return (
     <>
       {painFeelParams.map((item) => (
-        <div style={{ cursor: "pointer" }} key={item.id} onClick={() => handleConcern(item, item.secPath)}>
+        <div
+          style={{ cursor: "pointer" }}
+          key={item.id}
+          onClick={() => handleConcern(item, item.secPath)}
+        >
           <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
             <div className="dashboard-cards card-img-h card-img-h ">
               <img src={item.image} className="w-full" />

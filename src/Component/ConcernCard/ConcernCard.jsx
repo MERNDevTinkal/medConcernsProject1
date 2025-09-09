@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { concerns } from "../DiseasesData/concernData";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 const ConcernCard = () => {
   const location = useLocation();
   const path = location.pathname;
@@ -12,9 +12,8 @@ const ConcernCard = () => {
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
       resetDiseases();
-      await getTextToSpeech(value.name)
+      await getTextToSpeech(value.name);
       updateDisease(path.replace("/", ""), value);
-      // updateDisease("summaryList", [value]);
       navigate(mainpath);
     }
   };
@@ -22,7 +21,11 @@ const ConcernCard = () => {
   return (
     <>
       {concerns?.map((item) => (
-        <div style={{ cursor: "pointer" }} key={item.id} onClick={() => handleConcern(item, item.path)}>
+        <div
+          style={{ cursor: "pointer" }}
+          key={item.id}
+          onClick={() => handleConcern(item, item.path)}
+        >
           <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
             <div className="dashboard-img card-img-h rounded-2xl">
               <img src={item?.image} alt={item?.name} className="w-full" />

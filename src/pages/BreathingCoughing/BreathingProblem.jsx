@@ -5,24 +5,24 @@ import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 const BreathingProblem = () => {
   const location = useLocation();
-  const path = location.pathname;
+  const Mainpath = location.pathname;
   const [problem, setProblems] = useState([]);
   const navigate = useNavigate();
-  const { updateDisease, diseases } = useContext(GlobalContext);
+  const { updateDisease, diseases, addOrUpdateSummary } =
+    useContext(GlobalContext);
   const handleBreathingProblem = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value.name)
-      // updateDisease("problems", value)
-       updateDisease("summaryList", [value]);
-      navigate(path)
+      await getTextToSpeech(value.name);
+      addOrUpdateSummary(Mainpath, [value]);
+      navigate(path);
     }
-  }
+  };
   useEffect(() => {
-    setProblems(diseasesData[path])
-  }, [path])
+    setProblems(diseasesData[Mainpath]);
+  }, [Mainpath]);
   return (
     <>
       <Header name="Which Feeling are You experiencing?" />
@@ -30,14 +30,17 @@ const BreathingProblem = () => {
         <div className="dashboard-h grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3.5 px-4 py-1.5 emotion-cards">
           {problem?.map((data, index) => {
             return (
-              <div style={{ cursor: "pointer" }} key={data?.id + "-" + index} onClick={() => {
-                handleBreathingProblem(
-                  data,
-                  data?.secPath?.includes("/confrm-step-yesno")
-                    ? `${path}${data?.secPath}/${data?.id}`
-                    : `${data?.secPath}`
-                );
-              }}
+              <div
+                style={{ cursor: "pointer" }}
+                key={data?.id + "-" + index}
+                onClick={() => {
+                  handleBreathingProblem(
+                    data,
+                    data?.secPath?.includes("/confrm-step-yesno")
+                      ? `${path}${data?.secPath}/${data?.id}`
+                      : `${data?.secPath}`
+                  );
+                }}
               >
                 <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
                   <div className="dashboard-img card-img-h rounded-2xl">
@@ -48,7 +51,7 @@ const BreathingProblem = () => {
                   </p>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>

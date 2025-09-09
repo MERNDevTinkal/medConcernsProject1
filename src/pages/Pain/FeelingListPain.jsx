@@ -11,11 +11,12 @@ const FeelingListPain = () => {
   const path = location.pathname;
   const navigate = useNavigate();
   const [painFeelParams, setPainFeelParams] = useState([]);
-  const { updateDisease, diseases } = useContext(GlobalContext);
+  const { updateDisease, diseases, addOrUpdateSummary } =
+    useContext(GlobalContext);
   const handlegetPain = async (value, path, painFeel) => {
     if (value && path) {
       await getTextToSpeech(painFeel);
-      updateDisease("summaryList", [value]);
+      addOrUpdateSummary(pathprimary, [value]);
       navigate(path);
     }
   };

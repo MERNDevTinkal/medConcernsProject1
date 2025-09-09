@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-import FeelingPOpUP from "../FeelingPopUp/feelingPopUp"
+import FeelingPOpUP from "../FeelingPopUp/feelingPopUp";
 const CardsList = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,20 +12,19 @@ const CardsList = () => {
   const [showPopup, setShowPopup] = useState(false);
   const path = location.pathname;
   const mainpath = location.pathname;
-  const { updateDisease } = useContext(GlobalContext);
+  const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
 
   const handleCardClick = async (item, path) => {
     setSelected(item);
     await getTextToSpeech(item.name);
-    updateDisease("summaryList", [item]);
-     navigate(path)
+    addOrUpdateSummary(mainpath, [item]);
+    navigate(path);
   };
 
   const handlePopupResponse = async (response) => {
     // setShowPopup(false);
-    console.log("===>", [response, selected])
+    console.log("===>", [response, selected]);
     if (selected) {
-
       updateDisease(mainpath, [selected.name]);
       if (response === "no") {
         // navigate("/summary-list");
@@ -46,15 +45,26 @@ const CardsList = () => {
         <div
           style={{ cursor: "pointer" }}
           key={item.id}
-          onClick={() => handleCardClick(item, item?.secPath?.includes("/confrm-step-yesno")
-            ? `${path}${item?.secPath}/${item?.id}`
-            : `${item?.secPath}`)}
+          onClick={() =>
+            handleCardClick(
+              item,
+              item?.secPath?.includes("/confrm-step-yesno")
+                ? `${path}${item?.secPath}/${item?.id}`
+                : `${item?.secPath}`
+            )
+          }
         >
           <div className="dashboard-cards rounded-2xl bg-white text-center pb-3 shadow hover:shadow-lg transition">
             <div className="dashboard-img">
-              <img src={item.image} className="w-full rounded-t-2xl" alt={item.name} />
+              <img
+                src={item.image}
+                className="w-full rounded-t-2xl"
+                alt={item.name}
+              />
             </div>
-            <p className="text-[21px] mt-3 text-black font-medium">{item.name}</p>
+            <p className="text-[21px] mt-3 text-black font-medium">
+              {item.name}
+            </p>
           </div>
         </div>
       ))}

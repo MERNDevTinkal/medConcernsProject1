@@ -4,7 +4,7 @@ import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
-import SaveModel from "../../Component/saveASModel/saveModel";
+
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 function Howoften({ monthName, isSelected }) {
   const iconColor = isSelected ? "#0088dc" : "currentColor";
@@ -46,24 +46,47 @@ export default function TabsCalendar() {
   const [selectedDayItem, setSelectedDayItem] = useState("");
   const [selectedWeekDay, setSelectedWeekDay] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
-  const [ShowSaveModal, setShowSaveModal] = useState(false);
   const location = useLocation();
   const pathprimary = location.pathname;
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
   const monthsOfYear = [
-    "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC",
   ];
 
   const weekDays = [
-    "Sunday", "Monday", "Tuesday", "Wednesday",
-    "Thursday", "Friday", "Saturday"
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
 
   const months = [
-    "January", "February", "March", "April",
-    "May", "June", "July", "August",
-    "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const navigate = useNavigate();
@@ -71,26 +94,29 @@ export default function TabsCalendar() {
 
   const handleDaySelect = async (item) => {
     setSelectedDayItem(item);
-    setShowSaveModal(true);
     await getTextToSpeech(item);
     updateDisease(pathprimary.replace("/", ""), { type: "day", value: item });
-    navigate("/new-problem")
+    navigate("/new-problem");
   };
 
   const handleWeekSelect = async (index) => {
     setSelectedWeekDay(index);
-    setShowSaveModal(true);
     await getTextToSpeech(weekDays[index]);
-    updateDisease(pathprimary.replace("/", ""), { type: "week", value: weekDays[index] });
-    navigate("/new-problem")
+    updateDisease(pathprimary.replace("/", ""), {
+      type: "week",
+      value: weekDays[index],
+    });
+    navigate("/new-problem");
   };
 
   const handleMonthSelect = async (index) => {
     setSelectedMonth(index);
-    setShowSaveModal(true);
     await getTextToSpeech(months[index]);
-    updateDisease(pathprimary.replace("/", ""), { type: "month", value: months[index] });
-    navigate("/new-problem")
+    updateDisease(pathprimary.replace("/", ""), {
+      type: "month",
+      value: months[index],
+    });
+    navigate("/new-problem");
   };
 
   return (
@@ -106,10 +132,11 @@ export default function TabsCalendar() {
               <div className="flex rounded-full bg-gray-100 p-1" role="tablist">
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${activeTab === "day"
-                      ? "bg-blue-theme text-white"
-                      : "text-gray-700 hover:bg-gray-200"
-                    }`}
+                        ${
+                          activeTab === "day"
+                            ? "bg-blue-theme text-white"
+                            : "text-gray-700 hover:bg-gray-200"
+                        }`}
                   onClick={() => {
                     setActiveTab("day");
                     setSelectedWeekDay(null);
@@ -122,10 +149,11 @@ export default function TabsCalendar() {
                 </button>
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${activeTab === "week"
-                      ? "bg-blue-theme text-white"
-                      : "text-gray-700 hover:bg-gray-200"
-                    }`}
+                        ${
+                          activeTab === "week"
+                            ? "bg-blue-theme text-white"
+                            : "text-gray-700 hover:bg-gray-200"
+                        }`}
                   onClick={() => {
                     setActiveTab("week");
                     setSelectedDayItem(null);
@@ -138,10 +166,11 @@ export default function TabsCalendar() {
                 </button>
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${activeTab === "month"
-                      ? "bg-blue-theme text-white"
-                      : "text-gray-700 hover:bg-gray-200"
-                    }`}
+                        ${
+                          activeTab === "month"
+                            ? "bg-blue-theme text-white"
+                            : "text-gray-700 hover:bg-gray-200"
+                        }`}
                   onClick={() => {
                     setActiveTab("month");
                     setSelectedDayItem(null);
@@ -178,7 +207,11 @@ export default function TabsCalendar() {
                       <button
                         key={item}
                         className={`flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                          ${selectedDayItem === item ? "bg-blue-50" : "bg-white hover:bg-gray-50"}`}
+                          ${
+                            selectedDayItem === item
+                              ? "bg-blue-50"
+                              : "bg-white hover:bg-gray-50"
+                          }`}
                         onClick={() => handleDaySelect(item)}
                         role="option"
                         aria-selected={selectedDayItem === item}
@@ -204,14 +237,20 @@ export default function TabsCalendar() {
                         key={dayName + index}
                         className="flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 bg-white"
                       >
-                        <span className="font-bold text-[24px] text-gray-800">{dayName}</span>
+                        <span className="font-bold text-[24px] text-gray-800">
+                          {dayName}
+                        </span>
                       </div>
                     ))}
                     {daysOfWeek.map((dayName, index) => (
                       <button
                         key={dayName + index + "-check"}
                         className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                          ${selectedWeekDay === index ? "bg-blue-50" : "bg-white hover:bg-gray-50"}`}
+                          ${
+                            selectedWeekDay === index
+                              ? "bg-blue-50"
+                              : "bg-white hover:bg-gray-50"
+                          }`}
                         onClick={() => handleWeekSelect(index)}
                         role="option"
                         aria-selected={selectedWeekDay === index}
@@ -255,7 +294,6 @@ export default function TabsCalendar() {
         </div>
       </div>
 
-      {/* {ShowSaveModal && <SaveModel setShowSaveModal={setShowSaveModal} />} */}
       <Footer />
     </>
   );
