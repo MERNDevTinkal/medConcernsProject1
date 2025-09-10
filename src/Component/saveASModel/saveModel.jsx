@@ -6,14 +6,12 @@ const SaveModel = ({ saveData, setSaveAs, setShowSaveModal }) => {
   const handleSaveClick = () => {
     const inputEl = document.getElementById("drawingName");
     const value = inputEl.value.trim();
-
     if (!value) {
       setError(true);
       return;
     }
-
     setError(false);
-    saveData(); // Call parent save function
+    saveData();
   };
 
   const handleKeyDown = (e) => {

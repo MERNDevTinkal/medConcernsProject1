@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, useSearchParams } from "react-router-dom";
+import api from "../../Component/apiCall/apiCall";
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
@@ -46,21 +46,14 @@ const Card = ({ className = "", ...props }) => (
 );
 
 const CardHeader = ({ className = "", ...props }) => (
-  <div
-    className={cn("p-4 sm:p-5 border-b border-gray-200", className)}
-    {...props}
-  />
-);
-
-const CardTitle = ({ className = "", ...props }) => (
-  <h3 className={cn("text-lg font-semibold", className)} {...props} />
+  <div className={cn("border-b border-gray-200", className)} {...props} />
 );
 
 const CardContent = ({ className = "", ...props }) => (
   <div className={cn("p-4 sm:p-5", className)} {...props} />
 );
 
-/* -------------------- Inline Icons (no packages) -------------------- */
+/* -------------------- Inline Icons -------------------- */
 const Icon = {
   Pencil: (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
@@ -69,16 +62,6 @@ const Icon = {
         strokeLinecap="round"
         strokeLinejoin="round"
         d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L7.5 19.313 3 21l1.688-4.5L16.862 3.487z"
-      />
-    </svg>
-  ),
-  Type: (p) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-      <path
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4 7V5h16v2M10 19h4M12 7v12"
       />
     </svg>
   ),
@@ -114,21 +97,26 @@ const Icon = {
       />
     </svg>
   ),
-  Save: (p) => (
+  Whiteboard: (p) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
+      <rect x="3" y="4" width="18" height="12" rx="2" strokeWidth="2" />
+      <path strokeWidth="2" strokeLinecap="round" d="M7 20l5-4 5 4" />
+    </svg>
+  ),
+  Keyword: (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
       <path
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M5 5h10l4 4v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"
+        d="M4 4h16v16H4z"
       />
-      <path strokeWidth="2" d="M9 5v6h6" />
-    </svg>
-  ),
-  Whiteboard: (p) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-      <rect x="3" y="4" width="18" height="12" rx="2" strokeWidth="2" />
-      <path strokeWidth="2" strokeLinecap="round" d="M7 20l5-4 5 4" />
+      <path
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8 12h8M8 8h8M8 16h5"
+      />
     </svg>
   ),
 };
@@ -136,20 +124,32 @@ const Icon = {
 /* -------------------- Component -------------------- */
 export default function Whiteboard() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const canvasRef = useRef(null);
+  const stripRef = useRef(null);
+
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const startScrollRef = useRef(0);
+
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawingColor, setDrawingColor] = useState("#000000");
   const [drawingWidth, setDrawingWidth] = useState(2);
-  const [tool, setTool] = useState("pencil"); // "pencil" | "eraser"
-  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [tool, setTool] = useState("pencil");
   const [drawingName, setDrawingName] = useState("");
-  const [savedDrawings, setSavedDrawings] = useState([]);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [uploadedImages, setUploadedImages] = useState([]);
+  const token = sessionStorage.getItem("token");
+  const [keyword, setKeyword] = useState("");
+
+  const [textToolActive, setTextToolActive] = useState(false);
+  const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
+  const [typedText, setTypedText] = useState("");
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
-    const ctx = canvas.getContext("2d");
-    return ctx || null;
+    return canvas.getContext("2d");
   }, []);
 
   const pointerPos = (e, rect) => {
@@ -164,6 +164,65 @@ export default function Whiteboard() {
     return { x: clientX - rect.left, y: clientY - rect.top };
   };
 
+  const activateTextTool = () => {
+    setTool("text"); // new text tool
+    setTextToolActive(true);
+  };
+
+  const handleCanvasClickForText = (e) => {
+    if (!textToolActive) return;
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setTextPosition({ x, y });
+    setTypedText(""); // reset text
+  };
+
+  const addKeyword = useCallback(
+    (text) => {
+      if (!text || !text.trim()) return;
+      const canvas = canvasRef.current;
+      const ctx = getCanvasContext();
+      if (canvas && ctx) {
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "#000000";
+        ctx.fillText(text.trim(), canvas.width / 2 - 40, canvas.height / 2);
+      }
+      setKeyword(""); // clear input after adding
+    },
+    [getCanvasContext]
+  );
+
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (!textToolActive) return;
+      const canvas = canvasRef.current;
+      const ctx = getCanvasContext();
+      if (!canvas || !ctx) return;
+
+      if (e.key === "Backspace") {
+        setTypedText((prev) => prev.slice(0, -1));
+      } else if (e.key.length === 1) {
+        setTypedText((prev) => prev + e.key);
+      }
+
+      // redraw text
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // optional: only if you want fresh canvas
+      ctx.font = "20px Arial";
+      ctx.fillStyle = drawingColor;
+      ctx.fillText(
+        typedText + (e.key.length === 1 ? e.key : ""),
+        textPosition.x,
+        textPosition.y
+      );
+    },
+    [textToolActive, textPosition, typedText, drawingColor, getCanvasContext]
+  );
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [handleKeyPress]);
   const startDrawing = useCallback(
     (e) => {
       const canvas = canvasRef.current;
@@ -214,111 +273,244 @@ export default function Whiteboard() {
     const canvas = canvasRef.current;
     const ctx = getCanvasContext();
     if (canvas && ctx) {
+      // clear full logical canvas (consider DPR)
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
   }, [getCanvasContext]);
 
-  const handleSaveDrawing = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (canvas && drawingName.trim()) {
-      const dataUrl = canvas.toDataURL("image/png");
-      const newDrawing = {
-        id: Date.now().toString(),
-        name: drawingName.trim(),
-        dataUrl,
-      };
-      setSavedDrawings((prev) => [newDrawing, ...prev]);
-      let copydrawings = [...savedDrawings, newDrawing];
-
-      localStorage.setItem("drwaings", JSON.stringify(copydrawings));
-      setDrawingName("");
-      setShowSaveModal(false);
-      clearCanvas();
-    }
-  }, [drawingName, clearCanvas]);
-
-  const openSaveModal = useCallback(() => setShowSaveModal(true), []);
-
-  /* Ensure the canvas looks sharp on HiDPI screens */
   const setCanvasSize = useCallback((node) => {
     if (!node) return;
     const dpr = window.devicePixelRatio || 1;
-    // Base CSS size is controlled by Tailwind below; here we sync internal bitmap
-    const rect = node.getBoundingClientRect();
-    node.width = Math.round(rect.width * dpr);
-    node.height = Math.round(rect.height * dpr);
+    const width = 800;
+    const height = 600;
+
+    node.width = Math.round(width * dpr);
+    node.height = Math.round(height * dpr);
+    node.style.width = `${width}px`;
+    node.style.height = `${height}px`;
+
     const ctx = node.getContext("2d");
     if (ctx) ctx.scale(dpr, dpr);
+
     canvasRef.current = node;
   }, []);
+
+  /* -------------------- Image handling -------------------- */
+  const handleImageUpload = (files) => {
+    if (!files || files.length === 0) return;
+    const newImages = files.map((file) => URL.createObjectURL(file));
+    setUploadedImages((prev) => [...prev, ...newImages]);
+  };
+
+  /* -------------------- Drag-to-scroll handlers for strip -------------------- */
+  useEffect(() => {
+    const strip = stripRef.current;
+    if (!strip) return;
+
+    const onMouseDown = (e) => {
+      isDraggingRef.current = true;
+      strip.classList.add("strip--active");
+      // use clientX and bounding rect for consistent coords
+      const rect = strip.getBoundingClientRect();
+      startXRef.current = e.clientX - rect.left;
+      startScrollRef.current = strip.scrollLeft;
+    };
+
+    const onMouseMove = (e) => {
+      if (!isDraggingRef.current) return;
+      e.preventDefault();
+      const rect = strip.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const walk = x - startXRef.current; // positive: moved right
+      strip.scrollLeft = startScrollRef.current - walk;
+    };
+
+    const onMouseUp = () => {
+      isDraggingRef.current = false;
+      strip.classList.remove("strip--active");
+    };
+
+    const onMouseLeave = () => {
+      isDraggingRef.current = false;
+      strip.classList.remove("strip--active");
+    };
+
+    const onTouchStart = (e) => {
+      isDraggingRef.current = true;
+      const rect = strip.getBoundingClientRect();
+      startXRef.current = e.touches[0].clientX - rect.left;
+      startScrollRef.current = strip.scrollLeft;
+    };
+
+    const onTouchMove = (e) => {
+      if (!isDraggingRef.current) return;
+      const rect = strip.getBoundingClientRect();
+      const x = e.touches[0].clientX - rect.left;
+      const walk = x - startXRef.current;
+      strip.scrollLeft = startScrollRef.current - walk;
+    };
+
+    const onTouchEnd = () => {
+      isDraggingRef.current = false;
+    };
+    const onWheel = (e) => {
+      if (Math.abs(e.deltaY) > 0) {
+        e.preventDefault();
+        strip.scrollLeft += e.deltaY;
+      }
+    };
+
+    // Attach listeners
+    strip.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    strip.addEventListener("mouseleave", onMouseLeave);
+
+    strip.addEventListener("touchstart", onTouchStart, { passive: true });
+    strip.addEventListener("touchmove", onTouchMove, { passive: true });
+    strip.addEventListener("touchend", onTouchEnd);
+
+    // wheel needs passive: false to call preventDefault
+    strip.addEventListener("wheel", onWheel, { passive: false });
+
+    // cleanup
+    return () => {
+      strip.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+      strip.removeEventListener("mouseleave", onMouseLeave);
+
+      strip.removeEventListener("touchstart", onTouchStart);
+      strip.removeEventListener("touchmove", onTouchMove);
+      strip.removeEventListener("touchend", onTouchEnd);
+
+      strip.removeEventListener("wheel", onWheel);
+    };
+  }, [uploadedImages]);
+
+  /* -------------------- Load by ID (unchanged) -------------------- */
+  useEffect(() => {
+    const id = searchParams.get("id");
+    if (!id) return;
+    const fetchDrawing = async () => {
+      try {
+        const res = await fetch(`http://localhost:5000/api/whiteboards/${id}`);
+        const data = await res.json();
+        if (data?.image) {
+          const canvas = canvasRef.current;
+          const ctx = canvas.getContext("2d");
+          const img = new Image();
+          img.onload = () => {
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          };
+          img.src = data.image;
+        }
+      } catch (err) {
+        console.error("Failed to load drawing", err);
+      }
+    };
+    fetchDrawing();
+  }, [searchParams]);
+
+  const handleSaveDrawing = useCallback(async () => {
+    const canvas = canvasRef.current;
+    if (canvas && drawingName.trim()) {
+      const dataUrl = canvas.toDataURL("image/png");
+      const payload = new FormData();
+      const licenses_id = sessionStorage.getItem("license_key");
+      payload.append("licenses_id", licenses_id);
+      payload.append("name_key", drawingName.trim());
+      payload.append("image", dataUrl);
+      try {
+        api.post("whiteBoardCreate", payload, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setDrawingName("");
+        setShowSaveModal(false);
+        clearCanvas();
+      } catch (err) {
+        console.error("Save failed", err);
+      }
+    }
+  }, [drawingName, clearCanvas]);
 
   return (
     <>
       <Header />
       <div className="main-wrapper home-wrapper">
-        <div className="  from-blue-50 to-blue-100 flex flex-col items-center p-4 sm:p-6 lg:p-8">
-          <Card className="w-full max-w-4xl overflow-hidden flex flex-col">
+        <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8">
+          <Card className="w-full max-w-4xl flex flex-col">
             <CardHeader className="p-0">
-              <div className="relative w-full h-[220px] sm:h-[280px] md:h-[360px] bg-white">
-                <canvas
-                  ref={setCanvasSize}
-                  className="absolute inset-0 w-full h-full touch-none cursor-crosshair"
-                  onMouseDown={startDrawing}
-                  onMouseMove={draw}
-                  onMouseUp={stopDrawing}
-                  onMouseLeave={stopDrawing}
-                  onTouchStart={startDrawing}
-                  onTouchMove={draw}
-                  onTouchEnd={stopDrawing}
-                />
-                {/* Placeholder */}
-                {savedDrawings.length === 0 && (
-                  <div className="absolute inset-0 grid place-items-center pointer-events-none text-gray-400">
-                    <div className="flex flex-col items-center">
-                      <Icon.Whiteboard className="w-16 h-16 mb-2" />
-                      <span className="text-base">Write here</span>
-                    </div>
-                  </div>
-                )}
+              <div
+                ref={stripRef}
+                className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
+              >
+                {uploadedImages.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={`upload-${idx}`}
+                    className="w-[150px] h-[150px] object-cover flex-shrink-0 rounded border"
+                    draggable={false}
+                  />
+                ))}
               </div>
             </CardHeader>
-
-            <CardContent className="flex flex-wrap items-center justify-center gap-3">
+            <div className="relative w-full h-[600px] bg-white">
+              <canvas
+                ref={setCanvasSize}
+                className="absolute inset-0 w-full h-full touch-none cursor-crosshair z-0"
+                onMouseDown={startDrawing}
+                onMouseMove={draw}
+                onMouseUp={stopDrawing}
+                onMouseLeave={stopDrawing}
+                onTouchStart={startDrawing}
+                onTouchMove={draw}
+                onTouchEnd={stopDrawing}
+              />
+            </div>
+            <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
               <Button
                 variant="ghost"
                 size="icon"
                 className={cn(tool === "pencil" && "bg-gray-100")}
                 onClick={() => setTool("pencil")}
-                aria-label="Pencil tool"
                 title="Pencil"
               >
                 <Icon.Pencil className="w-5 h-5" />
               </Button>
-
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label="Text (placeholder)"
-                title="Text (placeholder)"
-              >
-                <Icon.Type className="w-5 h-5" />
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Image (placeholder)"
-                title="Image (placeholder)"
+                title="Upload image"
+                onClick={() => document.getElementById("imageUpload").click()}
               >
                 <Icon.Image className="w-5 h-5" />
               </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={activateTextTool}
+                title="Text Tool"
+              >
+                <Icon.Keyword className="w-5 h-5" />
+              </Button>
 
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                multiple
+                className="hidden"
+                onChange={(e) => handleImageUpload(Array.from(e.target.files))}
+              />
               <Button
                 variant="ghost"
                 size="icon"
                 className={cn(tool === "eraser" && "bg-gray-100")}
                 onClick={() => setTool("eraser")}
-                aria-label="Eraser tool"
                 title="Eraser"
               >
                 <Icon.Eraser className="w-5 h-5" />
@@ -328,24 +520,19 @@ export default function Whiteboard() {
                 variant="ghost"
                 size="icon"
                 onClick={clearCanvas}
-                aria-label="Clear canvas"
                 title="Clear"
               >
                 <Icon.Trash className="w-5 h-5" />
               </Button>
-
-              {/* Stroke color */}
               <div className="flex items-center gap-2 ml-2">
                 <label className="text-sm text-gray-600">Color</label>
                 <input
                   type="color"
                   value={drawingColor}
                   onChange={(e) => setDrawingColor(e.target.value)}
-                  className="h-9 w-10 rounded border border-gray-200 overflow-hidden"
+                  className="h-9 w-10 rounded border border-gray-200"
                 />
               </div>
-
-              {/* Stroke width */}
               <div className="flex items-center gap-2">
                 <label className="text-sm text-gray-600">Width</label>
                 <input
@@ -362,27 +549,17 @@ export default function Whiteboard() {
               </div>
             </CardContent>
           </Card>
-
-          <div className="w-full flex justify-between items-center  mt-6">
-            <Button
-              className="thm-btn"
-              onClick={openSaveModal}
-              title="Save Whiteboard"
-            >
-              Saved White Boards
+          <div className="w-full flex justify-between items-center mt-6">
+            <Button className="thm-btn" onClick={() => setShowSaveModal(true)}>
+              Save Whiteboard
             </Button>
             <Button
-              className="thm-btn "
-              onClick={() => {
-                navigate("/white-board-list");
-              }}
-              title="Save Whiteboard"
+              className="thm-btn"
+              onClick={() => navigate("/white-board-list")}
             >
               View List
             </Button>
           </div>
-
-          {/* Modal */}
           {showSaveModal && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
               <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
@@ -423,6 +600,19 @@ export default function Whiteboard() {
         </div>
       </div>
       <Footer />
+      {/* inline CSS so you don't forget to add in global file */}
+      <style>{`
+        /* hide scrollbar but allow scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* strip styling and grab cursor */
+        .strip { cursor: grab; user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+        .strip--active { cursor: grabbing; }
+
+        /* prevent images from being dragged as browser image drag */
+        .strip img { -webkit-user-drag: none; user-drag: none; }
+      `}</style>
     </>
   );
 }
