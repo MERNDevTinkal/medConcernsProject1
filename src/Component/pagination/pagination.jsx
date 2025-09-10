@@ -5,14 +5,11 @@ const Pagination = ({ currentPage, lastPage, setCurrentPage }) => {
 
   const getPageNumbers = () => {
     const pages = [];
-
     if (lastPage <= 7) {
-      // show all pages if total pages are 7 or less
       for (let i = 1; i <= lastPage; i++) {
         pages.push(i);
       }
     } else {
-      // show first 5, ..., last
       if (currentPage <= 4) {
         pages.push(1, 2, 3, 4, 5, "...", lastPage);
       } else if (currentPage >= lastPage - 3) {
@@ -37,15 +34,12 @@ const Pagination = ({ currentPage, lastPage, setCurrentPage }) => {
         );
       }
     }
-
     return pages;
   };
-
   const handlePageClick = (page) => {
     if (page === "...") return;
     setCurrentPage(page);
   };
-
   return (
     <div className="fixed bottom-4 left-0 right-0 flex justify-center z-10">
       <div className="flex space-x-2 bg-white px-4 py-2 border rounded shadow-md">

@@ -40,6 +40,10 @@ const SummaryList = () => {
       });
   }, [currentPage]);
 
+  const handleRoute = (name) => {
+    navigate(`/summary-view/${name}`);
+  };
+
   return (
     <>
       <Header name={"Summary List"} />
@@ -53,7 +57,7 @@ const SummaryList = () => {
                 {summaryList.map((item, index) => (
                   <li
                     key={index}
-                    onClick={() => navigate(item.path)}
+                    onClick={() => handleRoute(item.name_key)}
                     className="flex justify-between items-center bg-[#ffff] hover:bg-[#ffff] px-4 py-3 rounded-full font-medium text-sm sm:text-base cursor-pointer transition-all duration-200"
                   >
                     <span>{item.name_key}</span>
@@ -61,6 +65,11 @@ const SummaryList = () => {
                   </li>
                 ))}
               </ul>
+              <Pagination
+                currentPage={currentPage}
+                lastPage={lastPage}
+                setCurrentPage={setCurrentPage}
+              />
             </>
           ) : (
             <div className="text-center text-gray-600 text-lg mt-10">
@@ -70,11 +79,6 @@ const SummaryList = () => {
         </div>
       )}
       <Footer />
-      <Pagination
-        currentPage={currentPage}
-        lastPage={lastPage}
-        setCurrentPage={setCurrentPage}
-      />
     </>
   );
 };
