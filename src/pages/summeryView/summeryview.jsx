@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import { useParams } from "react-router-dom";
-
+import BackArrow from "../../assets/images/back-arrow.svg";
 const SummaryList = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -46,7 +46,20 @@ const SummaryList = () => {
   }, [id]);
   return (
     <>
-      <Header name={"Summary Detail"} />
+      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <img src={BackArrow} />
+        </div>
+        <h2 className="text-[25px] font-normal text-black text-center">
+          {"Summery Details"}
+        </h2>
+        <button></button>
+      </div>
       {loader ? (
         <Loader />
       ) : summaryData?.concern || summaryData?.summaryList > 0 ? (
