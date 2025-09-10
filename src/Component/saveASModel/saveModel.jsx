@@ -16,6 +16,13 @@ const SaveModel = ({ saveData, setSaveAs, setShowSaveModal }) => {
     saveData(); // Call parent save function
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSaveClick();
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
@@ -29,6 +36,7 @@ const SaveModel = ({ saveData, setSaveAs, setShowSaveModal }) => {
                 setSaveAs(e.target.value);
                 setError(false); // remove error when user starts typing
               }}
+              onKeyDown={handleKeyDown}
               id="drawingName"
               type="text"
               className={`col-span-5 h-12 w-full rounded-md border ${

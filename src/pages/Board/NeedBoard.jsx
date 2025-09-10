@@ -16,7 +16,7 @@ const NeedBoard = () => {
       <div className="main-wrapper home-wrapper ">
         <div className="dashboard-h grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3.5 px-4 my-4">
           {getAllDiseases.map((item, index) => (
-            <div key={index}>
+            <div style={{ cursor: "pointer" }} key={index}>
               <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
                 <div className="dashboard-img flex justify-center items-center">
                   <img src={item?.image} />

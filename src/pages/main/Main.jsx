@@ -4,7 +4,7 @@ import close from "../../assets/images/close.svg";
 import CloseIcon from "../../assets/images/close2.svg";
 import { Link } from "react-router-dom";
 import api from "../../Component/apiCall/apiCall";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Main = () => {
@@ -24,21 +24,20 @@ const Main = () => {
       if (data?.status) {
         sessionStorage.setItem("token", data?.data?.token);
         sessionStorage.setItem("license_key", data?.data?.license_key);
-        toast.success("License key verified successfully!");
+        toast.success(data?.msg, { autoClose: 1500 });
         setIsOpen(true);
       } else {
-        toast.error(data?.message || "License key verification failed.");
+        toast.error(data?.msg, { autoClose: 1500 });
       }
     } catch (error) {
       console.log("====>errorerror", error);
       const message = error.response?.data?.message;
-      toast.error(message);
+      toast.error(message, { autoClose: 1500 });
     }
   };
 
   return (
     <div>
-      <ToastContainer position="top-right" autoClose={3000} />
       <div className="welcome-new bg-[#DCECFC]">
         <div className="min-h-screen main-h  flex items-center justify-center">
           <div className="w-full flex flex-col items-center text-center px-5">

@@ -23,10 +23,13 @@ const FeelingListPain = () => {
   useEffect(() => {
     setPainFeelParams(diseasesData[path]);
   }, [path]);
+  const handleBackRoute = () => {
+    navigate(-1);
+  };
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <button>
+        <button onClick={handleBackRoute}>
           <img src={BackArrow} />
         </button>
         <h2 className="text-[25px] font-normal text-black">

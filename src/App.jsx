@@ -52,13 +52,24 @@ import NauseaWhen from "./pages/Nausea/NauseaWhen";
 import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
 import FeelOptions from "./pages/feelOptions/feelOptions";
 import PrivateRoute from "./Component/PrivateRoute/privateRoute";
-// import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router>
+      {" "}
+      <ToastContainer
+        limit={1}
+        style={{ top: "80px !important" }}
+        position="top-right"
+        autoClose={700}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        toastClassName="z-[9999]"
+      />
       <Routes>
-        {/* <ToastContainer /> */}
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
         <Route element={<PrivateRoute />}>

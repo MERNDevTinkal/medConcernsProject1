@@ -1,40 +1,43 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../Component/Layout/Header/Header";
 import SummaryLeftCard from "../../Component/SummaryConcern/SummaryLeftCard";
 import Arrow from "../../assets/images/arrow.svg";
 import Footer from "../../Component/Layout/Footer/Footer";
 import SummaryRightCard from "../../Component/SummaryConcern/SummaryRightCard";
-import SaveModel from "../../Component/saveASModel/saveModel";
 import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import { useParams } from "react-router-dom";
 import BackArrow from "../../assets/images/back-arrow.svg";
 const SummaryList = () => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
   const { id } = useParams();
-
   const [summaryData, setSummaryData] = useState(null);
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (id) {
       const payload = new FormData();
+      const token = sessionStorage.getItem("token");
       const license_key = sessionStorage.getItem("license_key");
       payload.append("search_key", id);
       payload.append("licenses_id", license_key);
       api
-        .post("summaries_all", payload)
+        .post("summaries_all", payload, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then(({ data }) => {
           if (data.status) {
             setSummaryData(JSON.parse(data?.data[0]?.summary_data));
           } else {
-            toast.error("Failed to load summary.");
+            toast.error(data?.msg, { autoClose: 1500 });
           }
         })
         .catch(() => {
-          toast.error("Error fetching summary.");
+          toast.error(response?.data?.message || response?.data?.msg, {
+            autoClose: 1500,
+          });
         })
         .finally(() => {
           setLoader(false);

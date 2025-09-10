@@ -15,27 +15,30 @@ const SummaryList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = sessionStorage.getItem("token");
     const license_key = sessionStorage.getItem("license_key");
     const payload = new FormData();
     payload.append("licenses_id", license_key);
-    payload.append("page", currentPage); // send current page
-
-    setLoader(true); // show loader on every page change
-
+    payload.append("page", currentPage);
+    setLoader(true);
     api
-      .post("summaries_all", payload)
+      .post("summaries_all", payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(({ data }) => {
         if (data.status) {
-          setSummaryList(data.data); // summary list
-          setCurrentPage(data.current_page); // from API
-          setLastPage(data.last_page); // from API
+          setSummaryList(data.data);
+          setCurrentPage(data.current_page);
+          setLastPage(data.last_page);
         }
         setLoader(false);
       })
       .catch(({ response }) => {
-        if (response?.data?.status === false) {
-          toast.error(response.data.message);
-        }
+        toast.error(response?.data?.message || response?.data?.msg, {
+          autoClose: 1500,
+        });
         setLoader(false);
       });
   }, [currentPage]);
@@ -43,7 +46,7 @@ const SummaryList = () => {
   const handleRoute = (name) => {
     navigate(`/summary-view/${name}`);
   };
-
+  console.log("summaryListsummaryListsummaryList", summaryList);
   return (
     <>
       <Header name={"Summary List"} />

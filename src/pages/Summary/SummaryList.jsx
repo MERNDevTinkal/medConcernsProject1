@@ -17,22 +17,30 @@ const SummaryList = () => {
   const [saveAs, setSaveAs] = useState("");
   const saveData = () => {
     const licenses_id = sessionStorage.getItem("license_key");
+    const token = sessionStorage.getItem("token");
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", saveAs);
     payload.append("summary_data", JSON.stringify(diseases));
     api
-      .post("summaries", payload)
+      .post("summaries", payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(({ data }) => {
         if (data.status) {
           setShowSaveModal(false);
-          toast.success(data.msg);
+          toast.success(data.msg, {
+            autoClose: 1500,
+            onClose: navigate("/summary-list"),
+          });
         }
       })
       .catch(({ response }) => {
-        if (response.data.status) {
-          toast.error(response.data.message);
-        }
+        toast.error(response?.data?.message || response?.data?.msg, {
+          autoClose: 1500,
+        });
       });
   };
   const handleSummaryListRoute = () => {
