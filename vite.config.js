@@ -8,7 +8,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"], // Optional, but recommended
+      // includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"], // Optional, but recommended
       manifest: {
         name: "My React Vite PWA",
         short_name: "VitePWA",
@@ -20,20 +20,20 @@ export default defineConfig({
         start_url: "/",
         icons: [
           {
-            src: "icon.png",
+            src: "192x192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "icon.png",
+            src: "512x512.png",
             sizes: "512x512",
             type: "image/png",
           },
-          // {
-          //   src: "apple-touch-icon.png",
-          //   sizes: "180x180",
-          //   type: "image/png",
-          // },
+          {
+            src: "180x180.png",
+            sizes: "180x180",
+            type: "image/png",
+          },
         ],
       },
     }),

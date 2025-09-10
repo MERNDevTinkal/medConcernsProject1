@@ -51,11 +51,13 @@ import NauseaWhen from "./pages/Nausea/NauseaWhen";
 import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
 import FeelOptions from "./pages/feelOptions/feelOptions";
 import PrivateRoute from "./Component/PrivateRoute/privateRoute";
-
+// import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router>
       <Routes>
+        {/* <ToastContainer /> */}
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
         <Route element={<PrivateRoute />}>

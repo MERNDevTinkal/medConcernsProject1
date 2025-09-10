@@ -405,18 +405,17 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: 15px;
 }
 .card-img-h {
-    overflow: hidden;
+  overflow: hidden;
 }
 .card-img-h img {
-    width: 100%;
-    height: 130px;
-    object-fit: contain;
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
 }
-  .howoften-page{
-    padding-top: 0;
-  }
+.howoften-page {
+  padding-top: 0;
+}
 @media (max-width: 799px) {
-
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;
   }
@@ -551,4 +550,30 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-  
+/* Loader.css */
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f8ff;
+}
+
+.loader {
+  border: 10px solid #ffffff;
+  border-top: 10px solid #87cefa;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

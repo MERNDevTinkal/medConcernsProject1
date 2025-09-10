@@ -7,9 +7,11 @@ import SummaryRightCard from "../../Component/SummaryConcern/SummaryRightCard";
 import { GlobalContext } from "../../context/DiseaseContext";
 import SaveModel from "../../Component/saveASModel/saveModel";
 import api from "../../Component/apiCall/apiCall";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
+import { useNavigate } from "react-router-dom";
 const SummaryList = () => {
+  const navigate = useNavigate();
   const { diseases } = useContext(GlobalContext);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
   const [saveAs, setSaveAs] = useState("");
@@ -33,6 +35,9 @@ const SummaryList = () => {
         }
       });
   };
+  const handleSummaryListRoute = () => {
+    navigate("/summary-list");
+  };
   return (
     <>
       <Header name={"Summery List"} />
@@ -40,6 +45,7 @@ const SummaryList = () => {
         <div className="main-wrapper home-wrapper">
           <div className="flex justify-end space-x-2">
             <button
+              onClick={handleSummaryListRoute}
               style={{ border: "2px solid black" }}
               className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
             >
@@ -80,7 +86,6 @@ const SummaryList = () => {
           setShowSaveModal={setShowSaveModal}
         />
       )}
-      <ToastContainer />
       <Footer />
     </>
   );
