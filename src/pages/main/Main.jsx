@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../../assets/images/logo.png";
 import close from "../../assets/images/close.svg";
 import CloseIcon from "../../assets/images/close2.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Main = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [licenseKey, setLicenseKey] = useState("");
   const toggleModal = () => setIsOpen(!isOpen);
@@ -35,6 +36,13 @@ const Main = () => {
       toast.error(message, { autoClose: 1500 });
     }
   };
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (token && token != null) {
+      return navigate("/how-are-you");
+    }
+  }, []);
 
   return (
     <div>

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import logoicon from "../../assets/images/logo-icon.svg";
 import mainimg from "../../assets/images/main-img.png";
 import download from "../../assets/images/download.svg";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const [promptEvent, setPromptEvent] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (token && token != null) {
+      return navigate("/how-are-you");
+    }
     const handleBeforeInstallPrompt = (e) => {
       e.preventDefault();
       setPromptEvent(e);

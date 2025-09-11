@@ -2,9 +2,11 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../../Component/apiCall/apiCall";
-/* -------------------- Minimal helpers & UI -------------------- */
+import { toast } from "react-toastify";
+
+/* -------------------- Helpers -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
 }
@@ -44,11 +46,9 @@ const Card = ({ className = "", ...props }) => (
     {...props}
   />
 );
-
 const CardHeader = ({ className = "", ...props }) => (
   <div className={cn("border-b border-gray-200", className)} {...props} />
 );
-
 const CardContent = ({ className = "", ...props }) => (
   <div className={cn("p-4 sm:p-5", className)} {...props} />
 );
@@ -97,12 +97,6 @@ const Icon = {
       />
     </svg>
   ),
-  Whiteboard: (p) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-      <rect x="3" y="4" width="18" height="12" rx="2" strokeWidth="2" />
-      <path strokeWidth="2" strokeLinecap="round" d="M7 20l5-4 5 4" />
-    </svg>
-  ),
   Keyword: (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
       <path
@@ -124,13 +118,8 @@ const Icon = {
 /* -------------------- Component -------------------- */
 export default function Whiteboard() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const { id } = useParams();
   const canvasRef = useRef(null);
-  const stripRef = useRef(null);
-
-  const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const startScrollRef = useRef(0);
 
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawingColor, setDrawingColor] = useState("#000000");
@@ -139,12 +128,13 @@ export default function Whiteboard() {
   const [drawingName, setDrawingName] = useState("");
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [uploadedImages, setUploadedImages] = useState([]);
-  const token = sessionStorage.getItem("token");
-  const [keyword, setKeyword] = useState("");
-
+  const [texts, setTexts] = useState([]);
   const [textToolActive, setTextToolActive] = useState(false);
   const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
   const [typedText, setTypedText] = useState("");
+
+  const token = sessionStorage.getItem("token");
+  const licenses_id = sessionStorage.getItem("license_key");
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
@@ -164,67 +154,9 @@ export default function Whiteboard() {
     return { x: clientX - rect.left, y: clientY - rect.top };
   };
 
-  const activateTextTool = () => {
-    setTool("text"); // new text tool
-    setTextToolActive(true);
-  };
-
-  const handleCanvasClickForText = (e) => {
-    if (!textToolActive) return;
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setTextPosition({ x, y });
-    setTypedText(""); // reset text
-  };
-
-  const addKeyword = useCallback(
-    (text) => {
-      if (!text || !text.trim()) return;
-      const canvas = canvasRef.current;
-      const ctx = getCanvasContext();
-      if (canvas && ctx) {
-        ctx.font = "20px Arial";
-        ctx.fillStyle = "#000000";
-        ctx.fillText(text.trim(), canvas.width / 2 - 40, canvas.height / 2);
-      }
-      setKeyword(""); // clear input after adding
-    },
-    [getCanvasContext]
-  );
-
-  const handleKeyPress = useCallback(
-    (e) => {
-      if (!textToolActive) return;
-      const canvas = canvasRef.current;
-      const ctx = getCanvasContext();
-      if (!canvas || !ctx) return;
-
-      if (e.key === "Backspace") {
-        setTypedText((prev) => prev.slice(0, -1));
-      } else if (e.key.length === 1) {
-        setTypedText((prev) => prev + e.key);
-      }
-
-      // redraw text
-      ctx.clearRect(0, 0, canvas.width, canvas.height); // optional: only if you want fresh canvas
-      ctx.font = "20px Arial";
-      ctx.fillStyle = drawingColor;
-      ctx.fillText(
-        typedText + (e.key.length === 1 ? e.key : ""),
-        textPosition.x,
-        textPosition.y
-      );
-    },
-    [textToolActive, textPosition, typedText, drawingColor, getCanvasContext]
-  );
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
-    return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [handleKeyPress]);
   const startDrawing = useCallback(
     (e) => {
+      if (tool !== "pencil" && tool !== "eraser") return;
       const canvas = canvasRef.current;
       const ctx = getCanvasContext();
       if (!canvas || !ctx) return;
@@ -235,7 +167,7 @@ export default function Whiteboard() {
       ctx.beginPath();
       ctx.moveTo(x, y);
     },
-    [getCanvasContext]
+    [getCanvasContext, tool]
   );
 
   const draw = useCallback(
@@ -273,8 +205,8 @@ export default function Whiteboard() {
     const canvas = canvasRef.current;
     const ctx = getCanvasContext();
     if (canvas && ctx) {
-      // clear full logical canvas (consider DPR)
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      setTexts([]);
     }
   }, [getCanvasContext]);
 
@@ -295,138 +227,156 @@ export default function Whiteboard() {
     canvasRef.current = node;
   }, []);
 
-  /* -------------------- Image handling -------------------- */
+  /* -------------------- Image upload -------------------- */
   const handleImageUpload = (files) => {
     if (!files || files.length === 0) return;
     const newImages = files.map((file) => URL.createObjectURL(file));
     setUploadedImages((prev) => [...prev, ...newImages]);
   };
 
-  /* -------------------- Drag-to-scroll handlers for strip -------------------- */
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip) return;
+  /* -------------------- Text tool -------------------- */
+  const activateTextTool = () => {
+    setTool("text");
+    setTextToolActive(true);
+  };
 
-    const onMouseDown = (e) => {
-      isDraggingRef.current = true;
-      strip.classList.add("strip--active");
-      // use clientX and bounding rect for consistent coords
-      const rect = strip.getBoundingClientRect();
-      startXRef.current = e.clientX - rect.left;
-      startScrollRef.current = strip.scrollLeft;
-    };
+  const handleCanvasClickForText = (e) => {
+    if (!textToolActive) return;
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setTextPosition({ x, y });
+    setTypedText("");
+  };
 
-    const onMouseMove = (e) => {
-      if (!isDraggingRef.current) return;
-      e.preventDefault();
-      const rect = strip.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const walk = x - startXRef.current; // positive: moved right
-      strip.scrollLeft = startScrollRef.current - walk;
-    };
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (!textToolActive) return;
 
-    const onMouseUp = () => {
-      isDraggingRef.current = false;
-      strip.classList.remove("strip--active");
-    };
-
-    const onMouseLeave = () => {
-      isDraggingRef.current = false;
-      strip.classList.remove("strip--active");
-    };
-
-    const onTouchStart = (e) => {
-      isDraggingRef.current = true;
-      const rect = strip.getBoundingClientRect();
-      startXRef.current = e.touches[0].clientX - rect.left;
-      startScrollRef.current = strip.scrollLeft;
-    };
-
-    const onTouchMove = (e) => {
-      if (!isDraggingRef.current) return;
-      const rect = strip.getBoundingClientRect();
-      const x = e.touches[0].clientX - rect.left;
-      const walk = x - startXRef.current;
-      strip.scrollLeft = startScrollRef.current - walk;
-    };
-
-    const onTouchEnd = () => {
-      isDraggingRef.current = false;
-    };
-    const onWheel = (e) => {
-      if (Math.abs(e.deltaY) > 0) {
-        e.preventDefault();
-        strip.scrollLeft += e.deltaY;
+      if (e.key === "Enter") {
+        setTexts((prev) => [
+          ...prev,
+          {
+            text: typedText,
+            x: textPosition.x,
+            y: textPosition.y,
+            color: drawingColor,
+          },
+        ]);
+        setTypedText("");
+        setTextToolActive(false);
+      } else if (e.key === "Backspace") {
+        setTypedText((prev) => prev.slice(0, -1));
+      } else if (e.key.length === 1) {
+        setTypedText((prev) => prev + e.key);
       }
-    };
+    },
+    [textToolActive, textPosition, typedText, drawingColor]
+  );
 
-    // Attach listeners
-    strip.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
-    strip.addEventListener("mouseleave", onMouseLeave);
-
-    strip.addEventListener("touchstart", onTouchStart, { passive: true });
-    strip.addEventListener("touchmove", onTouchMove, { passive: true });
-    strip.addEventListener("touchend", onTouchEnd);
-
-    // wheel needs passive: false to call preventDefault
-    strip.addEventListener("wheel", onWheel, { passive: false });
-
-    // cleanup
-    return () => {
-      strip.removeEventListener("mousedown", onMouseDown);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
-      strip.removeEventListener("mouseleave", onMouseLeave);
-
-      strip.removeEventListener("touchstart", onTouchStart);
-      strip.removeEventListener("touchmove", onTouchMove);
-      strip.removeEventListener("touchend", onTouchEnd);
-
-      strip.removeEventListener("wheel", onWheel);
-    };
-  }, [uploadedImages]);
-
-  /* -------------------- Load by ID (unchanged) -------------------- */
   useEffect(() => {
-    const id = searchParams.get("id");
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [handleKeyPress]);
+
+  /* -------------------- Redraw everything -------------------- */
+  useEffect(() => {
+    const ctx = getCanvasContext();
+    if (!ctx) return;
+
+    ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+
+    // Draw texts
+    texts.forEach((t) => {
+      ctx.font = "20px Arial";
+      ctx.fillStyle = t.color || "#000";
+      ctx.fillText(t.text, t.x, t.y);
+    });
+
+    // Draw typing text
+    if (textToolActive && typedText) {
+      ctx.font = "20px Arial";
+      ctx.fillStyle = drawingColor;
+      ctx.fillText(typedText, textPosition.x, textPosition.y);
+    }
+  }, [
+    texts,
+    typedText,
+    textToolActive,
+    drawingColor,
+    textPosition,
+    getCanvasContext,
+  ]);
+
+  /* -------------------- Fetch drawing if ID -------------------- */
+  useEffect(() => {
     if (!id) return;
-    const fetchDrawing = async () => {
+    const fetchDrawing = () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/whiteboards/${id}`);
-        const data = await res.json();
-        if (data?.image) {
-          const canvas = canvasRef.current;
-          const ctx = canvas.getContext("2d");
-          const img = new Image();
-          img.onload = () => {
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          };
-          img.src = data.image;
-        }
+        const payload = new FormData();
+        payload.append("licenses_id", licenses_id);
+        payload.append("search_key", id);
+        api
+          .post("whiteBoardlist", payload, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(({ data }) => {
+            if (data?.data[0]?.image) {
+              const canvas = canvasRef.current;
+              const ctx = canvas.getContext("2d");
+              const img = new Image();
+              img.onload = () => {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+              };
+              img.src = data?.data[0]?.image;
+            }
+          })
+          .catch(({ response }) => {
+            toast.error(response.data.message || response.data.msg, {
+              autoClose: 1500,
+            });
+          });
       } catch (err) {
         console.error("Failed to load drawing", err);
       }
     };
     fetchDrawing();
-  }, [searchParams]);
+  }, [id]);
 
+  /* -------------------- Save -------------------- */
   const handleSaveDrawing = useCallback(async () => {
     const canvas = canvasRef.current;
     if (canvas && drawingName.trim()) {
       const dataUrl = canvas.toDataURL("image/png");
       const payload = new FormData();
-      const licenses_id = sessionStorage.getItem("license_key");
       payload.append("licenses_id", licenses_id);
       payload.append("name_key", drawingName.trim());
       payload.append("image", dataUrl);
       try {
-        api.post("whiteBoardCreate", payload, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        api
+          .post("whiteBoardCreate", payload, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(({ data }) => {
+            if (data.status) {
+              toast.success(data.msg, {
+                autoClose: 1500,
+                onClose: navigate("/white-board-list"),
+              });
+            } else {
+              toast.error(data.msg, { autoClose: 1500 });
+            }
+          })
+          .catch(({ response }) => {
+            toast.error(response.data.message || response.data.msg, {
+              autoClose: 1500,
+            });
+          });
         setDrawingName("");
         setShowSaveModal(false);
         clearCanvas();
@@ -442,11 +392,9 @@ export default function Whiteboard() {
       <div className="main-wrapper home-wrapper">
         <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8">
           <Card className="w-full max-w-4xl flex flex-col">
+            {/* Top strip for images only */}
             <CardHeader className="p-0">
-              <div
-                ref={stripRef}
-                className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
-              >
+              <div className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50">
                 {uploadedImages.map((src, idx) => (
                   <img
                     key={idx}
@@ -458,6 +406,8 @@ export default function Whiteboard() {
                 ))}
               </div>
             </CardHeader>
+
+            {/* Canvas */}
             <div className="relative w-full h-[600px] bg-white">
               <canvas
                 ref={setCanvasSize}
@@ -469,8 +419,11 @@ export default function Whiteboard() {
                 onTouchStart={startDrawing}
                 onTouchMove={draw}
                 onTouchEnd={stopDrawing}
+                onClick={handleCanvasClickForText}
               />
             </div>
+
+            {/* Tools */}
             <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
               <Button
                 variant="ghost"
@@ -524,6 +477,7 @@ export default function Whiteboard() {
               >
                 <Icon.Trash className="w-5 h-5" />
               </Button>
+
               <div className="flex items-center gap-2 ml-2">
                 <label className="text-sm text-gray-600">Color</label>
                 <input
@@ -549,6 +503,8 @@ export default function Whiteboard() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Save / View buttons */}
           <div className="w-full flex justify-between items-center mt-6">
             <Button className="thm-btn" onClick={() => setShowSaveModal(true)}>
               Save Whiteboard
@@ -560,36 +516,37 @@ export default function Whiteboard() {
               View List
             </Button>
           </div>
+
+          {/* Save Modal */}
           {showSaveModal && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
               <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
                 <div className="mb-4">
                   <h2 className="text-[32px] font-semibold">Save As</h2>
                 </div>
-
                 <div className="grid gap-4">
-                  <div className="grid grid-cols-4 items-center gap-3">
-                    <input
-                      id="drawingName"
-                      type="text"
-                      value={drawingName}
-                      onChange={(e) => setDrawingName(e.target.value)}
-                      className="col-span-5 h-12 w-full rounded-md border border-gray-300 px-3 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-700"
-                    />
-                  </div>
+                  <input
+                    id="drawingName"
+                    type="text"
+                    value={drawingName}
+                    onChange={(e) => setDrawingName(e.target.value)}
+                    placeholder="Enter drawing name"
+                    className="h-12 w-full rounded-md border px-3"
+                  />
                 </div>
-
-                <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-center sm:space-x-2">
+                <div className="mt-6 flex justify-end gap-4">
                   <Button
+                    type="button"
                     variant="outline"
+                    className="thm-btn thm-btn-outline"
                     onClick={() => setShowSaveModal(false)}
                   >
                     Cancel
                   </Button>
                   <Button
+                    type="button"
                     className="thm-btn"
                     onClick={handleSaveDrawing}
-                    disabled={!drawingName.trim()}
                   >
                     Save
                   </Button>
@@ -600,19 +557,6 @@ export default function Whiteboard() {
         </div>
       </div>
       <Footer />
-      {/* inline CSS so you don't forget to add in global file */}
-      <style>{`
-        /* hide scrollbar but allow scroll */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* strip styling and grab cursor */
-        .strip { cursor: grab; user-select: none; -webkit-user-select: none; -ms-user-select: none; }
-        .strip--active { cursor: grabbing; }
-
-        /* prevent images from being dragged as browser image drag */
-        .strip img { -webkit-user-drag: none; user-drag: none; }
-      `}</style>
     </>
   );
 }

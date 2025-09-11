@@ -1,11 +1,19 @@
-// src/Component/PrivateRoute/privateRoute.jsx
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const PrivateRoute = () => {
   const token = sessionStorage.getItem("token");
-
-  return token ? <Outlet /> : <Navigate to="/" replace />;
+  const location = useLocation();
+  if (token && (location.pathname === "/" || location.pathname === "/main")) {
+    return <Navigate to="/how-are-you" replace />;
+  }
+  if (
+    (!token || token == null) &&
+    (location.pathname !== "/" || location.pathname === "/main")
+  ) {
+    return <Navigate to="/" replace />;
+  }
+  return <Outlet />;
 };
 
 export default PrivateRoute;

@@ -95,6 +95,7 @@ function App() {
           <Route path="/board" element={<NeedBoard />} />
           <Route path="/board-upload" element={<NeedBoardUpload />} />
           <Route path="/whiteboard" element={<Whiteboard />} />
+          <Route path="/whiteboard/:id" element={<Whiteboard />} />
           <Route path="/howoften" element={<Howoften />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/depressed" element={<DepressedFeel />} />
