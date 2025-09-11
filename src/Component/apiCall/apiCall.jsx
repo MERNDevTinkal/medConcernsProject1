@@ -1,5 +1,7 @@
 import axios from "axios";
+
 const API_URL = import.meta.env.VITE_BACKEND_URL;
+
 const axiosInstance = axios.create({
   baseURL: API_URL,
   timeout: 10000,
@@ -7,5 +9,27 @@ const axiosInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 400) {
+      sessionStorage.removeItem("token");
+      window.location.href = "/";
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default axiosInstance;
