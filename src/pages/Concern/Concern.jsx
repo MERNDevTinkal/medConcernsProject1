@@ -28,7 +28,9 @@ const Concern = () => {
 
   return (
     <>
-      <Header name={"Concerns"} />
+      <Header
+        name={location.pathname === "/topic-board" ? "Topic Board" : "Concerns"}
+      />
       {loader ? (
         <Loader />
       ) : (

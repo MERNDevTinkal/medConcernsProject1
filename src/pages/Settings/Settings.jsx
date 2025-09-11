@@ -169,7 +169,7 @@ export default function Settings() {
   // ---------------- Render ----------------
   return (
     <>
-      <Header />
+      <Header name={"Settings"} />
       {loader ? (
         <Loader />
       ) : (

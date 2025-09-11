@@ -67,9 +67,9 @@ const WhiteBoardList = () => {
           <img src={BackArrow} alt="Back" />
         </Link>
         <h1 className="text-[25px] font-normal text-black">Whiteboard</h1>
-        <Link>
+        {/* <Link>
           <img src={NextArrow} alt="Next" />
-        </Link>
+        </Link> */}
       </div>
       {loader ? (
         <Loader />

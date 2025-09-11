@@ -1049,7 +1049,7 @@ export default function Whiteboard() {
 
   return (
     <>
-      <Header />
+      <Header name={"Whiteboard"} />
       <div className="main-wrapper home-wrapper">
         <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8">
           <Card className="w-full max-w-4xl flex flex-col">

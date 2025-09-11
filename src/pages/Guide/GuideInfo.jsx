@@ -6,7 +6,7 @@ import Arrow from "../../assets/images/double-arrow.svg";
 const GuideInfo = () => {
   return (
     <>
-      <Header />
+      <Header name="About Us" />
       <div className="main-wrapper home-wrapper">
         <div className="px-[30px] my-5">
           <h2 className="text-[32px] primary-text font-medium leading-[40px]">

@@ -49,11 +49,11 @@ const Header = ({ name }) => {
           </h2>
           <div
             style={{ cursor: "pointer" }}
-            onClick={() => {
-              navigate(+1);
-            }}
+            // onClick={() => {
+            //   navigate(+1);
+            // }}
           >
-            <img src={NextArrow} alt="" />
+            {/* <img src={NextArrow} alt="" /> */}
           </div>
         </div>
         <aside
@@ -76,7 +76,7 @@ const Header = ({ name }) => {
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon2} />
-              <Link to="/male-body">Patient Education</Link>
+              <Link to="#">Patient Education</Link>
             </li>
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon3} />
@@ -131,7 +131,7 @@ const Header = ({ name }) => {
               className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
             >
               <img src={MenuIcon12} />
-              <Link>Appetite</Link>
+              <Link to="/noappetite-problem">Appetite</Link>
             </li>
             <li
               onClick={() => {

@@ -5,7 +5,7 @@ import Footer from "../Component/Layout/Footer/Footer";
 const Disclaimer = () => {
   return (
     <>
-      <Header />
+      <Header name={"Disclaimer"} />
       <div className="main-wrapper home-wrapper ">
         <div className="px-6 text-center mt-7">
           <h2 className="text-[24px] font-normal text-black mb-6">
