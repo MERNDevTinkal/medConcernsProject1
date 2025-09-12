@@ -10,24 +10,26 @@ const NeedBoard = () => {
   const location = useLocation();
   const [getAllDiseases, setDiseases] = useState([]);
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [selectedGender, setSelectedGender] = React.useState("");
-  const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [calendarOn, setCalendarOn] = React.useState(false);
-  const [introductionOn, setIntroductionOn] = React.useState(false);
   const [loader, setLoader] = useState(true);
+  const [needboard, setNeedboard] = useState(null);
   useEffect(() => {
     setDiseases(diseasesData[location.pathname]);
   }, [location?.pathname]);
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      setSelectedGender,
-      setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
-      setLoader
+      () => {},
+      () => {},
+      () => {},
+      () => {},
+      setLoader,
+      () => {},
+      setNeedboard
     );
   }, []);
+  const selectedNeedboard = needboard
+    ? needboard.split(",").filter(Boolean)
+    : [];
   return (
     <>
       <Header name={"Needs Board"} />
@@ -42,18 +44,20 @@ const NeedBoard = () => {
               selectedIconCount || 3
             } gap-3.5 px-4 my-4`}
           >
-            {getAllDiseases.map((item, index) => (
-              <div style={{ cursor: "pointer" }} key={index}>
-                <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
-                  <div className="dashboard-img flex justify-center items-center">
-                    <img src={item?.image} />
+            {getAllDiseases
+              .filter((item) => !selectedNeedboard.includes(item.name))
+              .map((item, index) => (
+                <div style={{ cursor: "pointer" }} key={index}>
+                  <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
+                    <div className="dashboard-img flex justify-center items-center">
+                      <img src={item?.image} />
+                    </div>
+                    <p className="text-[12px] mt-4 color-black mb-0 ">
+                      {item?.name}
+                    </p>
                   </div>
-                  <p className="text-[12px] mt-4 color-black mb-0 ">
-                    {item?.name}
-                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       )}

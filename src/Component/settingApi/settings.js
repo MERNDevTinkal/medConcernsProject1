@@ -6,7 +6,9 @@ const getSetting = (
   setSelectedLanguage,
   setCalendarOn,
   setIntroductionOn,
-  setLoader
+  setLoader,
+  setConcerns,
+  setNeedboard
 ) => {
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
@@ -17,27 +19,29 @@ const getSetting = (
       headers: { Authorization: `Bearer ${token}` },
     })
     .then(({ data }) => {
-      if (data.status && data.data) {
-        setSelectedIconCount(Number(data.data.number_of_icons));
-        setSelectedGender(data.data.gender);
-        setSelectedLanguage(data.data.language);
+      if (data?.status && data?.data) {
+        setSelectedIconCount(Number(data?.data?.number_of_icons));
+        setSelectedGender(data?.data?.gender);
+        setSelectedLanguage(data?.data?.language);
         setCalendarOn(
-          data.data.calendar === true ||
-            data.data.calendar === "true" ||
-            data.data.calendar === 1
+          data?.data?.calendar === true ||
+            data?.data?.calendar === "true" ||
+            data?.data?.calendar === 1
         );
         setIntroductionOn(
-          data.data.introduction === true ||
-            data.data.introduction === "true" ||
-            data.data.introduction === 1
+          data?.data?.introduction === true ||
+            data?.data?.introduction === "true" ||
+            data?.data?.introduction === 1
         );
+        setConcerns(data?.data?.concerns);
+        setNeedboard(data?.data?.need_board);
       } else {
-        toast.error(data.msg, { autoClose: 1500 });
+        toast.error(data?.msg, { autoClose: 1500 });
       }
       setLoader(false);
     })
     .catch(({ response }) => {
-      toast.error(response.data.message || response.data.msg, {
+      toast.error(response?.data?.message || response?.data?.msg, {
         autoClose: 1500,
       });
       setLoader(false);

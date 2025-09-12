@@ -59,8 +59,10 @@ export default function Settings() {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {
-        if (data.status) toast.success("", { autoClose: 1500 });
-        else toast.error(data.msg, { autoClose: 1500 });
+        if (data.status) {
+        } else {
+          toast.error(data.msg, { autoClose: 1500 });
+        }
       })
       .catch(() => toast.error("Something went wrong", { autoClose: 1500 }));
   };

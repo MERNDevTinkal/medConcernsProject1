@@ -7,25 +7,26 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+
 const Concern = () => {
   const location = useLocation();
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [selectedGender, setSelectedGender] = React.useState("");
-  const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [calendarOn, setCalendarOn] = React.useState(false);
-  const [introductionOn, setIntroductionOn] = React.useState(false);
+  const [concerns, setConcerns] = useState(null);
   const [loader, setLoader] = useState(true);
+
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      setSelectedGender,
-      setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
-      setLoader
+      () => {},
+      () => {},
+      () => {},
+      () => {},
+      setLoader,
+      setConcerns
     );
   }, []);
 
+  const selectedConcerns = concerns ? concerns.split(",").filter(Boolean) : [];
   return (
     <>
       <Header
@@ -44,7 +45,8 @@ const Concern = () => {
               } py-3`}
             >
               {location.pathname === "/concern" ? (
-                <ConcernCard />
+                // ✅ skip those concerns which are already in selectedConcerns
+                <ConcernCard skipKeys={selectedConcerns} />
               ) : (
                 <TopicBoard />
               )}

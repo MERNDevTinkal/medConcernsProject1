@@ -198,7 +198,7 @@ const needBoard = [
   { id: 41, name: "Doctor", image: dashimg04 },
   { id: 42, name: "Nurse", image: dashimg04 },
   { id: 43, name: "Nursing Aide", image: dashimg04 },
-  { id: 44, name: "Occupational /Physical Therapist", image: dashimg04 },
+  { id: 44, name: "Occupational/Physical Therapist", image: dashimg04 },
   { id: 45, name: "Speech Therapist", image: dashimg04 },
 ];
 

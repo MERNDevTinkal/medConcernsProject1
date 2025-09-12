@@ -57,7 +57,7 @@ export const concerns = [
   },
   {
     id: 8,
-    name: "Eating / Drinking",
+    name: "Eating/Drinking",
     image: ConcernImg8,
     path: "/concern/eating-drinking-yes-no/8",
   },
@@ -69,7 +69,7 @@ export const concerns = [
   },
   {
     id: 10,
-    name: "Emotions / Feelings",
+    name: "Emotions/Feelings",
     image: ConcernImg8,
     path: "/concern/emotions-feelings-yes-no/10",
     secPath: "/feel",
@@ -82,7 +82,7 @@ export const concerns = [
   },
   {
     id: 12,
-    name: "Communication / Thinking",
+    name: "Communication/Thinking",
     image: ConcernImg8,
     path: "/concern/communication-thinking-yes-no/12",
   },
@@ -112,13 +112,13 @@ export const concerns = [
   },
   {
     id: 17,
-    name: "Wound / Incision",
+    name: "Wound/Incision",
     image: ConcernImg14,
     path: "/concern/wound-incision-yes-no/17",
   },
   {
     id: 18,
-    name: "Mucus / Secretions",
+    name: "Mucus/Secretions",
     image: ConcernImg15,
     path: "/concern/mucus-secretions-yes-no/18",
   },

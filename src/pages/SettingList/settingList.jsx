@@ -1,81 +1,91 @@
 "use client";
 
-import React, { useState } from "react";
-import Header from "../../Component/Layout/Header/Header";
+import React, { useState, useEffect } from "react";
 import Footer from "../../Component/Layout/Footer/Footer";
 import Loader from "../../Component/webLoader/loader";
 import { useParams } from "react-router-dom";
-const concernsList = [
-  { key: "pain", label: "Pain" },
-  { key: "breathing", label: "Breathing / Coughing" },
-  { key: "swallowing", label: "Swallowing" },
-  { key: "nausea", label: "Nausea" },
-  { key: "bowels", label: "Bowels" },
-  { key: "urination", label: "Urination" },
-  { key: "fatigue", label: "Fatigue" },
-  { key: "eating", label: "Eating / Drinking" },
-  { key: "medication", label: "Medication" },
-  { key: "emotions", label: "Emotions / Feelings" },
-  { key: "movement", label: "Movement" },
-  { key: "communication", label: "Communication / Thinking" },
-  { key: "vision", label: "Vision" },
-  { key: "hearing", label: "Hearing" },
-  { key: "illness", label: "Illness" },
-  { key: "incident", label: "Something Happened" },
-  { key: "wound", label: "Wound / Incision" },
-  { key: "mucus", label: "Mucus / Secretions" },
-  { key: "feeding_tube", label: "Feeding Tube" },
-  { key: "trach", label: "Trach" },
-  { key: "something_else", label: "Something Else" },
-  { key: "no_concerns", label: "No Concerns" },
+import api from "../../Component/apiCall/apiCall";
+import { toast } from "react-toastify";
+import getSetting from "../../Component/settingApi/settings";
+import BackArrow from "../../assets/images/back-arrow.svg";
+import { useNavigate } from "react-router-dom";
+export const concernsList = [
+  { key: "Pain", label: "Pain" },
+  { key: "Breathing/Coughing", label: "Breathing/Coughing" },
+  { key: "Swallowing", label: "Swallowing" },
+  { key: "Nausea", label: "Nausea" },
+  { key: "Bowels", label: "Bowels" },
+  { key: "Urination", label: "Urination" },
+  { key: "Fatigue", label: "Fatigue" },
+  { key: "Eating/Drinking", label: "Eating/Drinking" },
+  { key: "Medication", label: "Medication" },
+  { key: "Emotions/Feelings", label: "Emotions/Feelings" },
+  { key: "Movement", label: "Movement" },
+  { key: "Communication/Thinking", label: "Communication/Thinking" },
+  { key: "Vision", label: "Vision" },
+  { key: "Hearing", label: "Hearing" },
+  { key: "Illness", label: "Illness" },
+  { key: "Something Happened", label: "Something Happened" },
+  { key: "Wound/Incision", label: "Wound/Incision" },
+  { key: "Mucus/Secretions", label: "Mucus/Secretions" },
+  { key: "Feeding Tube", label: "Feeding Tube" },
+  { key: "Trach", label: "Trach" },
+  { key: "Something Else", label: "Something Else" },
+  { key: "No Concerns", label: "No Concerns" },
 ];
 
-const needsBoardList = [
-  { key: "bathroom", label: "Bathroom" },
-  { key: "bed", label: "Bed" },
-  { key: "food", label: "Food" },
-  { key: "drink", label: "Drink" },
-  { key: "glasses", label: "Glasses" },
-  { key: "medication", label: "Medication" },
-  { key: "hearing_aids", label: "Hearing Aids" },
-  { key: "dentures", label: "Dentures" },
-  { key: "tissue", label: "Tissue" },
-  { key: "call_light", label: "Call Light" },
-  { key: "blanket_pillow", label: "Blanket / Pillow" },
-  { key: "room_temperature", label: "Room Temperature" },
-  { key: "open_for_me", label: "Open for Me" },
-  { key: "tv", label: "TV" },
-  { key: "music", label: "Music" },
-  { key: "call_family", label: "Call Family" },
-  { key: "change_clothes", label: "Change Clothes" },
-  { key: "need_socks", label: "Need Socks" },
-  { key: "cervical_collar", label: "Cervical Collar" },
-  { key: "helmet", label: "Helmet" },
-  { key: "adjust_clothes", label: "Adjust Clothes" },
-  { key: "change_underwear", label: "Change Underwear" },
-  { key: "light", label: "Light" },
-  { key: "please_leave", label: "Please Leave" },
-  { key: "reposition", label: "Reposition" },
-  { key: "suction", label: "Suction" },
-  { key: "catheter", label: "Catheter" },
-  { key: "soiled", label: "Soiled" },
-  { key: "pain_meds", label: "Pain Meds" },
-  { key: "ice", label: "Ice" },
-  { key: "door", label: "Door" },
-  { key: "ice_pack", label: "Ice Pack" },
-  { key: "heating_pad", label: "Heating Pad" },
-  { key: "phone_tablet", label: "Phone / Tablet" },
-  { key: "inhaler_treatment", label: "Inhaler / Breathing Treatment" },
-  { key: "need_straw", label: "Need Straw" },
-  { key: "plug_in_device", label: "Plug in Phone / Tablet" },
-  { key: "peg", label: "PEG" },
-  { key: "trach", label: "Trach" },
-  { key: "respiratory_therapist", label: "Respiratory Therapist" },
-  { key: "doctor", label: "Doctor" },
-  { key: "nurse", label: "Nurse" },
-  { key: "nursing_aide", label: "Nursing Aide" },
-  { key: "occupational_therapist", label: "Occupational / Physical Therapist" },
-  { key: "speech_therapist", label: "Speech Therapist" },
+export const needsBoardList = [
+  { key: "Bathroom", label: "Bathroom" },
+  { key: "Bed", label: "Bed" },
+  { key: "Food", label: "Food" },
+  { key: "Drink", label: "Drink" },
+  { key: "Glasses", label: "Glasses" },
+  { key: "Medication", label: "Medication" },
+  { key: "Hearing Aids", label: "Hearing Aids" },
+  { key: "Dentures", label: "Dentures" },
+  { key: "Tissue", label: "Tissue" },
+  { key: "Call Light", label: "Call Light" },
+  { key: "Blanket/Pillow", label: "Blanket/Pillow" },
+  { key: "Room Temperature", label: "Room Temperature" },
+  { key: "Open for Me", label: "Open for Me" },
+  { key: "TV", label: "TV" },
+  { key: "Music", label: "Music" },
+  { key: "Call Family", label: "Call Family" },
+  { key: "Change Clothes", label: "Change Clothes" },
+  { key: "Need Socks", label: "Need Socks" },
+  { key: "Cervical Collar", label: "Cervical Collar" },
+  { key: "Helmet", label: "Helmet" },
+  { key: "Adjust Clothes", label: "Adjust Clothes" },
+  { key: "Change Underwear", label: "Change Underwear" },
+  { key: "Light", label: "Light" },
+  { key: "Please Leave", label: "Please Leave" },
+  { key: "Reposition", label: "Reposition" },
+  { key: "Suction", label: "Suction" },
+  { key: "Catheter", label: "Catheter" },
+  { key: "Soiled", label: "Soiled" },
+  { key: "Pain Meds", label: "Pain Meds" },
+  { key: "Ice", label: "Ice" },
+  { key: "Door", label: "Door" },
+  { key: "Ice Pack", label: "Ice Pack" },
+  { key: "Heating Pad", label: "Heating Pad" },
+  { key: "Phone/Tablet", label: "Phone/Tablet" },
+  {
+    key: "Inhaler/Breathing Treatment",
+    label: "Inhaler/Breathing Treatment",
+  },
+  { key: "Need Straw", label: "Need Straw" },
+  { key: "Plug in Phone/Tablet", label: "Plug in Phone/Tablet" },
+  { key: "PEG", label: "PEG" },
+  { key: "Trach", label: "Trach" },
+  { key: "Respiratory Therapist", label: "Respiratory Therapist" },
+  { key: "Doctor", label: "Doctor" },
+  { key: "Nurse", label: "Nurse" },
+  { key: "Nursing Aide", label: "Nursing Aide" },
+  {
+    key: "Occupational/Physical Therapist",
+    label: "Occupational/Physical Therapist",
+  },
+  { key: "Speech Therapist", label: "Speech Therapist" },
 ];
 
 const CustomRoundCheckbox = ({ value, checked, onChange, label }) => (
@@ -95,8 +105,11 @@ const CustomRoundCheckbox = ({ value, checked, onChange, label }) => (
 );
 
 export default function ConcernsSettings() {
+  const navigate = useNavigate();
   const [selectedConcerns, setSelectedConcerns] = useState([]);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
+  const [concerns, setConcerns] = useState(null);
+  const [needboard, setNeedboard] = useState(null);
   const { name } = useParams();
   const handleConcernToggle = (key) => {
     let updatedConcerns = [...selectedConcerns];
@@ -105,12 +118,73 @@ export default function ConcernsSettings() {
     } else {
       updatedConcerns.push(key);
     }
+    saveSettings(updatedConcerns);
     setSelectedConcerns(updatedConcerns);
   };
-  console.log("======>selectedConcerns", selectedConcerns);
+  const token = localStorage.getItem("token");
+  const licenses_id = localStorage.getItem("license_key");
+  const saveSettings = (updatedConcerns) => {
+    const payload = new FormData();
+    payload.append("licenses_id", licenses_id);
+    const value = name === "Needsboard" ? "need_board" : "concerns";
+    payload.append(value, updatedConcerns);
+    api
+      .post("saveSettings", payload, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(({ data }) => {
+        if (data.status) {
+          //   toast.success("", { autoClose: 1500 });
+        } else {
+          toast.error(data.msg, { autoClose: 1500 });
+        }
+      })
+      .catch(() => toast.error("Something went wrong", { autoClose: 1500 }));
+  };
+
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      () => {},
+      () => {},
+      () => {},
+      setLoader,
+      setConcerns,
+      setNeedboard
+    );
+  }, [licenses_id, token]);
+
+  useEffect(() => {
+    if (name === "Needsboard" && needboard !== null) {
+      setSelectedConcerns(
+        typeof needboard === "string"
+          ? needboard.split(",").filter(Boolean)
+          : []
+      );
+    } else if (name !== "Needsboard" && concerns !== null) {
+      setSelectedConcerns(
+        typeof concerns === "string" ? concerns.split(",").filter(Boolean) : []
+      );
+    }
+  }, [concerns, needboard, name]);
+
   return (
     <>
-      <Header name={"Concerns"} />
+      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <img src={BackArrow} />
+        </div>
+        <h2 className="text-[25px] font-normal text-black text-center">
+          {"Settings"}
+        </h2>
+        <button></button>
+      </div>
       {loader ? (
         <Loader />
       ) : (
@@ -118,7 +192,7 @@ export default function ConcernsSettings() {
           <div className="flex items-center justify-center p-4 setting-cards">
             <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
               <div className="p-3 sm:p-4 md:p-6">
-                <h1 className="text-xs text-gray-500 mb-6">Concerns</h1>
+                <h1 className="text-xs text-gray-500 mb-6">Settings</h1>
 
                 {/* Concerns List */}
                 <div className="flex flex-col gap-3 py-6 px-2">

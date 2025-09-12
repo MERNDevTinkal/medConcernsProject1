@@ -407,11 +407,14 @@ export default function Whiteboard() {
     }
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
-    api.post("whiteBoardlist", payload, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    api
+      .post("whiteBoardlist", payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(({ data }) => {})
+      .catch(({ response }) => {});
   }, [id]);
 
   /* -------------------- Save Drawing -------------------- */
