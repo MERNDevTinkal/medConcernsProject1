@@ -7,7 +7,9 @@ import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
+import { useNavigate } from "react-router-dom";
 export default function Settings() {
+  const navigate = useNavigate();
   const [selectedIconCount, setSelectedIconCount] = React.useState(3);
   const [selectedGender, setSelectedGender] = React.useState("Female");
   const [selectedLanguage, setSelectedLanguage] = React.useState("Spanish");
@@ -165,8 +167,9 @@ export default function Settings() {
       </span>
     </div>
   );
-
-  // ---------------- Render ----------------
+  const handleListRoute = (value) => {
+    navigate(`/settingList/${value}`);
+  };
   return (
     <>
       <Header
@@ -274,10 +277,20 @@ export default function Settings() {
 
               {/* Bottom Buttons */}
               <div className="p-3 sm:p-4 md:p-6 flex justify-center space-x-4 pt-8 calendar-bttm">
-                <button className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md">
+                <button
+                  className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
+                  onClick={() => {
+                    handleListRoute("Needsboard");
+                  }}
+                >
                   Needs board Settings
                 </button>
-                <button className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md">
+                <button
+                  className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
+                  onClick={() => {
+                    handleListRoute("concerns");
+                  }}
+                >
                   Concerns Settings
                 </button>
               </div>

@@ -52,6 +52,7 @@ import NauseaWhen from "./pages/Nausea/NauseaWhen";
 import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
 import FeelOptions from "./pages/feelOptions/feelOptions";
 import PrivateRoute from "./Component/PrivateRoute/privateRoute";
+import SettingList from "./pages/SettingList/settingList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
@@ -139,6 +140,7 @@ function App() {
           <Route path="/topicboard/:name/:id" element={<BreathingYesNo />} />
           <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
           <Route path="/feelOptions" element={<FeelOptions />} />
+          <Route path="/settingList/:name" element={<SettingList />} />
         </Route>
       </Routes>
     </Router>

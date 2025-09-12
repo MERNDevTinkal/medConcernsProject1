@@ -401,6 +401,19 @@ export default function Whiteboard() {
     getCanvasContext,
   ]);
 
+  useEffect(() => {
+    if (id) {
+      return;
+    }
+    const payload = new FormData();
+    payload.append("licenses_id", licenses_id);
+    api.post("whiteBoardlist", payload, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }, [id]);
+
   /* -------------------- Save Drawing -------------------- */
   const handleSaveDrawing = useCallback(async () => {
     const canvas = canvasRef.current;
