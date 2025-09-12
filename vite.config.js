@@ -11,7 +11,7 @@ export default defineConfig({
       // includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"], // Optional, but recommended
       manifest: {
         name: "My React Vite PWA",
-        short_name: "VitePWA",
+        short_name: "MedConcerns",
         description: "A Vite PWA built with React",
         theme_color: "#ffffff",
         background_color: "#ffffff",
