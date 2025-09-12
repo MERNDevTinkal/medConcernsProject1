@@ -17,7 +17,7 @@ function makeRegion(name, x1, y1, x2, y2) {
 }
 
 const backRegions = [
-  makeRegion("Back Center", 110, 63, 260, 160),
+  makeRegion("Back", 110, 63, 260, 160),
   makeRegion("Elbow", 220, 12, 250, 50),
   makeRegion("Arm", 250, 12, 300, 35),
   makeRegion("Arm", 120, 12, 220, 35),
