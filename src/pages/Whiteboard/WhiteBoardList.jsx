@@ -21,8 +21,8 @@ const WhiteBoardList = () => {
   }, [currentPage]);
 
   const fetchDrawings = (page) => {
-    const token = sessionStorage.getItem("token");
-    const licenses_id = sessionStorage.getItem("license_key");
+    const token = localStorage.getItem("token");
+    const licenses_id = localStorage.getItem("license_key");
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("page", page);

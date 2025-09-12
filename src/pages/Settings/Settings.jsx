@@ -14,8 +14,8 @@ export default function Settings() {
   const [calendarOn, setCalendarOn] = React.useState(true);
   const [introductionOn, setIntroductionOn] = React.useState(true);
   const [loader, setLoader] = useState(true);
-  const token = sessionStorage.getItem("token");
-  const licenses_id = sessionStorage.getItem("license_key");
+  const token = localStorage.getItem("token");
+  const licenses_id = localStorage.getItem("license_key");
   const iconCounts = [1, 2, 3, 4, 6];
 
   useEffect(() => {
@@ -169,7 +169,11 @@ export default function Settings() {
   // ---------------- Render ----------------
   return (
     <>
-      <Header name={"Settings"} />
+      <Header
+        introductionOn={introductionOn}
+        calendarOn={calendarOn}
+        name={"Settings"}
+      />
       {loader ? (
         <Loader />
       ) : (

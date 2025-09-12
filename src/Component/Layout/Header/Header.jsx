@@ -30,7 +30,7 @@ import MenuIcon26 from "../../../assets/images/sidebar-icon-32.svg";
 import MenuIcon27 from "../../../assets/images/sidebar-icon-33.svg";
 import CloseIcon from "../../../assets/images/close2.svg";
 import { GlobalContext } from "../../../context/DiseaseContext";
-const Header = ({ name }) => {
+const Header = ({ introductionOn, calendarOn, name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { resetDiseases } = useContext(GlobalContext);
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -78,10 +78,12 @@ const Header = ({ name }) => {
               <img src={MenuIcon2} />
               <Link to="#">Patient Education</Link>
             </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon3} />
-              <Link to="/disclaimer">Introduction</Link>
-            </li>
+            {!introductionOn && (
+              <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
+                <img src={MenuIcon3} />
+                <Link to="/disclaimer">Introduction</Link>
+              </li>
+            )}
             <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
               <img src={MenuIcon4} />
               <Link to="/how-are-you">How are you?</Link>
@@ -115,15 +117,17 @@ const Header = ({ name }) => {
               <img src={MenuIcon10} />
               <Link to="/when">When?</Link>
             </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon11} />
-              <Link to="/howoften">Calendar</Link>
-            </li>
+            {!calendarOn && (
+              <li
+                onClick={() => {
+                  handleSummery();
+                }}
+                className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
+              >
+                <img src={MenuIcon11} />
+                <Link to="/howoften">Calendar</Link>
+              </li>
+            )}
             <li
               onClick={() => {
                 handleSummery();

@@ -16,8 +16,8 @@ const SummaryList = () => {
   const [ShowSaveModal, setShowSaveModal] = useState(false);
   const [saveAs, setSaveAs] = useState("");
   const saveData = () => {
-    const licenses_id = sessionStorage.getItem("license_key");
-    const token = sessionStorage.getItem("token");
+    const licenses_id = localStorage.getItem("license_key");
+    const token = localStorage.getItem("token");
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", saveAs);

@@ -7,7 +7,7 @@ const Home = () => {
   const [promptEvent, setPromptEvent] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (token && token != null) {
       return navigate("/how-are-you");
     }
@@ -15,9 +15,7 @@ const Home = () => {
       e.preventDefault();
       setPromptEvent(e);
     };
-
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
     return () =>
       window.removeEventListener(
         "beforeinstallprompt",

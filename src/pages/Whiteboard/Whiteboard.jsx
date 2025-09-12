@@ -124,6 +124,7 @@ export default function Whiteboard() {
   const canvasRef = useRef(null);
   const stripRef = useRef(null);
   const [showKeyboard, setShowKeyboard] = useState(false);
+  const [paths, setPaths] = useState([]);
 
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawingColor, setDrawingColor] = useState("#000000");
@@ -141,8 +142,8 @@ export default function Whiteboard() {
   const [draggingImage, setDraggingImage] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
-  const token = sessionStorage.getItem("token");
-  const licenses_id = sessionStorage.getItem("license_key");
+  const token = localStorage.getItem("token");
+  const licenses_id = localStorage.getItem("license_key");
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
@@ -164,92 +165,104 @@ export default function Whiteboard() {
   };
 
   /* -------------------- Drawing -------------------- */
-  const startDrawing = useCallback(
-    (e) => {
-      const rect = canvasRef.current.getBoundingClientRect();
-      const pos = pointerPos(e, rect);
+  // const startDrawing = useCallback(
+  //   (e) => {
+  //     const rect = canvasRef.current.getBoundingClientRect();
+  //     const pos = pointerPos(e, rect);
 
-      // If clicking on image -> start dragging
-      const hit = uploadedImages.find(
-        (img) =>
-          pos.x >= img.x &&
-          pos.x <= img.x + img.width &&
-          pos.y >= img.y &&
-          pos.y <= img.y + img.height
-      );
-      if (hit) {
-        setDraggingImage(hit);
-        setDragOffset({ x: pos.x - hit.x, y: pos.y - hit.y });
-        return;
-      }
+  //     // If clicking on image -> start dragging
+  //     const hit = uploadedImages.find(
+  //       (img) =>
+  //         pos.x >= img.x &&
+  //         pos.x <= img.x + img.width &&
+  //         pos.y >= img.y &&
+  //         pos.y <= img.y + img.height
+  //     );
+  //     if (hit) {
+  //       setDraggingImage(hit);
+  //       setDragOffset({ x: pos.x - hit.x, y: pos.y - hit.y });
+  //       return;
+  //     }
 
-      if (tool === "text") {
-        setTextPosition({ x: pos.x, y: pos.y });
-        setTypedText("");
-        setTextToolActive(true);
-        return;
-      }
+  //     if (tool === "text") {
+  //       setTextPosition({ x: pos.x, y: pos.y });
+  //       setTypedText("");
+  //       setTextToolActive(true);
+  //       return;
+  //     }
 
-      const ctx = getCanvasContext();
-      if (!ctx) return;
+  //     const ctx = getCanvasContext();
+  //     if (!ctx) return;
 
-      setIsDrawing(true);
-      ctx.beginPath();
-      ctx.moveTo(pos.x, pos.y);
-    },
-    [tool, getCanvasContext, uploadedImages]
-  );
+  //     setIsDrawing(true);
+  //     ctx.beginPath();
+  //     ctx.moveTo(pos.x, pos.y);
+  //   },
+  //   [tool, getCanvasContext, uploadedImages]
+  // );
 
-  const draw = useCallback(
-    (e) => {
-      const rect = canvasRef.current.getBoundingClientRect();
-      const pos = pointerPos(e, rect);
+  const startDrawing = (e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const pos = pointerPos(e, rect);
+    if (tool !== "pencil" && tool !== "eraser") return;
 
-      // Dragging image
-      if (draggingImage) {
-        setUploadedImages((prev) =>
-          prev.map((img) =>
-            img === draggingImage
-              ? { ...img, x: pos.x - dragOffset.x, y: pos.y - dragOffset.y }
-              : img
-          )
-        );
-        return;
-      }
+    setIsDrawing(true);
+    setPaths((prev) => [
+      ...prev,
+      { tool, color: drawingColor, width: drawingWidth, points: [pos] },
+    ]);
+  };
 
-      if (!isDrawing || tool === "text") return;
-      const ctx = getCanvasContext();
-      if (!ctx) return;
+  // const draw = useCallback(
+  //   (e) => {
+  //     const rect = canvasRef.current.getBoundingClientRect();
+  //     const pos = pointerPos(e, rect);
 
-      ctx.lineTo(pos.x, pos.y);
-      ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
-      ctx.lineWidth = drawingWidth;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.globalCompositeOperation =
-        tool === "pencil" ? "source-over" : "destination-out";
-      ctx.stroke();
-    },
-    [
-      isDrawing,
-      drawingColor,
-      drawingWidth,
-      tool,
-      getCanvasContext,
-      draggingImage,
-      dragOffset,
-    ]
-  );
+  //     // Dragging image
+  //     if (draggingImage) {
+  //       setUploadedImages((prev) =>
+  //         prev.map((img) =>
+  //           img === draggingImage
+  //             ? { ...img, x: pos.x - dragOffset.x, y: pos.y - dragOffset.y }
+  //             : img
+  //         )
+  //       );
+  //       return;
+  //     }
 
-  const stopDrawing = useCallback(() => {
-    setIsDrawing(false);
-    setDraggingImage(null);
-    const ctx = getCanvasContext();
-    if (ctx) {
-      ctx.closePath();
-      ctx.globalCompositeOperation = "source-over";
-    }
-  }, [getCanvasContext]);
+  //     if (!isDrawing || tool === "text") return;
+  //     const ctx = getCanvasContext();
+  //     if (!ctx) return;
+
+  //     ctx.lineTo(pos.x, pos.y);
+  //     ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
+  //     ctx.lineWidth = drawingWidth;
+  //     ctx.lineCap = "round";
+  //     ctx.lineJoin = "round";
+  //     ctx.globalCompositeOperation =
+  //       tool === "pencil" ? "source-over" : "destination-out";
+  //     ctx.stroke();
+  //   },
+  //   [
+  //     isDrawing,
+  //     drawingColor,
+  //     drawingWidth,
+  //     tool,
+  //     getCanvasContext,
+  //     draggingImage,
+  //     dragOffset,
+  //   ]
+  // );
+
+  // const stopDrawing = useCallback(() => {
+  //   setIsDrawing(false);
+  //   setDraggingImage(null);
+  //   const ctx = getCanvasContext();
+  //   if (ctx) {
+  //     ctx.closePath();
+  //     ctx.globalCompositeOperation = "source-over";
+  //   }
+  // }, [getCanvasContext]);
 
   /* -------------------- Text -------------------- */
   const handleKeyPress = useCallback(
@@ -339,24 +352,52 @@ export default function Whiteboard() {
     if (!ctx) return;
 
     ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+
+    // Draw saved paths
+    paths.forEach((path) => {
+      ctx.beginPath();
+      ctx.lineWidth = path.width;
+      ctx.strokeStyle = path.tool === "pencil" ? path.color : "#fff";
+      ctx.globalCompositeOperation =
+        path.tool === "pencil" ? "source-over" : "destination-out";
+
+      path.points.forEach((p, i) => {
+        if (i === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      });
+      ctx.stroke();
+      ctx.closePath();
+      ctx.globalCompositeOperation = "source-over";
+    });
+
+    // Draw texts
     texts.forEach((t) => {
       ctx.font = t.font || "20px Arial";
       ctx.fillStyle = t.color || "#000";
       ctx.fillText(t.text, t.x, t.y);
     });
 
+    // Live typing preview
     if (textToolActive && typedText) {
       ctx.font = "20px Arial";
       ctx.fillStyle = drawingColor;
       ctx.fillText(typedText, textPosition.x, textPosition.y);
     }
+
+    // Draw uploaded images
+    uploadedImages.forEach((img) => {
+      const imageObj = new Image();
+      imageObj.src = img.src;
+      ctx.drawImage(imageObj, img.x, img.y, img.width, img.height);
+    });
   }, [
-    uploadedImages,
+    paths,
     texts,
     typedText,
     textToolActive,
     drawingColor,
     textPosition,
+    uploadedImages,
     getCanvasContext,
   ]);
 
@@ -372,7 +413,6 @@ export default function Whiteboard() {
         texts,
         toolSettings: { color: drawingColor, width: drawingWidth },
       };
-      console.log("===>state", state);
       const payload = new FormData();
       payload.append("licenses_id", licenses_id);
       payload.append("name_key", state.name);
@@ -406,9 +446,30 @@ export default function Whiteboard() {
     setTypedText(input);
   };
 
-  const handleKeyboardKeyPress = (button) => {
-    if (!textToolActive) return;
+  // const handleKeyboardKeyPress = (button) => {
+  //   if (!textToolActive) return;
 
+  //   if (button === "{enter}") {
+  //     setTexts((prev) => [
+  //       ...prev,
+  //       {
+  //         text: typedText,
+  //         x: textPosition.x,
+  //         y: textPosition.y,
+  //         color: drawingColor,
+  //         font: "20px Arial",
+  //       },
+  //     ]);
+  //     setTextToolActive(false);
+  //     setTypedText("");
+  //   } else if (button === "{bksp}") {
+  //     setTypedText((prev) => prev.slice(0, -1));
+  //   } else if (button === "{space}") {
+  //     setTypedText((prev) => prev + " ");
+  //   }
+  // };
+
+  const handleKeyboardKeyPress = (button) => {
     if (button === "{enter}") {
       setTexts((prev) => [
         ...prev,
@@ -422,12 +483,24 @@ export default function Whiteboard() {
       ]);
       setTextToolActive(false);
       setTypedText("");
-    } else if (button === "{bksp}") {
-      setTypedText((prev) => prev.slice(0, -1));
-    } else if (button === "{space}") {
-      setTypedText((prev) => prev + " ");
     }
   };
+
+  // ======================================================================handleKeyboardKeyPress
+
+  const draw = (e) => {
+    if (!isDrawing) return;
+    const rect = canvasRef.current.getBoundingClientRect();
+    const pos = pointerPos(e, rect);
+
+    setPaths((prev) => {
+      const copy = [...prev];
+      copy[copy.length - 1].points.push(pos);
+      return copy;
+    });
+  };
+
+  const stopDrawing = () => setIsDrawing(false);
 
   return (
     <>

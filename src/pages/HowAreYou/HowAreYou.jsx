@@ -10,11 +10,11 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 export default function HowAreYou() {
-  const [selectedIconCount, setSelectedIconCount] = React.useState(3);
-  const [selectedGender, setSelectedGender] = React.useState("Female");
-  const [selectedLanguage, setSelectedLanguage] = React.useState("Spanish");
-  const [calendarOn, setCalendarOn] = React.useState(true);
-  const [introductionOn, setIntroductionOn] = React.useState(true);
+  const [selectedIconCount, setSelectedIconCount] = React.useState(0);
+  const [selectedGender, setSelectedGender] = React.useState("");
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [calendarOn, setCalendarOn] = React.useState(false);
+  const [introductionOn, setIntroductionOn] = React.useState(false);
   const [loader, setLoader] = useState(true);
 
   const navigate = useNavigate();

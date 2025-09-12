@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const PrivateRoute = () => {
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const location = useLocation();
   if (token && (location.pathname === "/" || location.pathname === "/main")) {
     return <Navigate to="/how-are-you" replace />;

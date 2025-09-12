@@ -15,8 +15,8 @@ const SummaryList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
-    const license_key = sessionStorage.getItem("license_key");
+    const token = localStorage.getItem("token");
+    const license_key = localStorage.getItem("license_key");
     const payload = new FormData();
     payload.append("licenses_id", license_key);
     payload.append("page", currentPage);

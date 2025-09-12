@@ -23,8 +23,8 @@ const Main = () => {
       });
       const data = response.data;
       if (data?.status) {
-        sessionStorage.setItem("token", data?.data?.token);
-        sessionStorage.setItem("license_key", data?.data?.license_key);
+        localStorage.setItem("token", data?.data?.token);
+        localStorage.setItem("license_key", data?.data?.license_key);
         toast.success(data?.msg, { autoClose: 1500 });
         setIsOpen(true);
       } else {
@@ -38,7 +38,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (token && token != null) {
       return navigate("/how-are-you");
     }

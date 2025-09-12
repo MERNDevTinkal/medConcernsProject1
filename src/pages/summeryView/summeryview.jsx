@@ -17,8 +17,8 @@ const SummaryList = () => {
   useEffect(() => {
     if (id) {
       const payload = new FormData();
-      const token = sessionStorage.getItem("token");
-      const license_key = sessionStorage.getItem("license_key");
+      const token = localStorage.getItem("token");
+      const license_key = localStorage.getItem("license_key");
       payload.append("search_key", id);
       payload.append("licenses_id", license_key);
       api
