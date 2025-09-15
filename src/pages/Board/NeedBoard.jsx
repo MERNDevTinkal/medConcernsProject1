@@ -10,6 +10,7 @@ const NeedBoard = () => {
   const location = useLocation();
   const [getAllDiseases, setDiseases] = useState([]);
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [needboard, setNeedboard] = useState(null);
   useEffect(() => {
@@ -19,7 +20,7 @@ const NeedBoard = () => {
     getSetting(
       setSelectedIconCount,
       () => {},
-      () => {},
+      setSelectedLanguage,
       () => {},
       () => {},
       setLoader,
@@ -30,9 +31,19 @@ const NeedBoard = () => {
   const selectedNeedboard = needboard
     ? needboard.split(",").filter(Boolean)
     : [];
+  console.log(
+    "selectedLanguageselectedLanguageselectedLanguage",
+    selectedLanguage
+  );
   return (
     <>
-      <Header name={"Needs Board"} />
+      <Header
+        name={
+          selectedLanguage == "English"
+            ? "Needs Board"
+            : "Tablero de Necesidades"
+        }
+      />
       {loader ? (
         <Loader />
       ) : (
@@ -53,7 +64,9 @@ const NeedBoard = () => {
                       <img src={item?.image} />
                     </div>
                     <p className="text-[12px] mt-4 color-black mb-0 ">
-                      {item?.name}
+                      {selectedLanguage == "English"
+                        ? item?.name
+                        : item?.nameEs}
                     </p>
                   </div>
                 </div>
