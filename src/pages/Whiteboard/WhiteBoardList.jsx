@@ -6,14 +6,14 @@ import Loader from "../../Component/webLoader/loader";
 import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Pagination from "../../Component/pagination/pagination";
-
+import getSetting from "../../Component/settingApi/settings";
 const WhiteBoardList = () => {
   const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
   const [savedDrawings, setSavedDrawings] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
-
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   useEffect(() => {
     fetchDrawings(currentPage);
   }, [currentPage]);
@@ -58,13 +58,25 @@ const WhiteBoardList = () => {
     navigate(`/whiteboard/${name}`);
   };
 
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      setSelectedLanguage,
+      () => {},
+      () => {},
+      setLoader
+    );
+  }, []);
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header">
         <Link to="/whiteboard">
           <img src={BackArrow} alt="Back" />
         </Link>
-        <h1 className="text-[25px] font-normal text-black">Whiteboard</h1>
+        <h1 className="text-[25px] font-normal text-black">
+          {selectedLanguage === "English" ? "Whiteboard" : "Pizarra"}
+        </h1>
         <Link to="#">{/* <img src={NextArrow} alt="Next" /> */}</Link>
       </div>
       {loader ? (
@@ -79,10 +91,10 @@ const WhiteBoardList = () => {
                     #
                   </h5>
                   <h5 className="px-6 py-3 text-[20px] font-normal text-black">
-                    Name
+                    {selectedLanguage === "English" ? "Name" : "Nombre"}
                   </h5>
                   <h5 className="px-6 py-3 text-[20px] font-normal text-black">
-                    Date
+                    {selectedLanguage === "English" ? "Date" : "Fecha"}
                   </h5>
                 </div>
 

@@ -6,12 +6,13 @@ import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Loader from "../../Component/webLoader/loader";
 import Pagination from "../../Component/pagination/pagination";
+import getSetting from "../../Component/settingApi/settings";
 const SummaryList = () => {
   const [summaryList, setSummaryList] = useState([]);
   const [loader, setLoader] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(1); // From API
-
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,10 +47,23 @@ const SummaryList = () => {
   const handleRoute = (name) => {
     navigate(`/summary-view/${name}`);
   };
-  console.log("summaryListsummaryListsummaryList", summaryList);
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      setSelectedLanguage,
+      () => {},
+      () => {},
+      setLoader
+    );
+  }, []);
   return (
     <>
-      <Header name={"Summary List"} />
+      <Header
+        name={
+          selectedLanguage === "English" ? "Summary List" : "Lista resumida"
+        }
+      />
       {loader ? (
         <Loader />
       ) : (
