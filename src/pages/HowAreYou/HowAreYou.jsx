@@ -11,10 +11,7 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 export default function HowAreYou() {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [selectedGender, setSelectedGender] = React.useState("");
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [calendarOn, setCalendarOn] = React.useState(false);
-  const [introductionOn, setIntroductionOn] = React.useState(false);
   const [loader, setLoader] = useState(true);
 
   const navigate = useNavigate();
@@ -39,17 +36,19 @@ export default function HowAreYou() {
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      setSelectedGender,
+      () => {},
       setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
+      () => {},
+      () => {},
       setLoader
     );
   }, []);
 
   return (
     <>
-      <Header name={"How Are You ?"} />
+      <Header
+        name={selectedLanguage === "English" ? "How Are You ?" : "Cómo estás ?"}
+      />
       {loader ? (
         <Loader />
       ) : (
@@ -79,7 +78,9 @@ export default function HowAreYou() {
                       />
                     </div>
                     <p className="text-[16px] mt-3 mb-2 text-black">
-                      {item?.name}
+                      {selectedLanguage === "English"
+                        ? item?.name
+                        : item?.nameEs}
                     </p>
                   </div>
                 </div>

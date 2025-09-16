@@ -4,7 +4,7 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import { concerns } from "../DiseasesData/concernData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 
-const ConcernCard = ({ skipKeys = [] }) => {
+const ConcernCard = ({ skipKeys = [], selectedLanguage }) => {
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
@@ -33,7 +33,9 @@ const ConcernCard = ({ skipKeys = [] }) => {
               <div className="dashboard-img card-img-h rounded-2xl">
                 <img src={item?.image} alt={item?.name} className="w-full" />
               </div>
-              <p className="text-[16px] mt-3 mb-2 text-black">{item?.name}</p>
+              <p className="text-[16px] mt-3 mb-2 text-black">
+                {selectedLanguage === "English" ? item?.name : item?.nameEs}
+              </p>
             </div>
           </div>
         ))}

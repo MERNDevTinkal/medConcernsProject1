@@ -13,12 +13,12 @@ const Concern = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [concerns, setConcerns] = useState(null);
   const [loader, setLoader] = useState(true);
-
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
       () => {},
-      () => {},
+      setSelectedLanguage,
       () => {},
       () => {},
       setLoader,
@@ -30,7 +30,15 @@ const Concern = () => {
   return (
     <>
       <Header
-        name={location.pathname === "/topic-board" ? "Topic Board" : "Concerns"}
+        name={
+          location.pathname === "/topic-board"
+            ? selectedLanguage === "English"
+              ? "Topic Board"
+              : "Tablero de temas"
+            : selectedLanguage === "English"
+            ? "Concerns"
+            : "Preocupaciones"
+        }
       />
       {loader ? (
         <Loader />
@@ -45,10 +53,12 @@ const Concern = () => {
               } py-3`}
             >
               {location.pathname === "/concern" ? (
-                // ✅ skip those concerns which are already in selectedConcerns
-                <ConcernCard skipKeys={selectedConcerns} />
+                <ConcernCard
+                  skipKeys={selectedConcerns}
+                  selectedLanguage={selectedLanguage}
+                />
               ) : (
-                <TopicBoard />
+                <TopicBoard selectedLanguage={selectedLanguage} />
               )}
             </div>
           </div>

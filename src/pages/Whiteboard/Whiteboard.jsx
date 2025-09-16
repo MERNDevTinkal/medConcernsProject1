@@ -6,6 +6,9 @@ import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import Loader from "../../Component/webLoader/loader";
+import getSetting from "../../Component/settingApi/settings";
+
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
@@ -144,6 +147,9 @@ export default function Whiteboard() {
 
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
+
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [loader, setLoader] = useState(true);
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
@@ -518,194 +524,218 @@ export default function Whiteboard() {
 
   const stopDrawing = () => setIsDrawing(false);
 
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      setSelectedLanguage,
+      () => {},
+      () => {},
+      setLoader
+    );
+  }, []);
+
   return (
     <>
-      <Header name={"Whiteboard"} />
-      <div className="main-wrapper home-wrapper">
-        <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8">
-          <Card className="w-full max-w-4xl flex flex-col">
-            <CardHeader className="p-0">
-              <div
-                ref={stripRef}
-                className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
-              >
-                {uploadedImages.map((img, idx) => (
-                  <img
-                    key={idx}
-                    src={img.src}
-                    alt={`upload-${idx}`}
-                    className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
-                    draggable={false}
-                  />
-                ))}
-              </div>
-            </CardHeader>
-            <div className="relative w-full h-[600px] bg-white">
-              <canvas
-                ref={setCanvasSize}
-                className="absolute inset-0 w-full h-full touch-none cursor-crosshair z-0"
-                onMouseDown={startDrawing}
-                onMouseMove={draw}
-                onMouseUp={stopDrawing}
-                onMouseLeave={stopDrawing}
-                onTouchStart={startDrawing}
-                onTouchMove={draw}
-                onTouchEnd={stopDrawing}
-              />
-            </div>
-            <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
-              <Button
-                variant="ghost"
-                size="icon"
-                className={cn(tool === "pencil" && "bg-gray-100")}
-                onClick={() => setTool("pencil")}
-                title="Pencil"
-              >
-                <Icon.Pencil className="w-5 h-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                title="Upload image"
-                onClick={() => document.getElementById("imageUpload").click()}
-              >
-                <Icon.Image className="w-5 h-5" />
-              </Button>
-              <input
-                type="file"
-                id="imageUpload"
-                accept="image/*"
-                multiple
-                className="hidden"
-                onChange={(e) => handleImageUpload(Array.from(e.target.files))}
-              />
-              <Button
-                variant="ghost"
-                size="icon"
-                className={cn(tool === "eraser" && "bg-gray-100")}
-                onClick={() => setTool("eraser")}
-                title="Eraser"
-              >
-                <Icon.Eraser className="w-5 h-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => {
-                  setTool("text");
-                  setTextToolActive(true);
-                  setShowKeyboard((prev) => !prev);
-                }}
-                title="Virtual Keyboard"
-              >
-                <Icon.Keyword className="w-5 h-5" />
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={clearCanvas}
-                title="Clear"
-              >
-                <Icon.Trash className="w-5 h-5" />
-              </Button>
-              <div className="flex items-center gap-2 ml-2">
-                <label className="text-sm text-gray-600">Color</label>
-                <input
-                  type="color"
-                  value={drawingColor}
-                  onChange={(e) => setDrawingColor(e.target.value)}
-                  className="h-9 w-10 rounded border border-gray-200"
-                />
-              </div>
-              <div className="flex items-center gap-2">
-                <label className="text-sm text-gray-600">Width</label>
-                <input
-                  type="range"
-                  min="1"
-                  max="24"
-                  value={drawingWidth}
-                  onChange={(e) => setDrawingWidth(Number(e.target.value))}
-                  className="w-32"
-                />
-                <span className="text-sm text-gray-700 w-6 text-center">
-                  {drawingWidth}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-          {showKeyboard && (
-            <div className="w-full max-w-4xl mt-4">
-              <Keyboard
-                onChange={handleKeyboardChange}
-                onKeyPress={handleKeyboardKeyPress}
-                theme="hg-theme-default hg-layout-default myTheme"
-                layout={{
-                  default: [
-                    "q w e r t y u i o p",
-                    "a s d f g h j k l",
-                    "z x c v b n m",
-                    "{bksp} {space} {enter}",
-                  ],
-                }}
-                display={{
-                  "{bksp}": "⌫",
-                  "{enter}": "⏎",
-                  "{space}": "Space",
-                }}
-              />
-            </div>
-          )}
-
-          <div className="w-full flex justify-between items-center mt-6">
-            <Button className="thm-btn" onClick={() => setShowSaveModal(true)}>
-              Save Whiteboard
-            </Button>
-            <Button
-              className="thm-btn"
-              onClick={() => navigate("/white-board-list")}
-            >
-              View List
-            </Button>
-          </div>
-          {showSaveModal && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-              <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
-                <div className="mb-4">
-                  <h2 className="text-[32px] font-semibold">Save As</h2>
-                </div>
-                <div className="grid gap-4">
-                  <div className="grid grid-cols-4 items-center gap-3">
-                    <input
-                      id="drawingName"
-                      type="text"
-                      value={drawingName}
-                      onChange={(e) => setDrawingName(e.target.value)}
-                      className="col-span-5 h-12 rounded-lg border border-gray-200 bg-white px-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                      placeholder="Enter drawing name"
+      <Header
+        name={selectedLanguage === "English" ? "Whiteboard" : "Pizarra"}
+      />
+      {loader ? (
+        <Loader />
+      ) : (
+        <div className="main-wrapper home-wrapper">
+          <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8">
+            <Card className="w-full max-w-4xl flex flex-col">
+              <CardHeader className="p-0">
+                <div
+                  ref={stripRef}
+                  className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
+                >
+                  {uploadedImages.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img.src}
+                      alt={`upload-${idx}`}
+                      className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
+                      draggable={false}
                     />
+                  ))}
+                </div>
+              </CardHeader>
+              <div className="relative w-full h-[600px] bg-white">
+                <canvas
+                  ref={setCanvasSize}
+                  className="absolute inset-0 w-full h-full touch-none cursor-crosshair z-0"
+                  onMouseDown={startDrawing}
+                  onMouseMove={draw}
+                  onMouseUp={stopDrawing}
+                  onMouseLeave={stopDrawing}
+                  onTouchStart={startDrawing}
+                  onTouchMove={draw}
+                  onTouchEnd={stopDrawing}
+                />
+              </div>
+              <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={cn(tool === "pencil" && "bg-gray-100")}
+                  onClick={() => setTool("pencil")}
+                  title="Pencil"
+                >
+                  <Icon.Pencil className="w-5 h-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  title="Upload image"
+                  onClick={() => document.getElementById("imageUpload").click()}
+                >
+                  <Icon.Image className="w-5 h-5" />
+                </Button>
+                <input
+                  type="file"
+                  id="imageUpload"
+                  accept="image/*"
+                  multiple
+                  className="hidden"
+                  onChange={(e) =>
+                    handleImageUpload(Array.from(e.target.files))
+                  }
+                />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={cn(tool === "eraser" && "bg-gray-100")}
+                  onClick={() => setTool("eraser")}
+                  title="Eraser"
+                >
+                  <Icon.Eraser className="w-5 h-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => {
+                    setTool("text");
+                    setTextToolActive(true);
+                    setShowKeyboard((prev) => !prev);
+                  }}
+                  title="Virtual Keyboard"
+                >
+                  <Icon.Keyword className="w-5 h-5" />
+                </Button>
+
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={clearCanvas}
+                  title="Clear"
+                >
+                  <Icon.Trash className="w-5 h-5" />
+                </Button>
+                <div className="flex items-center gap-2 ml-2">
+                  <label className="text-sm text-gray-600">Color</label>
+                  <input
+                    type="color"
+                    value={drawingColor}
+                    onChange={(e) => setDrawingColor(e.target.value)}
+                    className="h-9 w-10 rounded border border-gray-200"
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <label className="text-sm text-gray-600">Width</label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="24"
+                    value={drawingWidth}
+                    onChange={(e) => setDrawingWidth(Number(e.target.value))}
+                    className="w-32"
+                  />
+                  <span className="text-sm text-gray-700 w-6 text-center">
+                    {drawingWidth}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+            {showKeyboard && (
+              <div className="w-full max-w-4xl mt-4">
+                <Keyboard
+                  onChange={handleKeyboardChange}
+                  onKeyPress={handleKeyboardKeyPress}
+                  theme="hg-theme-default hg-layout-default myTheme"
+                  layout={{
+                    default: [
+                      "q w e r t y u i o p",
+                      "a s d f g h j k l",
+                      "z x c v b n m",
+                      "{bksp} {space} {enter}",
+                    ],
+                  }}
+                  display={{
+                    "{bksp}": "⌫",
+                    "{enter}": "⏎",
+                    "{space}": "Space",
+                  }}
+                />
+              </div>
+            )}
+
+            <div className="w-full flex justify-between items-center mt-6">
+              <Button
+                className="thm-btn"
+                onClick={() => setShowSaveModal(true)}
+              >
+                {selectedLanguage === "English"
+                  ? "Save Whiteboard"
+                  : "Guardar pizarra"}
+              </Button>
+              <Button
+                className="thm-btn"
+                onClick={() => navigate("/white-board-list")}
+              >
+                {selectedLanguage === "English" ? "View List" : "Ver lista"}
+              </Button>
+            </div>
+            {showSaveModal && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+                <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
+                  <div className="mb-4">
+                    <h2 className="text-[32px] font-semibold">Save As</h2>
+                  </div>
+                  <div className="grid gap-4">
+                    <div className="grid grid-cols-4 items-center gap-3">
+                      <input
+                        id="drawingName"
+                        type="text"
+                        value={drawingName}
+                        onChange={(e) => setDrawingName(e.target.value)}
+                        className="col-span-5 h-12 rounded-lg border border-gray-200 bg-white px-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                        placeholder="Enter drawing name"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-6 flex justify-end gap-4">
+                    <Button
+                      variant="outline"
+                      className="h-12 rounded-lg px-6 text-base"
+                      onClick={() => setShowSaveModal(false)}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      className="h-12 rounded-lg bg-blue-600 px-6 text-base text-white hover:bg-blue-700"
+                      onClick={handleSaveDrawing}
+                    >
+                      Save
+                    </Button>
                   </div>
                 </div>
-                <div className="mt-6 flex justify-end gap-4">
-                  <Button
-                    variant="outline"
-                    className="h-12 rounded-lg px-6 text-base"
-                    onClick={() => setShowSaveModal(false)}
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    className="h-12 rounded-lg bg-blue-600 px-6 text-base text-white hover:bg-blue-700"
-                    onClick={handleSaveDrawing}
-                  >
-                    Save
-                  </Button>
-                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
+      )}
       <Footer />
     </>
   );

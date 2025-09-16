@@ -6,7 +6,7 @@ import Question from "../../assets/images/question.svg";
 import WomenIcon from "../../assets/images/women.png";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-const DecisionCard = ({ partName }) => {
+const DecisionCard = ({ selectedLanguage, partName }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
@@ -31,7 +31,9 @@ const DecisionCard = ({ partName }) => {
         >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-green-600">YES</p>
+              <p className="text-[32px] font-medium text-green-600">
+                {selectedLanguage === "English" ? "YES" : "SÍ"}
+              </p>
             </div>
             <div>
               <img src={Checked} alt="" />
@@ -49,7 +51,9 @@ const DecisionCard = ({ partName }) => {
         >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-red-600">NO</p>
+              <p className="text-[32px] font-medium text-red-600">
+                {selectedLanguage === "English" ? "NO" : "NO"}
+              </p>
             </div>
             <div>
               <img src={Close} />

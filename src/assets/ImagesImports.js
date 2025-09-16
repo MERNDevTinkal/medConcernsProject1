@@ -8,12 +8,12 @@ import HowAreYouImg7 from "../assets/images/concern-img-08.png";
 import HowAreYouImg8 from "../assets/images/i-dont-know.png";
 
 export const howareyou = [
-  { id: 1, name: "Good", image: HowAreYouImg1 },
-  { id: 2, name: "Okay", image: HowAreYouImg2 },
-  { id: 3, name: "Bad", image: HowAreYouImg3 },
-  { id: 4, name: "Up and Down", image: HowAreYouImg4 },
-  { id: 5, name: "Getting Better", image: HowAreYouImg5 },
-  { id: 6, name: "Getting Worse", image: HowAreYouImg6 },
-  { id: 7, name: "The Same", image: HowAreYouImg7 },
-  { id: 8, name: "I Don't Know", image: HowAreYouImg8 },
+  { id: 1, name: "Good", nameEs: "Bien", image: HowAreYouImg1 },
+  { id: 2, name: "Okay", nameEs: "Más o menos", image: HowAreYouImg2 },
+  { id: 3, name: "Bad", nameEs: "Mal", image: HowAreYouImg3 },
+  { id: 4, name: "Up and Down", nameEs: "Altibajos", image: HowAreYouImg4 },
+  { id: 5, name: "Getting Better", nameEs: "Mejorando", image: HowAreYouImg5 },
+  { id: 6, name: "Getting Worse", nameEs: "Empeorando", image: HowAreYouImg6 },
+  { id: 7, name: "The Same", nameEs: "Igual", image: HowAreYouImg7 },
+  { id: 8, name: "I Don't Know", nameEs: "No lo sé", image: HowAreYouImg8 },
 ];

@@ -10,10 +10,7 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 const BreathingProblem = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [selectedGender, setSelectedGender] = React.useState("");
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [calendarOn, setCalendarOn] = React.useState(false);
-  const [introductionOn, setIntroductionOn] = React.useState(false);
   const [loader, setLoader] = useState(true);
 
   const location = useLocation();
@@ -36,10 +33,10 @@ const BreathingProblem = () => {
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      setSelectedGender,
+      () => {},
       setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
+      () => {},
+      () => {},
       setLoader
     );
   }, []);

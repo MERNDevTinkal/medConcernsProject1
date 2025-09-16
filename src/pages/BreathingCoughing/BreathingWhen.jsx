@@ -9,17 +9,13 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 const BreathingWhen = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [selectedGender, setSelectedGender] = React.useState("");
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [calendarOn, setCalendarOn] = React.useState(false);
-  const [introductionOn, setIntroductionOn] = React.useState(false);
   const [loader, setLoader] = useState(true);
 
   const navigate = useNavigate();
   const location = useLocation();
   const pathprimary = location.pathname;
-  const { updateDisease, diseases, addOrUpdateSummary } =
-    useContext(GlobalContext);
+  const { addOrUpdateSummary } = useContext(GlobalContext);
   const handleBreathingWhen = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(value.name);
@@ -30,16 +26,16 @@ const BreathingWhen = () => {
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      setSelectedGender,
+      () => {},
       setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
+      () => {},
+      () => {},
       setLoader
     );
   }, []);
   return (
     <>
-      <Header name={"When?"} />
+      <Header name={selectedLanguage === "English" ? "When?" : "Cuando?"} />
       {loader ? (
         <Loader />
       ) : (
@@ -65,7 +61,7 @@ const BreathingWhen = () => {
                       <img src={item.image} className="w-full" />
                     </div>
                     <p className="text-[16px] mt-3 mb-2 color-black">
-                      {item.name}
+                      {selectedLanguage === "English" ? item.name : item.nameEs}
                     </p>
                   </div>
                 </div>
