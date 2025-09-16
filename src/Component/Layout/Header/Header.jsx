@@ -30,32 +30,215 @@ import MenuIcon26 from "../../../assets/images/sidebar-icon-32.svg";
 import MenuIcon27 from "../../../assets/images/sidebar-icon-33.svg";
 import CloseIcon from "../../../assets/images/close2.svg";
 import { GlobalContext } from "../../../context/DiseaseContext";
-const Header = ({ introductionOn, calendarOn, name }) => {
+
+const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { resetDiseases } = useContext(GlobalContext);
+
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  const handleSummery = () => {
-    resetDiseases();
-  };
+  const handleSummery = () => resetDiseases();
+  const menuItems = [
+    { icon: MenuIcon1, path: "/settings", en: "Settings", es: "Configuración" },
+    {
+      icon: MenuIcon2,
+      path: "#",
+      en: "Patient Education",
+      es: "Educación del paciente",
+    },
+    {
+      icon: MenuIcon3,
+      path: "/disclaimer",
+      en: "Introduction",
+      es: "Introducción",
+      hide: introductionOn,
+    },
+    {
+      icon: MenuIcon4,
+      path: "/how-are-you",
+      en: "How are you?",
+      es: "¿Cómo estás?",
+    },
+    { icon: MenuIcon5, path: "/concern", en: "Concerns", es: "Preocupaciones" },
+    {
+      icon: MenuIcon6,
+      path: "/whiteboard",
+      en: "White Board",
+      es: "Pizarra blanca",
+    },
+    {
+      icon: MenuIcon7,
+      path: "/yes-no-concerns",
+      en: "Yes / No / ? Board",
+      es: "Sí / No / ? Pizarra",
+    },
+    {
+      icon: MenuIcon8,
+      path: "/board",
+      en: "Needs Board",
+      es: "Pizarra de necesidades",
+    },
+    {
+      icon: MenuIcon9,
+      path: "/topic-board",
+      en: "Topic Board",
+      es: "Pizarra de temas",
+    },
+    { icon: MenuIcon10, path: "/when", en: "When?", es: "¿Cuándo?" },
+    {
+      icon: MenuIcon11,
+      path: "/howoften",
+      en: "Calendar",
+      es: "Calendario",
+      hide: calendarOn,
+    },
+    {
+      icon: MenuIcon12,
+      path: "/noappetite-problem",
+      en: "Appetite",
+      es: "Apetito",
+    },
+    {
+      icon: MenuIcon13,
+      path: "/bowels-problem",
+      en: "Bowel",
+      es: "Intestinos",
+    },
+    {
+      icon: MenuIcon5,
+      path: "/breathing-problem",
+      en: "Breathing / Coughing",
+      es: "Respiración / Tos",
+    },
+    {
+      icon: MenuIcon12,
+      path: "/emotions",
+      en: "Emotions / Feelings",
+      es: "Emociones / Sentimientos",
+    },
+    { icon: MenuIcon15, path: "/fatigue-problem", en: "Fatigue", es: "Fatiga" },
+    {
+      icon: MenuIcon12,
+      path: "/illness-problem",
+      en: "Illness",
+      es: "Enfermedad",
+    },
+    {
+      icon: MenuIcon12,
+      path: "/hearing-problem",
+      en: "Hearing",
+      es: "Audición",
+    },
+    {
+      icon: MenuIcon16,
+      path: "/medication-problem",
+      en: "Medication",
+      es: "Medicamentos",
+    },
+    {
+      icon: MenuIcon12,
+      path: "/illnessMucus-problem",
+      en: "Mucus/Secretions",
+      es: "Moco/Secreciones",
+    },
+    { icon: MenuIcon17, path: "/nausea-problem", en: "Nausea", es: "Náuseas" },
+    {
+      icon: MenuIcon18,
+      path: "/pain-feel",
+      en: "Pain Description",
+      es: "Descripción del dolor",
+    },
+    {
+      icon: MenuIcon19,
+      path: "/feeling",
+      en: "Pain Scale",
+      es: "Escala del dolor",
+    },
+    {
+      icon: MenuIcon20,
+      path: "/male-body",
+      en: "Pain Location",
+      es: "Ubicación del dolor",
+    },
+    {
+      icon: MenuIcon12,
+      path: "/feeding-problem",
+      en: "PEG",
+      es: "Alimentación por sonda",
+    },
+    {
+      icon: MenuIcon21,
+      path: "/swallowing-problem",
+      en: "Swallowing",
+      es: "Deglución",
+    },
+    {
+      icon: MenuIcon12,
+      path: "/something-problem",
+      en: "Something Happened",
+      es: "Algo pasó",
+    },
+    {
+      icon: MenuIcon22,
+      path: "/trach-problem",
+      en: "Trach",
+      es: "Traqueotomía",
+    },
+    {
+      icon: MenuIcon23,
+      path: "/urination-problem",
+      en: "Urination",
+      es: "Orinación",
+    },
+    {
+      icon: MenuIcon24,
+      path: "/vision-problem",
+      en: "Vision Problems",
+      es: "Problemas de visión",
+    },
+    {
+      icon: MenuIcon12,
+      path: "/wound-problem",
+      en: "Wound/Incision",
+      es: "Herida/Incisión",
+    },
+    { icon: MenuIcon25, path: "#", en: "Contact Us", es: "Contáctenos" },
+    {
+      icon: MenuIcon6,
+      path: "/white-board-list",
+      en: "Saved Whiteboard",
+      es: "Pizarra guardada",
+    },
+    {
+      icon: MenuIcon26,
+      path: "/summary-list",
+      en: "Saved Summary",
+      es: "Resumen guardado",
+    },
+    {
+      icon: MenuIcon27,
+      path: "/guide-info",
+      en: "About Us",
+      es: "Sobre nosotros",
+    },
+  ];
+  console.log("==>selectedLanguage", selectedLanguage);
   return (
     <>
-      <header className="px-4 py-3 fixed left-0 right-0 to-0 bg-white main-header">
+      <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">
         <div className="flex items-center justify-between">
           <button type="button" onClick={toggleSidebar}>
-            <img src={hamburger} alt="" />
+            <img src={hamburger} alt="menu" />
           </button>
           <h2 className="text-[25px] font-normal text-black">
-            {name ?? "Concerns"}
+            {name ??
+              (selectedLanguage === "English" ? "Concerns" : "Preocupaciones")}
           </h2>
-          <div
-            style={{ cursor: "pointer" }}
-            // onClick={() => {
-            //   navigate(+1);
-            // }}
-          >
-            {/* <img src={NextArrow} alt="" /> */}
+          <div style={{ cursor: "pointer" }}>
+            {/* <img src={NextArrow} alt="next" /> */}
           </div>
         </div>
+
+        {/* Sidebar */}
         <aside
           className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
             isSidebarOpen
@@ -67,263 +250,24 @@ const Header = ({ introductionOn, calendarOn, name }) => {
             className="close-btn absolute top-5 right-5"
             onClick={() => setIsSidebarOpen(false)}
           >
-            <img src={CloseIcon} />
+            <img src={CloseIcon} alt="close" />
           </button>
           <ul className="space-y-3">
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon1} />
-              <Link to="/settings">Settings</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon2} />
-              <Link to="#">Patient Education</Link>
-            </li>
-            {!introductionOn && (
-              <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-                <img src={MenuIcon3} />
-                <Link to="/disclaimer">Introduction</Link>
-              </li>
+            {menuItems.map(
+              (item, index) =>
+                !item.hide && (
+                  <li
+                    key={index}
+                    onClick={handleSummery}
+                    className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
+                  >
+                    <img src={item.icon} alt="" />
+                    <Link to={item.path}>
+                      {selectedLanguage === "English" ? item.en : item.es}
+                    </Link>
+                  </li>
+                )
             )}
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon4} />
-              <Link to="/how-are-you">How are you?</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon5} />
-              <Link to="/concern">Concerns</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon6} />
-              <Link to="/whiteboard">White Board</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon7} />
-              <Link to="/yes-no-concerns">Yes / No / ? Board</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon8} />
-              <Link to="/board">Needs Board</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon9} />
-              <Link to="/topic-board">Topic Board</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon10} />
-              <Link to="/when">When?</Link>
-            </li>
-            {!calendarOn && (
-              <li
-                onClick={() => {
-                  handleSummery();
-                }}
-                className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-              >
-                <img src={MenuIcon11} />
-                <Link to="/howoften">Calendar</Link>
-              </li>
-            )}
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to="/noappetite-problem">Appetite</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon13} />
-              <Link to="/bowels-problem">Bowel</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon5} />
-              <Link to="/breathing-problem">Breathing / Coughing</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to="/emotions">Emotions / Feelings</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon15} />
-              <Link to="/fatigue-problem">Fatigue</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to="/illness-problem">Illness</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to="/hearing-problem">Hearing</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon16} />
-              <Link to="/medication-problem">Medication</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to="/illnessMucus-problem">Mucus/Secretions</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon17} />
-              <Link to="/nausea-problem">Nausea</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon18} />
-              <Link to="/pain-feel">Pain Description</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon19} />
-              <Link to="/feeling">Pain Scale</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon20} />
-              <Link to="/male-body">Pain Location</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to="/feeding-problem">PEG</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon21} />
-              <Link to="/swallowing-problem">Swallowing</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to="/something-problem">Something Happened</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon22} />
-              <Link to="/trach-problem">Trach</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon23} />
-              <Link to="/urination-problem">Urination</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon24} />
-              <Link to="/vision-problem">Vision Problems</Link>
-            </li>
-            <li
-              onClick={() => {
-                handleSummery();
-              }}
-              className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
-            >
-              <img src={MenuIcon12} />
-              <Link to={"/wound-problem"}>Wound/Incision</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon25} />
-              <Link>Contact Us</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon6} />
-              <Link to="/white-board-list">Saved Whiteboard</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon26} />
-              <Link to="/summary-list">Saved Summary</Link>
-            </li>
-            <li className="text-[20px] font-normal text-black flex items-center space-x-3 p-2">
-              <img src={MenuIcon27} />
-              <Link to="/guide-info">About Us</Link>
-            </li>
           </ul>
         </aside>
       </header>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import api from "../../Component/apiCall/apiCall";
@@ -8,11 +8,12 @@ import { toast } from "react-toastify";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import { useNavigate } from "react-router-dom";
+
 export default function Settings() {
   const navigate = useNavigate();
   const [selectedIconCount, setSelectedIconCount] = React.useState(3);
-  const [selectedGender, setSelectedGender] = React.useState("Female");
-  const [selectedLanguage, setSelectedLanguage] = React.useState("Spanish");
+  const [selectedGender, setSelectedGender] = React.useState("");
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [calendarOn, setCalendarOn] = React.useState(true);
   const [introductionOn, setIntroductionOn] = React.useState(true);
   const [loader, setLoader] = useState(true);
@@ -59,8 +60,7 @@ export default function Settings() {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {
-        if (data.status) {
-        } else {
+        if (!data.status) {
           toast.error(data.msg, { autoClose: 1500 });
         }
       })
@@ -100,8 +100,9 @@ export default function Settings() {
       introduction: introductionOn,
     });
   };
+
   const handleCalendarToggle = (newCalendar) => {
-    setCalendarOn(newCalendar); // update state
+    setCalendarOn(newCalendar);
     saveSettings({
       number_of_icons: selectedIconCount,
       gender: selectedGender,
@@ -169,15 +170,59 @@ export default function Settings() {
       </span>
     </div>
   );
+
   const handleListRoute = (value) => {
     navigate(`/settingList/${value}`);
   };
+
+  // ---------------- Translations ----------------
+  const t = (key) => {
+    const translations = {
+      en: {
+        settings: "Settings",
+        selectIcons: "Select Number of icons",
+        selectGender: "Select Gender",
+        male: "Male",
+        female: "Female",
+        selectLanguage: "Select Language",
+        english: "English",
+        spanish: "Spanish",
+        calendar: "Calendar",
+        introduction: "Introduction",
+        on: "ON",
+        off: "OFF",
+        needsBoard: "Needs board Settings",
+        concerns: "Concerns Settings",
+      },
+      es: {
+        settings: "Configuración",
+        selectIcons: "Seleccionar número de íconos",
+        selectGender: "Seleccionar género",
+        male: "Hombre",
+        female: "Mujer",
+        selectLanguage: "Seleccionar idioma",
+        english: "Inglés",
+        spanish: "Español",
+        calendar: "Calendario",
+        introduction: "Introducción",
+        on: "ENCENDIDO",
+        off: "APAGADO",
+        needsBoard: "Configuración del tablero de necesidades",
+        concerns: "Configuración de preocupaciones",
+      },
+    };
+    return selectedLanguage === "Spanish"
+      ? translations.es[key]
+      : translations.en[key];
+  };
+
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         introductionOn={introductionOn}
         calendarOn={calendarOn}
-        name={"Settings"}
+        name={t("settings")}
       />
       {loader ? (
         <Loader />
@@ -186,12 +231,12 @@ export default function Settings() {
           <div className="flex items-center justify-center p-4 setting-cards">
             <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
               <div className="p-3 sm:p-4 md:p-6">
-                <h1 className="text-xs text-gray-500 mb-6">Settings</h1>
+                <h1 className="text-xs text-gray-500 mb-6">{t("settings")}</h1>
 
                 {/* Number of Icons */}
                 <div className="flex items-center justify-between py-4 border-b border-white">
                   <span className="text-lg text-black-800">
-                    Select Number of icons
+                    {t("selectIcons")}
                   </span>
                   <div className="flex space-x-2">
                     {iconCounts.map((count) => (
@@ -212,19 +257,21 @@ export default function Settings() {
 
                 {/* Gender */}
                 <div className="flex items-center justify-between py-4 border-b border-white">
-                  <span className="text-lg text-black-800">Select Gender</span>
+                  <span className="text-lg text-black-800">
+                    {t("selectGender")}
+                  </span>
                   <div className="flex space-x-6">
                     <CustomRadioButton
                       value="Male"
                       checked={selectedGender === "Male"}
                       onChange={handleGenderChange}
-                      label="Male"
+                      label={t("male")}
                     />
                     <CustomRadioButton
                       value="Female"
                       checked={selectedGender === "Female"}
                       onChange={handleGenderChange}
-                      label="Female"
+                      label={t("female")}
                     />
                   </div>
                 </div>
@@ -232,47 +279,47 @@ export default function Settings() {
                 {/* Language */}
                 <div className="flex items-center justify-between py-4 border-b border-white">
                   <span className="text-lg text-black-800">
-                    Select Language
+                    {t("selectLanguage")}
                   </span>
                   <div className="flex space-x-6">
                     <CustomRadioButton
                       value="English"
                       checked={selectedLanguage === "English"}
                       onChange={handleLanguageChange}
-                      label="English"
+                      label={t("english")}
                     />
                     <CustomRadioButton
                       value="Spanish"
                       checked={selectedLanguage === "Spanish"}
                       onChange={handleLanguageChange}
-                      label="Spanish"
+                      label={t("spanish")}
                     />
                   </div>
                 </div>
 
                 {/* Calendar */}
                 <div className="flex items-center justify-between py-4 border-b border-white">
-                  <span className="text-lg text-black-800">Calendar</span>
+                  <span className="text-lg text-black-800">
+                    {t("calendar")}
+                  </span>
                   <CustomToggleSwitch
                     checked={calendarOn}
-                    onChange={() => {
-                      handleCalendarToggle(!calendarOn);
-                    }}
-                    labelOn="ON"
-                    labelOff="OFF"
+                    onChange={() => handleCalendarToggle(!calendarOn)}
+                    labelOn={t("on")}
+                    labelOff={t("off")}
                   />
                 </div>
 
                 {/* Introduction */}
                 <div className="flex items-center justify-between py-4">
-                  <span className="text-lg text-black-900">Introduction</span>
+                  <span className="text-lg text-black-900">
+                    {t("introduction")}
+                  </span>
                   <CustomToggleSwitch
                     checked={introductionOn}
-                    onChange={() => {
-                      handleIntroductionToggle(!introductionOn);
-                    }}
-                    labelOn="ON"
-                    labelOff="OFF"
+                    onChange={() => handleIntroductionToggle(!introductionOn)}
+                    labelOn={t("on")}
+                    labelOff={t("off")}
                   />
                 </div>
               </div>
@@ -281,19 +328,15 @@ export default function Settings() {
               <div className="p-3 sm:p-4 md:p-6 flex justify-center space-x-4 pt-8 calendar-bttm">
                 <button
                   className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
-                  onClick={() => {
-                    handleListRoute("Needsboard");
-                  }}
+                  onClick={() => handleListRoute("Needsboard")}
                 >
-                  Needs board Settings
+                  {t("needsBoard")}
                 </button>
                 <button
                   className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
-                  onClick={() => {
-                    handleListRoute("concerns");
-                  }}
+                  onClick={() => handleListRoute("concerns")}
                 >
-                  Concerns Settings
+                  {t("concerns")}
                 </button>
               </div>
             </div>
