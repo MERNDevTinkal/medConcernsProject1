@@ -4,26 +4,30 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import CardsList from "../../Component/EmotionsCards/CardsList";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+
 const EmotionsList = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [selectedGender, setSelectedGender] = React.useState("");
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [calendarOn, setCalendarOn] = React.useState(false);
-  const [introductionOn, setIntroductionOn] = React.useState(false);
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      setSelectedGender,
+      () => {},
       setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
+      () => {},
+      () => {},
       setLoader
     );
   }, []);
   return (
     <>
-      <Header name={"Emotions/Feelings"} />
+      <Header
+        name={
+          selectedLanguage === "English"
+            ? "Emotions/Feelings"
+            : "Emociones/Sentimientos"
+        }
+      />
       {loader ? (
         <Loader />
       ) : (
@@ -35,7 +39,7 @@ const EmotionsList = () => {
               selectedIconCount || 4
             } gap-3.5 px-4 py-1.5 emotion-cards`}
           >
-            <CardsList />
+            <CardsList selectedLanguage={selectedLanguage} />
           </div>
         </div>
       )}

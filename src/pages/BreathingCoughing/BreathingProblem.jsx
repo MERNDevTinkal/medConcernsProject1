@@ -40,45 +40,43 @@ const BreathingProblem = () => {
       setLoader
     );
   }, []);
+
+  const translations = {
+    "/noappetite-problem": { English: "Appetite", Spanish: "Apetito" },
+    "/bowels-problem": { English: "Bowels", Spanish: "Intestinos" },
+    "/breathing-problem": { English: "Breathing", Spanish: "Respiración" },
+    "/fatigue-problem": { English: "Fatigue", Spanish: "Fatiga" },
+    "/illness-problem": { English: "Illness", Spanish: "Enfermedad" },
+    "/hearing-problem": { English: "Hearing", Spanish: "Audición" },
+    "/medication-problem": { English: "Medication", Spanish: "Medicación" },
+    "/illnessMucus-problem": {
+      English: "Mucus/Secretions",
+      Spanish: "Moco/Secreciones",
+    },
+    "/nausea-problem": { English: "Nausea", Spanish: "Náusea" },
+    "/feeding-problem": { English: "PEG", Spanish: "PEG" },
+    "/swallowing-problem": { English: "Swallowing", Spanish: "Deglución" },
+    "/something-problem": {
+      English: "Something Happened",
+      Spanish: "Algo Pasó",
+    },
+    "/trach-problem": { English: "Trach", Spanish: "Traqueo" },
+    "/urination-problem": { English: "Urination", Spanish: "Orinación" },
+    "/vision-problem": { English: "Vision", Spanish: "Visión" },
+    "/wound-problem": { English: "Wound/Incision", Spanish: "Herida/Incisión" },
+    default: {
+      English: "Which Feeling are You experiencing",
+      Spanish: "¿Qué sensación estás experimentando?",
+    },
+  };
+
+  const name =
+    translations[Mainpath]?.[selectedLanguage] ??
+    translations.default[selectedLanguage];
+
   return (
     <>
-      <Header
-        name={
-          Mainpath === "/noappetite-problem"
-            ? "Appetite"
-            : Mainpath === "/bowels-problem"
-            ? "Bowels"
-            : Mainpath === "/breathing-problem"
-            ? "Breathing"
-            : Mainpath === "/fatigue-problem"
-            ? "Fatigue"
-            : Mainpath === "/illness-problem"
-            ? "Illness"
-            : Mainpath === "/hearing-problem"
-            ? "Hearing"
-            : Mainpath === "/medication-problem"
-            ? "Medication"
-            : Mainpath === "/illnessMucus-problem"
-            ? "Mucus/Secretions"
-            : Mainpath === "/nausea-problem"
-            ? "Nausea"
-            : Mainpath === "/feeding-problem"
-            ? "PEG"
-            : Mainpath === "/swallowing-problem"
-            ? "Swallowing"
-            : Mainpath === "/something-problem"
-            ? "Something Happened"
-            : Mainpath === "/trach-problem"
-            ? "Trach"
-            : Mainpath === "/urination-problem"
-            ? "Urination"
-            : Mainpath === "/vision-problem"
-            ? "Vision"
-            : Mainpath === "/wound-problem"
-            ? "Wound/Incision"
-            : "Which Feeling are You experiencing"
-        }
-      />
+      <Header name={name} />
       {loader ? (
         <Loader />
       ) : (
@@ -109,7 +107,9 @@ const BreathingProblem = () => {
                       <img src={data?.image} className="w-full" />
                     </div>
                     <p className="text-[16px] mt-3 mb-2 color-black">
-                      {data?.name || ""}
+                      {selectedLanguage === "English"
+                        ? data?.name
+                        : data?.nameEs || ""}
                     </p>
                   </div>
                 </div>

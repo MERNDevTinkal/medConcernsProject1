@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import DigramBack from "../../assets/images/digram-back.png";
 import DigramFront from "../../assets/images/digram-front.svg";
@@ -17,61 +17,116 @@ function makeRegion(name, x1, y1, x2, y2) {
 }
 
 const backRegions = [
-  makeRegion("Back", 110, 63, 260, 160),
-  makeRegion("Elbow", 220, 12, 250, 50),
-  makeRegion("Arm", 250, 12, 300, 35),
-  makeRegion("Arm", 120, 12, 220, 35),
-  makeRegion("Hand", 310, 12, 330, 35),
-  makeRegion("Finger", 335, 12, 360, 35),
-  makeRegion("Butt", 260, 60, 340, 160),
-  makeRegion("Lower Leg", 458, 60, 580, 100),
-  makeRegion("Lower Leg", 458, 120, 580, 150),
-  makeRegion("Foot / Toe", 590, 120, 630, 150),
-  makeRegion("Foot / Toe", 590, 60, 630, 100),
-  makeRegion("Knee", 430, 60, 460, 100),
-  makeRegion("Knee", 430, 120, 460, 150),
-  makeRegion("Arm", 250, 180, 300, 211),
-  makeRegion("Arm", 150, 170, 220, 211),
-  makeRegion("Elbow", 225, 170, 250, 211),
-  makeRegion("Arm", 255, 180, 301, 210),
-  makeRegion("Hand", 310, 210, 330, 190),
-  makeRegion("Finger", 335, 210, 350, 190),
+  makeRegion(`Back`, 110, 63, 260, 160),
+  makeRegion(`Elbow`, 220, 12, 250, 50),
+  makeRegion(`Arm`, 250, 12, 300, 35),
+  makeRegion(`Arm`, 120, 12, 220, 35),
+  makeRegion(`Hand`, 310, 12, 330, 35),
+  makeRegion(`Finger`, 335, 12, 360, 35),
+  makeRegion(`Butt`, 260, 60, 340, 160),
+  makeRegion(`Lower Leg`, 458, 60, 580, 100),
+  makeRegion(`Lower Leg`, 458, 120, 580, 150),
+  makeRegion(`Foot / Toe`, 590, 120, 630, 150),
+  makeRegion(`Foot / Toe`, 590, 60, 630, 100),
+  makeRegion(`Knee`, 430, 60, 460, 100),
+  makeRegion(`Knee`, 430, 120, 460, 150),
+  makeRegion(`Arm`, 250, 180, 300, 211),
+  makeRegion(`Arm`, 150, 170, 220, 211),
+  makeRegion(`Elbow`, 225, 170, 250, 211),
+  makeRegion(`Arm`, 255, 180, 301, 210),
+  makeRegion(`Hand`, 310, 210, 330, 190),
+  makeRegion(`Finger`, 335, 210, 350, 190),
+];
+
+const backRegionsSpanish = [
+  makeRegion(`Espalda`, 110, 63, 260, 160),
+  makeRegion(`Codo`, 220, 12, 250, 50),
+  makeRegion(`Brazo`, 250, 12, 300, 35),
+  makeRegion(`Brazo`, 120, 12, 220, 35),
+  makeRegion(`Mano`, 310, 12, 330, 35),
+  makeRegion(`Dedo`, 335, 12, 360, 35),
+  makeRegion(`Glúteo`, 260, 60, 340, 160),
+  makeRegion(`Pierna inferior`, 458, 60, 580, 100),
+  makeRegion(`Pierna inferior`, 458, 120, 580, 150),
+  makeRegion(`Pie / Dedo`, 590, 120, 630, 150),
+  makeRegion(`Pie / Dedo`, 590, 60, 630, 100),
+  makeRegion(`Rodilla`, 430, 60, 460, 100),
+  makeRegion(`Rodilla`, 430, 120, 460, 150),
+  makeRegion(`Brazo`, 250, 180, 300, 211),
+  makeRegion(`Brazo`, 150, 170, 220, 211),
+  makeRegion(`Codo`, 225, 170, 250, 211),
+  makeRegion(`Brazo`, 255, 180, 301, 210),
+  makeRegion(`Mano`, 310, 210, 330, 190),
+  makeRegion(`Dedo`, 335, 210, 350, 190),
 ];
 
 const frontRegions = [
-  makeRegion("Forhead", 20, 80, 40, 128),
-  makeRegion("Eye", 45, 80, 60, 100),
-  makeRegion("Eye", 45, 105, 60, 122),
-  makeRegion("Nose", 50, 95, 70, 105),
-  makeRegion("Mouth", 70, 112, 80, 90),
-  makeRegion("Ear", 50, 70, 70, 80),
-  makeRegion("Ear", 50, 125, 70, 135),
-  makeRegion("Neck", 90, 80, 110, 120),
-  makeRegion("Chest & Breast", 120, 50, 185, 150),
-  makeRegion("Abdomen", 220, 145, 265, 60),
-  makeRegion("Pelvis / Genitals", 290, 88, 330, 110),
-  makeRegion("Hip", 280, 45, 320, 70),
-  makeRegion("Hip", 280, 160, 320, 135),
-  makeRegion("Thigh", 320, 115, 385, 160),
-  makeRegion("Thigh", 320, 45, 385, 90),
-  makeRegion("Knee", 400, 90, 440, 55),
-  makeRegion("Knee", 400, 110, 440, 145),
-  makeRegion("Lower Leg", 450, 58, 560, 90),
-  makeRegion("Lower Leg", 450, 107, 560, 140),
-  makeRegion("Lower Leg", 570, 110, 610, 134),
-  makeRegion("Foot / Toe", 570, 65, 610, 90),
-  makeRegion("Shoulder", 180, 160, 117, 175),
-  makeRegion("Arm ", 126, 170, 290, 190),
-  makeRegion("Hand", 298, 178, 321, 200),
-  makeRegion("Finger", 330, 178, 340, 200),
-  makeRegion("Shoulder", 97, 19, 131, 41),
-  makeRegion("Arm", 137, 9, 300, 32),
-  makeRegion("Hand", 300, 8, 330, 20),
-  makeRegion("Finger", 330, 12, 340, 30),
+  makeRegion(`Forhead`, 20, 80, 40, 128),
+  makeRegion(`Eye`, 45, 80, 60, 100),
+  makeRegion(`Eye`, 45, 105, 60, 122),
+  makeRegion(`Nose`, 50, 95, 70, 105),
+  makeRegion(`Mouth`, 70, 112, 80, 90),
+  makeRegion(`Ear`, 50, 70, 70, 80),
+  makeRegion(`Ear`, 50, 125, 70, 135),
+  makeRegion(`Neck`, 90, 80, 110, 120),
+  makeRegion(`Chest & Breast`, 120, 50, 185, 150),
+  makeRegion(`Abdomen`, 220, 145, 265, 60),
+  makeRegion(`Pelvis / Genitals`, 290, 88, 330, 110),
+  makeRegion(`Hip`, 280, 45, 320, 70),
+  makeRegion(`Hip`, 280, 160, 320, 135),
+  makeRegion(`Thigh`, 320, 115, 385, 160),
+  makeRegion(`Thigh`, 320, 45, 385, 90),
+  makeRegion(`Knee`, 400, 90, 440, 55),
+  makeRegion(`Knee`, 400, 110, 440, 145),
+  makeRegion(`Lower Leg`, 450, 58, 560, 90),
+  makeRegion(`Lower Leg`, 450, 107, 560, 140),
+  makeRegion(`Lower Leg`, 570, 110, 610, 134),
+  makeRegion(`Foot / Toe`, 570, 65, 610, 90),
+  makeRegion(`Shoulder`, 180, 160, 117, 175),
+  makeRegion(`Arm `, 126, 170, 290, 190),
+  makeRegion(`Hand`, 298, 178, 321, 200),
+  makeRegion(`Finger`, 330, 178, 340, 200),
+  makeRegion(`Shoulder`, 97, 19, 131, 41),
+  makeRegion(`Arm`, 137, 9, 300, 32),
+  makeRegion(`Hand`, 300, 8, 330, 20),
+  makeRegion(`Finger`, 330, 12, 340, 30),
 ];
+
+const frontRegionsSpanish = [
+  makeRegion(`Frente`, 20, 80, 40, 128),
+  makeRegion(`Ojo`, 45, 80, 60, 100),
+  makeRegion(`Ojo`, 45, 105, 60, 122),
+  makeRegion(`Nariz`, 50, 95, 70, 105),
+  makeRegion(`Boca`, 70, 112, 80, 90),
+  makeRegion(`Oreja`, 50, 70, 70, 80),
+  makeRegion(`Oreja`, 50, 125, 70, 135),
+  makeRegion(`Cuello`, 90, 80, 110, 120),
+  makeRegion(`Pecho y Senos`, 120, 50, 185, 150),
+  makeRegion(`Abdomen`, 220, 145, 265, 60),
+  makeRegion(`Pelvis / Genitales`, 290, 88, 330, 110),
+  makeRegion(`Cadera`, 280, 45, 320, 70),
+  makeRegion(`Cadera`, 280, 160, 320, 135),
+  makeRegion(`Muslo`, 320, 115, 385, 160),
+  makeRegion(`Muslo`, 320, 45, 385, 90),
+  makeRegion(`Rodilla`, 400, 90, 440, 55),
+  makeRegion(`Rodilla`, 400, 110, 440, 145),
+  makeRegion(`Pierna inferior`, 450, 58, 560, 90),
+  makeRegion(`Pierna inferior`, 450, 107, 560, 140),
+  makeRegion(`Pierna inferior`, 570, 110, 610, 134),
+  makeRegion(`Pie / Dedo`, 570, 65, 610, 90),
+  makeRegion(`Hombro`, 180, 160, 117, 175),
+  makeRegion(`Brazo`, 126, 170, 290, 190),
+  makeRegion(`Mano`, 298, 178, 321, 200),
+  makeRegion(`Dedo`, 330, 178, 340, 200),
+  makeRegion(`Hombro`, 97, 19, 131, 41),
+  makeRegion(`Brazo`, 137, 9, 300, 32),
+  makeRegion(`Mano`, 300, 8, 330, 20),
+  makeRegion(`Dedo`, 330, 12, 340, 30),
+];
+
 const PADDING = 0;
 
-const PainDiagram = () => {
+const PainDiagram = ({ selectedLanguage }) => {
   const [marker, setMarker] = useState(null);
   const [croppedPart, setCroppedPart] = useState(null);
   const location = useLocation();
@@ -80,8 +135,8 @@ const PainDiagram = () => {
   const canvasRef = useRef(null);
   const cropSize = 100;
   const navigate = useNavigate();
-  const { updateDisease, diseases, addOrUpdateSummary } =
-    useContext(GlobalContext);
+
+  const { addOrUpdateSummary } = useContext(GlobalContext);
 
   const handleImageClick = (e) => {
     const img = e.target;
@@ -93,11 +148,13 @@ const PainDiagram = () => {
     const scaleY = img.naturalHeight / img.height;
     const realX = clickX * scaleX;
     const realY = clickY * scaleY;
-
-    // Choose side-specific regions
-    const activeRegions = isfront ? backRegions : frontRegions;
-
-    // Try inside-with-padding first
+    const activeRegions = isfront
+      ? selectedLanguage === "English"
+        ? backRegions
+        : backRegionsSpanish
+      : selectedLanguage === "English"
+      ? frontRegions
+      : frontRegionsSpanish;
     let clickedRegion =
       activeRegions.find(
         (r) =>
@@ -120,10 +177,8 @@ const PainDiagram = () => {
         }
       });
     }
-
     // Speak the selected name
     getTextToSpeech(clickedRegion.name);
-
     // Crop around the click point
     const imageObj = new Image();
     imageObj.src = isfront ? DigramBack : DigramFront; // true = back, false = front
@@ -154,7 +209,6 @@ const PainDiagram = () => {
         cropSize,
         cropSize
       );
-
       const croppedData = canvas.toDataURL("image/png");
       setMarker({ x: clickX, y: clickY });
       setCroppedPart(croppedData);

@@ -6,24 +6,27 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 const PainFeel = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [selectedGender, setSelectedGender] = React.useState("");
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [calendarOn, setCalendarOn] = React.useState(false);
-  const [introductionOn, setIntroductionOn] = React.useState(false);
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      setSelectedGender,
+      () => {},
       setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
+      () => {},
+      () => {},
       setLoader
     );
   }, []);
   return (
     <>
-      <Header name={"How does your pain feel?"} />
+      <Header
+        name={
+          selectedLanguage === "English"
+            ? "How does your pain feel?"
+            : "¿Cómo se siente tu dolor?"
+        }
+      />
       {loader ? (
         <Loader />
       ) : (
@@ -35,7 +38,7 @@ const PainFeel = () => {
               selectedIconCount || 3
             } gap-3.5 px-4 py-1.5 emotion-cards`}
           >
-            <PainCardsList />
+            <PainCardsList selectedLanguage={selectedLanguage} />
           </div>
         </div>
       )}

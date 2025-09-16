@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../Component/Layout/Header/Header";
 import BackArrow from "../../assets/images/back-arrow.svg";
-import NextArrow from "../../assets/images/next-arrow.svg";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
@@ -67,9 +65,7 @@ const WhiteBoardList = () => {
           <img src={BackArrow} alt="Back" />
         </Link>
         <h1 className="text-[25px] font-normal text-black">Whiteboard</h1>
-        {/* <Link>
-          <img src={NextArrow} alt="Next" />
-        </Link> */}
+        <Link to="#">{/* <img src={NextArrow} alt="Next" /> */}</Link>
       </div>
       {loader ? (
         <Loader />

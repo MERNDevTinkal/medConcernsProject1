@@ -74,6 +74,39 @@ import BoardImg4 from "../../assets/images/board-img-04.png";
 import BoardImg5 from "../../assets/images/board-img-05.png";
 import BoardImg6 from "../../assets/images/board-img-06.png";
 
+export const feelingValues = [
+  {
+    id: 1,
+    name: "No Pain",
+    nameEs: "Sin dolor",
+  },
+  {
+    id: 2,
+    name: "Mild",
+    nameEs: "Leve",
+  },
+  {
+    id: 3,
+    name: "Moderate",
+    nameEs: "Moderado",
+  },
+  {
+    id: 4,
+    name: "Severe",
+    nameEs: "Grave",
+  },
+  {
+    id: 5,
+    name: "Very Severe",
+    nameEs: "Muy grave",
+  },
+  {
+    id: 6,
+    name: `Worst Pain Imaginable`,
+    nameEs: `Peor dolor imaginable`,
+  },
+];
+
 const emotionsData = [
   {
     id: 1,

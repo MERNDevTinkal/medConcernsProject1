@@ -3,13 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-import FeelingPOpUP from "../FeelingPopUp/feelingPopUp";
-const CardsList = () => {
+const CardsList = ({ selectedLanguage }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [feelingsicons, setFeelingsicons] = useState([]);
   const [selected, setSelected] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
   const path = location.pathname;
   const mainpath = location.pathname;
   const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
@@ -21,26 +19,12 @@ const CardsList = () => {
     navigate(path);
   };
 
-  const handlePopupResponse = async (response) => {
-    // setShowPopup(false);
-    console.log("===>", [response, selected]);
-    if (selected) {
-      updateDisease(mainpath, [selected.name]);
-      if (response === "no") {
-        // navigate("/summary");
-      }
-    }
-  };
-
   useEffect(() => {
     setFeelingsicons(diseasesData[mainpath]);
   }, [mainpath]);
 
   return (
     <>
-      {/* {showPopup && (
-        <FeelingPOpUP handlePopupResponse={handlePopupResponse} />
-      )} */}
       {feelingsicons.map((item) => (
         <div
           style={{ cursor: "pointer" }}
@@ -63,7 +47,7 @@ const CardsList = () => {
               />
             </div>
             <p className="text-[21px] mt-3 text-black font-medium">
-              {item.name}
+              {selectedLanguage === "English" ? item.name : item.nameEs}
             </p>
           </div>
         </div>
