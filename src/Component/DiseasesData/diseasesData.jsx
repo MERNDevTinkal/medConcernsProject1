@@ -74,6 +74,55 @@ import BoardImg4 from "../../assets/images/board-img-04.png";
 import BoardImg5 from "../../assets/images/board-img-05.png";
 import BoardImg6 from "../../assets/images/board-img-06.png";
 
+export const guideInfo = [
+  {
+    id: 1,
+    name: "Tips for using the Pocket Guide for Healthcare Professionals:",
+    nameEs:
+      "Consejos para utilizar la Guía de bolsillo para profesionales sanitarios:",
+    type: "h2",
+  },
+  {
+    id: 2,
+    name: "Use these strategies to help PWA communicate their medical concerns.",
+    nameEs:
+      "Utilice estas estrategias para ayudar a las PWA a comunicar sus inquietudes médicas.",
+    type: "h5",
+  },
+  {
+    id: 3,
+    name: `Tag the end of your question with a yes/no gesture to promote
+            comprehension for PWA, for example, “Do you have pain?” “yes?”(nod
+            head for yes)“or no?”(shake head for no)`,
+    nameEs: `Al final de tu pregunta, incluye un gesto de sí o no para facilitar la comprensión de las personas con discapacidad auditiva. Por ejemplo, "¿Tienes dolor?", "¿Sí?" (asiente con la cabeza para decir sí), "¿O no?" (niega con la cabeza para decir no).`,
+    type: "p",
+  },
+  {
+    id: 4,
+    name: "Use slow and simplified statements and questions",
+    nameEs: "Utilice afirmaciones y preguntas lentas y simplificadas",
+    type: "p",
+  },
+  {
+    id: 5,
+    name: "Incorporate facial expressions, gestures, and body language",
+    nameEs: "Incorporar expresiones faciales, gestos y lenguaje corporal.",
+    type: "p",
+  },
+  {
+    id: 6,
+    name: "Wait for a response",
+    nameEs: "Espere una respuesta",
+    type: "p",
+  },
+  {
+    id: 7,
+    name: "Point to each multiple choice option as you read it",
+    nameEs: "Señale cada opción de opción múltiple a medida que la lee.",
+    type: "p",
+  },
+];
+
 export const feelingValues = [
   {
     id: 1,

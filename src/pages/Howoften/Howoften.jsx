@@ -4,11 +4,12 @@ import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
-
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import getSetting from "../../Component/settingApi/settings";
+import Loader from "../../Component/webLoader/loader";
+
 function Howoften({ monthName, isSelected }) {
   const iconColor = isSelected ? "#0088dc" : "currentColor";
-  const textColor = isSelected ? "#0088dc" : "black";
 
   return (
     <svg
@@ -46,9 +47,36 @@ export default function TabsCalendar() {
   const [selectedDayItem, setSelectedDayItem] = useState("");
   const [selectedWeekDay, setSelectedWeekDay] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
+  const [loader, setLoader] = useState(true);
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const location = useLocation();
   const pathprimary = location.pathname;
+
+  // Week abbreviations
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
+  const daysOfWeekSpanish = ["D", "L", "M", "X", "J", "V", "S"];
+
+  // Full week names
+  const weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const weekDaysSpanish = [
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+  ];
+
+  // Month abbreviations
   const monthsOfYear = [
     "JAN",
     "FEB",
@@ -63,17 +91,22 @@ export default function TabsCalendar() {
     "NOV",
     "DEC",
   ];
-
-  const weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+  const monthsOfYearSpanish = [
+    "ENE",
+    "FEB",
+    "MAR",
+    "ABR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AGO",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DIC",
   ];
 
+  // Full month names
   const months = [
     "January",
     "February",
@@ -88,33 +121,77 @@ export default function TabsCalendar() {
     "November",
     "December",
   ];
+  const monthsSpanish = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      setSelectedLanguage,
+      () => {},
+      () => {},
+      setLoader
+    );
+  }, []);
 
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
 
+  // ✅ Language aware mappings
+  const currentDaysOfWeek =
+    selectedLanguage === "Spanish" ? daysOfWeekSpanish : daysOfWeek;
+  const currentWeekDays =
+    selectedLanguage === "Spanish" ? weekDaysSpanish : weekDays;
+  const currentMonthsOfYear =
+    selectedLanguage === "Spanish" ? monthsOfYearSpanish : monthsOfYear;
+  const currentMonths = selectedLanguage === "Spanish" ? monthsSpanish : months;
+
   const handleDaySelect = async (item) => {
     setSelectedDayItem(item);
-    await getTextToSpeech(item);
-    updateDisease(pathprimary.replace("/", ""), { type: "day", value: item });
+    const text =
+      selectedLanguage === "Spanish"
+        ? item === "morning"
+          ? "mañana"
+          : item === "afternoon"
+          ? "tarde"
+          : "noche"
+        : item;
+    await getTextToSpeech(text);
+    updateDisease(pathprimary.replace("/", ""), { type: "day", value: text });
     navigate("/new-problem");
   };
 
   const handleWeekSelect = async (index) => {
     setSelectedWeekDay(index);
-    await getTextToSpeech(weekDays[index]);
+    const text = currentWeekDays[index];
+    await getTextToSpeech(text);
     updateDisease(pathprimary.replace("/", ""), {
       type: "week",
-      value: weekDays[index],
+      value: text,
     });
     navigate("/new-problem");
   };
 
   const handleMonthSelect = async (index) => {
     setSelectedMonth(index);
-    await getTextToSpeech(months[index]);
+    const text = currentMonths[index];
+    await getTextToSpeech(text);
     updateDisease(pathprimary.replace("/", ""), {
       type: "month",
-      value: months[index],
+      value: text,
     });
     navigate("/new-problem");
   };
@@ -127,7 +204,7 @@ export default function TabsCalendar() {
             {/* Tabs */}
             <div className="flex items-center justify-end p-4 sm:p-6 calendar-buttons">
               <button className="px-4 py-2 mr-2 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
-                Now
+                {selectedLanguage === "Spanish" ? "Ahora" : "Now"}
               </button>
               <div className="flex rounded-full bg-gray-100 p-1" role="tablist">
                 <button
@@ -145,7 +222,7 @@ export default function TabsCalendar() {
                   role="tab"
                   aria-selected={activeTab === "day"}
                 >
-                  TODAY
+                  {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
                 </button>
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
@@ -162,7 +239,7 @@ export default function TabsCalendar() {
                   role="tab"
                   aria-selected={activeTab === "week"}
                 >
-                  WEEK
+                  {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
                 </button>
                 <button
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
@@ -179,7 +256,7 @@ export default function TabsCalendar() {
                   role="tab"
                   aria-selected={activeTab === "month"}
                 >
-                  MONTH
+                  {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
                 </button>
               </div>
             </div>
@@ -190,10 +267,13 @@ export default function TabsCalendar() {
               {activeTab === "day" && (
                 <div className="grid gap-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
-                    TODAY
+                    {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
                   </h3>
                   <div className="grid grid-cols-3 border-t border-l border-gray-200 rounded-lg overflow-hidden">
-                    {["MORNING", "AFTERNOON", "EVENING"].map((label) => (
+                    {(selectedLanguage === "Spanish"
+                      ? ["MAÑANA", "TARDE", "NOCHE"]
+                      : ["MORNING", "AFTERNOON", "EVENING"]
+                    ).map((label) => (
                       <div
                         key={label}
                         className="flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 bg-white"
@@ -229,10 +309,10 @@ export default function TabsCalendar() {
               {activeTab === "week" && (
                 <div className="grid gap-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
-                    WEEK
+                    {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
                   </h3>
                   <div className="grid grid-cols-7 border-t border-l border-gray-200 rounded-lg overflow-hidden">
-                    {daysOfWeek.map((dayName, index) => (
+                    {currentDaysOfWeek.map((dayName, index) => (
                       <div
                         key={dayName + index}
                         className="flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 bg-white"
@@ -242,7 +322,7 @@ export default function TabsCalendar() {
                         </span>
                       </div>
                     ))}
-                    {daysOfWeek.map((dayName, index) => (
+                    {currentDaysOfWeek.map((dayName, index) => (
                       <button
                         key={dayName + index + "-check"}
                         className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
@@ -268,10 +348,10 @@ export default function TabsCalendar() {
               {activeTab === "month" && (
                 <div className="grid gap-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
-                    MONTH
+                    {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {monthsOfYear.map((month, index) => (
+                    {currentMonthsOfYear.map((month, index) => (
                       <button
                         key={month}
                         className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
