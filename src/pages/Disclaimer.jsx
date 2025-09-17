@@ -34,29 +34,32 @@ const Disclaimer = () => {
   };
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        name={
-          selectedLanguage === "English"
-            ? "Disclaimer"
-            : "Descargo de responsabilidad"
-        }
-      />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper ">
-          <div className="px-6 text-center mt-7">
-            <h2 className="text-[24px] font-normal text-black mb-6">
-              {selectedLanguage === "English"
-                ? "Disclaimer"
-                : "Descargo de responsabilidad"}
-            </h2>
-            <p className="text-[16px] font-normal leading-relaxed">
-              {disclaimers[selectedLanguage] || disclaimers.English}
-            </p>
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              selectedLanguage === "Spanish"
+                ? "Descargo de responsabilidad"
+                : "Disclaimer"
+            }
+          />
+
+          <div className="main-wrapper home-wrapper ">
+            <div className="px-6 text-center mt-7">
+              <h2 className="text-[24px] font-normal text-black mb-6">
+                {selectedLanguage === "Spanish"
+                  ? "Descargo de responsabilidad"
+                  : "Disclaimer"}
+              </h2>
+              <p className="text-[16px] font-normal leading-relaxed">
+                {disclaimers[selectedLanguage] || disclaimers.English}
+              </p>
+            </div>
           </div>
-        </div>
+        </>
       )}
       <Footer />
     </>

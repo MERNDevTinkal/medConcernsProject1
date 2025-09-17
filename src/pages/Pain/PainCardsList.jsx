@@ -41,7 +41,7 @@ const PainCardsList = ({ selectedLanguage }) => {
                   <img src={item.image} className="w-full" />
                 </div>
                 <p className="text-[21px] mt-3 color-black">
-                  {selectedLanguage === "English" ? item.name : item.nameEs}
+                  {selectedLanguage === "Spanish" ? item.nameEs : item.name}
                 </p>
               </div>
             </div>

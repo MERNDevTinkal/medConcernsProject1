@@ -54,9 +54,9 @@ const FeelingListPain = () => {
               <img src={BackArrow} />
             </button>
             <h2 className="text-[25px] font-normal text-black">
-              {selectedLanguage === "English"
-                ? "How bad is your pain?"
-                : "¿Qué tan fuerte es tu dolor?"}
+              {selectedLanguage === "Spanish"
+                ? "¿Qué tan fuerte es tu dolor?"
+                : "How bad is your pain?"}
             </h2>
             <button></button>
           </div>
@@ -106,20 +106,20 @@ const FeelingListPain = () => {
                     >
                       {item.id === 6 ? (
                         <>
-                          {selectedLanguage === "English" ? (
-                            <>
-                              Worst Pain <br /> Imaginable
-                            </>
-                          ) : (
+                          {selectedLanguage === "Spanish" ? (
                             <>
                               Peor dolor <br /> imaginable
                             </>
+                          ) : (
+                            <>
+                              Worst Pain <br /> Imaginable
+                            </>
                           )}
                         </>
-                      ) : selectedLanguage === "English" ? (
-                        item.name
-                      ) : (
+                      ) : selectedLanguage === "Spanish" ? (
                         item.nameEs
+                      ) : (
+                        item.name
                       )}
                     </span>
                   ))}

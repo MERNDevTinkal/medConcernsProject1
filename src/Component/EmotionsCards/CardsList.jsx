@@ -47,7 +47,7 @@ const CardsList = ({ selectedLanguage }) => {
               />
             </div>
             <p className="text-[21px] mt-3 text-black font-medium">
-              {selectedLanguage === "English" ? item.name : item.nameEs}
+              {selectedLanguage === "Spanish" ? item.nameEs : item.name}
             </p>
           </div>
         </div>

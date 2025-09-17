@@ -41,7 +41,7 @@ const BreathingWhen = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
-            name={selectedLanguage === "English" ? "When?" : "Cuando?"}
+            name={selectedLanguage === "Spanish" ? "Cuando?" : "When?"}
           />
 
           <div className="main-wrapper home-wrapper ">
@@ -69,9 +69,9 @@ const BreathingWhen = () => {
                         <img src={item.image} className="w-full" />
                       </div>
                       <p className="text-[16px] mt-3 mb-2 color-black">
-                        {selectedLanguage === "English"
-                          ? item.name
-                          : item.nameEs}
+                        {selectedLanguage === "Spanish"
+                          ? item.nameEs
+                          : item.name}
                       </p>
                     </div>
                   </div>

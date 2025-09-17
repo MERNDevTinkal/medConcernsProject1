@@ -27,7 +27,7 @@ const GuideInfo = () => {
           <Header
             selectedLanguage={selectedLanguage}
             name={
-              selectedLanguage === "English" ? "About Us" : "Sobre nosotras"
+              selectedLanguage === "Spanish" ? "Sobre nosotras" : "About Us"
             }
           />
 
@@ -40,12 +40,12 @@ const GuideInfo = () => {
                   </h2>
                 ) : item.type === "h5" ? (
                   <h5 className="text-[16px] text-black my-5 font-normal">
-                    {selectedLanguage === "English" ? item.name : item.nameEs}
+                    {selectedLanguage === "Spanish" ? item.nameEs : item.name}
                   </h5>
                 ) : (
                   <p className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5">
                     <img src={Arrow} />
-                    {selectedLanguage === "English" ? item.name : item.nameEs}
+                    {selectedLanguage === "Spanish" ? item.nameEs : item.name}
                   </p>
                 )
               )}

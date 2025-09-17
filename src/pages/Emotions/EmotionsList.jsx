@@ -28,9 +28,9 @@ const EmotionsList = () => {
           <Header
             selectedLanguage={selectedLanguage}
             name={
-              selectedLanguage === "English"
-                ? "Emotions/Feelings"
-                : "Emociones/Sentimientos"
+              selectedLanguage === "Spanish"
+                ? "Emociones/Sentimientos"
+                : "Emotions/Feelings"
             }
           />
 

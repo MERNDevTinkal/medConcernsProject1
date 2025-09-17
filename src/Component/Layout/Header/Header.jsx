@@ -230,7 +230,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
           </button>
           <h2 className="text-[25px] font-normal text-black">
             {name ??
-              (selectedLanguage === "English" ? "Concerns" : "Preocupaciones")}
+              (selectedLanguage === "Spanish" ? "Preocupaciones" : "Concerns")}
           </h2>
           <div style={{ cursor: "pointer" }}>
             {/* <img src={NextArrow} alt="next" /> */}
@@ -262,7 +262,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   >
                     <img src={item.icon} alt="" />
                     <Link to={item.path}>
-                      {selectedLanguage === "English" ? item.en : item.es}
+                      {selectedLanguage === "Spanish" ? item.es : item.en}
                     </Link>
                   </li>
                 )

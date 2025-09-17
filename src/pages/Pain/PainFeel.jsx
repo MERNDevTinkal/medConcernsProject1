@@ -27,9 +27,9 @@ const PainFeel = () => {
           <Header
             selectedLanguage={selectedLanguage}
             name={
-              selectedLanguage === "English"
-                ? "How does your pain feel?"
-                : "¿Cómo se siente tu dolor?"
+              selectedLanguage === "Spanish"
+                ? "¿Cómo se siente tu dolor?"
+                : "How does your pain feel?"
             }
           />
 

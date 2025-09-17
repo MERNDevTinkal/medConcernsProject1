@@ -12,8 +12,8 @@ import { useNavigate } from "react-router-dom";
 export default function Settings() {
   const navigate = useNavigate();
   const [selectedIconCount, setSelectedIconCount] = React.useState(3);
-  const [selectedGender, setSelectedGender] = React.useState("");
-  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("Male");
+  const [selectedLanguage, setSelectedLanguage] = React.useState("English");
   const [calendarOn, setCalendarOn] = React.useState(true);
   const [introductionOn, setIntroductionOn] = React.useState(true);
   const [loader, setLoader] = useState(true);
@@ -49,11 +49,11 @@ export default function Settings() {
   }) => {
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
-    payload.append("number_of_icons", number_of_icons);
-    payload.append("gender", gender);
-    payload.append("language", language);
-    payload.append("calendar", calendar);
-    payload.append("introduction", introduction);
+    payload.append("number_of_icons", number_of_icons || 3);
+    payload.append("gender", gender || "Male");
+    payload.append("language", language || "English");
+    payload.append("calendar", calendar || false);
+    payload.append("introduction", introduction || false);
 
     api
       .post("saveSettings", payload, {

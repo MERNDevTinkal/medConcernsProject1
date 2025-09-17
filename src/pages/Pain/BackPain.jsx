@@ -27,9 +27,9 @@ const BackPain = () => {
           <Header
             selectedLanguage={selectedLanguage}
             name={
-              selectedLanguage === "English"
-                ? "where is your pain?"
-                : "donde esta tu dolor?"
+              selectedLanguage === "Spanish"
+                ? "donde esta tu dolor?"
+                : "where is your pain?"
             }
           />
 

@@ -32,7 +32,7 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-green-600">
-                {selectedLanguage === "English" ? "YES" : "SÍ"}
+                {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
               </p>
             </div>
             <div>
@@ -52,7 +52,7 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-red-600">
-                {selectedLanguage === "English" ? "NO" : "NO"}
+                {selectedLanguage === "Spanish" ? "NO" : "NO"}
               </p>
             </div>
             <div>

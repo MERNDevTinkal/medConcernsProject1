@@ -70,66 +70,69 @@ const WhiteBoardList = () => {
   }, []);
   return (
     <>
-      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header">
-        <Link to="/whiteboard">
-          <img src={BackArrow} alt="Back" />
-        </Link>
-        <h1 className="text-[25px] font-normal text-black">
-          {selectedLanguage === "English" ? "Whiteboard" : "Pizarra"}
-        </h1>
-        <Link to="#">{/* <img src={NextArrow} alt="Next" /> */}</Link>
-      </div>
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper pt-20">
-          <div className="px-4">
-            {savedDrawings.length > 0 && (
-              <div className="w-full">
-                <div className="flex justify-between items-center">
-                  <h5 className="px-6 py-3 text-[20px] font-normal text-black">
-                    #
-                  </h5>
-                  <h5 className="px-6 py-3 text-[20px] font-normal text-black">
-                    {selectedLanguage === "English" ? "Name" : "Nombre"}
-                  </h5>
-                  <h5 className="px-6 py-3 text-[20px] font-normal text-black">
-                    {selectedLanguage === "English" ? "Date" : "Fecha"}
-                  </h5>
-                </div>
+        <>
+          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header">
+            <Link to="/whiteboard">
+              <img src={BackArrow} alt="Back" />
+            </Link>
+            <h1 className="text-[25px] font-normal text-black">
+              {selectedLanguage === "Spanish" ? "Pizarra" : "Whiteboard"}
+            </h1>
+            <Link to="#">{/* <img src={NextArrow} alt="Next" /> */}</Link>
+          </div>
 
-                {savedDrawings.map((d, index) => (
-                  <div
-                    onClick={() => {
-                      handleNavigate(d.name_key);
-                    }}
-                    style={{ cursor: "pointer" }}
-                    key={d.id}
-                    className="flex justify-between items-center py-3.5 px-5 bg-white rounded-2xl shadow-lg mb-2"
-                  >
-                    <h5 className="text-black text-[18px] font-normal">
-                      {(currentPage - 1) * 10 + (index + 1)}{" "}
+          <div className="main-wrapper home-wrapper pt-20">
+            <div className="px-4">
+              {savedDrawings.length > 0 && (
+                <div className="w-full">
+                  <div className="flex justify-between items-center">
+                    <h5 className="px-6 py-3 text-[20px] font-normal text-black">
+                      #
                     </h5>
-                    <h5 className="text-black text-[18px] font-normal">
-                      {d.name_key}
+                    <h5 className="px-6 py-3 text-[20px] font-normal text-black">
+                      {selectedLanguage === "Spanish" ? "Nombre" : "Name"}
                     </h5>
-                    <h5 className="text-black text-[18px] font-normal">
-                      {formatDate(d.createdAt)}
+                    <h5 className="px-6 py-3 text-[20px] font-normal text-black">
+                      {selectedLanguage === "Spanish" ? "Fecha" : "Date"}
                     </h5>
                   </div>
-                ))}
-                <div className="mt-4">
-                  <Pagination
-                    currentPage={currentPage}
-                    lastPage={lastPage}
-                    onPageChange={(page) => setCurrentPage(page)}
-                  />
+
+                  {savedDrawings.map((d, index) => (
+                    <div
+                      onClick={() => {
+                        handleNavigate(d.name_key);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      key={d.id}
+                      className="flex justify-between items-center py-3.5 px-5 bg-white rounded-2xl shadow-lg mb-2"
+                    >
+                      <h5 className="text-black text-[18px] font-normal">
+                        {(currentPage - 1) * 10 + (index + 1)}{" "}
+                      </h5>
+                      <h5 className="text-black text-[18px] font-normal">
+                        {d.name_key}
+                      </h5>
+                      <h5 className="text-black text-[18px] font-normal">
+                        {formatDate(d.createdAt)}
+                      </h5>
+                    </div>
+                  ))}
+                  <div className="mt-4">
+                    <Pagination
+                      currentPage={currentPage}
+                      lastPage={lastPage}
+                      onPageChange={(page) => setCurrentPage(page)}
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+        </>
       )}
     </>
   );

@@ -53,7 +53,7 @@ export default function HowAreYou() {
           <Header
             selectedLanguage={selectedLanguage}
             name={
-              selectedLanguage === "English" ? "How Are You ?" : "Cómo estás ?"
+              selectedLanguage === "Spanish" ? "Cómo estás ?" : "How Are You ?"
             }
           />
 
@@ -83,9 +83,9 @@ export default function HowAreYou() {
                         />
                       </div>
                       <p className="text-[16px] mt-3 mb-2 text-black">
-                        {selectedLanguage === "English"
-                          ? item?.name
-                          : item?.nameEs}
+                        {selectedLanguage === "Spanish"
+                          ? item?.nameEs
+                          : item?.name}
                       </p>
                     </div>
                   </div>

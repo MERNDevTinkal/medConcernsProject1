@@ -37,12 +37,12 @@ const Concern = () => {
             selectedLanguage={selectedLanguage}
             name={
               location.pathname === "/topic-board"
-                ? selectedLanguage === "English"
-                  ? "Topic Board"
-                  : "Tablero de temas"
-                : selectedLanguage === "English"
-                ? "Concerns"
-                : "Preocupaciones"
+                ? selectedLanguage === "Spanish"
+                  ? "Tablero de temas"
+                  : "Topic Board"
+                : selectedLanguage === "Spanish"
+                ? "Preocupaciones"
+                : "Concerns"
             }
           />
 

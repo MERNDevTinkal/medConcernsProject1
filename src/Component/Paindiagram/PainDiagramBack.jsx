@@ -149,12 +149,12 @@ const PainDiagram = ({ selectedLanguage }) => {
     const realX = clickX * scaleX;
     const realY = clickY * scaleY;
     const activeRegions = isfront
-      ? selectedLanguage === "English"
-        ? backRegions
-        : backRegionsSpanish
-      : selectedLanguage === "English"
-      ? frontRegions
-      : frontRegionsSpanish;
+      ? selectedLanguage === "Spanish"
+        ? backRegionsSpanish
+        : backRegions
+      : selectedLanguage === "Spanish"
+      ? frontRegionsSpanish
+      : frontRegions;
     let clickedRegion =
       activeRegions.find(
         (r) =>

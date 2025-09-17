@@ -109,9 +109,9 @@ const BreathingProblem = () => {
                         <img src={data?.image} className="w-full" />
                       </div>
                       <p className="text-[16px] mt-3 mb-2 color-black">
-                        {selectedLanguage === "English"
-                          ? data?.name
-                          : data?.nameEs || ""}
+                        {selectedLanguage === "Spanish"
+                          ? data?.nameEs
+                          : data?.name || ""}
                       </p>
                     </div>
                   </div>

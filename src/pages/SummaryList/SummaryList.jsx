@@ -62,7 +62,7 @@ const SummaryList = () => {
       <Header
         selectedLanguage={selectedLanguage}
         name={
-          selectedLanguage === "English" ? "Summary List" : "Lista resumida"
+          selectedLanguage === "Spanish" ? "Lista resumida" : "Summary List"
         }
       />
       {loader ? (

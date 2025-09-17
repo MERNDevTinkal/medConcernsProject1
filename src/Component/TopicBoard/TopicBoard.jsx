@@ -27,7 +27,7 @@ const TopicBoard = ({ selectedLanguage }) => {
         >
           <div className="dashboard-cards rounded-2xl bg-white h-[120px] flex items-center justify-center  text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
             <p className="text-[16px] mt-3 mb-2 text-black">
-              {selectedLanguage === "English" ? item?.name : item?.nameEs}
+              {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
             </p>
           </div>
         </div>
