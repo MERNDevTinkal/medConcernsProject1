@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
@@ -10,6 +10,10 @@ import TopicBoard from "../../Component/TopicBoardPop/TopicBoardPop";
 import { Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import apiCall from "../../Component/apiCall/apiCall";
+import { toast } from "react-toastify";
+import { MdEdit } from "react-icons/md";
+import { MdOutlineDelete } from "react-icons/md";
+
 const NeedBoard = () => {
   const location = useLocation();
   const [getAllDiseases, setDiseases] = useState([]);
@@ -17,11 +21,13 @@ const NeedBoard = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [needboard, setNeedboard] = useState(null);
-
-  // Modal states
+  const token = localStorage.getItem("token");
+  const licenses_id = localStorage.getItem("license_key");
+  const [apiData, setApiData] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState();
-
+  const [isDelete, setIsDelete] = useState(false);
+  const [topicId, setTopicId] = useState("");
+  const [editData, setEditData] = useState(null);
   useEffect(() => {
     setDiseases(diseasesData[location.pathname]);
   }, [location?.pathname]);
@@ -37,38 +43,82 @@ const NeedBoard = () => {
       () => {},
       setNeedboard
     );
-  }, []);
+    getData();
+  }, [loader]);
+
+  const getData = () => {
+    const formData = new FormData();
+    formData.append("licenses_id", licenses_id);
+    apiCall
+      .post("topic-board/list", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data.status) {
+          setApiData(data.data);
+        } else {
+          toast.error(data.msg, { autoClose: 1500 });
+        }
+      })
+      .catch(({ response }) => {
+        toast.error(response.data.message || response.data.msg, {
+          autoClose: 1500,
+        });
+      });
+  };
 
   const selectedNeedboard = needboard
     ? needboard.split(",").filter(Boolean)
     : [];
-  // Open modal with prefilled data when clicking on card
-  const handleCardClick = (item) => {
-    setFormData({
-      licenses_id: "",
-      name: item?.name,
-      image: null,
-    });
-    setShowModal(true);
-  };
 
-  // Submit handler (you can replace with API call)
   const handleSubmit = (value) => {
+    setLoader(true);
     const formData = new FormData();
     formData.append("licenses_id", licenses_id);
     formData.append("name", value.firstname);
-    formData.append("image", value.image);
-    apiCall.post("topic-boardCreate");
+    if (value.image) {
+      formData.append("image", value.image);
+    }
+    apiCall
+      .post("topic-boardCreate", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then(({ data }) => {
+        if (data.status) {
+          toast.success(data.msg, { autoClose: 1500 });
+        } else {
+          toast.error(data.msg, { autoClose: 1500 });
+        }
+        setLoader(false);
+        setShowModal(false);
+      })
+      .catch(({ response }) => {
+        toast.error(response.data.message || response.data.msg, {
+          autoClose: 1500,
+        });
+        setLoader(false);
+      });
   };
+
   const validationSchema = Yup.object({
     firstname: Yup.string().required("Name is required"),
-    image: Yup.mixed().required("Image is required"),
+    image: Yup.mixed()
+      .required("Image is required")
+      .test("fileType", "Only JPG/PNG allowed", (value) => {
+        return value && ["image/jpeg", "image/png"].includes(value.type);
+      }),
   });
+
   const formik = useFormik({
     initialValues: {
-      licenses_id: "",
-      firstname: "",
-      image: null,
+      licenses_id: editData?.licenses_id ?? "",
+      firstname: editData?.name ?? "",
+      image: editData?.image ?? null,
     },
     validationSchema,
     onSubmit: (value) => {
@@ -76,9 +126,60 @@ const NeedBoard = () => {
     },
   });
 
+  const mergedData = [...getAllDiseases, ...apiData];
+
+  const handleDelete = (id) => {
+    setIsDelete(true);
+    setShowModal(true);
+    setTopicId(id);
+  };
+  const onConfirm = (topicId) => {
+    setLoader(true);
+    apiCall
+      .post(
+        "deleteTopicBoard",
+        { topic_id: topicId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(({ data }) => {
+        if (data.status) {
+          toast.success(data.msg, { autoClose: 1500 });
+        } else {
+          toast.error(data.msg, { autoClose: 1500 });
+        }
+        setIsDelete(false);
+        setShowModal(false);
+        setLoader(false);
+      })
+      .catch(({ response }) => {
+        setIsDelete(false);
+        setShowModal(false);
+        toast.error(response.data.message || response.data.msg, {
+          autoClose: 1500,
+        });
+        setLoader(false);
+      });
+  };
+  const handleEdit = (item) => {
+    setEditData(item);
+    setShowModal(true);
+  };
   return (
     <>
-      {showModal && <TopicBoard formik={formik} setShowModal={setShowModal} />}
+      {showModal && (
+        <TopicBoard
+          topicId={topicId}
+          setIsDelete={setIsDelete}
+          onConfirm={onConfirm}
+          isDelete={isDelete}
+          formik={formik}
+          setShowModal={setShowModal}
+        />
+      )}
       {loader ? (
         <Loader />
       ) : (
@@ -100,21 +201,35 @@ const NeedBoard = () => {
                 selectedIconCount || 3
               } gap-3.5 px-4 my-4`}
             >
-              {getAllDiseases
+              {mergedData
                 .filter((item) => !selectedNeedboard.includes(item.name))
                 .map((item, index) => (
-                  <div
-                    style={{ cursor: "pointer" }}
-                    key={index}
-                    onClick={() => handleCardClick(item)}
-                  >
+                  <div style={{ cursor: "pointer" }} key={index}>
                     <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
+                      {item.name && !item.nameEs && (
+                        <div className="flex justify-end">
+                          <span style={{ color: "blue" }}>
+                            <MdEdit
+                              onClick={() => {
+                                handleEdit(item);
+                              }}
+                            />
+                          </span>
+                          <span style={{ color: "red" }}>
+                            <MdOutlineDelete
+                              onClick={() => {
+                                handleDelete(item.id);
+                              }}
+                            />
+                          </span>
+                        </div>
+                      )}
                       <div className="dashboard-img flex justify-center items-center">
                         <img src={item?.image} alt={item?.name} />
                       </div>
                       <p className="text-[12px] mt-4 color-black mb-0 ">
                         {selectedLanguage === "Spanish"
-                          ? item?.nameEs
+                          ? item?.nameEs || item?.name
                           : item?.name}
                       </p>
                     </div>
