@@ -21,6 +21,7 @@ const GuideInfo = () => {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={selectedLanguage === "English" ? "About Us" : "Sobre nosotras"}
       />
       {loader ? (

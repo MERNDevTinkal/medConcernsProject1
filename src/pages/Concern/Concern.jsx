@@ -30,6 +30,7 @@ const Concern = () => {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={
           location.pathname === "/topic-board"
             ? selectedLanguage === "English"

@@ -31,13 +31,10 @@ const NeedBoard = () => {
   const selectedNeedboard = needboard
     ? needboard.split(",").filter(Boolean)
     : [];
-  console.log(
-    "selectedLanguageselectedLanguageselectedLanguage",
-    selectedLanguage
-  );
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={
           selectedLanguage == "English"
             ? "Needs Board"

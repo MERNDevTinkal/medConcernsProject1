@@ -38,6 +38,7 @@ const NewProblem = () => {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={
           location.pathname === "/new-problem"
             ? translations[selectedLanguage]?.newProblem

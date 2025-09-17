@@ -47,6 +47,7 @@ export default function HowAreYou() {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={selectedLanguage === "English" ? "How Are You ?" : "Cómo estás ?"}
       />
       {loader ? (

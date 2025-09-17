@@ -21,6 +21,7 @@ const BackPain = () => {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={
           selectedLanguage === "English"
             ? "where is your pain?"

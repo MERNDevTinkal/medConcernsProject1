@@ -60,6 +60,7 @@ const SummaryList = () => {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={
           selectedLanguage === "English" ? "Summary List" : "Lista resumida"
         }

@@ -221,7 +221,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Sobre nosotros",
     },
   ];
-  console.log("==>selectedLanguage", selectedLanguage);
   return (
     <>
       <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">

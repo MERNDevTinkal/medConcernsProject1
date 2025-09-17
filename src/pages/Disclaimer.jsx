@@ -35,6 +35,7 @@ const Disclaimer = () => {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={
           selectedLanguage === "English"
             ? "Disclaimer"

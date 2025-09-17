@@ -538,6 +538,7 @@ export default function Whiteboard() {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={selectedLanguage === "English" ? "Whiteboard" : "Pizarra"}
       />
       {loader ? (

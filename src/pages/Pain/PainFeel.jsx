@@ -21,6 +21,7 @@ const PainFeel = () => {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={
           selectedLanguage === "English"
             ? "How does your pain feel?"

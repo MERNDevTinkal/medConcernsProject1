@@ -76,7 +76,7 @@ const BreathingProblem = () => {
 
   return (
     <>
-      <Header name={name} />
+      <Header selectedLanguage={selectedLanguage} name={name} />
       {loader ? (
         <Loader />
       ) : (

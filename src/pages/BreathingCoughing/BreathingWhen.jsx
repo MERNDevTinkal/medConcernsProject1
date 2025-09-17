@@ -35,7 +35,10 @@ const BreathingWhen = () => {
   }, []);
   return (
     <>
-      <Header name={selectedLanguage === "English" ? "When?" : "Cuando?"} />
+      <Header
+        selectedLanguage={selectedLanguage}
+        name={selectedLanguage === "English" ? "When?" : "Cuando?"}
+      />
       {loader ? (
         <Loader />
       ) : (
