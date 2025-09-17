@@ -20,29 +20,33 @@ const PainFeel = () => {
   }, []);
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        name={
-          selectedLanguage === "English"
-            ? "How does your pain feel?"
-            : "¿Cómo se siente tu dolor?"
-        }
-      />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper">
-          <div
-            className={`dashboard-h grid grid-cols-${
-              selectedIconCount || 2
-            } sm:grid-cols-${selectedIconCount || 3} md:grid-cols-${
-              selectedIconCount || 3
-            } gap-3.5 px-4 py-1.5 emotion-cards`}
-          >
-            <PainCardsList selectedLanguage={selectedLanguage} />
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              selectedLanguage === "English"
+                ? "How does your pain feel?"
+                : "¿Cómo se siente tu dolor?"
+            }
+          />
+
+          <div className="main-wrapper home-wrapper">
+            <div
+              className={`dashboard-h grid grid-cols-${
+                selectedIconCount || 2
+              } sm:grid-cols-${selectedIconCount || 3} md:grid-cols-${
+                selectedIconCount || 3
+              } gap-3.5 px-4 py-1.5 emotion-cards`}
+            >
+              <PainCardsList selectedLanguage={selectedLanguage} />
+            </div>
           </div>
-        </div>
+        </>
       )}
+
       <Footer />
     </>
   );

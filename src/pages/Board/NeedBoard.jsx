@@ -33,43 +33,46 @@ const NeedBoard = () => {
     : [];
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        name={
-          selectedLanguage == "English"
-            ? "Needs Board"
-            : "Tablero de Necesidades"
-        }
-      />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper ">
-          <div
-            className={`dashboard-h grid grid-cols-${
-              selectedIconCount || 2
-            } sm:grid-cols-${selectedIconCount || 3} md:grid-cols-${
-              selectedIconCount || 3
-            } gap-3.5 px-4 my-4`}
-          >
-            {getAllDiseases
-              .filter((item) => !selectedNeedboard.includes(item.name))
-              .map((item, index) => (
-                <div style={{ cursor: "pointer" }} key={index}>
-                  <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
-                    <div className="dashboard-img flex justify-center items-center">
-                      <img src={item?.image} />
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              selectedLanguage == "English"
+                ? "Needs Board"
+                : "Tablero de Necesidades"
+            }
+          />
+
+          <div className="main-wrapper home-wrapper ">
+            <div
+              className={`dashboard-h grid grid-cols-${
+                selectedIconCount || 2
+              } sm:grid-cols-${selectedIconCount || 3} md:grid-cols-${
+                selectedIconCount || 3
+              } gap-3.5 px-4 my-4`}
+            >
+              {getAllDiseases
+                .filter((item) => !selectedNeedboard.includes(item.name))
+                .map((item, index) => (
+                  <div style={{ cursor: "pointer" }} key={index}>
+                    <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
+                      <div className="dashboard-img flex justify-center items-center">
+                        <img src={item?.image} />
+                      </div>
+                      <p className="text-[12px] mt-4 color-black mb-0 ">
+                        {selectedLanguage == "English"
+                          ? item?.name
+                          : item?.nameEs}
+                      </p>
                     </div>
-                    <p className="text-[12px] mt-4 color-black mb-0 ">
-                      {selectedLanguage == "English"
-                        ? item?.name
-                        : item?.nameEs}
-                    </p>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
       <Footer />
     </>

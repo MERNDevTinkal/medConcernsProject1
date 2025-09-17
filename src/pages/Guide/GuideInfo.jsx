@@ -20,33 +20,38 @@ const GuideInfo = () => {
   }, []);
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        name={selectedLanguage === "English" ? "About Us" : "Sobre nosotras"}
-      />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper">
-          <div className="px-[30px] my-5">
-            {guideInfo.map((item) =>
-              item.type === "h2" ? (
-                <h2 className="text-[32px] primary-text font-medium leading-[40px]">
-                  {item.name}
-                </h2>
-              ) : item.type === "h5" ? (
-                <h5 className="text-[16px] text-black my-5 font-normal">
-                  {selectedLanguage === "English" ? item.name : item.nameEs}
-                </h5>
-              ) : (
-                <p className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5">
-                  <img src={Arrow} />
-                  {selectedLanguage === "English" ? item.name : item.nameEs}
-                </p>
-              )
-            )}
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              selectedLanguage === "English" ? "About Us" : "Sobre nosotras"
+            }
+          />
+
+          <div className="main-wrapper home-wrapper">
+            <div className="px-[30px] my-5">
+              {guideInfo.map((item) =>
+                item.type === "h2" ? (
+                  <h2 className="text-[32px] primary-text font-medium leading-[40px]">
+                    {item.name}
+                  </h2>
+                ) : item.type === "h5" ? (
+                  <h5 className="text-[16px] text-black my-5 font-normal">
+                    {selectedLanguage === "English" ? item.name : item.nameEs}
+                  </h5>
+                ) : (
+                  <p className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5">
+                    <img src={Arrow} />
+                    {selectedLanguage === "English" ? item.name : item.nameEs}
+                  </p>
+                )
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
       <Footer />
     </>

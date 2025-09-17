@@ -254,55 +254,58 @@ export default function ConcernsSettings() {
 
   return (
     <>
-      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <div
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          <img src={BackArrow} />
-        </div>
-        <h2 className="text-[25px] font-normal text-black text-center">
-          {selectedLanguage === "Spanish" ? "Configuración" : "Settings"}
-        </h2>
-        <button></button>
-      </div>
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper howoften-page">
-          <div className="flex items-center justify-center p-4 setting-cards">
-            <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
-              <div className="p-3 sm:p-4 md:p-6">
-                <h1 className="text-xs text-gray-500 mb-6">
-                  {selectedLanguage === "Spanish"
-                    ? "Configuración"
-                    : "Settings"}
-                </h1>
+        <>
+          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              <img src={BackArrow} />
+            </div>
+            <h2 className="text-[25px] font-normal text-black text-center">
+              {selectedLanguage === "Spanish" ? "Configuración" : "Settings"}
+            </h2>
+            <button></button>
+          </div>
 
-                {/* Concerns List */}
-                <div className="flex flex-col gap-3 py-6 px-2">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                    {currentList.map((c) => (
-                      <CustomRoundCheckbox
-                        key={c.key}
-                        value={c.key}
-                        checked={selectedConcerns.includes(c.key)}
-                        onChange={handleConcernToggle}
-                        label={
-                          selectedLanguage === "Spanish"
-                            ? c.label.es
-                            : c.label.en
-                        }
-                      />
-                    ))}
+          <div className="main-wrapper home-wrapper howoften-page">
+            <div className="flex items-center justify-center p-4 setting-cards">
+              <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
+                <div className="p-3 sm:p-4 md:p-6">
+                  <h1 className="text-xs text-gray-500 mb-6">
+                    {selectedLanguage === "Spanish"
+                      ? "Configuración"
+                      : "Settings"}
+                  </h1>
+
+                  {/* Concerns List */}
+                  <div className="flex flex-col gap-3 py-6 px-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                      {currentList.map((c) => (
+                        <CustomRoundCheckbox
+                          key={c.key}
+                          value={c.key}
+                          checked={selectedConcerns.includes(c.key)}
+                          onChange={handleConcernToggle}
+                          label={
+                            selectedLanguage === "Spanish"
+                              ? c.label.es
+                              : c.label.en
+                          }
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
       <Footer />
     </>

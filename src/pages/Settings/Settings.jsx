@@ -218,130 +218,135 @@ export default function Settings() {
 
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        introductionOn={introductionOn}
-        calendarOn={calendarOn}
-        name={t("settings")}
-      />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper howoften-page">
-          <div className="flex items-center justify-center p-4 setting-cards">
-            <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
-              <div className="p-3 sm:p-4 md:p-6">
-                <h1 className="text-xs text-gray-500 mb-6">{t("settings")}</h1>
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            introductionOn={introductionOn}
+            calendarOn={calendarOn}
+            name={t("settings")}
+          />
 
-                {/* Number of Icons */}
-                <div className="flex items-center justify-between py-4 border-b border-white">
-                  <span className="text-lg text-black-800">
-                    {t("selectIcons")}
-                  </span>
-                  <div className="flex space-x-2">
-                    {iconCounts.map((count) => (
-                      <button
-                        key={count}
-                        className={`w-10 h-10 rounded-md flex items-center justify-center text-lg font-medium ${
-                          selectedIconCount === count
-                            ? "bg-blue-theme text-white"
-                            : "bg-white text-gray-800 border border-gray-200 hover:bg-gray-50"
-                        }`}
-                        onClick={() => handleIconCountChange(count)}
-                      >
-                        {count}
-                      </button>
-                    ))}
+          <div className="main-wrapper home-wrapper howoften-page">
+            <div className="flex items-center justify-center p-4 setting-cards">
+              <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
+                <div className="p-3 sm:p-4 md:p-6">
+                  <h1 className="text-xs text-gray-500 mb-6">
+                    {t("settings")}
+                  </h1>
+
+                  {/* Number of Icons */}
+                  <div className="flex items-center justify-between py-4 border-b border-white">
+                    <span className="text-lg text-black-800">
+                      {t("selectIcons")}
+                    </span>
+                    <div className="flex space-x-2">
+                      {iconCounts.map((count) => (
+                        <button
+                          key={count}
+                          className={`w-10 h-10 rounded-md flex items-center justify-center text-lg font-medium ${
+                            selectedIconCount === count
+                              ? "bg-blue-theme text-white"
+                              : "bg-white text-gray-800 border border-gray-200 hover:bg-gray-50"
+                          }`}
+                          onClick={() => handleIconCountChange(count)}
+                        >
+                          {count}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Gender */}
+                  <div className="flex items-center justify-between py-4 border-b border-white">
+                    <span className="text-lg text-black-800">
+                      {t("selectGender")}
+                    </span>
+                    <div className="flex space-x-6">
+                      <CustomRadioButton
+                        value="Male"
+                        checked={selectedGender === "Male"}
+                        onChange={handleGenderChange}
+                        label={t("male")}
+                      />
+                      <CustomRadioButton
+                        value="Female"
+                        checked={selectedGender === "Female"}
+                        onChange={handleGenderChange}
+                        label={t("female")}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Language */}
+                  <div className="flex items-center justify-between py-4 border-b border-white">
+                    <span className="text-lg text-black-800">
+                      {t("selectLanguage")}
+                    </span>
+                    <div className="flex space-x-6">
+                      <CustomRadioButton
+                        value="English"
+                        checked={selectedLanguage === "English"}
+                        onChange={handleLanguageChange}
+                        label={t("english")}
+                      />
+                      <CustomRadioButton
+                        value="Spanish"
+                        checked={selectedLanguage === "Spanish"}
+                        onChange={handleLanguageChange}
+                        label={t("spanish")}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Calendar */}
+                  <div className="flex items-center justify-between py-4 border-b border-white">
+                    <span className="text-lg text-black-800">
+                      {t("calendar")}
+                    </span>
+                    <CustomToggleSwitch
+                      checked={calendarOn}
+                      onChange={() => handleCalendarToggle(!calendarOn)}
+                      labelOn={t("on")}
+                      labelOff={t("off")}
+                    />
+                  </div>
+
+                  {/* Introduction */}
+                  <div className="flex items-center justify-between py-4">
+                    <span className="text-lg text-black-900">
+                      {t("introduction")}
+                    </span>
+                    <CustomToggleSwitch
+                      checked={introductionOn}
+                      onChange={() => handleIntroductionToggle(!introductionOn)}
+                      labelOn={t("on")}
+                      labelOff={t("off")}
+                    />
                   </div>
                 </div>
 
-                {/* Gender */}
-                <div className="flex items-center justify-between py-4 border-b border-white">
-                  <span className="text-lg text-black-800">
-                    {t("selectGender")}
-                  </span>
-                  <div className="flex space-x-6">
-                    <CustomRadioButton
-                      value="Male"
-                      checked={selectedGender === "Male"}
-                      onChange={handleGenderChange}
-                      label={t("male")}
-                    />
-                    <CustomRadioButton
-                      value="Female"
-                      checked={selectedGender === "Female"}
-                      onChange={handleGenderChange}
-                      label={t("female")}
-                    />
-                  </div>
+                {/* Bottom Buttons */}
+                <div className="p-3 sm:p-4 md:p-6 flex justify-center space-x-4 pt-8 calendar-bttm">
+                  <button
+                    className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
+                    onClick={() => handleListRoute("Needsboard")}
+                  >
+                    {t("needsBoard")}
+                  </button>
+                  <button
+                    className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
+                    onClick={() => handleListRoute("concerns")}
+                  >
+                    {t("concerns")}
+                  </button>
                 </div>
-
-                {/* Language */}
-                <div className="flex items-center justify-between py-4 border-b border-white">
-                  <span className="text-lg text-black-800">
-                    {t("selectLanguage")}
-                  </span>
-                  <div className="flex space-x-6">
-                    <CustomRadioButton
-                      value="English"
-                      checked={selectedLanguage === "English"}
-                      onChange={handleLanguageChange}
-                      label={t("english")}
-                    />
-                    <CustomRadioButton
-                      value="Spanish"
-                      checked={selectedLanguage === "Spanish"}
-                      onChange={handleLanguageChange}
-                      label={t("spanish")}
-                    />
-                  </div>
-                </div>
-
-                {/* Calendar */}
-                <div className="flex items-center justify-between py-4 border-b border-white">
-                  <span className="text-lg text-black-800">
-                    {t("calendar")}
-                  </span>
-                  <CustomToggleSwitch
-                    checked={calendarOn}
-                    onChange={() => handleCalendarToggle(!calendarOn)}
-                    labelOn={t("on")}
-                    labelOff={t("off")}
-                  />
-                </div>
-
-                {/* Introduction */}
-                <div className="flex items-center justify-between py-4">
-                  <span className="text-lg text-black-900">
-                    {t("introduction")}
-                  </span>
-                  <CustomToggleSwitch
-                    checked={introductionOn}
-                    onChange={() => handleIntroductionToggle(!introductionOn)}
-                    labelOn={t("on")}
-                    labelOff={t("off")}
-                  />
-                </div>
-              </div>
-
-              {/* Bottom Buttons */}
-              <div className="p-3 sm:p-4 md:p-6 flex justify-center space-x-4 pt-8 calendar-bttm">
-                <button
-                  className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
-                  onClick={() => handleListRoute("Needsboard")}
-                >
-                  {t("needsBoard")}
-                </button>
-                <button
-                  className="bg-blue-theme hover:bg-blue-theme text-white px-6 py-3 rounded-md shadow-md"
-                  onClick={() => handleListRoute("concerns")}
-                >
-                  {t("concerns")}
-                </button>
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
       <Footer />
     </>

@@ -20,24 +20,27 @@ const BackPain = () => {
   }, []);
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        name={
-          selectedLanguage === "English"
-            ? "where is your pain?"
-            : "donde esta tu dolor?"
-        }
-      />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper">
-          <div className="px-4 my-5 flex justify-center items-center">
-            <div className="w-full p-5 bg-white shadow-sm rounded-md">
-              <PainDiagramBack selectedLanguage={selectedLanguage} />
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              selectedLanguage === "English"
+                ? "where is your pain?"
+                : "donde esta tu dolor?"
+            }
+          />
+
+          <div className="main-wrapper home-wrapper">
+            <div className="px-4 my-5 flex justify-center items-center">
+              <div className="w-full p-5 bg-white shadow-sm rounded-md">
+                <PainDiagramBack selectedLanguage={selectedLanguage} />
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
       <Footer />
     </>

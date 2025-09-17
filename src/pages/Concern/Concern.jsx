@@ -29,41 +29,44 @@ const Concern = () => {
   const selectedConcerns = concerns ? concerns.split(",").filter(Boolean) : [];
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        name={
-          location.pathname === "/topic-board"
-            ? selectedLanguage === "English"
-              ? "Topic Board"
-              : "Tablero de temas"
-            : selectedLanguage === "English"
-            ? "Concerns"
-            : "Preocupaciones"
-        }
-      />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper ">
-          <div className="dashboard-wrapper px-4 py-1.5">
-            <div
-              className={`dashboard-h grid  gap-7 sm:grid-cols-${
-                selectedIconCount || 3
-              } md:grid-cols-${selectedIconCount || 4} grid-cols-${
-                selectedIconCount || 2
-              } py-3`}
-            >
-              {location.pathname === "/concern" ? (
-                <ConcernCard
-                  skipKeys={selectedConcerns}
-                  selectedLanguage={selectedLanguage}
-                />
-              ) : (
-                <TopicBoard selectedLanguage={selectedLanguage} />
-              )}
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              location.pathname === "/topic-board"
+                ? selectedLanguage === "English"
+                  ? "Topic Board"
+                  : "Tablero de temas"
+                : selectedLanguage === "English"
+                ? "Concerns"
+                : "Preocupaciones"
+            }
+          />
+
+          <div className="main-wrapper home-wrapper ">
+            <div className="dashboard-wrapper px-4 py-1.5">
+              <div
+                className={`dashboard-h grid  gap-7 sm:grid-cols-${
+                  selectedIconCount || 3
+                } md:grid-cols-${selectedIconCount || 4} grid-cols-${
+                  selectedIconCount || 2
+                } py-3`}
+              >
+                {location.pathname === "/concern" ? (
+                  <ConcernCard
+                    skipKeys={selectedConcerns}
+                    selectedLanguage={selectedLanguage}
+                  />
+                ) : (
+                  <TopicBoard selectedLanguage={selectedLanguage} />
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
       <Footer />
     </>

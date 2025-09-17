@@ -37,24 +37,27 @@ const NewProblem = () => {
   };
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        name={
-          location.pathname === "/new-problem"
-            ? translations[selectedLanguage]?.newProblem
-            : translations[selectedLanguage]?.overall
-        }
-      />
-
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper ">
-          <div className="px-10 my-10">
-            <DecisionCard selectedLanguage={selectedLanguage} />
+        <>
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              location.pathname === "/new-problem"
+                ? translations[selectedLanguage]?.newProblem
+                : translations[selectedLanguage]?.overall
+            }
+          />
+
+          <div className="main-wrapper home-wrapper ">
+            <div className="px-10 my-10">
+              <DecisionCard selectedLanguage={selectedLanguage} />
+            </div>
           </div>
-        </div>
+        </>
       )}
+
       <Footer />
     </>
   );

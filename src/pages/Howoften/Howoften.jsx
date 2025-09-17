@@ -198,182 +198,188 @@ export default function TabsCalendar() {
 
   return (
     <>
-      <div className="main-wrapper home-wrapper howoften-page ">
-        <div className="w-full flex justify-center items-center p-4 sm:p-6 calendar-main">
-          <div className="w-full bg-white rounded-xl overflow-hidden">
-            {/* Tabs */}
-            <div className="flex items-center justify-end p-4 sm:p-6 calendar-buttons">
-              <button className="px-4 py-2 mr-2 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
-                {selectedLanguage === "Spanish" ? "Ahora" : "Now"}
-              </button>
-              <div className="flex rounded-full bg-gray-100 p-1" role="tablist">
-                <button
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
+      {loader ? (
+        <Loader />
+      ) : (
+        <div className="main-wrapper home-wrapper howoften-page ">
+          <div className="w-full flex justify-center items-center p-4 sm:p-6 calendar-main">
+            <div className="w-full bg-white rounded-xl overflow-hidden">
+              {/* Tabs */}
+              <div className="flex items-center justify-end p-4 sm:p-6 calendar-buttons">
+                <button className="px-4 py-2 mr-2 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                  {selectedLanguage === "Spanish" ? "Ahora" : "Now"}
+                </button>
+                <div
+                  className="flex rounded-full bg-gray-100 p-1"
+                  role="tablist"
+                >
+                  <button
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
                         ${
                           activeTab === "day"
                             ? "bg-blue-theme text-white"
                             : "text-gray-700 hover:bg-gray-200"
                         }`}
-                  onClick={() => {
-                    setActiveTab("day");
-                    setSelectedWeekDay(null);
-                    setSelectedMonth(null);
-                  }}
-                  role="tab"
-                  aria-selected={activeTab === "day"}
-                >
-                  {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
-                </button>
-                <button
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
+                    onClick={() => {
+                      setActiveTab("day");
+                      setSelectedWeekDay(null);
+                      setSelectedMonth(null);
+                    }}
+                    role="tab"
+                    aria-selected={activeTab === "day"}
+                  >
+                    {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
+                  </button>
+                  <button
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
                         ${
                           activeTab === "week"
                             ? "bg-blue-theme text-white"
                             : "text-gray-700 hover:bg-gray-200"
                         }`}
-                  onClick={() => {
-                    setActiveTab("week");
-                    setSelectedDayItem(null);
-                    setSelectedMonth(null);
-                  }}
-                  role="tab"
-                  aria-selected={activeTab === "week"}
-                >
-                  {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
-                </button>
-                <button
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
+                    onClick={() => {
+                      setActiveTab("week");
+                      setSelectedDayItem(null);
+                      setSelectedMonth(null);
+                    }}
+                    role="tab"
+                    aria-selected={activeTab === "week"}
+                  >
+                    {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
+                  </button>
+                  <button
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
                         ${
                           activeTab === "month"
                             ? "bg-blue-theme text-white"
                             : "text-gray-700 hover:bg-gray-200"
                         }`}
-                  onClick={() => {
-                    setActiveTab("month");
-                    setSelectedDayItem(null);
-                    setSelectedWeekDay(null);
-                  }}
-                  role="tab"
-                  aria-selected={activeTab === "month"}
-                >
-                  {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
-                </button>
+                    onClick={() => {
+                      setActiveTab("month");
+                      setSelectedDayItem(null);
+                      setSelectedWeekDay(null);
+                    }}
+                    role="tab"
+                    aria-selected={activeTab === "month"}
+                  >
+                    {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* Content */}
-            <div className="p-4 sm:p-6 pt-0">
-              {/* Day Tab */}
-              {activeTab === "day" && (
-                <div className="grid gap-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
-                    {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
-                  </h3>
-                  <div className="grid grid-cols-3 border-t border-l border-gray-200 rounded-lg overflow-hidden">
-                    {(selectedLanguage === "Spanish"
-                      ? ["MAÑANA", "TARDE", "NOCHE"]
-                      : ["MORNING", "AFTERNOON", "EVENING"]
-                    ).map((label) => (
-                      <div
-                        key={label}
-                        className="flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 bg-white"
-                      >
-                        <span className="font-bold text-[40px] sm:text-xl text-gray-800">
-                          {label}
-                        </span>
-                      </div>
-                    ))}
-                    {["morning", "afternoon", "evening"].map((item) => (
-                      <button
-                        key={item}
-                        className={`flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
+              {/* Content */}
+              <div className="p-4 sm:p-6 pt-0">
+                {/* Day Tab */}
+                {activeTab === "day" && (
+                  <div className="grid gap-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
+                      {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
+                    </h3>
+                    <div className="grid grid-cols-3 border-t border-l border-gray-200 rounded-lg overflow-hidden">
+                      {(selectedLanguage === "Spanish"
+                        ? ["MAÑANA", "TARDE", "NOCHE"]
+                        : ["MORNING", "AFTERNOON", "EVENING"]
+                      ).map((label) => (
+                        <div
+                          key={label}
+                          className="flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 bg-white"
+                        >
+                          <span className="font-bold text-[40px] sm:text-xl text-gray-800">
+                            {label}
+                          </span>
+                        </div>
+                      ))}
+                      {["morning", "afternoon", "evening"].map((item) => (
+                        <button
+                          key={item}
+                          className={`flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
                           ${
                             selectedDayItem === item
                               ? "bg-blue-50"
                               : "bg-white hover:bg-gray-50"
                           }`}
-                        onClick={() => handleDaySelect(item)}
-                        role="option"
-                        aria-selected={selectedDayItem === item}
-                      >
-                        {selectedDayItem === item && (
-                          <Check className="w-15 h-15 text-green-500 check-mark" />
-                        )}
-                      </button>
-                    ))}
+                          onClick={() => handleDaySelect(item)}
+                          role="option"
+                          aria-selected={selectedDayItem === item}
+                        >
+                          {selectedDayItem === item && (
+                            <Check className="w-15 h-15 text-green-500 check-mark" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Week Tab */}
-              {activeTab === "week" && (
-                <div className="grid gap-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
-                    {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
-                  </h3>
-                  <div className="grid grid-cols-7 border-t border-l border-gray-200 rounded-lg overflow-hidden">
-                    {currentDaysOfWeek.map((dayName, index) => (
-                      <div
-                        key={dayName + index}
-                        className="flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 bg-white"
-                      >
-                        <span className="font-bold text-[24px] text-gray-800">
-                          {dayName}
-                        </span>
-                      </div>
-                    ))}
-                    {currentDaysOfWeek.map((dayName, index) => (
-                      <button
-                        key={dayName + index + "-check"}
-                        className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
+                {/* Week Tab */}
+                {activeTab === "week" && (
+                  <div className="grid gap-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
+                      {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
+                    </h3>
+                    <div className="grid grid-cols-7 border-t border-l border-gray-200 rounded-lg overflow-hidden">
+                      {currentDaysOfWeek.map((dayName, index) => (
+                        <div
+                          key={dayName + index}
+                          className="flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 bg-white"
+                        >
+                          <span className="font-bold text-[24px] text-gray-800">
+                            {dayName}
+                          </span>
+                        </div>
+                      ))}
+                      {currentDaysOfWeek.map((dayName, index) => (
+                        <button
+                          key={dayName + index + "-check"}
+                          className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
                           ${
                             selectedWeekDay === index
                               ? "bg-blue-50"
                               : "bg-white hover:bg-gray-50"
                           }`}
-                        onClick={() => handleWeekSelect(index)}
-                        role="option"
-                        aria-selected={selectedWeekDay === index}
-                      >
-                        {selectedWeekDay === index && (
-                          <Check className="w-15 h-15 text-green-500 check-mark" />
-                        )}
-                      </button>
-                    ))}
+                          onClick={() => handleWeekSelect(index)}
+                          role="option"
+                          aria-selected={selectedWeekDay === index}
+                        >
+                          {selectedWeekDay === index && (
+                            <Check className="w-15 h-15 text-green-500 check-mark" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Month Tab */}
-              {activeTab === "month" && (
-                <div className="grid gap-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
-                    {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
-                  </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {currentMonthsOfYear.map((month, index) => (
-                      <button
-                        key={month}
-                        className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
+                {/* Month Tab */}
+                {activeTab === "month" && (
+                  <div className="grid gap-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
+                      {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                      {currentMonthsOfYear.map((month, index) => (
+                        <button
+                          key={month}
+                          className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
                           ${selectedMonth === index ? "text-blue" : ""}`}
-                        onClick={() => handleMonthSelect(index)}
-                        role="option"
-                        aria-selected={selectedMonth === index}
-                      >
-                        <Howoften
-                          monthName={month}
-                          isSelected={selectedMonth === index}
-                        />
-                      </button>
-                    ))}
+                          onClick={() => handleMonthSelect(index)}
+                          role="option"
+                          aria-selected={selectedMonth === index}
+                        >
+                          <Howoften
+                            monthName={month}
+                            isSelected={selectedMonth === index}
+                          />
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
+      )}
       <Footer />
     </>
   );
