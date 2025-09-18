@@ -5,31 +5,44 @@ import Close from "../../assets/images/close.svg";
 import Question from "../../assets/images/question.svg";
 import WomenIcon from "../../assets/images/women.png";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
-const YesNo = () => {
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+const YesNo = ({ selectedLanguage }) => {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
   const handleYesNo = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value)
-      updateDisease("yesno", value)
-      navigate(path)
+      await getTextToSpeech(value);
+      updateDisease("yesno", value);
+      navigate(path);
     }
-  }
+  };
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        <div onClick={() => { handleYesNo("YES", "/concern") }}>
+        <div
+          onClick={() => {
+            handleYesNo(
+              selectedLanguage === "Spanish" ? "Sí" : "YES",
+              "/concern"
+            );
+          }}
+        >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-green-600">YES</p>
+              <p className="text-[32px] font-medium text-green-600">
+                {selectedLanguage === "Spanish" ? "Sí" : "YES"}
+              </p>
             </div>
             <div>
               <img src={Checked} alt="" />
             </div>
           </div>
         </div>
-        <div onClick={() => { handleYesNo("NO", "") }}>
+        <div
+          onClick={() => {
+            handleYesNo("NO", "");
+          }}
+        >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-red-600">NO</p>

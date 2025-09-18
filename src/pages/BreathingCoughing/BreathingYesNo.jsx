@@ -19,37 +19,52 @@ function BreathingYesNo() {
   const [slugName, setslugName] = useState("");
   useEffect(() => {
     if (concerns?.length > 0) {
-      const concern = location.pathname.includes("/topicboard/") ? topicBoard.find((c) => c.id == id) : concerns.find((c) => c.id == id);
+      const concern = location.pathname.includes("/topicboard/")
+        ? topicBoard.find((c) => c.id == id)
+        : concerns.find((c) => c.id == id);
       setslugName(concern?.name);
-      setConcernValues(concern)
+      setConcernValues(concern);
     }
-  }, [id])
+  }, [id]);
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <div style={{ cursor: "pointer" }} onClick={() => { navigate(-1); }}>
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
           <img src={BackArrow} />
         </div>
-        <h2 className="text-[25px] font-normal text-black text-center">{concernValues.name || ""}</h2>
+        <h2 className="text-[25px] font-normal text-black text-center">
+          {concernValues.name || ""}
+        </h2>
         <button></button>
       </div>
       <div className="main-wrapper home-wrapper ">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
-          <div className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 ${location.pathname.includes("/topicboard/") ? 'h-[200px] flex justify-center items-center' : ''} `}>
-            {location.pathname.includes("/topicboard/") ? (<p className="text-xl">
-              {concernValues?.name}
-            </p>) : (
+          <div
+            className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 ${
+              location.pathname.includes("/topicboard/")
+                ? "h-[200px] flex justify-center items-center"
+                : ""
+            } `}
+          >
+            {location.pathname.includes("/topicboard/") ? (
+              <p className="text-xl">{concernValues?.name}</p>
+            ) : (
               <div className="dashboard-img rounded-2xl">
                 <img src={concernValues?.image} className="w-full" />
               </div>
             )}
-
-
           </div>
           <div>
             {location.pathname.includes("/topicboard/") ? (
               <TopicBoard concenFell={concernValues?.secPath} />
-            ) : <DecisionCardFeeling concenFell={concernValues?.secPath} />}
+            ) : (
+              <DecisionCardFeeling concenFell={concernValues?.secPath} />
+            )}
           </div>
         </div>
         <Footer />
