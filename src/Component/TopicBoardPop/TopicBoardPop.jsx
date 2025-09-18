@@ -1,6 +1,7 @@
 import React from "react";
 
 const TopicBoardPop = ({
+  setEditData,
   topicId,
   setIsDelete,
   onConfirm,
@@ -20,6 +21,7 @@ const TopicBoardPop = ({
             <div className="flex justify-center gap-4 mt-4">
               <button
                 onClick={() => {
+                  formik.resetForm(); // reset on cancel
                   setShowModal(false);
                   setIsDelete(false);
                 }}
@@ -30,6 +32,7 @@ const TopicBoardPop = ({
               <button
                 onClick={() => {
                   onConfirm(topicId);
+                  formik.resetForm(); // reset after delete confirm
                 }}
                 className="px-4 py-2 rounded-2xl color-red bg-red-300 hover:bg-red-600"
               >
@@ -72,6 +75,21 @@ const TopicBoardPop = ({
                   }
                 />
 
+                {/* Image preview */}
+                {formik.values.image && (
+                  <div className="mt-2">
+                    <img
+                      src={
+                        typeof formik.values.image === "string"
+                          ? formik.values.image
+                          : URL.createObjectURL(formik.values.image)
+                      }
+                      alt="Preview"
+                      className="h-20 w-20 object-cover rounded-lg border"
+                    />
+                  </div>
+                )}
+
                 {formik.errors.image && (
                   <p className="text-red-500 text-sm mt-1">
                     {formik.errors.image}
@@ -83,7 +101,17 @@ const TopicBoardPop = ({
               <div className="flex justify-end gap-3 mt-4">
                 <button
                   type="button"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => {
+                    formik.resetForm({
+                      values: {
+                        firstname: "",
+                        image: null,
+                      },
+                    });
+                    setEditData(null);
+
+                    setShowModal(false);
+                  }}
                   className="px-4 py-2 bg-gray-300 rounded-lg"
                 >
                   Cancel

@@ -78,11 +78,15 @@ const NeedBoard = () => {
     const formData = new FormData();
     formData.append("licenses_id", licenses_id);
     formData.append("name", value.firstname);
-    if (value.image) {
+
+    if (value.image && typeof value.image !== "string") {
       formData.append("image", value.image);
     }
+
+    const endpoint = editData ? "topic-board/edit" : "topic-boardCreate";
+
     apiCall
-      .post("topic-boardCreate", formData, {
+      .post(endpoint, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -120,9 +124,17 @@ const NeedBoard = () => {
       firstname: editData?.name ?? "",
       image: editData?.image ?? null,
     },
+    enableReinitialize: true,
     validationSchema,
-    onSubmit: (value) => {
+    onSubmit: (value, { resetForm }) => {
       handleSubmit(value);
+      formik.resetForm({
+        values: {
+          firstname: "",
+          image: null,
+        },
+      });
+      setEditData(null);
     },
   });
 
@@ -172,6 +184,7 @@ const NeedBoard = () => {
     <>
       {showModal && (
         <TopicBoard
+          setEditData={setEditData}
           topicId={topicId}
           setIsDelete={setIsDelete}
           onConfirm={onConfirm}
