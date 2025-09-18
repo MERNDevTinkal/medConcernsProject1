@@ -3,7 +3,7 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   const getTranslatedText = (item, selectedLanguage) => {
     const isSpanish = selectedLanguage === "Spanish";
     if (item?.name || item?.nameEs) {
-      return isSpanish ? item?.nameEs : item?.name;
+      return isSpanish ? item?.nameEs : item?.name || item?.name;
     }
     if (item?.painFeel || item?.painFeelEs) {
       return isSpanish ? item?.painFeelEs : item?.painFeel;
@@ -20,7 +20,6 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
 
     return "";
   };
-  console.log("==>SummaryDetail", SummaryDetail);
   return (
     <>
       {SummaryDetail.flat().map((item, index) => {
