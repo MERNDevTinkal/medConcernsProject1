@@ -5,7 +5,8 @@ import DigramFront from "../../assets/images/digram-front.svg";
 import Refresh from "../../assets/images/refresh_17981405.png";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
-
+import Femalebodyback from "../../assets/images/female_bodyback.png";
+import Frontfemale from "../../assets/images/front_female.png";
 function makeRegion(name, x1, y1, x2, y2) {
   return {
     name,
@@ -126,7 +127,7 @@ const frontRegionsSpanish = [
 
 const PADDING = 0;
 
-const PainDiagram = ({ selectedLanguage }) => {
+const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   const [marker, setMarker] = useState(null);
   const [croppedPart, setCroppedPart] = useState(null);
   const location = useLocation();
@@ -135,9 +136,9 @@ const PainDiagram = ({ selectedLanguage }) => {
   const canvasRef = useRef(null);
   const cropSize = 100;
   const navigate = useNavigate();
-
+  const [bodyImage, setBodyImage] = useState("");
   const { addOrUpdateSummary } = useContext(GlobalContext);
-
+  console.log("===>selectedGenderselectedGender", selectedGender);
   const handleImageClick = (e) => {
     const img = e.target;
     const rect = img.getBoundingClientRect();
@@ -226,7 +227,16 @@ const PainDiagram = ({ selectedLanguage }) => {
     setCroppedPart(null);
     setMarker(null);
   };
+  useEffect(() => {
+    let getImage;
+    if (selectedGender === "Male") {
+      getImage = isfront ? DigramBack : DigramFront;
+    } else {
+      getImage = isfront ? Femalebodyback : Frontfemale;
+    }
 
+    setBodyImage(getImage);
+  }, [selectedGender, isfront]);
   return (
     <>
       <div className="flex justify-end mt-4">
@@ -240,12 +250,15 @@ const PainDiagram = ({ selectedLanguage }) => {
 
       <div className="flex flex-col items-center">
         <div className="relative w-[350px] md:w-[500px]">
-          <img
-            src={isfront ? DigramBack : DigramFront} // true = back, false = front
-            alt="body diagram"
-            className="w-full h-auto"
-            onClick={handleImageClick}
-          />
+          {bodyImage && (
+            <img
+              src={bodyImage}
+              alt="body diagram"
+              className="w-full h-auto"
+              onClick={handleImageClick}
+            />
+          )}
+
           {marker && (
             <div
               className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"

@@ -72,10 +72,8 @@ function YesAndNo() {
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
-                ? option?.textEs
-                : option?.text || selectedLanguage === "Spanish"
-                ? "Dolor"
-                : "Pain"}
+                ? option?.textEs || "Dolor"
+                : option?.text || "Pain"}
             </h2>
             <button></button>
           </div>
