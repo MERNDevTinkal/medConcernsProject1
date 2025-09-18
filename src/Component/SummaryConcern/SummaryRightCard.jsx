@@ -1,13 +1,4 @@
 import React from "react";
-import SummaryImg1 from "../../assets/images/summary-img-01.png";
-import SummaryImg2 from "../../assets/images/summary-img-02.png";
-import SummaryImg3 from "../../assets/images/summary-img-03.png";
-import SummaryImg4 from "../../assets/images/summary-img-04.png";
-import SummaryImg5 from "../../assets/images/summary-img-05.png";
-import SummaryImg6 from "../../assets/images/summary-img-06.png";
-
-import { Link } from "react-router-dom";
-
 const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   console.log("===>SummaryDetail", SummaryDetail);
   const getTranslatedText = (item, selectedLanguage) => {
