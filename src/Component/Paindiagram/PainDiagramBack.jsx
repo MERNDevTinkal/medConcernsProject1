@@ -81,7 +81,7 @@ const frontRegions = [
   makeRegion(`Knee`, 400, 110, 440, 145),
   makeRegion(`Lower Leg`, 450, 58, 560, 90),
   makeRegion(`Lower Leg`, 450, 107, 560, 140),
-  makeRegion(`Lower Leg`, 570, 110, 610, 134),
+  makeRegion(`Foot / Toe`, 570, 110, 610, 134),
   makeRegion(`Foot / Toe`, 570, 65, 610, 90),
   makeRegion(`Shoulder`, 180, 160, 117, 175),
   makeRegion(`Arm `, 126, 170, 290, 190),
@@ -284,3 +284,142 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
 };
 
 export default PainDiagram;
+
+// import React, { useState, useRef } from "react";
+// import Femalebodyback from "../../assets/images/female_bodyback.png";
+// import Frontfemale from "../../assets/images/front_female.png";
+
+// const PainDiagram = () => {
+//   const [region, setRegion] = useState(null); // केवल 1 rectangle
+//   const [drawing, setDrawing] = useState(false);
+//   const [start, setStart] = useState(null);
+//   const svgRef = useRef(null);
+
+//   // Mouse दबाते ही शुरू
+//   const handleMouseDown = (e) => {
+//     const rect = svgRef.current.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+//     setStart({ x, y });
+//     setDrawing(true);
+//     setRegion(null); // नया draw होने पर पुराना remove
+//   };
+
+//   // Mouse move करते समय rectangle दिखाओ
+//   const handleMouseMove = (e) => {
+//     if (!drawing || !start) return;
+//     const rect = svgRef.current.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+
+//     setRegion({
+//       x1: Math.min(start.x, x),
+//       y1: Math.min(start.y, y),
+//       x2: Math.max(start.x, x),
+//       y2: Math.max(start.y, y),
+//       name: "Selected Area",
+//     });
+//   };
+
+//   // Mouse छोड़ने पर rectangle को final करो
+//   const handleMouseUp = () => {
+//     setDrawing(false);
+//     setStart(null);
+//   };
+
+//   // Double click → remove rectangle
+//   const handleDoubleClick = () => {
+//     setRegion(null);
+//   };
+//   console.log("region", region);
+//   return (
+//     <>
+//       <div className="flex justify-end mt-4">
+//         <button
+//           // onClick={handleRefresh}
+//           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
+//         >
+//           {/* <img src={Refresh} alt="refresh" className="w-6 h-6" /> */}
+//         </button>
+//       </div>
+
+//       <div className="flex flex-col items-center">
+//         <div className="relative w-[350px] md:w-[500px]">
+//           {Frontfemale && (
+//             <img
+//               src={Frontfemale}
+//               alt="body diagram"
+//               className="w-full h-auto"
+//             />
+//           )}
+
+//           {/* === Rectangle drawing overlay === */}
+//           <svg
+//             ref={svgRef}
+//             className="absolute top-0 left-0 w-full h-full"
+//             onMouseDown={handleMouseDown}
+//             onMouseMove={handleMouseMove}
+//             onMouseUp={handleMouseUp}
+//           >
+//             {region && (
+//               <g
+//                 onDoubleClick={handleDoubleClick}
+//                 style={{ cursor: "pointer" }}
+//               >
+//                 <rect
+//                   x={region.x1}
+//                   y={region.y1}
+//                   width={region.x2 - region.x1}
+//                   height={region.y2 - region.y1}
+//                   fill="rgba(255,0,0,0.2)"
+//                   stroke="red"
+//                   strokeWidth={2}
+//                 />
+//                 <text
+//                   x={region.x1 + 5}
+//                   y={region.y1 + 15}
+//                   fontSize="12"
+//                   fill="black"
+//                 >
+//                   {region.name}
+//                 </text>
+//                 <text
+//                   x={region.x1 + 5}
+//                   y={region.y1 + 30}
+//                   fontSize="10"
+//                   fill="gray"
+//                 >
+//                   ({Math.round(region.x1)}, {Math.round(region.y1)}) - (
+//                   {Math.round(region.x2)}, {Math.round(region.y2)})
+//                 </text>
+//               </g>
+//             )}
+//           </svg>
+
+//           {/* Old marker still works if you want */}
+//           {/* {marker && ( */}
+//           <div
+//             className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
+//             // style={{ left: marker.x - 8, top: marker.y - 8 }}
+//           />
+//           {/* )} */}
+//         </div>
+
+//         {/* Hidden canvas (cropping still works if needed) */}
+//         <canvas style={{ display: "none" }} />
+
+//         {/* {croppedPart && ( */}
+//         <div className="p-2 border rounded shadow mt-6">
+//           {/* <img
+//         src={croppedPart}
+//         alt="Selected Part"
+//         className="w-24 h-24 object-contain"
+//       /> */}
+//         </div>
+//         {/* )} */}
+//       </div>
+//     </>
+//   );
+// };
+
+// export default PainDiagram;
