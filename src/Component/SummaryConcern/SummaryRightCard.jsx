@@ -20,7 +20,7 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
 
     return "";
   };
-
+  console.log("==>SummaryDetail", SummaryDetail);
   return (
     <>
       {SummaryDetail.flat().map((item, index) => {

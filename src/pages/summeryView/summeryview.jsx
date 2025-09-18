@@ -9,11 +9,15 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import { useParams } from "react-router-dom";
 import BackArrow from "../../assets/images/back-arrow.svg";
+
+import getSetting from "../../Component/settingApi/settings";
+
 const SummaryList = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [summaryData, setSummaryData] = useState(null);
   const [loader, setLoader] = useState(true);
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   useEffect(() => {
     if (id) {
       const payload = new FormData();
@@ -47,7 +51,16 @@ const SummaryList = () => {
       setLoader(false);
     }
   }, [id]);
-  console.log("===>summaryData", summaryData?.summaryList?.length > 0);
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      setSelectedLanguage,
+      () => {},
+      () => {},
+      setLoader
+    );
+  }, []);
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
@@ -60,7 +73,9 @@ const SummaryList = () => {
           <img src={BackArrow} />
         </div>
         <h2 className="text-[25px] font-normal text-black text-center">
-          {"Summery Details"}
+          {selectedLanguage === "Spanish"
+            ? "Detalles veraniegos"
+            : "Summery Details"}
         </h2>
         <button></button>
       </div>
@@ -70,19 +85,29 @@ const SummaryList = () => {
         <div className="main-wrapper home-wrapper">
           <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
             <div className="md:w-1/4 sm:w-1/2 w-full">
-              <SummaryLeftCard SummaryConcernData={summaryData.concern} />
+              <SummaryLeftCard
+                selectedLanguage={selectedLanguage}
+                SummaryConcernData={summaryData.concern}
+              />
             </div>
             <div className="arrow-right mx-4">
               <img src={Arrow} alt="arrow" />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4.5 sm:gap-3">
-              <SummaryRightCard SummaryDetail={summaryData.summaryList} />
+              <SummaryRightCard
+                selectedLanguage={selectedLanguage}
+                SummaryDetail={summaryData.summaryList}
+              />
             </div>
           </div>
         </div>
       ) : (
         <div className="flex items-center justify-center h-[70vh]">
-          <h1 className="text-2xl font-semibold">No Summary Available</h1>
+          <h1 className="text-2xl font-semibold">
+            {selectedLanguage === "Spanish"
+              ? "No hay resumen disponible"
+              : "No Summary Available"}
+          </h1>
         </div>
       )}
 
