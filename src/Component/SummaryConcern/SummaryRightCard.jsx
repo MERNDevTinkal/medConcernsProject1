@@ -8,8 +8,32 @@ import SummaryImg6 from "../../assets/images/summary-img-06.png";
 
 import { Link } from "react-router-dom";
 
-const SummaryRightCard = ({ SummaryDetail }) => {
+const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   console.log("===>SummaryDetail", SummaryDetail);
+  const getTranslatedText = (item, selectedLanguage) => {
+    const isSpanish = selectedLanguage === "Spanish";
+
+    if (item?.name || item?.nameEs) {
+      return isSpanish ? item?.nameEs : item?.name;
+    }
+
+    if (item?.painFeel || item?.painFeelEs) {
+      return isSpanish ? item?.painFeelEs : item?.painFeel;
+    }
+
+    if (item?.data?.[0]?.name || item?.data?.[0]?.nameEs) {
+      return isSpanish ? item?.data?.[0]?.nameEs : item?.data?.[0]?.name;
+    }
+
+    if (item?.data?.[0]?.painFeel || item?.data?.[0]?.painFeelEs) {
+      return isSpanish
+        ? item?.data?.[0]?.painFeelEs
+        : item?.data?.[0]?.painFeel;
+    }
+
+    return "";
+  };
+
   return (
     <>
       {SummaryDetail.flat().map((item, index) => {
@@ -23,13 +47,7 @@ const SummaryRightCard = ({ SummaryDetail }) => {
                 />
               </div>
               <p className="text-[14px] mt-3 color-black">
-                {item?.name
-                  ? item?.name
-                  : item?.painFeel
-                  ? item?.painFeel
-                  : item?.data[0]?.name
-                  ? item?.data[0]?.name
-                  : item?.data[0]?.painFeel}
+                {getTranslatedText(item, selectedLanguage)}
               </p>
             </div>
           </div>

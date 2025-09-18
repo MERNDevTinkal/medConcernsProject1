@@ -12,6 +12,9 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams, useLocation } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import Loader from "../../Component/webLoader/loader";
+import getSetting from "../../Component/settingApi/settings";
+
 function ConfrmStepYesNo() {
   const { name, id } = useParams();
   const navigate = useNavigate();
@@ -19,6 +22,8 @@ function ConfrmStepYesNo() {
   const { updateDisease, diseases } = useContext(GlobalContext);
   const location = useLocation();
   const pathprimary = location.pathname;
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [loader, setLoader] = useState(true);
   const handleConfrmStepYesNo = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(value);
@@ -31,67 +36,93 @@ function ConfrmStepYesNo() {
     const selectedFilds = selectediseasesArray.find((item) => item.id == id);
     setSelectedConcers(selectedFilds);
   }, [name, id]);
+
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      setSelectedLanguage,
+      () => {},
+      () => {},
+      setLoader
+    );
+  }, []);
   return (
     <>
-      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-        <div
-          onClick={() => {
-            navigate(-1);
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          <img src={BackArrow} />
-        </div>
-        <h2 className="text-[25px] font-normal text-black text-center">
-          {selectedConcers?.name ?? selectedConcers?.painFeel}
-        </h2>
-        <button></button>
-      </div>
-      <div className="main-wrapper home-wrapper ">
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
-          <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
-            <div className="dashboard-img rounded-2xl">
-              <img src={selectedConcers.image} className="w-full" />
+      {loader ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+            <div
+              onClick={() => {
+                navigate(-1);
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              <img src={BackArrow} />
             </div>
+            <h2 className="text-[25px] font-normal text-black text-center">
+              {selectedLanguage === "Spanish"
+                ? selectedConcers?.nameEs
+                : selectedConcers?.name ?? selectedLanguage === "Spanish"
+                ? selectedConcers?.painFeelEs
+                : selectedConcers?.painFeel}
+            </h2>
+            <button></button>
           </div>
-          <div>
-            <div className="w-full overflow-hidden decision-cards">
-              <div
-                onClick={() => {
-                  handleConfrmStepYesNo("YES", selectedConcers.path);
-                }}
-              >
-                <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  <div className="flex items-center">
-                    <p className="text-[32px] font-medium text-green-600">
-                      YES
-                    </p>
-                  </div>
-                  <div>
-                    <img src={Checked} alt="" />
-                  </div>
+          <div className="main-wrapper home-wrapper ">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
+              <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
+                <div className="dashboard-img rounded-2xl">
+                  <img src={selectedConcers.image} className="w-full" />
                 </div>
               </div>
+              <div>
+                <div className="w-full overflow-hidden decision-cards">
+                  <div
+                    onClick={() => {
+                      handleConfrmStepYesNo(
+                        selectedLanguage === "Spanish" ? "Sí" : "YES",
+                        selectedConcers.path
+                      );
+                    }}
+                  >
+                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      <div className="flex items-center">
+                        <p className="text-[32px] font-medium text-green-600">
+                          {selectedLanguage === "Spanish" ? "Sí" : "YES"}
+                        </p>
+                      </div>
+                      <div>
+                        <img src={Checked} alt="" />
+                      </div>
+                    </div>
+                  </div>
 
-              <div
-                onClick={() => {
-                  handleConfrmStepYesNo("NO", navigate(-1));
-                }}
-              >
-                <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                  <div className="flex items-center">
-                    <p className="text-[32px] font-medium text-red-600">NO</p>
-                  </div>
-                  <div>
-                    <img src={Close} />
+                  <div
+                    onClick={() => {
+                      handleConfrmStepYesNo("NO", navigate(-1));
+                    }}
+                  >
+                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      <div className="flex items-center">
+                        <p className="text-[32px] font-medium text-red-600">
+                          NO
+                        </p>
+                      </div>
+                      <div>
+                        <img src={Close} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <Footer />
           </div>
-        </div>
-        <Footer />
-      </div>
+        </>
+      )}
     </>
   );
 }

@@ -4,22 +4,22 @@ import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams } from "react-router-dom";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech"
-const DecisionCardFeeling = ({ concenFell }) => {
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+const DecisionCardFeeling = ({ selectedLanguage, concenFell }) => {
   const { name } = useParams();
   const navigate = useNavigate();
-  const [pathUrl, setPathUrl] = useState("")
+  const [pathUrl, setPathUrl] = useState("");
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleBreathingYesNo = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value)
-      updateDisease("concenyesno", value)
+      await getTextToSpeech(value);
+      updateDisease("concenyesno", value);
       if (path === "/pain-problem") {
-        return navigate("/male-body")
+        return navigate("/male-body");
       }
-      navigate(path)
+      navigate(path);
     }
-  }
+  };
   useEffect(() => {
     if (!name) return;
     const [firstPart] = name.split("-");
@@ -33,10 +33,19 @@ const DecisionCardFeeling = ({ concenFell }) => {
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        <div onClick={() => { handleBreathingYesNo("YES", pathUrl) }}>
+        <div
+          onClick={() => {
+            handleBreathingYesNo(
+              selectedLanguage === "Spanish" ? "Sí" : "YES",
+              pathUrl
+            );
+          }}
+        >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-green-600">YES</p>
+              <p className="text-[32px] font-medium text-green-600">
+                {selectedLanguage === "Spanish" ? "Sí" : "YES"}
+              </p>
             </div>
             <div>
               <img src={Checked} alt="" />
@@ -44,7 +53,11 @@ const DecisionCardFeeling = ({ concenFell }) => {
           </div>
         </div>
 
-        <div onClick={() => { handleBreathingYesNo("NO", navigate(-1)) }}>
+        <div
+          onClick={() => {
+            handleBreathingYesNo("NO", navigate(-1));
+          }}
+        >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-red-600">NO</p>
@@ -54,7 +67,6 @@ const DecisionCardFeeling = ({ concenFell }) => {
             </div>
           </div>
         </div>
-
       </div>
     </>
   );
