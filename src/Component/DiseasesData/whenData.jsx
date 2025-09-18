@@ -160,6 +160,13 @@ export const breathingWhenOptions = [
     nameEs: "Con Alimentación por Sonda",
   },
   {
+    id: 19,
+    image: dashimg17,
+    path: "/confrm-step-when",
+    name: "With Stress / Emotion",
+    nameEs: "Con Estrés/Emoción",
+  },
+  {
     id: 20,
     image: dashimg04,
     path: "/confrm-step-when",

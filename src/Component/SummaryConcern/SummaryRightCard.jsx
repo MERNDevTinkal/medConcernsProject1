@@ -1,17 +1,13 @@
 import React from "react";
 const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
-  console.log("===>SummaryDetail", SummaryDetail);
   const getTranslatedText = (item, selectedLanguage) => {
     const isSpanish = selectedLanguage === "Spanish";
-
     if (item?.name || item?.nameEs) {
       return isSpanish ? item?.nameEs : item?.name;
     }
-
     if (item?.painFeel || item?.painFeelEs) {
       return isSpanish ? item?.painFeelEs : item?.painFeel;
     }
-
     if (item?.data?.[0]?.name || item?.data?.[0]?.nameEs) {
       return isSpanish ? item?.data?.[0]?.nameEs : item?.data?.[0]?.name;
     }
