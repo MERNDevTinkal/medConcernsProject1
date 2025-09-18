@@ -47,6 +47,7 @@ const SummaryList = () => {
       setLoader(false);
     }
   }, [id]);
+  console.log("===>summaryData", summaryData?.summaryList?.length > 0);
   return (
     <>
       <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
@@ -65,7 +66,7 @@ const SummaryList = () => {
       </div>
       {loader ? (
         <Loader />
-      ) : summaryData?.concern || summaryData?.summaryList > 0 ? (
+      ) : summaryData?.concern || summaryData?.summaryList?.length > 0 ? (
         <div className="main-wrapper home-wrapper">
           <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
             <div className="md:w-1/4 sm:w-1/2 w-full">

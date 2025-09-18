@@ -37,6 +37,10 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const handleSummery = () => resetDiseases();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("license_key");
+  };
   const menuItems = [
     { icon: MenuIcon1, path: "/settings", en: "Settings", es: "Configuración" },
     {
@@ -220,7 +224,15 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       en: "About Us",
       es: "Sobre nosotros",
     },
+    {
+      icon: MenuIcon12,
+      path: "#",
+      en: "Logout",
+      es: "Cerrar sesión",
+      fun: handleLogout,
+    },
   ];
+
   return (
     <>
       <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">
@@ -261,7 +273,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                     className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
                   >
                     <img src={item.icon} alt="" />
-                    <Link to={item.path}>
+                    <Link to={item.path} onClick={item.fun}>
                       {selectedLanguage === "Spanish" ? item.es : item.en}
                     </Link>
                   </li>
