@@ -65,7 +65,9 @@ function ConfrmStepYesNo() {
             <h2 className="text-[25px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
                 ? selectedConcers?.nameEs
-                : selectedConcers?.name ?? selectedLanguage === "Spanish"
+                : selectedConcers?.name
+                ? selectedConcers?.name
+                : selectedLanguage === "Spanish"
                 ? selectedConcers?.painFeelEs
                 : selectedConcers?.painFeel}
             </h2>

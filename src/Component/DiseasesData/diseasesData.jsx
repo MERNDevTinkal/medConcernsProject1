@@ -758,7 +758,7 @@ const painwithswallowingDesises = [
     name: "With Drinks",
     nameEs: "Con bebidas",
     image: swallowingimg04,
-    secPath: "/feeling-list-pain",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
@@ -766,7 +766,7 @@ const painwithswallowingDesises = [
     name: "With Medication",
     nameEs: "Con medicamentos",
     image: swallowingimg04,
-    secPath: "/feeling-list-pain",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
@@ -774,7 +774,7 @@ const painwithswallowingDesises = [
     name: "With Food / Drinks",
     nameEs: "Con comida / bebidas",
     image: swallowingimg04,
-    secPath: "/feeling-list-pain",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
@@ -782,7 +782,7 @@ const painwithswallowingDesises = [
     name: "With Saliva",
     nameEs: "Con saliva",
     image: swallowingimg04,
-    secPath: "/feeling-list-pain",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
@@ -790,7 +790,7 @@ const painwithswallowingDesises = [
     name: "Just Swallowing",
     nameEs: "Solo al tragar",
     image: swallowingimg04,
-    secPath: "/feeling-list-pain",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
@@ -798,7 +798,7 @@ const painwithswallowingDesises = [
     name: "Something Else",
     nameEs: "Otra cosa",
     image: swallowingimg04,
-    secPath: "/Whiteboard",
+    secPath: "/pain-feel",
     path: "/when",
   },
 ];
@@ -1034,7 +1034,7 @@ const trachproblemDesises = [
     name: "Pain",
     nameEs: "Dolor",
     image: swallowingimg04,
-    secPath: "",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
@@ -1195,7 +1195,7 @@ const feedingtubeDesises = [
     name: "Pain",
     nameEs: "Dolor",
     image: swallowingimg04,
-    secPath: "",
+    secPath: "/pain-feel",
     path: "",
   },
   {
@@ -1271,7 +1271,7 @@ const trachproblemsubDesises = [
     nameEs: "Dolor",
     path: "",
     image: swallowingimg04,
-    secPath: "/confrm-step-yesno",
+    secPath: "/pain-feel",
   },
   {
     id: "7",
@@ -1638,7 +1638,7 @@ const SwallowingTrachDesies = [
     nameEs: "Dolor",
     path: "",
     image: dashimg04,
-    secPath: "/feeling-list-pain",
+    secPath: "/pain-feel",
   },
   {
     id: "8",
@@ -2258,7 +2258,7 @@ const swallowingfeedingtube = [
     nameEs: "Dolor",
     path: "",
     image: dashimg04,
-    secPath: "Pain",
+    secPath: "/male-body",
   },
   {
     id: "2",
@@ -4987,7 +4987,7 @@ export const diseasesData = {
       nameEs: "Dolor",
       image: swallowingimg04,
       path: "/when",
-      secPath: "/pain-front",
+      secPath: "/pain-feel",
     },
     {
       id: "8",
