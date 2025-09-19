@@ -61,67 +61,83 @@ const SummaryList = () => {
   }, []);
   return (
     <>
-      <Header
-        name={
-          selectedLanguage === "Spanish" ? "Lista veraniega" : "Summery List"
-        }
-      />
-      {diseases?.concern?.name || diseases?.summaryList.length > 0 ? (
-        <div className="main-wrapper home-wrapper">
-          <div className="flex justify-end space-x-2">
-            <button
-              onClick={handleSummaryListRoute}
-              style={{ border: "2px solid black" }}
-              className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
-            >
-              {selectedLanguage === "Spanish" ? "Lista" : "List"}
-            </button>
-            <button
-              onClick={() => {
-                setShowSaveModal(true);
-              }}
-              style={{ border: "2px solid black" }}
-              className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
-            >
-              {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
-            </button>
-          </div>
-
-          <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
-            <div className="md:w-1/4 sm:w-1/2 w-full">
-              <SummaryLeftCard
-                selectedLanguage={selectedLanguage}
-                SummaryConcernData={diseases?.concern}
-              />
-            </div>
-            <div className="arrow-right mx-4">
-              <img src={Arrow} alt="arrow" />
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4.5 sm:gap-3">
-              <SummaryRightCard
-                selectedLanguage={selectedLanguage}
-                SummaryDetail={diseases?.summaryList}
-              />
-            </div>
-          </div>
-        </div>
+      {loader ? (
+        <Loader />
       ) : (
-        <div className="flex items-center justify-center h-[70vh]">
-          <h1 className="text-2xl font-semibold">
-            {selectedLanguage === "Spanish"
-              ? "No hay resumen disponible"
-              : "No Summary Available"}
-          </h1>
-        </div>
+        <>
+          <Header
+            name={
+              selectedLanguage === "Spanish"
+                ? "Lista veraniega"
+                : "Summery List"
+            }
+          />
+          {diseases?.concern?.name || diseases?.summaryList.length > 0 ? (
+            <div className="main-wrapper home-wrapper">
+              <div className="flex justify-end space-x-2">
+                <button
+                  onClick={() => window.print()}
+                  style={{ border: "2px solid black" }}
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {selectedLanguage === "Spanish" ? "Imprimir" : "Print"}
+                </button>
+
+                <button
+                  onClick={handleSummaryListRoute}
+                  style={{ border: "2px solid black" }}
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {selectedLanguage === "Spanish" ? "Lista" : "List"}
+                </button>
+                <button
+                  onClick={() => {
+                    setShowSaveModal(true);
+                  }}
+                  style={{ border: "2px solid black" }}
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
+                </button>
+              </div>
+
+              <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
+                <div className="md:w-1/4 sm:w-1/2 w-full">
+                  <SummaryLeftCard
+                    selectedLanguage={selectedLanguage}
+                    SummaryConcernData={diseases?.concern}
+                  />
+                </div>
+                <div className="arrow-right mx-4">
+                  <img src={Arrow} alt="arrow" />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4.5 sm:gap-3">
+                  <SummaryRightCard
+                    selectedLanguage={selectedLanguage}
+                    SummaryDetail={diseases?.summaryList}
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center h-[70vh]">
+              <h1 className="text-2xl font-semibold">
+                {selectedLanguage === "Spanish"
+                  ? "No hay resumen disponible"
+                  : "No Summary Available"}
+              </h1>
+            </div>
+          )}
+          {ShowSaveModal && (
+            <SaveModel
+              saveData={saveData}
+              setSaveAs={setSaveAs}
+              setShowSaveModal={setShowSaveModal}
+            />
+          )}
+          <Footer />
+        </>
       )}
-      {ShowSaveModal && (
-        <SaveModel
-          saveData={saveData}
-          setSaveAs={setSaveAs}
-          setShowSaveModal={setShowSaveModal}
-        />
-      )}
-      <Footer />
     </>
   );
 };
