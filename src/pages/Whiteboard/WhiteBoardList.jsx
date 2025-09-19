@@ -68,6 +68,7 @@ const WhiteBoardList = () => {
       setLoader
     );
   }, []);
+  console.log("");
   return (
     <>
       {loader ? (
@@ -86,7 +87,7 @@ const WhiteBoardList = () => {
 
           <div className="main-wrapper home-wrapper pt-20">
             <div className="px-4">
-              {savedDrawings.length > 0 && (
+              {savedDrawings.length > 0 ? (
                 <div className="w-full">
                   <div className="flex justify-between items-center">
                     <h5 className="px-6 py-3 text-[20px] font-normal text-black">
@@ -120,6 +121,7 @@ const WhiteBoardList = () => {
                       </h5>
                     </div>
                   ))}
+
                   <div className="mt-4">
                     <Pagination
                       currentPage={currentPage}
@@ -127,6 +129,14 @@ const WhiteBoardList = () => {
                       onPageChange={(page) => setCurrentPage(page)}
                     />
                   </div>
+                </div>
+              ) : (
+                <div className="flex items-center justify-center h-[70vh]">
+                  <p className="text-lg font-semibold text-gray-600">
+                    {selectedLanguage === "Spanish"
+                      ? "No hay datos"
+                      : "No Data"}
+                  </p>
                 </div>
               )}
             </div>

@@ -171,47 +171,11 @@ export default function Whiteboard() {
   };
 
   /* -------------------- Drawing -------------------- */
-  // const startDrawing = useCallback(
-  //   (e) => {
-  //     const rect = canvasRef.current.getBoundingClientRect();
-  //     const pos = pointerPos(e, rect);
-
-  //     // If clicking on image -> start dragging
-  //     const hit = uploadedImages.find(
-  //       (img) =>
-  //         pos.x >= img.x &&
-  //         pos.x <= img.x + img.width &&
-  //         pos.y >= img.y &&
-  //         pos.y <= img.y + img.height
-  //     );
-  //     if (hit) {
-  //       setDraggingImage(hit);
-  //       setDragOffset({ x: pos.x - hit.x, y: pos.y - hit.y });
-  //       return;
-  //     }
-
-  //     if (tool === "text") {
-  //       setTextPosition({ x: pos.x, y: pos.y });
-  //       setTypedText("");
-  //       setTextToolActive(true);
-  //       return;
-  //     }
-
-  //     const ctx = getCanvasContext();
-  //     if (!ctx) return;
-
-  //     setIsDrawing(true);
-  //     ctx.beginPath();
-  //     ctx.moveTo(pos.x, pos.y);
-  //   },
-  //   [tool, getCanvasContext, uploadedImages]
-  // );
 
   const startDrawing = (e) => {
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
     if (tool !== "pencil" && tool !== "eraser") return;
-
     setIsDrawing(true);
     setPaths((prev) => [
       ...prev,
@@ -219,76 +183,97 @@ export default function Whiteboard() {
     ]);
   };
 
-  // const draw = useCallback(
-  //   (e) => {
-  //     const rect = canvasRef.current.getBoundingClientRect();
-  //     const pos = pointerPos(e, rect);
+  const draw = useCallback(
+    (e) => {
+      const rect = canvasRef.current.getBoundingClientRect();
+      const pos = pointerPos(e, rect);
 
-  //     // Dragging image
-  //     if (draggingImage) {
-  //       setUploadedImages((prev) =>
-  //         prev.map((img) =>
-  //           img === draggingImage
-  //             ? { ...img, x: pos.x - dragOffset.x, y: pos.y - dragOffset.y }
-  //             : img
-  //         )
-  //       );
-  //       return;
-  //     }
+      // Dragging image
+      if (draggingImage) {
+        setUploadedImages((prev) =>
+          prev.map((img) =>
+            img === draggingImage
+              ? { ...img, x: pos.x - dragOffset.x, y: pos.y - dragOffset.y }
+              : img
+          )
+        );
+        return;
+      }
 
-  //     if (!isDrawing || tool === "text") return;
-  //     const ctx = getCanvasContext();
-  //     if (!ctx) return;
+      if (!isDrawing || tool === "text") return;
+      const ctx = getCanvasContext();
+      if (!ctx) return;
 
-  //     ctx.lineTo(pos.x, pos.y);
-  //     ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
-  //     ctx.lineWidth = drawingWidth;
-  //     ctx.lineCap = "round";
-  //     ctx.lineJoin = "round";
-  //     ctx.globalCompositeOperation =
-  //       tool === "pencil" ? "source-over" : "destination-out";
-  //     ctx.stroke();
-  //   },
-  //   [
-  //     isDrawing,
-  //     drawingColor,
-  //     drawingWidth,
-  //     tool,
-  //     getCanvasContext,
-  //     draggingImage,
-  //     dragOffset,
-  //   ]
-  // );
+      // Update the current path points in state
+      setPaths((prev) => {
+        if (prev.length === 0) return prev;
+        const newPaths = [...prev];
+        const lastPath = newPaths[newPaths.length - 1];
+        newPaths[newPaths.length - 1] = {
+          ...lastPath,
+          points: [...lastPath.points, pos], // 👈 immutable update
+        };
+        return newPaths;
+      });
 
-  // const stopDrawing = useCallback(() => {
-  //   setIsDrawing(false);
-  //   setDraggingImage(null);
-  //   const ctx = getCanvasContext();
-  //   if (ctx) {
-  //     ctx.closePath();
-  //     ctx.globalCompositeOperation = "source-over";
-  //   }
-  // }, [getCanvasContext]);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
+      ctx.lineWidth = drawingWidth;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.globalCompositeOperation =
+        tool === "pencil" ? "source-over" : "destination-out";
+      ctx.stroke();
+    },
+    [
+      isDrawing,
+      drawingColor,
+      drawingWidth,
+      tool,
+      getCanvasContext,
+      draggingImage,
+      dragOffset,
+    ]
+  );
+
+  const stopDrawing = useCallback(() => {
+    setIsDrawing(false);
+    setDraggingImage(null);
+    const ctx = getCanvasContext();
+    if (ctx) {
+      ctx.closePath();
+      ctx.globalCompositeOperation = "source-over";
+    }
+  }, [getCanvasContext]);
 
   /* -------------------- Text -------------------- */
   const handleKeyPress = useCallback(
     (e) => {
       if (!textToolActive) return;
+
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+      }
+
       if (e.key === "Enter") {
-        setTexts((prev) => [
-          ...prev,
-          {
-            text: typedText,
-            x: textPosition.x,
-            y: textPosition.y,
-            color: drawingColor,
-            font: "20px Arial",
-          },
-        ]);
+        if (typedText.trim()) {
+          setTexts((prev) => [
+            ...prev,
+            {
+              text: typedText,
+              x: textPosition.x,
+              y: textPosition.y,
+              color: drawingColor,
+              font: "20px Arial",
+            },
+          ]);
+        }
         setTextToolActive(false);
         setTypedText("");
+        setShowKeyboard(false);
         return;
       }
+
       if (e.key === "Backspace") {
         setTypedText((prev) => prev.slice(0, -1));
       } else if (e.key.length === 1) {
@@ -326,30 +311,46 @@ export default function Whiteboard() {
     if (ctx)
       ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     setTexts([]);
+    setPaths([]);
     setUploadedImages([]);
   }, [getCanvasContext]);
 
   /* -------------------- Image Upload -------------------- */
-  const handleImageUpload = (files) => {
+  const handleImageUpload = async (files) => {
     if (!files || files.length === 0) return;
-    Array.from(files).forEach((file) => {
-      const src = URL.createObjectURL(file);
-      const img = new Image();
-      img.onload = () => {
-        let { width, height } = img;
-        const maxSize = 200;
-        if (width > maxSize || height > maxSize) {
-          const scale = Math.min(maxSize / width, maxSize / height);
-          width *= scale;
-          height *= scale;
+
+    for (let file of files) {
+      const formData = new FormData();
+      formData.append("licenses_id", licenses_id);
+      formData.append("file", file);
+
+      try {
+        const { data } = await api.post("whiteBoardImageUpload", formData, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (data.status && data.url) {
+          // store backend URL instead of local URL
+          const img = new Image();
+          img.onload = () => {
+            let { width, height } = img;
+            const maxSize = 200;
+            if (width > maxSize || height > maxSize) {
+              const scale = Math.min(maxSize / width, maxSize / height);
+              width *= scale;
+              height *= scale;
+            }
+            setUploadedImages((prev) => [
+              ...prev,
+              { src: data.url, x: 50, y: 50, width, height },
+            ]);
+          };
+          img.src = data.url;
         }
-        setUploadedImages((prev) => [
-          ...prev,
-          { src, x: 50, y: 50, width, height },
-        ]);
-      };
-      img.src = src;
-    });
+      } catch (err) {
+        console.error("Image upload failed:", err);
+      }
+    }
   };
 
   /* -------------------- Redraw -------------------- */
@@ -382,20 +383,18 @@ export default function Whiteboard() {
       ctx.fillStyle = t.color || "#000";
       ctx.fillText(t.text, t.x, t.y);
     });
-
-    // Live typing preview
     if (textToolActive && typedText) {
       ctx.font = "20px Arial";
       ctx.fillStyle = drawingColor;
       ctx.fillText(typedText, textPosition.x, textPosition.y);
-    }
 
-    // Draw uploaded images
-    uploadedImages.forEach((img) => {
-      const imageObj = new Image();
-      imageObj.src = img.src;
-      ctx.drawImage(imageObj, img.x, img.y, img.width, img.height);
-    });
+      const textWidth = ctx.measureText(typedText).width;
+      ctx.beginPath();
+      ctx.moveTo(textPosition.x + textWidth + 2, textPosition.y - 16);
+      ctx.lineTo(textPosition.x + textWidth + 2, textPosition.y + 4);
+      ctx.strokeStyle = drawingColor;
+      ctx.stroke();
+    }
   }, [
     paths,
     texts,
@@ -408,121 +407,108 @@ export default function Whiteboard() {
   ]);
 
   useEffect(() => {
-    if (id) {
-      return;
-    }
-    const payload = new FormData();
-    payload.append("licenses_id", licenses_id);
-    api
-      .post("whiteBoardlist", payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(({ data }) => {})
-      .catch(({ response }) => {});
-  }, [id]);
+    if (!id) return;
 
-  /* -------------------- Save Drawing -------------------- */
-  const handleSaveDrawing = useCallback(async () => {
-    const canvas = canvasRef.current;
-    if (canvas && drawingName.trim()) {
-      const snapshot = canvas.toDataURL("image/png");
-      const state = {
-        name: drawingName.trim(),
-        canvas: snapshot,
-        uploadedImages,
-        texts,
-        toolSettings: { color: drawingColor, width: drawingWidth },
-      };
+    const fetchBoard = async () => {
       const payload = new FormData();
       payload.append("licenses_id", licenses_id);
-      payload.append("name_key", state.name);
-      payload.append("data", JSON.stringify(state));
+      payload.append("search_key", id);
+
       try {
-        const { data } = await api.post("whiteBoardCreate", payload, {
+        const { data } = await api.post("whiteBoardlist", payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (data.status) {
-          toast.success(data.msg);
-          setDrawingName("");
-          setShowSaveModal(false);
-          clearCanvas();
-        } else {
-          toast.error(data.msg);
+          const savedState = JSON.parse(data?.data[0]?.data);
+
+          if (savedState.paths) {
+            setPaths(savedState.paths); // 👈 restore paths
+          }
+          if (savedState.uploadedImages) {
+            setUploadedImages(savedState.uploadedImages);
+          }
+          if (savedState.texts) {
+            setTexts(savedState.texts);
+          }
+          if (savedState.toolSettings) {
+            setDrawingColor(savedState.toolSettings.color);
+            setDrawingWidth(savedState.toolSettings.width);
+          }
         }
       } catch (err) {
-        toast.error("Save failed");
+        console.error("Failed to fetch whiteboard:", err);
       }
+    };
+
+    fetchBoard();
+  }, [id, licenses_id, token]);
+
+  /* -------------------- Save Drawing -------------------- */
+  const handleSaveDrawing = async () => {
+    if (!drawingName.trim()) {
+      alert("Please enter a drawing name");
+      return;
     }
-  }, [
-    drawingName,
-    uploadedImages,
-    texts,
-    drawingColor,
-    drawingWidth,
-    clearCanvas,
-  ]);
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const snapshot = canvas.toDataURL("image/png");
+    const state = {
+      name: drawingName.trim(),
+      canvas: snapshot,
+      uploadedImages,
+      texts,
+      paths, // 👈 include drawing paths
+      toolSettings: { color: drawingColor, width: drawingWidth },
+    };
+
+    const payload = new FormData();
+    payload.append("licenses_id", licenses_id);
+    payload.append("name_key", drawingName);
+    payload.append("data", JSON.stringify(state));
+    if (id) payload.append("id", id);
+
+    try {
+      const { data } = await api.post("whiteBoardCreate", payload, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (data.status) {
+        toast.success(data.msg, { autoClose: 1500 });
+        navigate("/whiteboard");
+      } else {
+        toast.error(data.msg, { autoClose: 1500 });
+      }
+    } catch (err) {
+      console.error("Save error:", err.message);
+      toast.error(err.message, { autoClose: 1500 });
+    }
+  };
 
   const handleKeyboardChange = (input) => {
     setTypedText(input);
   };
 
-  // const handleKeyboardKeyPress = (button) => {
-  //   if (!textToolActive) return;
-
-  //   if (button === "{enter}") {
-  //     setTexts((prev) => [
-  //       ...prev,
-  //       {
-  //         text: typedText,
-  //         x: textPosition.x,
-  //         y: textPosition.y,
-  //         color: drawingColor,
-  //         font: "20px Arial",
-  //       },
-  //     ]);
-  //     setTextToolActive(false);
-  //     setTypedText("");
-  //   } else if (button === "{bksp}") {
-  //     setTypedText((prev) => prev.slice(0, -1));
-  //   } else if (button === "{space}") {
-  //     setTypedText((prev) => prev + " ");
-  //   }
-  // };
-
   const handleKeyboardKeyPress = (button) => {
     if (button === "{enter}") {
-      setTexts((prev) => [
-        ...prev,
-        {
-          text: typedText,
-          x: textPosition.x,
-          y: textPosition.y,
-          color: drawingColor,
-          font: "20px Arial",
-        },
-      ]);
+      if (typedText.trim()) {
+        setTexts((prev) => [
+          ...prev,
+          {
+            text: typedText,
+            x: textPosition.x,
+            y: textPosition.y,
+            color: drawingColor,
+            font: "20px Arial",
+          },
+        ]);
+      }
       setTextToolActive(false);
       setTypedText("");
+      setShowKeyboard(false);
     }
   };
-
-  // ======================================================================handleKeyboardKeyPress
-
-  const draw = (e) => {
-    if (!isDrawing) return;
-    const rect = canvasRef.current.getBoundingClientRect();
-    const pos = pointerPos(e, rect);
-
-    setPaths((prev) => {
-      const copy = [...prev];
-      copy[copy.length - 1].points.push(pos);
-      return copy;
-    });
-  };
-
-  const stopDrawing = () => setIsDrawing(false);
 
   useEffect(() => {
     getSetting(
@@ -576,6 +562,15 @@ export default function Whiteboard() {
                     onTouchStart={startDrawing}
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
+                    onClick={(e) => {
+                      if (tool === "text") {
+                        const rect = canvasRef.current.getBoundingClientRect();
+                        const pos = pointerPos(e, rect);
+                        setTextPosition(pos);
+                        setTextToolActive(true);
+                        setShowKeyboard(true);
+                      }
+                    }}
                   />
                 </div>
                 <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
