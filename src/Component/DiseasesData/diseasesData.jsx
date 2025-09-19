@@ -1125,7 +1125,7 @@ const trachDesises = [
     name: "Pain",
     nameEs: "Dolor",
     image: swallowingimg04,
-    secPath: "/pain-front",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
@@ -4872,7 +4872,7 @@ export const diseasesData = {
       nameEs: "Dolor",
       image: swallowingimg04,
       path: "/howoften",
-      secPath: "/full-body",
+      secPath: "/male-body",
     },
     {
       id: "2",
