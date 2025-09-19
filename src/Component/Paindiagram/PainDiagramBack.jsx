@@ -285,7 +285,6 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           realY <= r.y2 + PADDING
       ) || null;
 
-    // If not found, pick nearest region center (no "Body" fallback)
     if (!clickedRegion) {
       let minDist = Infinity;
       activeRegions.forEach((r) => {
@@ -300,13 +299,11 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
     }
     // Speak the selected name
     getTextToSpeech(clickedRegion.name);
-    // Crop around the click point
     const imageObj = new Image();
-    imageObj.src = bodyImage; // true = back, false = front
+    imageObj.src = bodyImage;
     imageObj.onload = () => {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
-
       let startX = realX - cropSize / 2;
       let startY = realY - cropSize / 2;
 
@@ -316,7 +313,6 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
         startX = imageObj.naturalWidth - cropSize;
       if (startY + cropSize > imageObj.naturalHeight)
         startY = imageObj.naturalHeight - cropSize;
-
       canvas.width = cropSize;
       canvas.height = cropSize;
       ctx.drawImage(
