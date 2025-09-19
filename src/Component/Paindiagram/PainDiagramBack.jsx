@@ -81,8 +81,8 @@ const frontRegions = [
   makeRegion(`Knee`, 400, 110, 440, 145),
   makeRegion(`Lower Leg`, 450, 58, 560, 90),
   makeRegion(`Lower Leg`, 450, 107, 560, 140),
-  makeRegion(`Foot / Toe`, 570, 110, 610, 134),
-  makeRegion(`Foot / Toe`, 570, 65, 610, 90),
+  makeRegion(`Foot & Toe`, 570, 110, 610, 134),
+  makeRegion(`Foot & Toe`, 570, 65, 610, 90),
   makeRegion(`Shoulder`, 180, 160, 117, 175),
   makeRegion(`Arm `, 126, 170, 290, 190),
   makeRegion(`Hand`, 298, 178, 321, 200),
@@ -125,6 +125,116 @@ const frontRegionsSpanish = [
   makeRegion(`Dedo`, 330, 12, 340, 30),
 ];
 
+const femalefrontRegions = [
+  makeRegion(`Chest & Breast`, 385, 192, 602, 444),
+  makeRegion(`Abdomen`, 623, 211, 844, 413),
+  makeRegion(`Shoulder`, 353, 441, 518, 494),
+  makeRegion(`Arm`, 448, 490, 858, 529),
+  makeRegion(`Hand`, 883, 522, 942, 599),
+  makeRegion(`Finger`, 953, 536, 1016, 613),
+  makeRegion(`Neck`, 304, 266, 364, 340),
+  makeRegion(`Shoulder`, 364, 119, 494, 185),
+  makeRegion(`Arm`, 476, 87, 890, 108),
+  makeRegion(`Hand`, 886, 28, 953, 98),
+  makeRegion(`Finger`, 932, 17, 1034, 59),
+  makeRegion(`Hip`, 830, 147, 946, 220),
+  makeRegion(`Thigh`, 946, 150, 1174, 287),
+  makeRegion(`Knee`, 1139, 189, 1254, 287),
+  makeRegion(`Lower Leg`, 1261, 171, 1573, 255),
+  makeRegion(`Foot & Toe`, 1566, 199, 1672, 255),
+  makeRegion(`Hip`, 802, 406, 939, 483),
+  makeRegion(`Thigh`, 939, 315, 1170, 441),
+  makeRegion(`Knee`, 1167, 322, 1251, 423),
+  makeRegion(`Lower Leg`, 1268, 329, 1556, 406),
+  makeRegion(`Lower Leg`, 1268, 329, 1556, 406),
+  makeRegion(`Foot & Toe`, 1559, 325, 1672, 413),
+  makeRegion(`Forhead`, 133, 238, 171, 367),
+  makeRegion(`Eye`, 185, 252, 217, 297),
+  makeRegion(`Eye`, 185, 311, 224, 364),
+  makeRegion(`Ear`, 185, 367, 241, 395),
+  makeRegion(`Ear`, 189, 213, 255, 248),
+  makeRegion(`Nose`, 196, 297, 255, 318),
+  makeRegion(`Mouth`, 259, 287, 297, 332),
+  makeRegion(`Pelvis / Genitals`, 877, 241, 912, 367),
+];
+
+const femaleBackImage = [
+  makeRegion(`Back`, 385, 164, 739, 437),
+  makeRegion(`Elbow`, 588, 476, 651, 539),
+  makeRegion(`Upper Arm`, 367, 473, 578, 501),
+  makeRegion(`Lower Arm`, 637, 536, 851, 571),
+  makeRegion(`Hand`, 890, 532, 960, 599),
+  makeRegion(`Finger`, 974, 532, 1013, 606),
+  makeRegion(`Upper Arm`, 381, 122, 595, 164),
+  makeRegion(`Lower Arm`, 648, 59, 862, 105),
+  makeRegion(`Hand`, 872, 38, 956, 80),
+  makeRegion(`Finger`, 949, 10, 1013, 73),
+  makeRegion(`Butt`, 746, 168, 942, 476),
+  makeRegion(`Thigh`, 942, 147, 1177, 273),
+  makeRegion(`Knee`, 1184, 178, 1247, 287),
+  makeRegion(`Lower Leg`, 1251, 168, 1595, 262),
+  makeRegion(`Foot & Toe`, 1609, 157, 1682, 269),
+  makeRegion(`Thigh`, 914, 325, 1181, 437),
+  makeRegion(`Knee`, 1191, 325, 1293, 434),
+  makeRegion(`Lower Leg`, 1297, 329, 1605, 402),
+  makeRegion(`Foot & Toe`, 1602, 325, 1676, 406),
+];
+
+const femalefrontRegionsSpanish = [
+  makeRegion(`Pecho y Senos`, 385, 192, 602, 444), // Chest & Breast
+  makeRegion(`Abdomen`, 623, 211, 844, 413), // Abdomen
+  makeRegion(`Hombro`, 353, 441, 518, 494), // Shoulder
+  makeRegion(`Brazo`, 448, 490, 858, 529), // Arm
+  makeRegion(`Mano`, 883, 522, 942, 599), // Hand
+  makeRegion(`Dedo`, 953, 536, 1016, 613), // Finger
+  makeRegion(`Cuello`, 304, 266, 364, 340), // Neck
+  makeRegion(`Hombro`, 364, 119, 494, 185), // Shoulder
+  makeRegion(`Brazo`, 476, 87, 890, 108), // Arm
+  makeRegion(`Mano`, 886, 28, 953, 98), // Hand
+  makeRegion(`Dedo`, 932, 17, 1034, 59), // Finger
+  makeRegion(`Cadera`, 830, 147, 946, 220), // Hip
+  makeRegion(`Muslo`, 946, 150, 1174, 287), // Thigh
+  makeRegion(`Rodilla`, 1139, 189, 1254, 287), // Knee
+  makeRegion(`Pierna Inferior`, 1261, 171, 1573, 255), // Lower Leg
+  makeRegion(`Pie y Dedos`, 1566, 199, 1672, 255), // Foot & Toe
+  makeRegion(`Cadera`, 802, 406, 939, 483), // Hip
+  makeRegion(`Muslo`, 939, 315, 1170, 441), // Thigh
+  makeRegion(`Rodilla`, 1167, 322, 1251, 423), // Knee
+  makeRegion(`Pierna Inferior`, 1268, 329, 1556, 406), // Lower Leg
+  makeRegion(`Pierna Inferior`, 1268, 329, 1556, 406), // Lower Leg (duplicate)
+  makeRegion(`Pie y Dedos`, 1559, 325, 1672, 413), // Foot & Toe
+  makeRegion(`Frente`, 133, 238, 171, 367), // Forhead
+  makeRegion(`Ojo`, 185, 252, 217, 297), // Eye
+  makeRegion(`Ojo`, 185, 311, 224, 364), // Eye
+  makeRegion(`Oreja`, 185, 367, 241, 395), // Ear
+  makeRegion(`Oreja`, 189, 213, 255, 248), // Ear
+  makeRegion(`Nariz`, 196, 297, 255, 318), // Nose
+  makeRegion(`Boca`, 259, 287, 297, 332), // Mouth
+  makeRegion(`Pelvis / Genitales`, 877, 241, 912, 367), // Pelvis / Genitals
+];
+
+const femaleBackImageSpanish = [
+  makeRegion(`Espalda`, 385, 164, 739, 437), // Back
+  makeRegion(`Codo`, 588, 476, 651, 539), // Elbow
+  makeRegion(`Brazo Superior`, 367, 473, 578, 501), // Upper Arm
+  makeRegion(`Antebrazo`, 637, 536, 851, 571), // Lower Arm
+  makeRegion(`Mano`, 890, 532, 960, 599), // Hand
+  makeRegion(`Dedo`, 974, 532, 1013, 606), // Finger
+  makeRegion(`Brazo Superior`, 381, 122, 595, 164), // Upper Arm
+  makeRegion(`Antebrazo`, 648, 59, 862, 105), // Lower Arm
+  makeRegion(`Mano`, 872, 38, 956, 80), // Hand
+  makeRegion(`Dedo`, 949, 10, 1013, 73), // Finger
+  makeRegion(`Glúteos`, 746, 168, 942, 476), // Butt
+  makeRegion(`Muslo`, 942, 147, 1177, 273), // Thigh
+  makeRegion(`Rodilla`, 1184, 178, 1247, 287), // Knee
+  makeRegion(`Pierna Inferior`, 1251, 168, 1595, 262), // Lower Leg
+  makeRegion(`Pie y Dedos`, 1609, 157, 1682, 269), // Foot & Toe
+  makeRegion(`Muslo`, 914, 325, 1181, 437), // Thigh
+  makeRegion(`Rodilla`, 1191, 325, 1293, 434), // Knee
+  makeRegion(`Pierna Inferior`, 1297, 329, 1605, 402), // Lower Leg
+  makeRegion(`Pie y Dedos`, 1602, 325, 1676, 406), // Foot & Toe
+];
+
 const PADDING = 0;
 
 const PainDiagram = ({ selectedGender, selectedLanguage }) => {
@@ -138,7 +248,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   const navigate = useNavigate();
   const [bodyImage, setBodyImage] = useState("");
   const { addOrUpdateSummary } = useContext(GlobalContext);
-  console.log("===>selectedGenderselectedGender", selectedGender);
+
   const handleImageClick = (e) => {
     const img = e.target;
     const rect = img.getBoundingClientRect();
@@ -149,13 +259,23 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
     const scaleY = img.naturalHeight / img.height;
     const realX = clickX * scaleX;
     const realY = clickY * scaleY;
+
     const activeRegions = isfront
       ? selectedLanguage === "Spanish"
-        ? backRegionsSpanish
+        ? selectedGender === "Female"
+          ? femaleBackImageSpanish
+          : backRegionsSpanish
+        : selectedGender === "Female"
+        ? femaleBackImage
         : backRegions
       : selectedLanguage === "Spanish"
-      ? frontRegionsSpanish
+      ? selectedGender === "Female"
+        ? femalefrontRegionsSpanish
+        : frontRegionsSpanish
+      : selectedGender === "Female"
+      ? femalefrontRegions
       : frontRegions;
+
     let clickedRegion =
       activeRegions.find(
         (r) =>
@@ -182,7 +302,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
     getTextToSpeech(clickedRegion.name);
     // Crop around the click point
     const imageObj = new Image();
-    imageObj.src = isfront ? DigramBack : DigramFront; // true = back, false = front
+    imageObj.src = bodyImage; // true = back, false = front
     imageObj.onload = () => {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
@@ -286,26 +406,34 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
 export default PainDiagram;
 
 // import React, { useState, useRef } from "react";
-// import Femalebodyback from "../../assets/images/female_bodyback.png";
-// import Frontfemale from "../../assets/images/front_female.png";
+// // import Frontfemale from "../../assets/images/front_female.png";
+// import Frontfemale from "../../assets/images/female_bodyback.png";
+// function makeRegion(name, x1, y1, x2, y2) {
+//   return {
+//     name,
+//     x1: Math.min(x1, x2),
+//     y1: Math.min(y1, y2),
+//     x2: Math.max(x1, x2),
+//     y2: Math.max(y1, y2),
+//   };
+// }
 
 // const PainDiagram = () => {
-//   const [region, setRegion] = useState(null); // केवल 1 rectangle
+//   const [region, setRegion] = useState(null);
 //   const [drawing, setDrawing] = useState(false);
 //   const [start, setStart] = useState(null);
 //   const svgRef = useRef(null);
+//   const imgRef = useRef(null);
 
-//   // Mouse दबाते ही शुरू
 //   const handleMouseDown = (e) => {
 //     const rect = svgRef.current.getBoundingClientRect();
 //     const x = e.clientX - rect.left;
 //     const y = e.clientY - rect.top;
 //     setStart({ x, y });
 //     setDrawing(true);
-//     setRegion(null); // नया draw होने पर पुराना remove
+//     setRegion(null);
 //   };
 
-//   // Mouse move करते समय rectangle दिखाओ
 //   const handleMouseMove = (e) => {
 //     if (!drawing || !start) return;
 //     const rect = svgRef.current.getBoundingClientRect();
@@ -317,108 +445,89 @@ export default PainDiagram;
 //       y1: Math.min(start.y, y),
 //       x2: Math.max(start.x, x),
 //       y2: Math.max(start.y, y),
-//       name: "Selected Area",
+//       name: "",
 //     });
 //   };
 
-//   // Mouse छोड़ने पर rectangle को final करो
 //   const handleMouseUp = () => {
 //     setDrawing(false);
 //     setStart(null);
+
+//     if (region && imgRef.current) {
+//       // === Scale according to natural image size ===
+//       const img = imgRef.current;
+//       const scaleX = img.naturalWidth / img.width;
+//       const scaleY = img.naturalHeight / img.height;
+
+//       const realRegion = makeRegion(
+//         "Selected Area",
+//         Math.round(region.x1 * scaleX),
+//         Math.round(region.y1 * scaleY),
+//         Math.round(region.x2 * scaleX),
+//         Math.round(region.y2 * scaleY)
+//       );
+
+//       console.log(
+//         `makeRegion(\`${realRegion.name}\`, ${realRegion.x1}, ${realRegion.y1}, ${realRegion.x2}, ${realRegion.y2}),`
+//       );
+//     }
 //   };
 
-//   // Double click → remove rectangle
 //   const handleDoubleClick = () => {
 //     setRegion(null);
 //   };
-//   console.log("region", region);
+
 //   return (
-//     <>
-//       <div className="flex justify-end mt-4">
-//         <button
-//           // onClick={handleRefresh}
-//           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
+//     <div className="flex flex-col items-center">
+//       <div className="relative w-[350px] md:w-[500px]">
+//         <img
+//           ref={imgRef}
+//           src={Frontfemale}
+//           alt="body diagram"
+//           className="w-full h-auto"
+//         />
+
+//         {/* Drawing Layer */}
+//         <svg
+//           ref={svgRef}
+//           className="absolute top-0 left-0 w-full h-full"
+//           onMouseDown={handleMouseDown}
+//           onMouseMove={handleMouseMove}
+//           onMouseUp={handleMouseUp}
 //         >
-//           {/* <img src={Refresh} alt="refresh" className="w-6 h-6" /> */}
-//         </button>
-//       </div>
-
-//       <div className="flex flex-col items-center">
-//         <div className="relative w-[350px] md:w-[500px]">
-//           {Frontfemale && (
-//             <img
-//               src={Frontfemale}
-//               alt="body diagram"
-//               className="w-full h-auto"
-//             />
-//           )}
-
-//           {/* === Rectangle drawing overlay === */}
-//           <svg
-//             ref={svgRef}
-//             className="absolute top-0 left-0 w-full h-full"
-//             onMouseDown={handleMouseDown}
-//             onMouseMove={handleMouseMove}
-//             onMouseUp={handleMouseUp}
-//           >
-//             {region && (
-//               <g
-//                 onDoubleClick={handleDoubleClick}
-//                 style={{ cursor: "pointer" }}
+//           {region && (
+//             <g onDoubleClick={handleDoubleClick} style={{ cursor: "pointer" }}>
+//               <rect
+//                 x={region.x1}
+//                 y={region.y1}
+//                 width={region.x2 - region.x1}
+//                 height={region.y2 - region.y1}
+//                 fill="rgba(255,0,0,0.2)"
+//                 stroke="red"
+//                 strokeWidth={2}
+//               />
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 15}
+//                 fontSize="12"
+//                 fill="black"
 //               >
-//                 <rect
-//                   x={region.x1}
-//                   y={region.y1}
-//                   width={region.x2 - region.x1}
-//                   height={region.y2 - region.y1}
-//                   fill="rgba(255,0,0,0.2)"
-//                   stroke="red"
-//                   strokeWidth={2}
-//                 />
-//                 <text
-//                   x={region.x1 + 5}
-//                   y={region.y1 + 15}
-//                   fontSize="12"
-//                   fill="black"
-//                 >
-//                   {region.name}
-//                 </text>
-//                 <text
-//                   x={region.x1 + 5}
-//                   y={region.y1 + 30}
-//                   fontSize="10"
-//                   fill="gray"
-//                 >
-//                   ({Math.round(region.x1)}, {Math.round(region.y1)}) - (
-//                   {Math.round(region.x2)}, {Math.round(region.y2)})
-//                 </text>
-//               </g>
-//             )}
-//           </svg>
-
-//           {/* Old marker still works if you want */}
-//           {/* {marker && ( */}
-//           <div
-//             className="absolute w-10 h-10 rounded-full bg-[#FF00004D] border-2 border-red-500 pointer-events-none"
-//             // style={{ left: marker.x - 8, top: marker.y - 8 }}
-//           />
-//           {/* )} */}
-//         </div>
-
-//         {/* Hidden canvas (cropping still works if needed) */}
-//         <canvas style={{ display: "none" }} />
-
-//         {/* {croppedPart && ( */}
-//         <div className="p-2 border rounded shadow mt-6">
-//           {/* <img
-//         src={croppedPart}
-//         alt="Selected Part"
-//         className="w-24 h-24 object-contain"
-//       /> */}
-//         </div>
-//         {/* )} */}
+//                 {region.name}
+//               </text>
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 30}
+//                 fontSize="10"
+//                 fill="gray"
+//               >
+//                 ({Math.round(region.x1)}, {Math.round(region.y1)}) - (
+//                 {Math.round(region.x2)}, {Math.round(region.y2)})
+//               </text>
+//             </g>
+//           )}
+//         </svg>
 //       </div>
-//     </>
+//     </div>
 //   );
 // };
 
