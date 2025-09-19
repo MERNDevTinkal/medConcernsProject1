@@ -150,6 +150,7 @@ export default function Whiteboard() {
 
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
+  const [imageFiles, setImageFiles] = useState([]);
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
@@ -187,8 +188,6 @@ export default function Whiteboard() {
     (e) => {
       const rect = canvasRef.current.getBoundingClientRect();
       const pos = pointerPos(e, rect);
-
-      // Dragging image
       if (draggingImage) {
         setUploadedImages((prev) =>
           prev.map((img) =>
@@ -199,19 +198,16 @@ export default function Whiteboard() {
         );
         return;
       }
-
       if (!isDrawing || tool === "text") return;
       const ctx = getCanvasContext();
       if (!ctx) return;
-
-      // Update the current path points in state
       setPaths((prev) => {
         if (prev.length === 0) return prev;
         const newPaths = [...prev];
         const lastPath = newPaths[newPaths.length - 1];
         newPaths[newPaths.length - 1] = {
           ...lastPath,
-          points: [...lastPath.points, pos], // 👈 immutable update
+          points: [...lastPath.points, pos],
         };
         return newPaths;
       });
@@ -316,41 +312,27 @@ export default function Whiteboard() {
   }, [getCanvasContext]);
 
   /* -------------------- Image Upload -------------------- */
-  const handleImageUpload = async (files) => {
+  const handleImageUpload = (files) => {
     if (!files || files.length === 0) return;
-
-    for (let file of files) {
-      const formData = new FormData();
-      formData.append("licenses_id", licenses_id);
-      formData.append("file", file);
-
-      try {
-        const { data } = await api.post("whiteBoardImageUpload", formData, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        if (data.status && data.url) {
-          // store backend URL instead of local URL
-          const img = new Image();
-          img.onload = () => {
-            let { width, height } = img;
-            const maxSize = 200;
-            if (width > maxSize || height > maxSize) {
-              const scale = Math.min(maxSize / width, maxSize / height);
-              width *= scale;
-              height *= scale;
-            }
-            setUploadedImages((prev) => [
-              ...prev,
-              { src: data.url, x: 50, y: 50, width, height },
-            ]);
-          };
-          img.src = data.url;
+    Array.from(files).forEach((file) => {
+      setImageFiles((prev) => [...prev, file]);
+      const src = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        const maxSize = 200;
+        if (width > maxSize || height > maxSize) {
+          const scale = Math.min(maxSize / width, maxSize / height);
+          width *= scale;
+          height *= scale;
         }
-      } catch (err) {
-        console.error("Image upload failed:", err);
-      }
-    }
+        setUploadedImages((prev) => [
+          ...prev,
+          { src, x: 50, y: 50, width, height },
+        ]);
+      };
+      img.src = src;
+    });
   };
 
   /* -------------------- Redraw -------------------- */
@@ -408,22 +390,16 @@ export default function Whiteboard() {
 
   useEffect(() => {
     if (!id) return;
-
     const fetchBoard = async () => {
       const payload = new FormData();
       payload.append("licenses_id", licenses_id);
       payload.append("search_key", id);
-
       try {
         const { data } = await api.post("whiteBoardlist", payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (data.status) {
           const savedState = JSON.parse(data?.data[0]?.data);
-
-          if (savedState.paths) {
-            setPaths(savedState.paths); // 👈 restore paths
-          }
           if (savedState.uploadedImages) {
             setUploadedImages(savedState.uploadedImages);
           }
@@ -433,6 +409,15 @@ export default function Whiteboard() {
           if (savedState.toolSettings) {
             setDrawingColor(savedState.toolSettings.color);
             setDrawingWidth(savedState.toolSettings.width);
+          }
+
+          if (savedState.canvas) {
+            const img = new Image();
+            img.onload = () => {
+              const ctx = getCanvasContext();
+              if (ctx) ctx.drawImage(img, 0, 0);
+            };
+            img.src = savedState.canvas;
           }
         }
       } catch (err) {
@@ -457,9 +442,7 @@ export default function Whiteboard() {
     const state = {
       name: drawingName.trim(),
       canvas: snapshot,
-      uploadedImages,
       texts,
-      paths, // 👈 include drawing paths
       toolSettings: { color: drawingColor, width: drawingWidth },
     };
 
@@ -467,11 +450,19 @@ export default function Whiteboard() {
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
     payload.append("data", JSON.stringify(state));
-    if (id) payload.append("id", id);
+    // payload.append("imageFiles", imageFiles)
+    if (imageFiles && imageFiles.length > 0) {
+      imageFiles.forEach((file, index) => {
+        payload.append("imageFiles[]", file);
+      });
+    }
 
     try {
       const { data } = await api.post("whiteBoardCreate", payload, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
       });
 
       if (data.status) {

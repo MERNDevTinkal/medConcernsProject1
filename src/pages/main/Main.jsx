@@ -87,6 +87,11 @@ const Main = () => {
               type="button"
               onClick={loginUser}
               className="thm-btn w-full mt-3"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  loginUser();
+                }
+              }}
             >
               Continue
             </button>

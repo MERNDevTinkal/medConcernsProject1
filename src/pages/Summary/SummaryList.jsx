@@ -75,13 +75,13 @@ const SummaryList = () => {
           {diseases?.concern?.name || diseases?.summaryList.length > 0 ? (
             <div className="main-wrapper home-wrapper">
               <div className="flex justify-end space-x-2">
-                <button
+                {/* <button
                   onClick={() => window.print()}
                   style={{ border: "2px solid black" }}
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
                   {selectedLanguage === "Spanish" ? "Imprimir" : "Print"}
-                </button>
+                </button> */}
 
                 <button
                   onClick={handleSummaryListRoute}
