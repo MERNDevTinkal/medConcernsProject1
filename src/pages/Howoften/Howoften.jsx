@@ -51,6 +51,8 @@ export default function TabsCalendar() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const location = useLocation();
   const pathprimary = location.pathname;
+  const navigate = useNavigate();
+  const { updateDisease } = useContext(GlobalContext);
 
   // Week abbreviations
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
@@ -146,9 +148,6 @@ export default function TabsCalendar() {
       setLoader
     );
   }, []);
-
-  const navigate = useNavigate();
-  const { updateDisease } = useContext(GlobalContext);
 
   // ✅ Language aware mappings
   const currentDaysOfWeek =

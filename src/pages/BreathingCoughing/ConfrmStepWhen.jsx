@@ -19,10 +19,14 @@ function ConfrmStepWhen() {
   const location = useLocation();
   const pathprimary = location.pathname;
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [calendarOn, setCalendarOn] = React.useState("");
   const handleConfrmStepWhen = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(value);
       updateDisease(pathprimary.replace("/", ""), value);
+      if (calendarOn && path === "/howoften") {
+        return navigate("/new-problem");
+      }
       navigate(path);
     }
   };
@@ -37,7 +41,7 @@ function ConfrmStepWhen() {
       () => {},
       () => {},
       setSelectedLanguage,
-      () => {},
+      setCalendarOn,
       () => {},
       setLoader
     );
