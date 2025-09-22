@@ -270,9 +270,9 @@ export default function Whiteboard() {
         return;
       }
 
-      if (e.key === "Backspace") {
+      if (e?.key === "Backspace") {
         setTypedText((prev) => prev.slice(0, -1));
-      } else if (e.key.length === 1) {
+      } else if (e?.key?.length === 1) {
         setTypedText((prev) => prev + e.key);
       }
     },
@@ -290,12 +290,10 @@ export default function Whiteboard() {
     const dpr = window.devicePixelRatio || 1;
     const width = 800;
     const height = 600;
-
     node.width = Math.round(width * dpr);
     node.height = Math.round(height * dpr);
     node.style.width = `${width}px`;
     node.style.height = `${height}px`;
-
     const ctx = node.getContext("2d");
     if (ctx) ctx.scale(dpr, dpr);
 
@@ -339,10 +337,8 @@ export default function Whiteboard() {
   useEffect(() => {
     const ctx = getCanvasContext();
     if (!ctx) return;
-
     ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-
-    // Draw saved paths
+    // Draw paths (pencil/eraser strokes)
     paths.forEach((path) => {
       ctx.beginPath();
       ctx.lineWidth = path.width;
@@ -359,12 +355,23 @@ export default function Whiteboard() {
       ctx.globalCompositeOperation = "source-over";
     });
 
+    // Draw uploaded images
+    // uploadedImages.forEach((imgData) => {
+    //   const img = new Image();
+    //   img.onload = () => {
+    //     ctx.drawImage(img, imgData.x, imgData.y, imgData.width, imgData.height);
+    //   };
+    //   img.src = imgData.src;
+    // });
+
     // Draw texts
     texts.forEach((t) => {
       ctx.font = t.font || "20px Arial";
       ctx.fillStyle = t.color || "#000";
       ctx.fillText(t.text, t.x, t.y);
     });
+
+    // Live typing cursor
     if (textToolActive && typedText) {
       ctx.font = "20px Arial";
       ctx.fillStyle = drawingColor;
@@ -380,13 +387,61 @@ export default function Whiteboard() {
   }, [
     paths,
     texts,
+    uploadedImages,
     typedText,
     textToolActive,
     drawingColor,
     textPosition,
-    uploadedImages,
     getCanvasContext,
   ]);
+
+  // useEffect(() => {
+  //   if (!id) return;
+  //   const fetchBoard = async () => {
+  //     const payload = new FormData();
+  //     payload.append("licenses_id", licenses_id);
+  //     payload.append("search_key", id);
+  //     try {
+  //       const { data } = await api.post("whiteBoardlist", payload, {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       });
+  //       if (data.status) {
+  //         const savedState = JSON.parse(data?.data[0]?.data);
+  //         if (data.data[0].imageFiles) {
+  //           const apiImages = data.data[0].imageFiles.map((url) => ({
+  //             src: url,
+  //             x: 50,
+  //             y: 50,
+  //             width: 200,
+  //             height: 200,
+  //           }));
+  //           setUploadedImages(apiImages);
+  //         }
+
+  //         if (savedState.texts) {
+  //           setTexts(savedState.texts);
+  //         }
+  //         if (savedState.toolSettings) {
+  //           setDrawingColor(savedState.toolSettings.color);
+  //           setDrawingWidth(savedState.toolSettings.width);
+  //         }
+
+  //         if (savedState.canvas) {
+  //           const img = new Image();
+  //           img.onload = () => {
+  //             const ctx = getCanvasContext();
+  //             if (ctx) ctx.drawImage(img, 0, 0);
+  //           };
+  //           img.src = savedState.canvas;
+  //         }
+  //       }
+  //     } catch (err) {
+  //       console.error("Failed to fetch whiteboard:", err);
+  //     }
+  //   };
+
+  //   fetchBoard();
+  // }, [id, licenses_id, token]);
 
   useEffect(() => {
     if (!id) return;
@@ -398,26 +453,29 @@ export default function Whiteboard() {
         const { data } = await api.post("whiteBoardlist", payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
+
         if (data.status) {
           const savedState = JSON.parse(data?.data[0]?.data);
-          if (savedState.uploadedImages) {
-            setUploadedImages(savedState.uploadedImages);
+          if (data.data[0].imageFiles) {
+            const apiImages = data.data[0].imageFiles.map((url) => ({
+              src: url,
+              x: 50,
+              y: 50,
+              width: 200,
+              height: 200,
+            }));
+            setUploadedImages(apiImages);
+          }
+          if (savedState.paths) {
+            setPaths(savedState.paths);
           }
           if (savedState.texts) {
             setTexts(savedState.texts);
           }
+
           if (savedState.toolSettings) {
             setDrawingColor(savedState.toolSettings.color);
             setDrawingWidth(savedState.toolSettings.width);
-          }
-
-          if (savedState.canvas) {
-            const img = new Image();
-            img.onload = () => {
-              const ctx = getCanvasContext();
-              if (ctx) ctx.drawImage(img, 0, 0);
-            };
-            img.src = savedState.canvas;
           }
         }
       } catch (err) {
@@ -435,14 +493,38 @@ export default function Whiteboard() {
       return;
     }
 
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    // Push currently typed text into texts array before saving
+    if (typedText.trim() && textToolActive) {
+      setTexts((prev) => [
+        ...prev,
+        {
+          text: typedText,
+          x: textPosition.x,
+          y: textPosition.y,
+          color: drawingColor,
+          font: "20px Arial",
+        },
+      ]);
+    }
 
-    const snapshot = canvas.toDataURL("image/png");
+    // Now prepare state after updating texts
     const state = {
       name: drawingName.trim(),
-      canvas: snapshot,
-      texts,
+      paths,
+      texts: [
+        ...texts,
+        ...(typedText.trim()
+          ? [
+              {
+                text: typedText,
+                x: textPosition.x,
+                y: textPosition.y,
+                color: drawingColor,
+                font: "20px Arial",
+              },
+            ]
+          : []),
+      ],
       toolSettings: { color: drawingColor, width: drawingWidth },
     };
 
@@ -450,9 +532,9 @@ export default function Whiteboard() {
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
     payload.append("data", JSON.stringify(state));
-    // payload.append("imageFiles", imageFiles)
+
     if (imageFiles && imageFiles.length > 0) {
-      imageFiles.forEach((file, index) => {
+      Array.from(imageFiles).forEach((file) => {
         payload.append("imageFiles[]", file);
       });
     }
@@ -466,8 +548,10 @@ export default function Whiteboard() {
       });
 
       if (data.status) {
-        toast.success(data.msg, { autoClose: 1500 });
-        navigate("/whiteboard");
+        toast.success(data.msg, {
+          autoClose: 1500,
+          onclose: navigate("/white-board-list"),
+        });
       } else {
         toast.error(data.msg, { autoClose: 1500 });
       }
@@ -481,8 +565,8 @@ export default function Whiteboard() {
     setTypedText(input);
   };
 
-  const handleKeyboardKeyPress = (button) => {
-    if (button === "{enter}") {
+  const handleKeyboardKeyPress = (e) => {
+    if (e.key === "Enter") {
       if (typedText.trim()) {
         setTexts((prev) => [
           ...prev,
@@ -495,9 +579,11 @@ export default function Whiteboard() {
           },
         ]);
       }
+      console.log("===>", typedText);
       setTextToolActive(false);
       setTypedText("");
       setShowKeyboard(false);
+      return;
     }
   };
 
@@ -511,7 +597,6 @@ export default function Whiteboard() {
       setLoader
     );
   }, []);
-
   return (
     <>
       {loader ? (
