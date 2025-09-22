@@ -47,6 +47,7 @@ export default function Settings() {
     calendar,
     introduction,
   }) => {
+    setLoader(true);
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("number_of_icons", number_of_icons || 3);
@@ -63,8 +64,14 @@ export default function Settings() {
         if (!data.status) {
           toast.error(data.msg, { autoClose: 1500 });
         }
+        setLoader(false);
       })
-      .catch(() => toast.error("Something went wrong", { autoClose: 1500 }));
+      .catch((response) => {
+        setLoader(false);
+        toast.error(response.data.message || response.data.msg, {
+          autoClose: 1500,
+        });
+      });
   };
 
   // ---------------- Handlers ----------------

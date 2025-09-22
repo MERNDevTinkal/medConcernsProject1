@@ -104,7 +104,7 @@ const WhiteBoardList = () => {
                   {savedDrawings.map((d, index) => (
                     <div
                       onClick={() => {
-                        handleNavigate(d.name_key);
+                        handleNavigate(d.id);
                       }}
                       style={{ cursor: "pointer" }}
                       key={d.id}

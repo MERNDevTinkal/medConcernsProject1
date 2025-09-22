@@ -395,69 +395,22 @@ export default function Whiteboard() {
     getCanvasContext,
   ]);
 
-  // useEffect(() => {
-  //   if (!id) return;
-  //   const fetchBoard = async () => {
-  //     const payload = new FormData();
-  //     payload.append("licenses_id", licenses_id);
-  //     payload.append("search_key", id);
-  //     try {
-  //       const { data } = await api.post("whiteBoardlist", payload, {
-  //         headers: { Authorization: `Bearer ${token}` },
-  //       });
-  //       if (data.status) {
-  //         const savedState = JSON.parse(data?.data[0]?.data);
-  //         if (data.data[0].imageFiles) {
-  //           const apiImages = data.data[0].imageFiles.map((url) => ({
-  //             src: url,
-  //             x: 50,
-  //             y: 50,
-  //             width: 200,
-  //             height: 200,
-  //           }));
-  //           setUploadedImages(apiImages);
-  //         }
-
-  //         if (savedState.texts) {
-  //           setTexts(savedState.texts);
-  //         }
-  //         if (savedState.toolSettings) {
-  //           setDrawingColor(savedState.toolSettings.color);
-  //           setDrawingWidth(savedState.toolSettings.width);
-  //         }
-
-  //         if (savedState.canvas) {
-  //           const img = new Image();
-  //           img.onload = () => {
-  //             const ctx = getCanvasContext();
-  //             if (ctx) ctx.drawImage(img, 0, 0);
-  //           };
-  //           img.src = savedState.canvas;
-  //         }
-  //       }
-  //     } catch (err) {
-  //       console.error("Failed to fetch whiteboard:", err);
-  //     }
-  //   };
-
-  //   fetchBoard();
-  // }, [id, licenses_id, token]);
-
   useEffect(() => {
     if (!id) return;
     const fetchBoard = async () => {
       const payload = new FormData();
-      payload.append("licenses_id", licenses_id);
-      payload.append("search_key", id);
+      // payload.append("licenses_id", licenses_id);
+      payload.append("white_id", id);
       try {
-        const { data } = await api.post("whiteBoardlist", payload, {
+        const { data } = await api.post("whiteBoardEdit", payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
         if (data.status) {
-          const savedState = JSON.parse(data?.data[0]?.data);
-          if (data.data[0].imageFiles) {
-            const apiImages = data.data[0].imageFiles.map((url) => ({
+          const savedState = JSON.parse(data?.data?.data);
+          setDrawingName(data?.data?.name_key);
+          if (data.data.imageFiles) {
+            const apiImages = data.data.imageFiles.map((url) => ({
               src: url,
               x: 50,
               y: 50,
@@ -492,8 +445,6 @@ export default function Whiteboard() {
       alert("Please enter a drawing name");
       return;
     }
-
-    // Push currently typed text into texts array before saving
     if (typedText.trim() && textToolActive) {
       setTexts((prev) => [
         ...prev,
@@ -506,8 +457,6 @@ export default function Whiteboard() {
         },
       ]);
     }
-
-    // Now prepare state after updating texts
     const state = {
       name: drawingName.trim(),
       paths,
@@ -527,20 +476,21 @@ export default function Whiteboard() {
       ],
       toolSettings: { color: drawingColor, width: drawingWidth },
     };
-
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
     payload.append("data", JSON.stringify(state));
-
     if (imageFiles && imageFiles.length > 0) {
       Array.from(imageFiles).forEach((file) => {
         payload.append("imageFiles[]", file);
       });
     }
-
+    if (id && id != "null") {
+      payload.append("white_id", id);
+    }
     try {
-      const { data } = await api.post("whiteBoardCreate", payload, {
+      const urlPath = id ? "whiteBoardUpdate" : "whiteBoardCreate";
+      const { data } = await api.post(urlPath, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -719,7 +669,9 @@ export default function Whiteboard() {
                     />
                   </div>
                   <div className="flex items-center gap-2">
-                    <label className="text-sm text-gray-600">Width</label>
+                    <label className="text-sm text-gray-600">
+                      {selectedLanguage === "Spanish" ? "Ancho" : "Width"}
+                    </label>
                     <input
                       type="range"
                       min="1"
@@ -763,7 +715,11 @@ export default function Whiteboard() {
                   onClick={() => setShowSaveModal(true)}
                 >
                   {selectedLanguage === "Spanish"
-                    ? "Guardar pizarra"
+                    ? id
+                      ? "Actualizar pizarra"
+                      : "Guardar pizarra"
+                    : id
+                    ? "Update Whiteboard"
                     : "Save Whiteboard"}
                 </Button>
                 <Button
@@ -777,7 +733,11 @@ export default function Whiteboard() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
                   <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
                     <div className="mb-4">
-                      <h2 className="text-[32px] font-semibold">Save As</h2>
+                      <h2 className="text-[32px] font-semibold">
+                        {selectedLanguage === "Spanish"
+                          ? "Guardar como"
+                          : "Save As"}
+                      </h2>
                     </div>
                     <div className="grid gap-4">
                       <div className="grid grid-cols-4 items-center gap-3">
@@ -787,7 +747,11 @@ export default function Whiteboard() {
                           value={drawingName}
                           onChange={(e) => setDrawingName(e.target.value)}
                           className="col-span-5 h-12 rounded-lg border border-gray-200 bg-white px-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                          placeholder="Enter drawing name"
+                          placeholder={
+                            selectedLanguage === "Spanish"
+                              ? "Introduzca el nombre del dibujo"
+                              : "Enter drawing name"
+                          }
                         />
                       </div>
                     </div>
@@ -797,13 +761,13 @@ export default function Whiteboard() {
                         className="h-12 rounded-lg px-6 text-base"
                         onClick={() => setShowSaveModal(false)}
                       >
-                        Cancel
+                        {selectedLanguage === "Spanish" ? "Cancelar" : "Cancel"}
                       </Button>
                       <Button
                         className="h-12 rounded-lg bg-blue-600 px-6 text-base text-white hover:bg-blue-700"
                         onClick={handleSaveDrawing}
                       >
-                        Save
+                        {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                       </Button>
                     </div>
                   </div>
