@@ -24,7 +24,7 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
         <div
           onClick={() => {
             handleDecision(
-              "Yes",
+              selectedLanguage === "Spanish" ? "SÍ" : "Yes",
               path === "/new-problem" ? "/summary" : "/pain-feel"
             );
           }}
