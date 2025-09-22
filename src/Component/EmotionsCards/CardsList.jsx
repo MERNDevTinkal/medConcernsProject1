@@ -43,12 +43,13 @@ const CardsList = ({ selectedLanguage }) => {
           <div className="dashboard-cards rounded-2xl bg-white text-center pb-3 shadow hover:shadow-lg transition">
             <div className="dashboard-img">
               <img
+                style={{ width: "182px", height: "132px" }}
                 src={item.image}
                 className="w-full rounded-t-2xl"
                 alt={item.name}
               />
             </div>
-            <p className="text-[21px] mt-3 text-black font-medium">
+            <p className="text-[16px] mt-3 text-black font-medium">
               {selectedLanguage === "Spanish" ? item.nameEs : item.name}
             </p>
           </div>
