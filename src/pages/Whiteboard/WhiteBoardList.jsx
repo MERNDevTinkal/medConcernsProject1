@@ -124,6 +124,7 @@ const WhiteBoardList = () => {
 
                   <div className="mt-4">
                     <Pagination
+                      selectedLanguage={selectedLanguage}
                       currentPage={currentPage}
                       lastPage={lastPage}
                       onPageChange={(page) => setCurrentPage(page)}

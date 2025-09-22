@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
@@ -21,7 +20,9 @@ const BreathingProblem = () => {
     useContext(GlobalContext);
   const handleBreathingProblem = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value.name);
+      await getTextToSpeech(
+        selectedLanguage === "Spanish" ? value.nameEs : value.name
+      );
       addOrUpdateSummary(Mainpath, [value]);
       navigate(path);
     }

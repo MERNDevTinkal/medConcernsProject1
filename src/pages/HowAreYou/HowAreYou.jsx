@@ -23,7 +23,9 @@ export default function HowAreYou() {
     if (path && item.name) {
       try {
         resetDiseases();
-        await getTextToSpeech(item.name);
+        await getTextToSpeech(
+          selectedLanguage === "Spanish" ? item.nameEs : item.name
+        );
         addOrUpdateSummary(mainpath, [item]);
         navigate(path);
       } catch (error) {

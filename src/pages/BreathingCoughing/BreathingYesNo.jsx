@@ -72,7 +72,11 @@ function BreathingYesNo() {
                 } `}
               >
                 {location.pathname.includes("/topicboard/") ? (
-                  <p className="text-xl">{concernValues?.name}</p>
+                  <p className="text-xl">
+                    {selectedLanguage === "Spanish"
+                      ? concernValues?.nameEs
+                      : concernValues?.name}
+                  </p>
                 ) : (
                   <div className="dashboard-img rounded-2xl">
                     <img src={concernValues?.image} className="w-full" />

@@ -298,7 +298,9 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       });
     }
     // Speak the selected name
-    getTextToSpeech(clickedRegion.name);
+    getTextToSpeech(
+      selectedLanguage === "Spanish" ? clickedRegion.nameEs : clickedRegion.name
+    );
     const imageObj = new Image();
     imageObj.src = bodyImage;
     imageObj.onload = () => {

@@ -84,6 +84,7 @@ const SummaryList = () => {
                 ))}
               </ul>
               <Pagination
+                selectedLanguage={selectedLanguage}
                 currentPage={currentPage}
                 lastPage={lastPage}
                 setCurrentPage={setCurrentPage}

@@ -256,7 +256,9 @@ const NeedBoard = () => {
                 onClick={() => setShowModal(true)}
                 className="bg-blue-600 text-white px-6 py-2 rounded-2xl shadow-lg hover:bg-blue-700"
               >
-                + Add New
+                {selectedLanguage === "Spanish"
+                  ? "+ Agregar nuevo"
+                  : "+ Add New"}
               </button>
             </div>
           </div>

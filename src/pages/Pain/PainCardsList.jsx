@@ -15,7 +15,9 @@ const PainCardsList = ({ selectedLanguage }) => {
   const [painFeelParams, setPainFeelParams] = useState([]);
   const handleConcern = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value.name);
+      await getTextToSpeech(
+        selectedLanguage === "Spanish" ? value.nameEs : value.name
+      );
       addOrUpdateSummary(pathprimary, [value]);
       navigate(path);
     }

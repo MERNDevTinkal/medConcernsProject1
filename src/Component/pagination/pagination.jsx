@@ -1,6 +1,11 @@
 import React from "react";
 
-const Pagination = ({ currentPage, lastPage, setCurrentPage }) => {
+const Pagination = ({
+  selectedLanguage,
+  currentPage,
+  lastPage,
+  setCurrentPage,
+}) => {
   if (lastPage <= 1) return null;
 
   const getPageNumbers = () => {
@@ -52,7 +57,7 @@ const Pagination = ({ currentPage, lastPage, setCurrentPage }) => {
               : "bg-white hover:bg-gray-100"
           }`}
         >
-          Prev
+          {selectedLanguage === "Spanish" ? "Anterior" : "Prev"}
         </button>
 
         {getPageNumbers().map((page, index) => (
@@ -81,7 +86,7 @@ const Pagination = ({ currentPage, lastPage, setCurrentPage }) => {
               : "bg-white hover:bg-gray-100"
           }`}
         >
-          Next
+          {selectedLanguage === "Spanish" ? "Próximo" : "Next"}
         </button>
       </div>
     </div>

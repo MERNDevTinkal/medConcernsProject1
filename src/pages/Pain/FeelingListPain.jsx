@@ -137,7 +137,9 @@ const FeelingListPain = () => {
                             data?.secPath?.includes("/confrm-step-yesno")
                               ? `${path}${data?.secPath}/${data?.id}`
                               : `${data?.secPath}`,
-                            data.painFeel
+                            selectedLanguage === "Spanish"
+                              ? data.painFeelEs
+                              : data.painFeel
                           );
                         }}
                         className={`flex flex-col items-center space-y-${index}  mb-3`}

@@ -14,7 +14,9 @@ const CardsList = ({ selectedLanguage }) => {
 
   const handleCardClick = async (item, path) => {
     setSelected(item);
-    await getTextToSpeech(item.name);
+    await getTextToSpeech(
+      selectedLanguage === "Spanish" ? item.nameEs : item.name
+    );
     addOrUpdateSummary(mainpath, [item]);
     navigate(path);
   };

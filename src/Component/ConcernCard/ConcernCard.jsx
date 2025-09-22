@@ -13,7 +13,9 @@ const ConcernCard = ({ skipKeys = [], selectedLanguage }) => {
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
       resetDiseases();
-      await getTextToSpeech(value.name);
+      await getTextToSpeech(
+        selectedLanguage === "Spanish" ? value.nameEs : value.name
+      );
       updateDisease(path.replace("/", ""), value);
       navigate(mainpath);
     }
