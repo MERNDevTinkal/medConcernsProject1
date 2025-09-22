@@ -119,8 +119,6 @@ const Icon = {
     </svg>
   ),
 };
-
-/* -------------------- Component -------------------- */
 export default function Whiteboard() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -128,6 +126,7 @@ export default function Whiteboard() {
   const stripRef = useRef(null);
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [paths, setPaths] = useState([]);
+  const [typingAnchor, setTypingAnchor] = useState({ x: 0, y: 0 });
 
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawingColor, setDrawingColor] = useState("#000000");
@@ -171,23 +170,54 @@ export default function Whiteboard() {
     return { x: clientX - rect.left, y: clientY - rect.top };
   };
 
-  /* -------------------- Drawing -------------------- */
+  /* -------------------- Canvas setup -------------------- */
+  const setCanvasSize = useCallback((node) => {
+    if (!node) return;
+    const dpr = window.devicePixelRatio || 1;
+    const width = 800;
+    const height = 600;
+    // actual pixel buffer
+    node.width = Math.round(width * dpr);
+    node.height = Math.round(height * dpr);
+    // css size
+    node.style.width = `${width}px`;
+    node.style.height = `${height}px`;
+    const ctx = node.getContext("2d");
+    if (ctx) ctx.scale(dpr, dpr); // now ctx coordinates are in CSS pixels
 
+    canvasRef.current = node;
+  }, []);
+
+  /* -------------------- Drawing -------------------- */
   const startDrawing = (e) => {
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
     if (tool !== "pencil" && tool !== "eraser") return;
     setIsDrawing(true);
+
+    // start a new path in state
     setPaths((prev) => [
       ...prev,
       { tool, color: drawingColor, width: drawingWidth, points: [pos] },
     ]);
+
+    // start path on the visible canvas context for immediate feedback
+    const ctx = getCanvasContext();
+    if (ctx) {
+      ctx.beginPath();
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.lineWidth = drawingWidth;
+      ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
+      ctx.moveTo(pos.x, pos.y);
+    }
   };
 
   const draw = useCallback(
     (e) => {
       const rect = canvasRef.current.getBoundingClientRect();
       const pos = pointerPos(e, rect);
+
       if (draggingImage) {
         setUploadedImages((prev) =>
           prev.map((img) =>
@@ -198,9 +228,10 @@ export default function Whiteboard() {
         );
         return;
       }
+
       if (!isDrawing || tool === "text") return;
-      const ctx = getCanvasContext();
-      if (!ctx) return;
+
+      // update paths state (so redraw persists)
       setPaths((prev) => {
         if (prev.length === 0) return prev;
         const newPaths = [...prev];
@@ -212,6 +243,9 @@ export default function Whiteboard() {
         return newPaths;
       });
 
+      // draw incrementally on canvas for smoothness
+      const ctx = getCanvasContext();
+      if (!ctx) return;
       ctx.lineTo(pos.x, pos.y);
       ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
       ctx.lineWidth = drawingWidth;
@@ -237,77 +271,391 @@ export default function Whiteboard() {
     setDraggingImage(null);
     const ctx = getCanvasContext();
     if (ctx) {
-      ctx.closePath();
+      try {
+        ctx.closePath();
+      } catch (err) {}
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
 
-  /* -------------------- Text -------------------- */
-  const handleKeyPress = useCallback(
-    (e) => {
-      if (!textToolActive) return;
+  /* -------------------- Text helpers -------------------- */
+  // this returns last line width and last line y to position the cursor
+  const drawWrappedText = useCallback(
+    (
+      ctx,
+      text,
+      x,
+      y,
+      maxWidth,
+      lineHeight,
+      color = "#000",
+      font = "20px Arial"
+    ) => {
+      if (!ctx) return { lastLineWidth: 0, lastLineY: y };
+      ctx.font = font;
+      ctx.fillStyle = color;
 
-      if (e.key === " " || e.key === "Enter") {
+      const paragraphs = String(text).split("\n");
+      let currentY = y;
+      let lastW = 0;
+
+      paragraphs.forEach((para) => {
+        let line = "";
+        const chars = para.split(""); // character-level wrapping
+        for (let n = 0; n < chars.length; n++) {
+          const testLine = line + chars[n];
+          const testWidth = ctx.measureText(testLine).width;
+          if (testWidth > maxWidth && line) {
+            ctx.fillText(line, x, currentY);
+            line = chars[n]; // start new line with current char
+            currentY += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        if (line) {
+          ctx.fillText(line, x, currentY);
+          lastW = ctx.measureText(line).width;
+          currentY += lineHeight;
+        }
+      });
+
+      return { lastLineWidth: lastW, lastLineY: currentY - lineHeight };
+    },
+    []
+  );
+
+  /* -------------------- Redraw -------------------- */
+  useEffect(() => {
+    const ctx = getCanvasContext();
+    const canvas = canvasRef.current;
+    if (!ctx || !canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const cssWidth = rect.width;
+    const cssHeight = rect.height;
+    ctx.clearRect(0, 0, cssWidth, cssHeight);
+    paths.forEach((path) => {
+      if (!path.points || path.points.length === 0) return;
+      ctx.beginPath();
+      ctx.lineWidth = path.width;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.strokeStyle = path.tool === "pencil" ? path.color : "#ffffff";
+      ctx.globalCompositeOperation =
+        path.tool === "pencil" ? "source-over" : "destination-out";
+
+      ctx.moveTo(path.points[0].x, path.points[0].y);
+      for (let i = 1; i < path.points.length; i++) {
+        const p = path.points[i];
+        ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+      ctx.closePath();
+      ctx.globalCompositeOperation = "source-over";
+    });
+
+    // Draw saved texts with wrapping
+    const canvasPaddingRight = 10;
+    texts.forEach((t) => {
+      const font = t.font || "20px Arial";
+      const lineHeight = Math.round(parseInt(font, 10) * 1.2) || 24;
+      const maxWidth = canvas.getBoundingClientRect().width - (t.x || 0);
+      drawWrappedText(
+        ctx,
+        t.text,
+        t.x || 0,
+        t.y || 0,
+        maxWidth,
+        lineHeight,
+        t.color || "#000",
+        font
+      );
+    });
+
+    // Live typed text (while text tool active) with cursor positioning
+    if (textToolActive && typedText) {
+      const font = "20px Arial";
+      const lineHeight = 24;
+
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      ctx.font = font;
+      ctx.fillStyle = drawingColor;
+
+      const visibleWidth = canvas.getBoundingClientRect().width - 70; // adjust margin
+
+      let lines = [];
+      let line = "";
+      let cursorX = textPosition.x;
+      let currentY = textPosition.y;
+
+      // Split typedText into lines based on width
+      for (let char of typedText) {
+        const testLine = line + char;
+        const testWidth = ctx.measureText(testLine).width;
+
+        if (testWidth > visibleWidth - textPosition.x && line) {
+          lines.push(line);
+          line = char;
+          currentY += lineHeight;
+        } else {
+          line = testLine;
+        }
+        cursorX = textPosition.x + ctx.measureText(line).width;
+      }
+      if (line) {
+        lines.push(line);
+      }
+
+      // Draw all lines
+      currentY = textPosition.y;
+      for (let l of lines) {
+        ctx.fillText(l, textPosition.x, currentY);
+        currentY += lineHeight;
+      }
+
+      // Draw cursor at end of last line
+      ctx.beginPath();
+      ctx.moveTo(cursorX + 2, currentY - lineHeight - 16);
+      ctx.lineTo(cursorX + 2, currentY - lineHeight + 4);
+      ctx.strokeStyle = drawingColor;
+      ctx.stroke();
+    }
+  }, [
+    paths,
+    texts,
+    uploadedImages, // we keep dependency so if images change slider updates elsewhere
+    typedText,
+    textToolActive,
+    drawingColor,
+    textPosition,
+    getCanvasContext,
+    drawWrappedText,
+  ]);
+
+  /* -------------------- Fetch board -------------------- */
+  useEffect(() => {
+    if (!id) {
+      setLoader(false);
+      return;
+    }
+    const fetchBoard = async () => {
+      const payload = new FormData();
+      payload.append("white_id", id);
+      try {
+        const { data } = await api.post("whiteBoardEdit", payload, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (data.status) {
+          const savedObj = data?.data || {};
+          setDrawingName(savedObj.name_key || "");
+
+          // imageFiles from API (array of urls) -> keep only in slider
+          if (Array.isArray(savedObj.imageFiles)) {
+            const apiImages = savedObj.imageFiles.map((url) => ({
+              src: url,
+              x: 50,
+              y: 50,
+              width: 200,
+              height: 200,
+            }));
+            setUploadedImages(apiImages);
+          }
+
+          const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
+          if (savedState.paths) {
+            setPaths(savedState.paths);
+          }
+          if (Array.isArray(savedState.texts)) {
+            // normalize texts (provide defaults if missing)
+            const apiTexts = savedState.texts
+              .map((t) => {
+                if (!t) return null;
+                if (typeof t === "string") {
+                  return {
+                    text: t,
+                    x: 50,
+                    y: 50,
+                    color: "#000",
+                    font: "20px Arial",
+                  };
+                }
+                return {
+                  text: t.text || "",
+                  x: typeof t.x === "number" ? t.x : 50,
+                  y: typeof t.y === "number" ? t.y : 50,
+                  color: t.color || "#000",
+                  font: t.font || "20px Arial",
+                };
+              })
+              .filter(Boolean);
+            setTexts(apiTexts);
+          }
+
+          if (savedState.toolSettings) {
+            setDrawingColor(savedState.toolSettings.color || "#000000");
+            setDrawingWidth(savedState.toolSettings.width || 2);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch whiteboard:", err);
+      } finally {
+        setLoader(false);
+      }
+    };
+
+    fetchBoard();
+  }, [id, licenses_id, token]);
+
+  /* -------------------- Save Drawing -------------------- */
+  const commitTypedText = useCallback(() => {
+    const textTrim = typedText.trim();
+    if (!textTrim) return null;
+    const newText = {
+      text: typedText,
+      x: textPosition.x,
+      y: textPosition.y,
+      color: drawingColor,
+      font: "20px Arial",
+    };
+    setTexts((prev) => [...prev, newText]);
+    setTypedText("");
+    setTextToolActive(false);
+    setShowKeyboard(false);
+    return newText;
+  }, [typedText, textPosition, drawingColor]);
+
+  const handleSaveDrawing = async () => {
+    if (!drawingName.trim()) {
+      alert("Please enter a drawing name");
+      return;
+    }
+
+    // Build final texts array (include current typedText if any)
+    let finalTexts = texts;
+    if (typedText.trim() && textToolActive) {
+      const newText = {
+        text: typedText,
+        x: textPosition.x,
+        y: textPosition.y,
+        color: drawingColor,
+        font: "20px Arial",
+      };
+      finalTexts = [...texts, newText];
+      // also update local state so UI shows saved text immediately
+      setTexts(finalTexts);
+      setTypedText("");
+      setTextToolActive(false);
+      setShowKeyboard(false);
+    }
+
+    const state = {
+      name: drawingName.trim(),
+      paths,
+      texts: finalTexts,
+      toolSettings: { color: drawingColor, width: drawingWidth },
+    };
+
+    const payload = new FormData();
+    payload.append("licenses_id", licenses_id);
+    payload.append("name_key", drawingName);
+    payload.append("data", JSON.stringify(state));
+    if (imageFiles && imageFiles.length > 0) {
+      Array.from(imageFiles).forEach((file) => {
+        payload.append("imageFiles[]", file);
+      });
+    }
+    if (id && id !== "null") {
+      payload.append("white_id", id);
+    }
+
+    try {
+      const urlPath = id ? "whiteBoardUpdate" : "whiteBoardCreate";
+      const { data } = await api.post(urlPath, payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (data.status) {
+        toast.success(data.msg, {
+          autoClose: 1500,
+          onclose: navigate("/white-board-list"),
+        });
+      } else {
+        toast.error(data.msg, { autoClose: 1500 });
+      }
+    } catch (err) {
+      console.error("Save error:", err.message);
+      toast.error(err.message, { autoClose: 1500 });
+    }
+  };
+
+  /* -------------------- Keyboard (physical + virtual) -------------------- */
+  // virtual keyboard change sets typed text directly
+  const handleKeyboardChange = (input) => {
+    setTypedText(input);
+  };
+
+  // virtual keyboard key presses (special keys like enter, bksp, space)
+  const handleKeyboardKeyPress = (button) => {
+    // if keyboard library passes event object, handle gracefully
+    if (!button) return;
+    if (typeof button !== "string") return;
+
+    if (button === "{enter}" || button === "{return}" || button === "Enter") {
+      commitTypedText();
+      return;
+    }
+    if (button === "{bksp}" || button === "{backspace}") {
+      setTypedText((prev) => prev.slice(0, -1));
+      return;
+    }
+    if (button === "{space}") {
+      setTypedText((prev) => prev + " ");
+      return;
+    }
+    // regular char
+    setTypedText((prev) => prev + button);
+  };
+
+  // physical keyboard: attach listener only while text tool is active
+  useEffect(() => {
+    if (!textToolActive) return;
+
+    const onKeyDown = (e) => {
+      // don't intercept typing happening in other inputs/textareas/contenteditable
+      const target = e.target;
+      const tag = target && target.tagName && target.tagName.toUpperCase();
+      if (tag === "INPUT" || tag === "TEXTAREA" || target?.isContentEditable) {
+        return;
+      }
+
+      // prevent default (space scroll, enter submit) when we're capturing text for whiteboard
+      if (e.key === " " || e.key === "Enter" || e.key === "Backspace") {
         e.preventDefault();
       }
 
       if (e.key === "Enter") {
-        if (typedText.trim()) {
-          setTexts((prev) => [
-            ...prev,
-            {
-              text: typedText,
-              x: textPosition.x,
-              y: textPosition.y,
-              color: drawingColor,
-              font: "20px Arial",
-            },
-          ]);
-        }
-        setTextToolActive(false);
-        setTypedText("");
-        setShowKeyboard(false);
+        commitTypedText();
         return;
       }
-
-      if (e?.key === "Backspace") {
+      if (e.key === "Backspace") {
         setTypedText((prev) => prev.slice(0, -1));
-      } else if (e?.key?.length === 1) {
+        return;
+      }
+      if (e.key.length === 1) {
         setTypedText((prev) => prev + e.key);
       }
-    },
-    [textToolActive, typedText, textPosition, drawingColor]
-  );
+    };
 
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
-    return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [handleKeyPress]);
-
-  /* -------------------- Canvas setup -------------------- */
-  const setCanvasSize = useCallback((node) => {
-    if (!node) return;
-    const dpr = window.devicePixelRatio || 1;
-    const width = 800;
-    const height = 600;
-    node.width = Math.round(width * dpr);
-    node.height = Math.round(height * dpr);
-    node.style.width = `${width}px`;
-    node.style.height = `${height}px`;
-    const ctx = node.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
-
-    canvasRef.current = node;
-  }, []);
-
-  const clearCanvas = useCallback(() => {
-    const ctx = getCanvasContext();
-    if (ctx)
-      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-    setTexts([]);
-    setPaths([]);
-    setUploadedImages([]);
-  }, [getCanvasContext]);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [textToolActive, commitTypedText]);
 
   /* -------------------- Image Upload -------------------- */
   const handleImageUpload = (files) => {
@@ -333,210 +681,7 @@ export default function Whiteboard() {
     });
   };
 
-  /* -------------------- Redraw -------------------- */
-  useEffect(() => {
-    const ctx = getCanvasContext();
-    if (!ctx) return;
-    ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-    // Draw paths (pencil/eraser strokes)
-    paths.forEach((path) => {
-      ctx.beginPath();
-      ctx.lineWidth = path.width;
-      ctx.strokeStyle = path.tool === "pencil" ? path.color : "#fff";
-      ctx.globalCompositeOperation =
-        path.tool === "pencil" ? "source-over" : "destination-out";
-
-      path.points.forEach((p, i) => {
-        if (i === 0) ctx.moveTo(p.x, p.y);
-        else ctx.lineTo(p.x, p.y);
-      });
-      ctx.stroke();
-      ctx.closePath();
-      ctx.globalCompositeOperation = "source-over";
-    });
-
-    // Draw uploaded images
-    // uploadedImages.forEach((imgData) => {
-    //   const img = new Image();
-    //   img.onload = () => {
-    //     ctx.drawImage(img, imgData.x, imgData.y, imgData.width, imgData.height);
-    //   };
-    //   img.src = imgData.src;
-    // });
-
-    // Draw texts
-    texts.forEach((t) => {
-      ctx.font = t.font || "20px Arial";
-      ctx.fillStyle = t.color || "#000";
-      ctx.fillText(t.text, t.x, t.y);
-    });
-
-    // Live typing cursor
-    if (textToolActive && typedText) {
-      ctx.font = "20px Arial";
-      ctx.fillStyle = drawingColor;
-      ctx.fillText(typedText, textPosition.x, textPosition.y);
-
-      const textWidth = ctx.measureText(typedText).width;
-      ctx.beginPath();
-      ctx.moveTo(textPosition.x + textWidth + 2, textPosition.y - 16);
-      ctx.lineTo(textPosition.x + textWidth + 2, textPosition.y + 4);
-      ctx.strokeStyle = drawingColor;
-      ctx.stroke();
-    }
-  }, [
-    paths,
-    texts,
-    uploadedImages,
-    typedText,
-    textToolActive,
-    drawingColor,
-    textPosition,
-    getCanvasContext,
-  ]);
-
-  useEffect(() => {
-    if (!id) return;
-    const fetchBoard = async () => {
-      const payload = new FormData();
-      // payload.append("licenses_id", licenses_id);
-      payload.append("white_id", id);
-      try {
-        const { data } = await api.post("whiteBoardEdit", payload, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        if (data.status) {
-          const savedState = JSON.parse(data?.data?.data);
-          setDrawingName(data?.data?.name_key);
-          if (data.data.imageFiles) {
-            const apiImages = data.data.imageFiles.map((url) => ({
-              src: url,
-              x: 50,
-              y: 50,
-              width: 200,
-              height: 200,
-            }));
-            setUploadedImages(apiImages);
-          }
-          if (savedState.paths) {
-            setPaths(savedState.paths);
-          }
-          if (savedState.texts) {
-            setTexts(savedState.texts);
-          }
-
-          if (savedState.toolSettings) {
-            setDrawingColor(savedState.toolSettings.color);
-            setDrawingWidth(savedState.toolSettings.width);
-          }
-        }
-      } catch (err) {
-        console.error("Failed to fetch whiteboard:", err);
-      }
-    };
-
-    fetchBoard();
-  }, [id, licenses_id, token]);
-
-  /* -------------------- Save Drawing -------------------- */
-  const handleSaveDrawing = async () => {
-    if (!drawingName.trim()) {
-      alert("Please enter a drawing name");
-      return;
-    }
-    if (typedText.trim() && textToolActive) {
-      setTexts((prev) => [
-        ...prev,
-        {
-          text: typedText,
-          x: textPosition.x,
-          y: textPosition.y,
-          color: drawingColor,
-          font: "20px Arial",
-        },
-      ]);
-    }
-    const state = {
-      name: drawingName.trim(),
-      paths,
-      texts: [
-        ...texts,
-        ...(typedText.trim()
-          ? [
-              {
-                text: typedText,
-                x: textPosition.x,
-                y: textPosition.y,
-                color: drawingColor,
-                font: "20px Arial",
-              },
-            ]
-          : []),
-      ],
-      toolSettings: { color: drawingColor, width: drawingWidth },
-    };
-    const payload = new FormData();
-    payload.append("licenses_id", licenses_id);
-    payload.append("name_key", drawingName);
-    payload.append("data", JSON.stringify(state));
-    if (imageFiles && imageFiles.length > 0) {
-      Array.from(imageFiles).forEach((file) => {
-        payload.append("imageFiles[]", file);
-      });
-    }
-    if (id && id != "null") {
-      payload.append("white_id", id);
-    }
-    try {
-      const urlPath = id ? "whiteBoardUpdate" : "whiteBoardCreate";
-      const { data } = await api.post(urlPath, payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      if (data.status) {
-        toast.success(data.msg, {
-          autoClose: 1500,
-          onclose: navigate("/white-board-list"),
-        });
-      } else {
-        toast.error(data.msg, { autoClose: 1500 });
-      }
-    } catch (err) {
-      console.error("Save error:", err.message);
-      toast.error(err.message, { autoClose: 1500 });
-    }
-  };
-
-  const handleKeyboardChange = (input) => {
-    setTypedText(input);
-  };
-
-  const handleKeyboardKeyPress = (e) => {
-    if (e.key === "Enter") {
-      if (typedText.trim()) {
-        setTexts((prev) => [
-          ...prev,
-          {
-            text: typedText,
-            x: textPosition.x,
-            y: textPosition.y,
-            color: drawingColor,
-            font: "20px Arial",
-          },
-        ]);
-      }
-      console.log("===>", typedText);
-      setTextToolActive(false);
-      setTypedText("");
-      setShowKeyboard(false);
-      return;
-    }
-  };
-
+  /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
       () => {},
@@ -547,6 +692,8 @@ export default function Whiteboard() {
       setLoader
     );
   }, []);
+
+  /* -------------------- JSX (no change to layout) -------------------- */
   return (
     <>
       {loader ? (
@@ -600,6 +747,7 @@ export default function Whiteboard() {
                   />
                 </div>
                 <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
+                  {/* toolbar (unchanged) */}
                   <Button
                     variant="ghost"
                     size="icon"
@@ -654,7 +802,12 @@ export default function Whiteboard() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    onClick={clearCanvas}
+                    onClick={() => {
+                      setTypedText("");
+                      setTexts([]);
+                      setPaths([]);
+                      setUploadedImages([]);
+                    }}
                     title="Clear"
                   >
                     <Icon.Trash className="w-5 h-5" />
@@ -729,6 +882,7 @@ export default function Whiteboard() {
                   {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
                 </Button>
               </div>
+
               {showSaveModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
                   <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
@@ -765,7 +919,10 @@ export default function Whiteboard() {
                       </Button>
                       <Button
                         className="h-12 rounded-lg bg-blue-600 px-6 text-base text-white hover:bg-blue-700"
-                        onClick={handleSaveDrawing}
+                        onClick={() => {
+                          setShowSaveModal(false);
+                          handleSaveDrawing();
+                        }}
                       >
                         {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                       </Button>
