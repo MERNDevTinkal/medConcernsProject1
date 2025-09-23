@@ -750,7 +750,7 @@ const painwithswallowingDesises = [
     name: "With Food",
     nameEs: "Con comida",
     image: swallowingimg04,
-    secPath: "/feeling-list-pain",
+    secPath: "/pain-feel",
     path: "/when",
   },
   {
