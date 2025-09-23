@@ -66,6 +66,7 @@ const SummaryList = () => {
       ) : (
         <>
           <Header
+            selectedLanguage={selectedLanguage}
             name={
               selectedLanguage === "Spanish"
                 ? "Lista veraniega"
@@ -130,6 +131,7 @@ const SummaryList = () => {
           )}
           {ShowSaveModal && (
             <SaveModel
+              selectedLanguage={selectedLanguage}
               saveData={saveData}
               setSaveAs={setSaveAs}
               setShowSaveModal={setShowSaveModal}

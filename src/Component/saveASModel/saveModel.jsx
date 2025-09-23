@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-const SaveModel = ({ saveData, setSaveAs, setShowSaveModal }) => {
+const SaveModel = ({
+  selectedLanguage,
+  saveData,
+  setSaveAs,
+  setShowSaveModal,
+}) => {
   const [error, setError] = useState(false);
 
   const handleSaveClick = () => {
@@ -25,7 +30,9 @@ const SaveModel = ({ saveData, setSaveAs, setShowSaveModal }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
         <div className="mb-4">
-          <h2 className="text-[32px] font-semibold">Save As</h2>
+          <h2 className="text-[32px] font-semibold">
+            {selectedLanguage === "Spanish" ? "Guardar como" : "Save As"}
+          </h2>
         </div>
         <div className="grid gap-4">
           <div className="grid grid-cols-4 items-center gap-3">
@@ -42,11 +49,17 @@ const SaveModel = ({ saveData, setSaveAs, setShowSaveModal }) => {
               } px-3 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 ${
                 error ? "focus:ring-red-500" : "focus:ring-blue-700"
               }`}
-              placeholder="Enter a name"
+              placeholder={
+                selectedLanguage === "Spanish"
+                  ? "Introduce un nombre"
+                  : "Enter a name"
+              }
             />
             {error && (
               <p className="col-span-5 text-red-500 text-sm mt-1">
-                This field is required.
+                {selectedLanguage === "Spanish"
+                  ? "Este campo es obligatorio."
+                  : "This field is required."}
               </p>
             )}
           </div>
@@ -56,10 +69,10 @@ const SaveModel = ({ saveData, setSaveAs, setShowSaveModal }) => {
             onClick={() => setShowSaveModal(false)}
             className="border border-gray-400 text-gray-700 rounded-md px-4 py-2 hover:bg-gray-100"
           >
-            Cancel
+            {selectedLanguage === "Spanish" ? "Cancelar" : "Cancel"}
           </button>
           <button onClick={handleSaveClick} className="thm-btn">
-            Save
+            {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
           </button>
         </div>
       </div>
