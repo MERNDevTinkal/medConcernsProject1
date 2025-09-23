@@ -244,16 +244,16 @@ export default function Whiteboard() {
       });
 
       // draw incrementally on canvas for smoothness
-      const ctx = getCanvasContext();
-      if (!ctx) return;
-      ctx.lineTo(pos.x, pos.y);
-      ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
-      ctx.lineWidth = drawingWidth;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.globalCompositeOperation =
-        tool === "pencil" ? "source-over" : "destination-out";
-      ctx.stroke();
+      // const ctx = getCanvasContext();
+      // if (!ctx) return;
+      // ctx.lineTo(pos.x, pos.y);
+      // ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
+      // ctx.lineWidth = drawingWidth;
+      // ctx.lineCap = "round";
+      // ctx.lineJoin = "round";
+      // ctx.globalCompositeOperation =
+      //   tool === "pencil" ? "source-over" : "destination-out";
+      // ctx.stroke();
     },
     [
       isDrawing,
@@ -371,8 +371,6 @@ export default function Whiteboard() {
         font
       );
     });
-
-    // Live typed text (while text tool active) with cursor positioning
     if (textToolActive && typedText) {
       const font = "20px Arial";
       const lineHeight = 24;
