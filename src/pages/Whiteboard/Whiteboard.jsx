@@ -575,8 +575,8 @@ export default function Whiteboard() {
 
   /* -------------------- Save Drawing -------------------- */
   const commitTypedText = useCallback(() => {
-    const textTrim = typedText.trim();
-    if (!textTrim) return null;
+    if (!typedText.trim()) return null;
+
     const newText = {
       text: typedText,
       x: textPosition.x,
@@ -584,9 +584,10 @@ export default function Whiteboard() {
       color: drawingColor,
       font: "20px Arial",
     };
+
     setTexts((prev) => [...prev, newText]);
-    setTypedText("");
-    setTextToolActive(false);
+    setTypedText(""); // clear current typing
+    setTextToolActive(false); // end typing session
     setShowKeyboard(false);
     return newText;
   }, [typedText, textPosition, drawingColor]);
@@ -806,11 +807,15 @@ export default function Whiteboard() {
                     onTouchEnd={stopDrawing}
                     onClick={(e) => {
                       if (tool === "text") {
+                        if (typedText.trim()) {
+                          commitTypedText();
+                        }
                         const rect = canvasRef.current.getBoundingClientRect();
                         const pos = pointerPos(e, rect);
                         setTextPosition(pos);
                         setTextToolActive(true);
                         setShowKeyboard(true);
+                        setTypedText("");
                       }
                     }}
                   />
