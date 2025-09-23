@@ -22,6 +22,7 @@ export default function Contactus() {
   return (
     <>
       <Header
+        selectedLanguage={selectedLanguage}
         name={selectedLanguage === "Spanish" ? "Contáctanos" : "Contact Us"}
       />
       <div className="main-wrapper home-wrapper">
