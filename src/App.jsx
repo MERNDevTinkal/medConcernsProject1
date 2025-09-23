@@ -55,6 +55,10 @@ import PrivateRoute from "./Component/PrivateRoute/privateRoute";
 import SettingList from "./pages/SettingList/settingList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Contactus from "./pages/Contactus/page";
+import Introduction from "./pages/Introduction/page";
+import Aboutus from "./pages/Aboutus/page";
+import PatientEducation from "./pages/PatientEducation/page";
 function App() {
   return (
     <Router>
@@ -141,6 +145,10 @@ function App() {
           <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
           <Route path="/feelOptions" element={<FeelOptions />} />
           <Route path="/settingList/:name" element={<SettingList />} />
+          <Route path="/introduction" element={<Introduction />} />
+          <Route path="/patient-education" element={<PatientEducation />} />
+          <Route path="/contact-us" element={<Contactus />} />
+          <Route path="/about-us" element={<Aboutus />} />
         </Route>
       </Routes>
     </Router>

@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <>
       <div className="thm-footer py-2 px-5 fixed bottom-0 left-0 right-0 mx-auto">
-        <ul className="flex md:gap-20 sm:gap-5 justify-center">
+        <ul className="flex md:gap-30 sm:gap-5 justify-around">
           <li>
             <Link to="/yes-no-concerns">
               <img src={icon01} />
