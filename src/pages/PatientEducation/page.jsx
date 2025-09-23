@@ -4,6 +4,8 @@ import getSetting from "../../Component/settingApi/settings";
 
 export default function PatientEducation() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
@@ -11,8 +13,8 @@ export default function PatientEducation() {
       () => {},
       () => {},
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader,
       () => {},
       () => {}
@@ -20,12 +22,32 @@ export default function PatientEducation() {
   }, [loader]);
   return (
     <>
-      <Header name={selectedLanguage === "Spanish" ? "" : "PatientEducation"} />
+      <Header
+        selectedLanguage={selectedLanguage}
+        IntroductionOn={IntroductionOn}
+        CalendarOn={CalendarOn}
+        name={
+          selectedLanguage === "Spanish"
+            ? "PacienteEducación"
+            : "PatientEducation"
+        }
+      />
       <div className="main-wrapper bg-white">
-        <img src="/patient_education_1.png" />
-        <img src="/patient_education_2.png" />
-        <img src="/patient_education_3.png" />
-        <img src="/patient_education_4.png" />
+        {selectedLanguage === "Spanish" ? (
+          <>
+            <img src="/patient_education_sp_1.png" />
+            <img src="/patient_education_sp_2.png" />
+            <img src="/patient_education_sp_3.png" />
+            <img src="/patient_education_sp_4.png" />
+          </>
+        ) : (
+          <>
+            <img src="/patient_education_1.png" />
+            <img src="/patient_education_2.png" />
+            <img src="/patient_education_3.png" />
+            <img src="/patient_education_4.png" />
+          </>
+        )}
       </div>
     </>
   );
