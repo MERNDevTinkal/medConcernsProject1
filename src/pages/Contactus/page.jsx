@@ -6,21 +6,17 @@ import getSetting from "../../Component/settingApi/settings";
 export default function Contactus() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
-  const [getAllDiseases, setDiseases] = useState([]);
-  const [Contactus, setContactus] = useState(null);
-
-  useEffect(() => {
-    setDiseases(diseasesData[location.pathname]);
-  }, [location?.pathname]);
 
   useEffect(() => {
     getSetting(
       () => {},
       () => {},
+      setSelectedLanguage,
+      () => {},
       () => {},
       setLoader,
       () => {},
-      setContactus
+      () => {}
     );
   }, [loader]);
   return (

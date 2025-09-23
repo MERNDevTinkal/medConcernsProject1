@@ -19,15 +19,20 @@ export default function Introduction() {
     getSetting(
       () => {},
       () => {},
+      setSelectedLanguage,
+      () => {},
       () => {},
       setLoader,
       () => {},
-      setIntroduction
+      () => {}
     );
   }, [loader]);
   return (
     <>
-      <Header name={selectedLanguage === "Spanish" ? "" : "Introduction"} />
+      <Header
+        selectedLanguage={selectedLanguage}
+        name={selectedLanguage === "Spanish" ? "Introducción" : "Introduction"}
+      />
       <div className="main-wrapper home-wrapper">
         <div className="Intro_box">
           <div className="min-h-screen  px-4">

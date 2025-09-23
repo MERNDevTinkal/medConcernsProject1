@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
-import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import getSetting from "../../Component/settingApi/settings";
 
 export default function PatientEducation() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
-  const [getAllDiseases, setDiseases] = useState([]);
-  const [PatientEducation, setPatientEducation] = useState(null);
-
-  useEffect(() => {
-    setDiseases(diseasesData[location.pathname]);
-  }, [location?.pathname]);
 
   useEffect(() => {
     getSetting(
       () => {},
       () => {},
+      setSelectedLanguage,
+      () => {},
       () => {},
       setLoader,
       () => {},
-      setPatientEducation
+      () => {}
     );
   }, [loader]);
   return (

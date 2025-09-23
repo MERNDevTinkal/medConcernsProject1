@@ -30,11 +30,12 @@ import MenuIcon26 from "../../../assets/images/sidebar-icon-32.svg";
 import MenuIcon27 from "../../../assets/images/sidebar-icon-33.svg";
 import CloseIcon from "../../../assets/images/close2.svg";
 import { GlobalContext } from "../../../context/DiseaseContext";
-
+import { useNavigate, useLocation } from "react-router-dom";
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { resetDiseases } = useContext(GlobalContext);
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const handleSummery = () => resetDiseases();
   const handleLogout = () => {
@@ -45,13 +46,13 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     { icon: MenuIcon1, path: "/settings", en: "Settings", es: "Configuración" },
     {
       icon: MenuIcon2,
-      path: "#",
+      path: "/patient-education",
       en: "Patient Education",
       es: "Educación del paciente",
     },
     {
       icon: MenuIcon3,
-      path: "/disclaimer",
+      path: "/introduction",
       en: "Introduction",
       es: "Introducción",
       hide: introductionOn,
@@ -205,7 +206,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       en: "Wound/Incision",
       es: "Herida/Incisión",
     },
-    { icon: MenuIcon25, path: "#", en: "Contact Us", es: "Contáctenos" },
+    {
+      icon: MenuIcon25,
+      path: "/contact-us",
+      en: "Contact Us",
+      es: "Contáctenos",
+    },
     {
       icon: MenuIcon6,
       path: "/white-board-list",
@@ -220,7 +226,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     },
     {
       icon: MenuIcon27,
-      path: "/guide-info",
+      path: "/about-us",
       en: "About Us",
       es: "Sobre nosotros",
     },
@@ -245,7 +251,15 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               (selectedLanguage === "Spanish" ? "Preocupaciones" : "Concerns")}
           </h2>
           <div style={{ cursor: "pointer" }}>
-            {/* <img src={NextArrow} alt="next" /> */}
+            {location.pathname === "/introduction" && (
+              <img
+                src={NextArrow}
+                alt="next"
+                onClick={() => {
+                  navigate("/how-are-you");
+                }}
+              />
+            )}
           </div>
         </div>
 

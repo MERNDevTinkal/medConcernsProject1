@@ -7,7 +7,6 @@ export default function Aboutus() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [getAllDiseases, setDiseases] = useState([]);
-  const [Aboutus, setAboutus] = useState(null);
 
   useEffect(() => {
     setDiseases(diseasesData[location.pathname]);
@@ -17,10 +16,12 @@ export default function Aboutus() {
     getSetting(
       () => {},
       () => {},
+      setSelectedLanguage,
+      () => {},
       () => {},
       setLoader,
       () => {},
-      setAboutus
+      () => {}
     );
   }, [loader]);
   return (

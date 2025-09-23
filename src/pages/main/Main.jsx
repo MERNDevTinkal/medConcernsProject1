@@ -40,7 +40,7 @@ const Main = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token && token != null) {
-      return navigate("/how-are-you");
+      return navigate("/introduction");
     }
   }, []);
 
@@ -137,7 +137,7 @@ const Main = () => {
                       <p className="text-[18px] font-normal mb-3">
                         Your license key has been successfully verified.
                       </p>
-                      <Link to="/how-are-you" className="thm-btn">
+                      <Link to="/introduction" className="thm-btn">
                         Ok
                       </Link>
                     </div>
