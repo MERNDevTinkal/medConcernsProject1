@@ -87,7 +87,6 @@ export const concerns = [
     nameEs: "Emociones/Sentimientos",
     image: ConcernImg8,
     path: "/concern/emotions-feelings-yes-no/10",
-    secPath: "/feel",
   },
   {
     id: 11,

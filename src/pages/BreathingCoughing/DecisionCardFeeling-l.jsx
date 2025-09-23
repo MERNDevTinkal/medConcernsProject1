@@ -17,6 +17,9 @@ const DecisionCardFeeling = ({ selectedLanguage, concenFell }) => {
       if (path === "/pain-problem") {
         return navigate("/male-body");
       }
+      if (path === "/emotions-problem") {
+        return navigate("/emotions");
+      }
       navigate(path);
     }
   };
