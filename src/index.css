@@ -246,7 +246,9 @@ hr {
   background-color: #333;
   opacity: 1;
 }
-
+.csm-hr {
+  background-color: #28a5e5;
+}
 input:focus,
 button:focus,
 textarea:focus {
@@ -576,4 +578,8 @@ input[type="number"]::-webkit-outer-spin-button {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.strip.w-full.overflow-x-auto.no-scrollbar.flex.gap-2.p-2.bg-gray-50 {
+  display: none;
 }
