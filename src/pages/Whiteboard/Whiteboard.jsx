@@ -249,7 +249,6 @@ export default function Whiteboard() {
         };
         return newPaths;
       });
-
       // draw incrementally on canvas for smoothness
       // const ctx = getCanvasContext();
       // if (!ctx) return;
@@ -838,9 +837,10 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     title="Upload image"
-                    onClick={() =>
-                      document.getElementById("imageUpload").click()
-                    }
+                    onClick={() => {
+                      setTool("");
+                      document.getElementById("imageUpload").click();
+                    }}
                   >
                     <Icon.Image className="w-5 h-5" />
                   </Button>
@@ -850,15 +850,18 @@ export default function Whiteboard() {
                     accept="image/*"
                     multiple
                     className="hidden"
-                    onChange={(e) =>
-                      handleImageUpload(Array.from(e.target.files))
-                    }
+                    onChange={(e) => {
+                      setTool("");
+                      handleImageUpload(Array.from(e.target.files));
+                    }}
                   />
                   <Button
                     variant="ghost"
                     size="icon"
                     className={cn(tool === "eraser" && "bg-gray-100")}
-                    onClick={() => setTool("eraser")}
+                    onClick={() => {
+                      setTool("eraser");
+                    }}
                     title="Eraser"
                   >
                     <Icon.Eraser className="w-5 h-5" />

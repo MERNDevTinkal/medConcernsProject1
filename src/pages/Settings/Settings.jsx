@@ -143,12 +143,13 @@ export default function Settings() {
   const CustomToggleSwitch = ({ checked, onChange, labelOn, labelOff }) => (
     <div className="flex items-center gap-2">
       <span
-        className={`text-sm font-medium ${
-          checked ? "primary-text" : "text-gray-500"
+        className={`ml-2 text-sm font-medium ${
+          checked ? "text-gray-500" : "text-blue-600"
         }`}
       >
-        {labelOn}
+        {labelOff}
       </span>
+
       <div
         className={`relative inline-flex h-6 w-11 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
           checked ? "bg-blue-theme" : "bg-gray-200"
@@ -162,11 +163,11 @@ export default function Settings() {
         />
       </div>
       <span
-        className={`ml-2 text-sm font-medium ${
-          checked ? "text-gray-500" : "text-blue-600"
+        className={`text-sm font-medium ${
+          checked ? "primary-text" : "text-gray-500"
         }`}
       >
-        {labelOff}
+        {labelOn}
       </span>
     </div>
   );
@@ -189,8 +190,9 @@ export default function Settings() {
         spanish: "Spanish",
         calendar: "Calendar",
         introduction: "Introduction",
-        on: "ON",
         off: "OFF",
+        on: "ON",
+
         needsBoard: "Needs board Settings",
         concerns: "Concerns Settings",
       },
@@ -205,8 +207,9 @@ export default function Settings() {
         spanish: "Español",
         calendar: "Calendario",
         introduction: "Introducción",
-        on: "ENCENDIDO",
         off: "APAGADO",
+        on: "ENCENDIDO",
+
         needsBoard: "Configuración del tablero de necesidades",
         concerns: "Configuración de preocupaciones",
       },
