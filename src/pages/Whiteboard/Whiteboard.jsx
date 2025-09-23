@@ -143,6 +143,7 @@ export default function Whiteboard() {
 
   const [draggingImage, setDraggingImage] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [showCursor, setShowCursor] = useState(true);
 
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
@@ -169,6 +170,12 @@ export default function Whiteboard() {
     }
     return { x: clientX - rect.left, y: clientY - rect.top };
   };
+
+  useEffect(() => {
+    if (!textToolActive) return;
+    const blink = setInterval(() => setShowCursor((c) => !c), 500);
+    return () => clearInterval(blink);
+  }, [textToolActive]);
 
   /* -------------------- Canvas setup -------------------- */
   const setCanvasSize = useCallback((node) => {
@@ -371,56 +378,114 @@ export default function Whiteboard() {
         font
       );
     });
-    if (textToolActive && typedText) {
-      const font = "20px Arial";
-      const lineHeight = 24;
-
-      const canvas = canvasRef.current;
+    if (textToolActive) {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
+      const font = "20px Arial";
+      const lineHeight = 24;
       ctx.font = font;
       ctx.fillStyle = drawingColor;
 
-      const visibleWidth = canvas.getBoundingClientRect().width - 70; // adjust margin
+      const maxWidth =
+        canvas.getBoundingClientRect().width - textPosition.x - 20;
 
       let lines = [];
       let line = "";
       let cursorX = textPosition.x;
-      let currentY = textPosition.y;
+      let cursorY = textPosition.y;
 
-      // Split typedText into lines based on width
       for (let char of typedText) {
         const testLine = line + char;
         const testWidth = ctx.measureText(testLine).width;
 
-        if (testWidth > visibleWidth - textPosition.x && line) {
+        if (testWidth > maxWidth && line) {
+          // wrap
           lines.push(line);
           line = char;
-          currentY += lineHeight;
+          cursorY += lineHeight;
+          cursorX = textPosition.x + ctx.measureText(line).width;
+        } else if (char === "\n") {
+          // manual enter
+          lines.push(line);
+          line = "";
+          cursorY += lineHeight;
+          cursorX = textPosition.x;
         } else {
           line = testLine;
+          cursorX = textPosition.x + ctx.measureText(line).width;
         }
-        cursorX = textPosition.x + ctx.measureText(line).width;
       }
-      if (line) {
-        lines.push(line);
-      }
+      if (line) lines.push(line);
 
       // Draw all lines
-      currentY = textPosition.y;
+      cursorY = textPosition.y;
       for (let l of lines) {
-        ctx.fillText(l, textPosition.x, currentY);
-        currentY += lineHeight;
+        ctx.fillText(l, textPosition.x, cursorY);
+        cursorY += lineHeight;
       }
 
-      // Draw cursor at end of last line
-      ctx.beginPath();
-      ctx.moveTo(cursorX + 2, currentY - lineHeight - 16);
-      ctx.lineTo(cursorX + 2, currentY - lineHeight + 4);
-      ctx.strokeStyle = drawingColor;
-      ctx.stroke();
+      // Draw caret blinking at last position
+      if (showCursor) {
+        ctx.beginPath();
+        ctx.moveTo(cursorX, cursorY - lineHeight); // baseline start
+        ctx.lineTo(cursorX, cursorY - lineHeight + lineHeight); // full height
+        ctx.strokeStyle = drawingColor;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
     }
+
+    // if (textToolActive && typedText) {
+    //   const font = "20px Arial";
+    //   const lineHeight = 24;
+
+    //   const canvas = canvasRef.current;
+    //   const ctx = canvas.getContext("2d");
+    //   if (!ctx) return;
+
+    //   ctx.font = font;
+    //   ctx.fillStyle = drawingColor;
+
+    //   const visibleWidth = canvas.getBoundingClientRect().width - 70; // adjust margin
+
+    //   let lines = [];
+    //   let line = "";
+    //   let cursorX = textPosition.x;
+    //   let currentY = textPosition.y;
+
+    //   // Split typedText into lines based on width
+    //   for (let char of typedText) {
+    //     const testLine = line + char;
+    //     const testWidth = ctx.measureText(testLine).width;
+
+    //     if (testWidth > visibleWidth - textPosition.x && line) {
+    //       lines.push(line);
+    //       line = char;
+    //       currentY += lineHeight;
+    //     } else {
+    //       line = testLine;
+    //     }
+    //     cursorX = textPosition.x + ctx.measureText(line).width;
+    //   }
+    //   if (line) {
+    //     lines.push(line);
+    //   }
+
+    //   // Draw all lines
+    //   currentY = textPosition.y;
+    //   for (let l of lines) {
+    //     ctx.fillText(l, textPosition.x, currentY);
+    //     currentY += lineHeight;
+    //   }
+
+    //   // Draw cursor at end of last line
+    //   ctx.beginPath();
+    //   ctx.moveTo(cursorX + 2, currentY - lineHeight - 16);
+    //   ctx.lineTo(cursorX + 2, currentY - lineHeight + 4);
+    //   ctx.strokeStyle = drawingColor;
+    //   ctx.stroke();
+    // }
   }, [
     paths,
     texts,
@@ -531,10 +596,9 @@ export default function Whiteboard() {
       alert("Please enter a drawing name");
       return;
     }
-
-    // Build final texts array (include current typedText if any)
     let finalTexts = texts;
     if (typedText.trim() && textToolActive) {
+      console.log("=========>", [typedText, textToolActive]);
       const newText = {
         text: typedText,
         x: textPosition.x,
@@ -543,7 +607,6 @@ export default function Whiteboard() {
         font: "20px Arial",
       };
       finalTexts = [...texts, newText];
-      // also update local state so UI shows saved text immediately
       setTexts(finalTexts);
       setTypedText("");
       setTextToolActive(false);
@@ -638,10 +701,16 @@ export default function Whiteboard() {
         e.preventDefault();
       }
 
+      // if (e.key === "Enter") {
+      //   commitTypedText();
+      //   return;
+      // }
       if (e.key === "Enter") {
-        commitTypedText();
+        e.preventDefault();
+        setTypedText((prev) => prev + "\n");
         return;
       }
+
       if (e.key === "Backspace") {
         setTypedText((prev) => prev.slice(0, -1));
         return;
@@ -725,7 +794,9 @@ export default function Whiteboard() {
                 <div className="relative w-full h-[600px] bg-white">
                   <canvas
                     ref={setCanvasSize}
-                    className="absolute inset-0 w-full h-full touch-none cursor-crosshair z-0"
+                    className={`absolute inset-0 w-full h-full touch-none z-0 ${
+                      tool === "text" ? "cursor-text" : "cursor-crosshair"
+                    }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -750,7 +821,10 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     className={cn(tool === "pencil" && "bg-gray-100")}
-                    onClick={() => setTool("pencil")}
+                    onClick={() => {
+                      setTool("pencil");
+                      setShowKeyboard(false);
+                    }}
                     title="Pencil"
                   >
                     <Icon.Pencil className="w-5 h-5" />
