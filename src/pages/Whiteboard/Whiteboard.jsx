@@ -772,14 +772,13 @@ export default function Whiteboard() {
             name={selectedLanguage === "Spanish" ? "Pizarra" : "Whiteboard"}
           />
 
-          <div className="main-wrapper home-wrapper">
-            <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8">
+          <div className="main-wrapper home-wrapper h-[150px]">
+            <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8 ">
               <Card className="w-full max-w-4xl flex flex-col">
                 <CardHeader className="p-0">
                   <div
                     ref={stripRef}
-                    className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
-                  >
+                    className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50">
                     {uploadedImages.map((img, idx) => (
                       <img
                         key={idx}
@@ -791,10 +790,10 @@ export default function Whiteboard() {
                     ))}
                   </div>
                 </CardHeader>
-                <div className="relative w-full h-[600px] bg-white">
+                <div className="relative w-full h-[150px] bg-white overflow-hidden">
                   <canvas
                     ref={setCanvasSize}
-                    className={`absolute inset-0 w-full h-full touch-none z-0 ${
+                    className={` w-full touch-none z-0 ${
                       tool === "text" ? "cursor-text" : "cursor-crosshair"
                     }`}
                     onMouseDown={startDrawing}
@@ -829,18 +828,16 @@ export default function Whiteboard() {
                       setTool("pencil");
                       setShowKeyboard(false);
                     }}
-                    title="Pencil"
-                  >
+                    title="Pencil">
                     <Icon.Pencil className="w-5 h-5" />
                   </Button>
                   <Button
                     variant="ghost"
                     size="icon"
                     title="Upload image"
-                    onClick={() => {
-                      setTool("");
-                      document.getElementById("imageUpload").click();
-                    }}
+                    onClick={() =>
+                      document.getElementById("imageUpload").click()
+                    }
                   >
                     <Icon.Image className="w-5 h-5" />
                   </Button>
@@ -859,9 +856,7 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     className={cn(tool === "eraser" && "bg-gray-100")}
-                    onClick={() => {
-                      setTool("eraser");
-                    }}
+                    onClick={() => setTool("eraser")}
                     title="Eraser"
                   >
                     <Icon.Eraser className="w-5 h-5" />
@@ -874,8 +869,7 @@ export default function Whiteboard() {
                       setTextToolActive(true);
                       setShowKeyboard((prev) => !prev);
                     }}
-                    title="Virtual Keyboard"
-                  >
+                    title="Virtual Keyboard">
                     <Icon.Keyword className="w-5 h-5" />
                   </Button>
 
@@ -888,8 +882,7 @@ export default function Whiteboard() {
                       setPaths([]);
                       setUploadedImages([]);
                     }}
-                    title="Clear"
-                  >
+                    title="Clear">
                     <Icon.Trash className="w-5 h-5" />
                   </Button>
                   <div className="flex items-center gap-2 ml-2">
@@ -945,8 +938,7 @@ export default function Whiteboard() {
               <div className="w-full flex justify-between items-center mt-6">
                 <Button
                   className="thm-btn"
-                  onClick={() => setShowSaveModal(true)}
-                >
+                  onClick={() => setShowSaveModal(true)}>
                   {selectedLanguage === "Spanish"
                     ? id
                       ? "Actualizar pizarra"
@@ -957,8 +949,7 @@ export default function Whiteboard() {
                 </Button>
                 <Button
                   className="thm-btn"
-                  onClick={() => navigate("/white-board-list")}
-                >
+                  onClick={() => navigate("/white-board-list")}>
                   {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
                 </Button>
               </div>
@@ -993,8 +984,7 @@ export default function Whiteboard() {
                       <Button
                         variant="outline"
                         className="h-12 rounded-lg px-6 text-base"
-                        onClick={() => setShowSaveModal(false)}
-                      >
+                        onClick={() => setShowSaveModal(false)}>
                         {selectedLanguage === "Spanish" ? "Cancelar" : "Cancel"}
                       </Button>
                       <Button
@@ -1002,8 +992,7 @@ export default function Whiteboard() {
                         onClick={() => {
                           setShowSaveModal(false);
                           handleSaveDrawing();
-                        }}
-                      >
+                        }}>
                         {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                       </Button>
                     </div>
