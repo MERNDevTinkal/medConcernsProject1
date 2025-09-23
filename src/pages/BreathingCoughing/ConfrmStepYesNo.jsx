@@ -23,11 +23,15 @@ function ConfrmStepYesNo() {
   const location = useLocation();
   const pathprimary = location.pathname;
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [calendarOn, setCalendarOn] = React.useState("");
   const [loader, setLoader] = useState(true);
   const handleConfrmStepYesNo = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(value);
       updateDisease(pathprimary.replace("/", ""), value);
+      if (calendarOn) {
+        return navigate("/new-problem");
+      }
       navigate(path);
     }
   };
@@ -42,7 +46,7 @@ function ConfrmStepYesNo() {
       () => {},
       () => {},
       setSelectedLanguage,
-      () => {},
+      setCalendarOn,
       () => {},
       setLoader
     );
