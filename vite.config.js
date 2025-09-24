@@ -18,6 +18,7 @@ export default defineConfig({
         display: "standalone",
         scope: "/",
         start_url: "/",
+        orientation: "landscape",
         icons: [
           {
             src: "192.png",
