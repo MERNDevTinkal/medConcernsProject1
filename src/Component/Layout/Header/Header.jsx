@@ -284,7 +284,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   <li
                     key={index}
                     onClick={handleSummery}
-                    className="text-[20px] font-normal text-black flex items-center space-x-3 p-2"
+                    className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
+            ${
+              location.pathname === item.path
+                ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                : "text-black hover:bg-gray-100"
+            }`}
                   >
                     <img src={item.icon} alt="" />
                     <Link to={item.path} onClick={item.fun}>
