@@ -916,7 +916,7 @@ const fearofswallowingDesises = [
     name: "Something Else",
     nameEs: "Otra cosa",
     image: swallowingimg04,
-    secPath: "/Whiteboard",
+    secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
 ];
@@ -1419,7 +1419,7 @@ const trachswallowingDesises = [
     id: "7",
     name: "Something Else",
     nameEs: "Otra cosa",
-    path: "/Whiteboard",
+    path: "/whiteboard",
     image: swallowingimg04,
     secPath: "/confrm-step-yesno",
   },
@@ -2139,7 +2139,7 @@ const nauseaSwallowingDesies = [
     nameEs: "Otra cosa",
     image: nausea05,
     secPath: "/confrm-step-yesno",
-    path: "/howoften",
+    path: "/whiteboard",
   },
 ];
 
