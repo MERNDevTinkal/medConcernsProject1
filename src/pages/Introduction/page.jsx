@@ -14,7 +14,6 @@ export default function Introduction() {
   const [role, setRole] = useState("");
   const [prevName, setPrevName] = useState("");
   const [prevRole, setPrevRole] = useState("");
-
   const token = localStorage.getItem("token");
   const licenseKey = localStorage.getItem("license_key");
   const saveIntroduction = async (field, value) => {
