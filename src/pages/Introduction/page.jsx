@@ -2,13 +2,51 @@ import React, { useEffect, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+import apiCall from "../../Component/apiCall/apiCall";
+import { toast } from "react-toastify";
 export default function Introduction() {
-  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("");
   const [loader, setLoader] = useState(true);
-  const [IntroductionOn, setIntroductionOn] = React.useState("");
-  const [CalendarOn, setCalendarOn] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = useState("");
+  const [CalendarOn, setCalendarOn] = useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
+  const token = localStorage.getItem("token");
+  const licenseKey = localStorage.getItem("license_key");
+  const saveIntroduction = async (field, value) => {
+    try {
+      const payload = new FormData();
+      payload.append("licenses_id", licenseKey);
+      payload.append("name", field === "name" ? value : name);
+      payload.append("role", field === "role" ? value : role);
+      const { data } = await apiCall.post(
+        "introductionStoreOrUpdate",
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (data?.status) {
+        // toast.success(data?.msg, { autoClose: 1500 });
+      } else {
+        toast.error(data.msg, { autoClose: 1500 });
+      }
+    } catch (error) {
+      toast.error(error, { autoClose: 1500 });
+    }
+  };
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+    setName(newName);
+    saveIntroduction("name", newName);
+  };
+  const handleRoleChange = (e) => {
+    const newRole = e.target.value;
+    setRole(newRole);
+    saveIntroduction("role", newRole);
+  };
 
   useEffect(() => {
     getSetting(
@@ -22,6 +60,29 @@ export default function Introduction() {
       () => {}
     );
   }, [loader]);
+  useEffect(() => {
+    apiCall
+      .post(
+        "introductionShow",
+        { licenses_id: licenseKey },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(({ data }) => {
+        if (data.status) {
+          setName(data?.data?.name ?? "");
+          setRole(data?.data?.role ?? "");
+        } else {
+          toast.error(data.msg, { autoClose: 1500 });
+        }
+      })
+      .catch(({ response }) => {
+        toast.error(response.data.msg, { autoClose: 1500 });
+      });
+  }, []);
 
   return (
     <>
@@ -52,7 +113,7 @@ export default function Introduction() {
                     type="text"
                     className="w-full p-4 text-xl rounded-lg border border-gray-300 mb-6"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={handleNameChange}
                     placeholder={
                       selectedLanguage === "Spanish"
                         ? "Escribe tu nombre"
@@ -68,7 +129,7 @@ export default function Introduction() {
                     type="text"
                     className="w-full p-4 text-xl rounded-lg border border-gray-300"
                     value={role}
-                    onChange={(e) => setRole(e.target.value)}
+                    onChange={handleRoleChange}
                     placeholder={
                       selectedLanguage === "Spanish"
                         ? "Escribe tu rol"

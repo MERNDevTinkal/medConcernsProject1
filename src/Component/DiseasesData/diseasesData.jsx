@@ -1419,7 +1419,7 @@ const trachswallowingDesises = [
     id: "7",
     name: "Something Else",
     nameEs: "Otra cosa",
-    path: "/howoften",
+    path: "/Whiteboard",
     image: swallowingimg04,
     secPath: "/confrm-step-yesno",
   },
