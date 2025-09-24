@@ -27,7 +27,10 @@ function ConfrmStepYesNo() {
   const [loader, setLoader] = useState(true);
   const handleConfrmStepYesNo = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value);
+      await getTextToSpeech(
+        value,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
+      );
       updateDisease(pathprimary.replace("/", ""), value);
       if (calendarOn) {
         return navigate("/new-problem");

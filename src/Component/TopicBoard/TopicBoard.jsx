@@ -12,7 +12,8 @@ const TopicBoard = ({ selectedLanguage }) => {
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
       await getTextToSpeech(
-        selectedLanguage === "Spanish" ? value.nameEs : value.name
+        selectedLanguage === "Spanish" ? value.nameEs : value.name,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
       );
       addOrUpdateSummary(path, [value]);
       navigate(mainpath);

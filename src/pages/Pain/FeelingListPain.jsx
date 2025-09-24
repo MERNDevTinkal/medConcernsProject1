@@ -22,7 +22,10 @@ const FeelingListPain = () => {
     useContext(GlobalContext);
   const handlegetPain = async (value, path, painFeel) => {
     if (value && path) {
-      await getTextToSpeech(painFeel);
+      await getTextToSpeech(
+        painFeel,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
+      );
       addOrUpdateSummary(pathprimary, [value]);
       navigate(path);
     }

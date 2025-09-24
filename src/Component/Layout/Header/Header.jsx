@@ -29,6 +29,7 @@ import MenuIcon25 from "../../../assets/images/sidebar-icon-30.svg";
 import MenuIcon26 from "../../../assets/images/sidebar-icon-32.svg";
 import MenuIcon27 from "../../../assets/images/sidebar-icon-33.svg";
 import CloseIcon from "../../../assets/images/close2.svg";
+import BackArrow from "../../../assets/images/back-arrow.svg";
 import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
@@ -243,9 +244,18 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     <>
       <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">
         <div className="flex items-center justify-between">
-          <button type="button" onClick={toggleSidebar}>
-            <img src={hamburger} alt="menu" />
-          </button>
+          <div className="flex items-center space-x-3">
+            <img
+              onClick={() => {
+                navigate(-1);
+              }}
+              src={BackArrow}
+              alt="back"
+            />
+            <button type="button" onClick={toggleSidebar}>
+              <img src={hamburger} alt="menu" />
+            </button>
+          </div>
           <h2 className="text-[25px] font-normal text-black">
             {name ??
               (selectedLanguage === "Spanish" ? "Preocupaciones" : "Concerns")}

@@ -17,7 +17,8 @@ const feelOptions = () => {
   const handleSelect = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(
-        selectedLanguage === "Spanish" ? value.nameEs : value.name
+        selectedLanguage === "Spanish" ? value.nameEs : value.name,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
       );
       addOrUpdateSummary(mainpath, [value]);
       navigate(path);

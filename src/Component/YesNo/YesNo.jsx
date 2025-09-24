@@ -11,7 +11,10 @@ const YesNo = ({ selectedLanguage }) => {
   const { updateDisease } = useContext(GlobalContext);
   const handleYesNo = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value);
+      await getTextToSpeech(
+        value,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
+      );
       updateDisease("yesno", value);
       navigate(path);
     }

@@ -168,7 +168,7 @@ export default function TabsCalendar() {
           ? "tarde"
           : "noche"
         : item;
-    await getTextToSpeech(text);
+    await getTextToSpeech(text, selectedLanguage === "Spanish" ? "es-ES" : "");
     updateDisease(pathprimary.replace("/", ""), { type: "day", value: text });
     navigate("/new-problem");
   };
@@ -176,7 +176,7 @@ export default function TabsCalendar() {
   const handleWeekSelect = async (index) => {
     setSelectedWeekDay(index);
     const text = currentWeekDays[index];
-    await getTextToSpeech(text);
+    await getTextToSpeech(text, selectedLanguage === "Spanish" ? "es-ES" : "");
     updateDisease(pathprimary.replace("/", ""), {
       type: "week",
       value: text,
@@ -187,7 +187,7 @@ export default function TabsCalendar() {
   const handleMonthSelect = async (index) => {
     setSelectedMonth(index);
     const text = currentMonths[index];
-    await getTextToSpeech(text);
+    await getTextToSpeech(text, selectedLanguage === "Spanish" ? "es-ES" : "");
     updateDisease(pathprimary.replace("/", ""), {
       type: "month",
       value: text,

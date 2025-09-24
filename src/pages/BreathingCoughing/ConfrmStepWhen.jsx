@@ -22,7 +22,10 @@ function ConfrmStepWhen() {
   const [calendarOn, setCalendarOn] = React.useState("");
   const handleConfrmStepWhen = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value);
+      await getTextToSpeech(
+        value,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
+      );
       updateDisease(pathprimary.replace("/", ""), value);
       if (calendarOn && path === "/howoften") {
         return navigate("/new-problem");

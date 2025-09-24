@@ -23,7 +23,8 @@ const Feel = () => {
   const handleRoutes = async (item, path) => {
     if (item && path) {
       await getTextToSpeech(
-        selectedLanguage === "Spanish" ? item.nameEs : item.name
+        selectedLanguage === "Spanish" ? item.nameEs : item.name,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
       );
       addOrUpdateSummary(mainpath, [item]);
       navigate(path);

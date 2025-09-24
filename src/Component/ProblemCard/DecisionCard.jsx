@@ -13,7 +13,10 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleDecision = async (value, mainpath) => {
     if (value && mainpath) {
-      await getTextToSpeech(value);
+      await getTextToSpeech(
+        value,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
+      );
       updateDisease(path.replace("/", ""), value);
       navigate(mainpath);
     }

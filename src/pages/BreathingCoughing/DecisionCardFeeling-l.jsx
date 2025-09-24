@@ -12,7 +12,10 @@ const DecisionCardFeeling = ({ selectedLanguage, concenFell }) => {
   const { updateDisease, diseases } = useContext(GlobalContext);
   const handleBreathingYesNo = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(value);
+      await getTextToSpeech(
+        value,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
+      );
       updateDisease("concenyesno", value);
       if (path === "/pain-problem") {
         return navigate("/male-body");
