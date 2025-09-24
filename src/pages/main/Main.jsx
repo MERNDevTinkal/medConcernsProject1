@@ -31,8 +31,7 @@ const Main = () => {
         toast.error(data?.msg, { autoClose: 1500 });
       }
     } catch (error) {
-      console.log("====>errorerror", error);
-      const message = error.response?.data?.message;
+      const message = error.response?.data?.msg;
       toast.error(message, { autoClose: 1500 });
     }
   };
