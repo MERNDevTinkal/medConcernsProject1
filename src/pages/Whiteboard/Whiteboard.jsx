@@ -714,22 +714,24 @@ export default function Whiteboard() {
           <div className="main-wrapper home-wrapper h-[150px]">
             <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8 ">
               <Card className="w-full max-w-4xl flex flex-col">
-                <CardHeader className="p-0">
-                  <div
-                    ref={stripRef}
-                    className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
-                  >
-                    {uploadedImages.map((img, idx) => (
-                      <img
-                        key={idx}
-                        src={img.src}
-                        alt={`upload-${idx}`}
-                        className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
-                        draggable={false}
-                      />
-                    ))}
-                  </div>
-                </CardHeader>
+                {uploadedImages && uploadedImages.length > 0 && (
+                  <CardHeader className="p-0">
+                    <div
+                      ref={stripRef}
+                      className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
+                    >
+                      {uploadedImages.map((img, idx) => (
+                        <img
+                          key={idx}
+                          src={img.src}
+                          alt={`upload-${idx}`}
+                          className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
+                          draggable={false}
+                        />
+                      ))}
+                    </div>
+                  </CardHeader>
+                )}
                 <div className="relative w-full h-[150px] bg-white overflow-hidden">
                   <canvas
                     ref={setCanvasSize}

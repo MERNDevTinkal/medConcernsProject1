@@ -161,11 +161,11 @@ const femalefrontRegions = [
 const femaleBackImage = [
   makeRegion(`Back`, 385, 164, 739, 437),
   makeRegion(`Elbow`, 588, 476, 651, 539),
-  makeRegion(`Upper Arm`, 367, 473, 578, 501),
+  makeRegion(`Arm`, 367, 473, 578, 501),
   makeRegion(`Lower Arm`, 637, 536, 851, 571),
   makeRegion(`Hand`, 890, 532, 960, 599),
   makeRegion(`Finger`, 974, 532, 1013, 606),
-  makeRegion(`Upper Arm`, 381, 122, 595, 164),
+  makeRegion(`Arm`, 381, 122, 595, 164),
   makeRegion(`Lower Arm`, 648, 59, 862, 105),
   makeRegion(`Hand`, 872, 38, 956, 80),
   makeRegion(`Finger`, 949, 10, 1013, 73),
@@ -216,11 +216,11 @@ const femalefrontRegionsSpanish = [
 const femaleBackImageSpanish = [
   makeRegion(`Espalda`, 385, 164, 739, 437), // Back
   makeRegion(`Codo`, 588, 476, 651, 539), // Elbow
-  makeRegion(`Brazo Superior`, 367, 473, 578, 501), // Upper Arm
+  makeRegion(`Superior`, 367, 473, 578, 501), // Upper Arm
   makeRegion(`Antebrazo`, 637, 536, 851, 571), // Lower Arm
   makeRegion(`Mano`, 890, 532, 960, 599), // Hand
   makeRegion(`Dedo`, 974, 532, 1013, 606), // Finger
-  makeRegion(`Brazo Superior`, 381, 122, 595, 164), // Upper Arm
+  makeRegion(`Superior`, 381, 122, 595, 164), // Upper Arm
   makeRegion(`Antebrazo`, 648, 59, 862, 105), // Lower Arm
   makeRegion(`Mano`, 872, 38, 956, 80), // Hand
   makeRegion(`Dedo`, 949, 10, 1013, 73), // Finger
@@ -350,10 +350,10 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   };
   useEffect(() => {
     let getImage;
-    if (selectedGender === "Male") {
-      getImage = isfront ? DigramBack : DigramFront;
-    } else {
+    if (selectedGender === "Female") {
       getImage = isfront ? Femalebodyback : Frontfemale;
+    } else {
+      getImage = isfront ? DigramBack : DigramFront;
     }
 
     setBodyImage(getImage);
