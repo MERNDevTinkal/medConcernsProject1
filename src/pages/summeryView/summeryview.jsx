@@ -86,6 +86,16 @@ const SummaryList = () => {
             <Loader />
           ) : summaryData?.concern || summaryData?.summaryList?.length > 0 ? (
             <div className="main-wrapper home-wrapper">
+              <div className="flex justify-end space-x-2">
+                <button
+                  onClick={() => window.print()}
+                  style={{ border: "2px solid black" }}
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {selectedLanguage === "Spanish" ? "Imprimir" : "Print"}
+                </button>
+              </div>
+
               <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
                 <div className="md:w-1/4 sm:w-1/2 w-full">
                   <SummaryLeftCard
