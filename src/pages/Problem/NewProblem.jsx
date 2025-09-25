@@ -30,11 +30,16 @@ const NewProblem = () => {
       newProblem: "Is this a new problem",
       overall: "How do you feel overall?",
     },
+    "": {
+      newProblem: "Is this a new problem",
+      overall: "How do you feel overall?",
+    },
     Spanish: {
       newProblem: "¿Es este un problema nuevo?",
       overall: "¿Cómo te sientes en general?",
     },
   };
+  console.log("===>", selectedLanguage);
   return (
     <>
       {loader ? (
@@ -45,8 +50,12 @@ const NewProblem = () => {
             selectedLanguage={selectedLanguage}
             name={
               location.pathname === "/new-problem"
-                ? translations[selectedLanguage]?.newProblem
-                : translations[selectedLanguage]?.overall
+                ? !selectedLanguage
+                  ? translations["English"]?.newProblem
+                  : translations[selectedLanguage]?.newProblem ||
+                    translations["English"]?.newProblem
+                : translations[selectedLanguage]?.overall ||
+                  translations["English"]?.overall
             }
           />
 
