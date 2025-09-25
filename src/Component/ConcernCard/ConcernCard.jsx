@@ -21,7 +21,6 @@ const ConcernCard = ({ skipKeys = [], selectedLanguage }) => {
       navigate(mainpath);
     }
   };
-  console.log("ddddd", skipKeys);
   return (
     <>
       {concerns

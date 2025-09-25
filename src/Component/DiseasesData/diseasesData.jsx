@@ -1424,6 +1424,64 @@ const trachswallowingDesises = [
     secPath: "/confrm-step-yesno",
   },
 ];
+const medicationPainwithSwallowingDesises = [
+  {
+    id: "1",
+    name: "With Medication",
+    nameEs: "Con medicamentos",
+    path: "/howoften",
+    image: swallowingimg04,
+    secPath: "/pain-feel",
+  },
+  {
+    id: "2",
+    name: "With Food",
+    nameEs: "Con comida",
+    path: "/howoften",
+    image: swallowingimg04,
+    secPath: "/pain-feel",
+  },
+  {
+    id: "3",
+    name: "With Drinks",
+    nameEs: "Con bebidas",
+    path: "/howoften",
+    image: swallowingimg04,
+    secPath: "/pain-feel",
+  },
+  {
+    id: "4",
+    name: "With Food/Drinks",
+    nameEs: "Con comida / bebidas",
+    path: "/howoften",
+    image: swallowingimg04,
+    secPath: "/pain-feel",
+  },
+  {
+    id: "5",
+    name: "With Saliva",
+    nameEs: "Con saliva",
+    path: "/howoften",
+    image: swallowingimg04,
+    secPath: "/pain-feel",
+  },
+  {
+    id: "6",
+    name: "Just Swallowing",
+    nameEs: "Solo al tragar",
+    path: "/howoften",
+    image: swallowingimg04,
+    secPath: "/pain-feel",
+  },
+  {
+    id: "7",
+    name: "Something Else",
+    nameEs: "Otra cosa",
+    path: "/whiteboard",
+    image: swallowingimg04,
+    secPath: "/pain-feel",
+  },
+];
 
 const colorDesies = [
   {
@@ -2601,7 +2659,7 @@ const medicationNausea = [
     name: "Something Else",
     nameEs: "Algo más",
     image: dashimg04,
-    secPath: "/Whiteboard",
+    secPath: "/whiteboard",
   },
 ];
 
@@ -2660,7 +2718,7 @@ const medicationFatigue = [
     nameEs: "Algo más",
     image: dashimg04,
     secPath: "/confrm-step-yesno",
-    path: "/howoften",
+    path: "/whiteboard",
   },
 ];
 
@@ -2671,7 +2729,7 @@ const eatingDonoteatThis = [
     nameEs: "No se permite comer ni beber",
     path: "",
     image: dashimg04,
-    secPath: "/",
+    secPath: "/summary",
   },
   {
     id: "2",
@@ -2679,7 +2737,7 @@ const eatingDonoteatThis = [
     nameEs: "Bandeja equivocada",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Wrong Tray",
+    secPath: "/summary",
   },
   {
     id: "3",
@@ -2687,7 +2745,7 @@ const eatingDonoteatThis = [
     nameEs: "Alergia alimentaria",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Food Allergy",
+    secPath: "/summary",
   },
   {
     id: "4",
@@ -2703,7 +2761,7 @@ const eatingDonoteatThis = [
     nameEs: "¿Algo más?",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Something Else?",
+    secPath: "/whiteboard",
   },
 ];
 
@@ -2714,7 +2772,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Vegetariano / Vegano",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Vegetarian / Vegan",
+    secPath: "/summary",
   },
   {
     id: "2",
@@ -2722,7 +2780,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Kosher",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Kosher",
+    secPath: "/summary",
   },
   {
     id: "3",
@@ -2730,7 +2788,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Halal",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Halal",
+    secPath: "/summary",
   },
   {
     id: "4",
@@ -2738,7 +2796,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Sin lácteos",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → No Dairy",
+    secPath: "/summary",
   },
   {
     id: "5",
@@ -2746,7 +2804,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Sin gluten",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Gluten-Free",
+    secPath: "/summary",
   },
   {
     id: "6",
@@ -2754,7 +2812,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Sin nueces",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Nut-Free",
+    secPath: "/summary",
   },
   {
     id: "7",
@@ -2762,7 +2820,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Bajo en sodio",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Low Sodium",
+    secPath: "/summary",
   },
   {
     id: "8",
@@ -2770,7 +2828,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Diabético / Control de carbohidratos",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Diabetic / Carb-Controlled",
+    secPath: "/summary",
   },
   {
     id: "9",
@@ -2778,7 +2836,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Textura modificada",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Texture Modified",
+    secPath: "/summary",
   },
   {
     id: "10",
@@ -2786,7 +2844,7 @@ const eatingDonoteatspecialdiet = [
     nameEs: "Algo más",
     path: "",
     image: dashimg04,
-    secPath: "Don’t Eat This → Special Diet → Something Else",
+    secPath: "/whiteboard",
   },
 ];
 
@@ -2844,7 +2902,7 @@ const medicationSidEffectsAppetiteNausea = [
     name: "Something Else",
     nameEs: "Algo más",
     image: nausea05,
-    secPath: "/confrm-step-yesno",
+    secPath: "/whiteboard",
     path: "/howoften",
   },
   {
@@ -4126,7 +4184,7 @@ export const diseasesData = {
   "/medicationUrination-problem": medicationUrination,
   "/medicationswallowing-problem": medicationswallowing,
   "/medicationswallowingChoking-problem": swallowingDesises,
-  "/medicationPainwithSwallowing-problem": trachswallowingDesises,
+  "/medicationPainwithSwallowing-problem": medicationPainwithSwallowingDesises,
   "/medicationFearofSwallowing-problem": heartburnswallowingDesises,
   "/medicationswallowingdryMouth-problem": drymouthDesises,
   "/medicationnoAppetite-problem": medicationnoAppetite,
