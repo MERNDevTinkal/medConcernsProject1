@@ -39,7 +39,6 @@ const NewProblem = () => {
       overall: "¿Cómo te sientes en general?",
     },
   };
-  console.log("===>", selectedLanguage);
   return (
     <>
       {loader ? (

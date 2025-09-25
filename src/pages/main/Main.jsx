@@ -87,6 +87,7 @@ const Main = () => {
               onClick={loginUser}
               className="thm-btn w-full mt-3"
               onKeyDown={(e) => {
+                console.log("====>", e);
                 if (e.key === "Enter") {
                   loginUser();
                 }

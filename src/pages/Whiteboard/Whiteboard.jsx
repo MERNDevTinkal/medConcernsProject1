@@ -249,17 +249,6 @@ export default function Whiteboard() {
         };
         return newPaths;
       });
-      // draw incrementally on canvas for smoothness
-      // const ctx = getCanvasContext();
-      // if (!ctx) return;
-      // ctx.lineTo(pos.x, pos.y);
-      // ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
-      // ctx.lineWidth = drawingWidth;
-      // ctx.lineCap = "round";
-      // ctx.lineJoin = "round";
-      // ctx.globalCompositeOperation =
-      //   tool === "pencil" ? "source-over" : "destination-out";
-      // ctx.stroke();
     },
     [
       isDrawing,
@@ -434,57 +423,6 @@ export default function Whiteboard() {
         ctx.stroke();
       }
     }
-
-    // if (textToolActive && typedText) {
-    //   const font = "20px Arial";
-    //   const lineHeight = 24;
-
-    //   const canvas = canvasRef.current;
-    //   const ctx = canvas.getContext("2d");
-    //   if (!ctx) return;
-
-    //   ctx.font = font;
-    //   ctx.fillStyle = drawingColor;
-
-    //   const visibleWidth = canvas.getBoundingClientRect().width - 70; // adjust margin
-
-    //   let lines = [];
-    //   let line = "";
-    //   let cursorX = textPosition.x;
-    //   let currentY = textPosition.y;
-
-    //   // Split typedText into lines based on width
-    //   for (let char of typedText) {
-    //     const testLine = line + char;
-    //     const testWidth = ctx.measureText(testLine).width;
-
-    //     if (testWidth > visibleWidth - textPosition.x && line) {
-    //       lines.push(line);
-    //       line = char;
-    //       currentY += lineHeight;
-    //     } else {
-    //       line = testLine;
-    //     }
-    //     cursorX = textPosition.x + ctx.measureText(line).width;
-    //   }
-    //   if (line) {
-    //     lines.push(line);
-    //   }
-
-    //   // Draw all lines
-    //   currentY = textPosition.y;
-    //   for (let l of lines) {
-    //     ctx.fillText(l, textPosition.x, currentY);
-    //     currentY += lineHeight;
-    //   }
-
-    //   // Draw cursor at end of last line
-    //   ctx.beginPath();
-    //   ctx.moveTo(cursorX + 2, currentY - lineHeight - 16);
-    //   ctx.lineTo(cursorX + 2, currentY - lineHeight + 4);
-    //   ctx.strokeStyle = drawingColor;
-    //   ctx.stroke();
-    // }
   }, [
     paths,
     texts,
@@ -506,6 +444,7 @@ export default function Whiteboard() {
     const fetchBoard = async () => {
       const payload = new FormData();
       payload.append("white_id", id);
+      payload.append("licenses_id", licenses_id);
       try {
         const { data } = await api.post("whiteBoardEdit", payload, {
           headers: { Authorization: `Bearer ${token}` },
@@ -778,7 +717,8 @@ export default function Whiteboard() {
                 <CardHeader className="p-0">
                   <div
                     ref={stripRef}
-                    className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50">
+                    className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
+                  >
                     {uploadedImages.map((img, idx) => (
                       <img
                         key={idx}
@@ -828,7 +768,8 @@ export default function Whiteboard() {
                       setTool("pencil");
                       setShowKeyboard(false);
                     }}
-                    title="Pencil">
+                    title="Pencil"
+                  >
                     <Icon.Pencil className="w-5 h-5" />
                   </Button>
                   <Button
@@ -869,7 +810,8 @@ export default function Whiteboard() {
                       setTextToolActive(true);
                       setShowKeyboard((prev) => !prev);
                     }}
-                    title="Virtual Keyboard">
+                    title="Virtual Keyboard"
+                  >
                     <Icon.Keyword className="w-5 h-5" />
                   </Button>
 
@@ -882,7 +824,8 @@ export default function Whiteboard() {
                       setPaths([]);
                       setUploadedImages([]);
                     }}
-                    title="Clear">
+                    title="Clear"
+                  >
                     <Icon.Trash className="w-5 h-5" />
                   </Button>
                   <div className="flex items-center gap-2 ml-2">
@@ -938,7 +881,8 @@ export default function Whiteboard() {
               <div className="w-full flex justify-between items-center mt-6">
                 <Button
                   className="thm-btn"
-                  onClick={() => setShowSaveModal(true)}>
+                  onClick={() => setShowSaveModal(true)}
+                >
                   {selectedLanguage === "Spanish"
                     ? id
                       ? "Actualizar pizarra"
@@ -949,7 +893,8 @@ export default function Whiteboard() {
                 </Button>
                 <Button
                   className="thm-btn"
-                  onClick={() => navigate("/white-board-list")}>
+                  onClick={() => navigate("/white-board-list")}
+                >
                   {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
                 </Button>
               </div>
@@ -984,7 +929,8 @@ export default function Whiteboard() {
                       <Button
                         variant="outline"
                         className="h-12 rounded-lg px-6 text-base"
-                        onClick={() => setShowSaveModal(false)}>
+                        onClick={() => setShowSaveModal(false)}
+                      >
                         {selectedLanguage === "Spanish" ? "Cancelar" : "Cancel"}
                       </Button>
                       <Button
@@ -992,7 +938,8 @@ export default function Whiteboard() {
                         onClick={() => {
                           setShowSaveModal(false);
                           handleSaveDrawing();
-                        }}>
+                        }}
+                      >
                         {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                       </Button>
                     </div>
