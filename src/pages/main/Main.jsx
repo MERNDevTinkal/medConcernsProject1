@@ -65,10 +65,16 @@ const Main = () => {
               <input
                 type="text"
                 placeholder="Enter your license key"
-                className="w-full px-4 py-3 rounded border text-[#000] text-base border-[#ABCEFA] focus:outline-none  h-[46px] placeholder:text-black"
+                className="w-full px-4 py-3 rounded border text-[#000] text-base border-[#ABCEFA] focus:outline-none h-[46px] placeholder:text-black"
                 value={licenseKey}
                 onChange={(e) => setLicenseKey(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    loginUser();
+                  }
+                }}
               />
+
               {licenseKey && (
                 <button
                   type="button"
@@ -86,12 +92,6 @@ const Main = () => {
               type="button"
               onClick={loginUser}
               className="thm-btn w-full mt-3"
-              onKeyDown={(e) => {
-                console.log("====>", e);
-                if (e.key === "Enter") {
-                  loginUser();
-                }
-              }}
             >
               Continue
             </button>
