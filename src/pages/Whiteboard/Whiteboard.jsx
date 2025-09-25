@@ -300,6 +300,11 @@ export default function Whiteboard() {
       let lastW = 0;
 
       paragraphs.forEach((para) => {
+        if (para === "") {
+          currentY += lineHeight; // preserve empty line
+          return;
+        }
+
         let line = "";
         const chars = para.split(""); // character-level wrapping
         for (let n = 0; n < chars.length; n++) {
@@ -307,7 +312,7 @@ export default function Whiteboard() {
           const testWidth = ctx.measureText(testLine).width;
           if (testWidth > maxWidth && line) {
             ctx.fillText(line, x, currentY);
-            line = chars[n]; // start new line with current char
+            line = chars[n];
             currentY += lineHeight;
           } else {
             line = testLine;
@@ -359,7 +364,8 @@ export default function Whiteboard() {
     texts.forEach((t) => {
       const font = t.font || "20px Arial";
       const lineHeight = Math.round(parseInt(font, 10) * 1.2) || 24;
-      const maxWidth = canvas.getBoundingClientRect().width - (t.x || 0);
+      const maxWidth = canvas.getBoundingClientRect().width - (t.x || 0) - 50;
+      console.log("===>", maxWidth);
       drawWrappedText(
         ctx,
         t.text,
@@ -381,54 +387,52 @@ export default function Whiteboard() {
       ctx.fillStyle = drawingColor;
       ctx.textBaseline = "top";
       const maxWidth =
-        canvas.getBoundingClientRect().width - textPosition.x - 20;
-
-      let lines = [];
-      let line = "";
+        canvas.getBoundingClientRect().width - textPosition.x - 100;
+      console.log("===>q314441", maxWidth);
       let cursorX = textPosition.x;
       let cursorY = textPosition.y;
 
-      for (let char of typedText) {
-        const testLine = line + char;
-        const testWidth = ctx.measureText(testLine).width;
+      let lines = [];
+      let line = "";
 
-        if (testWidth > maxWidth && line) {
-          // wrap
-          lines.push(line);
-          line = char;
-          cursorY += lineHeight;
-          cursorX = textPosition.x + ctx.measureText(line).width;
-        } else if (char === "\n") {
-          // manual enter
+      for (let char of typedText) {
+        if (char === "\n") {
           lines.push(line);
           line = "";
-          cursorY += lineHeight;
-          cursorX = textPosition.x;
+          continue;
+        }
+
+        const testLine = line + char;
+        const testWidth = ctx.measureText(testLine).width;
+        if (testWidth > maxWidth && line) {
+          lines.push(line);
+          line = char; // start new line
         } else {
           line = testLine;
-          cursorX = textPosition.x + ctx.measureText(line).width;
         }
       }
       if (line) lines.push(line);
 
-      // Draw all lines
+      // Draw lines
       cursorY = textPosition.y;
       for (let l of lines) {
         ctx.fillText(l, textPosition.x, cursorY);
         cursorY += lineHeight;
       }
 
-      // Draw caret blinking at last position
+      // Caret at end of last line
+      cursorX =
+        textPosition.x + ctx.measureText(lines[lines.length - 1] || "").width;
+
       if (showCursor) {
         ctx.beginPath();
-        // ctx.moveTo(cursorX, cursorY - lineHeight); // baseline start
-        // ctx.lineTo(cursorX, cursorY - lineHeight + lineHeight); // full height
-        ctx.moveTo(cursorX, cursorY);
-        ctx.lineTo(cursorX, cursorY + lineHeight);
+        ctx.moveTo(cursorX, cursorY - lineHeight); // start at last line
+        ctx.lineTo(cursorX, cursorY); // full height of line
         ctx.strokeStyle = drawingColor;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
+
       setCaretY(cursorY);
     }
   }, [
@@ -520,8 +524,26 @@ export default function Whiteboard() {
   }, [id, licenses_id, token]);
 
   /* -------------------- Save Drawing -------------------- */
+  // const commitTypedText = useCallback(() => {
+  //   if (!typedText.trim()) return null;
+
+  //   const newText = {
+  //     text: typedText,
+  //     x: textPosition.x,
+  //     y: textPosition.y,
+  //     color: drawingColor,
+  //     font: "20px Arial",
+  //   };
+
+  //   setTexts((prev) => [...prev, newText]);
+  //   setTypedText(""); // clear current typing
+  //   setTextToolActive(false); // end typing session
+  //   setShowKeyboard(false);
+  //   return newText;
+  // }, [typedText, textPosition, drawingColor]);
+
   const commitTypedText = useCallback(() => {
-    if (!typedText.trim()) return null;
+    if (!typedText) return null; // allow spaces
 
     const newText = {
       text: typedText,
@@ -533,7 +555,7 @@ export default function Whiteboard() {
 
     setTexts((prev) => [...prev, newText]);
     setTypedText(""); // clear current typing
-    setTextToolActive(false); // end typing session
+    setTextToolActive(false);
     setShowKeyboard(false);
     return newText;
   }, [typedText, textPosition, drawingColor]);
@@ -718,6 +740,55 @@ export default function Whiteboard() {
       wrapperRef.current.scrollTop = caretY - 10;
     }
   }, [caretY]);
+  const handleClick = (e) => {
+    if (tool !== "text") return;
+
+    // Commit current typing if exists
+    if (typedText) {
+      commitTypedText();
+    }
+
+    const rect = canvasRef.current.getBoundingClientRect();
+    const pos = pointerPos(e, rect);
+
+    // Check if click is inside an existing text block
+    const found = texts.find((t) => {
+      const font = t.font || "20px Arial";
+      const lineHeight = Math.round(parseInt(font, 10) * 1.2) || 24;
+      const lines = t.text.split("\n");
+      const textHeight = lineHeight * lines.length;
+
+      // measure width of widest line, fallback to full canvas width
+      const maxLineWidth = lines.reduce((max, line) => {
+        const w = getCanvasContext().measureText(line).width;
+        return Math.max(max, w);
+      }, 0);
+      const textWidth = Math.max(maxLineWidth, 50); // fallback 50px for empty lines
+
+      return (
+        pos.x >= t.x &&
+        pos.x <= t.x + textWidth &&
+        pos.y >= t.y &&
+        pos.y <= t.y + textHeight
+      );
+    });
+
+    if (found) {
+      // Remove old block so it doesn't overlap
+      setTexts((prev) => prev.filter((t) => t !== found));
+
+      // Start editing this block
+      setTextPosition({ x: found.x, y: found.y });
+      setTypedText(found.text);
+    } else {
+      // New block
+      setTextPosition({ x: pos.x, y: pos.y });
+      setTypedText("");
+    }
+
+    setTextToolActive(true);
+    setShowKeyboard(true);
+  };
 
   /* -------------------- JSX (no change to layout) -------------------- */
   return (
@@ -757,7 +828,6 @@ export default function Whiteboard() {
                   className="relative w-full h-[150px] bg-white overflow-y-auto overflow-x-hidden"
                 >
                   <canvas
-                    // ref={setCanvasSize}
                     ref={setCanvasSize}
                     className={` w-full touch-none  pt-5 z-0 ${
                       tool === "text" ? "cursor-text" : "cursor-crosshair"
@@ -769,6 +839,7 @@ export default function Whiteboard() {
                     onTouchStart={startDrawing}
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
+                    onClick={handleClick}
                     // onClick={(e) => {
                     //   if (tool === "text") {
                     //     if (typedText.trim()) {
@@ -782,19 +853,19 @@ export default function Whiteboard() {
                     //     setTypedText("");
                     //   }
                     // }}
-                    onClick={(e) => {
-                      if (tool === "text") {
-                        if (typedText.trim()) {
-                          commitTypedText();
-                        }
-                        const rect = canvasRef.current.getBoundingClientRect();
-                        const pos = pointerPos(e, rect);
-                        setTextPosition({ x: pos.x, y: pos.y });
-                        setTextToolActive(true);
-                        setShowKeyboard(true);
-                        setTypedText("");
-                      }
-                    }}
+                    // onClick={(e) => {
+                    //   if (tool === "text") {
+                    //     if (typedText.trim()) {
+                    //       commitTypedText();
+                    //     }
+                    //     const rect = canvasRef.current.getBoundingClientRect();
+                    //     const pos = pointerPos(e, rect);
+                    //     setTextPosition({ x: pos.x, y: pos.y });
+                    //     setTextToolActive(true);
+                    //     setShowKeyboard(true);
+                    //     setTypedText("");
+                    //   }
+                    // }}
                   />
                 </div>
                 <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
