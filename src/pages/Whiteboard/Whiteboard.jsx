@@ -151,6 +151,8 @@ export default function Whiteboard() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [imageFiles, setImageFiles] = useState([]);
+  const wrapperRef = useRef(null);
+  const [caretY, setCaretY] = useState(0);
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
@@ -288,7 +290,10 @@ export default function Whiteboard() {
     ) => {
       if (!ctx) return { lastLineWidth: 0, lastLineY: y };
       ctx.font = font;
-      ctx.fillStyle = color;
+      // ctx.fillStyle = color;
+
+      ctx.fillStyle = drawingColor;
+      ctx.textBaseline = "top";
 
       const paragraphs = String(text).split("\n");
       let currentY = y;
@@ -374,7 +379,7 @@ export default function Whiteboard() {
       const lineHeight = 24;
       ctx.font = font;
       ctx.fillStyle = drawingColor;
-
+      ctx.textBaseline = "top";
       const maxWidth =
         canvas.getBoundingClientRect().width - textPosition.x - 20;
 
@@ -416,12 +421,15 @@ export default function Whiteboard() {
       // Draw caret blinking at last position
       if (showCursor) {
         ctx.beginPath();
-        ctx.moveTo(cursorX, cursorY - lineHeight); // baseline start
-        ctx.lineTo(cursorX, cursorY - lineHeight + lineHeight); // full height
+        // ctx.moveTo(cursorX, cursorY - lineHeight); // baseline start
+        // ctx.lineTo(cursorX, cursorY - lineHeight + lineHeight); // full height
+        ctx.moveTo(cursorX, cursorY);
+        ctx.lineTo(cursorX, cursorY + lineHeight);
         ctx.strokeStyle = drawingColor;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
+      setCaretY(cursorY);
     }
   }, [
     paths,
@@ -537,7 +545,6 @@ export default function Whiteboard() {
     }
     let finalTexts = texts;
     if (typedText.trim() && textToolActive) {
-      console.log("=========>", [typedText, textToolActive]);
       const newText = {
         text: typedText,
         x: textPosition.x,
@@ -699,6 +706,19 @@ export default function Whiteboard() {
     );
   }, []);
 
+  useEffect(() => {
+    if (!wrapperRef.current) return;
+    const { scrollTop, clientHeight } = wrapperRef.current;
+
+    if (caretY > scrollTop + clientHeight - 30) {
+      wrapperRef.current.scrollTop = caretY - clientHeight + 30;
+    }
+
+    if (caretY < scrollTop) {
+      wrapperRef.current.scrollTop = caretY - 10;
+    }
+  }, [caretY]);
+
   /* -------------------- JSX (no change to layout) -------------------- */
   return (
     <>
@@ -732,10 +752,14 @@ export default function Whiteboard() {
                     </div>
                   </CardHeader>
                 )}
-                <div className="relative w-full h-[150px] bg-white overflow-hidden">
+                <div
+                  ref={wrapperRef}
+                  className="relative w-full h-[150px] bg-white overflow-y-auto overflow-x-hidden"
+                >
                   <canvas
+                    // ref={setCanvasSize}
                     ref={setCanvasSize}
-                    className={` w-full touch-none z-0 ${
+                    className={` w-full touch-none  pt-5 z-0 ${
                       tool === "text" ? "cursor-text" : "cursor-crosshair"
                     }`}
                     onMouseDown={startDrawing}
@@ -745,6 +769,19 @@ export default function Whiteboard() {
                     onTouchStart={startDrawing}
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
+                    // onClick={(e) => {
+                    //   if (tool === "text") {
+                    //     if (typedText.trim()) {
+                    //       commitTypedText();
+                    //     }
+                    //     const rect = canvasRef.current.getBoundingClientRect();
+                    //     const pos = pointerPos(e, rect);
+                    //     setTextPosition(pos);
+                    //     setTextToolActive(true);
+                    //     setShowKeyboard(true);
+                    //     setTypedText("");
+                    //   }
+                    // }}
                     onClick={(e) => {
                       if (tool === "text") {
                         if (typedText.trim()) {
@@ -752,7 +789,7 @@ export default function Whiteboard() {
                         }
                         const rect = canvasRef.current.getBoundingClientRect();
                         const pos = pointerPos(e, rect);
-                        setTextPosition(pos);
+                        setTextPosition({ x: pos.x, y: pos.y });
                         setTextToolActive(true);
                         setShowKeyboard(true);
                         setTypedText("");
@@ -811,6 +848,9 @@ export default function Whiteboard() {
                       setTool("text");
                       setTextToolActive(true);
                       setShowKeyboard((prev) => !prev);
+                      if (textPosition.x === 0 && textPosition.y === 0) {
+                        setTextPosition({ x: 20, y: 20 }); // default safe area inside canvas
+                      }
                     }}
                     title="Virtual Keyboard"
                   >
@@ -825,6 +865,7 @@ export default function Whiteboard() {
                       setTexts([]);
                       setPaths([]);
                       setUploadedImages([]);
+                      setTextToolActive(false);
                     }}
                     title="Clear"
                   >
