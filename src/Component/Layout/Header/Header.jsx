@@ -239,7 +239,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       fun: handleLogout,
     },
   ];
-
   return (
     <>
       <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">
@@ -252,9 +251,11 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               src={BackArrow}
               alt="back"
             />
-            <button type="button" onClick={toggleSidebar}>
-              <img src={hamburger} alt="menu" />
-            </button>
+            {location.pathname !== "/howoften" && (
+              <button type="button" onClick={toggleSidebar}>
+                <img src={hamburger} alt="menu" />
+              </button>
+            )}
           </div>
           <h2 className="text-[25px] font-normal text-black">
             {name ??
