@@ -13,7 +13,6 @@ const Home = () => {
     }
     const handleBeforeInstallPrompt = (e) => {
       e.preventDefault();
-      console.log("dddddddyes im inside u");
       setPromptEvent(e);
     };
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
