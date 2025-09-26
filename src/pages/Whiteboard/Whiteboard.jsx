@@ -126,8 +126,8 @@ export default function Whiteboard() {
   const stripRef = useRef(null);
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [paths, setPaths] = useState([]);
-  const [typingAnchor, setTypingAnchor] = useState({ x: 0, y: 0 });
-
+  const [cursorPosition, setCursorPosition] = useState({ line: 0, column: 0 });
+  const [textLines, setTextLines] = useState([""]);
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawingColor, setDrawingColor] = useState("#000000");
   const [drawingWidth, setDrawingWidth] = useState(2);
@@ -136,7 +136,7 @@ export default function Whiteboard() {
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [uploadedImages, setUploadedImages] = useState([]); // {src,x,y,width,height}
   const [texts, setTexts] = useState([]);
-
+  const [cursorIndex, setCursorIndex] = useState(0);
   const [textToolActive, setTextToolActive] = useState(false);
   const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
   const [typedText, setTypedText] = useState("");
@@ -153,7 +153,8 @@ export default function Whiteboard() {
   const [imageFiles, setImageFiles] = useState([]);
   const wrapperRef = useRef(null);
   const [caretY, setCaretY] = useState(0);
-
+  const [textBlocks, setTextBlocks] = useState([]); // {id, x, y, text, width, height}
+  const [activeTextBlock, setActiveTextBlock] = useState(null);
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
@@ -172,6 +173,212 @@ export default function Whiteboard() {
     }
     return { x: clientX - rect.left, y: clientY - rect.top };
   };
+
+  const drawFlowingText = useCallback(
+    (
+      ctx,
+      text,
+      startX,
+      startY,
+      maxWidth,
+      lineHeight,
+      color = "#000",
+      font = "20px Arial"
+    ) => {
+      if (!ctx) return { lines: [], height: 0, width: 0 };
+
+      ctx.font = font;
+      ctx.fillStyle = color;
+      ctx.textBaseline = "top";
+
+      const words = text.split(" ");
+      const lines = [];
+      let currentLine = "";
+      let currentY = startY;
+      let maxLineWidth = 0;
+
+      for (let i = 0; i < words.length; i++) {
+        const testLine = currentLine ? currentLine + " " + words[i] : words[i];
+        const testWidth = ctx.measureText(testLine).width;
+
+        // If line exceeds max width and we have content, start new line
+        if (testWidth > maxWidth && currentLine) {
+          // Draw the current line
+          ctx.fillText(currentLine, startX, currentY);
+          lines.push({
+            text: currentLine,
+            x: startX,
+            y: currentY,
+            width: ctx.measureText(currentLine).width,
+            height: lineHeight,
+          });
+
+          maxLineWidth = Math.max(
+            maxLineWidth,
+            ctx.measureText(currentLine).width
+          );
+          currentLine = words[i]; // Start new line with current word
+          currentY += lineHeight;
+        } else {
+          currentLine = testLine;
+        }
+      }
+
+      // Draw the last line
+      if (currentLine) {
+        // Check if last line also exceeds width
+        const lastLineWidth = ctx.measureText(currentLine).width;
+        if (lastLineWidth > maxWidth) {
+          // Break the last word if needed
+          const characters = currentLine.split("");
+          let brokenLine = "";
+          for (let char of characters) {
+            const testBrokenLine = brokenLine + char;
+            if (ctx.measureText(testBrokenLine).width > maxWidth) {
+              if (brokenLine) {
+                ctx.fillText(brokenLine, startX, currentY);
+                lines.push({
+                  text: brokenLine,
+                  x: startX,
+                  y: currentY,
+                  width: ctx.measureText(brokenLine).width,
+                  height: lineHeight,
+                });
+                maxLineWidth = Math.max(
+                  maxLineWidth,
+                  ctx.measureText(brokenLine).width
+                );
+                currentY += lineHeight;
+              }
+              brokenLine = char;
+            } else {
+              brokenLine = testBrokenLine;
+            }
+          }
+          if (brokenLine) {
+            ctx.fillText(brokenLine, startX, currentY);
+            lines.push({
+              text: brokenLine,
+              x: startX,
+              y: currentY,
+              width: ctx.measureText(brokenLine).width,
+              height: lineHeight,
+            });
+            maxLineWidth = Math.max(
+              maxLineWidth,
+              ctx.measureText(brokenLine).width
+            );
+          }
+        } else {
+          ctx.fillText(currentLine, startX, currentY);
+          lines.push({
+            text: currentLine,
+            x: startX,
+            y: currentY,
+            width: lastLineWidth,
+            height: lineHeight,
+          });
+          maxLineWidth = Math.max(maxLineWidth, lastLineWidth);
+        }
+      }
+
+      const totalHeight = currentY + lineHeight - startY;
+
+      return {
+        lines,
+        height: totalHeight,
+        width: maxLineWidth,
+        lastY: currentY,
+      };
+    },
+    []
+  );
+
+  const getTextMetrics = useCallback((text, font = "20px Arial") => {
+    const canvas = canvasRef.current;
+    if (!canvas) return { lines: [text], lineWidths: [0] };
+
+    const ctx = canvas.getContext("2d");
+    ctx.font = font;
+
+    const words = text.split(" ");
+    const lines = [];
+    const lineWidths = [];
+    let currentLine = "";
+    const maxWidth = 700; // Canvas width minus padding
+
+    for (let i = 0; i < words.length; i++) {
+      const testLine = currentLine ? currentLine + " " + words[i] : words[i];
+      const metrics = ctx.measureText(testLine);
+
+      if (metrics.width > maxWidth && currentLine) {
+        lines.push(currentLine);
+        lineWidths.push(ctx.measureText(currentLine).width);
+        currentLine = words[i];
+      } else {
+        currentLine = testLine;
+      }
+    }
+
+    if (currentLine) {
+      lines.push(currentLine);
+      lineWidths.push(ctx.measureText(currentLine).width);
+    }
+
+    return { lines, lineWidths };
+  }, []);
+
+  const findNonOverlappingPosition = useCallback(
+    (clickX, clickY) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return { x: clickX, y: clickY };
+
+      const rect = canvas.getBoundingClientRect();
+      const padding = 10;
+      const lineHeight = 24;
+
+      // Get actual canvas dimensions (720px as you mentioned)
+      const canvasWidth = rect.width;
+      const canvasHeight = rect.height;
+
+      // Ensure position is within canvas bounds with padding
+      let bestX = Math.max(
+        padding,
+        Math.min(clickX, canvasWidth - padding - 100)
+      ); // Leave space for text
+      let bestY = Math.max(
+        padding,
+        Math.min(clickY, canvasHeight - padding - 50)
+      );
+
+      // Check against existing text blocks
+      const allBlocks = [...textBlocks];
+      if (activeTextBlock && typedText.trim()) {
+        allBlocks.push(activeTextBlock);
+      }
+
+      // Sort by Y position
+      const sortedBlocks = [...allBlocks].sort((a, b) => a.y - b.y);
+
+      // Find a position that doesn't overlap
+      for (let i = 0; i < sortedBlocks.length; i++) {
+        const block = sortedBlocks[i];
+        const blockBottom = block.y + (block.height || lineHeight) + padding;
+
+        // If click position overlaps with this block, move below it
+        if (bestY < blockBottom && Math.abs(bestX - block.x) < 200) {
+          bestY = blockBottom;
+        }
+      }
+
+      // Ensure we're within canvas bounds
+      bestY = Math.min(bestY, canvasHeight - lineHeight * 3 - padding);
+      bestX = Math.min(bestX, canvasWidth - 100); // Leave space for text
+
+      return { x: bestX, y: bestY };
+    },
+    [textBlocks, activeTextBlock, typedText]
+  );
 
   useEffect(() => {
     if (!textToolActive) return;
@@ -288,44 +495,61 @@ export default function Whiteboard() {
       color = "#000",
       font = "20px Arial"
     ) => {
-      if (!ctx) return { lastLineWidth: 0, lastLineY: y };
-      ctx.font = font;
-      // ctx.fillStyle = color;
+      if (!ctx) return { lastLineWidth: 0, lastLineY: y, lines: [] };
 
-      ctx.fillStyle = drawingColor;
+      ctx.font = font;
+      ctx.fillStyle = color;
       ctx.textBaseline = "top";
 
       const paragraphs = String(text).split("\n");
       let currentY = y;
       let lastW = 0;
+      const lines = [];
 
-      paragraphs.forEach((para) => {
+      paragraphs.forEach((para, pIdx) => {
         if (para === "") {
-          currentY += lineHeight; // preserve empty line
+          currentY += lineHeight;
+          lines.push({ text: "", x, y: currentY, width: 0 });
           return;
         }
 
         let line = "";
-        const chars = para.split(""); // character-level wrapping
-        for (let n = 0; n < chars.length; n++) {
-          const testLine = line + chars[n];
+        const words = para.split(" "); // Split by words instead of characters for better wrapping
+
+        for (let n = 0; n < words.length; n++) {
+          const testLine = line + (line ? " " : "") + words[n];
           const testWidth = ctx.measureText(testLine).width;
+
           if (testWidth > maxWidth && line) {
+            // Draw the current line and start a new one
             ctx.fillText(line, x, currentY);
-            line = chars[n];
+            lines.push({
+              text: line,
+              x,
+              y: currentY,
+              width: ctx.measureText(line).width,
+            });
+            line = words[n];
             currentY += lineHeight;
           } else {
             line = testLine;
           }
         }
+
         if (line) {
           ctx.fillText(line, x, currentY);
           lastW = ctx.measureText(line).width;
+          lines.push({ text: line, x, y: currentY, width: lastW });
           currentY += lineHeight;
+        }
+
+        // Add spacing between paragraphs
+        if (pIdx < paragraphs.length - 1) {
+          currentY += lineHeight * 0.5;
         }
       });
 
-      return { lastLineWidth: lastW, lastLineY: currentY - lineHeight };
+      return { lastLineWidth: lastW, lastLineY: currentY - lineHeight, lines };
     },
     []
   );
@@ -335,10 +559,14 @@ export default function Whiteboard() {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
+
     const rect = canvas.getBoundingClientRect();
     const cssWidth = rect.width;
     const cssHeight = rect.height;
+
     ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+    // Draw paths
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -348,103 +576,159 @@ export default function Whiteboard() {
       ctx.strokeStyle = path.tool === "pencil" ? path.color : "#ffffff";
       ctx.globalCompositeOperation =
         path.tool === "pencil" ? "source-over" : "destination-out";
-
       ctx.moveTo(path.points[0].x, path.points[0].y);
       for (let i = 1; i < path.points.length; i++) {
-        const p = path.points[i];
-        ctx.lineTo(p.x, p.y);
+        ctx.lineTo(path.points[i].x, path.points[i].y);
       }
       ctx.stroke();
       ctx.closePath();
       ctx.globalCompositeOperation = "source-over";
     });
 
-    // Draw saved texts with wrapping
-    const canvasPaddingRight = 10;
-    texts.forEach((t) => {
-      const font = t.font || "20px Arial";
-      const lineHeight = Math.round(parseInt(font, 10) * 1.2) || 24;
-      const maxWidth = canvas.getBoundingClientRect().width - (t.x || 0) - 50;
-      console.log("===>", maxWidth);
-      drawWrappedText(
-        ctx,
-        t.text,
-        t.x || 0,
-        t.y || 0,
-        maxWidth,
-        lineHeight,
-        t.color || "#000",
-        font
-      );
-    });
-    if (textToolActive) {
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
+    // Draw existing text blocks
+    textBlocks.forEach((block) => {
+      if (activeTextBlock && block.id === activeTextBlock.id) return;
 
+      const font = block.font || "20px Arial";
+      const lineHeight = 24;
+      const maxWidth = cssWidth - block.x - 20;
+
+      ctx.font = font;
+      ctx.fillStyle = block.color || "#000";
+      ctx.textBaseline = "top";
+
+      let currentY = block.y;
+
+      // Simple rendering - preserve exact line breaks
+      const lines = block.text.split("\n");
+      lines.forEach((line, index) => {
+        // Simple word wrapping within each line
+        const words = line.split(" ");
+        let currentLine = "";
+
+        for (const word of words) {
+          const testLine = currentLine ? currentLine + " " + word : word;
+          const testWidth = ctx.measureText(testLine).width;
+
+          if (testWidth > maxWidth && currentLine) {
+            // Wrap to next line
+            ctx.fillText(currentLine, block.x, currentY);
+            currentLine = word;
+            currentY += lineHeight;
+          } else {
+            currentLine = testLine;
+          }
+        }
+
+        // Draw remaining text
+        if (currentLine) {
+          ctx.fillText(currentLine, block.x, currentY);
+          currentY += lineHeight;
+        }
+
+        // Add space between paragraphs
+        if (index < lines.length - 1) {
+          currentY += lineHeight * 0.3;
+        }
+      });
+    });
+
+    // Draw active text with cursor
+    if (textToolActive && activeTextBlock) {
       const font = "20px Arial";
       const lineHeight = 24;
+      const maxWidth = cssWidth - activeTextBlock.x - 20;
+
       ctx.font = font;
       ctx.fillStyle = drawingColor;
       ctx.textBaseline = "top";
-      const maxWidth =
-        canvas.getBoundingClientRect().width - textPosition.x - 100;
-      console.log("===>q314441", maxWidth);
-      let cursorX = textPosition.x;
-      let cursorY = textPosition.y;
 
-      let lines = [];
-      let line = "";
+      let currentY = activeTextBlock.y;
+      let cursorX = activeTextBlock.x;
+      let cursorY = activeTextBlock.y;
 
-      for (let char of typedText) {
-        if (char === "\n") {
-          lines.push(line);
-          line = "";
-          continue;
+      // Draw each logical line with word wrapping
+      textLines.forEach((line, lineIndex) => {
+        const words = line.split(" ");
+        let currentLine = "";
+        let linesInThisParagraph = 0;
+
+        for (const word of words) {
+          const testLine = currentLine ? currentLine + " " + word : word;
+          const testWidth = ctx.measureText(testLine).width;
+
+          if (testWidth > maxWidth && currentLine) {
+            // Draw and wrap
+            ctx.fillText(currentLine, activeTextBlock.x, currentY);
+
+            // Check if cursor is in this wrapped line
+            if (lineIndex === cursorPosition.line) {
+              const textBeforeCursor = line.slice(0, cursorPosition.column);
+              const wordsBeforeCursor = textBeforeCursor.split(" ");
+              let testText = "";
+
+              for (const w of wordsBeforeCursor) {
+                const test = testText ? testText + " " + w : w;
+                if (ctx.measureText(test).width > maxWidth && testText) {
+                  linesInThisParagraph++;
+                  testText = w;
+                } else {
+                  testText = test;
+                }
+              }
+
+              if (linesInThisParagraph === 0) {
+                cursorX = activeTextBlock.x + ctx.measureText(testText).width;
+                cursorY = currentY;
+              }
+            }
+
+            currentLine = word;
+            currentY += lineHeight;
+            linesInThisParagraph++;
+          } else {
+            currentLine = testLine;
+          }
         }
 
-        const testLine = line + char;
-        const testWidth = ctx.measureText(testLine).width;
-        if (testWidth > maxWidth && line) {
-          lines.push(line);
-          line = char; // start new line
-        } else {
-          line = testLine;
+        // Draw the last part of the line
+        if (currentLine) {
+          ctx.fillText(currentLine, activeTextBlock.x, currentY);
+
+          // Check if cursor is in this part
+          if (lineIndex === cursorPosition.line && linesInThisParagraph === 0) {
+            const textBeforeCursor = line.slice(0, cursorPosition.column);
+            cursorX =
+              activeTextBlock.x + ctx.measureText(textBeforeCursor).width;
+            cursorY = currentY;
+          }
+
+          currentY += lineHeight;
         }
-      }
-      if (line) lines.push(line);
+      });
 
-      // Draw lines
-      cursorY = textPosition.y;
-      for (let l of lines) {
-        ctx.fillText(l, textPosition.x, cursorY);
-        cursorY += lineHeight;
-      }
-
-      // Caret at end of last line
-      cursorX =
-        textPosition.x + ctx.measureText(lines[lines.length - 1] || "").width;
-
+      // Draw cursor
       if (showCursor) {
         ctx.beginPath();
-        ctx.moveTo(cursorX, cursorY - lineHeight); // start at last line
-        ctx.lineTo(cursorX, cursorY); // full height of line
+        ctx.moveTo(cursorX, cursorY);
+        ctx.lineTo(cursorX, cursorY + lineHeight);
         ctx.strokeStyle = drawingColor;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 2;
         ctx.stroke();
       }
 
-      setCaretY(cursorY);
+      setCaretY(cursorY + lineHeight);
     }
   }, [
     paths,
-    texts,
-    uploadedImages, // we keep dependency so if images change slider updates elsewhere
-    typedText,
+    textBlocks,
+    activeTextBlock,
+    textLines,
     textToolActive,
     drawingColor,
-    textPosition,
+    cursorPosition,
+    showCursor,
     getCanvasContext,
-    drawWrappedText,
   ]);
 
   /* -------------------- Fetch board -------------------- */
@@ -524,79 +808,81 @@ export default function Whiteboard() {
   }, [id, licenses_id, token]);
 
   /* -------------------- Save Drawing -------------------- */
-  // const commitTypedText = useCallback(() => {
-  //   if (!typedText.trim()) return null;
-
-  //   const newText = {
-  //     text: typedText,
-  //     x: textPosition.x,
-  //     y: textPosition.y,
-  //     color: drawingColor,
-  //     font: "20px Arial",
-  //   };
-
-  //   setTexts((prev) => [...prev, newText]);
-  //   setTypedText(""); // clear current typing
-  //   setTextToolActive(false); // end typing session
-  //   setShowKeyboard(false);
-  //   return newText;
-  // }, [typedText, textPosition, drawingColor]);
 
   const commitTypedText = useCallback(() => {
-    if (!typedText) return null; // allow spaces
+    if (!activeTextBlock) return;
 
-    const newText = {
-      text: typedText,
-      x: textPosition.x,
-      y: textPosition.y,
-      color: drawingColor,
-      font: "20px Arial",
-    };
+    const textContent = textLines.join("\n");
 
-    setTexts((prev) => [...prev, newText]);
-    setTypedText(""); // clear current typing
+    // Only commit if we have meaningful changes
+    if (textContent !== activeTextBlock.text || textContent.trim() !== "") {
+      const committedBlock = {
+        ...activeTextBlock,
+        text: textContent,
+        timestamp: Date.now(),
+      };
+
+      setTextBlocks((prev) => {
+        const existingIndex = prev.findIndex(
+          (block) => block.id === activeTextBlock.id
+        );
+
+        if (existingIndex >= 0) {
+          // Update existing block
+          const updated = [...prev];
+          updated[existingIndex] = committedBlock;
+          return updated;
+        } else {
+          // Add new block only if it has content
+          if (textContent.trim()) {
+            return [...prev, committedBlock];
+          }
+          return prev; // Don't add empty blocks
+        }
+      });
+    }
+
+    // Clear active editing state
+    setActiveTextBlock(null);
+    setTextLines([""]);
+    setTypedText("");
+    setCursorPosition({ line: 0, column: 0 });
     setTextToolActive(false);
     setShowKeyboard(false);
-    return newText;
-  }, [typedText, textPosition, drawingColor]);
+  }, [activeTextBlock, textLines]);
 
   const handleSaveDrawing = async () => {
     if (!drawingName.trim()) {
       alert("Please enter a drawing name");
       return;
     }
-    let finalTexts = texts;
-    if (typedText.trim() && textToolActive) {
-      const newText = {
-        text: typedText,
-        x: textPosition.x,
-        y: textPosition.y,
-        color: drawingColor,
-        font: "20px Arial",
-      };
-      finalTexts = [...texts, newText];
-      setTexts(finalTexts);
-      setTypedText("");
-      setTextToolActive(false);
-      setShowKeyboard(false);
+
+    // Commit any active text before saving
+    if (activeTextBlock) {
+      commitTypedText();
     }
 
     const state = {
       name: drawingName.trim(),
       paths,
-      texts: finalTexts,
-      toolSettings: { color: drawingColor, width: drawingWidth },
+      texts: textBlocks.filter((block) => block.text.trim() !== ""), // Only save non-empty blocks
+      toolSettings: {
+        color: drawingColor,
+        width: drawingWidth,
+      },
     };
 
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
     payload.append("data", JSON.stringify(state));
+
     if (imageFiles && imageFiles.length > 0) {
       Array.from(imageFiles).forEach((file) => {
         payload.append("imageFiles[]", file);
       });
     }
+
     if (id && id !== "null") {
       payload.append("white_id", id);
     }
@@ -628,28 +914,109 @@ export default function Whiteboard() {
   // virtual keyboard change sets typed text directly
   const handleKeyboardChange = (input) => {
     setTypedText(input);
+    setCursorIndex(input.length); // Update cursor position to end
   };
 
   // virtual keyboard key presses (special keys like enter, bksp, space)
   const handleKeyboardKeyPress = (button) => {
-    // if keyboard library passes event object, handle gracefully
     if (!button) return;
-    if (typeof button !== "string") return;
 
-    if (button === "{enter}" || button === "{return}" || button === "Enter") {
-      commitTypedText();
-      return;
+    switch (button) {
+      case "{enter}":
+      case "{return}":
+      case "Enter":
+        // Insert newline at cursor position - Microsoft Word style
+        const newLines = [...textLines];
+
+        // If we're at the end of a line, just add a new empty line
+        if (cursorPosition.column === newLines[cursorPosition.line].length) {
+          newLines.splice(cursorPosition.line + 1, 0, "");
+          setTextLines(newLines);
+          setCursorPosition({
+            line: cursorPosition.line + 1,
+            column: 0,
+          });
+        } else {
+          // If we're in the middle of a line, split it
+          const currentLine = newLines[cursorPosition.line];
+          const beforeCursor = currentLine.slice(0, cursorPosition.column);
+          const afterCursor = currentLine.slice(cursorPosition.column);
+
+          newLines[cursorPosition.line] = beforeCursor;
+          newLines.splice(cursorPosition.line + 1, 0, afterCursor);
+
+          setTextLines(newLines);
+          setCursorPosition({
+            line: cursorPosition.line + 1,
+            column: 0,
+          });
+        }
+        setTypedText(newLines.join("\n"));
+        break;
+
+      case "{bksp}":
+      case "{backspace}":
+        handleBackspace();
+        break;
+
+      case "{space}":
+        insertTextAtCursor(" ");
+        break;
+
+      default:
+        if (button.length === 1) {
+          insertTextAtCursor(button);
+        }
+        break;
     }
-    if (button === "{bksp}" || button === "{backspace}") {
-      setTypedText((prev) => prev.slice(0, -1));
-      return;
+  };
+
+  const insertTextAtCursor = (text) => {
+    const newLines = [...textLines];
+    const currentLine = newLines[cursorPosition.line] || "";
+
+    newLines[cursorPosition.line] =
+      currentLine.slice(0, cursorPosition.column) +
+      text +
+      currentLine.slice(cursorPosition.column);
+
+    setTextLines(newLines);
+    setCursorPosition((prev) => ({
+      ...prev,
+      column: prev.column + text.length,
+    }));
+    setTypedText(newLines.join("\n"));
+  };
+
+  const handleBackspace = () => {
+    const newLines = [...textLines];
+    const currentLine = newLines[cursorPosition.line] || "";
+
+    if (cursorPosition.column > 0) {
+      // Delete character within the same line - Microsoft Word style
+      newLines[cursorPosition.line] =
+        currentLine.slice(0, cursorPosition.column - 1) +
+        currentLine.slice(cursorPosition.column);
+
+      setTextLines(newLines);
+      setCursorPosition((prev) => ({
+        ...prev,
+        column: prev.column - 1,
+      }));
+      setTypedText(newLines.join("\n"));
+    } else if (cursorPosition.line > 0) {
+      // Only merge with previous line if both lines are empty or it makes sense
+      const prevLine = newLines[cursorPosition.line - 1];
+      const currentLine = newLines[cursorPosition.line];
+
+      // Microsoft Word behavior: only merge if it makes sense
+      // Don't automatically merge when backspacing at beginning of line
+      // Instead, just move cursor to end of previous line
+      setCursorPosition({
+        line: cursorPosition.line - 1,
+        column: prevLine.length,
+      });
     }
-    if (button === "{space}") {
-      setTypedText((prev) => prev + " ");
-      return;
-    }
-    // regular char
-    setTypedText((prev) => prev + button);
   };
 
   // physical keyboard: attach listener only while text tool is active
@@ -657,41 +1024,156 @@ export default function Whiteboard() {
     if (!textToolActive) return;
 
     const onKeyDown = (e) => {
-      // don't intercept typing happening in other inputs/textareas/contenteditable
-      const target = e.target;
-      const tag = target && target.tagName && target.tagName.toUpperCase();
-      if (tag === "INPUT" || tag === "TEXTAREA" || target?.isContentEditable) {
-        return;
-      }
+      if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
+      e.preventDefault();
 
-      // prevent default (space scroll, enter submit) when we're capturing text for whiteboard
-      if (e.key === " " || e.key === "Enter" || e.key === "Backspace") {
-        e.preventDefault();
-      }
+      switch (e.key) {
+        case "Backspace":
+          handleBackspace();
+          break;
 
-      // if (e.key === "Enter") {
-      //   commitTypedText();
-      //   return;
-      // }
-      if (e.key === "Enter") {
-        e.preventDefault();
-        setTypedText((prev) => prev + "\n");
-        return;
-      }
+        case "Delete":
+          handleDelete();
+          break;
 
-      if (e.key === "Backspace") {
-        setTypedText((prev) => prev.slice(0, -1));
-        return;
-      }
-      if (e.key.length === 1) {
-        setTypedText((prev) => prev + e.key);
+        case "Enter":
+          // Microsoft Word style Enter key
+          const newLines = [...textLines];
+
+          if (cursorPosition.column === newLines[cursorPosition.line].length) {
+            // At end of line - add new empty line
+            newLines.splice(cursorPosition.line + 1, 0, "");
+            setTextLines(newLines);
+            setCursorPosition({
+              line: cursorPosition.line + 1,
+              column: 0,
+            });
+          } else {
+            // In middle of line - split the line
+            const currentLine = newLines[cursorPosition.line];
+            const beforeCursor = currentLine.slice(0, cursorPosition.column);
+            const afterCursor = currentLine.slice(cursorPosition.column);
+
+            newLines[cursorPosition.line] = beforeCursor;
+            newLines.splice(cursorPosition.line + 1, 0, afterCursor);
+
+            setTextLines(newLines);
+            setCursorPosition({
+              line: cursorPosition.line + 1,
+              column: 0,
+            });
+          }
+          setTypedText(newLines.join("\n"));
+          break;
+
+        case "ArrowLeft":
+          if (cursorPosition.column > 0) {
+            setCursorPosition((prev) => ({
+              ...prev,
+              column: prev.column - 1,
+            }));
+          } else if (cursorPosition.line > 0) {
+            // Move to end of previous line
+            setCursorPosition({
+              line: cursorPosition.line - 1,
+              column: textLines[cursorPosition.line - 1].length,
+            });
+          }
+          break;
+
+        case "ArrowRight":
+          const currentLineLength = textLines[cursorPosition.line]?.length || 0;
+          if (cursorPosition.column < currentLineLength) {
+            setCursorPosition((prev) => ({
+              ...prev,
+              column: prev.column + 1,
+            }));
+          } else if (cursorPosition.line < textLines.length - 1) {
+            // Move to beginning of next line
+            setCursorPosition({
+              line: cursorPosition.line + 1,
+              column: 0,
+            });
+          }
+          break;
+
+        case "ArrowUp":
+          if (cursorPosition.line > 0) {
+            const prevLineLength =
+              textLines[cursorPosition.line - 1]?.length || 0;
+            // Maintain similar column position in previous line
+            const newColumn = Math.min(cursorPosition.column, prevLineLength);
+            setCursorPosition({
+              line: cursorPosition.line - 1,
+              column: newColumn,
+            });
+          }
+          break;
+
+        case "ArrowDown":
+          if (cursorPosition.line < textLines.length - 1) {
+            const nextLineLength =
+              textLines[cursorPosition.line + 1]?.length || 0;
+            // Maintain similar column position in next line
+            const newColumn = Math.min(cursorPosition.column, nextLineLength);
+            setCursorPosition({
+              line: cursorPosition.line + 1,
+              column: newColumn,
+            });
+          }
+          break;
+
+        case "Home":
+          // Move to beginning of current line
+          setCursorPosition((prev) => ({
+            ...prev,
+            column: 0,
+          }));
+          break;
+
+        case "End":
+          // Move to end of current line
+          const lineLength = textLines[cursorPosition.line]?.length || 0;
+          setCursorPosition((prev) => ({
+            ...prev,
+            column: lineLength,
+          }));
+          break;
+
+        default:
+          if (e.key.length === 1) {
+            insertTextAtCursor(e.key);
+          }
+          break;
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [textToolActive, commitTypedText]);
+  }, [textToolActive, textLines, cursorPosition]);
 
+  const handleDelete = () => {
+    const newLines = [...textLines];
+    const currentLine = newLines[cursorPosition.line] || "";
+
+    if (cursorPosition.column < currentLine.length) {
+      // Delete character to the right
+      newLines[cursorPosition.line] =
+        currentLine.slice(0, cursorPosition.column) +
+        currentLine.slice(cursorPosition.column + 1);
+
+      setTextLines(newLines);
+      setTypedText(newLines.join("\n"));
+    } else if (cursorPosition.line < textLines.length - 1) {
+      // Merge with next line - but only when Delete is pressed at end of line
+      const nextLine = newLines[cursorPosition.line + 1];
+      newLines[cursorPosition.line] = currentLine + nextLine;
+      newLines.splice(cursorPosition.line + 1, 1);
+
+      setTextLines(newLines);
+      setTypedText(newLines.join("\n"));
+    }
+  };
   /* -------------------- Image Upload -------------------- */
   const handleImageUpload = (files) => {
     if (!files || files.length === 0) return;
@@ -740,57 +1222,193 @@ export default function Whiteboard() {
       wrapperRef.current.scrollTop = caretY - 10;
     }
   }, [caretY]);
+
   const handleClick = (e) => {
     if (tool !== "text") return;
-
-    // Commit current typing if exists
-    if (typedText) {
-      commitTypedText();
-    }
 
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
 
-    // Check if click is inside an existing text block
-    const found = texts.find((t) => {
-      const font = t.font || "20px Arial";
-      const lineHeight = Math.round(parseInt(font, 10) * 1.2) || 24;
-      const lines = t.text.split("\n");
-      const textHeight = lineHeight * lines.length;
+    // Check if clicking on existing text block
+    let clickedOnExisting = false;
 
-      // measure width of widest line, fallback to full canvas width
-      const maxLineWidth = lines.reduce((max, line) => {
-        const w = getCanvasContext().measureText(line).width;
-        return Math.max(max, w);
-      }, 0);
-      const textWidth = Math.max(maxLineWidth, 50); // fallback 50px for empty lines
+    for (const block of textBlocks) {
+      const blockRight = block.x + 300;
+      const blockBottom = block.y + 100;
 
-      return (
-        pos.x >= t.x &&
-        pos.x <= t.x + textWidth &&
-        pos.y >= t.y &&
-        pos.y <= t.y + textHeight
-      );
-    });
+      if (
+        pos.x >= block.x - 10 &&
+        pos.x <= blockRight + 10 &&
+        pos.y >= block.y - 5 &&
+        pos.y <= blockBottom + 5
+      ) {
+        if (activeTextBlock && activeTextBlock.id === block.id) {
+          updateCursorPosition(pos, block);
+          clickedOnExisting = true;
+          break;
+        }
 
-    if (found) {
-      // Remove old block so it doesn't overlap
-      setTexts((prev) => prev.filter((t) => t !== found));
+        if (activeTextBlock && typedText.trim()) {
+          commitTypedText();
+        }
 
-      // Start editing this block
-      setTextPosition({ x: found.x, y: found.y });
-      setTypedText(found.text);
-    } else {
-      // New block
-      setTextPosition({ x: pos.x, y: pos.y });
-      setTypedText("");
+        // Activate the block with exact line breaks
+        setActiveTextBlock(block);
+        const lines = block.text.split("\n");
+        setTextLines(lines);
+        setTypedText(block.text);
+
+        // Simple cursor positioning
+        const lineHeight = 24;
+        const relativeY = pos.y - block.y;
+        const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
+        const actualLine = Math.min(clickedLine, lines.length - 1);
+
+        const ctx = canvasRef.current.getContext("2d");
+        ctx.font = "20px Arial";
+        const lineText = lines[actualLine] || "";
+        const relativeX = pos.x - block.x;
+
+        let charPosition = 0;
+        let currentWidth = 0;
+
+        for (let i = 0; i < lineText.length; i++) {
+          const charWidth = ctx.measureText(lineText[i]).width;
+          if (currentWidth + charWidth / 2 > relativeX) break;
+          currentWidth += charWidth;
+          charPosition = i + 1;
+        }
+
+        setCursorPosition({ line: actualLine, column: charPosition });
+        setTextToolActive(true);
+        setShowKeyboard(true);
+        clickedOnExisting = true;
+        break;
+      }
     }
 
+    if (!clickedOnExisting) {
+      if (activeTextBlock && typedText.trim()) {
+        commitTypedText();
+      } else if (activeTextBlock && !typedText.trim()) {
+        setActiveTextBlock(null);
+        setTextLines([""]);
+        setTypedText("");
+        setCursorPosition({ line: 0, column: 0 });
+        setTextToolActive(false);
+        setShowKeyboard(false);
+        return;
+      }
+
+      const newPosition = findNonOverlappingPosition(pos.x, pos.y);
+      const newTextBlock = {
+        id: Date.now(),
+        x: newPosition.x,
+        y: newPosition.y,
+        text: "",
+        color: drawingColor,
+        font: "20px Arial",
+      };
+
+      setActiveTextBlock(newTextBlock);
+      setTextLines([""]);
+      setTypedText("");
+      setCursorPosition({ line: 0, column: 0 });
+      setTextToolActive(true);
+      setShowKeyboard(true);
+    }
+  };
+  const activateTextTool = () => {
+    setTool("text");
     setTextToolActive(true);
     setShowKeyboard(true);
+
+    // Set default position if none exists
+    if (textPosition.x === 0 && textPosition.y === 0) {
+      const rect = canvasRef.current?.getBoundingClientRect();
+      if (rect) {
+        setTextPosition({ x: 20, y: 20 });
+
+        // Create a new text block at default position
+        const newTextBlock = {
+          id: Date.now(),
+          x: 20,
+          y: 20,
+          text: "",
+          color: drawingColor,
+          font: "20px Arial",
+        };
+        setActiveTextBlock(newTextBlock);
+      }
+    }
   };
 
   /* -------------------- JSX (no change to layout) -------------------- */
+  const handleClear = () => {
+    // Clear only the active editing session, not saved blocks
+    if (activeTextBlock) {
+      // If we have unsaved text, check if user wants to save it
+      if (
+        typedText.trim() &&
+        !textBlocks.find((b) => b.id === activeTextBlock.id)
+      ) {
+        if (window.confirm("You have unsaved text. Do you want to clear it?")) {
+          setActiveTextBlock(null);
+          setTextLines([""]);
+          setTypedText("");
+          setCursorPosition({ line: 0, column: 0 });
+        }
+      } else {
+        setActiveTextBlock(null);
+        setTextLines([""]);
+        setTypedText("");
+        setCursorPosition({ line: 0, column: 0 });
+      }
+    }
+
+    setTextToolActive(false);
+    setShowKeyboard(false);
+
+    // Clear drawings and images (existing functionality)
+    setPaths([]);
+    setUploadedImages([]);
+    setImageFiles([]);
+  };
+  //
+
+  /* -------------------- Helper function to update cursor position -------------------- */
+  const updateCursorPosition = (pos, block) => {
+    const ctx = canvasRef.current.getContext("2d");
+    ctx.font = "20px Arial";
+    const lineHeight = 24;
+
+    const relativeX = pos.x - block.x;
+    const relativeY = pos.y - block.y;
+
+    const lines = block.text.split("\n");
+    const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
+    const actualLine = Math.min(clickedLine, lines.length - 1);
+
+    let charPosition = 0;
+    let currentWidth = 0;
+    const lineText = lines[actualLine] || "";
+
+    // Find the closest character position
+    for (let i = 0; i < lineText.length; i++) {
+      const charWidth = ctx.measureText(lineText[i]).width;
+      // Check if we've passed the click position
+      if (currentWidth + charWidth / 2 > relativeX) {
+        break;
+      }
+      currentWidth += charWidth;
+      charPosition = i + 1;
+    }
+
+    setCursorPosition({
+      line: actualLine,
+      column: charPosition,
+    });
+  };
   return (
     <>
       {loader ? (
@@ -840,32 +1458,6 @@ export default function Whiteboard() {
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
                     onClick={handleClick}
-                    // onClick={(e) => {
-                    //   if (tool === "text") {
-                    //     if (typedText.trim()) {
-                    //       commitTypedText();
-                    //     }
-                    //     const rect = canvasRef.current.getBoundingClientRect();
-                    //     const pos = pointerPos(e, rect);
-                    //     setTextPosition(pos);
-                    //     setTextToolActive(true);
-                    //     setShowKeyboard(true);
-                    //     setTypedText("");
-                    //   }
-                    // }}
-                    // onClick={(e) => {
-                    //   if (tool === "text") {
-                    //     if (typedText.trim()) {
-                    //       commitTypedText();
-                    //     }
-                    //     const rect = canvasRef.current.getBoundingClientRect();
-                    //     const pos = pointerPos(e, rect);
-                    //     setTextPosition({ x: pos.x, y: pos.y });
-                    //     setTextToolActive(true);
-                    //     setShowKeyboard(true);
-                    //     setTypedText("");
-                    //   }
-                    // }}
                   />
                 </div>
                 <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
@@ -915,14 +1507,7 @@ export default function Whiteboard() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    onClick={() => {
-                      setTool("text");
-                      setTextToolActive(true);
-                      setShowKeyboard((prev) => !prev);
-                      if (textPosition.x === 0 && textPosition.y === 0) {
-                        setTextPosition({ x: 20, y: 20 }); // default safe area inside canvas
-                      }
-                    }}
+                    onClick={activateTextTool}
                     title="Virtual Keyboard"
                   >
                     <Icon.Keyword className="w-5 h-5" />
@@ -931,13 +1516,7 @@ export default function Whiteboard() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    onClick={() => {
-                      setTypedText("");
-                      setTexts([]);
-                      setPaths([]);
-                      setUploadedImages([]);
-                      setTextToolActive(false);
-                    }}
+                    onClick={handleClear}
                     title="Clear"
                   >
                     <Icon.Trash className="w-5 h-5" />
