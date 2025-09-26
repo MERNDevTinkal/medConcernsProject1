@@ -1225,17 +1225,12 @@ export default function Whiteboard() {
 
   const handleClick = (e) => {
     if (tool !== "text") return;
-
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
-
-    // Check if clicking on existing text block
     let clickedOnExisting = false;
-
     for (const block of textBlocks) {
       const blockRight = block.x + 300;
       const blockBottom = block.y + 100;
-
       if (
         pos.x >= block.x - 10 &&
         pos.x <= blockRight + 10 &&
