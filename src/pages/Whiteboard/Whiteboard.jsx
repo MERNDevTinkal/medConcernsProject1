@@ -767,18 +767,19 @@ export default function Whiteboard() {
     });
 
     // --- Draw saved texts with wrapping (fixed 720px width) ---
-    texts.forEach((t) => {
-      const font = t.font || "20px Arial";
+    // --- Draw saved texts with wrapping (fixed 720px width) ---
+    // --- Draw saved textBlocks with wrapping ---
+    textBlocks.forEach((block) => {
+      if (activeTextBlock && block.id === activeTextBlock.id) return; // skip the active one (drawn separately)
+      const font = block.font || "20px Arial";
       const lineHeight = Math.round(parseInt(font, 10) * 1.2) || 24;
-      const maxWidth = 720; // fixed wrap width
       drawWrappedText(
         ctx,
-        t.text,
-        t.x || 0,
-        t.y || 0,
-        maxWidth,
+        block.text,
+        block.x,
+        block.y,
         lineHeight,
-        t.color || "#000",
+        block.color || "#000",
         font
       );
     });
@@ -886,29 +887,15 @@ export default function Whiteboard() {
             setPaths(savedState.paths);
           }
           if (Array.isArray(savedState.texts)) {
-            // normalize texts (provide defaults if missing)
-            const apiTexts = savedState.texts
-              .map((t) => {
-                if (!t) return null;
-                if (typeof t === "string") {
-                  return {
-                    text: t,
-                    x: 50,
-                    y: 50,
-                    color: "#000",
-                    font: "20px Arial",
-                  };
-                }
-                return {
-                  text: t.text || "",
-                  x: typeof t.x === "number" ? t.x : 50,
-                  y: typeof t.y === "number" ? t.y : 50,
-                  color: t.color || "#000",
-                  font: t.font || "20px Arial",
-                };
-              })
-              .filter(Boolean);
-            setTexts(apiTexts);
+            const apiTexts = savedState.texts.map((t) => ({
+              id: Date.now() + Math.random(),
+              text: typeof t === "string" ? t : t.text || "",
+              x: typeof t.x === "number" ? t.x : 50,
+              y: typeof t.y === "number" ? t.y : 50,
+              color: t.color || "#000",
+              font: t.font || "20px Arial",
+            }));
+            setTextBlocks(apiTexts);
           }
 
           if (savedState.toolSettings) {
@@ -984,7 +971,7 @@ export default function Whiteboard() {
     const state = {
       name: drawingName.trim(),
       paths,
-      texts: textBlocks.filter((block) => block.text.trim() !== ""), // Only save non-empty blocks
+      texts: textBlocks.filter((block) => block.text.trim() !== ""),
       toolSettings: {
         color: drawingColor,
         width: drawingWidth,
