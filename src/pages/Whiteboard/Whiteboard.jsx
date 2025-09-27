@@ -155,12 +155,12 @@ export default function Whiteboard() {
   const [caretY, setCaretY] = useState(0);
   const [textBlocks, setTextBlocks] = useState([]); // {id, x, y, text, width, height}
   const [activeTextBlock, setActiveTextBlock] = useState(null);
+
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
-
   /* -------------------- Pointer utils -------------------- */
   const pointerPos = (e, rect) => {
     let clientX, clientY;
@@ -293,7 +293,6 @@ export default function Whiteboard() {
     },
     []
   );
-
   const getTextMetrics = useCallback((text, font = "20px Arial") => {
     const canvas = canvasRef.current;
     if (!canvas) return { lines: [text], lineWidths: [0] };
@@ -305,7 +304,7 @@ export default function Whiteboard() {
     const lines = [];
     const lineWidths = [];
     let currentLine = "";
-    const maxWidth = 700; // Canvas width minus padding
+    const maxWidth = 700;
 
     for (let i = 0; i < words.length; i++) {
       const testLine = currentLine ? currentLine + " " + words[i] : words[i];
@@ -334,46 +333,39 @@ export default function Whiteboard() {
       if (!canvas) return { x: clickX, y: clickY };
 
       const rect = canvas.getBoundingClientRect();
-      const padding = 10;
+      const padding = 20;
       const lineHeight = 24;
 
-      // Get actual canvas dimensions (720px as you mentioned)
       const canvasWidth = rect.width;
       const canvasHeight = rect.height;
 
-      // Ensure position is within canvas bounds with padding
       let bestX = Math.max(
         padding,
-        Math.min(clickX, canvasWidth - padding - 100)
-      ); // Leave space for text
+        Math.min(clickX, canvasWidth - padding - 50)
+      );
       let bestY = Math.max(
         padding,
         Math.min(clickY, canvasHeight - padding - 50)
       );
 
-      // Check against existing text blocks
       const allBlocks = [...textBlocks];
       if (activeTextBlock && typedText.trim()) {
         allBlocks.push(activeTextBlock);
       }
 
-      // Sort by Y position
       const sortedBlocks = [...allBlocks].sort((a, b) => a.y - b.y);
 
-      // Find a position that doesn't overlap
       for (let i = 0; i < sortedBlocks.length; i++) {
         const block = sortedBlocks[i];
         const blockBottom = block.y + (block.height || lineHeight) + padding;
 
-        // If click position overlaps with this block, move below it
-        if (bestY < blockBottom && Math.abs(bestX - block.x) < 200) {
+        if (bestY < blockBottom && Math.abs(bestX - block.x) < 300) {
           bestY = blockBottom;
         }
       }
 
-      // Ensure we're within canvas bounds
       bestY = Math.min(bestY, canvasHeight - lineHeight * 3 - padding);
-      bestX = Math.min(bestX, canvasWidth - 100); // Leave space for text
+      bestX = Math.min(bestX, canvasWidth - 100);
 
       return { x: bestX, y: bestY };
     },
@@ -392,15 +384,12 @@ export default function Whiteboard() {
     const dpr = window.devicePixelRatio || 1;
     const width = 800;
     const height = 600;
-    // actual pixel buffer
     node.width = Math.round(width * dpr);
     node.height = Math.round(height * dpr);
-    // css size
     node.style.width = `${width}px`;
     node.style.height = `${height}px`;
     const ctx = node.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr); // now ctx coordinates are in CSS pixels
-
+    if (ctx) ctx.scale(dpr, dpr);
     canvasRef.current = node;
   }, []);
 
@@ -411,13 +400,11 @@ export default function Whiteboard() {
     if (tool !== "pencil" && tool !== "eraser") return;
     setIsDrawing(true);
 
-    // start a new path in state
     setPaths((prev) => [
       ...prev,
       { tool, color: drawingColor, width: drawingWidth, points: [pos] },
     ]);
 
-    // start path on the visible canvas context for immediate feedback
     const ctx = getCanvasContext();
     if (ctx) {
       ctx.beginPath();
@@ -447,7 +434,6 @@ export default function Whiteboard() {
 
       if (!isDrawing || tool === "text") return;
 
-      // update paths state (so redraw persists)
       setPaths((prev) => {
         if (prev.length === 0) return prev;
         const newPaths = [...prev];
@@ -459,17 +445,8 @@ export default function Whiteboard() {
         return newPaths;
       });
     },
-    [
-      isDrawing,
-      drawingColor,
-      drawingWidth,
-      tool,
-      getCanvasContext,
-      draggingImage,
-      dragOffset,
-    ]
+    [isDrawing, tool, draggingImage, dragOffset]
   );
-
   const stopDrawing = useCallback(() => {
     setIsDrawing(false);
     setDraggingImage(null);
@@ -484,17 +461,77 @@ export default function Whiteboard() {
 
   /* -------------------- Text helpers -------------------- */
   // this returns last line width and last line y to position the cursor
+  // const drawWrappedText = useCallback(
+  //   (
+  //     ctx,
+  //     text,
+  //     x,
+  //     y,
+  //     maxWidth,
+  //     lineHeight,
+  //     color = "#000",
+  //     font = "20px Arial"
+  //   ) => {
+  //     if (!ctx) return { lastLineWidth: 0, lastLineY: y, lines: [] };
+
+  //     ctx.font = font;
+  //     ctx.fillStyle = color;
+  //     ctx.textBaseline = "top";
+
+  //     const paragraphs = String(text).split("\n");
+  //     let currentY = y;
+  //     let lastW = 0;
+  //     const lines = [];
+
+  //     paragraphs.forEach((paragraph) => {
+  //       const words = paragraph.split(" ");
+  //       let currentLine = "";
+
+  //       for (let i = 0; i < words.length; i++) {
+  //         const word = words[i];
+  //         const testLine = currentLine ? currentLine + " " + word : word;
+  //         const testWidth = ctx.measureText(testLine).width;
+
+  //         if (testWidth > maxWidth && currentLine) {
+  //           // Word wrap: draw current line and start new one
+  //           ctx.fillText(currentLine, x, currentY);
+  //           lines.push({
+  //             text: currentLine,
+  //             x: x,
+  //             y: currentY,
+  //             width: ctx.measureText(currentLine).width,
+  //           });
+  //           currentLine = word;
+  //           currentY += lineHeight;
+  //         } else {
+  //           currentLine = testLine;
+  //         }
+  //       }
+
+  //       // Draw the last line of the paragraph
+  //       if (currentLine) {
+  //         ctx.fillText(currentLine, x, currentY);
+  //         lastW = ctx.measureText(currentLine).width;
+  //         lines.push({
+  //           text: currentLine,
+  //           x: x,
+  //           y: currentY,
+  //           width: lastW,
+  //         });
+  //         currentY += lineHeight;
+  //       }
+
+  //       // Add space between paragraphs
+  //       currentY += lineHeight * 0.3;
+  //     });
+
+  //     return { lastLineWidth: lastW, lastLineY: currentY - lineHeight, lines };
+  //   },
+  //   []
+  // );
   const drawWrappedText = useCallback(
-    (
-      ctx,
-      text,
-      x,
-      y,
-      maxWidth,
-      lineHeight,
-      color = "#000",
-      font = "20px Arial"
-    ) => {
+    (ctx, text, x, y, lineHeight, color = "#000", font = "20px Arial") => {
+      const maxWidth = 720; // fixed width
       if (!ctx) return { lastLineWidth: 0, lastLineY: y, lines: [] };
 
       ctx.font = font;
@@ -506,47 +543,33 @@ export default function Whiteboard() {
       let lastW = 0;
       const lines = [];
 
-      paragraphs.forEach((para, pIdx) => {
-        if (para === "") {
-          currentY += lineHeight;
-          lines.push({ text: "", x, y: currentY, width: 0 });
-          return;
-        }
+      paragraphs.forEach((paragraph) => {
+        const words = paragraph.split(" ");
+        let currentLine = "";
 
-        let line = "";
-        const words = para.split(" "); // Split by words instead of characters for better wrapping
-
-        for (let n = 0; n < words.length; n++) {
-          const testLine = line + (line ? " " : "") + words[n];
+        for (let i = 0; i < words.length; i++) {
+          const word = words[i];
+          const testLine = currentLine ? currentLine + " " + word : word;
           const testWidth = ctx.measureText(testLine).width;
 
-          if (testWidth > maxWidth && line) {
-            // Draw the current line and start a new one
-            ctx.fillText(line, x, currentY);
-            lines.push({
-              text: line,
-              x,
-              y: currentY,
-              width: ctx.measureText(line).width,
-            });
-            line = words[n];
+          if (testWidth > maxWidth && currentLine) {
+            ctx.fillText(currentLine, x, currentY);
+            lines.push({ text: currentLine, x, y: currentY });
+            currentLine = word;
             currentY += lineHeight;
           } else {
-            line = testLine;
+            currentLine = testLine;
           }
         }
 
-        if (line) {
-          ctx.fillText(line, x, currentY);
-          lastW = ctx.measureText(line).width;
-          lines.push({ text: line, x, y: currentY, width: lastW });
+        if (currentLine) {
+          ctx.fillText(currentLine, x, currentY);
+          lastW = ctx.measureText(currentLine).width;
+          lines.push({ text: currentLine, x, y: currentY });
           currentY += lineHeight;
         }
 
-        // Add spacing between paragraphs
-        if (pIdx < paragraphs.length - 1) {
-          currentY += lineHeight * 0.5;
-        }
+        currentY += lineHeight * 0.3; // spacing between paragraphs
       });
 
       return { lastLineWidth: lastW, lastLineY: currentY - lineHeight, lines };
@@ -555,18 +578,174 @@ export default function Whiteboard() {
   );
 
   /* -------------------- Redraw -------------------- */
+  /* -------------------- Redraw -------------------- */
+  // useEffect(() => {
+  //   const ctx = getCanvasContext();
+  //   const canvas = canvasRef.current;
+  //   if (!ctx || !canvas) return;
+
+  //   const rect = canvas.getBoundingClientRect();
+  //   const cssWidth = rect.width;
+  //   const cssHeight = rect.height;
+
+  //   ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+  //   // Draw paths
+  //   paths.forEach((path) => {
+  //     if (!path.points || path.points.length === 0) return;
+  //     ctx.beginPath();
+  //     ctx.lineWidth = path.width;
+  //     ctx.lineCap = "round";
+  //     ctx.lineJoin = "round";
+  //     ctx.strokeStyle = path.tool === "pencil" ? path.color : "#ffffff";
+  //     ctx.globalCompositeOperation =
+  //       path.tool === "pencil" ? "source-over" : "destination-out";
+  //     ctx.moveTo(path.points[0].x, path.points[0].y);
+  //     for (let i = 1; i < path.points.length; i++) {
+  //       ctx.lineTo(path.points[i].x, path.points[i].y);
+  //     }
+  //     ctx.stroke();
+  //     ctx.closePath();
+  //     ctx.globalCompositeOperation = "source-over";
+  //   });
+
+  //   // Draw existing text blocks with word wrapping
+  //   // textBlocks.forEach((block) => {
+  //   //   if (activeTextBlock && block.id === activeTextBlock.id) return;
+
+  //   //   const font = block.font || "20px Arial";
+  //   //   const lineHeight = 24;
+  //   //   const maxWidth = cssWidth - block.x - 20;
+
+  //   //   ctx.font = font;
+  //   //   ctx.fillStyle = block.color || "#000";
+  //   //   ctx.textBaseline = "top";
+
+  //   //   let currentY = block.y;
+
+  //   //   const paragraphs = block.text.split("\n");
+
+  //   //   paragraphs.forEach((paragraph) => {
+  //   //     const words = paragraph.split(" ");
+  //   //     let currentLine = "";
+
+  //   //     for (let i = 0; i < words.length; i++) {
+  //   //       const word = words[i];
+  //   //       const testLine = currentLine ? currentLine + " " + word : word;
+  //   //       const testWidth = ctx.measureText(testLine).width;
+
+  //   //       if (testWidth > maxWidth && currentLine) {
+  //   //         ctx.fillText(currentLine, block.x, currentY);
+  //   //         currentLine = word;
+  //   //         currentY += lineHeight;
+
+  //   //         if (currentY > cssHeight - lineHeight) return;
+  //   //       } else {
+  //   //         currentLine = testLine;
+  //   //       }
+  //   //     }
+
+  //   //     if (currentLine) {
+  //   //       ctx.fillText(currentLine, block.x, currentY);
+  //   //       currentY += lineHeight;
+
+  //   //       if (currentY > cssHeight - lineHeight) return;
+  //   //     }
+
+  //   //     currentY += lineHeight * 0.3;
+  //   //   });
+  //   // });
+  //   textBlocks.forEach((block) => {
+  //     if (activeTextBlock && block.id === activeTextBlock.id) return;
+  //     drawWrappedText(
+  //       ctx,
+  //       block.text,
+  //       block.x,
+  //       block.y,
+  //       24,
+  //       block.color || "#000",
+  //       block.font || "20px Arial"
+  //     );
+  //   });
+
+  //   // Draw active text with cursor and word wrapping
+  //   // Draw active text with cursor and word wrapping
+  //   if (textToolActive && activeTextBlock) {
+  //     const font = "20px Arial";
+  //     const lineHeight = 24;
+
+  //     ctx.font = font;
+  //     ctx.fillStyle = drawingColor;
+  //     ctx.textBaseline = "top";
+
+  //     // Join all lines (so wrapping works)
+  //     const fullText = textLines.join("\n");
+
+  //     // Use your drawWrappedText helper
+  //     const { lines } = drawWrappedText(
+  //       ctx,
+  //       fullText,
+  //       activeTextBlock.x,
+  //       activeTextBlock.y,
+  //       lineHeight,
+  //       drawingColor,
+  //       font
+  //     );
+
+  //     // --- Cursor position calculation ---
+  //     let cursorX = activeTextBlock.x;
+  //     let cursorY = activeTextBlock.y;
+
+  //     let charCount = 0;
+  //     for (let i = 0; i < lines.length; i++) {
+  //       const lineText = lines[i].text;
+  //       if (
+  //         cursorPosition.line === i || // if cursor is on this wrapped line
+  //         charCount + lineText.length >= cursorIndex
+  //       ) {
+  //         const beforeCursor = lineText.slice(
+  //           0,
+  //           cursorPosition.column - charCount
+  //         );
+  //         cursorX = activeTextBlock.x + ctx.measureText(beforeCursor).width;
+  //         cursorY = lines[i].y;
+  //         break;
+  //       }
+  //       charCount += lineText.length;
+  //     }
+
+  //     if (showCursor) {
+  //       ctx.beginPath();
+  //       ctx.moveTo(cursorX, cursorY);
+  //       ctx.lineTo(cursorX, cursorY + lineHeight);
+  //       ctx.strokeStyle = drawingColor;
+  //       ctx.lineWidth = 2;
+  //       ctx.stroke();
+  //     }
+
+  //     setCaretY(Math.min(cursorY + lineHeight, cssHeight - lineHeight));
+  //   }
+  // }, [
+  //   paths,
+  //   textBlocks,
+  //   activeTextBlock,
+  //   textLines,
+  //   textToolActive,
+  //   drawingColor,
+  //   cursorPosition,
+  //   showCursor,
+  //   getCanvasContext,
+  // ]);
   useEffect(() => {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
-
     const rect = canvas.getBoundingClientRect();
     const cssWidth = rect.width;
     const cssHeight = rect.height;
-
     ctx.clearRect(0, 0, cssWidth, cssHeight);
 
-    // Draw paths
+    // --- Draw paths ---
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -576,159 +755,99 @@ export default function Whiteboard() {
       ctx.strokeStyle = path.tool === "pencil" ? path.color : "#ffffff";
       ctx.globalCompositeOperation =
         path.tool === "pencil" ? "source-over" : "destination-out";
+
       ctx.moveTo(path.points[0].x, path.points[0].y);
       for (let i = 1; i < path.points.length; i++) {
-        ctx.lineTo(path.points[i].x, path.points[i].y);
+        const p = path.points[i];
+        ctx.lineTo(p.x, p.y);
       }
       ctx.stroke();
       ctx.closePath();
       ctx.globalCompositeOperation = "source-over";
     });
 
-    // Draw existing text blocks
-    textBlocks.forEach((block) => {
-      if (activeTextBlock && block.id === activeTextBlock.id) return;
-
-      const font = block.font || "20px Arial";
-      const lineHeight = 24;
-      const maxWidth = cssWidth - block.x - 20;
-
-      ctx.font = font;
-      ctx.fillStyle = block.color || "#000";
-      ctx.textBaseline = "top";
-
-      let currentY = block.y;
-
-      // Simple rendering - preserve exact line breaks
-      const lines = block.text.split("\n");
-      lines.forEach((line, index) => {
-        // Simple word wrapping within each line
-        const words = line.split(" ");
-        let currentLine = "";
-
-        for (const word of words) {
-          const testLine = currentLine ? currentLine + " " + word : word;
-          const testWidth = ctx.measureText(testLine).width;
-
-          if (testWidth > maxWidth && currentLine) {
-            // Wrap to next line
-            ctx.fillText(currentLine, block.x, currentY);
-            currentLine = word;
-            currentY += lineHeight;
-          } else {
-            currentLine = testLine;
-          }
-        }
-
-        // Draw remaining text
-        if (currentLine) {
-          ctx.fillText(currentLine, block.x, currentY);
-          currentY += lineHeight;
-        }
-
-        // Add space between paragraphs
-        if (index < lines.length - 1) {
-          currentY += lineHeight * 0.3;
-        }
-      });
+    // --- Draw saved texts with wrapping (fixed 720px width) ---
+    texts.forEach((t) => {
+      const font = t.font || "20px Arial";
+      const lineHeight = Math.round(parseInt(font, 10) * 1.2) || 24;
+      const maxWidth = 720; // fixed wrap width
+      drawWrappedText(
+        ctx,
+        t.text,
+        t.x || 0,
+        t.y || 0,
+        maxWidth,
+        lineHeight,
+        t.color || "#000",
+        font
+      );
     });
 
-    // Draw active text with cursor
-    if (textToolActive && activeTextBlock) {
+    if (textToolActive) {
       const font = "20px Arial";
       const lineHeight = 24;
-      const maxWidth = cssWidth - activeTextBlock.x - 20;
-
       ctx.font = font;
       ctx.fillStyle = drawingColor;
       ctx.textBaseline = "top";
 
-      let currentY = activeTextBlock.y;
-      let cursorX = activeTextBlock.x;
-      let cursorY = activeTextBlock.y;
+      const maxWidth = 680;
+      let cursorX = textPosition.x;
+      let cursorY = textPosition.y;
 
-      // Draw each logical line with word wrapping
-      textLines.forEach((line, lineIndex) => {
-        const words = line.split(" ");
-        let currentLine = "";
-        let linesInThisParagraph = 0;
+      let lines = [];
+      let line = "";
 
-        for (const word of words) {
-          const testLine = currentLine ? currentLine + " " + word : word;
-          const testWidth = ctx.measureText(testLine).width;
-
-          if (testWidth > maxWidth && currentLine) {
-            // Draw and wrap
-            ctx.fillText(currentLine, activeTextBlock.x, currentY);
-
-            // Check if cursor is in this wrapped line
-            if (lineIndex === cursorPosition.line) {
-              const textBeforeCursor = line.slice(0, cursorPosition.column);
-              const wordsBeforeCursor = textBeforeCursor.split(" ");
-              let testText = "";
-
-              for (const w of wordsBeforeCursor) {
-                const test = testText ? testText + " " + w : w;
-                if (ctx.measureText(test).width > maxWidth && testText) {
-                  linesInThisParagraph++;
-                  testText = w;
-                } else {
-                  testText = test;
-                }
-              }
-
-              if (linesInThisParagraph === 0) {
-                cursorX = activeTextBlock.x + ctx.measureText(testText).width;
-                cursorY = currentY;
-              }
-            }
-
-            currentLine = word;
-            currentY += lineHeight;
-            linesInThisParagraph++;
-          } else {
-            currentLine = testLine;
-          }
+      for (let char of typedText) {
+        if (char === "\n") {
+          lines.push(line);
+          line = "";
+          continue;
         }
 
-        // Draw the last part of the line
-        if (currentLine) {
-          ctx.fillText(currentLine, activeTextBlock.x, currentY);
-
-          // Check if cursor is in this part
-          if (lineIndex === cursorPosition.line && linesInThisParagraph === 0) {
-            const textBeforeCursor = line.slice(0, cursorPosition.column);
-            cursorX =
-              activeTextBlock.x + ctx.measureText(textBeforeCursor).width;
-            cursorY = currentY;
-          }
-
-          currentY += lineHeight;
+        const testLine = line + char;
+        const testWidth = ctx.measureText(testLine).width;
+        if (testWidth > maxWidth && line) {
+          lines.push(line);
+          line = char; // start new line
+        } else {
+          line = testLine;
         }
-      });
+      }
+      if (line) lines.push(line);
 
-      // Draw cursor
+      // Draw lines
+      cursorY = textPosition.y;
+      for (let l of lines) {
+        ctx.fillText(l, textPosition.x, cursorY);
+        cursorY += lineHeight;
+      }
+
+      // Caret at end of last line
+      cursorX =
+        textPosition.x + ctx.measureText(lines[lines.length - 1] || "").width;
+
       if (showCursor) {
         ctx.beginPath();
-        ctx.moveTo(cursorX, cursorY);
-        ctx.lineTo(cursorX, cursorY + lineHeight);
+        ctx.moveTo(cursorX, cursorY - lineHeight); // start at last line
+        ctx.lineTo(cursorX, cursorY); // full height of line
         ctx.strokeStyle = drawingColor;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 1;
         ctx.stroke();
       }
 
-      setCaretY(cursorY + lineHeight);
+      setCaretY(cursorY);
     }
   }, [
     paths,
-    textBlocks,
-    activeTextBlock,
-    textLines,
+    texts,
+    uploadedImages,
+    typedText,
     textToolActive,
     drawingColor,
-    cursorPosition,
-    showCursor,
+    textPosition,
     getCanvasContext,
+    drawWrappedText,
+    showCursor,
   ]);
 
   /* -------------------- Fetch board -------------------- */
