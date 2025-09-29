@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/main/Home";
 import Main from "./pages/main/Main";
-import Dashboard from "./pages/dashboard/Dashboard";
 import Feel from "./pages/Overall/Feel";
 import Disclaimer from "./pages/Disclaimer";
 import Concern from "./pages/Concern/Concern";
@@ -11,7 +10,6 @@ import NewProblem from "./pages/Problem/NewProblem";
 import Summary from "./pages/Summary/SummaryList";
 import SummaryList from "./pages/SummaryList/SummaryList";
 import SummeryView from "./pages/summeryView/summeryview";
-import FeelingList from "./pages/Feeling/FeelingList";
 import EmotionsList from "./pages/Emotions/EmotionsList";
 import NeedBoard from "./pages/Board/NeedBoard";
 import NeedBoardUpload from "./pages/Board/NeedBoardUpload";
@@ -42,11 +40,9 @@ import BreathingWhen from "./pages/BreathingCoughing/BreathingWhen";
 import ConfrmStepWhen from "./pages/BreathingCoughing/ConfrmStepWhen";
 import SwallowingYesNo from "./pages/Swallowing/SwallowingYesNo";
 import DecisionSwallowing from "./pages/Swallowing/DecisionSwallowing";
-import SwallowingProblem from "./pages/Swallowing/SwallowingProblem";
 import Heartburn from "./pages/Swallowing/Heartburn";
 import HeartburnStepYesNo from "./pages/Swallowing/HeartburnStepYesNo";
 import NauseaStep from "./pages/Nausea/NauseaStep";
-import NauseaProblem from "./pages/Nausea/NauseaProblem";
 import ProblemYesNo from "./pages/Nausea/ProblemYesNo";
 import NauseaWhen from "./pages/Nausea/NauseaWhen";
 import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
@@ -94,7 +90,6 @@ function App() {
           <Route path="/summary" element={<Summary />} />
           <Route path="/summary-list" element={<SummaryList />} />
           <Route path="/summary-view/:id" element={<SummeryView />} />
-          {/* <Route path="/feeling" element={<FeelingList />} /> */}
           <Route path="/feeling" element={<FeelingListPain />} />
           <Route path="/emotions" element={<EmotionsList />} />
           <Route path="/board" element={<NeedBoard />} />
@@ -108,7 +103,6 @@ function App() {
           <Route path="/guide-info-aphasia" element={<GuideInfoAphasia />} />
           <Route path="/white-board-list" element={<WhiteBoardList />} />
           <Route path="/how-are-you" element={<HowAreYou />} />
-          {/* <Route path="/yes-and-no" element={<YesAndNo />} /> */}
           <Route path="/yes-and-no/:id" element={<YesAndNo />} />
           <Route path="/pain-feel" element={<PainFeel />} />
           <Route path="/feel-pain" element={<FeelPainYesNo />} />
@@ -119,9 +113,7 @@ function App() {
           <Route path="/feeling-list-pain" element={<FeelingListPain />} />
           <Route path="/feeling-yes-no" element={<FeelingYesNo />} />
           <Route path="/pain-when" element={<PainWhen />} />
-          {/* <Route path="/breathing-problem" element={<BreathingProblem />} /> */}
           <Route path="/:name-problem" element={<BreathingProblem />} />
-          {/* <Route path="/confrm-step-yesno" element={<ConfrmStepYesNo />} /> */}
           <Route
             path="/:name/confrm-step-yesno/:id"
             element={<ConfrmStepYesNo />}
@@ -130,14 +122,12 @@ function App() {
           <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
           <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
           <Route path="/decision-swallowing" element={<DecisionSwallowing />} />
-          {/* <Route path="/swallowing-problem" element={<SwallowingProblem />} /> */}
           <Route path="/heartburn" element={<Heartburn />} />
           <Route
             path="/heartburn-step-yesno"
             element={<HeartburnStepYesNo />}
           />
           <Route path="/nausea-step-yesno" element={<NauseaStep />} />
-          {/* <Route path="/nausea-problem" element={<NauseaProblem />} /> */}
           <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} />
           <Route path="/nausea-when" element={<NauseaWhen />} />
           <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
