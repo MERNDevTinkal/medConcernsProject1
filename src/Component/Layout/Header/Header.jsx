@@ -32,16 +32,20 @@ import CloseIcon from "../../../assets/images/close2.svg";
 import BackArrow from "../../../assets/images/back-arrow.svg";
 import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
+import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { resetDiseases } = useContext(GlobalContext);
   const location = useLocation();
+  const [openPopup, setOpenPopup] = useState(false);
+
   const navigate = useNavigate();
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const handleSummery = () => resetDiseases();
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("license_key");
+    window.location.href = "/";
   };
   const menuItems = [
     { icon: MenuIcon1, path: "/settings", en: "Settings", es: "Configuración" },
@@ -236,11 +240,16 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "#",
       en: "Logout",
       es: "Cerrar sesión",
-      fun: handleLogout,
+      fun: () => setOpenPopup(true),
     },
   ];
   return (
     <>
+      <LogoutPopup
+        isOpen={openPopup}
+        onClose={() => setOpenPopup(false)}
+        onConfirm={handleLogout}
+      />
       <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">

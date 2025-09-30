@@ -56,7 +56,6 @@ const Concern = () => {
                     : `repeat(${selectedIconCount || 2}, 1fr)`,
                 gridTemplateRows:
                   selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
-                height: selectedIconCount === 6 ? "100vh" : "auto",
               }}
             >
               {location.pathname === "/concern" ? (
@@ -66,7 +65,10 @@ const Concern = () => {
                   selectedIconCount={selectedIconCount}
                 />
               ) : (
-                <TopicBoard selectedLanguage={selectedLanguage} />
+                <TopicBoard
+                  selectedLanguage={selectedLanguage}
+                  selectedIconCount={selectedIconCount}
+                />
               )}
             </div>
           </div>

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-const CardsList = ({ selectedLanguage }) => {
+const CardsList = ({ selectedLanguage, selectedIconCount }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [feelingsicons, setFeelingsicons] = useState([]);
@@ -44,7 +44,11 @@ const CardsList = ({ selectedLanguage }) => {
           <div className="dashboard-cards rounded-2xl bg-white text-center pb-3 shadow hover:shadow-lg transition">
             <div className="dashboard-img">
               <img
-                style={{ width: "182px", height: "132px" }}
+                style={{
+                  ...(selectedIconCount === 6
+                    ? { height: "50px" }
+                    : { width: "182px", height: "132px" }),
+                }}
                 src={item.image}
                 className="w-full rounded-t-2xl"
                 alt={item.name}

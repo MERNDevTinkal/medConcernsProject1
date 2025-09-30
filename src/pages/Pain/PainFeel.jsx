@@ -35,13 +35,20 @@ const PainFeel = () => {
 
           <div className="main-wrapper home-wrapper">
             <div
-              className={`dashboard-h grid grid-cols-${
-                selectedIconCount || 2
-              } sm:grid-cols-${selectedIconCount || 3} md:grid-cols-${
-                selectedIconCount || 3
-              } gap-3.5 px-4 py-1.5 emotion-cards`}
+              className="dashboard-h grid gap-3 p-3"
+              style={{
+                gridTemplateColumns:
+                  selectedIconCount === 6
+                    ? "repeat(3, 1fr)" // 3 per row
+                    : `repeat(${selectedIconCount || 2}, 1fr)`,
+                gridTemplateRows:
+                  selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
+              }}
             >
-              <PainCardsList selectedLanguage={selectedLanguage} />
+              <PainCardsList
+                selectedLanguage={selectedLanguage}
+                selectedIconCount={selectedIconCount}
+              />
             </div>
           </div>
         </>

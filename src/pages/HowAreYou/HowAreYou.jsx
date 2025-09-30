@@ -63,11 +63,15 @@ export default function HowAreYou() {
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5">
               <div
-                className={`dashboard-h grid  gap-7 sm:grid-cols-${
-                  selectedIconCount || 3
-                } md:grid-cols-${selectedIconCount || 3} grid-cols-${
-                  selectedIconCount || 2
-                } py-3`}
+                className="dashboard-h grid gap-3 p-3"
+                style={{
+                  gridTemplateColumns:
+                    selectedIconCount === 6
+                      ? "repeat(3, 1fr)" // 3 per row
+                      : `repeat(${selectedIconCount || 2}, 1fr)`,
+                  gridTemplateRows:
+                    selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
+                }}
               >
                 {howareyou.map((item) => (
                   <div
@@ -80,6 +84,9 @@ export default function HowAreYou() {
                     <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
+                          style={{
+                            height: selectedIconCount === 6 ? "50px" : "",
+                          }}
                           src={item?.image}
                           className="w-full"
                           alt={item?.name}

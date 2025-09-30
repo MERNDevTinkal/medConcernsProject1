@@ -208,11 +208,15 @@ const NeedBoard = () => {
 
           <div className="main-wrapper home-wrapper ">
             <div
-              className={`dashboard-h grid grid-cols-${
-                selectedIconCount || 2
-              } sm:grid-cols-${selectedIconCount || 3} md:grid-cols-${
-                selectedIconCount || 3
-              } gap-3.5 px-4 my-4`}
+              className="dashboard-h grid gap-3 p-3"
+              style={{
+                gridTemplateColumns:
+                  selectedIconCount === 6
+                    ? "repeat(3, 1fr)" // 3 per row
+                    : `repeat(${selectedIconCount || 2}, 1fr)`,
+                gridTemplateRows:
+                  selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
+              }}
             >
               {mergedData
                 .filter((item) => !selectedNeedboard.includes(item.name))
@@ -238,7 +242,13 @@ const NeedBoard = () => {
                         </div>
                       )}
                       <div className="dashboard-img flex justify-center items-center">
-                        <img src={item?.image} alt={item?.name} />
+                        <img
+                          style={{
+                            height: selectedIconCount === 6 ? "50px" : "",
+                          }}
+                          src={item?.image}
+                          alt={item?.name}
+                        />
                       </div>
                       <p className="text-[12px] mt-4 color-black mb-0 ">
                         {selectedLanguage === "Spanish"

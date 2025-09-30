@@ -5,7 +5,7 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
-const PainCardsList = ({ selectedLanguage }) => {
+const PainCardsList = ({ selectedLanguage, selectedIconCount }) => {
   const { updateDisease, diseases, addOrUpdateSummary } =
     useContext(GlobalContext);
   const navigate = useNavigate();
@@ -41,7 +41,13 @@ const PainCardsList = ({ selectedLanguage }) => {
             >
               <div className="dashboard-cards rounded-2xl bg-white text-center pb-3">
                 <div className="dashboard-cards card-img-h card-img-h ">
-                  <img src={item.image} className="w-full" />
+                  <img
+                    style={{
+                      height: selectedIconCount === 6 ? "50px" : "",
+                    }}
+                    src={item.image}
+                    className="w-full"
+                  />
                 </div>
                 <p className="text-[21px] mt-3 color-black">
                   {selectedLanguage === "Spanish" ? item.nameEs : item.name}
