@@ -32,21 +32,22 @@ const ConcernCard = ({
         .map((item) => (
           <div
             key={item.id}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              width: selectedIconCount === 6 ? "100%" : "auto",
+              height: selectedIconCount === 6 ? "calc(50vh - 12px)" : "auto", // 50% of viewport height minus gap
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
             onClick={() => handleConcern(item, item.path)}
           >
-            <div
-              className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 flex flex-col items-center p-2`}
-              style={{
-                aspectRatio:
-                  selectedIconCount === 6
-                    ? "1 / 1" // square cards to fit 2 rows nicely
-                    : selectedIconCount === 4
-                    ? "4 / 5" // slightly smaller for 4 cards
-                    : "4 / 3", // default for 1-3 cards
-              }}
-            >
-              <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
+            <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2">
+              <div
+                className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full"
+                style={{ maxHeight: "70%" }}
+              >
                 <img
                   src={item?.image}
                   alt={item?.name}

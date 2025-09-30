@@ -49,22 +49,19 @@ const Concern = () => {
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5">
               <div
-                className={`dashboard-h grid gap-2 py-2 ${
-                  selectedIconCount === 6
-                    ? "grid-cols-3"
-                    : `grid-cols-${selectedIconCount || 2} sm:grid-cols-${
-                        selectedIconCount || 3
-                      } md:grid-cols-${selectedIconCount || 4}`
-                }`}
-                style={
-                  selectedIconCount === 6
-                    ? {
-                        height: "100vh",
-                        paddingTop: "8px",
-                        paddingBottom: "8px",
-                      }
-                    : {}
-                }
+                className={`dashboard-h grid gap-2 py-2`}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns:
+                    selectedIconCount === 6
+                      ? "repeat(3, 1fr)"
+                      : `repeat(${selectedIconCount || 2}, 1fr)`,
+                  gridTemplateRows:
+                    selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
+                  height: selectedIconCount === 6 ? "100vh" : "auto",
+                  gap: "8px",
+                  padding: "8px",
+                }}
               >
                 {location.pathname === "/concern" ? (
                   <ConcernCard
