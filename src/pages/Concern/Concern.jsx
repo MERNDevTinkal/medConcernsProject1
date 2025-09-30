@@ -49,13 +49,7 @@ const Concern = () => {
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5">
               <div
-                // className={`dashboard-h grid  gap-7 sm:grid-cols-${
-                //   selectedIconCount || 3
-                // } md:grid-cols-${selectedIconCount || 4} grid-cols-${
-                //   selectedIconCount || 2
-                // } py-3`}
-
-                className={`dashboard-h grid gap-4 py-3 ${
+                className={`dashboard-h grid gap-2 py-2 ${
                   selectedIconCount === 6
                     ? "grid-cols-3"
                     : `grid-cols-${selectedIconCount || 2} sm:grid-cols-${
@@ -64,7 +58,11 @@ const Concern = () => {
                 }`}
                 style={
                   selectedIconCount === 6
-                    ? { height: "100vh", alignContent: "space-between" }
+                    ? {
+                        height: "100vh",
+                        paddingTop: "8px",
+                        paddingBottom: "8px",
+                      }
                     : {}
                 }
               >
