@@ -55,19 +55,24 @@ const Concern = () => {
                 //   selectedIconCount || 2
                 // } py-3`}
 
-                className={`dashboard-h grid gap-7 py-3 
-    ${
-      selectedIconCount === 6
-        ? "sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3"
-        : `sm:grid-cols-${selectedIconCount || 3} md:grid-cols-${
-            selectedIconCount || 4
-          } grid-cols-${selectedIconCount || 2}`
-    }`}
+                className={`dashboard-h grid gap-4 py-3 ${
+                  selectedIconCount === 6
+                    ? "grid-cols-3"
+                    : `grid-cols-${selectedIconCount || 2} sm:grid-cols-${
+                        selectedIconCount || 3
+                      } md:grid-cols-${selectedIconCount || 4}`
+                }`}
+                style={
+                  selectedIconCount === 6
+                    ? { height: "100vh", alignContent: "space-between" }
+                    : {}
+                }
               >
                 {location.pathname === "/concern" ? (
                   <ConcernCard
                     skipKeys={selectedConcerns}
                     selectedLanguage={selectedLanguage}
+                    selectedIconCount={selectedIconCount}
                   />
                 ) : (
                   <TopicBoard selectedLanguage={selectedLanguage} />

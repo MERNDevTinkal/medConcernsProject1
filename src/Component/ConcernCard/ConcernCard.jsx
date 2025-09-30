@@ -4,7 +4,11 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import { concerns } from "../DiseasesData/concernData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 
-const ConcernCard = ({ skipKeys = [], selectedLanguage }) => {
+const ConcernCard = ({
+  skipKeys = [],
+  selectedLanguage,
+  selectedIconCount,
+}) => {
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
@@ -27,7 +31,11 @@ const ConcernCard = ({ skipKeys = [], selectedLanguage }) => {
         .filter((item) => !skipKeys.includes(item.name))
         .map((item) => (
           <div
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              height:
+                selectedIconCount === 6 ? "calc((100vh - 56px) / 2)" : "auto",
+            }}
             key={item.id}
             onClick={() => handleConcern(item, item.path)}
           >
