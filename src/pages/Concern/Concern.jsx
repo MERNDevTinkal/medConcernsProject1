@@ -47,29 +47,27 @@ const Concern = () => {
           />
 
           <div className="main-wrapper home-wrapper ">
-            <div className="dashboard-wrapper px-4 py-1.5">
-              <div
-                className="dashboard-h grid gap-2 p-2"
-                style={{
-                  gridTemplateColumns:
-                    selectedIconCount === 6
-                      ? "repeat(3, 1fr)"
-                      : `repeat(${selectedIconCount || 2}, 1fr)`,
-                  gridTemplateRows:
-                    selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
-                  height: selectedIconCount === 6 ? "100vh" : "auto",
-                }}
-              >
-                {location.pathname === "/concern" ? (
-                  <ConcernCard
-                    skipKeys={selectedConcerns}
-                    selectedLanguage={selectedLanguage}
-                    selectedIconCount={selectedIconCount}
-                  />
-                ) : (
-                  <TopicBoard selectedLanguage={selectedLanguage} />
-                )}
-              </div>
+            <div
+              className="dashboard-h grid gap-3 p-3"
+              style={{
+                gridTemplateColumns:
+                  selectedIconCount === 6
+                    ? "repeat(3, 1fr)" // 3 per row
+                    : `repeat(${selectedIconCount || 2}, 1fr)`,
+                gridTemplateRows:
+                  selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
+                height: selectedIconCount === 6 ? "100vh" : "auto",
+              }}
+            >
+              {location.pathname === "/concern" ? (
+                <ConcernCard
+                  skipKeys={selectedConcerns}
+                  selectedLanguage={selectedLanguage}
+                  selectedIconCount={selectedIconCount}
+                />
+              ) : (
+                <TopicBoard selectedLanguage={selectedLanguage} />
+              )}
             </div>
           </div>
         </>

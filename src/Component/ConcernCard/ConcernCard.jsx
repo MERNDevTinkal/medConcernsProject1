@@ -35,7 +35,7 @@ const ConcernCard = ({
             style={{
               cursor: "pointer",
               width: "100%",
-              height: selectedIconCount === 6 ? "calc(50vh - 16px)" : "auto", // 2 rows with gap
+              // height: selectedIconCount === 6 ? "calc(50vh - 16px)" : "auto", // 2 rows with gap
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -49,6 +49,7 @@ const ConcernCard = ({
                 style={{ maxHeight: "70%", width: "100%" }}
               >
                 <img
+                  style={{ height: selectedIconCount === 6 ? "50px" : "" }}
                   src={item?.image}
                   alt={item?.name}
                   className="w-full h-full object-contain"
