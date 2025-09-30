@@ -30,6 +30,7 @@ import MenuIcon26 from "../../../assets/images/sidebar-icon-32.svg";
 import MenuIcon27 from "../../../assets/images/sidebar-icon-33.svg";
 import CloseIcon from "../../../assets/images/close2.svg";
 import BackArrow from "../../../assets/images/back-arrow.svg";
+import Logout from "../../../assets/images/logout.png";
 import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";

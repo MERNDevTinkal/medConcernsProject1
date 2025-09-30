@@ -66,6 +66,7 @@ import EmotionsImg3 from "../../assets/images/emotion-img-03.png";
 import EmotionsImg4 from "../../assets/images/emotion-img-04.png";
 import EmotionsImg5 from "../../assets/images/emotion-img-05.png";
 import EmotionsImg6 from "../../assets/images/emotion-img-06.png";
+import EmotionsImg7 from "../../assets/images/emotion-img-07.png";
 
 import BoardImg1 from "../../assets/images/board-img-01.png";
 import BoardImg2 from "../../assets/images/board-img-02.png";
@@ -210,7 +211,7 @@ const emotionsData = [
     name: "Sad",
     nameEs: "Triste",
     secPath: "/confrm-step-yesno",
-    image: dashimg04,
+    image: EmotionsImg7,
     path: "/when",
   },
   {
