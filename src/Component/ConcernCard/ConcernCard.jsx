@@ -34,8 +34,8 @@ const ConcernCard = ({
             key={item.id}
             style={{
               cursor: "pointer",
-              width: selectedIconCount === 6 ? "100%" : "auto",
-              height: selectedIconCount === 6 ? "calc(50vh - 12px)" : "auto", // 50% of viewport height minus gap
+              width: "100%",
+              height: selectedIconCount === 6 ? "calc(50vh - 16px)" : "auto", // 2 rows with gap
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -46,7 +46,7 @@ const ConcernCard = ({
             <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2">
               <div
                 className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full"
-                style={{ maxHeight: "70%" }}
+                style={{ maxHeight: "70%", width: "100%" }}
               >
                 <img
                   src={item?.image}
@@ -54,7 +54,7 @@ const ConcernCard = ({
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className="text-[16px] mt-2 mb-2 text-black">
+              <p className="text-[14px] mt-1 mb-1 text-black">
                 {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
               </p>
             </div>

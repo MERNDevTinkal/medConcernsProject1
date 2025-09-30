@@ -49,9 +49,8 @@ const Concern = () => {
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5">
               <div
-                className={`dashboard-h grid gap-2 py-2`}
+                className="dashboard-h grid gap-2 p-2"
                 style={{
-                  display: "grid",
                   gridTemplateColumns:
                     selectedIconCount === 6
                       ? "repeat(3, 1fr)"
@@ -59,8 +58,6 @@ const Concern = () => {
                   gridTemplateRows:
                     selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
                   height: selectedIconCount === 6 ? "100vh" : "auto",
-                  gap: "8px",
-                  padding: "8px",
                 }}
               >
                 {location.pathname === "/concern" ? (
