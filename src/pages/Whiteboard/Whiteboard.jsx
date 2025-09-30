@@ -58,7 +58,6 @@ const CardContent = ({ className = "", ...props }) => (
   <div className={cn("p-4 sm:p-5", className)} {...props} />
 );
 
-/* -------------------- Inline Icons -------------------- */
 const Icon = {
   Pencil: (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
@@ -171,7 +170,6 @@ export default function Whiteboard() {
     return canvas.getContext("2d");
   }, []);
 
-  /* -------------------- Pointer utils -------------------- */
   const pointerPos = (e, rect) => {
     let clientX, clientY;
     if (e.touches && e.touches[0]) {
@@ -192,45 +190,30 @@ export default function Whiteboard() {
       const rect = canvas.getBoundingClientRect();
       const padding = 10;
       const lineHeight = 24;
-
-      // Fixed canvas dimensions
       const canvasWidth = 680;
       const canvasHeight = rect.height;
-
-      // Ensure position is within canvas bounds with padding
       let bestX = Math.max(
         padding,
         Math.min(clickX, canvasWidth - padding - 100)
-      ); // Leave space for text
+      );
       let bestY = Math.max(
         padding,
         Math.min(clickY, canvasHeight - padding - 50)
       );
-
-      // Check against existing text blocks
       const allBlocks = [...textBlocks];
       if (activeTextBlock && typedText.trim()) {
         allBlocks.push(activeTextBlock);
       }
-
-      // Sort by Y position
       const sortedBlocks = [...allBlocks].sort((a, b) => a.y - b.y);
-
-      // Find a position that doesn't overlap
       for (let i = 0; i < sortedBlocks.length; i++) {
         const block = sortedBlocks[i];
         const blockBottom = block.y + (block.height || lineHeight) + padding;
-
-        // If click position overlaps with this block, move below it
         if (bestY < blockBottom && Math.abs(bestX - block.x) < 200) {
           bestY = blockBottom;
         }
       }
-
-      // Ensure we're within canvas bounds
       bestY = Math.min(bestY, canvasHeight - lineHeight * 3 - padding);
-      bestX = Math.min(bestX, canvasWidth - 100); // Leave space for text
-
+      bestX = Math.min(bestX, canvasWidth - 100);
       return { x: bestX, y: bestY };
     },
     [textBlocks, activeTextBlock, typedText]
@@ -246,17 +229,14 @@ export default function Whiteboard() {
   const setCanvasSize = useCallback((node) => {
     if (!node) return;
     const dpr = window.devicePixelRatio || 1;
-    const width = 680; // Fixed width as requested
+    const width = 680;
     const height = 600;
-    // actual pixel buffer
     node.width = Math.round(width * dpr);
     node.height = Math.round(height * dpr);
-    // css size
     node.style.width = `${width}px`;
     node.style.height = `${height}px`;
     const ctx = node.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr); // now ctx coordinates are in CSS pixels
-
+    if (ctx) ctx.scale(dpr, dpr);
     canvasRef.current = node;
   }, []);
 
@@ -266,14 +246,10 @@ export default function Whiteboard() {
     const pos = pointerPos(e, rect);
     if (tool !== "pencil" && tool !== "eraser") return;
     setIsDrawing(true);
-
-    // start a new path in state
     setPaths((prev) => [
       ...prev,
       { tool, color: drawingColor, width: drawingWidth, points: [pos] },
     ]);
-
-    // start path on the visible canvas context for immediate feedback
     const ctx = getCanvasContext();
     if (ctx) {
       ctx.beginPath();
@@ -289,7 +265,6 @@ export default function Whiteboard() {
     (e) => {
       const rect = canvasRef.current.getBoundingClientRect();
       const pos = pointerPos(e, rect);
-
       if (draggingImage) {
         setUploadedImages((prev) =>
           prev.map((img) =>
@@ -300,10 +275,7 @@ export default function Whiteboard() {
         );
         return;
       }
-
       if (!isDrawing || tool === "text") return;
-
-      // update paths state (so redraw persists)
       setPaths((prev) => {
         if (prev.length === 0) return prev;
         const newPaths = [...prev];
@@ -337,11 +309,7 @@ export default function Whiteboard() {
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
-
   /* -------------------- Text helpers -------------------- */
-  // this returns last line width and last line y to position the cursor
-  /* -------------------- Redraw -------------------- */
-
   useEffect(() => {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
@@ -349,8 +317,6 @@ export default function Whiteboard() {
     const canvasWidth = 680;
     const canvasHeight = 600;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
-    // Draw paths
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -368,27 +334,21 @@ export default function Whiteboard() {
       ctx.closePath();
       ctx.globalCompositeOperation = "source-over";
     });
-
-    // Draw text blocks with proper word wrapping
     textBlocks.forEach((block) => {
       if (activeTextBlock && block.id === activeTextBlock.id) return;
-
       const font = block.font || "20px Arial";
       const lineHeight = 24;
       const maxWidth = canvasWidth - block.x - 20;
       ctx.font = font;
       ctx.fillStyle = block.color || "#000";
       ctx.textBaseline = "top";
-
       let currentY = block.y;
       const paragraphs = block.text.split("\n");
-
       paragraphs.forEach((paragraph) => {
         if (paragraph === "") {
           currentY += lineHeight;
           return;
         }
-
         const words = paragraph.split(" ");
         let currentLine = "";
 
@@ -396,8 +356,6 @@ export default function Whiteboard() {
           const word = words[i];
           const testLine = currentLine ? currentLine + " " + word : word;
           const testWidth = ctx.measureText(testLine).width;
-
-          // If the line exceeds max width, draw current line and start new line with current word
           if (testWidth > maxWidth && currentLine) {
             ctx.fillText(currentLine, block.x, currentY);
             currentY += lineHeight;
@@ -406,8 +364,6 @@ export default function Whiteboard() {
             currentLine = testLine;
           }
         }
-
-        // Draw the last line of the paragraph
         if (currentLine) {
           ctx.fillText(currentLine, block.x, currentY);
           currentY += lineHeight;
@@ -415,12 +371,10 @@ export default function Whiteboard() {
       });
     });
 
-    // Draw active text block with cursor and proper word wrapping
     if (textToolActive && activeTextBlock) {
       const font = "20px Arial";
       const lineHeight = 24;
       const maxWidth = canvasWidth - activeTextBlock.x - 20;
-
       ctx.font = font;
       ctx.fillStyle = drawingColor;
       ctx.textBaseline = "top";
@@ -428,15 +382,10 @@ export default function Whiteboard() {
       let currentY = activeTextBlock.y;
       let cursorX = activeTextBlock.x;
       let cursorY = activeTextBlock.y;
-
-      // Process text with proper paragraph wrapping
       let allVisibleLines = [];
       let foundCursor = false;
-
-      // Process each manual line break
       textLines.forEach((manualLine, manualLineIndex) => {
         if (manualLine === "") {
-          // Empty line from Enter key
           allVisibleLines.push({
             text: "",
             x: activeTextBlock.x,
@@ -457,10 +406,7 @@ export default function Whiteboard() {
           const word = words[i];
           const testLine = currentLine ? currentLine + " " + word : word;
           const testWidth = ctx.measureText(testLine).width;
-
-          // If line exceeds max width and we have content, wrap to next line
           if (testWidth > maxWidth && currentLine) {
-            // Store this wrapped line
             allVisibleLines.push({
               text: currentLine,
               x: activeTextBlock.x,
@@ -475,11 +421,9 @@ export default function Whiteboard() {
             currentY += lineHeight;
           } else {
             currentLine = testLine;
-            charCount += i === 0 ? word.length : word.length + 1; // +1 for space
+            charCount += i === 0 ? word.length : word.length + 1;
           }
         }
-
-        // Store the last line of the paragraph
         if (currentLine) {
           allVisibleLines.push({
             text: currentLine,
@@ -492,21 +436,13 @@ export default function Whiteboard() {
           currentY += lineHeight;
         }
       });
-
-      // Draw all visible lines
       allVisibleLines.forEach((line) => {
         ctx.fillText(line.text, line.x, line.y);
       });
-
-      // Calculate cursor position
       for (let i = 0; i < allVisibleLines.length; i++) {
         const line = allVisibleLines[i];
-
-        // Check if this line belongs to the cursor's manual line
         if (line.manualLineIndex === cursorPosition.line) {
           const lineText = line.text;
-
-          // Check if cursor column falls within this line's character range
           if (
             cursorPosition.column >= line.startCharIndex &&
             cursorPosition.column <= line.endCharIndex
@@ -522,12 +458,9 @@ export default function Whiteboard() {
         }
       }
 
-      // If cursor not found, position at end of appropriate line
       if (!foundCursor) {
         const targetManualLine = cursorPosition.line;
         let lastLineForManualLine = null;
-
-        // Find the last line for the target manual line
         for (let i = allVisibleLines.length - 1; i >= 0; i--) {
           if (allVisibleLines[i].manualLineIndex === targetManualLine) {
             lastLineForManualLine = allVisibleLines[i];
@@ -624,35 +557,28 @@ export default function Whiteboard() {
   const commitTypedText = useCallback(() => {
     if (!activeTextBlock) return;
     const textContent = textLines.join("\n");
-    // Only commit if we have meaningful changes
     if (textContent !== activeTextBlock.text || textContent.trim() !== "") {
       const committedBlock = {
         ...activeTextBlock,
         text: textContent,
         timestamp: Date.now(),
       };
-
       setTextBlocks((prev) => {
         const existingIndex = prev.findIndex(
           (block) => block.id === activeTextBlock.id
         );
-
         if (existingIndex >= 0) {
-          // Update existing block
           const updated = [...prev];
           updated[existingIndex] = committedBlock;
           return updated;
         } else {
-          // Add new block only if it has content
           if (textContent.trim()) {
             return [...prev, committedBlock];
           }
-          return prev; // Don't add empty blocks
+          return prev;
         }
       });
     }
-
-    // Clear active editing state
     setActiveTextBlock(null);
     setTextLines([""]);
     setTypedText("");
@@ -667,11 +593,6 @@ export default function Whiteboard() {
       return;
     }
 
-    // Commit any active text before saving
-    // if (activeTextBlock) {
-    //   commitTypedText();
-    // }
-
     let committedTexts = [...textBlocks];
     if (activeTextBlock) {
       const textContent = textLines.join("\n");
@@ -683,21 +604,10 @@ export default function Whiteboard() {
       }
     }
 
-    // const state = {
-    //   name: drawingName.trim(),
-    //   paths,
-    //   texts: textLines, // Only save non-empty blocks
-    //   toolSettings: {
-    //     color: drawingColor,
-    //     width: drawingWidth,
-    //   },
-    // };
-
     const state = {
       name: drawingName.trim(),
       paths,
-      // -     texts: textLines, // Only save non-empty blocks
-      texts: committedTexts, // Save all committed text blocks
+      texts: committedTexts,
       toolSettings: {
         color: drawingColor,
         width: drawingWidth,
@@ -708,7 +618,6 @@ export default function Whiteboard() {
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
     payload.append("data", JSON.stringify(state));
-
     if (imageFiles && imageFiles.length > 0) {
       Array.from(imageFiles).forEach((file) => {
         payload.append("imageFiles[]", file);
@@ -741,7 +650,6 @@ export default function Whiteboard() {
       toast.error(err.message, { autoClose: 1500 });
     }
   };
-  /* -------------------- Keyboard (physical + virtual) -------------------- */
   const handleKeyboardChange = (input) => {
     setTypedText(input);
   };
@@ -816,7 +724,6 @@ export default function Whiteboard() {
     const currentLine = newLines[cursorPosition.line] || "";
 
     if (cursorPosition.column > 0) {
-      // Delete character within the same line - Microsoft Word style
       newLines[cursorPosition.line] =
         currentLine.slice(0, cursorPosition.column - 1) +
         currentLine.slice(cursorPosition.column);
@@ -1036,13 +943,10 @@ export default function Whiteboard() {
         if (activeTextBlock && typedText.trim()) {
           commitTypedText();
         }
-
-        // Activate the block with exact line breaks
         setActiveTextBlock(block);
         const lines = block.text.split("\n");
         setTextLines(lines);
         setTypedText(block.text);
-        // Simple cursor positioning
         const lineHeight = 24;
         const relativeY = pos.y - block.y;
         const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
@@ -1110,7 +1014,6 @@ export default function Whiteboard() {
       const rect = canvasRef.current?.getBoundingClientRect();
       if (rect) {
         setTextPosition({ x: 20, y: 20 });
-        // Create a new text block at default position
         const newTextBlock = {
           id: Date.now(),
           x: 20,
@@ -1124,7 +1027,6 @@ export default function Whiteboard() {
     }
   };
 
-  /* -------------------- JSX (no change to layout) -------------------- */
   const handleClear = () => {
     setActiveTextBlock(null);
     setTextLines([""]);
@@ -1137,7 +1039,7 @@ export default function Whiteboard() {
     setImageFiles([]);
     setTextBlocks([]);
   };
-  /* -------------------- Helper function to update cursor position -------------------- */
+
   const updateCursorPosition = (pos, block) => {
     const ctx = canvasRef.current.getContext("2d");
     ctx.font = "20px Arial";
@@ -1150,7 +1052,6 @@ export default function Whiteboard() {
     let charPosition = 0;
     let currentWidth = 0;
     const lineText = lines[actualLine] || "";
-    // Find the closest character position
     for (let i = 0; i < lineText.length; i++) {
       const charWidth = ctx.measureText(lineText[i]).width;
       if (currentWidth + charWidth / 2 > relativeX) {
@@ -1216,7 +1117,6 @@ export default function Whiteboard() {
                   />
                 </div>
                 <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
-                  {/* toolbar (unchanged) */}
                   <Button
                     variant="ghost"
                     size="icon"
@@ -1363,6 +1263,12 @@ export default function Whiteboard() {
                           id="drawingName"
                           type="text"
                           value={drawingName}
+                          onKeyDown={(e) => {
+                            if (e.code === "Enter" && e.key === "Enter") {
+                              handleSaveDrawing();
+                              setShowSaveModal(false);
+                            }
+                          }}
                           onChange={(e) => setDrawingName(e.target.value)}
                           className="col-span-5 h-12 rounded-lg border border-gray-200 bg-white px-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                           placeholder={
@@ -1384,8 +1290,8 @@ export default function Whiteboard() {
                       <Button
                         className="h-12 rounded-lg bg-blue-600 px-6 text-base text-white hover:bg-blue-700"
                         onClick={() => {
-                          setShowSaveModal(false);
                           handleSaveDrawing();
+                          setShowSaveModal(false);
                         }}
                       >
                         {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
