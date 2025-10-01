@@ -16,6 +16,9 @@ import ConcernImg14 from "../../assets/images/wound.png";
 import ConcernImg15 from "../../assets/images/mucus-color.png";
 import ConcernImg17 from "../../assets/images/trach_img.png";
 import ConcernImg18 from "../../assets/images/something-else.png";
+import ConcernImg19 from "../../assets/images/When-Eating-Drinking.png";
+import WithMovement from "../../assets/images/With-Movement.png";
+import WithTubeFeed from "../../assets/images/With-Tube-Feed.png";
 
 export const concerns = [
   {
@@ -71,7 +74,7 @@ export const concerns = [
     id: 8,
     name: "Eating/Drinking",
     nameEs: "Alimentación/Beber",
-    image: ConcernImg8,
+    image: ConcernImg19,
     path: "/concern/eating-drinking-yes-no/8",
   },
   {
@@ -92,7 +95,7 @@ export const concerns = [
     id: 11,
     name: "Movement",
     nameEs: "Movimiento",
-    image: ConcernImg8,
+    image: WithMovement,
     path: "/concern/movement-yes-no/11",
   },
   {
@@ -148,7 +151,7 @@ export const concerns = [
     id: 19,
     name: "Feeding Tube",
     nameEs: "Sonda de Alimentación",
-    image: ConcernImg8,
+    image: WithTubeFeed,
     path: "/concern/feeding-tube-yes-no/19",
   },
   {

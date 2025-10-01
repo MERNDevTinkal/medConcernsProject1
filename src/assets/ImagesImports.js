@@ -6,6 +6,7 @@ import HowAreYouImg5 from "../assets/images/getting-better.png";
 import HowAreYouImg6 from "../assets/images/getting-worse.png";
 import HowAreYouImg7 from "../assets/images/concern-img-08.png";
 import HowAreYouImg8 from "../assets/images/i-dont-know.png";
+import HowAreYouImg9 from "../assets/images/ic_the_same.png";
 
 export const howareyou = [
   { id: 1, name: "Good", nameEs: "Bien", image: HowAreYouImg1 },
@@ -14,6 +15,6 @@ export const howareyou = [
   { id: 4, name: "Up and Down", nameEs: "Altibajos", image: HowAreYouImg4 },
   { id: 5, name: "Getting Better", nameEs: "Mejorando", image: HowAreYouImg5 },
   { id: 6, name: "Getting Worse", nameEs: "Empeorando", image: HowAreYouImg6 },
-  { id: 7, name: "The Same", nameEs: "Igual", image: HowAreYouImg7 },
+  { id: 7, name: "The Same", nameEs: "Igual", image: HowAreYouImg9 },
   { id: 8, name: "I Don't Know", nameEs: "No lo sé", image: HowAreYouImg8 },
 ];

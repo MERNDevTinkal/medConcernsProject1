@@ -89,6 +89,35 @@ import Room_tem from "../../assets/images/room_tem.png";
 import WithBloodSugar from "../../assets/images/With-Blood-Sugar.png";
 import Blood from "../../assets/images/blood.png";
 import WithTubeFeed from "../../assets/images/With-Tube-Feed.png";
+import Openfoeme from "../../assets/images/openfoeme.png";
+import Tvimg from "../../assets/images/tv.png";
+import Musicimg from "../../assets/images/ic_music.png";
+import Needsock from "../../assets/images/needsock.png";
+import Cervical_collar from "../../assets/images/cervical_collar.png";
+import HelmetImag from "../../assets/images/helmet.png";
+import Adjust_clothes from "../../assets/images/adjust_clothes.png";
+import LightImg from "../../assets/images/light.png";
+import Please_leave from "../../assets/images/please_leave.png";
+import RepositionImg from "../../assets/images/reposition.png";
+import SuctionImag from "../../assets/images/suction.jpg";
+import Catheter from "../../assets/images/catheter.png";
+import SoiledImg from "../../assets/images/soiled.png";
+import Painmedication from "../../assets/images/pain-medication.png";
+import Ice from "../../assets/images/ice.png";
+import doorImg from "../../assets/images/door.png";
+import Ice_pack from "../../assets/images/ice_pack.png";
+import heating_padImg from "../../assets/images/heating_pad.png";
+import Phonetablet from "../../assets/images/phonetablet.png";
+import Plug_phone_tablet from "../../assets/images/plug_phone_tablet.png";
+import Inhaler from "../../assets/images/inhaler.png";
+import StrawImg from "../../assets/images/straw.png";
+import PegpainImg from "../../assets/images/PEG-pain.png";
+import Respiratory_therapist from "../../assets/images/respiratory_therapist.png";
+import DoctorImg from "../../assets/images/doctor_1.png";
+import NurseImg from "../../assets/images/nurse_1.png";
+import Nursing_aide from "../../assets/images/nursing_aide.jpg";
+import occupational from "../../assets/images/occupational.png";
+import speech_thrapistImg from "../../assets/images/speech_thrapist_1.png";
 
 export const guideInfo = [
   {
@@ -320,11 +349,11 @@ const needBoard = [
     id: 18,
     name: "Feeding Tube (formerly PEG)",
     nameEs: "Sonda de alimentación (anteriormente PEG)",
-    image: dashimg04,
+    image: WithTubeFeed,
   },
-  { id: 19, name: "Open for Me", nameEs: "Ábrelo por mí", image: dashimg04 },
-  { id: 20, name: "TV", nameEs: "Televisión", image: dashimg04 },
-  { id: 21, name: "Music", nameEs: "Música", image: dashimg04 },
+  { id: 19, name: "Open for Me", nameEs: "Ábrelo por mí", image: Openfoeme },
+  { id: 20, name: "TV", nameEs: "Televisión", image: Tvimg },
+  { id: 21, name: "Music", nameEs: "Música", image: Musicimg },
   {
     id: 22,
     name: "Call Family",
@@ -341,94 +370,104 @@ const needBoard = [
     id: 24,
     name: "Need Socks",
     nameEs: "Necesito calcetines",
-    image: dashimg04,
+    image: Needsock,
   },
   {
     id: 25,
     name: "Cervical Collar",
     nameEs: "Collar cervical",
-    image: dashimg04,
+    image: Cervical_collar,
   },
-  { id: 26, name: "Helmet", nameEs: "Casco", image: dashimg04 },
-  { id: 27, name: "Adjust Clothes", nameEs: "Ajustar ropa", image: dashimg04 },
+  { id: 26, name: "Helmet", nameEs: "Casco", image: HelmetImag },
+  {
+    id: 27,
+    name: "Adjust Clothes",
+    nameEs: "Ajustar ropa",
+    image: Adjust_clothes,
+  },
   {
     id: 28,
     name: "Change Underwear",
     nameEs: "Cambiar ropa interior",
     image: ChangeUnderWear,
   },
-  { id: 29, name: "Lights", nameEs: "Luz", image: dashimg04 },
-  { id: 30, name: "Please Leave", nameEs: "Por favor, vete", image: dashimg04 },
-  { id: 31, name: "Reposition", nameEs: "Reacomodar", image: dashimg04 },
-  { id: 32, name: "Suction", nameEs: "Succión", image: dashimg04 },
-  { id: 33, name: "Catheter", nameEs: "Catéter", image: dashimg04 },
-  { id: 34, name: "Soiled", nameEs: "Sucio", image: dashimg04 },
+  { id: 29, name: "Lights", nameEs: "Luz", image: LightImg },
+  {
+    id: 30,
+    name: "Please Leave",
+    nameEs: "Por favor, vete",
+    image: Please_leave,
+  },
+  { id: 31, name: "Reposition", nameEs: "Reacomodar", image: RepositionImg },
+  { id: 32, name: "Suction", nameEs: "Succión", image: SuctionImag },
+  { id: 33, name: "Catheter", nameEs: "Catéter", image: Catheter },
+  { id: 34, name: "Soiled", nameEs: "Sucio", image: SoiledImg },
   {
     id: 35,
     name: "Pain Meds",
     nameEs: "Medicamentos para el dolor",
-    image: dashimg04,
+    image: Painmedication,
   },
-  { id: 36, name: "Ice", nameEs: "Hielo", image: dashimg04 },
-  { id: 37, name: "Door", nameEs: "Puerta", image: dashimg04 },
-  { id: 38, name: "Ice Pack", nameEs: "Bolsa de hielo", image: dashimg04 },
+  { id: 36, name: "Ice", nameEs: "Hielo", image: Ice },
+  { id: 37, name: "Door", nameEs: "Puerta", image: doorImg },
+  { id: 38, name: "Ice Pack", nameEs: "Bolsa de hielo", image: Ice_pack },
   {
     id: 39,
     name: "Heating Pad",
     nameEs: "Almohadilla térmica",
-    image: dashimg04,
+    image: heating_padImg,
   },
   {
     id: 40,
     name: "Phone/Tablet",
     nameEs: "Teléfono/Tableta",
-    image: dashimg04,
+    image: Phonetablet,
   },
   {
     id: 41,
     name: "Inhaler/Breathing Treatment",
     nameEs: "Inhalador/Tratamiento respiratorio",
-    image: dashimg04,
+    image: Inhaler,
   },
   {
     id: 42,
     name: "Need Straw",
     nameEs: "Necesito popote/pajita",
-    image: dashimg04,
+    image: StrawImg,
   },
   {
     id: 43,
     name: "Plug in Phone/Tablet",
     nameEs: "Conectar teléfono/tableta",
-    image: dashimg04,
+    image: Plug_phone_tablet,
   },
-  { id: 44, name: "PEG", nameEs: "PEG", image: dashimg04 }, // stays medical acronym
-  { id: 45, name: "Trach", nameEs: "Traqueotomía", image: dashimg04 },
+  { id: 44, name: "PEG", nameEs: "PEG", image: PegpainImg }, // stays medical acronym
+  { id: 45, name: "Trach", nameEs: "Traqueotomía", image: dashimg10 },
   {
     id: 46,
     name: "Respiratory Therapist",
     nameEs: "Terapeuta respiratorio",
-    image: dashimg04,
+    image: Respiratory_therapist,
   },
-  { id: 47, name: "Doctor", nameEs: "Doctor", image: dashimg04 },
-  { id: 48, name: "Nurse", nameEs: "Enfermera/Enfermero", image: dashimg04 },
+  { id: 47, name: "Doctor", nameEs: "Doctor", image: DoctorImg },
+  { id: 48, name: "Nurse", nameEs: "Enfermera/Enfermero", image: NurseImg },
   {
     id: 49,
     name: "Nursing Aide",
     nameEs: "Asistente de enfermería",
-    image: dashimg04,
+    image: Nursing_aide,
   },
   {
     id: 50,
     name: "Occupational/Physical Therapist",
     nameEs: "Terapeuta ocupacional/físico",
-    image: dashimg04,
+    image: occupational,
   },
   {
     id: 51,
     name: "Speech Therapist",
     nameEs: "Terapeuta del habla",
-    image: dashimg04,
+    image: speech_thrapistImg,
   },
 ];
 
@@ -1022,7 +1061,7 @@ const trachproblemDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: swallowingimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -1105,7 +1144,7 @@ const trachDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: swallowingimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -1188,7 +1227,7 @@ const mucussecretionsDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: swallowingimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -1259,7 +1298,7 @@ const trachproblemsubDesises = [
     name: "Suction",
     nameEs: "Succión",
     path: "/when",
-    image: swallowingimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1349,7 +1388,7 @@ const trachmucusSecretionsDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: swallowingimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -1577,7 +1616,7 @@ const trachDesies = [
     name: "Suction",
     nameEs: "Succión",
     path: "/when",
-    image: dashimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1676,7 +1715,7 @@ const SwallowingTrachDesies = [
     name: "Suction",
     nameEs: "Succión",
     path: "/howoften",
-    image: dashimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -3198,7 +3237,7 @@ const mucusProblemsub = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: dashimg04,
+    image: SuctionImag,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -3711,7 +3750,7 @@ const trachSwallowing = [
     name: "Trach",
     nameEs: "Traqueotomía",
     path: "/when",
-    image: dashimg04,
+    image: dashimg10,
     secPath: "/trachSwallowingsuboptios-problem",
   },
 ];
@@ -3853,7 +3892,7 @@ export const diseasesData = {
       id: "6",
       name: "Trach",
       nameEs: "Traqueotomía",
-      image: dashimg04,
+      image: dashimg10,
       secPath: "/trach-problem-sub",
       path: "/when",
     },
@@ -3925,7 +3964,7 @@ export const diseasesData = {
       id: "2",
       name: "Suction",
       nameEs: "Succión",
-      image: swallowingimg04,
+      image: SuctionImag,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -4147,7 +4186,7 @@ export const diseasesData = {
       id: "8",
       name: "Trach",
       nameEs: "Traqueotomía",
-      image: swallowingimg04,
+      image: dashimg10,
       secPath: "/trachswallowingsub-problem",
       path: "/howoften",
     },
@@ -4439,7 +4478,7 @@ export const diseasesData = {
       id: "7",
       name: "Catheter",
       nameEs: "Catéter",
-      image: swallowingimg04,
+      image: Catheter,
       secPath: "/confrm-step-yesno",
       path: "/when",
     },
@@ -5024,7 +5063,7 @@ export const diseasesData = {
       id: "2",
       name: "Suction",
       nameEs: "Succión",
-      image: swallowingimg04,
+      image: SuctionImag,
       path: "/when",
       secPath: "/confrm-step-yesno",
     },
