@@ -1183,7 +1183,7 @@ export default function Whiteboard() {
                       setTool("eraser");
                       setTextToolActive(false);
                       setShowKeyboard(false);
-                      setDrawingWidth(8);
+                      setDrawingWidth(20);
                     }}
                     title="Eraser"
                   >
