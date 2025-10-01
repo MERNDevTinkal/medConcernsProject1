@@ -75,6 +75,21 @@ import BoardImg4 from "../../assets/images/board-img-04.png";
 import BoardImg5 from "../../assets/images/board-img-05.png";
 import BoardImg6 from "../../assets/images/board-img-06.png";
 
+import ChangeClothes from "../../assets/images/change_clothes.png";
+import ChangeUnderWear from "../../assets/images/change_underwear.png";
+
+import Callfamily from "../../assets/images/call_family.png";
+import Calllight from "../../assets/images/call_light.png";
+import Hearingaid from "../../assets/images/ic_hearing_aid.png";
+
+import Dentures from "../../assets/images/dentures.png";
+import TissueImg from "../../assets/images/tissue.png";
+import Pillow_blanketImg from "../../assets/images/pillow_blanket.png";
+import Room_tem from "../../assets/images/room_tem.png";
+import WithBloodSugar from "../../assets/images/With-Blood-Sugar.png";
+import Blood from "../../assets/images/blood.png";
+import WithTubeFeed from "../../assets/images/With-Tube-Feed.png";
+
 export const guideInfo = [
   {
     id: 1,
@@ -261,15 +276,15 @@ const needBoard = [
   },
   { id: 6, name: "Glasses", nameEs: "Gafas", image: BoardImg5 },
   { id: 7, name: "Medication", nameEs: "Medicamentos", image: BoardImg6 },
-  { id: 8, name: "Hearing Aids", nameEs: "Audífonos", image: dashimg04 },
-  { id: 9, name: "Dentures", nameEs: "Dentadura postiza", image: dashimg04 },
-  { id: 10, name: "Tissue", nameEs: "Pañuelo", image: dashimg04 },
-  { id: 11, name: "Call Light", nameEs: "Luz de llamada", image: dashimg04 },
+  { id: 8, name: "Hearing Aids", nameEs: "Audífonos", image: Hearingaid },
+  { id: 9, name: "Dentures", nameEs: "Dentadura postiza", image: Dentures },
+  { id: 10, name: "Tissue", nameEs: "Pañuelo", image: TissueImg },
+  { id: 11, name: "Call Light", nameEs: "Luz de llamada", image: Calllight },
   {
     id: 12,
     name: "Blanket/Pillow",
     nameEs: "Manta/Almohada",
-    image: dashimg04,
+    image: Pillow_blanketImg,
   },
   {
     id: 13,
@@ -281,7 +296,7 @@ const needBoard = [
     id: 14,
     name: "Room Temperature",
     nameEs: "Temperatura de la habitación",
-    image: dashimg04,
+    image: Room_tem,
   },
   {
     id: 15,
@@ -293,7 +308,7 @@ const needBoard = [
     id: 16,
     name: "Blood Sugar",
     nameEs: "Glucemia",
-    image: dashimg04,
+    image: WithBloodSugar,
   },
   {
     id: 17,
@@ -314,9 +329,14 @@ const needBoard = [
     id: 22,
     name: "Call Family",
     nameEs: "Llamar a la familia",
-    image: dashimg04,
+    image: Callfamily,
   },
-  { id: 23, name: "Change Clothes", nameEs: "Cambiar ropa", image: dashimg04 },
+  {
+    id: 23,
+    name: "Change Clothes",
+    nameEs: "Cambiar ropa",
+    image: ChangeClothes,
+  },
   {
     id: 24,
     name: "Need Socks",
@@ -335,7 +355,7 @@ const needBoard = [
     id: 28,
     name: "Change Underwear",
     nameEs: "Cambiar ropa interior",
-    image: dashimg04,
+    image: ChangeUnderWear,
   },
   { id: 29, name: "Lights", nameEs: "Luz", image: dashimg04 },
   { id: 30, name: "Please Leave", nameEs: "Por favor, vete", image: dashimg04 },
@@ -1521,7 +1541,7 @@ const colorDesies = [
     id: "5",
     name: "Blood ",
     nameEs: "Sangre",
-    image: dashimg04,
+    image: Blood,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -3449,7 +3469,7 @@ const hearingConcers = [
     id: "1",
     name: "Hearing Aids",
     nameEs: "Audífonos",
-    image: swallowingimg04,
+    image: Hearingaid,
     path: "/",
     secPath: "/hearingAids-problem",
   },
@@ -4052,7 +4072,7 @@ export const diseasesData = {
       id: "14",
       name: "Feeding Tube",
       nameEs: "Sonda de alimentación",
-      image: swallowingimg04,
+      image: WithTubeFeed,
       path: "/howoften",
       secPath: "/swallowingfeedingtube-problem",
     },
@@ -4135,7 +4155,7 @@ export const diseasesData = {
       id: "9",
       name: "Feeding Tube",
       nameEs: "Sonda de alimentación",
-      image: swallowingimg04,
+      image: WithTubeFeed,
       secPath: "/feeding-tube-problem-sub",
       path: "/howoften",
     },
@@ -4352,7 +4372,7 @@ export const diseasesData = {
       id: "10",
       name: "Feeding Tube",
       nameEs: "Sonda de alimentación",
-      image: swallowingimg04,
+      image: WithTubeFeed,
       secPath: "/bowelsfeedingtube-problem",
       path: "/when",
     },
