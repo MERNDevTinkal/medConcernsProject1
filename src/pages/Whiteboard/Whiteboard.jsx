@@ -99,30 +99,10 @@ const Icon = {
       <path
         d="M9 21H21"
         stroke="#1C274C"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
-    // <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-    //   <path
-    //     strokeWidth="2"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     d="M12.5 19.5L20.5 11.5C21.328 10.672 21.328 9.328 20.5 8.5L15.5 3.5C14.672 2.672 13.328 2.672 12.5 3.5L4.5 11.5C3.672 12.328 3.672 13.672 4.5 14.5L9.5 19.5C10.328 20.328 11.672 20.328 12.5 19.5Z"
-    //   />
-    //   <path
-    //     strokeWidth="2"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     d="M18 12L21 15"
-    //   />
-    //   <path
-    //     strokeWidth="2"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     d="M3 21L12 12"
-    //   />
-    // </svg>
   ),
   Trash: (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
@@ -211,7 +191,7 @@ export default function Whiteboard() {
       const rect = canvas.getBoundingClientRect();
       const padding = 10;
       const lineHeight = 24;
-      const canvasWidth = 680;
+      const canvasWidth = rect.width || 680;
       const canvasHeight = rect.height;
       let bestX = Math.max(
         padding,
