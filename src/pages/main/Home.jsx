@@ -97,6 +97,8 @@ const Home = () => {
                 <Link
                   to={import.meta.env.VITE_Admin_URL}
                   className="primary-text underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   click here to login
                 </Link>
