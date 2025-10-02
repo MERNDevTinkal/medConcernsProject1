@@ -423,6 +423,10 @@ input[type="number"]::-webkit-outer-spin-button {
 .howoften-page {
   padding-top: 0;
 }
+.header-img {
+  width: 34px;
+  height: 31px;
+}
 @media (max-width: 799px) {
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;

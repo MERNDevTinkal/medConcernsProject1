@@ -30,7 +30,15 @@ import MenuIcon26 from "../../../assets/images/sidebar-icon-32.svg";
 import MenuIcon27 from "../../../assets/images/sidebar-icon-33.svg";
 import CloseIcon from "../../../assets/images/close2.svg";
 import BackArrow from "../../../assets/images/back-arrow.svg";
-import Logout from "../../../assets/images/logout.png";
+import appetite from "../../../assets/images/no_appetite.png";
+import IllnessImg from "../../../assets/images/Illness.png";
+import hearingImg from "../../../assets/images/hearing.png";
+import thickmucusImg from "../../../assets/images/thick-mucus.png";
+import PEGImg from "../../../assets/images/PEG-pain.png";
+import somethinghappenedImg from "../../../assets/images/something-happened.png";
+import woundImg from "../../../assets/images/wound.png";
+import logoutImg from "../../../assets/images/logout.png";
+
 import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
@@ -103,7 +111,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       hide: calendarOn,
     },
     {
-      icon: MenuIcon12,
+      icon: appetite,
       path: "/noappetite-problem",
       en: "Appetite",
       es: "Apetito",
@@ -128,13 +136,13 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     },
     { icon: MenuIcon15, path: "/fatigue-problem", en: "Fatigue", es: "Fatiga" },
     {
-      icon: MenuIcon12,
+      icon: IllnessImg,
       path: "/illness-problem",
       en: "Illness",
       es: "Enfermedad",
     },
     {
-      icon: MenuIcon12,
+      icon: hearingImg,
       path: "/hearing-problem",
       en: "Hearing",
       es: "Audición",
@@ -146,7 +154,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Medicamentos",
     },
     {
-      icon: MenuIcon12,
+      icon: thickmucusImg,
       path: "/illnessMucus-problem",
       en: "Mucus/Secretions",
       es: "Moco/Secreciones",
@@ -171,7 +179,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Ubicación del dolor",
     },
     {
-      icon: MenuIcon12,
+      icon: PEGImg,
       path: "/feeding-problem",
       en: "PEG",
       es: "Alimentación por sonda",
@@ -183,7 +191,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Deglución",
     },
     {
-      icon: MenuIcon12,
+      icon: somethinghappenedImg,
       path: "/something-problem",
       en: "Something Happened",
       es: "Algo pasó",
@@ -207,7 +215,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Problemas de visión",
     },
     {
-      icon: MenuIcon12,
+      icon: woundImg,
       path: "/wound-problem",
       en: "Wound/Incision",
       es: "Herida/Incisión",
@@ -237,7 +245,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Sobre nosotros",
     },
     {
-      icon: MenuIcon12,
+      icon: logoutImg,
       path: "#",
       en: "Logout",
       es: "Cerrar sesión",
@@ -312,7 +320,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                 : "text-black hover:bg-gray-100"
             }`}
                   >
-                    <img src={item.icon} alt="" />
+                    <img className="header-img" src={item.icon} alt="" />
                     <Link to={item.path} onClick={item.fun}>
                       {selectedLanguage === "Spanish" ? item.es : item.en}
                     </Link>
