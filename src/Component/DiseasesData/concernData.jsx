@@ -13,13 +13,14 @@ import ConcernImg11 from "../../assets/images/hearing.png";
 import ConcernImg12 from "../../assets/images/Illness.png";
 import ConcernImg13 from "../../assets/images/something-happened.png";
 import ConcernImg14 from "../../assets/images/wound.png";
-import ConcernImg15 from "../../assets/images/mucus-color.png";
 import ConcernImg17 from "../../assets/images/trach_img.png";
 import ConcernImg18 from "../../assets/images/something-else.png";
 import ConcernImg19 from "../../assets/images/When-Eating-Drinking.png";
 import WithMovement from "../../assets/images/With-Movement.png";
 import WithTubeFeed from "../../assets/images/With-Tube-Feed.png";
-
+import thickmucusImg from "../../assets/images/thick-mucus.png";
+import HowAreYouImg1 from "../../assets/images/good.png";
+import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
 export const concerns = [
   {
     id: 1,
@@ -88,7 +89,7 @@ export const concerns = [
     id: 10,
     name: "Emotions/Feelings",
     nameEs: "Emociones/Sentimientos",
-    image: ConcernImg8,
+    image: EmotionsImg2,
     path: "/concern/emotions-feelings-yes-no/10",
   },
   {
@@ -144,7 +145,7 @@ export const concerns = [
     id: 18,
     name: "Mucus/Secretions",
     nameEs: "Mucosidad/Secreciones",
-    image: ConcernImg15,
+    image: thickmucusImg,
     path: "/concern/mucus-secretions-yes-no/18",
   },
   {
@@ -172,7 +173,7 @@ export const concerns = [
     id: 22,
     name: "No Concerns",
     nameEs: "Sin Preocupaciones",
-    image: ConcernImg8,
+    image: HowAreYouImg1,
     path: "/summary",
   },
 ];
