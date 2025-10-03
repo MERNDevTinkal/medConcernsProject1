@@ -59,6 +59,7 @@ const SummaryList = () => {
       setLoader
     );
   }, []);
+  console.log("===>", diseases);
   return (
     <>
       {loader ? (

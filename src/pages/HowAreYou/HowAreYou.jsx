@@ -27,7 +27,7 @@ export default function HowAreYou() {
           selectedLanguage === "Spanish" ? item.nameEs : item.name,
           selectedLanguage === "Spanish" ? "es-ES" : ""
         );
-        addOrUpdateSummary(mainpath, [item]);
+        updateDisease(mainpath.replace("/", ""), item);
         navigate(path);
       } catch (error) {
         console.error("TTS Error:", error);

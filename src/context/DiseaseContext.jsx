@@ -4,10 +4,17 @@ export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const initialState = { summaryList: [] };
-  const [diseases, setDiseases] = useState(initialState);
+  const [diseases, setDiseases] = useState(() => {
+    const stored = localStorage.getItem("diseases");
+    return stored ? JSON.parse(stored) : initialState;
+  });
+
+  const PRESERVE_KEYS = ["how-are-you", "yesno"];
+
   const updateDisease = (key, value, overwrite = false) => {
     setDiseases((prev) => {
       let newValue;
+
       if (overwrite) {
         newValue = value;
       } else if (Array.isArray(prev[key])) {
@@ -29,8 +36,18 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const resetDiseases = () => {
-    setDiseases(initialState);
-    localStorage.removeItem("diseases");
+    setDiseases((prev) => {
+      const preserved = {};
+      PRESERVE_KEYS.forEach((key) => {
+        if (prev[key] !== undefined) {
+          preserved[key] = prev[key];
+        }
+      });
+      console.log("=======>", preserved);
+      const updated = { ...initialState, ...preserved };
+      localStorage.setItem("diseases", JSON.stringify(updated));
+      return updated;
+    });
   };
 
   const deleteLastSummaryItem = () => {
@@ -47,7 +64,6 @@ export const GlobalProvider = ({ children }) => {
         ? [...prev.summaryList]
         : [];
 
-      // Check if route already exists
       const existingIndex = currentList.findIndex(
         (item) => item.route === routeKey
       );
@@ -55,13 +71,11 @@ export const GlobalProvider = ({ children }) => {
       let updatedList = [...currentList];
 
       if (existingIndex !== -1) {
-        // ✅ Overwrite the existing route entry at the same index
         updatedList[existingIndex] = {
           route: routeKey,
           data: newDataArray,
         };
       } else {
-        // ✅ Add new route entry
         updatedList.push({
           route: routeKey,
           data: newDataArray,
@@ -73,7 +87,6 @@ export const GlobalProvider = ({ children }) => {
         summaryList: updatedList,
       };
 
-      // ✅ Persist to localStorage
       localStorage.setItem("diseases", JSON.stringify(updated));
       return updated;
     });
