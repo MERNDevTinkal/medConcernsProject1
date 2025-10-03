@@ -75,14 +75,16 @@ const NeedBoard = () => {
 
   const handleSubmit = (value) => {
     setLoader(true);
+    setShowModal(false);
     const formData = new FormData();
     formData.append("licenses_id", licenses_id);
     formData.append("name", value.firstname);
-
     if (value.image && typeof value.image !== "string") {
       formData.append("image", value.image);
     }
-
+    if (editData?.id) {
+      formData.append("topic_id", editData?.id);
+    }
     const endpoint = editData ? "topic-board/edit" : "topic-boardCreate";
 
     apiCall
@@ -99,7 +101,6 @@ const NeedBoard = () => {
           toast.error(data.msg, { autoClose: 1500 });
         }
         setLoader(false);
-        setShowModal(false);
       })
       .catch(({ response }) => {
         toast.error(response.data.message || response.data.msg, {
@@ -113,8 +114,18 @@ const NeedBoard = () => {
     firstname: Yup.string().required("Name is required"),
     image: Yup.mixed()
       .required("Image is required")
-      .test("fileType", "Only JPG/PNG allowed", (value) => {
-        return value && ["image/jpeg", "image/png"].includes(value.type);
+      .test("fileRequired", "Image is required", function (value) {
+        if (editData) {
+          return (
+            value !== null &&
+            (typeof value === "string" || value instanceof File)
+          );
+        }
+        return value instanceof File;
+      })
+      .test("fileType", "Only JPG/PNG allowed", function (value) {
+        if (!value || typeof value === "string") return true;
+        return ["image/jpeg", "image/png"].includes(value.type);
       }),
   });
 
@@ -147,6 +158,7 @@ const NeedBoard = () => {
   };
   const onConfirm = (topicId) => {
     setLoader(true);
+    setShowModal(false);
     apiCall
       .post(
         "deleteTopicBoard",
@@ -164,7 +176,7 @@ const NeedBoard = () => {
           toast.error(data.msg, { autoClose: 1500 });
         }
         setIsDelete(false);
-        setShowModal(false);
+
         setLoader(false);
       })
       .catch(({ response }) => {
