@@ -1161,7 +1161,7 @@ export default function Whiteboard() {
                     className={cn(tool === "eraser" && "bg-gray-100")}
                     onClick={() => {
                       setTool("eraser");
-                      setTextToolActive(false);
+                      // setTextToolActive(false);
                       setShowKeyboard(false);
                       setDrawingWidth(20);
                     }}
