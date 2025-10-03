@@ -38,7 +38,7 @@ import PEGImg from "../../../assets/images/PEG-pain.png";
 import somethinghappenedImg from "../../../assets/images/something-happened.png";
 import woundImg from "../../../assets/images/wound.png";
 import logoutImg from "../../../assets/images/logout.png";
-
+import EmotionsImg2 from "../../../assets/images/emotion-img-02.png";
 import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
@@ -129,7 +129,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Respiración / Tos",
     },
     {
-      icon: MenuIcon12,
+      icon: EmotionsImg2,
       path: "/emotions",
       en: "Emotions / Feelings",
       es: "Emociones / Sentimientos",
