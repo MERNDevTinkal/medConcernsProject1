@@ -112,7 +112,7 @@ import PegpainImg from "../../assets/images/PEG-pain.png";
 import Respiratory_therapist from "../../assets/images/respiratory_therapist.png";
 import DoctorImg from "../../assets/images/doctor_1.png";
 import NurseImg from "../../assets/images/nurse_1.png";
-import Nursing_aide from "../../assets/images/nursing_aide.jpg";
+import Nursing_aide from "../../assets/images/Nursing-Aide.png";
 import occupational from "../../assets/images/occupational.png";
 import speech_thrapistImg from "../../assets/images/speech_thrapist_1.png";
 import chokingImg from "../../assets/images/choking.png";
@@ -191,6 +191,20 @@ import ic_stitches_staplesImg from "../../assets/images/ic_stitches_staples.png"
 import dressing_changeImg from "../../assets/images/dressing_change.png";
 import refluxImg from "../../assets/images/reflux.png";
 import infoImg from "../../assets/images/info@2x.png";
+import NeedChanged_formerly_Soiled_urine from "../../assets/images/NeedChanged_formerly_Soiled_urine .png";
+import Colostomy_OstomyBag from "../../assets/images/Colostomy_ OstomyBag.png";
+import BloodPressure from "../../assets/images/BloodPressure.png";
+import BloodSugar from "../../assets/images/Blood Sugar.png";
+import Constipation from "../../assets/images/Constipation.png";
+import GriefImg from "../../assets/images/Grief.png";
+import Worried_Guilty from "../../assets/images/Worried_Guilty.png";
+import HopelessImg from "../../assets/images/Hopeless.png";
+import Can_thearImg from "../../assets/images/Can_t-hear.png";
+import WriteitDown from "../../assets/images/Write-it-Down.png";
+import TooMuchTooMany from "../../assets/images/TooMuch-TooMany.png";
+import colorImage from "../../assets/images/COLOR.png";
+import trachleakingImg from "../../assets/images/trachleaking.png";
+import Remove_peg from "../../assets/images/Remove(PEG).png";
 
 export const guideInfo = [
   {
@@ -317,8 +331,8 @@ const emotionsData = [
   },
   {
     id: 6,
-    name: "Frustrated",
-    nameEs: "Frustrado",
+    name: "Exhausted",
+    nameEs: "Exhausta",
     image: EmotionsImg6,
     secPath: "/confrm-step-yesno",
     path: "/when",
@@ -336,7 +350,7 @@ const emotionsData = [
     name: "Grief",
     nameEs: "Duelo",
     secPath: "/confrm-step-yesno",
-    image: dashimg04,
+    image: GriefImg,
     path: "/when",
   },
   {
@@ -344,7 +358,7 @@ const emotionsData = [
     name: "Guilty or Worry",
     nameEs: "Culpable o Preocupado",
     secPath: "/confrm-step-yesno",
-    image: dashimg04,
+    image: Worried_Guilty,
     path: "/when",
   },
   {
@@ -352,7 +366,7 @@ const emotionsData = [
     name: "Feel Hopeless",
     nameEs: "Sentirse sin esperanza",
     secPath: "/confrm-step-yesno",
-    image: dashimg04,
+    image: HopelessImg,
     path: "/when",
   },
   {
@@ -374,7 +388,7 @@ const needBoard = [
     id: 5,
     name: "Need Changed (formerly “soiled)",
     nameEs: `Necesidad cambiada (anteriormente "sucio")`,
-    image: BoardImg4,
+    image: NeedChanged_formerly_Soiled_urine,
   },
   { id: 6, name: "Glasses", nameEs: "Gafas", image: glassesImg },
   { id: 7, name: "Medication", nameEs: "Medicamentos", image: BoardImg6 },
@@ -404,25 +418,25 @@ const needBoard = [
     id: 15,
     name: "Ostomy / Colostomy Bag",
     nameEs: "Bolsa de ostomía/colostomía",
-    image: dashimg04,
+    image: Colostomy_OstomyBag,
   },
   {
     id: 16,
     name: "Blood Sugar",
     nameEs: "Glucemia",
-    image: WithBloodSugar,
+    image: BloodSugar,
   },
   {
     id: 17,
     name: "Blood Pressure",
     nameEs: "Presión arterial",
-    image: dashimg04,
+    image: BloodPressure,
   },
   {
     id: 18,
     name: "Feeding Tube (formerly PEG)",
     nameEs: "Sonda de alimentación (anteriormente PEG)",
-    image: WithTubeFeed,
+    image: PainImg13,
   },
   { id: 19, name: "Open for Me", nameEs: "Ábrelo por mí", image: Openfoeme },
   { id: 20, name: "TV", nameEs: "Televisión", image: Tvimg },
@@ -2155,7 +2169,7 @@ const medicationBowels = [
     name: "Constipation",
     nameEs: "Estreñimiento",
     path: "/howoften",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -2203,7 +2217,7 @@ const medicationBowels = [
     name: "Colostomy / Ostomy",
     nameEs: "Colostomía / Ostomía",
     path: "/howoften",
-    image: dashimg04,
+    image: Colostomy_OstomyBag,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -2304,7 +2318,7 @@ const nauseaSwallowingDesies = [
     id: "4",
     name: "Constipation",
     nameEs: "Estreñimiento",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -2422,7 +2436,7 @@ const noappetiteDesies = [
     nameEs: "Sensación de saciedad",
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    image: FeelfullImg,
+    image: Gas_BloatingImg,
   },
   {
     id: "5",
@@ -2499,7 +2513,7 @@ const swallowingfeedingtubebowelsDesiese = [
     name: "Constipation",
     nameEs: "Estreñimiento",
     path: "/howoften",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -2515,7 +2529,7 @@ const swallowingfeedingtubebowelsDesiese = [
     name: "Gas/Bloating",
     nameEs: "Gases/Hinchazón",
     path: "/howoften",
-    image: Gas_BloatingImg,
+    image: FeelfullImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -2558,7 +2572,7 @@ const bowelsfeedingtubeDesiese = [
     name: "Constipation",
     nameEs: "Estreñimiento",
     path: "/howoften",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -2574,7 +2588,7 @@ const bowelsfeedingtubeDesiese = [
     name: "Gas/Bloating",
     nameEs: "Gases/Hinchazón",
     path: "/howoften",
-    image: Gas_BloatingImg,
+    image: FeelfullImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -2674,7 +2688,7 @@ const EatingdrinkingNoAppetite = [
     id: "4",
     name: "Feel Full",
     nameEs: "Sentirse lleno",
-    image: FeelfullImg,
+    image: Gas_BloatingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -2709,7 +2723,7 @@ const eatingdrinkingNoAppetiteNausea = [
     id: "2",
     name: "Constipation",
     nameEs: "Estreñimiento",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -2775,7 +2789,7 @@ const medicationNausea = [
     id: "4",
     name: "Constipation",
     nameEs: "Estreñimiento",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -2994,7 +3008,7 @@ const medicationSidEffectsAppetiteNausea = [
     id: "2",
     name: "Constipation",
     nameEs: "Estreñimiento",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -3276,7 +3290,7 @@ const hearingAids = [
     id: "5",
     name: "Can’t Hear ",
     nameEs: "No Puedo Oír",
-    image: swallowingimg04,
+    image: Can_thearImg,
     secPath: "/summary",
     path: "/howoften",
   },
@@ -3342,7 +3356,7 @@ const mucusProblemsub = [
     id: "6",
     name: "Color",
     nameEs: "Color",
-    image: ColorImage,
+    image: colorImage,
     secPath: "/color-problem-sub",
     path: "/howoften",
   },
@@ -3589,7 +3603,7 @@ const hearingConcers = [
     id: "2",
     name: "Can’t Hear",
     nameEs: "No puedo oír",
-    image: swallowingimg04,
+    image: Can_thearImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
   },
@@ -3629,7 +3643,7 @@ const hearingConcers = [
     id: "7",
     name: "Write it Down",
     nameEs: "Anótalo",
-    image: swallowingimg04,
+    image: WriteitDown,
     path: "/",
     secPath: "/summary",
   },
@@ -3716,7 +3730,7 @@ const feedingBowels = [
     name: "Constipation",
     nameEs: "Estreñimiento",
     path: "/when",
-    image: nausea02,
+    image: Constipation,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -3732,7 +3746,7 @@ const feedingBowels = [
     name: "Gas/Bloating",
     nameEs: "Gases / Hinchazón",
     path: "/when",
-    image: Gas_BloatingImg,
+    image: FeelfullImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -3764,7 +3778,7 @@ const feedingBowels = [
     name: "Colostomy / Ostomy",
     nameEs: "Colostomía / Ostomía",
     path: "/when",
-    image: dashimg04,
+    image: Colostomy_OstomyBag,
     secPath: "/summary",
   },
   {
@@ -4369,7 +4383,7 @@ export const diseasesData = {
       id: "2",
       name: "Constipation",
       nameEs: "Estreñimiento",
-      image: nausea02,
+      image: Constipation,
       secPath: "/confrm-step-yesno",
       path: "/when",
     },
@@ -4412,7 +4426,7 @@ export const diseasesData = {
       id: "1",
       name: "Constipation",
       nameEs: "Estreñimiento",
-      image: nausea02,
+      image: Constipation,
       secPath: "/confrm-step-yesno",
       path: "/when",
     },
@@ -4468,7 +4482,7 @@ export const diseasesData = {
       id: "8",
       name: "Colostomy / Ostomy Bag",
       nameEs: "Colostomía / Bolsa de Ostomía",
-      image: swallowingimg04,
+      image: Colostomy_OstomyBag,
       secPath: "/summary",
       path: "/when",
     },
@@ -4476,7 +4490,7 @@ export const diseasesData = {
       id: "9",
       name: "Need Changed",
       nameEs: "Necesita ser cambiada",
-      image: swallowingimg04,
+      image: SoiledImg,
       secPath: "/summary",
       path: "/when",
     },
@@ -4484,7 +4498,7 @@ export const diseasesData = {
       id: "10",
       name: "Feeding Tube",
       nameEs: "Sonda de alimentación",
-      image: WithTubeFeed,
+      image: PainImg13,
       secPath: "/bowelsfeedingtube-problem",
       path: "/when",
     },
@@ -4731,7 +4745,7 @@ export const diseasesData = {
       id: "2",
       name: "Hard to Swallow",
       nameEs: "Difícil de Tragar",
-      image: swallowingimg04,
+      image: SwallowingImg,
       secPath: "/medicationHardtoSwallow-problem",
     },
     {
@@ -4746,7 +4760,7 @@ export const diseasesData = {
       id: "4",
       name: "Too Many",
       nameEs: "Demasiadas",
-      image: swallowingimg04,
+      image: TooMuchTooMany,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -5070,7 +5084,7 @@ export const diseasesData = {
       id: "2",
       name: "Remove",
       nameEs: "Retirar",
-      image: RemoveImg,
+      image: Remove_peg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -5078,7 +5092,7 @@ export const diseasesData = {
       id: "3",
       name: "Leaking",
       nameEs: "Filtración",
-      image: LeakingImg,
+      image: trachleakingImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -5086,7 +5100,7 @@ export const diseasesData = {
       id: "4",
       name: "Feel Full",
       nameEs: "Sensación de Saciedad",
-      image: FeelfullImg,
+      image: Gas_BloatingImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
