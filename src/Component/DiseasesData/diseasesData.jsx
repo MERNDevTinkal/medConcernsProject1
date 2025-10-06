@@ -205,6 +205,8 @@ import TooMuchTooMany from "../../assets/images/TooMuch-TooMany.png";
 import colorImage from "../../assets/images/COLOR.png";
 import trachleakingImg from "../../assets/images/trachleaking.png";
 import Remove_peg from "../../assets/images/Remove(PEG).png";
+import LostWeightWithoutTrying from "../../assets/images/LostWeightWithoutTrying.png";
+import StrokeSymptoms from "../../assets/images/Stroke-Symptoms.png";
 
 export const guideInfo = [
   {
@@ -2056,7 +2058,7 @@ const medicationswallowing = [
     name: "Losing Weight Without Trying",
     nameEs: "Perder peso sin intentarlo",
     path: "/howoften",
-    image: dashimg04,
+    image: LostWeightWithoutTrying,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -3056,7 +3058,7 @@ const medicationSidEffectsAppetiteNausea = [
     id: "8",
     name: "Losing Weight Without Trying",
     nameEs: "Pérdida de peso sin intentarlo",
-    image: swallowingimg04,
+    image: LostWeightWithoutTrying,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -4158,7 +4160,7 @@ export const diseasesData = {
       id: "9",
       name: "Losing Weight Without Trying",
       nameEs: "Pérdida de peso sin intentar",
-      image: swallowingimg04,
+      image: LostWeightWithoutTrying,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -4198,7 +4200,7 @@ export const diseasesData = {
       id: "14",
       name: "Feeding Tube",
       nameEs: "Sonda de alimentación",
-      image: WithTubeFeed,
+      image: PainImg13,
       path: "/howoften",
       secPath: "/swallowingfeedingtube-problem",
     },
@@ -4281,7 +4283,7 @@ export const diseasesData = {
       id: "9",
       name: "Feeding Tube",
       nameEs: "Sonda de alimentación",
-      image: WithTubeFeed,
+      image: PainImg13,
       secPath: "/feeding-tube-problem-sub",
       path: "/howoften",
     },
@@ -4697,7 +4699,7 @@ export const diseasesData = {
       id: "6",
       name: "Losing Weight Without Trying",
       nameEs: "Perdiendo Peso Sin Intentarlo",
-      image: swallowingimg04,
+      image: LostWeightWithoutTrying,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -4909,7 +4911,7 @@ export const diseasesData = {
       id: "1",
       name: "Stroke Symptoms",
       nameEs: "Síntomas de Derrame Cerebral",
-      image: swallowingimg04,
+      image: StrokeSymptoms,
       path: "/",
       secPath: "/somethingHappenedStrokeSymptoms-problem",
     },
