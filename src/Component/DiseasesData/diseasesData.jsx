@@ -207,6 +207,16 @@ import trachleakingImg from "../../assets/images/trachleaking.png";
 import Remove_peg from "../../assets/images/Remove(PEG).png";
 import LostWeightWithoutTrying from "../../assets/images/LostWeightWithoutTrying.png";
 import StrokeSymptoms from "../../assets/images/Stroke-Symptoms.png";
+import FallImg from "../../assets/images/Fall.png";
+import MucusSecretionsTrach from "../../assets/images/Mucus.png";
+import ChangeSomthingHappened from "../../assets/images/need-ChangeSomthingHappened.png";
+import FeedingTubeRemoved from "../../assets/images/Remove(Tube Feed or _feeding tube_).png";
+import SuctiontrachImg from "../../assets/images/Suction-(trach).png";
+import TrachpainImg from "../../assets/images/Trachpain.png";
+import ItchyImg from "../../assets/images/Itchy.png";
+import WoundPain from "../../assets/images/WoundPain.png";
+import Leakingwound from "../../assets/images/Leaking (wound).png";
+import DoubleVision from "../../assets/images/Blurry.png";
 
 export const guideInfo = [
   {
@@ -3664,7 +3674,7 @@ const visionConcers = [
     id: "1",
     name: "Double Vision",
     nameEs: "Visión doble",
-    image: doubleVisionImg,
+    image: DoubleVision,
     path: "/when",
     secPath: "/confrm-step-yesno",
   },
@@ -4559,7 +4569,7 @@ export const diseasesData = {
       id: "6",
       name: "Need Changed",
       nameEs: "Necesita ser cambiada",
-      image: swallowingimg04,
+      image: NeedChanged_formerly_Soiled_urine,
       secPath: "/confrm-step-yesno",
       path: "/when",
     },
@@ -4919,7 +4929,7 @@ export const diseasesData = {
       id: "2",
       name: "Fall",
       nameEs: "Caída",
-      image: swallowingimg04,
+      image: FallImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -4952,7 +4962,7 @@ export const diseasesData = {
       id: "6",
       name: "Need Changed",
       nameEs: "Necesita Cambio",
-      image: swallowingimg04,
+      image: ChangeSomthingHappened,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -4976,7 +4986,7 @@ export const diseasesData = {
       id: "9",
       name: "Feeding Tube Removed",
       nameEs: "Sonda de Alimentación Retirada",
-      image: swallowingimg04,
+      image: FeedingTubeRemoved,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -5019,7 +5029,7 @@ export const diseasesData = {
       id: "3",
       name: "Pain",
       nameEs: "Dolor",
-      image: Painimg,
+      image: WoundPain,
       path: "/howoften",
       secPath: "/pain-feel",
     },
@@ -5035,7 +5045,7 @@ export const diseasesData = {
       id: "5",
       name: "Leaking",
       nameEs: "Filtración",
-      image: LeakingImg,
+      image: Leakingwound,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -5043,7 +5053,7 @@ export const diseasesData = {
       id: "6",
       name: "Itchy",
       nameEs: "Picazón",
-      image: swallowingimg04,
+      image: ItchyImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -5145,7 +5155,7 @@ export const diseasesData = {
       id: "1",
       name: "Mucus/Secretions",
       nameEs: "Mucosidad/Secreciones",
-      image: dashimg05,
+      image: MucusSecretionsTrach,
       path: "/",
       secPath: "/trachmucusSecretions-problem",
     },
@@ -5153,7 +5163,7 @@ export const diseasesData = {
       id: "2",
       name: "Suction",
       nameEs: "Succión",
-      image: SuctionImag,
+      image: SuctiontrachImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
     },
@@ -5185,7 +5195,7 @@ export const diseasesData = {
       id: "6",
       name: "Breathing/Coughing",
       nameEs: "Respiración/Tos",
-      image: swallowingimg04,
+      image: dashimg01,
       path: "/when",
       secPath: "/breathing-problem",
     },
@@ -5193,7 +5203,7 @@ export const diseasesData = {
       id: "7",
       name: "Pain",
       nameEs: "Dolor",
-      image: Painimg,
+      image: TrachpainImg,
       path: "/when",
       secPath: "/pain-feel",
     },
@@ -5209,7 +5219,7 @@ export const diseasesData = {
       id: "9",
       name: "Itchy",
       nameEs: "Picazón",
-      image: swallowingimg04,
+      image: ItchyImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
     },
@@ -5217,7 +5227,7 @@ export const diseasesData = {
       id: "10",
       name: "Leaking",
       nameEs: "Filtración",
-      image: LeakingImg,
+      image: trachleakingImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
     },
