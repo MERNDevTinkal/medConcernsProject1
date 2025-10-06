@@ -63,7 +63,6 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
             </div>
           </div>
         </div>
-        {/* {!["/concern-pain", "/face-pain"].includes(location.pathname) && ( */}
         {!partName &&
           !["/concern-pain", "/face-pain"].includes(location.pathname) && (
             <div
@@ -80,7 +79,6 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
               </div>
             </div>
           )}
-        {/* )} */}
       </div>
     </>
   );

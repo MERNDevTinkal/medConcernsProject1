@@ -43,7 +43,6 @@ export const GlobalProvider = ({ children }) => {
           preserved[key] = prev[key];
         }
       });
-      console.log("=======>", preserved);
       const updated = { ...initialState, ...preserved };
       localStorage.setItem("diseases", JSON.stringify(updated));
       return updated;
@@ -53,11 +52,9 @@ export const GlobalProvider = ({ children }) => {
   const deleteLastSummaryItem = () => {
     const currentList = diseases.summaryList || [];
     if (currentList.length === 0) return;
-
     const updatedList = currentList.slice(0, -1);
     updateDisease("summaryList", updatedList, true);
   };
-
   const addOrUpdateSummary = (routeKey, newDataArray) => {
     setDiseases((prev) => {
       const currentList = Array.isArray(prev.summaryList)

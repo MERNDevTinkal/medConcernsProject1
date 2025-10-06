@@ -8,19 +8,21 @@ import ConcernImg6 from "../../assets/images/concern-img-06.png";
 import ConcernImg7 from "../../assets/images/concern-img-07.png";
 import ConcernImg8 from "../../assets/images/concern-img-08.png";
 import ConcernImg9 from "../../assets/images/pain-medication.png";
-import ConcernImg10 from "../../assets/images/vision.png";
-import ConcernImg11 from "../../assets/images/hearing.png";
+import ConcernImg10 from "../../assets/images/glasses.png";
+import ConcernImg11 from "../../assets/images/Hearingconcern.png";
 import ConcernImg12 from "../../assets/images/Illness.png";
 import ConcernImg13 from "../../assets/images/something-happened.png";
 import ConcernImg14 from "../../assets/images/wound.png";
 import ConcernImg17 from "../../assets/images/trach_img.png";
 import ConcernImg18 from "../../assets/images/something-else.png";
 import ConcernImg19 from "../../assets/images/When-Eating-Drinking.png";
-import WithMovement from "../../assets/images/With-Movement.png";
-import WithTubeFeed from "../../assets/images/With-Tube-Feed.png";
+import WithTubeFeed from "../../assets/images/Tube Feed (Feeding Tube).png";
 import thickmucusImg from "../../assets/images/thick-mucus.png";
 import HowAreYouImg1 from "../../assets/images/good.png";
 import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
+import MovementImg from "../../assets/images/Movement.png";
+import Communication_ThinkingImg from "../../assets/images/Communication _ Thinking.png";
+
 export const concerns = [
   {
     id: 1,
@@ -96,14 +98,14 @@ export const concerns = [
     id: 11,
     name: "Movement",
     nameEs: "Movimiento",
-    image: WithMovement,
+    image: MovementImg,
     path: "/concern/movement-yes-no/11",
   },
   {
     id: 12,
     name: "Communication/Thinking",
     nameEs: "Comunicación/Pensamiento",
-    image: ConcernImg8,
+    image: Communication_ThinkingImg,
     path: "/concern/communication-thinking-yes-no/12",
   },
   {

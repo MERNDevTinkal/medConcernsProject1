@@ -4,7 +4,6 @@ const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
-  // timeout: 3000000,
   headers: {
     "Content-Type": "application/json",
   },

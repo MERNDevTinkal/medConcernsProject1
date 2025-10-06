@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { ArrowLeft, Check } from "lucide-react"; // Removed Calendar icon as we'll use a custom SVG
+import { ArrowLeft, Check } from "lucide-react";
 import Header from "../Layout/Header/Header";
 import Footer from "../Layout/Footer/Footer";
-
-// Custom Calendar Icon with Month Name inside
 function Howoften({ monthName, isSelected }) {
-  const iconColor = isSelected ? "#0088dc" : "currentColor"; // currentColor will pick up text-gray-800
+  const iconColor = isSelected ? "#0088dc" : "currentColor";
   const textColor = isSelected ? "#0088dc" : "black";
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="127" // Increased size to better fit text
+      width="127"
       height="127"
       viewBox="0 0 24 24"
       fill="none"
@@ -27,10 +25,10 @@ function Howoften({ monthName, isSelected }) {
       <line x1="3" x2="21" y1="10" y2="10" />
       <text
         x="12"
-        y="16" // Adjust Y to center vertically
+        y="16"
         textAnchor="middle"
         dominantBaseline="middle"
-        fontSize="5" // Adjust font size to fit
+        fontSize="5"
         strokeWidth="0.6"
       >
         {monthName}
@@ -40,10 +38,10 @@ function Howoften({ monthName, isSelected }) {
 }
 
 export default function TabsCalendar() {
-  const [activeTab, setActiveTab] = useState("day"); // 'day', 'week', 'month'
+  const [activeTab, setActiveTab] = useState("day");
   const [selectedDayItem, setSelectedDayItem] = useState("morning"); // 'morning', 'afternoon', 'evening'
-  const [selectedWeekDay, setSelectedWeekDay] = useState(1); // 0-6 for S-S, 1 for Monday as per image
-  const [selectedMonth, setSelectedMonth] = useState(0); // 0-11 for JAN-DEC, 0 for January as per image
+  const [selectedWeekDay, setSelectedWeekDay] = useState(1);
+  const [selectedMonth, setSelectedMonth] = useState(0);
 
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
   const monthsOfYear = [

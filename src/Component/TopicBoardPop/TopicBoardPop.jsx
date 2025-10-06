@@ -21,7 +21,7 @@ const TopicBoardPop = ({
             <div className="flex justify-center gap-4 mt-4">
               <button
                 onClick={() => {
-                  formik.resetForm(); // reset on cancel
+                  formik.resetForm();
                   setShowModal(false);
                   setIsDelete(false);
                 }}
@@ -32,7 +32,7 @@ const TopicBoardPop = ({
               <button
                 onClick={() => {
                   onConfirm(topicId);
-                  formik.resetForm(); // reset after delete confirm
+                  formik.resetForm();
                 }}
                 className="px-4 py-2 rounded-2xl color-red bg-red-300 hover:bg-red-600"
               >
@@ -46,7 +46,6 @@ const TopicBoardPop = ({
           <div className="bg-white p-6 rounded-2xl shadow-lg w-[400px]">
             <h2 className="text-lg font-semibold mb-4">Add / Edit</h2>
             <form onSubmit={formik.handleSubmit}>
-              {/* Name */}
               <div className="mb-3">
                 <label className="block text-sm font-medium mb-1">Name</label>
                 <input
@@ -63,8 +62,6 @@ const TopicBoardPop = ({
                   </p>
                 )}
               </div>
-
-              {/* Image */}
               <div className="mb-3">
                 <label className="block text-sm font-medium mb-1">Image</label>
                 <input

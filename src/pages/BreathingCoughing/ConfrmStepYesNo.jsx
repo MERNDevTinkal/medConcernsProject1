@@ -1,13 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
-import DecisionCard from "../../Component/ProblemCard/DecisionCard";
-import Header from "../../Component/Layout/Header/Header";
-import ConcernImg1 from "../../assets/images/pain-img.png";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
 import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
-import dashimg01 from "../../assets/images/Shortness-of-Breath.png";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams, useLocation } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";

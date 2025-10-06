@@ -8,8 +8,6 @@ const EarDiagram = () => {
     const rect = e.target.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
-    // Store only one pain point (you can change this)
     setPainPoints([{ x, y }]);
   };
   return (

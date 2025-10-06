@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
-import ConcernImg2 from "../../assets/images/concern-img-02.png";
 import DecisionCardFeeling from "./DecisionCardFeeling-l";
 import TopicBoard from "../Topicboard/topicBoard";
 import { concerns } from "../../Component/DiseasesData/concernData";
 import { topicBoard } from "../../Component/DiseasesData/concernData";
-import ConcernImg8 from "../../assets/images/concern-img-08.png";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
@@ -17,7 +15,6 @@ function BreathingYesNo() {
   const location = useLocation();
   const { id } = useParams();
   const [concernValues, setConcernValues] = useState({});
-  const [slugName, setslugName] = useState("");
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   useEffect(() => {
@@ -25,7 +22,6 @@ function BreathingYesNo() {
       const concern = location.pathname.includes("/topicboard/")
         ? topicBoard.find((c) => c.id == id)
         : concerns.find((c) => c.id == id);
-      setslugName(concern?.name);
       setConcernValues(concern);
     }
   }, [id]);

@@ -7,13 +7,11 @@ const CardsList = ({ selectedLanguage, selectedIconCount }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [feelingsicons, setFeelingsicons] = useState([]);
-  const [selected, setSelected] = useState(null);
   const path = location.pathname;
   const mainpath = location.pathname;
-  const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
+  const { addOrUpdateSummary } = useContext(GlobalContext);
 
   const handleCardClick = async (item, path) => {
-    setSelected(item);
     await getTextToSpeech(
       selectedLanguage === "Spanish" ? item.nameEs : item.name,
       selectedLanguage === "Spanish" ? "es-ES" : ""

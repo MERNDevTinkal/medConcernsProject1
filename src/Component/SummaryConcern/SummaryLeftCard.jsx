@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ConcernImg1 from "../../assets/images/concern-img-01.png";
 import { Link } from "react-router-dom";
 
 const SummaryCards = ({ selectedLanguage, SummaryConcernData }) => {
