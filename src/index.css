@@ -427,6 +427,11 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 34px;
   height: 31px;
 }
+
+.mainImageSize {
+  width: 109px;
+  width: 67px;
+}
 @media (max-width: 799px) {
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;

@@ -41,20 +41,18 @@ const CardsList = ({ selectedLanguage, selectedIconCount }) => {
             )
           }
         >
-          <div className="dashboard-cards rounded-2xl bg-white text-center pb-3 shadow hover:shadow-lg transition">
-            <div className="dashboard-img">
+          <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
+            <div className="dashboard-img card-img-h rounded-2xl">
               <img
                 style={{
-                  ...(selectedIconCount === 6
-                    ? { height: "50px" }
-                    : { width: "182px", height: "132px" }),
+                  ...(selectedIconCount === 6 ? { height: "50px" } : ""),
                 }}
                 src={item.image}
-                className="w-full rounded-t-2xl"
+                className="w-full "
                 alt={item.name}
               />
             </div>
-            <p className="text-[16px] mt-3 text-black font-medium">
+            <p className="text-[16px] mt-3 mb-2 color-black">
               {selectedLanguage === "Spanish" ? item.nameEs : item.name}
             </p>
           </div>

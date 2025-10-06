@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
-import { data, Link } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import TopicBoard from "../../Component/TopicBoardPop/TopicBoardPop";
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import apiCall from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
@@ -255,6 +254,7 @@ const NeedBoard = () => {
                       )}
                       <div className="dashboard-img flex justify-center items-center">
                         <img
+                          className="mainImageSize"
                           style={{
                             height: selectedIconCount === 6 ? "50px" : "",
                           }}
