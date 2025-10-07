@@ -96,7 +96,6 @@ import Adjust_clothes from "../../assets/images/adjust_clothes.png";
 import LightImg from "../../assets/images/light.png";
 import Please_leave from "../../assets/images/please_leave.png";
 import RepositionImg from "../../assets/images/reposition.png";
-import SuctionImag from "../../assets/images/suction.jpg";
 import Catheter from "../../assets/images/catheter.png";
 import SoiledImg from "../../assets/images/soiled.png";
 import Painmedication from "../../assets/images/pain-medication.png";
@@ -217,6 +216,8 @@ import ItchyImg from "../../assets/images/Itchy.png";
 import WoundPain from "../../assets/images/WoundPain.png";
 import Leakingwound from "../../assets/images/Leaking (wound).png";
 import DoubleVision from "../../assets/images/Blurry.png";
+import TickleInMyThroat from "../../assets/images/TickleInMyThroat.png";
+import MedicationAllergy from "../../assets/images/MedicationAllergy.png";
 
 export const guideInfo = [
   {
@@ -498,7 +499,7 @@ const needBoard = [
     image: Please_leave,
   },
   { id: 31, name: "Reposition", nameEs: "Reacomodar", image: RepositionImg },
-  { id: 32, name: "Suction", nameEs: "Succión", image: SuctionImag },
+  { id: 32, name: "Suction", nameEs: "Succión", image: SuctiontrachImg },
   { id: 33, name: "Catheter", nameEs: "Catéter", image: Catheter },
   { id: 34, name: "Soiled", nameEs: "Sucio", image: SoiledImg },
   {
@@ -1160,7 +1161,7 @@ const trachproblemDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -1208,7 +1209,7 @@ const trachproblemDesises = [
     id: "8",
     name: "Itchy",
     nameEs: "Picazón",
-    image: swallowingimg04,
+    image: ItchyImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -1243,7 +1244,7 @@ const trachDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -1326,7 +1327,7 @@ const mucussecretionsDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -1334,7 +1335,7 @@ const mucussecretionsDesises = [
     id: "3",
     name: "Thick Mucus",
     nameEs: "Mucosidad espesa",
-    image: swallowingimg04,
+    image: dashimg05,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -1397,7 +1398,7 @@ const trachproblemsubDesises = [
     name: "Suction",
     nameEs: "Succión",
     path: "/when",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1445,7 +1446,7 @@ const trachproblemsubDesises = [
     name: "Itchy",
     nameEs: "Picazón",
     path: "/howoften",
-    image: swallowingimg04,
+    image: ItchyImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1487,7 +1488,7 @@ const trachmucusSecretionsDesises = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -1715,7 +1716,7 @@ const trachDesies = [
     name: "Suction",
     nameEs: "Succión",
     path: "/when",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1771,7 +1772,7 @@ const trachDesies = [
     name: "Itchy",
     nameEs: "Picazón",
     path: "/howoften",
-    image: dashimg04,
+    image: ItchyImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1814,7 +1815,7 @@ const SwallowingTrachDesies = [
     name: "Suction",
     nameEs: "Succión",
     path: "/howoften",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1870,7 +1871,7 @@ const SwallowingTrachDesies = [
     name: "Itchy",
     nameEs: "Picazón",
     path: "/when",
-    image: dashimg04,
+    image: ItchyImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1937,7 +1938,7 @@ const MedicationSidEffectsDesies = [
     name: "Medication Allergy",
     nameEs: "Alergia a medicamentos",
     path: "/howoften",
-    image: dashimg04,
+    image: MedicationAllergy,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -1969,7 +1970,7 @@ const MedicationSidEffectsDesies = [
     name: "Itchy",
     nameEs: "Picazón",
     path: "/when",
-    image: dashimg04,
+    image: ItchyImg,
     secPath: "/",
   },
   {
@@ -2119,7 +2120,7 @@ const medicationnoAppetite = [
     name: "Itchy",
     nameEs: "Picazón",
     path: "",
-    image: dashimg04,
+    image: ItchyImg,
     secPath: "/medicationswallowingChoking-problem",
   },
   {
@@ -2162,7 +2163,7 @@ const medicationSidEffectsAppetite = [
     name: "Itchy",
     nameEs: "Picazón",
     path: "/howoften",
-    image: dashimg04,
+    image: ItchyImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -2759,7 +2760,7 @@ const eatingdrinkingNoAppetiteNausea = [
     id: "5",
     name: "Just Nausea",
     nameEs: "Solo náuseas",
-    image: dashimg04,
+    image: swallowingimg07,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -2809,7 +2810,7 @@ const medicationNausea = [
     id: "5",
     name: "Just Nausea",
     nameEs: "Solo náuseas",
-    image: dashimg04,
+    image: swallowingimg07,
     secPath: "/confrm-step-yesno",
     path: "/when",
   },
@@ -3336,7 +3337,7 @@ const mucusProblemsub = [
     id: "2",
     name: "Suction",
     nameEs: "Succión",
-    image: SuctionImag,
+    image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
   },
@@ -3959,7 +3960,7 @@ export const diseasesData = {
       id: "2",
       name: "Tickle in My Throat",
       nameEs: "Cosquilleo en la Garganta",
-      image: dashimg04,
+      image: TickleInMyThroat,
       secPath: "/confrm-step-yesno",
       path: "/howoften",
     },
@@ -4063,7 +4064,7 @@ export const diseasesData = {
       id: "2",
       name: "Suction",
       nameEs: "Succión",
-      image: SuctionImag,
+      image: SuctiontrachImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
@@ -4419,7 +4420,7 @@ export const diseasesData = {
       id: "5",
       name: "Just Nausea",
       nameEs: "Solo Náusea",
-      image: nausea04,
+      image: swallowingimg07,
       secPath: "/confrm-step-yesno",
       path: "/when",
     },
