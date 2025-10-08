@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import TopicBoard from "../../Component/TopicBoardPop/TopicBoardPop";
@@ -12,6 +12,8 @@ import apiCall from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import { MdEdit } from "react-icons/md";
 import { MdOutlineDelete } from "react-icons/md";
+import { GlobalContext } from "../../context/DiseaseContext";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 
 const NeedBoard = () => {
   const location = useLocation();
@@ -27,10 +29,13 @@ const NeedBoard = () => {
   const [isDelete, setIsDelete] = useState(false);
   const [topicId, setTopicId] = useState("");
   const [editData, setEditData] = useState(null);
+  const { updateDisease, resetDiseases, addOrUpdateSummary } =
+    useContext(GlobalContext);
+  const path = location.pathname;
   useEffect(() => {
     setDiseases(diseasesData[location.pathname]);
   }, [location?.pathname]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
@@ -196,6 +201,17 @@ const NeedBoard = () => {
     setEditData(item);
     setShowModal(true);
   };
+  const handleNeedBoard = async (value, mainpath) => {
+    if (value && mainpath) {
+      resetDiseases();
+      await getTextToSpeech(
+        selectedLanguage === "Spanish" ? value.nameEs : value.name,
+        selectedLanguage === "Spanish" ? "es-ES" : ""
+      );
+      addOrUpdateSummary(path.replace("/", ""), [value]);
+      navigate(`${mainpath}`);
+    }
+  };
   return (
     <>
       {showModal && (
@@ -237,7 +253,11 @@ const NeedBoard = () => {
               {mergedData
                 .filter((item) => !selectedNeedboard.includes(item.name))
                 .map((item, index) => (
-                  <div style={{ cursor: "pointer" }} key={index}>
+                  <div
+                    style={{ cursor: "pointer" }}
+                    key={index}
+                    onClick={() => handleNeedBoard(item, item.secPath)}
+                  >
                     <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
                       {item.name && !item.nameEs && (
                         <div className="flex justify-end">
