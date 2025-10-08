@@ -269,11 +269,13 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               src={BackArrow}
               alt="back"
             />
-            {location.pathname !== "/howoften" && (
-              <button type="button" onClick={toggleSidebar}>
-                <img src={hamburger} alt="menu" />
-              </button>
-            )}
+
+            {location.pathname !== "/howoften" &&
+              location.pathname !== "/introduction" && (
+                <button type="button" onClick={toggleSidebar}>
+                  <img src={hamburger} alt="menu" />
+                </button>
+              )}
           </div>
           <h2 className="text-[25px] font-normal text-black">
             {name ??

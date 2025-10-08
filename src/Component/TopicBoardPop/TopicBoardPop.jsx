@@ -1,4 +1,5 @@
 import React from "react";
+import { FaUpload } from "react-icons/fa"; // ✅ new icon import
 
 const TopicBoardPop = ({
   setEditData,
@@ -34,7 +35,7 @@ const TopicBoardPop = ({
                   onConfirm(topicId);
                   formik.resetForm();
                 }}
-                className="px-4 py-2 rounded-2xl color-red bg-red-300 hover:bg-red-600"
+                className="px-4 py-2 rounded-2xl text-white bg-red-500 hover:bg-red-600"
               >
                 Delete
               </button>
@@ -46,6 +47,7 @@ const TopicBoardPop = ({
           <div className="bg-white p-6 rounded-2xl shadow-lg w-[400px]">
             <h2 className="text-lg font-semibold mb-4">Add / Edit</h2>
             <form onSubmit={formik.handleSubmit}>
+              {/* Name Input */}
               <div className="mb-3">
                 <label className="block text-sm font-medium mb-1">Name</label>
                 <input
@@ -62,11 +64,31 @@ const TopicBoardPop = ({
                   </p>
                 )}
               </div>
+
+              {/* Image Upload with Icon */}
               <div className="mb-3">
                 <label className="block text-sm font-medium mb-1">Image</label>
+
+                <label
+                  htmlFor="imageUpload"
+                  className="flex items-center gap-2 bg-gray-200 px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-300 w-fit"
+                >
+                  <FaUpload className="text-gray-600" />
+                  <span>
+                    {formik.values.image
+                      ? typeof formik.values.image === "string"
+                        ? "Change Image"
+                        : formik.values.image.name
+                      : "Select Image"}
+                  </span>
+                </label>
+
                 <input
+                  id="imageUpload"
                   type="file"
                   name="image"
+                  accept="image/*"
+                  className="hidden"
                   onChange={(event) =>
                     formik.setFieldValue("image", event.currentTarget.files[0])
                   }
@@ -106,7 +128,6 @@ const TopicBoardPop = ({
                       },
                     });
                     setEditData(null);
-
                     setShowModal(false);
                   }}
                   className="px-4 py-2 bg-gray-300 rounded-lg"
@@ -115,7 +136,7 @@ const TopicBoardPop = ({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                 >
                   Save
                 </button>

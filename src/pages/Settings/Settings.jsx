@@ -193,7 +193,7 @@ export default function Settings() {
         off: "OFF",
         on: "ON",
 
-        needsBoard: "Needs board Settings",
+        needsBoard: "Needs Board Settings",
         concerns: "Concerns Settings",
       },
       es: {

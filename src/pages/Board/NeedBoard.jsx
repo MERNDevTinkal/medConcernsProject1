@@ -95,7 +95,12 @@ const NeedBoard = () => {
       })
       .then(({ data }) => {
         if (data.status) {
-          toast.success(data.msg, { autoClose: 1500 });
+          toast.success(
+            editData?.id
+              ? "Icon updated successfully"
+              : "Icon added successfully",
+            { autoClose: 1500 }
+          );
         } else {
           toast.error(data.msg, { autoClose: 1500 });
         }
@@ -170,7 +175,7 @@ const NeedBoard = () => {
       )
       .then(({ data }) => {
         if (data.status) {
-          toast.success(data.msg, { autoClose: 1500 });
+          toast.success("Icon deleted successfully", { autoClose: 1500 });
         } else {
           toast.error(data.msg, { autoClose: 1500 });
         }

@@ -9,7 +9,7 @@ import ConcernImg7 from "../../assets/images/concern-img-07.png";
 import ConcernImg8 from "../../assets/images/concern-img-08.png";
 import ConcernImg9 from "../../assets/images/pain-medication.png";
 import ConcernImg10 from "../../assets/images/glasses.png";
-import ConcernImg11 from "../../assets/images/Hearingconcern.png";
+import ConcernImg11 from "../../assets/images/HearingConcernNew.png";
 import ConcernImg12 from "../../assets/images/Illness.png";
 import ConcernImg13 from "../../assets/images/something-happened.png";
 import ConcernImg14 from "../../assets/images/wound.png";
@@ -22,7 +22,9 @@ import HowAreYouImg1 from "../../assets/images/good.png";
 import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
 import MovementImg from "../../assets/images/Movement.png";
 import Communication_ThinkingImg from "../../assets/images/Communication _ Thinking.png";
-import BoardImg6 from "../../assets/images/board-img-06.png";
+import BoardImg6 from "../../assets/images/medicationConcern.png";
+import withFoodFrinkWhenEating from "../../assets/images/With food_drink & when eating_drinking.png";
+
 export const concerns = [
   {
     id: 1,
@@ -77,7 +79,7 @@ export const concerns = [
     id: 8,
     name: "Eating/Drinking",
     nameEs: "Alimentación/Beber",
-    image: ConcernImg19,
+    image: withFoodFrinkWhenEating,
     path: "/concern/eating-drinking-yes-no/8",
   },
   {
