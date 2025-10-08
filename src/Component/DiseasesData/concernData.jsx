@@ -22,7 +22,7 @@ import HowAreYouImg1 from "../../assets/images/good.png";
 import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
 import MovementImg from "../../assets/images/Movement.png";
 import Communication_ThinkingImg from "../../assets/images/Communication _ Thinking.png";
-
+import BoardImg6 from "../../assets/images/board-img-06.png";
 export const concerns = [
   {
     id: 1,
@@ -84,7 +84,7 @@ export const concerns = [
     id: 9,
     name: "Medication",
     nameEs: "Medicación",
-    image: ConcernImg9,
+    image: BoardImg6,
     path: "/concern/medication-yes-no/9",
   },
   {
