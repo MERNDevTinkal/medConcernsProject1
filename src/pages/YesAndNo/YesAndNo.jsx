@@ -26,7 +26,6 @@ function YesAndNo() {
 
   const { id } = useParams();
   const option = howareyou.find((item) => item.id === Number(id));
-
   return (
     <>
       {loader ? (
@@ -44,8 +43,8 @@ function YesAndNo() {
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
-                ? option?.textEs || "Dolor"
-                : option?.text || "Pain"}
+                ? option?.nameEs || "Dolor"
+                : option?.name || "Pain"}
             </h2>
             <button></button>
           </div>
@@ -57,7 +56,7 @@ function YesAndNo() {
 
                   <img
                     src={option.image || HowAreYou1}
-                    alt={option.text || "alt"}
+                    alt={option.name || "alt"}
                     className="mx-auto rounded-xl shadow-lg"
                   />
                 </div>
