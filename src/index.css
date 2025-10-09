@@ -198,6 +198,11 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+html,
+body {
+  touch-action: manipulation;
+}
 /* In your main CSS file or a dedicated CSS file imported into your project */
 body::-webkit-scrollbar {
   width: 6px;
