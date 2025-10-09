@@ -66,6 +66,11 @@ const Home = () => {
 
   return (
     <div>
+      {isIOS && window.innerHeight > window.innerWidth && (
+        <div className="rotate-overlay">
+          Please rotate your device to landscape
+        </div>
+      )}
       <div className="welcome-new bg-[#DCECFC]">
         <div className="min-h-screen main-h flex items-center justify-center">
           <div className="w-full flex flex-col items-center text-center px-5">
