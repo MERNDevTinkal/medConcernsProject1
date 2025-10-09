@@ -43,9 +43,10 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
       );
       if (path === "/new-problem") {
         const arrayFilter = newData.filter((data) => data.id === id);
-        console.log("arrayFilterarrayFilterarrayFilter", arrayFilter);
+        addOrUpdateSummary(path, [arrayFilter]);
+      } else {
+        updateDisease(path.replace("/", ""), value);
       }
-      updateDisease(path.replace("/", ""), value);
       navigate(mainpath);
     }
   };
