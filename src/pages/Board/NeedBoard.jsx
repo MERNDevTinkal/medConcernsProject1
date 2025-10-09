@@ -21,7 +21,7 @@ const NeedBoard = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
-  const [needboard, setNeedboard] = useState(null);
+  const [needboard, setUncheckNeedBoard] = useState(null);
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
   const [apiData, setApiData] = useState([]);
@@ -45,8 +45,10 @@ const NeedBoard = () => {
       () => {},
       setLoader,
       () => {},
-      setNeedboard
+      () => {},
+      setUncheckNeedBoard
     );
+
     getData();
   }, [loader]);
 

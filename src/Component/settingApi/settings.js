@@ -8,7 +8,9 @@ const getSetting = (
   setIntroductionOn,
   setLoader,
   setConcerns,
-  setNeedboard
+  setNeedboard,
+  setUncheckNeedBoard,
+  setUncheckConcerns
 ) => {
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
@@ -33,6 +35,8 @@ const getSetting = (
             data?.data?.introduction === "true" ||
             data?.data?.introduction === 1
         );
+        setUncheckNeedBoard(data?.data?.uncheck_need_board);
+        setUncheckConcerns(data?.data?.uncheck_concerns);
         setConcerns(data?.data?.concerns);
         setNeedboard(data?.data?.need_board);
       } else {

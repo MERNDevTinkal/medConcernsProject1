@@ -11,7 +11,7 @@ import Loader from "../../Component/webLoader/loader";
 const Concern = () => {
   const location = useLocation();
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
-  const [concerns, setConcerns] = useState(null);
+  const [concerns, setUncheckConcerns] = useState(null);
   const [loader, setLoader] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   useEffect(() => {
@@ -22,7 +22,10 @@ const Concern = () => {
       () => {},
       () => {},
       setLoader,
-      setConcerns
+      () => {},
+      () => {},
+      () => {},
+      setUncheckConcerns
     );
   }, []);
 
