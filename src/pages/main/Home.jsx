@@ -8,7 +8,6 @@ const Home = () => {
   const [promptEvent, setPromptEvent] = useState();
   const navigate = useNavigate();
   const [isIOS, setIsIOS] = useState(false);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token && token != null) {
@@ -47,42 +46,7 @@ const Home = () => {
     const userAgent = window.navigator.userAgent.toLowerCase();
     const isIosDevice = /iphone|ipad|ipod/.test(userAgent);
     const isInStandalone = window.navigator.standalone === true;
-
     setIsIOS(isIosDevice && !isInStandalone);
-  }, []);
-
-  // useEffect(() => {
-  //   const handleOrientation = () => {
-  //     if (window.innerHeight > window.innerWidth) {
-  //       document.body.classList.add("portrait-warning");
-  //     } else {
-  //       document.body.classList.remove("portrait-warning");
-  //     }
-  //   };
-  //   window.addEventListener("resize", handleOrientation);
-  //   handleOrientation();
-  //   return () => window.removeEventListener("resize", handleOrientation);
-  // }, []);
-
-  useEffect(() => {
-    const handleRotation = () => {
-      if (window.innerHeight > window.innerWidth) {
-        // Rotate the app to simulate landscape
-        document.body.style.transform = "rotate(-90deg)";
-        document.body.style.transformOrigin = "top left";
-        document.body.style.width = `${window.innerHeight}px`;
-        document.body.style.height = `${window.innerWidth}px`;
-      } else {
-        // Reset when in landscape
-        document.body.style.transform = "";
-        document.body.style.width = "";
-        document.body.style.height = "";
-      }
-    };
-
-    window.addEventListener("resize", handleRotation);
-    handleRotation(); // Run once on mount
-    return () => window.removeEventListener("resize", handleRotation);
   }, []);
 
   return (
