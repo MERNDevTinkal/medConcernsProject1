@@ -14,7 +14,8 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
-  const { updateDisease, diseases } = useContext(GlobalContext);
+  const { updateDisease, diseases, addOrUpdateSummary } =
+    useContext(GlobalContext);
   const newData = [
     {
       id: 1,
@@ -43,7 +44,7 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
       );
       if (path === "/new-problem") {
         const arrayFilter = newData.filter((data) => data.id === id);
-        addOrUpdateSummary(path, [arrayFilter]);
+        addOrUpdateSummary(path, arrayFilter);
       } else {
         updateDisease(path.replace("/", ""), value);
       }
