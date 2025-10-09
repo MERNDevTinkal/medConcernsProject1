@@ -436,7 +436,6 @@ input[type="number"]::-webkit-outer-spin-button {
 /* for iphone landscop */
 
 .portrait-warning::before {
-  content: "Please rotate your device to landscape";
   position: fixed;
   top: 0;
   left: 0;
