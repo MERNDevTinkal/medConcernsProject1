@@ -6,17 +6,45 @@ import Question from "../../assets/images/question.svg";
 import WomenIcon from "../../assets/images/women.png";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import NoImg from "../../../src/assets/images/concern-img-08.png";
+import yesImage from "../../../src/assets/images/summary-img-06.png";
+import dontknowImg from "../../../src/assets/images/something-else.png";
+
 const DecisionCard = ({ selectedLanguage, partName }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const { updateDisease, diseases } = useContext(GlobalContext);
-  const handleDecision = async (value, mainpath) => {
+  const newData = [
+    {
+      id: 1,
+      image: yesImage,
+      name: "Yes",
+      nameEs: "SÍ",
+    },
+    {
+      id: 2,
+      image: NoImg,
+      name: "No",
+      nameEs: "No",
+    },
+    {
+      id: 3,
+      image: dontknowImg,
+      name: "Don't Know",
+      nameEs: "no lo sé",
+    },
+  ];
+  const handleDecision = async (value, mainpath, id) => {
     if (value && mainpath) {
       await getTextToSpeech(
         value,
         selectedLanguage === "Spanish" ? "es-ES" : ""
       );
+      if (path === "/new-problem") {
+        const arrayFilter = newData.filter((data) => data.id === id);
+        console.log("arrayFilterarrayFilterarrayFilter", arrayFilter);
+      }
       updateDisease(path.replace("/", ""), value);
       navigate(mainpath);
     }
@@ -28,7 +56,8 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
           onClick={() => {
             handleDecision(
               selectedLanguage === "Spanish" ? "SÍ" : "Yes",
-              path === "/new-problem" ? "/summary" : "/pain-feel"
+              path === "/new-problem" ? "/summary" : "/pain-feel",
+              1
             );
           }}
         >
@@ -48,7 +77,8 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
           onClick={() => {
             handleDecision(
               "No",
-              path === "/new-problem" ? "/summary" : navigate(-1)
+              path === "/new-problem" ? "/summary" : navigate(-1),
+              2
             );
           }}
         >
@@ -67,7 +97,11 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
           !["/concern-pain", "/face-pain"].includes(location.pathname) && (
             <div
               onClick={() => {
-                handleDecision("Don't Know", "/summary");
+                handleDecision(
+                  selectedLanguage === "Spanish" ? "no lo sé" : "Don't Know",
+                  "/summary",
+                  3
+                );
               }}
               className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
             >

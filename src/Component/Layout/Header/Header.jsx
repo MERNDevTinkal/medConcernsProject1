@@ -262,20 +262,20 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img
-              onClick={() => {
-                navigate(-1);
-              }}
-              src={BackArrow}
-              alt="back"
-            />
-
-            {location.pathname !== "/howoften" &&
-              location.pathname !== "/introduction" && (
-                <button type="button" onClick={toggleSidebar}>
-                  <img src={hamburger} alt="menu" />
-                </button>
-              )}
+            {location.pathname !== "/introduction" && (
+              <img
+                onClick={() => {
+                  navigate(-1);
+                }}
+                src={BackArrow}
+                alt="back"
+              />
+            )}
+            {location.pathname !== "/howoften" && (
+              <button type="button" onClick={toggleSidebar}>
+                <img src={hamburger} alt="menu" />
+              </button>
+            )}
           </div>
           <h2 className="text-[25px] font-normal text-black">
             {name ??
