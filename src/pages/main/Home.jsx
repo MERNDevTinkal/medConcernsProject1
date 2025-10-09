@@ -51,26 +51,42 @@ const Home = () => {
     setIsIOS(isIosDevice && !isInStandalone);
   }, []);
 
+  // useEffect(() => {
+  //   const handleOrientation = () => {
+  //     if (window.innerHeight > window.innerWidth) {
+  //       document.body.classList.add("portrait-warning");
+  //     } else {
+  //       document.body.classList.remove("portrait-warning");
+  //     }
+  //   };
+  //   window.addEventListener("resize", handleOrientation);
+  //   handleOrientation();
+  //   return () => window.removeEventListener("resize", handleOrientation);
+  // }, []);
+
   useEffect(() => {
-    const handleOrientation = () => {
+    const handleRotation = () => {
       if (window.innerHeight > window.innerWidth) {
-        document.body.classList.add("portrait-warning");
+        // Rotate the app to simulate landscape
+        document.body.style.transform = "rotate(-90deg)";
+        document.body.style.transformOrigin = "top left";
+        document.body.style.width = `${window.innerHeight}px`;
+        document.body.style.height = `${window.innerWidth}px`;
       } else {
-        document.body.classList.remove("portrait-warning");
+        // Reset when in landscape
+        document.body.style.transform = "";
+        document.body.style.width = "";
+        document.body.style.height = "";
       }
     };
-    window.addEventListener("resize", handleOrientation);
-    handleOrientation();
-    return () => window.removeEventListener("resize", handleOrientation);
+
+    window.addEventListener("resize", handleRotation);
+    handleRotation(); // Run once on mount
+    return () => window.removeEventListener("resize", handleRotation);
   }, []);
 
   return (
     <div>
-      {isIOS && window.innerHeight > window.innerWidth && (
-        <div className="rotate-overlay">
-          Please rotate your device to landscape
-        </div>
-      )}
       <div className="welcome-new bg-[#DCECFC]">
         <div className="min-h-screen main-h flex items-center justify-center">
           <div className="w-full flex flex-col items-center text-center px-5">
