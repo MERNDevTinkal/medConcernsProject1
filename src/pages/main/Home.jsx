@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const [promptEvent, setPromptEvent] = useState();
   const navigate = useNavigate();
+  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -26,7 +27,6 @@ const Home = () => {
   }, [navigate]);
 
   const handleInstallClick = async () => {
-    console.log("===>promptEvent", promptEvent);
     if (promptEvent) {
       promptEvent.prompt();
       const { outcome } = await promptEvent.userChoice;
@@ -40,6 +40,29 @@ const Home = () => {
       alert("Install prompt not available. Make sure PWA is installable.");
     }
   };
+
+  // Detect iOS devices not in standalone mode
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const isIosDevice = /iphone|ipad|ipod/.test(userAgent);
+    const isInStandalone = window.navigator.standalone === true;
+
+    setIsIOS(isIosDevice && !isInStandalone);
+  }, []);
+
+  useEffect(() => {
+    const handleOrientation = () => {
+      if (window.innerHeight > window.innerWidth) {
+        document.body.classList.add("portrait-warning");
+      } else {
+        document.body.classList.remove("portrait-warning");
+      }
+    };
+    window.addEventListener("resize", handleOrientation);
+    handleOrientation();
+    return () => window.removeEventListener("resize", handleOrientation);
+  }, []);
 
   return (
     <div>
@@ -79,7 +102,12 @@ const Home = () => {
                 Download Now <img src={download} alt="" />
               </div>
             )}
-
+            {isIOS && (
+              <div className="install-hint bg-yellow-100 text-black py-2 px-4 rounded mt-3 text-center">
+                Tap <strong>Share → Add to Home Screen</strong> to install this
+                app on your iPhone.
+              </div>
+            )}
             {/* User Login Button */}
             <div className="mt-5">
               <Link

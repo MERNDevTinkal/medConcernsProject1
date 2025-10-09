@@ -432,6 +432,27 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 109px;
   width: 67px;
 }
+
+/* for iphone landscop */
+
+.portrait-warning::before {
+  content: "Please rotate your device to landscape";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  z-index: 9999;
+}
+/* end css for  iphone landscop*/
+
 @media (max-width: 799px) {
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;
