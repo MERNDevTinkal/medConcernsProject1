@@ -19,7 +19,10 @@ const ConcernCard = ({
       resetDiseases();
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "Spanish"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       updateDisease(path.replace("/", ""), value);
       navigate(mainpath);

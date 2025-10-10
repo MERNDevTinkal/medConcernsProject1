@@ -58,7 +58,6 @@ import feel04 from "../../assets/images/feel-icon-04.svg";
 import feel05 from "../../assets/images/feel-icon-05.svg";
 
 import EmotionsImg1 from "../../assets/images/emotion-img-01.png";
-import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
 import EmotionsImg3 from "../../assets/images/emotion-img-03.png";
 import EmotionsImg4 from "../../assets/images/emotion-img-04.png";
 import EmotionsImg5 from "../../assets/images/emotion-img-05.png";
@@ -70,7 +69,6 @@ import BoardImg2 from "../../assets/images/board-img-02.png";
 import BoardImg3 from "../../assets/images/board-img-03.png";
 import BoardImg4 from "../../assets/images/board-img-04.png";
 import BoardImg5 from "../../assets/images/board-img-05.png";
-import BoardImg6 from "../../assets/images/board-img-06.png";
 
 import ChangeClothes from "../../assets/images/change_clothes.png";
 import ChangeUnderWear from "../../assets/images/change_underwear.png";
@@ -85,7 +83,6 @@ import Pillow_blanketImg from "../../assets/images/pillow_blanket.png";
 import Room_tem from "../../assets/images/room_tem.png";
 import WithBloodSugar from "../../assets/images/With-Blood-Sugar.png";
 import Blood from "../../assets/images/blood.png";
-import WithTubeFeed from "../../assets/images/With-Tube-Feed.png";
 import Openfoeme from "../../assets/images/openfoeme.png";
 import Tvimg from "../../assets/images/tv.png";
 import Musicimg from "../../assets/images/ic_music.png";
@@ -224,7 +221,6 @@ import ConcernImg1 from "../../assets/images/concern-img-01.png";
 import ConcernImg2 from "../../assets/images/concern-img-02.png";
 import ConcernImg3 from "../../assets/images/concern-img-03.png";
 import ConcernImg4 from "../../assets/images/concern-img-04.png";
-import ConcernImg5 from "../../assets/images/concern-img-05.png";
 import ConcernImg6 from "../../assets/images/concern-img-06.png";
 import ConcernImg7 from "../../assets/images/concern-img-07.png";
 import ConcernImg8 from "../../assets/images/concern-img-08.png";
@@ -247,228 +243,226 @@ import BoardImg6 from "../../assets/images/medicationConcern.png";
 import withFoodFrinkWhenEating from "../../assets/images/With food_drink & when eating_drinking.png";
 
 // how are u scree
-import dashimg01 from "../../assets/images/All-Day.png";
-import dashimg02 from "../../assets/images/Evening-Night.png";
-import dashimg03 from "../../assets/images/Morning.png";
-import dashimg04 from "../../assets/images/After Procedure (transparent).png";
-import dashimg06 from "../../assets/images/Up and Down (Comes and Goes).png";
-import dashimg07 from "../../assets/images/Just started.png";
-import dashimg08 from "../../assets/images/With food_drink & when eating_drinking.png";
-import dashimg10 from "../../assets/images/When-Sitting.png";
-import dashimg13 from "../../assets/images/After Meals.png";
-import dashimg15 from "../../assets/images/With-Activity.png";
-import dashimg18 from "../../assets/images/medicationConcern.png";
-import dashimg19 from "../../assets/images/Movement.png";
-import dashimg22 from "../../assets/images/SinceMyStroke.jpg";
-import dashimg23 from "../../assets/images/Illness.png";
-import dashimg24 from "../../assets/images/Fall.png";
-import dashimg25 from "../../assets/images/I-dont-know.png";
-import dashimg26 from "../../assets/images/concern-img-03.png";
-import dashimg27 from "../../assets/images/something-else.png";
-import dashimg28 from "../../assets/images/Always_Chronic.png";
-import dashimg29 from "../../assets/images/With Mental Activity.png";
-import dashimg30 from "../../assets/images/toilet.png";
-import dashimg31 from "../../assets/images/When Lying Down.png";
-import dashimg32 from "../../assets/images/When Sleeping.png";
-import dashimg33 from "../../assets/images/When Walking.png";
-import dashimg34 from "../../assets/images/With Transfer _ Repositioning.png";
-import dashimg35 from "../../assets/images/Blood Pressure.png";
-import dashimg36 from "../../assets/images/Blood Sugar.png";
-import dashimg17 from "../../assets/images/With Stress _ Emotion.png";
+import dashimghow01 from "../../assets/images/All-Day.png";
+import dashimghow02 from "../../assets/images/Evening-Night.png";
+import dashimghow03 from "../../assets/images/Morning.png";
+import dashimghow04 from "../../assets/images/After Procedure (transparent).png";
+import dashimghow06 from "../../assets/images/Up and Down (Comes and Goes).png";
+import dashimghow07 from "../../assets/images/Just started.png";
+import dashimghow08 from "../../assets/images/With food_drink & when eating_drinking.png";
+import dashimghow10 from "../../assets/images/When-Sitting.png";
+import dashimghow13 from "../../assets/images/After Meals.png";
+import dashimghow15 from "../../assets/images/With-Activity.png";
+import dashimghow18 from "../../assets/images/medicationConcern.png";
+import dashimghow19 from "../../assets/images/Movement.png";
+import dashimghow22 from "../../assets/images/SinceMyStroke.jpg";
+import dashimghow23 from "../../assets/images/Illness.png";
+import dashimghow24 from "../../assets/images/Fall.png";
+import dashimghow25 from "../../assets/images/I-dont-know.png";
+import dashimghow26 from "../../assets/images/concern-img-03.png";
+import dashimghow27 from "../../assets/images/something-else.png";
+import dashimghow28 from "../../assets/images/Always_Chronic.png";
+import dashimghow29 from "../../assets/images/With Mental Activity.png";
+import dashimghow30 from "../../assets/images/toilet.png";
+import dashimghow31 from "../../assets/images/When Lying Down.png";
+import dashimghow32 from "../../assets/images/When Sleeping.png";
+import dashimghow33 from "../../assets/images/When Walking.png";
+import dashimghow34 from "../../assets/images/With Transfer _ Repositioning.png";
+import dashimghow35 from "../../assets/images/Blood Pressure.png";
+import dashimghow36 from "../../assets/images/Blood Sugar.png";
+import dashimghow17 from "../../assets/images/With Stress _ Emotion.png";
 import GetsWorseThroughtheDay from "../../assets/images/Gets Worse Through the Day.png";
 import WhenStanding from "../../assets/images/When Standing.png";
 import WhenSitting from "../../assets/images/When Sitting.png";
 import WithActivity from "../../assets/images/With Activity.png";
 
 // audio
-import AppetiteFemaleEnglish from "../../assets/audio/English/femaleappetite (female english).mp3";
-import BreathingTreatmentFemaleEnglish from "../../assets/audio/English/breathing treatment (female english).mp3";
-import CatheterFemale from "../../assets/audio/English/Catheter.mp3";
-
-import CatheterFemale from "../../assets/audio/English/Catheter.mp3";
-import CongestedOrRunnyNoseFemale from "../../assets/audio/English/Congested or runny nose .mp3";
-import CPAPBiPAPFemale from "../../assets/audio/English/CPAP_BiPAP.mp3";
-import DizzyFemale from "../../assets/audio/English/Dizzy.mp3";
-import DontWantFemale from "../../assets/audio/English/Don_t want.mp3";
-import DryMouthFemale from "../../assets/audio/English/Dry Mouth.mp3";
-import EarPainFemale from "../../assets/audio/English/Ear Pain.mp3";
-import FeelFullFemale from "../../assets/audio/English/Feel Full.mp3";
-import FeverFemale from "../../assets/audio/English/Fever.mp3";
-import GriefFemale from "../../assets/audio/English/Grief.mp3";
-import HearingFemale from "../../assets/audio/English/Hearing.mp3";
-import HeavyThickFemale from "../../assets/audio/English/Heavy_Thick.mp3";
-import IllnessFemale from "../../assets/audio/English/Illness.mp3";
-import ItchyFemale from "../../assets/audio/English/itchy.mp3";
-import LeakingFemale from "../../assets/audio/English/Leaking.mp3";
-import PainWithSwallowingFemale from "../../assets/audio/English/Pain with Swallowing.mp3";
-import PEGRemovedFemale from "../../assets/audio/English/PEG removed.mp3";
-import PluggedFemale from "../../assets/audio/English/Plugged (female).mp3";
-import RemoveFemale from "../../assets/audio/English/Remove.mp3";
-import RingingFemale from "../../assets/audio/English/Ringing.mp3";
-import SomethingHappenedFemale from "../../assets/audio/English/Something Happened.mp3";
-import SoreThroatFemale from "../../assets/audio/English/Sore Throat.mp3";
-import StitchesOrStaplesWavFemale from "../../assets/audio/English/Stitches or Staples.wav";
-import SwellingFemale from "../../assets/audio/English/Swelling.mp3";
-import SwellingWavFemale from "../../assets/audio/English/Swelling.wav";
-import ThickMucusFemale from "../../assets/audio/English/Thick Mucus.mp3";
-import TightFemale from "../../assets/audio/English/tight.mp3";
-import TooMuchFemale from "../../assets/audio/English/too much.mp3";
-import TrachRemovedFemale from "../../assets/audio/English/trach removed (female english).mp3";
-import TrachFemale from "../../assets/audio/English/trach.mp3";
-import VisionFemale from "../../assets/audio/English/Vision.mp3";
-import WaitedTooLongFemale from "../../assets/audio/English/waited too long.mp3";
-import WoundIncisionFemale from "../../assets/audio/English/Wound_Incision.mp3";
-import YellowFemale from "../../assets/audio/English/Yellow .mp3";
+import AppetiteFemaleEnglish from "../../assets/audio/English/female/appetiteFemale.mp3";
+import BreathingTreatmentFemaleEnglish from "../../assets/audio/English/female/breathing treatment (female english).mp3";
+import CatheterFemale from "../../assets/audio/English/female/Catheter.mp3";
+import CongestedOrRunnyNoseFemale from "../../assets/audio/English/female/Congested or runny nose .mp3";
+import CPAPBiPAPFemale from "../../assets/audio/English/female/CPAP_BiPAP.mp3";
+import DizzyFemale from "../../assets/audio/English/female/Dizzy.mp3";
+import DontWantFemale from "../../assets/audio/English/female/Don_t want.mp3";
+import DryMouthFemale from "../../assets/audio/English/female/Dry Mouth.mp3";
+import EarPainFemale from "../../assets/audio/English/female/Ear Pain.mp3";
+import FeelFullFemale from "../../assets/audio/English/female/Feel Full.mp3";
+import FeverFemale from "../../assets/audio/English/female/Fever.mp3";
+import GriefFemale from "../../assets/audio/English/female/Grief.mp3";
+import HearingFemale from "../../assets/audio/English/female/Hearing.mp3";
+import HeavyThickFemale from "../../assets/audio/English/female/Heavy_Thick.mp3";
+import IllnessFemale from "../../assets/audio/English/female/Illness.mp3";
+import ItchyFemale from "../../assets/audio/English/female/itchy.mp3";
+import LeakingFemale from "../../assets/audio/English/female/Leaking.mp3";
+import PainWithSwallowingFemale from "../../assets/audio/English/female/Pain with Swallowing.mp3";
+import PEGRemovedFemale from "../../assets/audio/English/female/PEG removed.mp3";
+import PluggedFemale from "../../assets/audio/English/female/Plugged (female).mp3";
+import RemoveFemale from "../../assets/audio/English/female/Remove.mp3";
+import RingingFemale from "../../assets/audio/English/female/Ringing.mp3";
+import SomethingHappenedFemale from "../../assets/audio/English/female/Something Happened.mp3";
+import SoreThroatFemale from "../../assets/audio/English/female/Sore Throat.mp3";
+import StitchesOrStaplesWavFemale from "../../assets/audio/English/female/Stitches or Staples.wav";
+import SwellingFemale from "../../assets/audio/English/female/Swelling.mp3";
+import SwellingWavFemale from "../../assets/audio/English/female/Swelling.wav";
+import ThickMucusFemale from "../../assets/audio/English/female/Thick Mucus.mp3";
+import TightFemale from "../../assets/audio/English/female/tight.mp3";
+import TooMuchFemale from "../../assets/audio/English/female/too much.mp3";
+import TrachRemovedFemale from "../../assets/audio/English/female/trach removed (female english).mp3";
+import TrachFemale from "../../assets/audio/English/female/trach.mp3";
+import VisionFemale from "../../assets/audio/English/female/Vision.mp3";
+import WaitedTooLongFemale from "../../assets/audio/English/female/waited too long.mp3";
+import WoundIncisionFemale from "../../assets/audio/English/female/Wound_Incision.mp3";
+import YellowFemale from "../../assets/audio/English/female/Yellow .mp3";
 
 // male audio
 
-import ColostomyOstomyBagMale from "../../assets/audio/English/09 Colostomy _ Ostomy Bag.wav";
-import WithSalivaMale from "../../assets/audio/English/1 With Saliva.wav";
-import ToiletUrinalMale from "../../assets/audio/English/10 Toilet _ Urinal.wav";
-import TVMale from "../../assets/audio/English/100 TV.wav";
-import MusicMale from "../../assets/audio/English/101 Music.wav";
-import DenturesMale from "../../assets/audio/English/102 Dentures.wav";
-import ChangeClothesMale from "../../assets/audio/English/103 Change Clothes.wav";
-import AdjustClothesMale from "../../assets/audio/English/104 Adjust Clothes.wav";
-import ChangeUnderwearMale from "../../assets/audio/English/105 Change Underwear.wav";
-import NeedSocksMale from "../../assets/audio/English/106 Need Socks.wav";
-import OpenForMeMale from "../../assets/audio/English/107 Open for Me.wav";
-import PhoneTabletMale from "../../assets/audio/English/108 Phone _ Tablet.wav";
-import PlugInPhoneTabletMale from "../../assets/audio/English/109 Plug in Phone _ Tablet.wav";
-import InsomniaMale from "../../assets/audio/English/11 Insomnia.wav";
-import ChargeHearingAidsMale from "../../assets/audio/English/110 Charge Hearing Aids.wav";
-import InhalerBreathingTreatmentMale from "../../assets/audio/English/111 Inhaler _ Breathing Treatment.wav";
-import BloodSugarMale from "../../assets/audio/English/112 Blood Sugar.wav";
-import BloodPressureMale from "../../assets/audio/English/113 Blood Pressure.wav";
-import HelmetMale from "../../assets/audio/English/114 Helmet.wav";
-import CervicalCollarMale from "../../assets/audio/English/115 Cervical Collar.wav";
-import NurseMale from "../../assets/audio/English/116 Nurse.wav";
-import DoctorMale from "../../assets/audio/English/117 Doctor.wav";
-import SpeechTherapistMale from "../../assets/audio/English/119 Speech Therapist.wav";
-import NoisyMale from "../../assets/audio/English/12 Noisy.wav";
-import OccupationalPhysicalTherapistMale from "../../assets/audio/English/120 Occupational _ Physical Therapist.wav";
-import RespiratoryTherapistMale from "../../assets/audio/English/121 Respiratory Therapist.wav";
-import TickleInMyThroatMale from "../../assets/audio/English/123 Tickle In My Throat.wav";
-import TooMuchLightMale from "../../assets/audio/English/13 Too Much Light.wav";
-import InterruptionsMale from "../../assets/audio/English/14 Interruptions.wav";
-import LostGlassesMale from "../../assets/audio/English/15 Lost Glasses.wav";
-import NotWorkingOrBrokenMale from "../../assets/audio/English/16 Not Working or Broken.wav";
-import NeedMyGlassesMale from "../../assets/audio/English/17 Need My Glasses.wav";
-import CheckMyVisionMale from "../../assets/audio/English/18 Check My Vision.wav";
-import CantSeeLeftMale from "../../assets/audio/English/19 Can’t See Left.wav";
-import JustDryOrUncomfortableMale from "../../assets/audio/English/2 Just Dry or Uncomfortable.wav";
-import CantSeeRightMale from "../../assets/audio/English/20 Can’t See Right.wav";
-import HeadacheMale from "../../assets/audio/English/21 Headache.wav";
-import NeedBatteriesMale from "../../assets/audio/English/22 Need Batteries.wav";
-import CheckMyHearingMale from "../../assets/audio/English/23 Check My Hearing.wav";
-import NeedsChargingMale from "../../assets/audio/English/24 Needs Charging.wav";
-import NeedMyHearingAidsMale from "../../assets/audio/English/25 Need My Hearing Aids.wav";
-import LostHearingAidsMale from "../../assets/audio/English/26 Lost Hearing Aids.wav";
-import WriteItDownMale from "../../assets/audio/English/27 Write it Down.wav";
-import StrokeSymptomsMale from "../../assets/audio/English/28 Stroke Symptoms.wav";
-import GoodOrOkayMale from "../../assets/audio/English/29 Good or Okay.wav";
-import JustSwallowingMale from "../../assets/audio/English/3 Just Swallowing.wav";
-import ALittleOffMale from "../../assets/audio/English/30 A little off.wav";
-import NotGoodMale from "../../assets/audio/English/31 Not good.wav";
-import LowOrSadMale from "../../assets/audio/English/32 Low or Sad.wav";
-import VeryDownMale from "../../assets/audio/English/33 Very Down.wav";
-import MaybeMale from "../../assets/audio/English/34 Maybe.wav";
-import WorriedGuiltyMale from "../../assets/audio/English/35 Worried _ Guilty.wav";
-import HopelessMale from "../../assets/audio/English/36 Hopeless.wav";
-import EveningNightMale from "../../assets/audio/English/37 Evening _ Night.wav";
-import FeedingTubeRemovedMale from "../../assets/audio/English/38 Feeding Tube Removed.wav";
-import EatingAndDrinkingMale from "../../assets/audio/English/39 Eating and Drinking.wav";
-import MedicationAllergyMale from "../../assets/audio/English/4 Medication Allergy.wav";
-import FoodAllergyMale from "../../assets/audio/English/40 Food Allergy.wav";
-import HungryThirstyMale from "../../assets/audio/English/41 Hungry _ Thirsty.wav";
-import DontEatThisMale from "../../assets/audio/English/42 Don’t Eat This.wav";
-import NotAllowedToEatOrDrinkMale from "../../assets/audio/English/43 Not Allowed to Eat or Drink.wav";
-import WrongTrayMale from "../../assets/audio/English/44 Wrong Tray.wav";
-import SpecialDietMale from "../../assets/audio/English/45 Special Diet.wav";
-import VegetarianVeganMale from "../../assets/audio/English/46 Vegetarian _ Vegan.wav";
-import NoDairyMale from "../../assets/audio/English/47 No Dairy.wav";
-import KosherMale from "../../assets/audio/English/48 Kosher.wav";
-import HalalMale from "../../assets/audio/English/49 Halal.wav";
-import RefluxMale from "../../assets/audio/English/5 Reflux.wav";
-import GlutenFreeMale from "../../assets/audio/English/50 Gluten-Free.wav";
-import NutFreeMale from "../../assets/audio/English/51 Nut-Free.wav";
-import LowSodiumMale from "../../assets/audio/English/52 Low Sodium.wav";
-import DiabeticCarbControlledMale from "../../assets/audio/English/53 Diabetic _ Carb Controlled.wav";
-import TextureModifiedMale from "../../assets/audio/English/54 Texture Modified.wav";
-import MovementMale from "../../assets/audio/English/56 Movement.wav";
-import CommunicationThinkingMale from "../../assets/audio/English/57 Communication _ Thinking.wav";
-import NoVoiceMale from "../../assets/audio/English/58 No Voice.wav";
-import HardToUnderstandYouMale from "../../assets/audio/English/59 Hard to Understand You.wav";
-import FeedingTubeMale from "../../assets/audio/English/6 Feeding Tube.wav";
-import CantFindMyWordsMale from "../../assets/audio/English/60 Can’t Find My Words.wav";
-import HardToTalkMale from "../../assets/audio/English/61 Hard to Talk.wav";
-import ImConfusedMale from "../../assets/audio/English/62 I’m Confused.wav";
-import WrongWordsComeOutMale from "../../assets/audio/English/63 Wrong Words Come Out.wav";
-import DontKnowWhereIAmMale from "../../assets/audio/English/64 Don’t Know Where I Am.wav";
-import MemoryTroubleMale from "../../assets/audio/English/65 Memory Trouble.wav";
-import WeaknessMale from "../../assets/audio/English/66 Weakness.wav";
-import WeakOnOneSideMale from "../../assets/audio/English/67 Weak on One Side.wav";
-import ClumsyOffBalanceMale from "../../assets/audio/English/68 Clumsy _ Off Balance.wav";
-import NeedChangedMale from "../../assets/audio/English/7 Need Changed.wav";
-import NoConcernsMale from "../../assets/audio/English/70 No Concerns.wav";
-import WithTransferRepositioningMale from "../../assets/audio/English/74 With Transfer _ Repositioning.wav";
-import WithMovementMale from "../../assets/audio/English/75 With Movement.wav";
-import WithTubeFeedMale from "../../assets/audio/English/78 With Tube Feed.wav";
-import WithStressEmotionMale from "../../assets/audio/English/79 With Stress _ Emotion.wav";
-import JustNauseaMale from "../../assets/audio/English/8 Just Nausea.wav";
-import AfterProcedureMale from "../../assets/audio/English/80 After Procedure.wav";
-import SinceIllnessMale from "../../assets/audio/English/82 Since Illness.wav";
-import AlwaysChronicMale from "../../assets/audio/English/86 Always _ Chronic.wav";
-import BathroomMale from "../../assets/audio/English/87 Bathroom.wav";
-import BedMale from "../../assets/audio/English/88 Bed.wav";
-import FoodMale from "../../assets/audio/English/89 Food.wav";
-import DrinkMale from "../../assets/audio/English/90 Drink.wav";
-import PainMedsMale from "../../assets/audio/English/91 Pain Meds.wav";
-import RepositionMale from "../../assets/audio/English/92 Reposition.wav";
-import IceMale from "../../assets/audio/English/93 Ice.wav";
-import IcePackMale from "../../assets/audio/English/94 Ice Pack.wav";
-import BlanketPillowMale from "../../assets/audio/English/96 Blanket _ Pillow.wav";
-import RoomTemperatureMale from "../../assets/audio/English/97 Room Temperature.wav";
-import TissueMale from "../../assets/audio/English/98 Tissue.wav";
-import LightsMale from "../../assets/audio/English/99 Lights.wav";
-import AfterMealsMale from "../../assets/audio/English/After Meals.wav";
-import BrainFogMale from "../../assets/audio/English/Brain Fog.wav";
-import BrainTiredMale from "../../assets/audio/English/Brain Tired.wav";
-import GetsWorseThroughTheDayMale from "../../assets/audio/English/Gets Worse Through the Day.wav";
-import HeatingPadMale from "../../assets/audio/English/Heating Pad.wav";
-import JustFatigueMale from "../../assets/audio/English/Just Fatigue.wav";
-import LostWeightWithoutTryingMale from "../../assets/audio/English/Lost Weight Without Trying.wav";
-import NeedHelpEatingMale from "../../assets/audio/English/Need Help Eating.wav";
-import NursingAideMale from "../../assets/audio/English/Nursing Aide.wav";
-import SinceFallInjuryMale from "../../assets/audio/English/Since Fall _ Injury.wav";
-import SinceMyStrokeInjuryMale from "../../assets/audio/English/Since My Stroke _ Injury.wav";
-import TroubleWalkingMale from "../../assets/audio/English/Trouble Walking.wav";
-import WhenEatingDrinkingMale from "../../assets/audio/English/When Eating _ Drinking.wav";
-import WhenLyingDownMale from "../../assets/audio/English/When Lying Down.wav";
-import WhenSleepingMale from "../../assets/audio/English/When Sleeping.wav";
-import WhenSwallowingMale from "../../assets/audio/English/When Swallowing.wav";
-import WhenToiletingMale from "../../assets/audio/English/When Toileting.wav";
-import WhenWalkingMale from "../../assets/audio/English/When Walking.wav";
-import WithMentalActivityMale from "../../assets/audio/English/With Mental Activity.wav";
+import ColostomyOstomyBagMale from "../../assets/audio/English/male/09 Colostomy _ Ostomy Bag.wav";
+import WithSalivaMale from "../../assets/audio/English/male/1 With Saliva.wav";
+import ToiletUrinalMale from "../../assets/audio/English/male/10 Toilet _ Urinal.wav";
+import TVMale from "../../assets/audio/English/male/100 TV.wav";
+import MusicMale from "../../assets/audio/English/male/101 Music.wav";
+import DenturesMale from "../../assets/audio/English/male/102 Dentures.wav";
+import ChangeClothesMale from "../../assets/audio/English/male/103 Change Clothes.wav";
+import AdjustClothesMale from "../../assets/audio/English/male/104 Adjust Clothes.wav";
+import ChangeUnderwearMale from "../../assets/audio/English/male/105 Change Underwear.wav";
+import NeedSocksMale from "../../assets/audio/English/male/106 Need Socks.wav";
+import OpenForMeMale from "../../assets/audio/English/male/107 Open for Me.wav";
+import PhoneTabletMale from "../../assets/audio/English/male/108 Phone _ Tablet.wav";
+import PlugInPhoneTabletMale from "../../assets/audio/English/male/109 Plug in Phone _ Tablet.wav";
+import InsomniaMale from "../../assets/audio/English/male/11 Insomnia.wav";
+import ChargeHearingAidsMale from "../../assets/audio/English/male/110 Charge Hearing Aids.wav";
+import InhalerBreathingTreatmentMale from "../../assets/audio/English/male/111 Inhaler _ Breathing Treatment.wav";
+import BloodSugarMale from "../../assets/audio/English/male/112 Blood Sugar.wav";
+import BloodPressureMale from "../../assets/audio/English/male/113 Blood Pressure.wav";
+import HelmetMale from "../../assets/audio/English/male/114 Helmet.wav";
+import CervicalCollarMale from "../../assets/audio/English/male/115 Cervical Collar.wav";
+import NurseMale from "../../assets/audio/English/male/116 Nurse.wav";
+import DoctorMale from "../../assets/audio/English/male/117 Doctor.wav";
+import SpeechTherapistMale from "../../assets/audio/English/male/119 Speech Therapist.wav";
+import NoisyMale from "../../assets/audio/English/male/12 Noisy.wav";
+import OccupationalPhysicalTherapistMale from "../../assets/audio/English/male/120 Occupational _ Physical Therapist.wav";
+import RespiratoryTherapistMale from "../../assets/audio/English/male/121 Respiratory Therapist.wav";
+import TickleInMyThroatMale from "../../assets/audio/English/male/123 Tickle In My Throat.wav";
+import TooMuchLightMale from "../../assets/audio/English/male/13 Too Much Light.wav";
+import InterruptionsMale from "../../assets/audio/English/male/14 Interruptions.wav";
+import LostGlassesMale from "../../assets/audio/English/male/15 Lost Glasses.wav";
+import NotWorkingOrBrokenMale from "../../assets/audio/English/male/16 Not Working or Broken.wav";
+import NeedMyGlassesMale from "../../assets/audio/English/male/17 Need My Glasses.wav";
+import CheckMyVisionMale from "../../assets/audio/English/male/18 Check My Vision.wav";
+import CantSeeLeftMale from "../../assets/audio/English/male/19 Can’t See Left.wav";
+import JustDryOrUncomfortableMale from "../../assets/audio/English/male/2 Just Dry or Uncomfortable.wav";
+import CantSeeRightMale from "../../assets/audio/English/male/20 Can’t See Right.wav";
+import HeadacheMale from "../../assets/audio/English/male/21 Headache.wav";
+import NeedBatteriesMale from "../../assets/audio/English/male/22 Need Batteries.wav";
+import CheckMyHearingMale from "../../assets/audio/English/male/23 Check My Hearing.wav";
+import NeedsChargingMale from "../../assets/audio/English/male/24 Needs Charging.wav";
+import NeedMyHearingAidsMale from "../../assets/audio/English/male/25 Need My Hearing Aids.wav";
+import LostHearingAidsMale from "../../assets/audio/English/male/26 Lost Hearing Aids.wav";
+import WriteItDownMale from "../../assets/audio/English/male/27 Write it Down.wav";
+import StrokeSymptomsMale from "../../assets/audio/English/male/28 Stroke Symptoms.wav";
+import GoodOrOkayMale from "../../assets/audio/English/male/29 Good or Okay.wav";
+import JustSwallowingMale from "../../assets/audio/English/male/3 Just Swallowing.wav";
+import ALittleOffMale from "../../assets/audio/English/male/30 A little off.wav";
+import NotGoodMale from "../../assets/audio/English/male/31 Not good.wav";
+import LowOrSadMale from "../../assets/audio/English/male/32 Low or Sad.wav";
+import VeryDownMale from "../../assets/audio/English/male/33 Very Down.wav";
+import MaybeMale from "../../assets/audio/English/male/34 Maybe.wav";
+import WorriedGuiltyMale from "../../assets/audio/English/male/35 Worried _ Guilty.wav";
+import HopelessMale from "../../assets/audio/English/male/36 Hopeless.wav";
+import EveningNightMale from "../../assets/audio/English/male/37 Evening _ Night.wav";
+import FeedingTubeRemovedMale from "../../assets/audio/English/male/38 Feeding Tube Removed.wav";
+import EatingAndDrinkingMale from "../../assets/audio/English/male/39 Eating and Drinking.wav";
+import MedicationAllergyMale from "../../assets/audio/English/male/4 Medication Allergy.wav";
+import FoodAllergyMale from "../../assets/audio/English/male/40 Food Allergy.wav";
+import HungryThirstyMale from "../../assets/audio/English/male/41 Hungry _ Thirsty.wav";
+import DontEatThisMale from "../../assets/audio/English/male/42 Don’t Eat This.wav";
+import NotAllowedToEatOrDrinkMale from "../../assets/audio/English/male/43 Not Allowed to Eat or Drink.wav";
+import WrongTrayMale from "../../assets/audio/English/male/44 Wrong Tray.wav";
+import SpecialDietMale from "../../assets/audio/English/male/45 Special Diet.wav";
+import VegetarianVeganMale from "../../assets/audio/English/male/46 Vegetarian _ Vegan.wav";
+import NoDairyMale from "../../assets/audio/English/male/47 No Dairy.wav";
+import KosherMale from "../../assets/audio/English/male/48 Kosher.wav";
+import HalalMale from "../../assets/audio/English/male/49 Halal.wav";
+import RefluxMale from "../../assets/audio/English/male/5 Reflux.wav";
+import GlutenFreeMale from "../../assets/audio/English/male/50 Gluten-Free.wav";
+import NutFreeMale from "../../assets/audio/English/male/51 Nut-Free.wav";
+import LowSodiumMale from "../../assets/audio/English/male/52 Low Sodium.wav";
+import DiabeticCarbControlledMale from "../../assets/audio/English/male/53 Diabetic _ Carb Controlled.wav";
+import TextureModifiedMale from "../../assets/audio/English/male/54 Texture Modified.wav";
+import MovementMale from "../../assets/audio/English/male/56 Movement.wav";
+import CommunicationThinkingMale from "../../assets/audio/English/male/57 Communication _ Thinking.wav";
+import NoVoiceMale from "../../assets/audio/English/male/58 No Voice.wav";
+import HardToUnderstandYouMale from "../../assets/audio/English/male/59 Hard to Understand You.wav";
+import FeedingTubeMale from "../../assets/audio/English/male/6 Feeding Tube.wav";
+import CantFindMyWordsMale from "../../assets/audio/English/male/60 Can’t Find My Words.wav";
+import HardToTalkMale from "../../assets/audio/English/male/61 Hard to Talk.wav";
+import ImConfusedMale from "../../assets/audio/English/male/62 I’m Confused.wav";
+import WrongWordsComeOutMale from "../../assets/audio/English/male/63 Wrong Words Come Out.wav";
+import DontKnowWhereIAmMale from "../../assets/audio/English/male/64 Don’t Know Where I Am.wav";
+import MemoryTroubleMale from "../../assets/audio/English/male/65 Memory Trouble.wav";
+import WeaknessMale from "../../assets/audio/English/male/66 Weakness.wav";
+import WeakOnOneSideMale from "../../assets/audio/English/male/67 Weak on One Side.wav";
+import ClumsyOffBalanceMale from "../../assets/audio/English/male/68 Clumsy _ Off Balance.wav";
+import NeedChangedMale from "../../assets/audio/English/male/7 Need Changed.wav";
+import NoConcernsMale from "../../assets/audio/English/male/70 No Concerns.wav";
+import WithTransferRepositioningMale from "../../assets/audio/English/male/74 With Transfer _ Repositioning.wav";
+import WithMovementMale from "../../assets/audio/English/male/75 With Movement.wav";
+import WithTubeFeedMale from "../../assets/audio/English/male/78 With Tube Feed.wav";
+import WithStressEmotionMale from "../../assets/audio/English/male/79 With Stress _ Emotion.wav";
+import JustNauseaMale from "../../assets/audio/English/male/8 Just Nausea.wav";
+import AfterProcedureMale from "../../assets/audio/English/male/80 After Procedure.wav";
+import SinceIllnessMale from "../../assets/audio/English/male/82 Since Illness.wav";
+import AlwaysChronicMale from "../../assets/audio/English/male/86 Always _ Chronic.wav";
+import BathroomMale from "../../assets/audio/English/male/87 Bathroom.wav";
+import BedMale from "../../assets/audio/English/male/88 Bed.wav";
+import FoodMale from "../../assets/audio/English/male/89 Food.wav";
+import DrinkMale from "../../assets/audio/English/male/90 Drink.wav";
+import PainMedsMale from "../../assets/audio/English/male/91 Pain Meds.wav";
+import RepositionMale from "../../assets/audio/English/male/92 Reposition.wav";
+import IceMale from "../../assets/audio/English/male/93 Ice.wav";
+import IcePackMale from "../../assets/audio/English/male/94 Ice Pack.wav";
+import BlanketPillowMale from "../../assets/audio/English/male/96 Blanket _ Pillow.wav";
+import RoomTemperatureMale from "../../assets/audio/English/male/97 Room Temperature.wav";
+import TissueMale from "../../assets/audio/English/male/98 Tissue.wav";
+import LightsMale from "../../assets/audio/English/male/99 Lights.wav";
+import AfterMealsMale from "../../assets/audio/English/male/After Meals.wav";
+import BrainFogMale from "../../assets/audio/English/male/Brain Fog.wav";
+import BrainTiredMale from "../../assets/audio/English/male/Brain Tired.wav";
+import GetsWorseThroughTheDayMale from "../../assets/audio/English/male/Gets Worse Through the Day.wav";
+import HeatingPadMale from "../../assets/audio/English/male/Heating Pad.wav";
+import JustFatigueMale from "../../assets/audio/English/male/Just Fatigue.wav";
+import LostWeightWithoutTryingMale from "../../assets/audio/English/male/Lost Weight Without Trying.wav";
+import NeedHelpEatingMale from "../../assets/audio/English/male/Need Help Eating.wav";
+import NursingAideMale from "../../assets/audio/English/male/Nursing Aide.wav";
+import SinceFallInjuryMale from "../../assets/audio/English/male/Since Fall _ Injury.wav";
+import SinceMyStrokeInjuryMale from "../../assets/audio/English/male/Since My Stroke _ Injury.wav";
+import TroubleWalkingMale from "../../assets/audio/English/male/Trouble Walking.wav";
+import WhenEatingDrinkingMale from "../../assets/audio/English/male/When Eating _ Drinking.wav";
+import WhenLyingDownMale from "../../assets/audio/English/male/When Lying Down.wav";
+import WhenSleepingMale from "../../assets/audio/English/male/When Sleeping.wav";
+import WhenSwallowingMale from "../../assets/audio/English/male/When Swallowing.wav";
+import WhenToiletingMale from "../../assets/audio/English/male/When Toileting.wav";
+import WhenWalkingMale from "../../assets/audio/English/male/When Walking.wav";
+import WithMentalActivityMale from "../../assets/audio/English/male/With Mental Activity.wav";
 
 export const breathingWhenOptions = [
   {
     id: 1,
-    image: dashimg03,
+    image: dashimghow03,
     path: "/confrm-step-when",
     name: "Morning",
     nameEs: "Mañana",
   },
   {
     id: 2,
-    image: dashimg01,
+    image: dashimghow01,
     path: "/confrm-step-when",
     name: "All Day",
     nameEs: "Todo el Día",
   },
   {
     id: 3,
-    image: dashimg02,
+    image: dashimghow02,
     path: "/confrm-step-when",
     name: "Evening / Night",
     nameEs: "Tarde / Noche",
@@ -476,21 +470,22 @@ export const breathingWhenOptions = [
   },
   {
     id: 4,
-    image: dashimg28,
+    image: dashimghow28,
     path: "/confrm-step-when",
     name: "Always / Chronic",
     nameEs: "Siempre / Crónico",
+    maleEnglish: AlwaysChronicMale,
   },
   {
     id: 5,
-    image: dashimg07,
+    image: dashimghow07,
     path: "/confrm-step-when",
     name: "Just Started",
     nameEs: "Recién Comenzó",
   },
   {
     id: 6,
-    image: dashimg06,
+    image: dashimghow06,
     path: "/confrm-step-when",
     name: "Comes and Goes",
     nameEs: "Va y Viene",
@@ -501,6 +496,7 @@ export const breathingWhenOptions = [
     path: "/confrm-step-when",
     name: "Gets Worse Through the Day",
     nameEs: "Empeora a lo Largo del Día",
+    maleEnglish: GetsWorseThroughTheDayMale,
   },
   {
     id: 8,
@@ -518,24 +514,27 @@ export const breathingWhenOptions = [
   },
   {
     id: 10,
-    image: dashimg31,
+    image: dashimghow31,
     path: "/confrm-step-when",
     name: "When Lying Down",
     nameEs: "Al Estar Acostado",
+    maleEnglish: WhenLyingDownMale,
   },
   {
     id: 11,
-    image: dashimg32,
+    image: dashimghow32,
     path: "/confrm-step-when",
     name: "When Sleeping",
     nameEs: "Al Dormir",
+    maleEnglish: WhenSleepingMale,
   },
   {
     id: 12,
-    image: dashimg33,
+    image: dashimghow33,
     path: "/confrm-step-when",
     name: "When Walking",
     nameEs: "Al Caminar",
+    maleEnglish: WhenWalkingMale,
   },
   {
     id: 13,
@@ -546,126 +545,139 @@ export const breathingWhenOptions = [
   },
   {
     id: 14,
-    image: dashimg29,
+    image: dashimghow29,
     path: "/confrm-step-when",
     name: "With Mental Activity",
     nameEs: "Con Actividad Mental",
+    maleEnglish: WithMentalActivityMale,
   },
   {
     id: 15,
-    image: dashimg34,
+    image: dashimghow34,
     path: "/confrm-step-when",
     name: "With Transfer / Repositioning",
     nameEs: "Al Trasladarse / Cambiar de Posición",
+    maleEnglish: WithTransferRepositioningMale,
   },
   {
     id: 16,
-    image: dashimg19,
+    image: dashimghow19,
     path: "/confrm-step-when",
     name: "With Movement",
     nameEs: "Con Movimiento",
+    maleEnglish: WithMovementMale,
   },
   {
     id: 17,
-    image: dashimg26,
+    image: dashimghow26,
     path: "/confrm-step-when",
     name: "When Swallowing",
     nameEs: "Al Tragar",
+    maleEnglish: WhenSwallowingMale,
   },
   {
     id: 18,
-    image: dashimg18,
+    image: dashimghow18,
     path: "/confrm-step-when",
     name: "With Medication",
     nameEs: "Con Medicación",
   },
   {
     id: 19,
-    image: dashimg08,
+    image: dashimghow08,
     path: "/confrm-step-when",
     name: "When Eating / Drinking",
     nameEs: "Al Comer / Beber",
+    maleEnglish: WhenEatingDrinkingMale,
   },
   {
     id: 20,
-    image: dashimg13,
+    image: dashimghow13,
     path: "/confrm-step-when",
     name: "After Meals",
     nameEs: "Después de Comer",
+    maleEnglish: AfterMealsMale,
   },
   {
     id: 21,
-    image: dashimg30,
+    image: dashimghow30,
     path: "/confrm-step-when",
     name: "When Toileting",
     nameEs: "Al Usar el Baño",
+    maleEnglish: WhenToiletingMale,
   },
   {
     id: 22,
-    image: dashimg35,
+    image: dashimghow35,
     path: "/confrm-step-when",
     name: "With Blood Pressure",
     nameEs: "Con Presión Arterial",
   },
   {
     id: 23,
-    image: dashimg36,
+    image: dashimghow36,
     path: "/confrm-step-when",
     name: "With Blood Sugar",
     nameEs: "Con Glucosa",
   },
   {
     id: 24,
-    image: dashimg17,
+    image: dashimghow17,
     path: "/confrm-step-when",
     name: "With Stress / Emotion",
     nameEs: "Con Estrés / Emoción",
+    maleEnglish: WithStressEmotionMale,
   },
   {
     id: 25,
-    image: dashimg04,
+    image: dashimghow04,
     path: "/confrm-step-when",
     name: "After Procedure",
     nameEs: "Después del Procedimiento",
+    maleEnglish: AfterProcedureMale,
   },
   {
     id: 26,
-    image: dashimg19,
+    image: dashimghow19,
     path: "/confrm-step-when",
     name: "With Tube Feed",
     nameEs: "Con Alimentación por Sonda",
+    maleEnglish: WithTubeFeedMale,
   },
   {
     id: 27,
-    image: dashimg22,
+    image: dashimghow22,
     path: "/confrm-step-when",
-    name: "Since Stroke / Injury",
+    name: "Since My Stroke / Injury",
     nameEs: "Desde Mi Accidente Cerebrovascular / Lesión",
+    maleEnglish: SinceMyStrokeInjuryMale,
   },
   {
     id: 28,
-    image: dashimg23,
+    image: dashimghow23,
     path: "/confrm-step-when",
     name: "Since Illness",
     nameEs: "Desde la Enfermedad",
+    maleEnglish: SinceIllnessMale,
   },
   {
     id: 29,
-    image: dashimg24,
+    image: dashimghow24,
     path: "/confrm-step-when",
     name: "Since Fall / Injury",
     nameEs: "Desde la Caída / Lesión",
+    maleEnglish: SinceFallInjuryMale,
   },
   {
     id: 30,
-    image: dashimg25,
+    image: dashimghow25,
     path: "/confrm-step-when",
     name: "I Don’t Know",
     nameEs: "No lo Sé",
   },
   {
     id: 31,
-    image: dashimg27,
+    image: dashimghow27,
     path: "/confrm-step-when",
     name: "Something Else",
     nameEs: "Algo Más",
@@ -879,6 +891,7 @@ export const concerns = [
     nameEs: "Sin Preocupaciones",
     image: HowAreYouImg1,
     path: "/summary",
+    maleEnglish: NoConcernsMale,
   },
 ];
 
@@ -964,7 +977,13 @@ export const topicBoard = [
     nameEs: "Criar Niños",
     path: "/topicboard/raisingChildren/19",
   },
-  { id: 20, name: "Food", nameEs: "Comida", path: "/topicboard/food/20" },
+  {
+    id: 20,
+    name: "Food",
+    nameEs: "Comida",
+    path: "/topicboard/food/20",
+    maleEnglish: FoodMale,
+  },
   { id: 21, name: "Alcohol", nameEs: "Alcohol", path: "/Whiteboard" },
 ];
 
@@ -1102,6 +1121,7 @@ const needBoard = [
     image: BoardImg1,
     secPath: "/board/confrm-step-yesno/1",
     path: "/summary",
+    maleEnglish: BathroomMale,
   },
   {
     id: 2,
@@ -1110,6 +1130,7 @@ const needBoard = [
     image: BoardImg2,
     secPath: "/board/confrm-step-yesno/2",
     path: "/summary",
+    maleEnglish: BedMale,
   },
   {
     id: 3,
@@ -1118,6 +1139,7 @@ const needBoard = [
     image: BoardImg3,
     secPath: "/board/confrm-step-yesno/3",
     path: "/summary",
+    maleEnglish: FoodMale,
   },
   {
     id: 4,
@@ -1126,6 +1148,7 @@ const needBoard = [
     image: BoardImg4,
     secPath: "/board/confrm-step-yesno/4",
     path: "/summary",
+    maleEnglish: DrinkMale,
   },
   {
     id: 5,
@@ -1134,6 +1157,7 @@ const needBoard = [
     image: Painmedication,
     secPath: "/board/confrm-step-yesno/5",
     path: "/summary",
+    maleEnglish: PainMedsMale,
   },
   {
     id: 6,
@@ -1150,6 +1174,7 @@ const needBoard = [
     image: NeedChanged_formerly_Soiled_urine,
     secPath: "/board/confrm-step-yesno/7",
     path: "/summary",
+    maleEnglish: NeedChangedMale,
   },
   {
     id: 8,
@@ -1158,6 +1183,7 @@ const needBoard = [
     image: RepositionImg,
     secPath: "/board/confrm-step-yesno/8",
     path: "/summary",
+    maleEnglish: RepositionMale,
   },
   {
     id: 9,
@@ -1166,6 +1192,7 @@ const needBoard = [
     image: Ice,
     secPath: "/board/confrm-step-yesno/9",
     path: "/summary",
+    maleEnglish: IceMale,
   },
   {
     id: 10,
@@ -1174,6 +1201,7 @@ const needBoard = [
     image: Ice_pack,
     secPath: "/board/confrm-step-yesno/10",
     path: "/summary",
+    maleEnglish: IcePackMale,
   },
   {
     id: 11,
@@ -1182,6 +1210,7 @@ const needBoard = [
     image: heating_padImg,
     secPath: "/board/confrm-step-yesno/11",
     path: "/summary",
+    maleEnglish: HeatingPadMale,
   },
   {
     id: 12,
@@ -1190,6 +1219,7 @@ const needBoard = [
     image: Pillow_blanketImg,
     secPath: "/board/confrm-step-yesno/12",
     path: "/summary",
+    maleEnglish: BlanketPillowMale,
   },
   {
     id: 13,
@@ -1198,6 +1228,7 @@ const needBoard = [
     image: Room_tem,
     secPath: "/board/confrm-step-yesno/13",
     path: "/summary",
+    maleEnglish: RoomTemperatureMale,
   },
   {
     id: 14,
@@ -1206,6 +1237,7 @@ const needBoard = [
     image: TissueImg,
     secPath: "/board/confrm-step-yesno/14",
     path: "/summary",
+    maleEnglish: TissueMale,
   },
   {
     id: 15,
@@ -1214,6 +1246,7 @@ const needBoard = [
     image: LightImg,
     secPath: "/board/confrm-step-yesno/15",
     path: "/summary",
+    maleEnglish: LightsMale,
   },
   {
     id: 16,
@@ -1468,6 +1501,7 @@ const needBoard = [
     image: Nursing_aide,
     secPath: "/board/confrm-step-yesno/44",
     path: "/summary",
+    maleEnglish: NursingAideMale,
   },
   {
     id: 45,
@@ -3050,11 +3084,12 @@ const medicationswallowing = [
   },
   {
     id: "11",
-    name: "Losing Weight Without Trying",
+    name: "Lost Weight Without Trying",
     nameEs: "Perder peso sin intentarlo",
     path: "/howoften",
     image: LostWeightWithoutTrying,
     secPath: "/confrm-step-yesno",
+    maleEnglish: LostWeightWithoutTryingMale,
   },
   {
     id: "12",
@@ -3210,6 +3245,7 @@ const medicationBowels = [
     path: "/howoften",
     image: dashimg04,
     secPath: "/confrm-step-yesno",
+    maleEnglish: NeedChangedMale,
   },
   {
     id: "7",
@@ -3277,6 +3313,7 @@ const medicationUrination = [
     path: "/howoften",
     image: dashimg04,
     secPath: "/confrm-step-yesno",
+    maleEnglish: NeedChangedMale,
   },
   {
     id: "7",
@@ -3559,6 +3596,7 @@ const swallowingfeedingtubebowelsDesiese = [
     path: "/howoften",
     image: dashimg04,
     secPath: "/confrm-step-yesno",
+    maleEnglish: NeedChangedMale,
   },
   {
     id: "7",
@@ -3760,6 +3798,7 @@ const eatingdrinkingNoAppetiteNausea = [
     image: swallowingimg07,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustNauseaMale,
   },
   {
     id: "6",
@@ -3810,6 +3849,7 @@ const medicationNausea = [
     image: swallowingimg07,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    maleEnglish: JustNauseaMale,
   },
   {
     id: "6",
@@ -4076,11 +4116,12 @@ const medicationSidEffectsAppetiteNausea = [
   },
   {
     id: "8",
-    name: "Losing Weight Without Trying",
+    name: "Lost Weight Without Trying",
     nameEs: "Pérdida de peso sin intentarlo",
     image: LostWeightWithoutTrying,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: LostWeightWithoutTryingMale,
   },
 ];
 
@@ -4503,6 +4544,7 @@ const movementconcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: WeaknessMale,
   },
   {
     id: "2",
@@ -4511,6 +4553,7 @@ const movementconcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: WeakOnOneSideMale,
   },
   {
     id: "3",
@@ -4519,6 +4562,7 @@ const movementconcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: ClumsyOffBalanceMale,
   },
   {
     id: "4",
@@ -4544,6 +4588,7 @@ const movementconcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: TroubleWalkingMale,
   },
   {
     id: "7",
@@ -4608,6 +4653,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: WrongWordsComeOutMale,
   },
   {
     id: "7",
@@ -4616,6 +4662,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: DontKnowWhereIAmMale,
   },
   {
     id: "8",
@@ -4624,6 +4671,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: MemoryTroubleMale,
   },
   {
     id: "9",
@@ -4843,6 +4891,7 @@ const feedingBowels = [
     path: "/when",
     image: dashimg04,
     secPath: "/confrm-step-yesno",
+    maleEnglish: NeedChangedMale,
   },
   {
     id: "9",
@@ -5225,11 +5274,12 @@ export const diseasesData = {
     },
     {
       id: "9",
-      name: "Losing Weight Without Trying",
+      name: "Lost Weight Without Trying",
       nameEs: "Pérdida de peso sin intentar",
       image: LostWeightWithoutTrying,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: LostWeightWithoutTryingMale,
     },
     {
       id: "10",
@@ -5488,6 +5538,7 @@ export const diseasesData = {
       image: swallowingimg07,
       secPath: "/confrm-step-yesno",
       path: "/when",
+      maleEnglish: JustNauseaMale,
     },
     {
       id: "6",
@@ -5572,6 +5623,7 @@ export const diseasesData = {
       image: SoiledImg,
       secPath: "/summary",
       path: "/when",
+      maleEnglish: NeedChangedMale,
     },
     {
       id: "10",
@@ -5640,6 +5692,7 @@ export const diseasesData = {
       image: NeedChanged_formerly_Soiled_urine,
       secPath: "/confrm-step-yesno",
       path: "/when",
+      maleEnglish: NeedChangedMale,
     },
     {
       id: "7",
@@ -5725,6 +5778,7 @@ export const diseasesData = {
       image: AfterProcedure,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: AfterProcedureMale,
     },
     {
       id: "8",
@@ -5777,14 +5831,16 @@ export const diseasesData = {
       nameEs: "Necesita Ayuda para Comer",
       image: swallowingimg04,
       secPath: "/summary",
+      maleEnglish: NeedHelpEatingMale,
     },
     {
       id: "6",
-      name: "Losing Weight Without Trying",
+      name: "Lost Weight Without Trying",
       nameEs: "Perdiendo Peso Sin Intentarlo",
       image: LostWeightWithoutTrying,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: LostWeightWithoutTryingMale,
     },
     {
       id: "7",
@@ -6045,6 +6101,7 @@ export const diseasesData = {
       image: ChangeSomthingHappened,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: NeedChangedMale,
     },
     {
       id: "7",
@@ -6159,6 +6216,7 @@ export const diseasesData = {
       image: RepositionImg,
       path: "/howoften",
       secPath: "/summary",
+      maleEnglish: RepositionMale,
     },
     {
       id: "9",

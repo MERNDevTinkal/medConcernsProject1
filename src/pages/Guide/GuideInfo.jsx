@@ -33,17 +33,26 @@ const GuideInfo = () => {
 
           <div className="main-wrapper home-wrapper">
             <div className="px-[30px] my-5">
-              {guideInfo.map((item) =>
+              {guideInfo.map((item, index) =>
                 item.type === "h2" ? (
-                  <h2 className="text-[32px] primary-text font-medium leading-[40px]">
+                  <h2
+                    key={index}
+                    className="text-[32px] primary-text font-medium leading-[40px]"
+                  >
                     {item.name}
                   </h2>
                 ) : item.type === "h5" ? (
-                  <h5 className="text-[16px] text-black my-5 font-normal">
+                  <h5
+                    key={`${index}_${index}`}
+                    className="text-[16px] text-black my-5 font-normal"
+                  >
                     {selectedLanguage === "Spanish" ? item.nameEs : item.name}
                   </h5>
                 ) : (
-                  <p className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5">
+                  <p
+                    key={`${index}_p`}
+                    className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5"
+                  >
                     <img src={Arrow} />
                     {selectedLanguage === "Spanish" ? item.nameEs : item.name}
                   </p>
