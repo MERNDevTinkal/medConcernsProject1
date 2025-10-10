@@ -275,6 +275,11 @@ import GetsWorseThroughtheDay from "../../assets/images/Gets Worse Through the D
 import WhenStanding from "../../assets/images/When Standing.png";
 import WhenSitting from "../../assets/images/When Sitting.png";
 import WithActivity from "../../assets/images/With Activity.png";
+import FoodAllergyImg from "../../assets/images/Food Allergy.png";
+import Hungry_Thirsty from "../../assets/images/Hungry _ Thirsty.png";
+import Don_tEatThis from "../../assets/images/Don_t Eat This.png";
+import NeedHelpEating from "../../assets/images/Need Help Eating.png";
+import NotAllowedtoEat_Drink from "../../assets/images/Not Allowed to Eat _ Drink.png";
 
 // audio
 import AppetiteFemaleEnglish from "../../assets/audio/English/female/appetiteFemale.mp3";
@@ -3943,7 +3948,7 @@ const eatingDonoteatThis = [
     name: "Food Allergy",
     nameEs: "Alergia alimentaria",
     path: "",
-    image: dashimg04,
+    image: FoodAllergyImg,
     secPath: "/summary",
     maleEnglish: FoodAllergyMale,
   },
@@ -5803,7 +5808,7 @@ export const diseasesData = {
       id: "2",
       name: "Hungry / Thirsty",
       nameEs: "Hambriento / Sediento",
-      image: swallowingimg04,
+      image: Hungry_Thirsty,
       path: "/howoften",
       secPath: "/summary",
       maleEnglish: HungryThirstyMale,
@@ -5812,7 +5817,7 @@ export const diseasesData = {
       id: "3",
       name: "Food Allergy",
       nameEs: "Alergia Alimentaria",
-      image: swallowingimg04,
+      image: FoodAllergyImg,
       path: "/",
       secPath: "/summary",
       maleEnglish: FoodAllergyMale,
@@ -5821,7 +5826,7 @@ export const diseasesData = {
       id: "4",
       name: "Don’t Eat This",
       nameEs: "No Comer Esto",
-      image: swallowingimg04,
+      image: Don_tEatThis,
       secPath: "/eatingDonoteatThis-problem",
       maleEnglish: DontEatThisMale,
     },
@@ -5829,7 +5834,7 @@ export const diseasesData = {
       id: "5",
       name: "Need Help Eating",
       nameEs: "Necesita Ayuda para Comer",
-      image: swallowingimg04,
+      image: NeedHelpEating,
       secPath: "/summary",
       maleEnglish: NeedHelpEatingMale,
     },
