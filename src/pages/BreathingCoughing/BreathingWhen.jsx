@@ -3,7 +3,7 @@ import Header from "../../Component/Layout/Header/Header";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { breathingWhenOptions } from "../../Component/DiseasesData/whenData";
+import { breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";

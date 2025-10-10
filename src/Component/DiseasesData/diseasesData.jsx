@@ -218,6 +218,69 @@ import Leakingwound from "../../assets/images/Leaking (wound).png";
 import DoubleVision from "../../assets/images/Blurry.png";
 import TickleInMyThroat from "../../assets/images/TickleInMyThroat.png";
 import MedicationAllergy from "../../assets/images/MedicationAllergy.png";
+
+// concernData.js
+import ConcernImg1 from "../../assets/images/concern-img-01.png";
+import ConcernImg2 from "../../assets/images/concern-img-02.png";
+import ConcernImg3 from "../../assets/images/concern-img-03.png";
+import ConcernImg4 from "../../assets/images/concern-img-04.png";
+import ConcernImg5 from "../../assets/images/concern-img-05.png";
+import ConcernImg6 from "../../assets/images/concern-img-06.png";
+import ConcernImg7 from "../../assets/images/concern-img-07.png";
+import ConcernImg8 from "../../assets/images/concern-img-08.png";
+import ConcernImg9 from "../../assets/images/pain-medication.png";
+import ConcernImg10 from "../../assets/images/glasses.png";
+import ConcernImg11 from "../../assets/images/HearingConcernNew.png";
+import ConcernImg12 from "../../assets/images/Illness.png";
+import ConcernImg13 from "../../assets/images/something-happened.png";
+import ConcernImg14 from "../../assets/images/wound.png";
+import ConcernImg17 from "../../assets/images/trach_img.png";
+import ConcernImg18 from "../../assets/images/something-else.png";
+import ConcernImg19 from "../../assets/images/When-Eating-Drinking.png";
+import WithTubeFeed from "../../assets/images/Tube Feed (Feeding Tube).png";
+import thickmucusImg from "../../assets/images/thick-mucus.png";
+import HowAreYouImg1 from "../../assets/images/good.png";
+import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
+import MovementImg from "../../assets/images/Movement.png";
+import Communication_ThinkingImg from "../../assets/images/Communication _ Thinking.png";
+import BoardImg6 from "../../assets/images/medicationConcern.png";
+import withFoodFrinkWhenEating from "../../assets/images/With food_drink & when eating_drinking.png";
+
+// how are u scree
+import dashimg01 from "../../assets/images/All-Day.png";
+import dashimg02 from "../../assets/images/Evening-Night.png";
+import dashimg03 from "../../assets/images/Morning.png";
+import dashimg04 from "../../assets/images/After Procedure (transparent).png";
+import dashimg06 from "../../assets/images/Up and Down (Comes and Goes).png";
+import dashimg07 from "../../assets/images/Just started.png";
+import dashimg08 from "../../assets/images/With food_drink & when eating_drinking.png";
+import dashimg10 from "../../assets/images/When-Sitting.png";
+import dashimg13 from "../../assets/images/After Meals.png";
+import dashimg15 from "../../assets/images/With-Activity.png";
+import dashimg18 from "../../assets/images/medicationConcern.png";
+import dashimg19 from "../../assets/images/Movement.png";
+import dashimg22 from "../../assets/images/SinceMyStroke.jpg";
+import dashimg23 from "../../assets/images/Illness.png";
+import dashimg24 from "../../assets/images/Fall.png";
+import dashimg25 from "../../assets/images/I-dont-know.png";
+import dashimg26 from "../../assets/images/concern-img-03.png";
+import dashimg27 from "../../assets/images/something-else.png";
+import dashimg28 from "../../assets/images/Always_Chronic.png";
+import dashimg29 from "../../assets/images/With Mental Activity.png";
+import dashimg30 from "../../assets/images/toilet.png";
+import dashimg31 from "../../assets/images/When Lying Down.png";
+import dashimg32 from "../../assets/images/When Sleeping.png";
+import dashimg33 from "../../assets/images/When Walking.png";
+import dashimg34 from "../../assets/images/With Transfer _ Repositioning.png";
+import dashimg35 from "../../assets/images/Blood Pressure.png";
+import dashimg36 from "../../assets/images/Blood Sugar.png";
+import dashimg17 from "../../assets/images/With Stress _ Emotion.png";
+import GetsWorseThroughtheDay from "../../assets/images/Gets Worse Through the Day.png";
+import WhenStanding from "../../assets/images/When Standing.png";
+import WhenSitting from "../../assets/images/When Sitting.png";
+import WithActivity from "../../assets/images/With Activity.png";
+
+// audio
 import AppetiteFemaleEnglish from "../../assets/audio/English/femaleappetite (female english).mp3";
 import BreathingTreatmentFemaleEnglish from "../../assets/audio/English/breathing treatment (female english).mp3";
 import CatheterFemale from "../../assets/audio/English/Catheter.mp3";
@@ -256,6 +319,358 @@ import VisionFemale from "../../assets/audio/English/Vision.mp3";
 import WaitedTooLongFemale from "../../assets/audio/English/waited too long.mp3";
 import WoundIncisionFemale from "../../assets/audio/English/Wound_Incision.mp3";
 import YellowFemale from "../../assets/audio/English/Yellow .mp3";
+
+// male audio
+
+import ColostomyOstomyBagMale from "../../assets/audio/English/09 Colostomy _ Ostomy Bag.wav";
+import WithSalivaMale from "../../assets/audio/English/1 With Saliva.wav";
+import ToiletUrinalMale from "../../assets/audio/English/10 Toilet _ Urinal.wav";
+import TVMale from "../../assets/audio/English/100 TV.wav";
+import MusicMale from "../../assets/audio/English/101 Music.wav";
+import DenturesMale from "../../assets/audio/English/102 Dentures.wav";
+import ChangeClothesMale from "../../assets/audio/English/103 Change Clothes.wav";
+import AdjustClothesMale from "../../assets/audio/English/104 Adjust Clothes.wav";
+import ChangeUnderwearMale from "../../assets/audio/English/105 Change Underwear.wav";
+import NeedSocksMale from "../../assets/audio/English/106 Need Socks.wav";
+import OpenForMeMale from "../../assets/audio/English/107 Open for Me.wav";
+import PhoneTabletMale from "../../assets/audio/English/108 Phone _ Tablet.wav";
+import PlugInPhoneTabletMale from "../../assets/audio/English/109 Plug in Phone _ Tablet.wav";
+import InsomniaMale from "../../assets/audio/English/11 Insomnia.wav";
+import ChargeHearingAidsMale from "../../assets/audio/English/110 Charge Hearing Aids.wav";
+import InhalerBreathingTreatmentMale from "../../assets/audio/English/111 Inhaler _ Breathing Treatment.wav";
+import BloodSugarMale from "../../assets/audio/English/112 Blood Sugar.wav";
+import BloodPressureMale from "../../assets/audio/English/113 Blood Pressure.wav";
+import HelmetMale from "../../assets/audio/English/114 Helmet.wav";
+import CervicalCollarMale from "../../assets/audio/English/115 Cervical Collar.wav";
+import NurseMale from "../../assets/audio/English/116 Nurse.wav";
+import DoctorMale from "../../assets/audio/English/117 Doctor.wav";
+import SpeechTherapistMale from "../../assets/audio/English/119 Speech Therapist.wav";
+import NoisyMale from "../../assets/audio/English/12 Noisy.wav";
+import OccupationalPhysicalTherapistMale from "../../assets/audio/English/120 Occupational _ Physical Therapist.wav";
+import RespiratoryTherapistMale from "../../assets/audio/English/121 Respiratory Therapist.wav";
+import TickleInMyThroatMale from "../../assets/audio/English/123 Tickle In My Throat.wav";
+import TooMuchLightMale from "../../assets/audio/English/13 Too Much Light.wav";
+import InterruptionsMale from "../../assets/audio/English/14 Interruptions.wav";
+import LostGlassesMale from "../../assets/audio/English/15 Lost Glasses.wav";
+import NotWorkingOrBrokenMale from "../../assets/audio/English/16 Not Working or Broken.wav";
+import NeedMyGlassesMale from "../../assets/audio/English/17 Need My Glasses.wav";
+import CheckMyVisionMale from "../../assets/audio/English/18 Check My Vision.wav";
+import CantSeeLeftMale from "../../assets/audio/English/19 Can’t See Left.wav";
+import JustDryOrUncomfortableMale from "../../assets/audio/English/2 Just Dry or Uncomfortable.wav";
+import CantSeeRightMale from "../../assets/audio/English/20 Can’t See Right.wav";
+import HeadacheMale from "../../assets/audio/English/21 Headache.wav";
+import NeedBatteriesMale from "../../assets/audio/English/22 Need Batteries.wav";
+import CheckMyHearingMale from "../../assets/audio/English/23 Check My Hearing.wav";
+import NeedsChargingMale from "../../assets/audio/English/24 Needs Charging.wav";
+import NeedMyHearingAidsMale from "../../assets/audio/English/25 Need My Hearing Aids.wav";
+import LostHearingAidsMale from "../../assets/audio/English/26 Lost Hearing Aids.wav";
+import WriteItDownMale from "../../assets/audio/English/27 Write it Down.wav";
+import StrokeSymptomsMale from "../../assets/audio/English/28 Stroke Symptoms.wav";
+import GoodOrOkayMale from "../../assets/audio/English/29 Good or Okay.wav";
+import JustSwallowingMale from "../../assets/audio/English/3 Just Swallowing.wav";
+import ALittleOffMale from "../../assets/audio/English/30 A little off.wav";
+import NotGoodMale from "../../assets/audio/English/31 Not good.wav";
+import LowOrSadMale from "../../assets/audio/English/32 Low or Sad.wav";
+import VeryDownMale from "../../assets/audio/English/33 Very Down.wav";
+import MaybeMale from "../../assets/audio/English/34 Maybe.wav";
+import WorriedGuiltyMale from "../../assets/audio/English/35 Worried _ Guilty.wav";
+import HopelessMale from "../../assets/audio/English/36 Hopeless.wav";
+import EveningNightMale from "../../assets/audio/English/37 Evening _ Night.wav";
+import FeedingTubeRemovedMale from "../../assets/audio/English/38 Feeding Tube Removed.wav";
+import EatingAndDrinkingMale from "../../assets/audio/English/39 Eating and Drinking.wav";
+import MedicationAllergyMale from "../../assets/audio/English/4 Medication Allergy.wav";
+import FoodAllergyMale from "../../assets/audio/English/40 Food Allergy.wav";
+import HungryThirstyMale from "../../assets/audio/English/41 Hungry _ Thirsty.wav";
+import DontEatThisMale from "../../assets/audio/English/42 Don’t Eat This.wav";
+import NotAllowedToEatOrDrinkMale from "../../assets/audio/English/43 Not Allowed to Eat or Drink.wav";
+import WrongTrayMale from "../../assets/audio/English/44 Wrong Tray.wav";
+import SpecialDietMale from "../../assets/audio/English/45 Special Diet.wav";
+import VegetarianVeganMale from "../../assets/audio/English/46 Vegetarian _ Vegan.wav";
+import NoDairyMale from "../../assets/audio/English/47 No Dairy.wav";
+import KosherMale from "../../assets/audio/English/48 Kosher.wav";
+import HalalMale from "../../assets/audio/English/49 Halal.wav";
+import RefluxMale from "../../assets/audio/English/5 Reflux.wav";
+import GlutenFreeMale from "../../assets/audio/English/50 Gluten-Free.wav";
+import NutFreeMale from "../../assets/audio/English/51 Nut-Free.wav";
+import LowSodiumMale from "../../assets/audio/English/52 Low Sodium.wav";
+import DiabeticCarbControlledMale from "../../assets/audio/English/53 Diabetic _ Carb Controlled.wav";
+import TextureModifiedMale from "../../assets/audio/English/54 Texture Modified.wav";
+import MovementMale from "../../assets/audio/English/56 Movement.wav";
+import CommunicationThinkingMale from "../../assets/audio/English/57 Communication _ Thinking.wav";
+import NoVoiceMale from "../../assets/audio/English/58 No Voice.wav";
+import HardToUnderstandYouMale from "../../assets/audio/English/59 Hard to Understand You.wav";
+import FeedingTubeMale from "../../assets/audio/English/6 Feeding Tube.wav";
+import CantFindMyWordsMale from "../../assets/audio/English/60 Can’t Find My Words.wav";
+import HardToTalkMale from "../../assets/audio/English/61 Hard to Talk.wav";
+import ImConfusedMale from "../../assets/audio/English/62 I’m Confused.wav";
+import WrongWordsComeOutMale from "../../assets/audio/English/63 Wrong Words Come Out.wav";
+import DontKnowWhereIAmMale from "../../assets/audio/English/64 Don’t Know Where I Am.wav";
+import MemoryTroubleMale from "../../assets/audio/English/65 Memory Trouble.wav";
+import WeaknessMale from "../../assets/audio/English/66 Weakness.wav";
+import WeakOnOneSideMale from "../../assets/audio/English/67 Weak on One Side.wav";
+import ClumsyOffBalanceMale from "../../assets/audio/English/68 Clumsy _ Off Balance.wav";
+import NeedChangedMale from "../../assets/audio/English/7 Need Changed.wav";
+import NoConcernsMale from "../../assets/audio/English/70 No Concerns.wav";
+import WithTransferRepositioningMale from "../../assets/audio/English/74 With Transfer _ Repositioning.wav";
+import WithMovementMale from "../../assets/audio/English/75 With Movement.wav";
+import WithTubeFeedMale from "../../assets/audio/English/78 With Tube Feed.wav";
+import WithStressEmotionMale from "../../assets/audio/English/79 With Stress _ Emotion.wav";
+import JustNauseaMale from "../../assets/audio/English/8 Just Nausea.wav";
+import AfterProcedureMale from "../../assets/audio/English/80 After Procedure.wav";
+import SinceIllnessMale from "../../assets/audio/English/82 Since Illness.wav";
+import AlwaysChronicMale from "../../assets/audio/English/86 Always _ Chronic.wav";
+import BathroomMale from "../../assets/audio/English/87 Bathroom.wav";
+import BedMale from "../../assets/audio/English/88 Bed.wav";
+import FoodMale from "../../assets/audio/English/89 Food.wav";
+import DrinkMale from "../../assets/audio/English/90 Drink.wav";
+import PainMedsMale from "../../assets/audio/English/91 Pain Meds.wav";
+import RepositionMale from "../../assets/audio/English/92 Reposition.wav";
+import IceMale from "../../assets/audio/English/93 Ice.wav";
+import IcePackMale from "../../assets/audio/English/94 Ice Pack.wav";
+import BlanketPillowMale from "../../assets/audio/English/96 Blanket _ Pillow.wav";
+import RoomTemperatureMale from "../../assets/audio/English/97 Room Temperature.wav";
+import TissueMale from "../../assets/audio/English/98 Tissue.wav";
+import LightsMale from "../../assets/audio/English/99 Lights.wav";
+import AfterMealsMale from "../../assets/audio/English/After Meals.wav";
+import BrainFogMale from "../../assets/audio/English/Brain Fog.wav";
+import BrainTiredMale from "../../assets/audio/English/Brain Tired.wav";
+import GetsWorseThroughTheDayMale from "../../assets/audio/English/Gets Worse Through the Day.wav";
+import HeatingPadMale from "../../assets/audio/English/Heating Pad.wav";
+import JustFatigueMale from "../../assets/audio/English/Just Fatigue.wav";
+import LostWeightWithoutTryingMale from "../../assets/audio/English/Lost Weight Without Trying.wav";
+import NeedHelpEatingMale from "../../assets/audio/English/Need Help Eating.wav";
+import NursingAideMale from "../../assets/audio/English/Nursing Aide.wav";
+import SinceFallInjuryMale from "../../assets/audio/English/Since Fall _ Injury.wav";
+import SinceMyStrokeInjuryMale from "../../assets/audio/English/Since My Stroke _ Injury.wav";
+import TroubleWalkingMale from "../../assets/audio/English/Trouble Walking.wav";
+import WhenEatingDrinkingMale from "../../assets/audio/English/When Eating _ Drinking.wav";
+import WhenLyingDownMale from "../../assets/audio/English/When Lying Down.wav";
+import WhenSleepingMale from "../../assets/audio/English/When Sleeping.wav";
+import WhenSwallowingMale from "../../assets/audio/English/When Swallowing.wav";
+import WhenToiletingMale from "../../assets/audio/English/When Toileting.wav";
+import WhenWalkingMale from "../../assets/audio/English/When Walking.wav";
+import WithMentalActivityMale from "../../assets/audio/English/With Mental Activity.wav";
+
+export const breathingWhenOptions = [
+  {
+    id: 1,
+    image: dashimg03,
+    path: "/confrm-step-when",
+    name: "Morning",
+    nameEs: "Mañana",
+  },
+  {
+    id: 2,
+    image: dashimg01,
+    path: "/confrm-step-when",
+    name: "All Day",
+    nameEs: "Todo el Día",
+  },
+  {
+    id: 3,
+    image: dashimg02,
+    path: "/confrm-step-when",
+    name: "Evening / Night",
+    nameEs: "Tarde / Noche",
+    maleEnglish: EveningNightMale,
+  },
+  {
+    id: 4,
+    image: dashimg28,
+    path: "/confrm-step-when",
+    name: "Always / Chronic",
+    nameEs: "Siempre / Crónico",
+  },
+  {
+    id: 5,
+    image: dashimg07,
+    path: "/confrm-step-when",
+    name: "Just Started",
+    nameEs: "Recién Comenzó",
+  },
+  {
+    id: 6,
+    image: dashimg06,
+    path: "/confrm-step-when",
+    name: "Comes and Goes",
+    nameEs: "Va y Viene",
+  },
+  {
+    id: 7,
+    image: GetsWorseThroughtheDay,
+    path: "/confrm-step-when",
+    name: "Gets Worse Through the Day",
+    nameEs: "Empeora a lo Largo del Día",
+  },
+  {
+    id: 8,
+    image: WhenStanding,
+    path: "/confrm-step-when",
+    name: "When Standing",
+    nameEs: "Al Estar de Pie",
+  },
+  {
+    id: 9,
+    image: WhenSitting,
+    path: "/confrm-step-when",
+    name: "When Sitting",
+    nameEs: "Al Estar Sentado",
+  },
+  {
+    id: 10,
+    image: dashimg31,
+    path: "/confrm-step-when",
+    name: "When Lying Down",
+    nameEs: "Al Estar Acostado",
+  },
+  {
+    id: 11,
+    image: dashimg32,
+    path: "/confrm-step-when",
+    name: "When Sleeping",
+    nameEs: "Al Dormir",
+  },
+  {
+    id: 12,
+    image: dashimg33,
+    path: "/confrm-step-when",
+    name: "When Walking",
+    nameEs: "Al Caminar",
+  },
+  {
+    id: 13,
+    image: WithActivity,
+    path: "/confrm-step-when",
+    name: "With Activity",
+    nameEs: "Con Actividad",
+  },
+  {
+    id: 14,
+    image: dashimg29,
+    path: "/confrm-step-when",
+    name: "With Mental Activity",
+    nameEs: "Con Actividad Mental",
+  },
+  {
+    id: 15,
+    image: dashimg34,
+    path: "/confrm-step-when",
+    name: "With Transfer / Repositioning",
+    nameEs: "Al Trasladarse / Cambiar de Posición",
+  },
+  {
+    id: 16,
+    image: dashimg19,
+    path: "/confrm-step-when",
+    name: "With Movement",
+    nameEs: "Con Movimiento",
+  },
+  {
+    id: 17,
+    image: dashimg26,
+    path: "/confrm-step-when",
+    name: "When Swallowing",
+    nameEs: "Al Tragar",
+  },
+  {
+    id: 18,
+    image: dashimg18,
+    path: "/confrm-step-when",
+    name: "With Medication",
+    nameEs: "Con Medicación",
+  },
+  {
+    id: 19,
+    image: dashimg08,
+    path: "/confrm-step-when",
+    name: "When Eating / Drinking",
+    nameEs: "Al Comer / Beber",
+  },
+  {
+    id: 20,
+    image: dashimg13,
+    path: "/confrm-step-when",
+    name: "After Meals",
+    nameEs: "Después de Comer",
+  },
+  {
+    id: 21,
+    image: dashimg30,
+    path: "/confrm-step-when",
+    name: "When Toileting",
+    nameEs: "Al Usar el Baño",
+  },
+  {
+    id: 22,
+    image: dashimg35,
+    path: "/confrm-step-when",
+    name: "With Blood Pressure",
+    nameEs: "Con Presión Arterial",
+  },
+  {
+    id: 23,
+    image: dashimg36,
+    path: "/confrm-step-when",
+    name: "With Blood Sugar",
+    nameEs: "Con Glucosa",
+  },
+  {
+    id: 24,
+    image: dashimg17,
+    path: "/confrm-step-when",
+    name: "With Stress / Emotion",
+    nameEs: "Con Estrés / Emoción",
+  },
+  {
+    id: 25,
+    image: dashimg04,
+    path: "/confrm-step-when",
+    name: "After Procedure",
+    nameEs: "Después del Procedimiento",
+  },
+  {
+    id: 26,
+    image: dashimg19,
+    path: "/confrm-step-when",
+    name: "With Tube Feed",
+    nameEs: "Con Alimentación por Sonda",
+  },
+  {
+    id: 27,
+    image: dashimg22,
+    path: "/confrm-step-when",
+    name: "Since Stroke / Injury",
+    nameEs: "Desde Mi Accidente Cerebrovascular / Lesión",
+  },
+  {
+    id: 28,
+    image: dashimg23,
+    path: "/confrm-step-when",
+    name: "Since Illness",
+    nameEs: "Desde la Enfermedad",
+  },
+  {
+    id: 29,
+    image: dashimg24,
+    path: "/confrm-step-when",
+    name: "Since Fall / Injury",
+    nameEs: "Desde la Caída / Lesión",
+  },
+  {
+    id: 30,
+    image: dashimg25,
+    path: "/confrm-step-when",
+    name: "I Don’t Know",
+    nameEs: "No lo Sé",
+  },
+  {
+    id: 31,
+    image: dashimg27,
+    path: "/confrm-step-when",
+    name: "Something Else",
+    nameEs: "Algo Más",
+  },
+];
 
 export const guideInfo = [
   {
@@ -304,6 +719,253 @@ export const guideInfo = [
     nameEs: "Señale cada opción de opción múltiple a medida que la lee.",
     type: "p",
   },
+];
+
+export const concerns = [
+  {
+    id: 1,
+    name: "Pain",
+    nameEs: "Dolor",
+    image: ConcernImg1,
+    path: "/concern/pain-yes-no/1",
+  },
+  {
+    id: 2,
+    name: "Breathing/Coughing",
+    nameEs: "Respiración/Tos",
+    image: ConcernImg2,
+    path: "/concern/breathing-coughing-yes-no/2",
+  },
+  {
+    id: 3,
+    name: "Swallowing",
+    nameEs: "Deglución",
+    image: ConcernImg3,
+    path: "/concern/swallowing-yes-no/3",
+  },
+  {
+    id: 4,
+    name: "Nausea",
+    nameEs: "Náusea",
+    image: ConcernImg4,
+    path: "/concern/nausea-yes-no/4",
+  },
+  {
+    id: 5,
+    name: "Bowels",
+    nameEs: "Intestinos",
+    image: ConcernImg5,
+    path: "/concern/bowels-yes-no/5",
+  },
+  {
+    id: 6,
+    name: "Urination",
+    nameEs: "Orina",
+    image: ConcernImg6,
+    path: "/concern/urination-yes-no/6",
+  },
+  {
+    id: 7,
+    name: "Fatigue",
+    nameEs: "Fatiga",
+    image: ConcernImg7,
+    path: "/concern/fatigue-yes-no/7",
+  },
+  {
+    id: 8,
+    name: "Eating/Drinking",
+    nameEs: "Alimentación/Beber",
+    image: withFoodFrinkWhenEating,
+    path: "/concern/eating-drinking-yes-no/8",
+    maleEnglish: EatingAndDrinkingMale,
+  },
+  {
+    id: 9,
+    name: "Medication",
+    nameEs: "Medicación",
+    image: BoardImg6,
+    path: "/concern/medication-yes-no/9",
+  },
+  {
+    id: 10,
+    name: "Emotions/Feelings",
+    nameEs: "Emociones/Sentimientos",
+    image: EmotionsImg2,
+    path: "/concern/emotions-feelings-yes-no/10",
+  },
+  {
+    id: 11,
+    name: "Movement",
+    nameEs: "Movimiento",
+    image: MovementImg,
+    path: "/concern/movement-yes-no/11",
+    maleEnglish: MovementMale,
+  },
+  {
+    id: 12,
+    name: "Communication/Thinking",
+    nameEs: "Comunicación/Pensamiento",
+    image: Communication_ThinkingImg,
+    path: "/concern/communication-thinking-yes-no/12",
+    maleEnglish: CommunicationThinkingMale,
+  },
+  {
+    id: 13,
+    name: "Vision",
+    nameEs: "Visión",
+    image: ConcernImg10,
+    path: "/concern/vision-yes-no/13",
+  },
+  {
+    id: 14,
+    name: "Hearing",
+    nameEs: "Audición",
+    image: ConcernImg11,
+    path: "/concern/hearing-yes-no/14",
+  },
+  {
+    id: 15,
+    name: "Illness",
+    nameEs: "Enfermedad",
+    image: ConcernImg12,
+    path: "/concern/illness-yes-no/15",
+  },
+  {
+    id: 16,
+    name: "Something Happened",
+    nameEs: "Algo Pasó",
+    image: ConcernImg13,
+    path: "/concern/something-happened-yes-no/16",
+  },
+  {
+    id: 17,
+    name: "Wound/Incision",
+    nameEs: "Herida/Incisión",
+    image: ConcernImg14,
+    path: "/concern/wound-incision-yes-no/17",
+  },
+  {
+    id: 18,
+    name: "Mucus/Secretions",
+    nameEs: "Mucosidad/Secreciones",
+    image: thickmucusImg,
+    path: "/concern/mucus-secretions-yes-no/18",
+  },
+  {
+    id: 19,
+    name: "Feeding Tube",
+    nameEs: "Sonda de Alimentación",
+    image: WithTubeFeed,
+    path: "/concern/feeding-tube-yes-no/19",
+    maleEnglish: FeedingTubeMale,
+  },
+  {
+    id: 20,
+    name: "Trach",
+    nameEs: "Traqueotomía",
+    image: ConcernImg17,
+    path: "/concern/trach-yes-no/20",
+  },
+  {
+    id: 21,
+    name: "Something Else",
+    nameEs: "Algo Más",
+    image: ConcernImg18,
+    path: "/Whiteboard",
+  },
+  {
+    id: 22,
+    name: "No Concerns",
+    nameEs: "Sin Preocupaciones",
+    image: HowAreYouImg1,
+    path: "/summary",
+  },
+];
+
+export const topicBoard = [
+  {
+    id: 1,
+    name: "What Happened to Me?",
+    nameEs: "¿Qué Me Pasó?",
+    path: "/topicboard/WhatHappenedtoMe/1",
+  },
+  { id: 2, name: "Discharge", nameEs: "Alta", path: "/topicboard/discharge/2" },
+  {
+    id: 3,
+    name: "Will I Get Better?",
+    nameEs: "¿Me Recuperaré?",
+    path: "/topicboard/willIGetBetter/3",
+  },
+  { id: 4, name: "Therapy", nameEs: "Terapia", path: "/topicboard/therapy/4" },
+  {
+    id: 5,
+    name: "Communication",
+    nameEs: "Comunicación",
+    path: "/topicboard/communication/5",
+  },
+  { id: 6, name: "Driving", nameEs: "Conducir", path: "/topicboard/driving/6" },
+  {
+    id: 7,
+    name: "Home Set-Up",
+    nameEs: "Preparación del Hogar",
+    path: "/topicboard/homeSet-Up/7",
+  },
+  {
+    id: 8,
+    name: "Stroke Prevention",
+    nameEs: "Prevención de Accidente Cerebrovascular",
+    path: "/topicboard/strokePrevention/8",
+  },
+  {
+    id: 9,
+    name: "Family Support",
+    nameEs: "Apoyo Familiar",
+    path: "/topicboard/familySupport/9",
+  },
+  {
+    id: 10,
+    name: "Feeding Tube",
+    nameEs: "Sonda de Alimentación",
+    path: "/topicboard/feedingTube/10",
+    secPath: "/feel",
+    maleEnglish: FeedingTubeMale,
+  },
+  {
+    id: 11,
+    name: "Trach",
+    nameEs: "Traqueotomía",
+    path: "/topicboard/trach/11",
+  },
+  { id: 12, name: "Money", nameEs: "Dinero", path: "/topicboard/money/12" },
+  {
+    id: 13,
+    name: "Follow Up Appointment",
+    nameEs: "Cita de Seguimiento",
+    path: "/topicboard/followUpappointment/13",
+  },
+  {
+    id: 14,
+    name: "Household Activity",
+    nameEs: "Actividades del Hogar",
+    path: "/topicboard/householdActivity/14",
+  },
+  {
+    id: 15,
+    name: "Community Activity",
+    nameEs: "Actividades Comunitarias",
+    path: "/topicboard/Communityactivity/15",
+  },
+  { id: 16, name: "Work", nameEs: "Trabajo", path: "/topicboard/Work/16" },
+  { id: 17, name: "Sex", nameEs: "Sexo", path: "/topicboard/Sex/17" },
+  { id: 18, name: "Family", nameEs: "Familia", path: "/topicboard/family/18" },
+  {
+    id: 19,
+    name: "Raising Children",
+    nameEs: "Criar Niños",
+    path: "/topicboard/raisingChildren/19",
+  },
+  { id: 20, name: "Food", nameEs: "Comida", path: "/topicboard/food/20" },
+  { id: 21, name: "Alcohol", nameEs: "Alcohol", path: "/Whiteboard" },
 ];
 
 export const feelingValues = [
@@ -412,6 +1074,7 @@ const emotionsData = [
     secPath: "/confrm-step-yesno",
     image: Worried_Guilty,
     path: "/when",
+    maleEnglish: WorriedGuiltyMale,
   },
   {
     id: 10,
@@ -559,6 +1222,7 @@ const needBoard = [
     image: Tvimg,
     secPath: "/board/confrm-step-yesno/16",
     path: "/summary",
+    maleEnglish: TVMale,
   },
   {
     id: 17,
@@ -567,6 +1231,7 @@ const needBoard = [
     image: Musicimg,
     secPath: "/board/confrm-step-yesno/17",
     path: "/summary",
+    maleEnglish: MusicMale,
   },
   {
     id: 18,
@@ -591,6 +1256,7 @@ const needBoard = [
     image: Dentures,
     secPath: "/board/confrm-step-yesno/20",
     path: "/summary",
+    maleEnglish: DenturesMale,
   },
   {
     id: 21,
@@ -599,6 +1265,7 @@ const needBoard = [
     image: ChangeClothes,
     secPath: "/board/confrm-step-yesno/21",
     path: "/summary",
+    maleEnglish: ChangeClothesMale,
   },
   {
     id: 22,
@@ -607,6 +1274,7 @@ const needBoard = [
     image: Adjust_clothes,
     secPath: "/board/confrm-step-yesno/22",
     path: "/summary",
+    maleEnglish: AdjustClothesMale,
   },
   {
     id: 23,
@@ -615,6 +1283,7 @@ const needBoard = [
     image: ChangeUnderWear,
     secPath: "/board/confrm-step-yesno/23",
     path: "/summary",
+    maleEnglish: ChangeUnderwearMale,
   },
   {
     id: 24,
@@ -623,6 +1292,7 @@ const needBoard = [
     image: Needsock,
     secPath: "/board/confrm-step-yesno/24",
     path: "/summary",
+    maleEnglish: NeedSocksMale,
   },
   {
     id: 25,
@@ -655,6 +1325,7 @@ const needBoard = [
     image: Openfoeme,
     secPath: "/board/confrm-step-yesno/28",
     path: "/summary",
+    maleEnglish: OpenForMeMale,
   },
   {
     id: 29,
@@ -663,6 +1334,7 @@ const needBoard = [
     image: Phonetablet,
     secPath: "/board/confrm-step-yesno/29",
     path: "/summary",
+    maleEnglish: PhoneTabletMale,
   },
   {
     id: 30,
@@ -671,6 +1343,7 @@ const needBoard = [
     image: Plug_phone_tablet,
     secPath: "/board/confrm-step-yesno/30",
     path: "/summary",
+    maleEnglish: PlugInPhoneTabletMale,
   },
   {
     id: 31,
@@ -679,6 +1352,7 @@ const needBoard = [
     image: dashimg04,
     secPath: "/board/confrm-step-yesno/31",
     path: "/summary",
+    maleEnglish: ChargeHearingAidsMale,
   },
   {
     id: 32,
@@ -687,6 +1361,7 @@ const needBoard = [
     image: Inhaler,
     secPath: "/board/confrm-step-yesno/32",
     path: "/summary",
+    maleEnglish: InhalerBreathingTreatmentMale,
   },
   {
     id: 33,
@@ -712,6 +1387,7 @@ const needBoard = [
     image: Colostomy_OstomyBag,
     secPath: "/board/confrm-step-yesno/35",
     path: "/summary",
+    maleEnglish: ColostomyOstomyBagMale,
   },
   {
     id: 36,
@@ -720,6 +1396,7 @@ const needBoard = [
     image: BloodSugar,
     secPath: "/board/confrm-step-yesno/36",
     path: "/summary",
+    maleEnglish: BloodSugarMale,
   },
   {
     id: 37,
@@ -728,6 +1405,7 @@ const needBoard = [
     image: BloodPressure,
     secPath: "/board/confrm-step-yesno/37",
     path: "/summary",
+    maleEnglish: BloodPressureMale,
   },
   {
     id: 38,
@@ -736,6 +1414,7 @@ const needBoard = [
     image: dashimg10,
     secPath: "/board/confrm-step-yesno/38",
     path: "/summary",
+    femaleEnglish: TrachFemale,
   },
   {
     id: 39,
@@ -744,6 +1423,7 @@ const needBoard = [
     image: PainImg13,
     secPath: "/board/confrm-step-yesno/39",
     path: "/summary",
+    maleEnglish: FeedingTubeMale,
   },
   {
     id: 40,
@@ -752,6 +1432,7 @@ const needBoard = [
     image: HelmetImag,
     secPath: "/board/confrm-step-yesno/40",
     path: "/summary",
+    maleEnglish: HelmetMale,
   },
   {
     id: 41,
@@ -760,6 +1441,7 @@ const needBoard = [
     image: Cervical_collar,
     secPath: "/board/confrm-step-yesno/41",
     path: "/summary",
+    maleEnglish: CervicalCollarMale,
   },
   {
     id: 42,
@@ -768,6 +1450,7 @@ const needBoard = [
     image: NurseImg,
     secPath: "/board/confrm-step-yesno/42",
     path: "/summary",
+    maleEnglish: NurseMale,
   },
   {
     id: 43,
@@ -776,6 +1459,7 @@ const needBoard = [
     image: DoctorImg,
     secPath: "/board/confrm-step-yesno/43",
     path: "/summary",
+    maleEnglish: DoctorMale,
   },
   {
     id: 44,
@@ -792,6 +1476,7 @@ const needBoard = [
     image: speech_thrapistImg,
     secPath: "/board/confrm-step-yesno/45",
     path: "/summary",
+    maleEnglish: SpeechTherapistMale,
   },
   {
     id: 46,
@@ -800,6 +1485,7 @@ const needBoard = [
     image: occupational,
     secPath: "/board/confrm-step-yesno/46",
     path: "/summary",
+    maleEnglish: OccupationalPhysicalTherapistMale,
   },
   {
     id: 47,
@@ -808,6 +1494,7 @@ const needBoard = [
     image: Respiratory_therapist,
     secPath: "/board/confrm-step-yesno/47",
     path: "/summary",
+    maleEnglish: RespiratoryTherapistMale,
   },
 ];
 
@@ -819,6 +1506,7 @@ const feelOptions = [
     image: feel01,
     path: "/good",
     secPath: "",
+    maleEnglish: GoodOrOkayMale,
   },
   {
     id: "2",
@@ -827,6 +1515,7 @@ const feelOptions = [
     image: feel02,
     path: "/little-off",
     secPath: "",
+    maleEnglish: ALittleOffMale,
   },
   {
     id: "3",
@@ -835,6 +1524,7 @@ const feelOptions = [
     image: feel03,
     path: "/not-good",
     secPath: "",
+    maleEnglish: NotGoodMale,
   },
   {
     id: "4",
@@ -843,6 +1533,7 @@ const feelOptions = [
     image: feel04,
     path: "/low-sad",
     secPath: "",
+    maleEnglish: LowOrSadMale,
   },
   {
     id: "5",
@@ -851,6 +1542,7 @@ const feelOptions = [
     image: feel05,
     path: "/very-down",
     secPath: "",
+    maleEnglish: VeryDownMale,
   },
 ];
 
@@ -1039,6 +1731,7 @@ const swallowingDesises = [
     image: withsalivaImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: WithSalivaMale,
   },
   {
     id: "4",
@@ -1047,6 +1740,7 @@ const swallowingDesises = [
     image: SwallowingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "5",
@@ -1082,6 +1776,7 @@ const heartburnDesises = [
     image: SwallowingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "4",
@@ -1133,6 +1828,7 @@ const heartburnswallowingDesises = [
     image: SwallowingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "6",
@@ -1184,6 +1880,7 @@ const painwithswallowingDesises = [
     image: withsalivaImg,
     secPath: "/pain-feel",
     path: "/when",
+    maleEnglish: WithSalivaMale,
   },
   {
     id: "6",
@@ -1192,6 +1889,7 @@ const painwithswallowingDesises = [
     image: SwallowingImg,
     secPath: "/pain-feel",
     path: "/when",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "7",
@@ -1243,6 +1941,7 @@ const trachSwallowingFoodStickingDesises = [
     image: withsalivaImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: WithSalivaMale,
   },
   {
     id: "6",
@@ -1251,6 +1950,7 @@ const trachSwallowingFoodStickingDesises = [
     image: SwallowingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "7",
@@ -1302,6 +2002,7 @@ const fearofswallowingDesises = [
     image: withsalivaImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: WithSalivaMale,
   },
   {
     id: "6",
@@ -1310,6 +2011,7 @@ const fearofswallowingDesises = [
     image: SwallowingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "7",
@@ -1361,6 +2063,7 @@ const drymouthDesises = [
     image: withsalivaImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: WithSalivaMale,
   },
   {
     id: "6",
@@ -1369,6 +2072,7 @@ const drymouthDesises = [
     image: SwallowingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "7",
@@ -1377,6 +2081,7 @@ const drymouthDesises = [
     image: swallowingimg04,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: JustDryOrUncomfortableMale,
   },
   {
     id: "8",
@@ -1824,6 +2529,7 @@ const trachswallowingDesises = [
     path: "/howoften",
     image: withsalivaImg,
     secPath: "/confrm-step-yesno",
+    maleEnglish: WithSalivaMale,
   },
   {
     id: "6",
@@ -1832,6 +2538,7 @@ const trachswallowingDesises = [
     path: "/howoften",
     image: SwallowingImg,
     secPath: "/confrm-step-yesno",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "7",
@@ -1882,6 +2589,7 @@ const medicationPainwithSwallowingDesises = [
     path: "/howoften",
     image: withsalivaImg,
     secPath: "/pain-feel",
+    maleEnglish: WithSalivaMale,
   },
   {
     id: "6",
@@ -1890,6 +2598,7 @@ const medicationPainwithSwallowingDesises = [
     path: "/howoften",
     image: SwallowingImg,
     secPath: "/pain-feel",
+    maleEnglish: JustSwallowingMale,
   },
   {
     id: "7",
@@ -1917,6 +2626,7 @@ const colorDesies = [
     image: YellowColorImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    femaleEnglish: YellowFemale,
   },
   {
     id: "3",
@@ -2207,6 +2917,7 @@ const MedicationSidEffectsDesies = [
     path: "/howoften",
     image: MedicationAllergy,
     secPath: "/confrm-step-yesno",
+    maleEnglish: MedicationAllergyMale,
   },
   {
     id: "6",
@@ -2910,6 +3621,7 @@ const fatigueTroubleSleeping = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: dashimg04,
+    maleEnglish: InsomniaMale,
   },
   {
     id: "2",
@@ -2918,6 +3630,7 @@ const fatigueTroubleSleeping = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: dashimg04,
+    maleEnglish: NoisyMale,
   },
   {
     id: "3",
@@ -2926,6 +3639,7 @@ const fatigueTroubleSleeping = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: dashimg04,
+    maleEnglish: TooMuchLightMale,
   },
   {
     id: "4",
@@ -2941,6 +3655,7 @@ const fatigueTroubleSleeping = [
     nameEs: "Interrupciones",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: InterruptionsMale,
   },
   {
     id: "6",
@@ -3172,6 +3887,7 @@ const eatingDonoteatThis = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: NotAllowedToEatOrDrinkMale,
   },
   {
     id: "2",
@@ -3180,6 +3896,7 @@ const eatingDonoteatThis = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: WrongTrayMale,
   },
   {
     id: "3",
@@ -3188,6 +3905,7 @@ const eatingDonoteatThis = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: FoodAllergyMale,
   },
   {
     id: "4",
@@ -3196,6 +3914,7 @@ const eatingDonoteatThis = [
     path: "",
     image: dashimg04,
     secPath: "/eatingDonoteatspecialdiet-problem",
+    maleEnglish: SpecialDietMale,
   },
   {
     id: "5",
@@ -3215,6 +3934,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: VegetarianVeganMale,
   },
   {
     id: "2",
@@ -3231,6 +3951,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: HalalMale,
   },
   {
     id: "4",
@@ -3239,6 +3960,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: NoDairyMale,
   },
   {
     id: "5",
@@ -3247,6 +3969,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: GlutenFreeMale,
   },
   {
     id: "6",
@@ -3255,6 +3978,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: NutFreeMale,
   },
   {
     id: "7",
@@ -3263,6 +3987,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: LowSodiumMale,
   },
   {
     id: "8",
@@ -3271,6 +3996,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: DiabeticCarbControlledMale,
   },
   {
     id: "9",
@@ -3279,6 +4005,7 @@ const eatingDonoteatspecialdiet = [
     path: "",
     image: dashimg04,
     secPath: "/summary",
+    maleEnglish: TextureModifiedMale,
   },
   {
     id: "10",
@@ -3514,6 +4241,7 @@ const visionGlasses = [
     image: swallowingimg04,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: LostGlassesMale,
   },
   {
     id: "2",
@@ -3522,6 +4250,7 @@ const visionGlasses = [
     image: swallowingimg04,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: NotWorkingOrBrokenMale,
   },
   {
     id: "3",
@@ -3530,6 +4259,7 @@ const visionGlasses = [
     image: swallowingimg04,
     secPath: "/summary",
     path: "/howoften",
+    maleEnglish: NeedMyGlassesMale,
   },
   {
     id: "4",
@@ -3538,6 +4268,7 @@ const visionGlasses = [
     image: swallowingimg04,
     secPath: "/summary",
     path: "/howoften",
+    maleEnglish: CheckMyVisionMale,
   },
   {
     id: "5",
@@ -3557,6 +4288,7 @@ const hearingAids = [
     image: swallowingimg04,
     secPath: "/summary",
     path: "/howoften",
+    maleEnglish: NeedMyHearingAidsMale,
   },
   {
     id: "2",
@@ -3565,6 +4297,7 @@ const hearingAids = [
     image: swallowingimg04,
     secPath: "/summary",
     path: "/howoften",
+    maleEnglish: NeedBatteriesMale,
   },
   {
     id: "3",
@@ -3573,6 +4306,7 @@ const hearingAids = [
     image: swallowingimg04,
     secPath: "/summary",
     path: "/howoften",
+    maleEnglish: NeedsChargingMale,
   },
   {
     id: "4",
@@ -3581,6 +4315,7 @@ const hearingAids = [
     image: swallowingimg04,
     secPath: "/summary",
     path: "/howoften",
+    maleEnglish: NotWorkingOrBrokenMale,
   },
   {
     id: "5",
@@ -3597,6 +4332,7 @@ const hearingAids = [
     image: swallowingimg04,
     secPath: "/summary",
     path: "/howoften",
+    maleEnglish: CheckMyHearingMale,
   },
   {
     id: "7",
@@ -3720,6 +4456,7 @@ const somethingHappenedStrokeSymptoms = [
     image: WithMovementImg,
     secPath: "/somethingHappenedStrokeSymptomsMovement-problem",
     path: "/howoften",
+    maleEnglish: MovementMale,
   },
   {
     id: "2",
@@ -3728,6 +4465,7 @@ const somethingHappenedStrokeSymptoms = [
     image: dashimg04,
     secPath: "/somethingHappenedStrokeSymptomsCommunication-problem",
     path: "/howoften",
+    maleEnglish: CommunicationThinkingMale,
   },
   {
     id: "3",
@@ -3745,6 +4483,7 @@ const somethingHappenedStrokeSymptoms = [
     image: doubleVisionImg,
     secPath: "/somethingHappenedStrokeSymptomsVision-problem",
     path: "/howoften",
+    femaleEnglish: VisionFemale,
   },
   {
     id: "5",
@@ -3824,6 +4563,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: HardToUnderstandYouMale,
   },
   {
     id: "2",
@@ -3832,6 +4572,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: CantFindMyWordsMale,
   },
   {
     id: "3",
@@ -3840,6 +4581,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: HardToTalkMale,
   },
   {
     id: "4",
@@ -3848,6 +4590,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: NoVoiceMale,
   },
   {
     id: "5",
@@ -3856,6 +4599,7 @@ const communicationConcerns = [
     image: swallowingimg04,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: ImConfusedMale,
   },
   {
     id: "6",
@@ -3951,6 +4695,7 @@ const hearingConcers = [
     image: WriteitDown,
     path: "/",
     secPath: "/summary",
+    maleEnglish: WriteItDownMale,
   },
   {
     id: "8",
@@ -3987,6 +4732,7 @@ const visionConcers = [
     image: leftInvisible,
     path: "/when",
     secPath: "/confrm-step-yesno",
+    maleEnglish: CantSeeLeftMale,
   },
   {
     id: "4",
@@ -3995,6 +4741,7 @@ const visionConcers = [
     image: right_vision,
     path: "/when",
     secPath: "/confrm-step-yesno",
+    maleEnglish: CantSeeRightMale,
   },
   {
     id: "5",
@@ -4020,6 +4767,7 @@ const visionConcers = [
     image: headacheImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: HeadacheMale,
   },
   {
     id: "8",
@@ -4146,6 +4894,7 @@ const trachSwallowing = [
     path: "/when",
     image: dashimg10,
     secPath: "/trachSwallowingsuboptios-problem",
+    femaleEnglish: TrachFemale,
   },
 ];
 
@@ -4234,6 +4983,7 @@ export const diseasesData = {
       image: dashimg10,
       secPath: "/trachmain-problem",
       path: null,
+      femaleEnglish: TrachFemale,
     },
     {
       id: "11",
@@ -4261,6 +5011,7 @@ export const diseasesData = {
       image: TickleInMyThroat,
       secPath: "/confrm-step-yesno",
       path: "/howoften",
+      maleEnglish: TickleInMyThroatMale,
     },
     {
       id: "3",
@@ -4293,6 +5044,7 @@ export const diseasesData = {
       image: dashimg10,
       secPath: "/trach-problem-sub",
       path: "/when",
+      femaleEnglish: TrachFemale,
     },
     {
       id: "7",
@@ -4321,6 +5073,7 @@ export const diseasesData = {
       image: YellowColorImg,
       secPath: "/confrm-step-yesno",
       path: "/howoften",
+      femaleEnglish: YellowFemale,
     },
     {
       id: "3",
@@ -4443,6 +5196,7 @@ export const diseasesData = {
       image: refluxImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: RefluxMale,
     },
     {
       id: "6",
@@ -4510,6 +5264,7 @@ export const diseasesData = {
       image: swallowingimg13,
       path: "/howoften",
       secPath: "/swallowingtrach-problem",
+      femaleEnglish: TrachFemale,
     },
     {
       id: "14",
@@ -4518,6 +5273,7 @@ export const diseasesData = {
       image: PainImg13,
       path: "/howoften",
       secPath: "/swallowingfeedingtube-problem",
+      maleEnglish: FeedingTubeMale,
     },
     // {
     //   id: "15",
@@ -4596,6 +5352,7 @@ export const diseasesData = {
       image: dashimg10,
       secPath: "/trachswallowingsub-problem",
       path: "/howoften",
+      femaleEnglish: TrachFemale,
     },
     {
       id: "9",
@@ -4604,6 +5361,7 @@ export const diseasesData = {
       image: PainImg13,
       secPath: "/feeding-tube-problem-sub",
       path: "/howoften",
+      maleEnglish: FeedingTubeMale,
     },
   ],
 
@@ -4805,6 +5563,7 @@ export const diseasesData = {
       image: Colostomy_OstomyBag,
       secPath: "/summary",
       path: "/when",
+      maleEnglish: ColostomyOstomyBagMale,
     },
     {
       id: "9",
@@ -4821,6 +5580,7 @@ export const diseasesData = {
       image: PainImg13,
       secPath: "/bowelsfeedingtube-problem",
       path: "/when",
+      maleEnglish: FeedingTubeMale,
     },
     {
       id: "11",
@@ -4897,6 +5657,7 @@ export const diseasesData = {
       image: ToiletImg,
       secPath: "/summary",
       path: "/when",
+      maleEnglish: ToiletUrinalMale,
     },
     {
       id: "9",
@@ -4991,6 +5752,7 @@ export const diseasesData = {
       image: swallowingimg04,
       path: "/howoften",
       secPath: "/summary",
+      maleEnglish: HungryThirstyMale,
     },
     {
       id: "3",
@@ -4999,6 +5761,7 @@ export const diseasesData = {
       image: swallowingimg04,
       path: "/",
       secPath: "/summary",
+      maleEnglish: FoodAllergyMale,
     },
     {
       id: "4",
@@ -5006,6 +5769,7 @@ export const diseasesData = {
       nameEs: "No Comer Esto",
       image: swallowingimg04,
       secPath: "/eatingDonoteatThis-problem",
+      maleEnglish: DontEatThisMale,
     },
     {
       id: "5",
@@ -5239,6 +6003,7 @@ export const diseasesData = {
       image: StrokeSymptoms,
       path: "/",
       secPath: "/somethingHappenedStrokeSymptoms-problem",
+      maleEnglish: StrokeSymptomsMale,
     },
     {
       id: "2",
@@ -5296,6 +6061,7 @@ export const diseasesData = {
       image: waited_too_longImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      femaleEnglish: WaitedTooLongFemale,
     },
     {
       id: "9",
@@ -5304,6 +6070,7 @@ export const diseasesData = {
       image: FeedingTubeRemoved,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: FeedingTubeRemovedMale,
     },
     {
       id: "10",
@@ -5446,6 +6213,7 @@ export const diseasesData = {
       image: refluxImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: RefluxMale,
     },
     {
       id: "6",

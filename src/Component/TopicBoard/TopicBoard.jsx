@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { topicBoard } from "../DiseasesData/concernData";
+import { topicBoard } from "../DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 const TopicBoard = ({ selectedLanguage, selectedIconCount }) => {
   const location = useLocation();

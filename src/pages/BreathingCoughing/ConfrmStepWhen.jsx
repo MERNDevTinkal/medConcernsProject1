@@ -5,7 +5,7 @@ import BackArrow from "../../assets/images/back-arrow.svg";
 import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { breathingWhenOptions } from "../../Component/DiseasesData/whenData";
+import { breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
