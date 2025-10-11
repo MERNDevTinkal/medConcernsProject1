@@ -215,6 +215,9 @@ import Leakingwound from "../../assets/images/Leaking (wound).png";
 import DoubleVision from "../../assets/images/Blurry.png";
 import TickleInMyThroat from "../../assets/images/TickleInMyThroat.png";
 import MedicationAllergy from "../../assets/images/MedicationAllergy.png";
+import SpreadOutImg from "../../assets/images/Spread Out.png";
+import NeedMyGlassesImg from "../../assets/images/Need My Glasses.png";
+import CheckMyvisionImg from "../../assets/images/Check My vision.png";
 
 // concernData.js
 import ConcernImg1 from "../../assets/images/concern-img-01.png";
@@ -280,8 +283,26 @@ import Hungry_Thirsty from "../../assets/images/Hungry _ Thirsty.png";
 import Don_tEatThis from "../../assets/images/Don_t Eat This.png";
 import NeedHelpEating from "../../assets/images/Need Help Eating.png";
 import NotAllowedtoEat_Drink from "../../assets/images/Not Allowed to Eat _ Drink.png";
+import TooMuchLightImg from "../../assets/images/Too Much Light.png";
+import InterruptionsImg from "../../assets/images/Interruptions.png";
+import TooNoisyImg from "../../assets/images/Too Noisy - transparent.png";
+import WrongTrayImg from "../../assets/images/Wrong Tray.png";
+import SpecialDietImg from "../../assets/images/Special Diet.png";
+import Vegetarian_VeganImg from "../../assets/images/Vegetarian _ Vegan.png";
+import KosherImg from "../../assets/images/Kosher.png";
+import HalalImg from "../../assets/images/Halal .png";
+import NoDairyImg from "../../assets/images/No Dairy.png";
+import GlutenFreeImg from "../../assets/images/Gluten Free .png";
+import NutFreeImg from "../../assets/images/NutFree.png";
+import LowSodiumImg from "../../assets/images/LowSodium.png";
+import Diabetic_CarbControlledImg from "../../assets/images/Diabetic _ Carb-Controlled.png";
+import TextureModifiedImg from "../../assets/images/Texture Modified.png";
+import DifferentTimeImg from "../../assets/images/Different Time.png";
+import LostGlassesImg from "../../assets/images/Lost Glasses.png";
+import NotWorkingBrokenImg from "../../assets/images/Not Working _ Broken .png";
+import NeedBatteriesImg from "../../assets/images/Need Batteries .png";
 
-// audio
+// audiof
 import AppetiteFemaleEnglish from "../../assets/audio/English/female/appetiteFemale.mp3";
 import BreathingTreatmentFemaleEnglish from "../../assets/audio/English/female/breathing treatment (female english).mp3";
 import CatheterFemale from "../../assets/audio/English/female/Catheter.mp3";
@@ -348,7 +369,7 @@ import NoisyMale from "../../assets/audio/English/male/12 Noisy.wav";
 import OccupationalPhysicalTherapistMale from "../../assets/audio/English/male/120 Occupational _ Physical Therapist.wav";
 import RespiratoryTherapistMale from "../../assets/audio/English/male/121 Respiratory Therapist.wav";
 import TickleInMyThroatMale from "../../assets/audio/English/male/123 Tickle In My Throat.wav";
-import TooMuchLightMale from "../../assets/audio/English/male/13 Too Much Light.wav";
+import TooMuchLight from "../../assets/audio/English/male/13 Too Much Light.wav";
 import InterruptionsMale from "../../assets/audio/English/male/14 Interruptions.wav";
 import LostGlassesMale from "../../assets/audio/English/male/15 Lost Glasses.wav";
 import NotWorkingOrBrokenMale from "../../assets/audio/English/male/16 Not Working or Broken.wav";
@@ -1722,7 +1743,7 @@ const painCards = [
   },
   {
     id: "13",
-    name: "PEG Pain",
+    name: "Feeding Tube",
     nameEs: "Dolor de PEG",
     image: PainImg13,
     secPath: "/feeling-list-pain",
@@ -2117,7 +2138,7 @@ const drymouthDesises = [
     id: "7",
     name: "Just Dry/Uncomfortable",
     nameEs: "Solo seco / incómodo",
-    image: swallowingimg04,
+    image: DrymouthImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: JustDryOrUncomfortableMale,
@@ -2265,7 +2286,7 @@ const trachDesises = [
     id: "6",
     name: "Breathing/Coughing ",
     nameEs: "Respiración/Tos",
-    image: swallowingimg04,
+    image: ConcernImg2,
     secPath: "/trachBreathing-problem",
     path: "/when",
   },
@@ -2860,7 +2881,7 @@ const SwallowingTrachDesies = [
     name: "Breathing/Coughing",
     nameEs: "Respiración/Tos",
     path: "",
-    image: dashimg04,
+    image: ConcernImg2,
     secPath: "/swallowingbreathingcoughing-problem",
   },
   {
@@ -3663,7 +3684,7 @@ const fatigueTroubleSleeping = [
     nameEs: "Insomnio",
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    image: dashimg04,
+    image: Troublesleeping,
     maleEnglish: InsomniaMale,
   },
   {
@@ -3672,7 +3693,7 @@ const fatigueTroubleSleeping = [
     nameEs: "Ruidoso",
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    image: dashimg04,
+    image: TooNoisyImg,
     maleEnglish: NoisyMale,
   },
   {
@@ -3681,8 +3702,8 @@ const fatigueTroubleSleeping = [
     nameEs: "Demasiada Luz",
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    image: dashimg04,
-    maleEnglish: TooMuchLightMale,
+    image: TooMuchLightImg,
+    maleEnglish: TooMuchLight,
   },
   {
     id: "4",
@@ -3690,13 +3711,13 @@ const fatigueTroubleSleeping = [
     nameEs: "Emociones/Sentimientos",
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    image: dashimg04,
+    image: EmotionsImg2,
   },
   {
     id: "5",
     name: "Interruptions",
     nameEs: "Interrupciones",
-    image: dashimg04,
+    image: InterruptionsImg,
     secPath: "/summary",
     maleEnglish: InterruptionsMale,
   },
@@ -3930,7 +3951,7 @@ const eatingDonoteatThis = [
     name: "Not Allowed to Eat & Drink",
     nameEs: "No se permite comer ni beber",
     path: "",
-    image: dashimg04,
+    image: NotAllowedtoEat_Drink,
     secPath: "/summary",
     maleEnglish: NotAllowedToEatOrDrinkMale,
   },
@@ -3939,7 +3960,7 @@ const eatingDonoteatThis = [
     name: "Wrong Tray",
     nameEs: "Bandeja equivocada",
     path: "",
-    image: dashimg04,
+    image: WrongTrayImg,
     secPath: "/summary",
     maleEnglish: WrongTrayMale,
   },
@@ -3957,7 +3978,7 @@ const eatingDonoteatThis = [
     name: "Special Diet",
     nameEs: "Dieta especial",
     path: "",
-    image: dashimg04,
+    image: SpecialDietImg,
     secPath: "/eatingDonoteatspecialdiet-problem",
     maleEnglish: SpecialDietMale,
   },
@@ -3977,7 +3998,7 @@ const eatingDonoteatspecialdiet = [
     name: "Vegetarian / Vegan",
     nameEs: "Vegetariano / Vegano",
     path: "",
-    image: dashimg04,
+    image: Vegetarian_VeganImg,
     secPath: "/summary",
     maleEnglish: VegetarianVeganMale,
   },
@@ -3986,15 +4007,16 @@ const eatingDonoteatspecialdiet = [
     name: "Kosher",
     nameEs: "Kosher",
     path: "",
-    image: dashimg04,
+    image: KosherImg,
     secPath: "/summary",
+    maleEnglish: KosherMale,
   },
   {
     id: "3",
     name: "Halal",
     nameEs: "Halal",
     path: "",
-    image: dashimg04,
+    image: HalalImg,
     secPath: "/summary",
     maleEnglish: HalalMale,
   },
@@ -4003,7 +4025,7 @@ const eatingDonoteatspecialdiet = [
     name: "No Dairy",
     nameEs: "Sin lácteos",
     path: "",
-    image: dashimg04,
+    image: NoDairyImg,
     secPath: "/summary",
     maleEnglish: NoDairyMale,
   },
@@ -4012,7 +4034,7 @@ const eatingDonoteatspecialdiet = [
     name: "Gluten-Free",
     nameEs: "Sin gluten",
     path: "",
-    image: dashimg04,
+    image: GlutenFreeImg,
     secPath: "/summary",
     maleEnglish: GlutenFreeMale,
   },
@@ -4021,7 +4043,7 @@ const eatingDonoteatspecialdiet = [
     name: "Nut-Free",
     nameEs: "Sin nueces",
     path: "",
-    image: dashimg04,
+    image: NutFreeImg,
     secPath: "/summary",
     maleEnglish: NutFreeMale,
   },
@@ -4030,7 +4052,7 @@ const eatingDonoteatspecialdiet = [
     name: "Low Sodium",
     nameEs: "Bajo en sodio",
     path: "",
-    image: dashimg04,
+    image: LowSodiumImg,
     secPath: "/summary",
     maleEnglish: LowSodiumMale,
   },
@@ -4039,7 +4061,7 @@ const eatingDonoteatspecialdiet = [
     name: "Diabetic / Carb-Controlled",
     nameEs: "Diabético / Control de carbohidratos",
     path: "",
-    image: dashimg04,
+    image: Diabetic_CarbControlledImg,
     secPath: "/summary",
     maleEnglish: DiabeticCarbControlledMale,
   },
@@ -4048,7 +4070,7 @@ const eatingDonoteatspecialdiet = [
     name: "Texture Modified",
     nameEs: "Textura modificada",
     path: "",
-    image: dashimg04,
+    image: TextureModifiedImg,
     secPath: "/summary",
     maleEnglish: TextureModifiedMale,
   },
@@ -4135,7 +4157,7 @@ const medicationHardtoSwallow = [
     id: "1",
     name: "Too Many",
     nameEs: "Demasiadas",
-    image: swallowingimg04,
+    image: swallowingimg11,
     secPath: "/new-problem",
     path: "",
   },
@@ -4222,7 +4244,7 @@ const medicationTiming = [
     id: "2",
     name: "Different Times",
     nameEs: "A diferentes horas",
-    image: swallowingimg04,
+    image: DifferentTimeImg,
     secPath: "/summary",
     path: "",
   },
@@ -4230,7 +4252,7 @@ const medicationTiming = [
     id: "3",
     name: "Spread Out",
     nameEs: "Distribuido",
-    image: swallowingimg04,
+    image: SpreadOutImg,
     secPath: "/summary",
     path: "",
   },
@@ -4284,7 +4306,7 @@ const visionGlasses = [
     id: "1",
     name: "Lost Glasses",
     nameEs: "Gafas Perdidas",
-    image: swallowingimg04,
+    image: LostGlassesImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: LostGlassesMale,
@@ -4293,7 +4315,7 @@ const visionGlasses = [
     id: "2",
     name: "Not Working / Broken",
     nameEs: "No Funcionan / Roto",
-    image: swallowingimg04,
+    image: NotWorkingBrokenImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: NotWorkingOrBrokenMale,
@@ -4302,7 +4324,7 @@ const visionGlasses = [
     id: "3",
     name: "Need My Glasses",
     nameEs: "Necesito Mis Gafas",
-    image: swallowingimg04,
+    image: NeedMyGlassesImg,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedMyGlassesMale,
@@ -4311,7 +4333,7 @@ const visionGlasses = [
     id: "4",
     name: "Check My Vision",
     nameEs: "Revisar Mi Visión",
-    image: swallowingimg04,
+    image: CheckMyvisionImg,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: CheckMyVisionMale,
@@ -4340,7 +4362,7 @@ const hearingAids = [
     id: "2",
     name: "Need Batteries ",
     nameEs: "Necesito Baterías",
-    image: swallowingimg04,
+    image: NeedBatteriesImg,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedBatteriesMale,
@@ -4508,7 +4530,7 @@ const somethingHappenedStrokeSymptoms = [
     id: "2",
     name: "Communication / Thinking",
     nameEs: "Comunicación / Pensamiento",
-    image: dashimg04,
+    image: Communication_ThinkingImg,
     secPath: "/somethingHappenedStrokeSymptomsCommunication-problem",
     path: "/howoften",
     maleEnglish: CommunicationThinkingMale,
@@ -6350,7 +6372,7 @@ export const diseasesData = {
       id: "6",
       name: "Breathing/Coughing",
       nameEs: "Respiración/Tos",
-      image: dashimg01,
+      image: ConcernImg2,
       path: "/when",
       secPath: "/breathing-problem",
     },
