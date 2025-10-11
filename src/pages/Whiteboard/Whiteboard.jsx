@@ -1121,7 +1121,7 @@ export default function Whiteboard() {
                     onClick={handleClick}
                   />
                 </div>
-                <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3">
+                <CardContent className="relative z-1 flex flex-wrap items-center justify-center gap-3">
                   <Button
                     variant="ghost"
                     size="icon"
