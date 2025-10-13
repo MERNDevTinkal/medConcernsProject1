@@ -14,6 +14,7 @@ const BreathingProblem = () => {
 
   const location = useLocation();
   const Mainpath = location.pathname;
+  console.log("===>", location.state);
   const [problem, setProblems] = useState([]);
   const navigate = useNavigate();
   const { updateDisease, diseases, addOrUpdateSummary } =
@@ -25,7 +26,9 @@ const BreathingProblem = () => {
         selectedLanguage === "Spanish" ? "es-ES" : ""
       );
       addOrUpdateSummary(Mainpath, [value]);
-      navigate(path);
+      navigate(path, {
+        state: value,
+      });
     }
   };
   useEffect(() => {
@@ -44,38 +47,97 @@ const BreathingProblem = () => {
   }, []);
 
   const translations = {
-    "/noappetite-problem": { English: "Appetite", Spanish: "Apetito" },
-    "/bowels-problem": { English: "Bowels", Spanish: "Intestinos" },
-    "/breathing-problem": { English: "Breathing", Spanish: "Respiración" },
-    "/fatigue-problem": { English: "Fatigue", Spanish: "Fatiga" },
-    "/illness-problem": { English: "Illness", Spanish: "Enfermedad" },
-    "/hearing-problem": { English: "Hearing", Spanish: "Audición" },
-    "/medication-problem": { English: "Medication", Spanish: "Medicación" },
+    "/noappetite-problem": {
+      English: "Appetite",
+      Spanish: "Apetito",
+      default: "Appetite",
+    },
+    "/bowels-problem": {
+      English: "Bowels",
+      Spanish: "Intestinos",
+      default: "Bowels",
+    },
+    "/breathing-problem": {
+      English: "Breathing/Coughing",
+      Spanish: "Respiración/tos",
+      default: "Breathing/Coughing",
+    },
+    "/fatigue-problem": {
+      English: "Fatigue",
+      Spanish: "Fatiga",
+      default: "Fatigue",
+    },
+    "/illness-problem": {
+      English: "Illness",
+      Spanish: "Enfermedad",
+      default: "Illness",
+    },
+    "/hearing-problem": {
+      English: "Hearing",
+      Spanish: "Audición",
+      default: "Hearing",
+    },
+    "/medication-problem": {
+      English: "Medication",
+      Spanish: "Medicación",
+      default: "Medication",
+    },
     "/illnessMucus-problem": {
       English: "Mucus/Secretions",
       Spanish: "Moco/Secreciones",
+      default: "Mucus/Secretions",
     },
-    "/nausea-problem": { English: "Nausea", Spanish: "Náusea" },
-    "/feeding-problem": { English: "PEG", Spanish: "PEG" },
-    "/swallowing-problem": { English: "Swallowing", Spanish: "Deglución" },
+    "/nausea-problem": {
+      English: "Nausea",
+      Spanish: "Náusea",
+      default: "Nausea",
+    },
+    "/feeding-problem": {
+      English: "Feeding Tube",
+      Spanish: "Tubo de alimentación",
+      default: "Feeding Tube",
+    },
+    "/swallowing-problem": {
+      English: "Swallowing",
+      Spanish: "Deglución",
+      default: "Appetite",
+    },
     "/something-problem": {
       English: "Something Happened",
       Spanish: "Algo Pasó",
+      default: "Appetite",
     },
-    "/trach-problem": { English: "Trach", Spanish: "Traqueo" },
-    "/urination-problem": { English: "Urination", Spanish: "Orinación" },
-    "/vision-problem": { English: "Vision", Spanish: "Visión" },
-    "/wound-problem": { English: "Wound/Incision", Spanish: "Herida/Incisión" },
+    "/trach-problem": {
+      English: "Trach",
+      Spanish: "Traqueo",
+      default: "Appetite",
+    },
+    "/urination-problem": {
+      English: "Urination",
+      Spanish: "Orinación",
+      default: "Appetite",
+    },
+    "/vision-problem": {
+      English: "Vision",
+      Spanish: "Visión",
+      default: "Appetite",
+    },
+    "/wound-problem": {
+      English: "Wound/Incision",
+      Spanish: "Herida/Incisión",
+      default: "Appetite",
+    },
     default: {
       English: "Which Feeling are You experiencing",
       Spanish: "¿Qué sensación estás experimentando?",
+      default: "Which Feeling are You experiencing",
     },
   };
 
-  const name =
-    translations[Mainpath]?.[selectedLanguage] ??
-    translations.default[selectedLanguage];
-
+  const name = !selectedLanguage
+    ? translations[Mainpath].default
+    : translations[Mainpath]?.[selectedLanguage] ??
+      translations.default[selectedLanguage];
   return (
     <>
       {loader ? (

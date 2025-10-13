@@ -20,7 +20,9 @@ const DecisionCardFeeling = ({ selectedLanguage, concenFell }) => {
       if (path === "/pain-problem") {
         return navigate("/male-body");
       }
-      navigate("/whiteboard");
+      navigate("/whiteboard", {
+        state: value,
+      });
     }
   };
   useEffect(() => {

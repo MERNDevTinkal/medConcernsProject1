@@ -25,7 +25,9 @@ const ConcernCard = ({
           : value?.maleEnglish
       );
       updateDisease(path.replace("/", ""), value);
-      navigate(mainpath);
+      navigate(mainpath, {
+        state: value,
+      });
     }
   };
   return (

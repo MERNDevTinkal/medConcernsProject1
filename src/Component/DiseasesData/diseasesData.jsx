@@ -1764,7 +1764,7 @@ const painCards = [
   {
     id: "13",
     name: "Feeding Tube",
-    nameEs: "Dolor de PEG",
+    nameEs: "Tubo de alimentación",
     image: PainImg13,
     secPath: "/feeling-list-pain",
     path: "",
