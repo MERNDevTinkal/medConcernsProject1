@@ -317,6 +317,10 @@ import DontknowwhereIamImg from "../../assets/images/Don’t know where I am.png
 import MemoryTroubleImg from "../../assets/images/Memory Trouble.png";
 import achyImg from "../../assets/images/achy.png";
 import NeedsChargingImg from "../../assets/images/Needs Charging.png";
+import NeedChangedformerlySoiledbowelsImg from "../../assets/images/NeedChangedformerlySoiledbowels.png";
+import BrainFogImg from "../../assets/images/Brain Fog.png";
+import TroubleReadingImg from "../../assets/images/Trouble Reading.png";
+import TroubleWritingImg from "../../assets/images/Trouble Writing.png";
 
 // audiof
 import AppetiteFemaleEnglish from "../../assets/audio/English/female/appetiteFemale.mp3";
@@ -3285,7 +3289,7 @@ const medicationBowels = [
     name: "Need Changed",
     nameEs: "Necesita cambio",
     path: "/howoften",
-    image: dashimg04,
+    image: NeedChangedformerlySoiledbowelsImg,
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
   },
@@ -3353,7 +3357,7 @@ const medicationUrination = [
     name: "Need Changed",
     nameEs: "Necesita cambio",
     path: "/howoften",
-    image: dashimg04,
+    image: NeedChanged_formerly_Soiled_urine,
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
   },
@@ -3550,7 +3554,7 @@ const swallowingfeedingtube = [
     name: "Remove",
     nameEs: "Retirar",
     path: "/howoften",
-    image: RemoveImg,
+    image: Remove_peg,
     secPath: "/confrm-step-yesno",
     femaleEnglish: RemoveFemale,
   },
@@ -3568,7 +3572,7 @@ const swallowingfeedingtube = [
     name: "Too Much",
     nameEs: "Demasiado",
     path: "/when",
-    image: swallowingimg11,
+    image: FeelfullImg,
     secPath: "/confrm-step-yesno",
     femaleEnglish: TooMuchFemale,
   },
@@ -3612,7 +3616,7 @@ const swallowingfeedingtubebowelsDesiese = [
     name: "Gas/Bloating",
     nameEs: "Gases/Hinchazón",
     path: "/howoften",
-    image: FeelfullImg,
+    image: Gas_BloatingImg,
     secPath: "/confrm-step-yesno",
   },
   {
@@ -3636,7 +3640,7 @@ const swallowingfeedingtubebowelsDesiese = [
     name: "Need Changed",
     nameEs: "Necesita Cambio",
     path: "/howoften",
-    image: dashimg04,
+    image: NeedChangedformerlySoiledbowelsImg,
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
   },
@@ -4369,7 +4373,7 @@ const hearingAids = [
     id: "1",
     name: "Need My Hearing Aids",
     nameEs: "Necesito Mis Audífonos",
-    image: swallowingimg04,
+    image: Hearingaid,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedMyHearingAidsMale,
@@ -4691,6 +4695,15 @@ const communicationConcerns = [
   },
   {
     id: "6",
+    name: "Brain Fog",
+    nameEs: "Niebla cerebral",
+    image: BrainFogImg,
+    path: "/howoften",
+    secPath: "/confrm-step-yesno",
+    maleEnglish: BrainFogMale,
+  },
+  {
+    id: "7",
     name: "Wrong words come out",
     nameEs: "Salen palabras incorrectas",
     image: WrongWordsComeOutImg,
@@ -4699,7 +4712,7 @@ const communicationConcerns = [
     maleEnglish: WrongWordsComeOutMale,
   },
   {
-    id: "7",
+    id: "8",
     name: "Don’t know where I am",
     nameEs: "No sé dónde estoy",
     image: DontknowwhereIamImg,
@@ -4708,7 +4721,7 @@ const communicationConcerns = [
     maleEnglish: DontKnowWhereIAmMale,
   },
   {
-    id: "8",
+    id: "9",
     name: "Memory trouble",
     nameEs: "Problemas de memoria",
     image: MemoryTroubleImg,
@@ -4716,8 +4729,27 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: MemoryTroubleMale,
   },
+
   {
-    id: "9",
+    id: "10",
+    name: "Trouble Reading",
+    nameEs: "Problemas para leer",
+    image: TroubleReadingImg,
+    path: "/howoften",
+    secPath: "/confrm-step-yesno",
+    maleEnglish: MemoryTroubleMale,
+  },
+  {
+    id: "11",
+    name: "Trouble Writing",
+    nameEs: "Problemas para escribir",
+    image: TroubleWritingImg,
+    path: "/howoften",
+    secPath: "/confrm-step-yesno",
+    maleEnglish: MemoryTroubleMale,
+  },
+  {
+    id: "12",
     name: "Something Else",
     nameEs: "Algo Más",
     image: dashimg11,
@@ -4932,7 +4964,7 @@ const feedingBowels = [
     name: "Need Changed",
     nameEs: "Necesita Cambiarse",
     path: "/when",
-    image: dashimg04,
+    image: NeedChangedformerlySoiledbowelsImg,
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
   },
@@ -6141,7 +6173,7 @@ export const diseasesData = {
       id: "6",
       name: "Need Changed",
       nameEs: "Necesita Cambio",
-      image: ChangeSomthingHappened,
+      image: NeedChanged_formerly_Soiled_urine,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
       maleEnglish: NeedChangedMale,
