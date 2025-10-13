@@ -82,11 +82,13 @@ function BreathingYesNo() {
               <div>
                 {location.pathname.includes("/topicboard/") ? (
                   <TopicBoard
+                    concernValues={concernValues}
                     selectedLanguage={selectedLanguage}
                     concenFell={concernValues?.secPath}
                   />
                 ) : (
                   <DecisionCardFeeling
+                    concernValues={concernValues}
                     selectedLanguage={selectedLanguage}
                     concenFell={concernValues?.secPath}
                   />

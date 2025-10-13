@@ -5,7 +5,11 @@ import Close from "../../assets/images/close.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-const DecisionCardFeeling = ({ selectedLanguage, concenFell }) => {
+const DecisionCardFeeling = ({
+  concernValues,
+  selectedLanguage,
+  concenFell,
+}) => {
   const { name } = useParams();
   const navigate = useNavigate();
   const [pathUrl, setPathUrl] = useState("");
@@ -21,7 +25,7 @@ const DecisionCardFeeling = ({ selectedLanguage, concenFell }) => {
         return navigate("/male-body");
       }
       navigate("/whiteboard", {
-        state: value,
+        state: concernValues,
       });
     }
   };

@@ -14,7 +14,7 @@ const BreathingProblem = () => {
 
   const location = useLocation();
   const Mainpath = location.pathname;
-  console.log("===>", location.state);
+  const headerName = location.state;
   const [problem, setProblems] = useState([]);
   const navigate = useNavigate();
   const { updateDisease, diseases, addOrUpdateSummary } =
@@ -135,16 +135,25 @@ const BreathingProblem = () => {
   };
 
   const name = !selectedLanguage
-    ? translations[Mainpath].default
+    ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
-      translations.default[selectedLanguage];
+      translations?.default[selectedLanguage];
   return (
     <>
       {loader ? (
         <Loader />
       ) : (
         <>
-          <Header selectedLanguage={selectedLanguage} name={name} />
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              name
+                ? name
+                : selectedLanguage === "Spanish"
+                ? headerName?.nameEs
+                : headerName?.name
+            }
+          />
 
           <div className="main-wrapper home-wrapper">
             <div
