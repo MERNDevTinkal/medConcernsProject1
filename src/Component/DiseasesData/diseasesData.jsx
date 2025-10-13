@@ -301,6 +301,22 @@ import DifferentTimeImg from "../../assets/images/Different Time.png";
 import LostGlassesImg from "../../assets/images/Lost Glasses.png";
 import NotWorkingBrokenImg from "../../assets/images/Not Working _ Broken .png";
 import NeedBatteriesImg from "../../assets/images/Need Batteries .png";
+import ScheduledImg from "../../assets/images/Scheduled.png";
+import NotWorking_BrokenImg from "../../assets/images/Not Working _ Broken .png";
+import CheckMyHearingImg from "../../assets/images/Check My Hearing.png";
+import WeakonOneSideImg from "../../assets/images/Weak on One Side.png";
+import Clumsy_OffBalanceImg from "../../assets/images/Clumsy _ Off Balance.png";
+import TroubleWalkingImg from "../../assets/images/Trouble Walking.png";
+import HardtoUnderstandYouImg from "../../assets/images/Hard to Understand You.png";
+import Can_tFindMyWordsImg from "../../assets/images/Can_t Find My Words.png";
+import HardtoTalkImg from "../../assets/images/Hard to Talk.png";
+import NoVoiceImg from "../../assets/images/No Voice.png";
+import ImConfusedImg from "../../assets/images/I’m Confused.png";
+import WrongWordsComeOutImg from "../../assets/images/Wrong Words Come Out.png";
+import DontknowwhereIamImg from "../../assets/images/Don’t know where I am.png";
+import MemoryTroubleImg from "../../assets/images/Memory Trouble.png";
+import achyImg from "../../assets/images/achy.png";
+import NeedsChargingImg from "../../assets/images/Needs Charging.png";
 
 // audiof
 import AppetiteFemaleEnglish from "../../assets/audio/English/female/appetiteFemale.mp3";
@@ -4236,7 +4252,7 @@ const medicationTiming = [
     id: "1",
     name: "Schedule Pain Meds",
     nameEs: "Programar medicación para el dolor",
-    image: swallowingimg04,
+    image: ScheduledImg,
     secPath: "/summary",
     path: "",
   },
@@ -4371,7 +4387,7 @@ const hearingAids = [
     id: "3",
     name: "Needs Charging ",
     nameEs: "Necesita Carga",
-    image: swallowingimg04,
+    image: NeedsChargingImg,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedsChargingMale,
@@ -4380,7 +4396,7 @@ const hearingAids = [
     id: "4",
     name: "Not Working / Broken",
     nameEs: "No Funcionan / Roto",
-    image: swallowingimg04,
+    image: NotWorking_BrokenImg,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NotWorkingOrBrokenMale,
@@ -4397,7 +4413,7 @@ const hearingAids = [
     id: "6",
     name: "Check My Hearing ",
     nameEs: "Revisar Mi Audición",
-    image: swallowingimg04,
+    image: CheckMyHearingImg,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: CheckMyHearingMale,
@@ -4577,7 +4593,7 @@ const movementconcerns = [
     id: "2",
     name: "Weak on One Side",
     nameEs: "Debilidad en un lado",
-    image: swallowingimg04,
+    image: WeakonOneSideImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: WeakOnOneSideMale,
@@ -4586,7 +4602,7 @@ const movementconcerns = [
     id: "3",
     name: "Clumsy / Off Balance",
     nameEs: "Torpe / Desequilibrado",
-    image: swallowingimg04,
+    image: Clumsy_OffBalanceImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: ClumsyOffBalanceMale,
@@ -4612,7 +4628,7 @@ const movementconcerns = [
     id: "6",
     name: "Trouble Walking",
     nameEs: "Dificultad para caminar",
-    image: swallowingimg04,
+    image: TroubleWalkingImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: TroubleWalkingMale,
@@ -4632,7 +4648,7 @@ const communicationConcerns = [
     id: "1",
     name: "Hard to understand you",
     nameEs: "Difícil de entenderte",
-    image: swallowingimg04,
+    image: HardtoUnderstandYouImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: HardToUnderstandYouMale,
@@ -4641,7 +4657,7 @@ const communicationConcerns = [
     id: "2",
     name: "Can’t find my words",
     nameEs: "No puedo encontrar mis palabras",
-    image: swallowingimg04,
+    image: Can_tFindMyWordsImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: CantFindMyWordsMale,
@@ -4650,7 +4666,7 @@ const communicationConcerns = [
     id: "3",
     name: "Hard to talk",
     nameEs: "Difícil hablar",
-    image: swallowingimg04,
+    image: HardtoTalkImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: HardToTalkMale,
@@ -4659,7 +4675,7 @@ const communicationConcerns = [
     id: "4",
     name: "No Voice",
     nameEs: "Sin voz",
-    image: swallowingimg04,
+    image: NoVoiceImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: NoVoiceMale,
@@ -4668,7 +4684,7 @@ const communicationConcerns = [
     id: "5",
     name: "I’m confused",
     nameEs: "Estoy confundido",
-    image: swallowingimg04,
+    image: ImConfusedImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: ImConfusedMale,
@@ -4677,7 +4693,7 @@ const communicationConcerns = [
     id: "6",
     name: "Wrong words come out",
     nameEs: "Salen palabras incorrectas",
-    image: swallowingimg04,
+    image: WrongWordsComeOutImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: WrongWordsComeOutMale,
@@ -4686,7 +4702,7 @@ const communicationConcerns = [
     id: "7",
     name: "Don’t know where I am",
     nameEs: "No sé dónde estoy",
-    image: swallowingimg04,
+    image: DontknowwhereIamImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: DontKnowWhereIAmMale,
@@ -4695,7 +4711,7 @@ const communicationConcerns = [
     id: "8",
     name: "Memory trouble",
     nameEs: "Problemas de memoria",
-    image: swallowingimg04,
+    image: MemoryTroubleImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: MemoryTroubleMale,
@@ -6005,7 +6021,7 @@ export const diseasesData = {
       id: "3",
       name: "Achy",
       nameEs: "Dolor General",
-      image: swallowingimg04,
+      image: achyImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
     },
