@@ -5,7 +5,11 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
-const PainCardsList = ({ selectedLanguage, selectedIconCount }) => {
+const PainCardsList = ({
+  selectedGender,
+  selectedLanguage,
+  selectedIconCount,
+}) => {
   const { updateDisease, diseases, addOrUpdateSummary } =
     useContext(GlobalContext);
   const navigate = useNavigate();
@@ -17,7 +21,22 @@ const PainCardsList = ({ selectedLanguage, selectedIconCount }) => {
     if (value && path) {
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "" && selectedGender === ""
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       addOrUpdateSummary(pathprimary, [value]);
       navigate(path);

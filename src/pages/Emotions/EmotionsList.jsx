@@ -9,10 +9,12 @@ const EmotionsList = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
+  const [selectedGender, setSelectedGender] = React.useState("");
+
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
@@ -47,6 +49,7 @@ const EmotionsList = () => {
               }}
             >
               <CardsList
+                selectedGender={selectedGender}
                 selectedLanguage={selectedLanguage}
                 selectedIconCount={selectedIconCount}
               />

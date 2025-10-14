@@ -17,6 +17,8 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 
 const NeedBoard = () => {
   const location = useLocation();
+  const [selectedGender, setSelectedGender] = React.useState("");
+
   const [getAllDiseases, setDiseases] = useState([]);
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -39,7 +41,7 @@ const NeedBoard = () => {
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
@@ -208,7 +210,22 @@ const NeedBoard = () => {
       resetDiseases();
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "" && selectedGender === ""
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       addOrUpdateSummary(path.replace("/", ""), [value]);
       navigate(`${mainpath}`);

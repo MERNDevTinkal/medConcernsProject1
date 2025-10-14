@@ -13,6 +13,7 @@ const Feel = () => {
   const location = useLocation();
   const [emotionsicons, setEmotionsicons] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
   const [loader, setLoader] = useState(true);
   const mainpath = location.pathname;
   const { updateDisease, diseases, addOrUpdateSummary } =
@@ -24,7 +25,22 @@ const Feel = () => {
     if (item && path) {
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? item.nameEs : item.name,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "" && selectedGender === ""
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       addOrUpdateSummary(mainpath, [item]);
       navigate(path);
@@ -33,7 +49,7 @@ const Feel = () => {
   useEffect(() => {
     getSetting(
       () => {},
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},

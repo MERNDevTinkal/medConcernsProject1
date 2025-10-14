@@ -14,10 +14,11 @@ const Concern = () => {
   const [concerns, setUncheckConcerns] = useState(null);
   const [loader, setLoader] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
@@ -66,11 +67,13 @@ const Concern = () => {
                   skipKeys={selectedConcerns}
                   selectedLanguage={selectedLanguage}
                   selectedIconCount={selectedIconCount}
+                  selectedGender={selectedGender}
                 />
               ) : (
                 <TopicBoard
                   selectedLanguage={selectedLanguage}
                   selectedIconCount={selectedIconCount}
+                  selectedGender={selectedGender}
                 />
               )}
             </div>

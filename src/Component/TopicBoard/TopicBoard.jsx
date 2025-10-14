@@ -3,7 +3,11 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { topicBoard } from "../DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-const TopicBoard = ({ selectedLanguage, selectedIconCount }) => {
+const TopicBoard = ({
+  selectedLanguage,
+  selectedIconCount,
+  selectedGender,
+}) => {
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
@@ -13,7 +17,22 @@ const TopicBoard = ({ selectedLanguage, selectedIconCount }) => {
     if (value && mainpath) {
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "" && selectedGender === ""
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       addOrUpdateSummary(path, [value]);
       navigate(mainpath);

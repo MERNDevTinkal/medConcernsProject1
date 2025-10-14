@@ -11,19 +11,33 @@ const BreathingProblem = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
-
+  const [selectedGender, setSelectedGender] = React.useState("");
   const location = useLocation();
   const Mainpath = location.pathname;
   const headerName = location.state;
   const [problem, setProblems] = useState([]);
   const navigate = useNavigate();
-  const { updateDisease, diseases, addOrUpdateSummary } =
-    useContext(GlobalContext);
+  const { addOrUpdateSummary } = useContext(GlobalContext);
   const handleBreathingProblem = async (value, path) => {
     if (value && path) {
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "" && selectedGender === ""
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       addOrUpdateSummary(Mainpath, [value]);
       navigate(path, {
@@ -38,7 +52,7 @@ const BreathingProblem = () => {
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},

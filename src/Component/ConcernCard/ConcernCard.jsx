@@ -8,19 +8,35 @@ const ConcernCard = ({
   skipKeys = [],
   selectedLanguage,
   selectedIconCount,
+  selectedGender,
 }) => {
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
   const { updateDisease, resetDiseases } = useContext(GlobalContext);
-
+  //  maleEnglish: "",
+  //   femaleEnglish: "",
+  //   maleSpanish: "", // Add if exists
+  //   femaleSpanish: "",
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
       resetDiseases();
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        selectedLanguage === "Spanish"
+        selectedLanguage === "" && selectedGender === ""
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
           ? value?.femaleEnglish
           : value?.maleEnglish
       );

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-const CardsList = ({ selectedLanguage, selectedIconCount }) => {
+const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [feelingsicons, setFeelingsicons] = useState([]);
@@ -14,7 +14,22 @@ const CardsList = ({ selectedLanguage, selectedIconCount }) => {
   const handleCardClick = async (item, path) => {
     await getTextToSpeech(
       selectedLanguage === "Spanish" ? item.nameEs : item.name,
-      selectedLanguage === "Spanish" ? "es-ES" : ""
+      selectedLanguage === "Spanish" ? "es-ES" : "",
+      selectedLanguage === "" && selectedGender === ""
+        ? item?.maleEnglish
+        : selectedLanguage === "Spanish" && selectedGender === "Male"
+        ? item?.maleSpanish
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? item?.femaleSpanish
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? item?.femaleEnglish
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? item?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? item?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? item?.femaleEnglish
+        : item?.maleEnglish
     );
     addOrUpdateSummary(mainpath, [item]);
     navigate(path);

@@ -1207,6 +1207,8 @@ export const concerns = [
     path: "/concern/eating-drinking-yes-no/8",
     maleEnglish: EatingAndDrinkingMale,
     femaleEnglish: EatingDrinkingFemale,
+    maleSpanish: ComerBeberMaleSpanish,
+    femaleSpanish: ComerBeberFemaleSpanish,
   },
   {
     id: 9,
@@ -1230,6 +1232,8 @@ export const concerns = [
     path: "/concern/movement-yes-no/11",
     maleEnglish: MovementMale,
     femaleEnglish: MovementFemale,
+    maleSpanish: MovimientoMaleSpanish,
+    femaleSpanish: MovimientoFemaleSpanish,
   },
   {
     id: 12,
@@ -1297,6 +1301,8 @@ export const concerns = [
     nameEs: "Traqueotomía",
     image: ConcernImg17,
     path: "/concern/trach-yes-no/20",
+    maleEnglish: "",
+    femaleEnglish: TrachFemale,
   },
   {
     id: 21,
@@ -1311,8 +1317,6 @@ export const concerns = [
     nameEs: "Sin Preocupaciones",
     image: HowAreYouImg1,
     path: "/summary",
-    maleEnglish: NoConcernsMale,
-    femaleEnglish: NoConcernsFemale,
   },
 ];
 
@@ -1507,7 +1511,7 @@ const emotionsData = [
     secPath: "/confrm-step-yesno",
     image: GriefImg,
     path: "/when",
-    maleEnglish: GriefMale,
+    maleEnglish: "",
     femaleEnglish: GriefFemale,
   },
   {
@@ -1862,7 +1866,7 @@ const needBoard = [
     image: Catheter,
     secPath: "/board/confrm-step-yesno/34",
     path: "/summary",
-    maleEnglish: CatheterMale,
+    maleEnglish: "",
     femaleEnglish: CatheterFemale,
   },
   {
@@ -1902,7 +1906,7 @@ const needBoard = [
     image: dashimg10,
     secPath: "/board/confrm-step-yesno/38",
     path: "/summary",
-    maleEnglish: TrachMale,
+    maleEnglish: "",
     femaleEnglish: TrachFemale,
   },
   {
@@ -2644,7 +2648,7 @@ const trachproblemDesises = [
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: RemoveMale,
+    maleEnglish: "",
     femaleEnglish: RemoveFemale,
   },
   {
@@ -2662,7 +2666,7 @@ const trachproblemDesises = [
     image: TightImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: TightMale,
+    maleEnglish: "",
     femaleEnglish: TightFemale,
   },
   {
@@ -2672,7 +2676,7 @@ const trachproblemDesises = [
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: ItchyMale,
+    maleEnglish: "",
     femaleEnglish: ItchyFemale,
   },
   {
@@ -2682,7 +2686,7 @@ const trachproblemDesises = [
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: LeakingMale,
+    maleEnglish: "",
     femaleEnglish: LeakingFemale,
   },
   {
@@ -2735,7 +2739,7 @@ const trachDesises = [
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: RemoveMale,
+    maleEnglish: "",
     femaleEnglish: RemoveFemale,
   },
   {
@@ -2761,7 +2765,7 @@ const trachDesises = [
     image: TightImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: TightMale,
+    maleEnglish: "",
     femaleEnglish: TightFemale,
   },
   {
@@ -2771,7 +2775,7 @@ const trachDesises = [
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: LeakingMale,
+    maleEnglish: "",
     femaleEnglish: LeakingFemale,
   },
   {
@@ -2808,7 +2812,7 @@ const mucussecretionsDesises = [
     image: dashimg05,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: ThickMucusMale,
+    maleEnglish: "",
     femaleEnglish: ThickMucusFemale,
   },
   {
@@ -2818,7 +2822,7 @@ const mucussecretionsDesises = [
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: TooMuchMale,
+    maleEnglish: "",
     femaleEnglish: TooMuchFemale,
   },
 ];
@@ -2839,7 +2843,7 @@ const feedingtubeDesises = [
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: RemoveMale,
+    maleEnglish: "",
     femaleEnglish: RemoveFemale,
   },
   {
@@ -2849,7 +2853,7 @@ const feedingtubeDesises = [
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: TooMuchMale,
+    maleEnglish: "",
     femaleEnglish: TooMuchFemale,
   },
   {
@@ -2902,7 +2906,7 @@ const trachproblemsubDesises = [
     path: "/when",
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: RemoveMale,
+    maleEnglish: "",
     femaleEnglish: RemoveFemale,
   },
   {
@@ -2920,7 +2924,7 @@ const trachproblemsubDesises = [
     path: "/howoften",
     image: TightImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: TightMale,
+    maleEnglish: "",
     femaleEnglish: TightFemale,
   },
   {
@@ -2930,7 +2934,7 @@ const trachproblemsubDesises = [
     path: "/howoften",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: ItchyMale,
+    maleEnglish: "",
     femaleEnglish: ItchyFemale,
   },
   {
@@ -2940,7 +2944,7 @@ const trachproblemsubDesises = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: LeakingMale,
+    maleEnglish: "",
     femaleEnglish: LeakingFemale,
   },
   {
@@ -2985,7 +2989,7 @@ const trachmucusSecretionsDesises = [
     image: dashimg05,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: ThickMucusMale,
+    maleEnglish: "",
     femaleEnglish: ThickMucusFemale,
   },
   {
@@ -2995,7 +2999,7 @@ const trachmucusSecretionsDesises = [
     image: DrymouthImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: DryMouthMale,
+    maleEnglish: "",
     femaleEnglish: DryMouthFemale,
   },
   {
@@ -3005,7 +3009,7 @@ const trachmucusSecretionsDesises = [
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: TooMuchMale,
+    maleEnglish: "",
     femaleEnglish: TooMuchFemale,
   },
   {
@@ -3160,7 +3164,7 @@ const colorDesies = [
     image: YellowColorImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: YellowMale,
+    maleEnglish: "",
     femaleEnglish: YellowFemale,
   },
   {
@@ -3229,7 +3233,7 @@ const trachDesies = [
     path: "/when",
     image: BreathingTreatment,
     secPath: "/confrm-step-yesno",
-    maleEnglish: BreathingTreatmentMale,
+    maleEnglish: "",
     femaleEnglish: BreathingTreatmentFemaleEnglish,
   },
   {
@@ -3255,7 +3259,7 @@ const trachDesies = [
     path: "/when",
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: RemoveMale,
+    maleEnglish: "",
     femaleEnglish: RemoveFemale,
   },
   {
@@ -3273,7 +3277,7 @@ const trachDesies = [
     path: "/howoften",
     image: TightImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: TightMale,
+    maleEnglish: "",
     femaleEnglish: TightFemale,
   },
   {
@@ -3283,7 +3287,7 @@ const trachDesies = [
     path: "/howoften",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: ItchyMale,
+    maleEnglish: "",
     femaleEnglish: ItchyFemale,
   },
   {
@@ -3293,7 +3297,7 @@ const trachDesies = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: LeakingMale,
+    maleEnglish: "",
     femaleEnglish: LeakingFemale,
   },
   {
@@ -3354,7 +3358,7 @@ const SwallowingTrachDesies = [
     path: "/howoften",
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: RemoveMale,
+    maleEnglish: "",
     femaleEnglish: RemoveFemale,
   },
   {
@@ -3380,7 +3384,7 @@ const SwallowingTrachDesies = [
     path: "/when",
     image: TightImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: TightMale,
+    maleEnglish: "",
     femaleEnglish: TightFemale,
   },
   {
@@ -3390,7 +3394,7 @@ const SwallowingTrachDesies = [
     path: "/when",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: ItchyMale,
+    maleEnglish: "",
     femaleEnglish: ItchyFemale,
   },
   {
@@ -3400,7 +3404,7 @@ const SwallowingTrachDesies = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: LeakingMale,
+    maleEnglish: "",
     femaleEnglish: LeakingFemale,
   },
   {
@@ -3471,7 +3475,7 @@ const MedicationSidEffectsDesies = [
     path: "/howoften",
     image: DrymouthImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: DryMouthMale,
+    maleEnglish: "",
     femaleEnglish: DryMouthFemale,
   },
   {
@@ -3489,7 +3493,7 @@ const MedicationSidEffectsDesies = [
     path: "",
     image: Noappetite,
     secPath: "/medicationSidEffectsAppetite-problem",
-    maleEnglish: AppetiteMale,
+    maleEnglish: "",
     femaleEnglish: AppetiteFemaleEnglish,
   },
   {
@@ -3499,7 +3503,7 @@ const MedicationSidEffectsDesies = [
     path: "/when",
     image: ItchyImg,
     secPath: "/",
-    maleEnglish: ItchyMale,
+    maleEnglish: "",
     femaleEnglish: ItchyFemale,
   },
   {
@@ -3560,7 +3564,7 @@ const medicationswallowing = [
     path: "",
     image: Painwithswallowing,
     secPath: "/medicationPainwithSwallowing-problem",
-    maleEnglish: PainWithSwallowingMale,
+    maleEnglish: "",
     femaleEnglish: PainWithSwallowingFemale,
   },
   {
@@ -3578,7 +3582,7 @@ const medicationswallowing = [
     path: "",
     image: DrymouthImg,
     secPath: "/medicationswallowingdryMouth-problem",
-    maleEnglish: DryMouthMale,
+    maleEnglish: "",
     femaleEnglish: DryMouthFemale,
   },
   {
@@ -3588,7 +3592,7 @@ const medicationswallowing = [
     path: "/howoften",
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
-    maleEnglish: TooMuchMale,
+    maleEnglish: "",
     femaleEnglish: TooMuchFemale,
   },
   {
@@ -3659,7 +3663,7 @@ const medicationnoAppetite = [
     path: "",
     image: ItchyImg,
     secPath: "/medicationswallowingChoking-problem",
-    maleEnglish: ItchyMale,
+    maleEnglish: "",
     femaleEnglish: ItchyFemale,
   },
   {
@@ -3704,7 +3708,7 @@ const medicationSidEffectsAppetite = [
     path: "/howoften",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: ItchyMale,
+    maleEnglish: "",
     femaleEnglish: ItchyFemale,
   },
   {
@@ -3972,7 +3976,7 @@ const noappetiteDesies = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: dontwantImg,
-    maleEnglish: DontWantMale,
+    maleEnglish: "",
     femaleEnglish: DontWantFemale,
   },
   {
@@ -3998,7 +4002,7 @@ const noappetiteDesies = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: Gas_BloatingImg,
-    maleEnglish: FeelFullMale,
+    maleEnglish: "",
     femaleEnglish: FeelFullFemale,
   },
   {
@@ -4035,7 +4039,7 @@ const swallowingfeedingtube = [
     path: "/howoften",
     image: Remove_peg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: RemoveMale,
+    maleEnglish: "",
     femaleEnglish: RemoveFemale,
   },
   {
@@ -4045,7 +4049,7 @@ const swallowingfeedingtube = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: LeakingMale,
+    maleEnglish: "",
     femaleEnglish: LeakingFemale,
   },
   {
@@ -4055,7 +4059,7 @@ const swallowingfeedingtube = [
     path: "/when",
     image: FeelfullImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: TooMuchMale,
+    maleEnglish: "",
     femaleEnglish: TooMuchFemale,
   },
   {
@@ -4161,7 +4165,7 @@ const bowelsfeedingtubeDesiese = [
     path: "/howoften",
     image: FeelfullImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: FeelFullMale,
+    maleEnglish: "",
     femaleEnglish: FeelFullFemale,
   },
   {
@@ -4248,7 +4252,7 @@ const EatingdrinkingNoAppetite = [
     image: dontwantImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: DontWantMale,
+    maleEnglish: "",
     femaleEnglish: DontWantFemale,
   },
   {
@@ -4274,7 +4278,7 @@ const EatingdrinkingNoAppetite = [
     image: Gas_BloatingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: FeelFullMale,
+    maleEnglish: "",
     femaleEnglish: FeelFullFemale,
   },
   {
