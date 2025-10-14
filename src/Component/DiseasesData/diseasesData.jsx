@@ -1433,17 +1433,17 @@ export const feelingValues = [
   {
     id: 4,
     name: "Severe",
-    nameEs: "Grave",
+    nameEs: "Severo",
   },
   {
     id: 5,
     name: "Very Severe",
-    nameEs: "Muy grave",
+    nameEs: "Muy Severo",
   },
   {
     id: 6,
     name: `Worst Pain Imaginable`,
-    nameEs: `Peor dolor imaginable`,
+    nameEs: `El peor dolor imaginable`,
   },
 ];
 

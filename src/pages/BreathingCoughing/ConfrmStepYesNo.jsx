@@ -50,6 +50,7 @@ function ConfrmStepYesNo() {
       setLoader
     );
   }, []);
+  console.log("==>", selectedConcers);
   return (
     <>
       {loader ? (
@@ -67,12 +68,8 @@ function ConfrmStepYesNo() {
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
-                ? selectedConcers?.nameEs
-                : selectedConcers?.name
-                ? selectedConcers?.name
-                : selectedLanguage === "Spanish"
-                ? selectedConcers?.painFeelEs
-                : selectedConcers?.painFeel}
+                ? selectedConcers?.nameEs ?? selectedConcers?.painFeelEs
+                : selectedConcers?.name ?? selectedConcers?.painFeel}
             </h2>
             <button></button>
           </div>

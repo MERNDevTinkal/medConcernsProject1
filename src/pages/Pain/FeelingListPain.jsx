@@ -328,37 +328,6 @@ const FeelingListPain = () => {
                 <div className="flex flex-wrap justify-between items-center emoji-bar">
                   {painFeelParams.map((data, index) => (
                     <div key={data.id}>
-                      {/* <div
-                        style={{ cursor: "pointer" }}
-                        onClick={() => {
-                          handlegetPain(
-                            data,
-                            data?.secPath?.includes("/confrm-step-yesno")
-                              ? `${path}${data?.secPath}/${data?.id}`
-                              : `${data?.secPath}`,
-                            selectedLanguage === "Spanish"
-                              ? data.painFeelEs
-                              : data.painFeel
-                          );
-                        }}
-                        className={`flex flex-col items-center space-y-${index}  mb-3`}
-                      >
-                        <img src={data.image} alt="" />
-                        <span
-                          onClick={() => {
-                            handlegetPain(
-                              data,
-                              data?.secPath?.includes("/confrm-step-yesno")
-                                ? `${path}${data?.secPath}/${data?.id}`
-                                : `${data?.secPath}`,
-                              data.painFeel
-                            );
-                          }}
-                          className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300"
-                        >
-                          {data.params ?? "0"}
-                        </span>
-                      </div> */}
                       <div
                         style={{ cursor: "pointer" }}
                         onClick={() => {
