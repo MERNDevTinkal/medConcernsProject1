@@ -62,19 +62,18 @@ const FeelingListPain = () => {
     );
   }, []);
   const handleBynumber = async (id) => {
-    console.log("fdsfsfsf", feelingValues);
     const arrayFeeling = painFeelParams.filter((item) => {
-      if (id == 1 || id == 2) {
+      if (id == 1 || id == 2 || id == "feeling_1") {
         return item.id == 2;
-      } else if (id == 3 || id == 4) {
+      } else if (id == 3 || id == 4 || id == "feeling_2") {
         return item.id == 3;
-      } else if (id == 5 || id == 6) {
+      } else if (id == 5 || id == 6 || id == "feeling_3") {
         return item.id == 4;
-      } else if (id == 7 || id == 8) {
+      } else if (id == 7 || id == 8 || id == "feeling_4") {
         return item.id == 5;
-      } else if (id == 9 || id == 10) {
+      } else if (id == 9 || id == 10 || id == "feeling_5") {
         return item.id == 6;
-      } else if (!id) {
+      } else if (!id || id == "feeling_0") {
         return item.id == 1;
       }
     });
@@ -105,7 +104,7 @@ const FeelingListPain = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(pathprimary, [value]);
-      // navigate(valuepath);
+      navigate(valuepath);
     }
   };
   return (
@@ -299,7 +298,7 @@ const FeelingListPain = () => {
                   {feelingValues.map((item, index) => (
                     <span
                       onClick={() => {
-                        handleBynumber(!index ? index : index + 1);
+                        handleBynumber(`feeling_${index}`);
                       }}
                       key={item.id}
                       className="text-[16px] font-medium text-center"
@@ -329,7 +328,7 @@ const FeelingListPain = () => {
                 <div className="flex flex-wrap justify-between items-center emoji-bar">
                   {painFeelParams.map((data, index) => (
                     <div key={data.id}>
-                      <div
+                      {/* <div
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           handlegetPain(
@@ -357,6 +356,26 @@ const FeelingListPain = () => {
                           }}
                           className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300"
                         >
+                          {data.params ?? "0"}
+                        </span>
+                      </div> */}
+                      <div
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          handlegetPain(
+                            data,
+                            data?.secPath?.includes("/confrm-step-yesno")
+                              ? `${path}${data?.secPath}/${data?.id}`
+                              : `${data?.secPath}`,
+                            selectedLanguage === "Spanish"
+                              ? data.painFeelEs
+                              : data.painFeel
+                          );
+                        }}
+                        className={`flex flex-col items-center space-y-${index}  mb-3`}
+                      >
+                        <img src={data.image} alt="" />
+                        <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
                           {data.params ?? "0"}
                         </span>
                       </div>
