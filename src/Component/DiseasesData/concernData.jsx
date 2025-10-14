@@ -227,7 +227,7 @@ export const topicBoard = [
     name: "Feeding Tube",
     nameEs: "Sonda de Alimentación",
     path: "/topicboard/feedingTube/10",
-    secPath: "/feel",
+    secPath: "/feel-description",
   },
   {
     id: 11,

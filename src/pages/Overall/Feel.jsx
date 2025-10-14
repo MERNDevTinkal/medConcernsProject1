@@ -13,18 +13,17 @@ const Feel = () => {
   const location = useLocation();
   const [emotionsicons, setEmotionsicons] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [loader, setLoader] = useState(false);
   const [selectedGender, setSelectedGender] = React.useState("");
-  const [loader, setLoader] = useState(true);
   const mainpath = location.pathname;
-  const { updateDisease, diseases, addOrUpdateSummary } =
-    useContext(GlobalContext);
+  const { addOrUpdateSummary } = useContext(GlobalContext);
   useEffect(() => {
     setEmotionsicons(diseasesData[mainpath]);
   }, [mainpath]);
   const handleRoutes = async (item, path) => {
     if (item && path) {
       await getTextToSpeech(
-        selectedLanguage === "Spanish" ? item.nameEs : item.name,
+        selectedLanguage === "Spanish" ? item?.nameEs : item?.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
@@ -53,7 +52,11 @@ const Feel = () => {
       setSelectedLanguage,
       () => {},
       () => {},
-      setLoader
+      setLoader,
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -63,7 +66,11 @@ const Feel = () => {
       ) : (
         <>
           <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-            <button onClick={navigate(-1)}>
+            <button
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               <img src={BackArrow} />
             </button>
             <h2 className="text-[25px] font-normal text-black">

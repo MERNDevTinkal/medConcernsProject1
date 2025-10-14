@@ -91,7 +91,7 @@ function App() {
           <Route path="/summary-list" element={<SummaryList />} />
           <Route path="/summary-view/:id" element={<SummeryView />} />
           <Route path="/feeling" element={<FeelingListPain />} />
-          <Route path="/emotions" element={<EmotionsList />} />
+          <Route path="/emotions" element={<Feel />} />
           <Route path="/board" element={<NeedBoard />} />
           <Route path="/board-upload" element={<NeedBoardUpload />} />
           <Route path="/whiteboard" element={<Whiteboard />} />
