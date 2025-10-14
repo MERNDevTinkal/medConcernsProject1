@@ -1,4 +1,6 @@
 import {
+  LostHearingAidsImg,
+  BrainTiredImg,
   achyImg,
   NeedsChargingImg,
   dashimg01,
@@ -446,7 +448,6 @@ import {
   WithMentalActivityMale,
 
   // female
-  WithBloodSugarOrPressureFemale,
   ColostomyOstomyBagFemale,
   WithSalivaFemale,
   ToiletUrinalFemale,
@@ -1022,6 +1023,7 @@ export const breathingWhenOptions = [
     path: "/confrm-step-when",
     name: "With Blood Pressure",
     nameEs: "Con Presión Arterial",
+    femaleEnglish: BloodPressureFemale,
   },
   {
     id: 23,
@@ -1029,6 +1031,7 @@ export const breathingWhenOptions = [
     path: "/confrm-step-when",
     name: "With Blood Sugar",
     nameEs: "Con Glucosa",
+    femaleEnglish: BloodSugarFemale,
   },
   {
     id: 24,
@@ -1317,6 +1320,8 @@ export const concerns = [
     nameEs: "Sin Preocupaciones",
     image: HowAreYouImg1,
     path: "/summary",
+    femaleEnglish: NoConcernsFemale,
+    maleEnglish: NoConcernsMale,
   },
 ];
 
@@ -4842,6 +4847,7 @@ const visionGlasses = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: LostGlassesMale,
+    femaleEnglish: LostGlassesFemale,
   },
   {
     id: "2",
@@ -4851,6 +4857,7 @@ const visionGlasses = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: NotWorkingOrBrokenMale,
+    femaleEnglish: NotWorkingBrokenFemale,
   },
   {
     id: "3",
@@ -4860,6 +4867,7 @@ const visionGlasses = [
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedMyGlassesMale,
+    femaleEnglish: NeedMyGlassesFemale,
   },
   {
     id: "4",
@@ -4869,6 +4877,7 @@ const visionGlasses = [
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: CheckMyVisionMale,
+    femaleEnglish: CheckMyVisionFemale,
   },
   {
     id: "5",
@@ -4889,6 +4898,7 @@ const hearingAids = [
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedMyHearingAidsMale,
+    femaleEnglish: NeedMyHearingAidsFemale,
   },
   {
     id: "2",
@@ -4898,6 +4908,7 @@ const hearingAids = [
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedBatteriesMale,
+    femaleEnglish: NeedBatteriesFemale,
   },
   {
     id: "3",
@@ -4907,6 +4918,7 @@ const hearingAids = [
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: NeedsChargingMale,
+    femaleEnglish: NeedsChargingFemale,
   },
   {
     id: "4",
@@ -4919,6 +4931,16 @@ const hearingAids = [
   },
   {
     id: "5",
+    name: "Lost Hearing Aids",
+    nameEs: "Audífonos perdidos",
+    image: LostHearingAidsImg,
+    secPath: "/summary",
+    path: "/howoften",
+    maleEnglish: "",
+    femaleEnglish: LostHearingAidsFemale,
+  },
+  {
+    id: "6",
     name: "Can’t Hear ",
     nameEs: "No Puedo Oír",
     image: Can_thearImg,
@@ -4926,16 +4948,17 @@ const hearingAids = [
     path: "/howoften",
   },
   {
-    id: "6",
+    id: "7",
     name: "Check My Hearing ",
     nameEs: "Revisar Mi Audición",
     image: CheckMyHearingImg,
     secPath: "/summary",
     path: "/howoften",
     maleEnglish: CheckMyHearingMale,
+    femaleEnglish: CheckMyHearingFemale,
   },
   {
-    id: "7",
+    id: "8",
     name: "Something Else  ",
     nameEs: "Algo Más",
     image: dashimg11,
@@ -5104,6 +5127,7 @@ const movementconcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: WeaknessMale,
+    femaleEnglish: WeaknessFemale,
   },
   {
     id: "2",
@@ -5113,6 +5137,7 @@ const movementconcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: WeakOnOneSideMale,
+    femaleEnglish: WeakOnOneSideFemale,
   },
   {
     id: "3",
@@ -5122,6 +5147,7 @@ const movementconcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: ClumsyOffBalanceMale,
+    femaleEnglish: ClumsyOffBalanceFemale,
   },
   {
     id: "4",
@@ -5148,6 +5174,7 @@ const movementconcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: TroubleWalkingMale,
+    femaleEnglish: TroubleWalkingFemale,
   },
   {
     id: "7",
@@ -5168,6 +5195,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: HardToUnderstandYouMale,
+    femaleEnglish: HardToUnderstandYouFemale,
   },
   {
     id: "2",
@@ -5177,6 +5205,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: CantFindMyWordsMale,
+    femaleEnglish: CantFindMyWordsFemale,
   },
   {
     id: "3",
@@ -5186,6 +5215,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: HardToTalkMale,
+    femaleEnglish: HardToTalkFemale,
   },
   {
     id: "4",
@@ -5195,6 +5225,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: NoVoiceMale,
+    femaleEnglish: NoVoiceFemale,
   },
   {
     id: "5",
@@ -5204,6 +5235,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: ImConfusedMale,
+    femaleEnglish: ImConfusedFemale,
   },
   {
     id: "6",
@@ -5213,6 +5245,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: BrainFogMale,
+    femaleEnglish: BrainFogFemale,
   },
   {
     id: "7",
@@ -5222,6 +5255,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: WrongWordsComeOutMale,
+    femaleEnglish: WrongWordsComeOutFemale,
   },
   {
     id: "8",
@@ -5231,6 +5265,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: DontKnowWhereIAmMale,
+    femaleEnglish: DontKnowWhereIAmFemale,
   },
   {
     id: "9",
@@ -5240,6 +5275,7 @@ const communicationConcerns = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: MemoryTroubleMale,
+    femaleEnglish: MemoryTroubleFemale,
   },
 
   {
@@ -5249,7 +5285,8 @@ const communicationConcerns = [
     image: TroubleReadingImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
-    maleEnglish: MemoryTroubleMale,
+    maleEnglish: "",
+    femaleEnglish: "",
   },
   {
     id: "11",
@@ -5258,7 +5295,8 @@ const communicationConcerns = [
     image: TroubleWritingImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
-    maleEnglish: MemoryTroubleMale,
+    maleEnglish: "",
+    femaleEnglish: "",
   },
   {
     id: "12",
@@ -5331,6 +5369,7 @@ const hearingConcers = [
     path: "/",
     secPath: "/summary",
     maleEnglish: WriteItDownMale,
+    femaleEnglish: WriteItDownFemale,
   },
   {
     id: "8",
@@ -5368,6 +5407,7 @@ const visionConcers = [
     path: "/when",
     secPath: "/confrm-step-yesno",
     maleEnglish: CantSeeLeftMale,
+    femaleEnglish: CantSeeLeftFemale,
   },
   {
     id: "4",
@@ -5377,6 +5417,7 @@ const visionConcers = [
     path: "/when",
     secPath: "/confrm-step-yesno",
     maleEnglish: CantSeeRightMale,
+    femaleEnglish: CantSeeRightFemale,
   },
   {
     id: "5",
@@ -5403,6 +5444,7 @@ const visionConcers = [
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: HeadacheMale,
+    femaleEnglish: HeadacheFemale,
   },
   {
     id: "8",
@@ -5648,6 +5690,7 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
       path: "/howoften",
       maleEnglish: TickleInMyThroatMale,
+      femaleEnglish: TickleInMyThroatFemale,
     },
     {
       id: "3",
@@ -6298,6 +6341,7 @@ export const diseasesData = {
       secPath: "/summary",
       path: "/when",
       maleEnglish: ToiletUrinalMale,
+      femaleEnglish: ToiletUrinalFemale,
     },
     {
       id: "9",
@@ -6328,22 +6372,6 @@ export const diseasesData = {
     },
     {
       id: "3",
-      name: "More than Usual",
-      nameEs: "Más de lo Usual",
-      image: morethanusualImg,
-      path: "/howoften",
-      secPath: "/confrm-step-yesno",
-    },
-    {
-      id: "4",
-      name: "With Activity",
-      nameEs: "Con Actividad",
-      image: WithActivityImg,
-      path: "/howoften",
-      secPath: "/confrm-step-yesno",
-    },
-    {
-      id: "5",
       name: "All Day",
       nameEs: "Todo el Día",
       image: AllDayImg,
@@ -6351,7 +6379,42 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
     },
     {
+      id: "4",
+      name: "Gets Worse Through the Day",
+      nameEs: "Empeora a lo largo del día",
+      image: GetsWorseThroughtheDay,
+      path: "/howoften",
+      secPath: "/confrm-step-yesno",
+    },
+    {
+      id: "5",
+      name: "Exhausted",
+      nameEs: "Exhausto",
+      image: EmotionsImg6,
+      path: "/howoften",
+      secPath: "/confrm-step-yesno",
+    },
+    {
       id: "6",
+      name: "Brain Tired",
+      nameEs: "cerebro cansado",
+      image: BrainTiredImg,
+      path: "/howoften",
+      secPath: "/confrm-step-yesno",
+      maleEnglish: "",
+      femaleEnglish: BrainTiredFemale,
+    },
+    {
+      id: "7",
+      name: "With Activity",
+      nameEs: "Con Actividad",
+      image: WithActivityImg,
+      path: "/howoften",
+      secPath: "/confrm-step-yesno",
+    },
+
+    {
+      id: "8",
       name: "With Medication",
       nameEs: "Con Medicación",
       image: WithMedicationImg,
@@ -6359,7 +6422,16 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
     },
     {
-      id: "7",
+      id: "9",
+      name: "More than Usual",
+      nameEs: "Más de lo Usual",
+      image: morethanusualImg,
+      path: "/howoften",
+      secPath: "/confrm-step-yesno",
+    },
+
+    {
+      id: "10",
       name: "After Procedure",
       nameEs: "Después del Procedimiento",
       image: AfterProcedure,
@@ -6367,8 +6439,17 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
       maleEnglish: AfterProcedureMale,
     },
+
     {
-      id: "8",
+      id: "11",
+      name: "Just Fatigue",
+      nameEs: "Solo Fatiga",
+      image: morethanusualImg,
+      path: "/howoften",
+      secPath: "/confrm-step-yesno",
+    },
+    {
+      id: "12",
       name: "Something Else",
       nameEs: "Algo Más",
       image: dashimg11,
@@ -6394,6 +6475,7 @@ export const diseasesData = {
       path: "/howoften",
       secPath: "/summary",
       maleEnglish: HungryThirstyMale,
+      femaleEnglish: HungryThirstyFemale,
     },
     {
       id: "3",
@@ -6411,6 +6493,7 @@ export const diseasesData = {
       image: Don_tEatThis,
       secPath: "/eatingDonoteatThis-problem",
       maleEnglish: DontEatThisMale,
+      femaleEnglish: DontEatThisFemale,
     },
     {
       id: "5",
@@ -6419,6 +6502,7 @@ export const diseasesData = {
       image: NeedHelpEating,
       secPath: "/summary",
       maleEnglish: NeedHelpEatingMale,
+      femaleEnglish: NeedHelpEatingFemale,
     },
     {
       id: "6",
@@ -6647,6 +6731,7 @@ export const diseasesData = {
       path: "/",
       secPath: "/somethingHappenedStrokeSymptoms-problem",
       maleEnglish: StrokeSymptomsMale,
+      femaleEnglish: StrokeSymptomsFemale,
     },
     {
       id: "2",
@@ -6715,6 +6800,7 @@ export const diseasesData = {
       path: "/howoften",
       secPath: "/confrm-step-yesno",
       maleEnglish: FeedingTubeRemovedMale,
+      femaleEnglish: FeedingTubeRemovedFemale,
     },
     {
       id: "10",
@@ -6859,6 +6945,7 @@ export const diseasesData = {
       path: "/howoften",
       secPath: "/confrm-step-yesno",
       maleEnglish: RefluxMale,
+      femaleEnglish: RefluxFemale,
     },
     {
       id: "6",

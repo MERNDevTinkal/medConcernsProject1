@@ -298,9 +298,12 @@ import NeedChangedformerlySoiledbowelsImg from "../../assets/images/NeedChangedf
 import BrainFogImg from "../../assets/images/Brain Fog.png";
 import TroubleReadingImg from "../../assets/images/Trouble Reading.png";
 import TroubleWritingImg from "../../assets/images/Trouble Writing.png";
+import LostHearingAidsImg from "../../assets/images/Lost Hearing Aids.png";
+import BrainTiredImg from "../../assets/images/Brain Tired.png";
 
 export {
   achyImg,
+  BrainTiredImg,
   NeedsChargingImg,
   dashimg01,
   dashimg03,
@@ -587,4 +590,5 @@ export {
   BrainFogImg,
   TroubleReadingImg,
   TroubleWritingImg,
+  LostHearingAidsImg,
 };

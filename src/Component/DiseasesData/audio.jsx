@@ -157,7 +157,6 @@ import WhenWalkingMale from "../../assets/audio/English/male/When Walking.wav";
 import WithMentalActivityMale from "../../assets/audio/English/male/With Mental Activity.wav";
 
 // female
-import WithBloodSugarOrPressureFemale from "../../assets/audio/English/female/(DON_T USE THIS) With Blood Sugar or Pressure.wav";
 import ColostomyOstomyBagFemale from "../../assets/audio/English/female/09 Colostomy _ Ostomy Bag.wav";
 import WithSalivaFemale from "../../assets/audio/English/female/1 With Saliva.wav";
 import ToiletUrinalFemale from "../../assets/audio/English/female/10 Toilet _ Urinal.wav";
@@ -710,7 +709,6 @@ export {
   WithMentalActivityMale,
 
   // female
-  WithBloodSugarOrPressureFemale,
   ColostomyOstomyBagFemale,
   WithSalivaFemale,
   ToiletUrinalFemale,
