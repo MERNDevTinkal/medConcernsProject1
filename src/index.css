@@ -222,6 +222,9 @@ body::-webkit-scrollbar-thumb {
   background-color: #00a8e9;
   border-radius: 25px;
 }
+.maybe-text {
+  color: #203964;
+}
 
 img {
   max-width: 100%;

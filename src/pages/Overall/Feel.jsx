@@ -7,7 +7,7 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-
+import Header from "../../Component/Layout/Header/Header";
 const Feel = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,9 +15,12 @@ const Feel = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(false);
   const [selectedGender, setSelectedGender] = React.useState("");
-  const mainpath = location.pathname;
+  let mainpath = location.pathname;
   const { addOrUpdateSummary } = useContext(GlobalContext);
   useEffect(() => {
+    if (mainpath === "/emotions") {
+      mainpath = "/feel";
+    }
     setEmotionsicons(diseasesData[mainpath]);
   }, [mainpath]);
   const handleRoutes = async (item, path) => {
@@ -26,23 +29,23 @@ const Feel = () => {
         selectedLanguage === "Spanish" ? item?.nameEs : item?.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
         selectedLanguage === "" && selectedGender === ""
-          ? value?.maleEnglish
+          ? item?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
+          ? item?.maleSpanish
           : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
+          ? item?.femaleSpanish
           : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
+          ? item?.femaleEnglish
           : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
+          ? item?.maleEnglish
           : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
+          ? item?.maleEnglish
           : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+          ? item?.femaleEnglish
+          : item?.maleEnglish
       );
       addOrUpdateSummary(mainpath, [item]);
-      navigate(path);
+      navigate(mainpath === "/emotions" ? "/feelOptions/1" : path);
     }
   };
   useEffect(() => {
@@ -65,21 +68,14 @@ const Feel = () => {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-            <button
-              onClick={() => {
-                navigate(-1);
-              }}
-            >
-              <img src={BackArrow} />
-            </button>
-            <h2 className="text-[25px] font-normal text-black">
-              {selectedLanguage === "Spanish"
+          <Header
+            selectedLanguage={selectedLanguage}
+            name={
+              selectedLanguage === "Spanish"
                 ? "¿Cómo te sientes en general?"
-                : "How do you feel overall?"}
-            </h2>
-            <button></button>
-          </div>
+                : "How do you feel overall?"
+            }
+          />
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5 feel-list-main">
               <ul className="flex flex-col gap-10 feel-list relative before:content-[''] before:absolute before:left-[50px] before:top-0 before:h-full before:w-[27px] before:bg-[linear-gradient(180deg,_#7ebe01_0%,_#fbcc00_25%,_#fbcc00_37.5%,_#f78d11_50%,_#f78d11_75%,_#f36218_87.5%,_#e92f1a_100%)]">

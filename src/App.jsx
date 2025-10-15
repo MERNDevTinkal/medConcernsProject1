@@ -133,7 +133,7 @@ function App() {
           <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
           <Route path="/topicboard/:name/:id" element={<BreathingYesNo />} />
           <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
-          <Route path="/feelOptions" element={<FeelOptions />} />
+          <Route path="/feelOptions/:id" element={<FeelOptions />} />
           <Route path="/settingList/:name" element={<SettingList />} />
           <Route path="/introduction" element={<Introduction />} />
           <Route path="/patient-education" element={<PatientEducation />} />

@@ -1547,6 +1547,44 @@ const emotionsData = [
   },
 ];
 
+const getEmotionQuestion = [
+  {
+    id: 1,
+    name: "Do you feel depressed?",
+    image: EmotionsImg2,
+    nameEs: "¿Se siente deprimido/a?",
+    secPath: "/feelOptions/1",
+  },
+  {
+    id: 2,
+    name: "Do you feel afraid?",
+    nameEs: "¿Tiene miedo?",
+    image: EmotionsImg1,
+    secPath: "/feelOptions/2",
+  },
+  {
+    id: 3,
+    name: "Do you have difficulty sleeping?",
+    nameEs: "¿Tiene dificultad para dormir?",
+    image: Troublesleeping,
+    secPath: "/feelOptions/3",
+  },
+  {
+    id: 4,
+    name: "Do you feel guilty or worry about needing help?",
+    nameEs: "¿Se siente culpable o le preocupa tener que pedir ayuda?",
+    image: Worried_Guilty,
+    secPath: "/feelOptions/4",
+  },
+  {
+    id: 5,
+    name: "Do you feel hopeless?",
+    nameEs: "Se siente desesperanzado/a?",
+    image: HopelessImg,
+    secPath: "/feelOptions/5",
+  },
+];
+
 const needBoard = [
   {
     id: 1,
@@ -2056,44 +2094,6 @@ const feelOptions = [
     secPath: "",
     maleEnglish: VeryDownMale,
     femaleEnglish: VeryDownFemale,
-  },
-];
-
-const Optionsquestions = [
-  {
-    id: "1",
-    name: "Do you feel depressed?",
-    nameEs: "¿Te sientes deprimido?",
-    path: "/good",
-    secPath: "/emotions",
-  },
-  {
-    id: "2",
-    name: "Do you feel afraid ?",
-    nameEs: "¿Te sientes con miedo?",
-    path: "/little-off",
-    secPath: "/emotions",
-  },
-  {
-    id: "3",
-    name: "Do you have difficulty sleeping ?",
-    nameEs: "¿Tienes dificultad para dormir?",
-    path: "/not-good",
-    secPath: "/emotions",
-  },
-  {
-    id: "4",
-    name: "Do you feel guilty or worry about needing help ?",
-    nameEs: "¿Te sientes culpable o preocupado por necesitar ayuda?",
-    path: "/low-sad",
-    secPath: "/emotions",
-  },
-  {
-    id: "5",
-    name: "Do you feel hopeless ?",
-    nameEs: "¿Te sientes sin esperanza?",
-    path: "/very-down",
-    secPath: "/emotions",
   },
 ];
 
@@ -6125,9 +6125,9 @@ export const diseasesData = {
   "/trachmucussecretions-problem": trachmucusSecretionsDesises,
   "/trachBreathing-problem": fearofswallowingDesises,
   "/feel": feelOptions,
-  "/feelOptions": Optionsquestions,
   "/emotions": emotionsData,
   "/board": needBoard,
+  "/feelOptions": getEmotionQuestion,
   "/nausea-problem": [
     {
       id: "1",

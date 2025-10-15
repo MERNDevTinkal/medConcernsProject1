@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import HowAreYou1 from "../../assets/images/bad.png";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";

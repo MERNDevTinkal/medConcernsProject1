@@ -1,44 +1,74 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { diseasesData } from "../../Component/DiseasesData/diseasesData";
+import React, { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { GlobalContext } from "../../context/DiseaseContext";
 import BackArrow from "../../assets/images/back-arrow.svg";
-import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import { useNavigate, useLocation } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-
-const feelOptions = () => {
-  const location = useLocation();
+import Checked from "../../assets/images/checked.svg";
+import Close from "../../assets/images/close.svg";
+import { diseasesData } from "../../Component/DiseasesData/diseasesData";
+import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import { GlobalContext } from "../../context/DiseaseContext";
+function EmotionScreen() {
   const navigate = useNavigate();
-  const [emotionsicons, setEmotionsicons] = useState([]);
-  const mainpath = location.pathname;
+  const location = useLocation();
+  const mainPath = location.pathname;
+  const { id } = useParams();
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
+  const [loader, setLoader] = useState(true);
+  const [getQuestions, setQuestions] = useState({});
   const { addOrUpdateSummary } = useContext(GlobalContext);
-  const handleSelect = async (value, path) => {
-    if (value && path) {
-      await getTextToSpeech(
-        selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
-      );
-      addOrUpdateSummary(mainpath, [value]);
-      navigate(path);
-    }
-  };
-  useEffect(() => {
-    setEmotionsicons(diseasesData[mainpath]);
-  }, [mainpath]);
   useEffect(() => {
     getSetting(
       () => {},
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
-      setLoader
+      setLoader,
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
+    if (mainPath.includes("/feelOptions")) {
+      const getQuestions = diseasesData["/feelOptions"] ?? [];
+      if (id) {
+        const quetionandAns = getQuestions.filter((item) => item.id == id);
+        setQuestions(quetionandAns?.[0] ?? {});
+      }
+    }
   }, []);
-  const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [loader, setLoader] = useState(true);
+
+  const handleRoutes = async (item, value) => {
+    if (item) {
+      await getTextToSpeech(
+        value,
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "" && selectedGender === ""
+          ? item?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? item?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? item?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? item?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? item?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? item?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? item?.femaleEnglish
+          : item?.maleEnglish
+      );
+      addOrUpdateSummary(mainPath, [item]);
+      item?.secPath.split("/");
+      navigate(item?.secPath);
+    }
+  };
+
   return (
     <>
       {loader ? (
@@ -46,42 +76,105 @@ const feelOptions = () => {
       ) : (
         <>
           <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-            <button onClick={navigate(-1)}>
+            <div
+              onClick={() => {
+                navigate(-1);
+              }}
+              style={{ cursor: "pointer" }}
+            >
               <img src={BackArrow} />
-            </button>
-            <h2 className="text-[25px] font-normal text-black">
+            </div>
+            <h2 className="text-[25px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
-                ? "¿Cómo te sientes en general?"
-                : "How do you feel overall?"}
+                ? getQuestions?.nameEs || ""
+                : getQuestions?.name || ""}
             </h2>
             <button></button>
           </div>
-          <div className="main-wrapper home-wrapper pt-20 pb-24 px-4">
-            <div className="dashboard-wrapper feel-list-main">
-              <ul className="flex flex-col gap-6">
-                {emotionsicons.map((item) => (
-                  <li key={item?.id}>
-                    <button
-                      onClick={() => handleSelect(item, item.secPath)}
-                      className="w-full text-left p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:bg-gray-50 transition flex items-center justify-between"
-                    >
-                      <span className="text-lg font-medium text-gray-700">
-                        {selectedLanguage === "Spanish"
-                          ? item.name
-                          : item.nameEs}
-                      </span>
-                      <span className="text-gray-400">›</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+          <div className="main-wrapper home-wrapper ">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
+              <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
+                <div className="dashboard-img rounded-2xl">
+                  <img
+                    src={getQuestions?.image || ""}
+                    alt={getQuestions?.name || "alt"}
+                    className="mx-auto rounded-xl shadow-lg"
+                  />
+                </div>
+              </div>
+              <div>
+                <div className="w-full overflow-hidden decision-cards">
+                  <div
+                    onClick={() => {
+                      handleRoutes(
+                        getQuestions,
+                        selectedLanguage === "Spanish" ? "Sí" : "YES"
+                      );
+                    }}
+                  >
+                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      <div className="flex items-center">
+                        <p className="text-[32px] font-medium text-green-600">
+                          {selectedLanguage === "Spanish" ? "Sí" : "YES"}
+                        </p>
+                      </div>
+                      <div>
+                        <img src={Checked} alt="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    onClick={() => {
+                      handleRoutes(getQuestions, "NO");
+                    }}
+                  >
+                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      <div className="flex items-center">
+                        <p className="text-[32px] font-medium text-red-600">
+                          NO
+                        </p>
+                      </div>
+                      <div>
+                        <img src={Close} />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    onClick={() => {
+                      handleRoutes(
+                        getQuestions,
+                        selectedLanguage === "Spanish" ? "tal vez" : "Maybe"
+                      );
+                    }}
+                  >
+                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      <div className="flex items-center">
+                        <p className="maybe-text text-[32px] font-medium ">
+                          MAYBE
+                        </p>
+                      </div>
+                      <div>
+                        <img src={Close} />
+                      </div>
+                    </div>
+                    <div className="mt-6 text-center">
+                      <p
+                        style={{ cursor: "pointer" }}
+                        className="text-[18px] font-medium text-gray-600"
+                      >
+                        Skip Screening Questions →
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <Footer />
           </div>
         </>
       )}
-      <Footer />
     </>
   );
-};
+}
 
-export default feelOptions;
+export default EmotionScreen;
