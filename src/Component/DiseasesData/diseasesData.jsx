@@ -290,8 +290,10 @@ import {
   TroubleWritingImg,
 } from "./images";
 
-// audiof
+// audiof============================================================================
 import {
+  HeavyThickmale,
+  HopelessMale,
   AppetiteFemaleEnglish,
   BreathingTreatmentFemaleEnglish,
   CatheterFemale,
@@ -446,7 +448,7 @@ import {
   WhenToiletingMale,
   WhenWalkingMale,
   WithMentalActivityMale,
-
+  CPAPBiPAPmale,
   // female
   ColostomyOstomyBagFemale,
   WithSalivaFemale,
@@ -573,7 +575,7 @@ import {
   AfterMealsFemale,
   BrainFogFemale,
   BrainTiredFemale,
-  BreathingTreatmentFemale,
+  BreathingTreatmentmale,
   DressingChangeFemale,
   GetsWorseThroughTheDayFemale,
   JustFatigueFemale,
@@ -644,6 +646,7 @@ import {
   NoComerEstoFemaleSpanish,
   NoPermitidoComerBeberFemaleSpanish,
   BandejaEquivocadaFemaleSpanish,
+  Pesado_GruesoMale,
   DietaEspecialFemaleSpanish,
   VegetarianaVeganaFemaleSpanish,
   SinLacteosFemaleSpanish,
@@ -710,7 +713,7 @@ import {
   EmpeoraLargoDiaFemaleSpanish,
   NieblaMentalFemaleSpanish,
   SoloFatigaFemaleSpanish,
-
+  Pesado_GruesofeMaleSpanish,
   // male spanish
   ConSalivaMaleSpanish,
   InodoroOrUrinarioMaleSpanish,
@@ -755,6 +758,7 @@ import {
   RevisarMiAudicionMaleSpanish,
   NecesitaCargarseMaleSpanish,
   NecesitoMisAudifonosMaleSpanish,
+  dressingchangeSpanishfeMale,
   PerdiMisAudifonosMaleSpanish,
   EscribeloMaleSpanish,
   SintomasAccidenteCerebrovascularMaleSpanish,
@@ -807,6 +811,7 @@ import {
   SinPreocupacionesMaleSpanish,
   AlAcostarseMaleSpanish,
   AlDormirMaleSpanish,
+  DressingChangeMale,
   AlCaminarMaleSpanish,
   AlTransferirReposicionarMaleSpanish,
   ConMovimientoMaleSpanish,
@@ -841,6 +846,8 @@ import {
   DespuesComerMaleSpanish,
   EmpeoraLargoDiaMaleSpanish,
   NieblaMentalMaleSpanish,
+  JustFatigueMale,
+  ConsalivaMale,
 } from "./audio.jsx";
 
 export const breathingWhenOptions = [
@@ -1549,13 +1556,17 @@ const emotionsData = [
   },
   {
     id: 10,
-    name: "Feel Hopeless",
-    nameEs: "Sentirse sin esperanza",
+    name: "Hopeless",
+    nameEs: "sin esperanza",
     secPath: "/confrm-step-yesno",
     image: HopelessImg,
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
+    maleEnglish: HopelessMale,
+    femaleEnglish: HopelessFemale,
+    femaleSpanish: SinEsperanzaFemaleSpanish,
+    maleSpanish: SinEsperanzaMaleSpanish,
   },
   {
     id: 11,
@@ -1763,6 +1774,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: TVMale,
     femaleEnglish: TVFemale,
+    femaleSpanish: TelevisorFemaleSpanish,
+    maleSpanish: TelevisorMaleSpanish,
   },
   {
     id: 17,
@@ -1773,6 +1786,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: MusicMale,
     femaleEnglish: MusicFemale,
+    femaleSpanish: MusicaFemaleSpanish,
+    maleSpanish: MusicaMaleSpanish,
   },
   {
     id: 18,
@@ -1793,12 +1808,14 @@ const needBoard = [
   {
     id: 20,
     name: "Dentures",
-    nameEs: "Dentadura postiza",
+    nameEs: "Dentadura",
     image: Dentures,
     secPath: "/board/confrm-step-yesno/20",
     path: "/summary",
     maleEnglish: DenturesMale,
     femaleEnglish: DenturesFemale,
+    femaleSpanish: DentadurasFemaleSpanish,
+    maleSpanish: DentadurasMaleSpanish,
   },
   {
     id: 21,
@@ -1809,6 +1826,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: ChangeClothesMale,
     femaleEnglish: ChangeClothesFemale,
+    femaleSpanish: CambiarRopaFemaleSpanish,
+    maleSpanish: CambiarRopaMaleSpanish,
   },
   {
     id: 22,
@@ -1819,6 +1838,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: AdjustClothesMale,
     femaleEnglish: AdjustClothesFemale,
+    maleSpanish: AjustarRopaMaleSpanish,
+    femaleSpanish: AjustarRopaFemaleSpanish,
   },
   {
     id: 23,
@@ -1829,6 +1850,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: ChangeUnderwearMale,
     femaleEnglish: ChangeUnderwearFemale,
+    femaleSpanish: CambiarRopaInteriorFemaleSpanish,
+    maleSpanish: CambiarRopaInteriorMaleSpanish,
   },
   {
     id: 24,
@@ -1839,6 +1862,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: NeedSocksMale,
     femaleEnglish: NeedSocksFemale,
+    femaleSpanish: NecesitoCalcetinesFemaleSpanish,
+    maleSpanish: NecesitoCalcetinesMaleSpanish,
   },
   {
     id: 25,
@@ -1873,6 +1898,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: OpenForMeMale,
     femaleEnglish: OpenForMeFemale,
+    femaleSpanish: AbreloPorMiFemaleSpanish,
+    maleSpanish: AbreloPorMiMaleSpanish,
   },
   {
     id: 29,
@@ -1883,6 +1910,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: PhoneTabletMale,
     femaleEnglish: PhoneTabletFemale,
+    femaleSpanish: TelefonoOrTabletaFemaleSpanish,
+    maleSpanish: TelefonoOrTabletaMaleSpanish,
   },
   {
     id: 30,
@@ -1893,6 +1922,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: PlugInPhoneTabletMale,
     femaleEnglish: PlugInPhoneTabletFemale,
+    femaleSpanish: ConectarTelefonoTabletaFemaleSpanish,
+    maleSpanish: ConectarTelefonoTabletaMaleSpanish,
   },
   {
     id: 31,
@@ -1903,6 +1934,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: ChargeHearingAidsMale,
     femaleEnglish: ChargeHearingAidsFemale,
+    femaleSpanish: CargarAudifonosFemaleSpanish,
+    maleSpanish: CargarAudifonosMaleSpanish,
   },
   {
     id: 32,
@@ -1913,6 +1946,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: InhalerBreathingTreatmentMale,
     femaleEnglish: InhalerBreathingTreatmentFemale,
+    femaleSpanish: InhaladorOrTratamientoRespiratorioFemaleSpanish,
+    maleSpanish: InhaladorOrTratamientoRespiratorioMaleSpanish,
   },
   {
     id: 33,
@@ -1945,22 +1980,26 @@ const needBoard = [
   {
     id: 36,
     name: "Blood Sugar",
-    nameEs: "Glucemia",
+    nameEs: "Azúcar en Sangre",
     image: BloodSugar,
     secPath: "/board/confrm-step-yesno/36",
     path: "/summary",
     maleEnglish: BloodSugarMale,
     femaleEnglish: BloodSugarFemale,
+    femaleSpanish: AzucarEnSangreFemaleSpanish,
+    maleSpanish: AzucarEnSangreMaleSpanish,
   },
   {
     id: 37,
     name: "Blood Pressure",
-    nameEs: "Presión arterial",
+    nameEs: "Presión Arterial",
     image: BloodPressure,
     secPath: "/board/confrm-step-yesno/37",
     path: "/summary",
     maleEnglish: BloodPressureMale,
     femaleEnglish: BloodPressureFemale,
+    femaleSpanish: PresionArterialFemaleSpanish,
+    maleSpanish: PresionArterialMaleSpanish,
   },
   {
     id: 38,
@@ -1991,6 +2030,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: HelmetMale,
     femaleEnglish: HelmetFemale,
+    femaleSpanish: CascoFemaleSpanish,
+    maleSpanish: CascoMaleSpanish,
   },
   {
     id: 41,
@@ -2001,16 +2042,20 @@ const needBoard = [
     path: "/summary",
     maleEnglish: CervicalCollarMale,
     femaleEnglish: CervicalCollarFemale,
+    femaleSpanish: CollarCervicalFemaleSpanish,
+    maleSpanish: CollarCervicalMaleSpanish,
   },
   {
     id: 42,
     name: "Nurse",
-    nameEs: "Enfermera/Enfermero",
+    nameEs: "Enfermera",
     image: NurseImg,
     secPath: "/board/confrm-step-yesno/42",
     path: "/summary",
     maleEnglish: NurseMale,
     femaleEnglish: NurseFemale,
+    femaleSpanish: EnfermeraFemaleSpanish,
+    maleSpanish: EnfermeraMaleSpanish,
   },
   {
     id: 43,
@@ -2021,6 +2066,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: DoctorMale,
     femaleEnglish: DoctorFemale,
+    femaleSpanish: DoctorFemaleSpanish,
+    maleSpanish: DoctorMale,
   },
   {
     id: 44,
@@ -2031,6 +2078,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: NursingAideMale,
     femaleEnglish: NursingAideFemale,
+    femaleSpanish: AsistenteEnfermeriaFemaleSpanish,
+    maleSpanish: AsistenteEnfermeriaMaleSpanish,
   },
   {
     id: 45,
@@ -2041,6 +2090,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: SpeechTherapistMale,
     femaleEnglish: SpeechTherapistFemale,
+    femaleSpanish: TerapeutaHablaFemaleSpanish,
+    maleSpanish: TerapeutaHablaMaleSpanish,
   },
   {
     id: 46,
@@ -2051,6 +2102,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: OccupationalPhysicalTherapistMale,
     femaleEnglish: OccupationalPhysicalTherapistFemale,
+    femaleSpanish: TerapeutaOcupacionalFisicoFemaleSpanish,
+    maleSpanish: TerapeutaOcupacionalFisicoMaleSpanish,
   },
   {
     id: 47,
@@ -2266,6 +2319,8 @@ const swallowingDesises = [
     path: "/howoften",
     maleEnglish: WithSalivaMale,
     femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMale,
   },
   {
     id: "4",
@@ -2418,6 +2473,9 @@ const painwithswallowingDesises = [
     secPath: "/pain-feel",
     path: "/when",
     maleEnglish: WithSalivaMale,
+    femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMale,
   },
   {
     id: "6",
@@ -2479,6 +2537,9 @@ const trachSwallowingFoodStickingDesises = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: WithSalivaMale,
+    femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMale,
   },
   {
     id: "6",
@@ -2540,6 +2601,9 @@ const fearofswallowingDesises = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: WithSalivaMale,
+    femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMale,
   },
   {
     id: "6",
@@ -2602,6 +2666,8 @@ const drymouthDesises = [
     path: "/howoften",
     maleEnglish: WithSalivaMale,
     femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMale,
   },
   {
     id: "6",
@@ -3089,6 +3155,8 @@ const trachswallowingDesises = [
     secPath: "/confrm-step-yesno",
     maleEnglish: WithSalivaMale,
     femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMale,
   },
   {
     id: "6",
@@ -3152,6 +3220,8 @@ const medicationPainwithSwallowingDesises = [
     secPath: "/pain-feel",
     maleEnglish: WithSalivaMale,
     femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMale,
   },
   {
     id: "6",
@@ -3258,7 +3328,7 @@ const trachDesies = [
     path: "/when",
     image: BreathingTreatment,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: BreathingTreatmentmale,
     femaleEnglish: BreathingTreatmentFemaleEnglish,
   },
   {
@@ -4221,6 +4291,8 @@ const fatigueTroubleSleeping = [
     image: Troublesleeping,
     maleEnglish: InsomniaMale,
     femaleEnglish: InsomniaFemale,
+    femaleSpanish: InsomnioFemaleSpanish,
+    maleSpanish: InsomnioMaleSpanish,
   },
   {
     id: "2",
@@ -4231,6 +4303,8 @@ const fatigueTroubleSleeping = [
     image: TooNoisyImg,
     maleEnglish: NoisyMale,
     femaleEnglish: NoisyFemale,
+    femaleSpanish: RuidosoFemaleSpanish,
+    maleSpanish: RuidosoMaleSpanish,
   },
   {
     id: "3",
@@ -5650,11 +5724,14 @@ export const diseasesData = {
     {
       id: "7",
       name: "Heavy / Thick",
-      nameEs: "Pesado / Espeso",
+      nameEs: "Pesado / Grueso",
       image: dashimg07,
       secPath: "/confrm-step-yesno",
       path: "/when",
       femaleEnglish: HeavyThickFemale,
+      maleEnglish: HeavyThickmale,
+      maleSpanish: Pesado_GruesoMale,
+      femaleSpanish: Pesado_GruesofeMaleSpanish,
     },
     {
       id: "8",
@@ -5664,6 +5741,9 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
       path: "/howoften",
       femaleEnglish: CPAPBiPAPFemale,
+      maleEnglish: CPAPBiPAPmale,
+      maleSpanish: CPAPBiPAPmale,
+      femaleSpanish: CPAPBiPAPFemale,
     },
     {
       id: "9",
@@ -5673,6 +5753,9 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
       path: "/when",
       femaleEnglish: BreathingTreatmentFemaleEnglish,
+      maleEnglish: BreathingTreatmentmale,
+      maleSpanish: TerapeutaRespiratorioMaleSpanish,
+      femaleSpanish: TerapeutaRespiratorioFemaleSpanish,
     },
     {
       id: "10",
@@ -6362,6 +6445,8 @@ export const diseasesData = {
       path: "/when",
       maleEnglish: ToiletUrinalMale,
       femaleEnglish: ToiletUrinalFemale,
+      femaleSpanish: InodoroOrUrinarioFemaleSpanish,
+      maleSpanish: InodoroOrUrinarioMaleSpanish,
     },
     {
       id: "9",
@@ -6467,6 +6552,10 @@ export const diseasesData = {
       image: morethanusualImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: JustFatigueMale,
+      femaleEnglish: JustFatigueFemale,
+      femaleSpanish: SoloFatigaFemaleSpanish,
+      maleSpanish: SoloFatigaMaleSpanish,
     },
     {
       id: "12",
@@ -6897,10 +6986,13 @@ export const diseasesData = {
     {
       id: "7",
       name: "Dressing Change",
-      nameEs: "Cambio de Vendaje",
+      nameEs: "Cambio de vendaje",
       image: dressing_changeImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      femaleEnglish: DressingChangeFemale,
+      maleEnglish: DressingChangeMale,
+      femaleSpanish: dressingchangeSpanishfeMale,
     },
     {
       id: "8",

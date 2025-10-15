@@ -3,6 +3,7 @@ import BreathingTreatmentFemaleEnglish from "../../assets/audio/English/female/b
 import CatheterFemale from "../../assets/audio/English/female/Catheter.mp3";
 import CongestedOrRunnyNoseFemale from "../../assets/audio/English/female/Congested or runny nose .mp3";
 import CPAPBiPAPFemale from "../../assets/audio/English/female/CPAP_BiPAP.mp3";
+import CPAPBiPAPmale from "../../assets/audio/English/male/CPAP_BiPAP.mp3";
 import DizzyFemale from "../../assets/audio/English/female/Dizzy.mp3";
 import DontWantFemale from "../../assets/audio/English/female/Don_t want.mp3";
 import DryMouthFemale from "../../assets/audio/English/female/Dry Mouth.mp3";
@@ -12,6 +13,7 @@ import FeverFemale from "../../assets/audio/English/female/Fever.mp3";
 import GriefFemale from "../../assets/audio/English/female/Grief.mp3";
 import HearingFemale from "../../assets/audio/English/female/Hearing.mp3";
 import HeavyThickFemale from "../../assets/audio/English/female/Heavy_Thick.mp3";
+import HeavyThickmale from "../../assets/audio/English/male/Heavy_Thick.mp3";
 import ItchyFemale from "../../assets/audio/English/female/itchy.mp3";
 import LeakingFemale from "../../assets/audio/English/female/Leaking.mp3";
 import PainWithSwallowingFemale from "../../assets/audio/English/female/Pain with Swallowing.mp3";
@@ -29,10 +31,13 @@ import TrachFemale from "../../assets/audio/English/female/trach.mp3";
 import VisionFemale from "../../assets/audio/English/female/Vision.mp3";
 import WaitedTooLongFemale from "../../assets/audio/English/female/waited too long.mp3";
 import YellowFemale from "../../assets/audio/English/female/Yellow .mp3";
+import Pesado_GruesoMale from "../../assets/audio/spanish/male/Pesado_Grueso (Heavy_Thick).wav";
+import JustFatigueMale from "../../assets/audio/English/male/Just Fatigue.wav";
 
 // male audio
 
 import ColostomyOstomyBagMale from "../../assets/audio/English/male/09 Colostomy _ Ostomy Bag.wav";
+import HopelessMale from "../../assets/audio/English/male/36 Hopeless.wav";
 import WithSalivaMale from "../../assets/audio/English/male/1 With Saliva.wav";
 import ToiletUrinalMale from "../../assets/audio/English/male/10 Toilet _ Urinal.wav";
 import TVMale from "../../assets/audio/English/male/100 TV.wav";
@@ -282,7 +287,7 @@ import LightsFemale from "../../assets/audio/English/female/99 Lights.wav";
 import AfterMealsFemale from "../../assets/audio/English/female/After Meals.wav";
 import BrainFogFemale from "../../assets/audio/English/female/Brain Fog.wav";
 import BrainTiredFemale from "../../assets/audio/English/female/Brain Tired.wav";
-import BreathingTreatmentFemale from "../../assets/audio/English/female/Breathing Treatment.wav";
+import BreathingTreatmentmale from "../../assets/audio/English/male/Breathing Treatment.wav";
 import DressingChangeFemale from "../../assets/audio/English/female/Dressing Change.wav";
 import GetsWorseThroughTheDayFemale from "../../assets/audio/English/female/Gets Worse Through the Day.wav";
 import JustFatigueFemale from "../../assets/audio/English/female/Just Fatigue.wav";
@@ -551,13 +556,24 @@ import ConActividadMentalMaleSpanish from "../../assets/audio/Spanish/male/Con a
 import DespuesComerMaleSpanish from "../../assets/audio/Spanish/male/Despues de comer (1).wav";
 import EmpeoraLargoDiaMaleSpanish from "../../assets/audio/Spanish/male/Empeora a lo largo del dia.wav";
 import NieblaMentalMaleSpanish from "../../assets/audio/Spanish/male/Niebla Mental.wav";
-
+import Pesado_GruesofeMaleSpanish from "../../assets/audio/Spanish/female/Pesado_Grueso (Heavy_Thick - female).mp3";
+import DressingChangeMale from "../../assets/audio/English/male/Dressing Change.mp3";
+import dressingchangeSpanishfeMale from "../../assets/audio/spanish/female/cambio de vendaje (dressing change).wav";
+import ConsalivaMale from "../../assets/audio/spanish/male/1 Con saliva.wav";
 export {
+  ConsalivaMale,
+  JustFatigueMale,
+  dressingchangeSpanishfeMale,
+  DressingChangeMale,
+  Pesado_GruesofeMaleSpanish,
+  Pesado_GruesoMale,
   AppetiteFemaleEnglish,
+  HeavyThickmale,
   BreathingTreatmentFemaleEnglish,
   CatheterFemale,
   CongestedOrRunnyNoseFemale,
   CPAPBiPAPFemale,
+  CPAPBiPAPmale,
   DizzyFemale,
   DontWantFemale,
   DryMouthFemale,
@@ -707,7 +723,7 @@ export {
   WhenToiletingMale,
   WhenWalkingMale,
   WithMentalActivityMale,
-
+  HopelessMale,
   // female
   ColostomyOstomyBagFemale,
   WithSalivaFemale,
@@ -834,7 +850,7 @@ export {
   AfterMealsFemale,
   BrainFogFemale,
   BrainTiredFemale,
-  BreathingTreatmentFemale,
+  BreathingTreatmentmale,
   DressingChangeFemale,
   GetsWorseThroughTheDayFemale,
   JustFatigueFemale,
