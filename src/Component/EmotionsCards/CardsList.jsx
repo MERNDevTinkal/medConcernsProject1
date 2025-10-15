@@ -31,7 +31,8 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
         ? item?.femaleEnglish
         : item?.maleEnglish
     );
-    addOrUpdateSummary(mainpath, [item]);
+    const datevalue = new Date();
+    addOrUpdateSummary(`${mainpath}-${datevalue}`, [item]);
     navigate(path);
   };
 

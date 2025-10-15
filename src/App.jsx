@@ -139,6 +139,7 @@ function App() {
           <Route path="/patient-education" element={<PatientEducation />} />
           <Route path="/contact-us" element={<Contactus />} />
           <Route path="/about-us" element={<Aboutus />} />
+          <Route path="/feeling-body" element={<EmotionsList />} />
         </Route>
       </Routes>
     </Router>

@@ -33,14 +33,18 @@ function EmotionScreen() {
       () => {},
       () => {}
     );
+  }, []); // runs once
+
+  useEffect(() => {
     if (mainPath.includes("/feelOptions")) {
-      const getQuestions = diseasesData["/feelOptions"] ?? [];
+      const questionsList = diseasesData["/feelOptions"] ?? [];
       if (id) {
-        const quetionandAns = getQuestions.filter((item) => item.id == id);
-        setQuestions(quetionandAns?.[0] ?? {});
+        const questionAndAns = questionsList.find((item) => item.id == id);
+        setQuestions(questionAndAns ?? {});
       }
+      setLoader(false);
     }
-  }, []);
+  }, [id, mainPath]);
 
   const handleRoutes = async (item, value) => {
     if (item) {
@@ -63,10 +67,18 @@ function EmotionScreen() {
           ? item?.femaleEnglish
           : item?.maleEnglish
       );
+      setLoader(true);
       addOrUpdateSummary(mainPath, [item]);
-      item?.secPath.split("/");
-      navigate(item?.secPath);
+      navigate(
+        parseInt(id) === 5
+          ? "/feeling-body"
+          : `/feelOptions/${parseInt(id) + 1}`
+      );
     }
+  };
+
+  const handleSkip = () => {
+    navigate("/feeling-body");
   };
 
   return (
@@ -139,15 +151,16 @@ function EmotionScreen() {
                       </div>
                     </div>
                   </div>
-                  <div
-                    onClick={() => {
-                      handleRoutes(
-                        getQuestions,
-                        selectedLanguage === "Spanish" ? "tal vez" : "Maybe"
-                      );
-                    }}
-                  >
-                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                  <div>
+                    <div
+                      onClick={() => {
+                        handleRoutes(
+                          getQuestions,
+                          selectedLanguage === "Spanish" ? "tal vez" : "Maybe"
+                        );
+                      }}
+                      className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                    >
                       <div className="flex items-center">
                         <p className="maybe-text text-[32px] font-medium ">
                           MAYBE
@@ -157,7 +170,12 @@ function EmotionScreen() {
                         <img src={Close} />
                       </div>
                     </div>
-                    <div className="mt-6 text-center">
+                    <div
+                      onClick={() => {
+                        handleSkip();
+                      }}
+                      className="mt-6 text-center"
+                    >
                       <p
                         style={{ cursor: "pointer" }}
                         className="text-[18px] font-medium text-gray-600"
