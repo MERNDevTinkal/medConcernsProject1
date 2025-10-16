@@ -287,6 +287,7 @@ import LightsFemale from "../../assets/audio/English/female/99 Lights.wav";
 import AfterMealsFemale from "../../assets/audio/English/female/After Meals.wav";
 import BrainFogFemale from "../../assets/audio/English/female/Brain Fog.wav";
 import BrainTiredFemale from "../../assets/audio/English/female/Brain Tired.wav";
+import BrainTiredmale from "../../assets/audio/English/male/Brain Tired.wav";
 import BreathingTreatmentmale from "../../assets/audio/English/male/Breathing Treatment.wav";
 import DressingChangeFemale from "../../assets/audio/English/female/Dressing Change.wav";
 import GetsWorseThroughTheDayFemale from "../../assets/audio/English/female/Gets Worse Through the Day.wav";
@@ -427,7 +428,6 @@ import SoloFatigaFemaleSpanish from "../../assets/audio/Spanish/female/Solo fati
 
 // male spanish
 
-import ConSalivaMaleSpanish from "../../assets/audio/Spanish/male/1 Con saliva.wav";
 import InodoroOrUrinarioMaleSpanish from "../../assets/audio/Spanish/male/10 Inodoro o urinario.wav";
 import TelevisorMaleSpanish from "../../assets/audio/Spanish/male/100 Televisor.wav";
 import MusicaMaleSpanish from "../../assets/audio/Spanish/male/101 Música.wav";
@@ -559,12 +559,13 @@ import NieblaMentalMaleSpanish from "../../assets/audio/Spanish/male/Niebla Ment
 import Pesado_GruesofeMaleSpanish from "../../assets/audio/Spanish/female/Pesado_Grueso (Heavy_Thick - female).mp3";
 import DressingChangeMale from "../../assets/audio/English/male/Dressing Change.mp3";
 import dressingchangeSpanishfeMale from "../../assets/audio/spanish/female/cambio de vendaje (dressing change).wav";
-import ConsalivaMale from "../../assets/audio/spanish/male/1 Con saliva.wav";
+import ConsalivaMaleSpanish from "../../assets/audio/spanish/male/1 Con saliva.wav";
 import LostHearingAidsMale from "../../assets/audio/English/male/26 Lost Hearing Aids.wav";
 
 export {
+  BrainTiredmale,
   LostHearingAidsMale,
-  ConsalivaMale,
+  ConsalivaMaleSpanish,
   JustFatigueMale,
   dressingchangeSpanishfeMale,
   DressingChangeMale,
@@ -992,7 +993,6 @@ export {
   SoloFatigaFemaleSpanish,
 
   // male spanish
-  ConSalivaMaleSpanish,
   InodoroOrUrinarioMaleSpanish,
   TelevisorMaleSpanish,
   MusicaMaleSpanish,

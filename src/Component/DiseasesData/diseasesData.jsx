@@ -576,6 +576,7 @@ import {
   AfterMealsFemale,
   BrainFogFemale,
   BrainTiredFemale,
+  BrainTiredmale,
   BreathingTreatmentmale,
   DressingChangeFemale,
   GetsWorseThroughTheDayFemale,
@@ -716,7 +717,6 @@ import {
   SoloFatigaFemaleSpanish,
   Pesado_GruesofeMaleSpanish,
   // male spanish
-  ConSalivaMaleSpanish,
   InodoroOrUrinarioMaleSpanish,
   TelevisorMaleSpanish,
   MusicaMaleSpanish,
@@ -848,7 +848,7 @@ import {
   EmpeoraLargoDiaMaleSpanish,
   NieblaMentalMaleSpanish,
   JustFatigueMale,
-  ConsalivaMale,
+  ConsalivaMaleSpanish,
 } from "./audio.jsx";
 
 export const breathingWhenOptions = [
@@ -910,6 +910,8 @@ export const breathingWhenOptions = [
     nameEs: "Empeora a lo Largo del Día",
     maleEnglish: GetsWorseThroughTheDayMale,
     femaleEnglish: GetsWorseThroughTheDayFemale,
+    femaleSpanish: EmpeoraLargoDiaFemaleSpanish,
+    maleSpanish: EmpeoraLargoDiaMaleSpanish,
   },
   {
     id: 8,
@@ -973,6 +975,8 @@ export const breathingWhenOptions = [
     nameEs: "Con Actividad Mental",
     maleEnglish: WithMentalActivityMale,
     femaleEnglish: WithMentalActivityFemale,
+    femaleSpanish: ConActividadMentalFemaleSpanish,
+    maleSpanish: ConActividadMentalMaleSpanish,
   },
   {
     id: 15,
@@ -1033,6 +1037,8 @@ export const breathingWhenOptions = [
     nameEs: "Después de Comer",
     maleEnglish: AfterMealsMale,
     femaleEnglish: AfterMealsFemale,
+    femaleSpanish: DespuesComerFemaleSpanish,
+    maleSpanish: DespuesComerMaleSpanish,
   },
   {
     id: 21,
@@ -1043,6 +1049,7 @@ export const breathingWhenOptions = [
     maleEnglish: WhenToiletingMale,
     femaleEnglish: WhenToiletingFemale,
     maleSpanish: AlUsarBanoMaleSpanish,
+    femaleSpanish: AlUsarBanoFemaleSpanish,
   },
   {
     id: 22,
@@ -1458,6 +1465,8 @@ export const topicBoard = [
     path: "/topicboard/food/20",
     maleEnglish: FoodMale,
     femaleEnglish: FoodFemale,
+    femaleSpanish: ComidaFemaleSpanish,
+    maleSpanish: ComidaMaleSpanish,
   },
   { id: 21, name: "Alcohol", nameEs: "Alcohol", path: "/Whiteboard" },
 ];
@@ -1664,6 +1673,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: BathroomMale,
     femaleEnglish: BathroomFemale,
+    femaleSpanish: BanoFemaleSpanish,
+    maleSpanish: BanoMaleSpanish,
   },
   {
     id: 2,
@@ -1674,6 +1685,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: BedMale,
     femaleEnglish: BedFemale,
+    femaleSpanish: CamaFemaleSpanish,
+    maleSpanish: CamaMaleSpanish,
   },
   {
     id: 3,
@@ -1684,6 +1697,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: FoodMale,
     femaleEnglish: FoodFemale,
+    femaleSpanish: ComidaFemaleSpanish,
+    maleSpanish: ComidaMaleSpanish,
   },
   {
     id: 4,
@@ -1694,6 +1709,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: DrinkMale,
     femaleEnglish: DrinkFemale,
+    femaleSpanish: BebidaFemaleSpanish,
+    maleSpanish: BebidaMaleSpanish,
   },
   {
     id: 5,
@@ -1704,6 +1721,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: PainMedsMale,
     femaleEnglish: PainMedsFemale,
+    femaleSpanish: MedicamentosDolorFemaleSpanish,
+    maleSpanish: MedicamentosDolorMaleSpanish,
   },
   {
     id: 6,
@@ -1726,12 +1745,14 @@ const needBoard = [
   {
     id: 8,
     name: "Reposition",
-    nameEs: "Reacomodar",
+    nameEs: "Reposicionar",
     image: RepositionImg,
     secPath: "/board/confrm-step-yesno/8",
     path: "/summary",
     maleEnglish: RepositionMale,
     femaleEnglish: RepositionFemale,
+    femaleSpanish: ReposicionarFemaleSpanish,
+    maleSpanish: ReposicionarMaleSpanish,
   },
   {
     id: 9,
@@ -1742,6 +1763,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: IceMale,
     femaleEnglish: IceFemale,
+    femaleSpanish: HieloFemaleSpanish,
+    maleSpanish: HieloMaleSpanish,
   },
   {
     id: 10,
@@ -1752,6 +1775,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: IcePackMale,
     femaleEnglish: IcePackFemale,
+    femaleSpanish: BolsaHieloFemaleSpanish,
+    maleSpanish: BolsaHieloMaleSpanish,
   },
   {
     id: 11,
@@ -1762,6 +1787,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: HeatingPadMale,
     femaleEnglish: HeatingPadFemale,
+    femaleSpanish: AlmohadillaTermicaFemaleSpanish,
+    maleSpanish: AlmohadillaTermicaMaleSpanish,
   },
   {
     id: 12,
@@ -1772,6 +1799,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: BlanketPillowMale,
     femaleEnglish: BlanketPillowFemale,
+    femaleSpanish: MantaAlmohadaFemaleSpanish,
+    maleSpanish: MantaAlmohadaMaleSpanish,
   },
   {
     id: 13,
@@ -1782,6 +1811,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: RoomTemperatureMale,
     femaleEnglish: RoomTemperatureFemale,
+    femaleSpanish: TemperaturaHabitacionFemaleSpanish,
+    maleSpanish: TemperaturaHabitacionMaleSpanish,
   },
   {
     id: 14,
@@ -1792,16 +1823,20 @@ const needBoard = [
     path: "/summary",
     maleEnglish: TissueMale,
     femaleEnglish: TissueFemale,
+    femaleSpanish: PanueloFemaleSpanish,
+    maleSpanish: PanueloMaleSpanish,
   },
   {
     id: 15,
     name: "Lights",
-    nameEs: "Luz",
+    nameEs: "Luces",
     image: LightImg,
     secPath: "/board/confrm-step-yesno/15",
     path: "/summary",
     maleEnglish: LightsMale,
     femaleEnglish: LightsFemale,
+    femaleSpanish: LucesFemaleSpanish,
+    maleSpanish: LucesMaleSpanish,
   },
   {
     id: 16,
@@ -2014,6 +2049,8 @@ const needBoard = [
     path: "/summary",
     maleEnglish: ColostomyOstomyBagMale,
     femaleEnglish: ColostomyOstomyBagFemale,
+    femaleSpanish: BolsaColostomiaFemaleSpanish,
+    maleSpanish: BolsaColostomiaMaleSpanish,
   },
   {
     id: 36,
@@ -2105,7 +2142,7 @@ const needBoard = [
     maleEnglish: DoctorMale,
     femaleEnglish: DoctorFemale,
     femaleSpanish: DoctorFemaleSpanish,
-    maleSpanish: DoctorMale,
+    maleSpanish: DoctorMaleSpanish,
   },
   {
     id: 44,
@@ -2368,7 +2405,7 @@ const swallowingDesises = [
     maleEnglish: WithSalivaMale,
     femaleEnglish: WithSalivaFemale,
     femaleSpanish: ConSalivaFemaleSpanish,
-    maleSpanish: ConsalivaMale,
+    maleSpanish: ConsalivaMaleSpanish,
   },
   {
     id: "4",
@@ -5476,6 +5513,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: BrainFogMale,
     femaleEnglish: BrainFogFemale,
+    femaleSpanish: NieblaMentalFemaleSpanish,
+    maleSpanish: NieblaMentalMaleSpanish,
   },
   {
     id: "7",
@@ -5756,6 +5795,8 @@ const feedingBowels = [
     path: "/when",
     image: Colostomy_OstomyBag,
     secPath: "/summary",
+    maleEnglish: ColostomyOstomyBagMale,
+    femaleEnglish: ColostomyOstomyBagFemale,
   },
   {
     id: "8",
@@ -6509,6 +6550,9 @@ export const diseasesData = {
       secPath: "/summary",
       path: "/when",
       maleEnglish: ColostomyOstomyBagMale,
+      femaleEnglish: ColostomyOstomyBagFemale,
+      femaleSpanish: BolsaColostomiaFemaleSpanish,
+      maleSpanish: BolsaColostomiaMaleSpanish,
     },
     {
       id: "9",
@@ -6669,8 +6713,10 @@ export const diseasesData = {
       image: BrainTiredImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: BrainTiredmale,
       femaleEnglish: BrainTiredFemale,
+      femaleSpanish: CerebroCansadoFemaleSpanish,
+      maleSpanish: CerebroCansadoMaleSpanish,
     },
     {
       id: "7",
@@ -7182,6 +7228,9 @@ export const diseasesData = {
       path: "/howoften",
       secPath: "/summary",
       maleEnglish: RepositionMale,
+      femaleEnglish: RepositionFemale,
+      femaleSpanish: ReposicionarFemaleSpanish,
+      maleSpanish: ReposicionarMaleSpanish,
     },
     {
       id: "9",
