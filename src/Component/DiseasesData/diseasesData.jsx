@@ -885,6 +885,8 @@ export const breathingWhenOptions = [
     nameEs: "Siempre / Crónico",
     maleEnglish: AlwaysChronicMale,
     femaleEnglish: AlwaysChronicFemale,
+    femaleSpanish: SiempreCronicoFemaleSpanish,
+    maleSpanish: SiempreCronicoMaleSpanish,
   },
   {
     id: 5,
@@ -928,9 +930,11 @@ export const breathingWhenOptions = [
     image: dashimghow31,
     path: "/confrm-step-when",
     name: "When Lying Down",
-    nameEs: "Al Estar Acostado",
+    nameEs: "Al Acostarse",
     maleEnglish: WhenLyingDownMale,
     femaleEnglish: WhenLyingDownFemale,
+    femaleSpanish: AlAcostarseFemaleSpanish,
+    maleSpanish: AlAcostarseMaleSpanish,
   },
   {
     id: 11,
@@ -940,6 +944,8 @@ export const breathingWhenOptions = [
     nameEs: "Al Dormir",
     maleEnglish: WhenSleepingMale,
     femaleEnglish: WhenSleepingFemale,
+    femaleSpanish: AlDormirFemaleSpanish,
+    maleSpanish: AlDormirMaleSpanish,
   },
   {
     id: 12,
@@ -949,6 +955,8 @@ export const breathingWhenOptions = [
     nameEs: "Al Caminar",
     maleEnglish: WhenWalkingMale,
     femaleEnglish: WhenWalkingFemale,
+    femaleSpanish: AlCaminarFemaleSpanish,
+    maleSpanish: AlCaminarMaleSpanish,
   },
   {
     id: 13,
@@ -974,6 +982,8 @@ export const breathingWhenOptions = [
     nameEs: "Al Trasladarse / Cambiar de Posición",
     maleEnglish: WithTransferRepositioningMale,
     femaleEnglish: WithTransferRepositioningFemale,
+    femaleSpanish: AlTransferirReposicionarFemaleSpanish,
+    maleSpanish: AlTransferirReposicionarMaleSpanish,
   },
   {
     id: 16,
@@ -983,6 +993,8 @@ export const breathingWhenOptions = [
     nameEs: "Con Movimiento",
     maleEnglish: WithMovementMale,
     femaleEnglish: WithMovementFemale,
+    femaleSpanish: ConMovimientoFemaleSpanish,
+    maleSpanish: ConMovimientoMaleSpanish,
   },
   {
     id: 17,
@@ -992,6 +1004,8 @@ export const breathingWhenOptions = [
     nameEs: "Al Tragar",
     maleEnglish: WhenSwallowingMale,
     femaleEnglish: WhenSwallowingFemale,
+    femaleSpanish: AlTragarFemaleSpanish,
+    maleSpanish: AlTragarMaleSpanish,
   },
   {
     id: 18,
@@ -1008,6 +1022,8 @@ export const breathingWhenOptions = [
     nameEs: "Al Comer / Beber",
     maleEnglish: WhenEatingDrinkingMale,
     femaleEnglish: WhenEatingDrinkingFemale,
+    femaleSpanish: AlComerBeberFemaleSpanish,
+    maleSpanish: AlComerBeberMaleSpanish,
   },
   {
     id: 20,
@@ -1026,6 +1042,7 @@ export const breathingWhenOptions = [
     nameEs: "Al Usar el Baño",
     maleEnglish: WhenToiletingMale,
     femaleEnglish: WhenToiletingFemale,
+    maleSpanish: AlUsarBanoMaleSpanish,
   },
   {
     id: 22,
@@ -1051,13 +1068,15 @@ export const breathingWhenOptions = [
     nameEs: "Con Estrés / Emoción",
     maleEnglish: WithStressEmotionMale,
     femaleEnglish: WithStressEmotionFemale,
+    femaleSpanish: ConEstresEmocionFemaleSpanish,
+    maleSpanish: ConEstresEmocionMaleSpanish,
   },
   {
     id: 25,
     image: dashimghow04,
     path: "/confrm-step-when",
     name: "After Procedure",
-    nameEs: "Después del Procedimiento",
+    nameEs: "Después de un Procedimiento",
     maleEnglish: AfterProcedureMale,
     femaleEnglish: AfterProcedureFemale,
   },
@@ -1069,15 +1088,19 @@ export const breathingWhenOptions = [
     nameEs: "Con Alimentación por Sonda",
     maleEnglish: WithTubeFeedMale,
     femaleEnglish: WithTubeFeedFemale,
+    femaleSpanish: ConAlimentacionTuboFemaleSpanish,
+    maleSpanish: ConAlimentacionTuboMaleSpanish,
   },
   {
     id: 27,
     image: dashimghow22,
     path: "/confrm-step-when",
-    name: "Since My Stroke / Injury",
-    nameEs: "Desde Mi Accidente Cerebrovascular / Lesión",
+    name: "Since Stroke / Injury",
+    nameEs: "Desde mi Derrame Cerebral / Lesión",
     maleEnglish: SinceMyStrokeInjuryMale,
     femaleEnglish: SinceMyStrokeInjuryFemale,
+    femaleSpanish: DesdeDerrameCerebralLesionFemaleSpanish,
+    maleSpanish: DesdeDerrameCerebralLesionMaleSpanish,
   },
   {
     id: 28,
@@ -1087,6 +1110,8 @@ export const breathingWhenOptions = [
     nameEs: "Desde la Enfermedad",
     maleEnglish: SinceIllnessMale,
     femaleEnglish: SinceIllnessFemale,
+    femaleSpanish: DesdeEnfermedadFemaleSpanish,
+    maleSpanish: DesdeEnfermedadMaleSpanish,
   },
   {
     id: 29,
@@ -1096,6 +1121,8 @@ export const breathingWhenOptions = [
     nameEs: "Desde la Caída / Lesión",
     maleEnglish: SinceFallInjuryMale,
     femaleEnglish: SinceFallInjuryFemale,
+    femaleSpanish: DesdeCaidaLesionFemaleSpanish,
+    maleSpanish: DesdeCaidaLesionMaleSpanish,
   },
   {
     id: 30,
@@ -1256,6 +1283,8 @@ export const concerns = [
     path: "/concern/communication-thinking-yes-no/12",
     maleEnglish: CommunicationThinkingMale,
     femaleEnglish: CommunicationThinkingFemale,
+    femaleSpanish: ComunicacionPensamientoFemaleSpanish,
+    maleSpanish: ComunicacionPensamientoMaleSpanish,
   },
   {
     id: 13,
@@ -1302,11 +1331,13 @@ export const concerns = [
   {
     id: 19,
     name: "Feeding Tube",
-    nameEs: "Sonda de Alimentación",
+    nameEs: "Tubo de Alimentación",
     image: WithTubeFeed,
     path: "/concern/feeding-tube-yes-no/19",
     maleEnglish: FeedingTubeMale,
     femaleEnglish: FeedingTubeFemale,
+    femaleSpanish: TuboAlimentacionFemaleSpanish,
+    maleSpanish: TuboAlimentacionMaleSpanish,
   },
   {
     id: 20,
@@ -1332,6 +1363,8 @@ export const concerns = [
     path: "/summary",
     femaleEnglish: NoConcernsFemale,
     maleEnglish: NoConcernsMale,
+    femaleSpanish: SinPreocupacionesFemaleSpanish,
+    maleSpanish: SinPreocupacionesMaleSpanish,
   },
 ];
 
@@ -1378,7 +1411,7 @@ export const topicBoard = [
   {
     id: 10,
     name: "Feeding Tube",
-    nameEs: "Sonda de Alimentación",
+    nameEs: "Tubo de Alimentación",
     path: "/topicboard/feedingTube/10",
     secPath: "/feel",
     maleEnglish: FeedingTubeMale,
@@ -2019,7 +2052,7 @@ const needBoard = [
   {
     id: 39,
     name: "Feeding Tube",
-    nameEs: "Sonda de alimentación",
+    nameEs: "Tubo de Alimentación",
     image: PainImg13,
     secPath: "/board/confrm-step-yesno/39",
     path: "/summary",
@@ -3889,6 +3922,8 @@ const medicationBowels = [
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
     femaleEnglish: NeedChangedFemale,
+    femaleSpanish: NecesitaCambioFemaleSpanish,
+    maleSpanish: NecesitaCambioMaleSpanish,
   },
   {
     id: "7",
@@ -3960,6 +3995,8 @@ const medicationUrination = [
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
     femaleEnglish: NeedChangedFemale,
+    femaleSpanish: NecesitaCambioFemaleSpanish,
+    maleSpanish: NecesitaCambioMaleSpanish,
   },
   {
     id: "7",
@@ -4249,6 +4286,8 @@ const swallowingfeedingtubebowelsDesiese = [
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
     femaleEnglish: NeedChangedFemale,
+    femaleSpanish: NecesitaCambioFemaleSpanish,
+    maleSpanish: NecesitaCambioMaleSpanish,
   },
   {
     id: "7",
@@ -4468,6 +4507,8 @@ const eatingdrinkingNoAppetiteNausea = [
     path: "/howoften",
     maleEnglish: JustNauseaMale,
     femaleEnglish: JustNauseaFemale,
+    femaleSpanish: SoloNauseasFemaleSpanish,
+    maleSpanish: SoloNauseasMaleSpanish,
   },
   {
     id: "6",
@@ -4670,6 +4711,8 @@ const eatingDonoteatspecialdiet = [
     secPath: "/summary",
     maleEnglish: KosherMale,
     femaleEnglish: KosherFemale,
+    femaleSpanish: KosherFemaleSpanish,
+    maleSpanish: KosherMaleSpanish,
   },
   {
     id: "3",
@@ -4680,6 +4723,8 @@ const eatingDonoteatspecialdiet = [
     secPath: "/summary",
     maleEnglish: HalalMale,
     femaleEnglish: HalalFemale,
+    femaleSpanish: HalalFemaleSpanish,
+    maleSpanish: HalalMaleSpanish,
   },
   {
     id: "4",
@@ -4702,16 +4747,20 @@ const eatingDonoteatspecialdiet = [
     secPath: "/summary",
     maleEnglish: GlutenFreeMale,
     femaleEnglish: GlutenFreeFemale,
+    femaleSpanish: SinGlutenFemaleSpanish,
+    maleSpanish: SinGlutenMaleSpanish,
   },
   {
     id: "6",
     name: "Nut-Free",
-    nameEs: "Sin nueces",
+    nameEs: "Sin Frutos Secos",
     path: "",
     image: NutFreeImg,
     secPath: "/summary",
     maleEnglish: NutFreeMale,
     femaleEnglish: NutFreeFemale,
+    femaleSpanish: SinFrutosSecosFemaleSpanish,
+    maleSpanish: SinFrutosSecosMaleSpanish,
   },
   {
     id: "7",
@@ -4722,6 +4771,8 @@ const eatingDonoteatspecialdiet = [
     secPath: "/summary",
     maleEnglish: LowSodiumMale,
     femaleEnglish: LowSodiumFemale,
+    femaleSpanish: BajoSodioFemaleSpanish,
+    maleSpanish: BajoSodioMaleSpanish,
   },
   {
     id: "8",
@@ -4732,6 +4783,8 @@ const eatingDonoteatspecialdiet = [
     secPath: "/summary",
     maleEnglish: DiabeticCarbControlledMale,
     femaleEnglish: DiabeticCarbControlledFemale,
+    femaleSpanish: ParaDiabeticosFemaleSpanish,
+    maleSpanish: ParaDiabeticosMaleSpanish,
   },
   {
     id: "9",
@@ -4742,6 +4795,8 @@ const eatingDonoteatspecialdiet = [
     secPath: "/summary",
     maleEnglish: TextureModifiedMale,
     femaleEnglish: TextureModifiedFemale,
+    femaleSpanish: TexturaModificadaFemaleSpanish,
+    maleSpanish: TexturaModificadaMaleSpanish,
   },
   {
     id: "10",
@@ -5285,26 +5340,32 @@ const movementconcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: WeaknessMale,
     femaleEnglish: WeaknessFemale,
+    femaleSpanish: DebilidadFemaleSpanish,
+    maleSpanish: DebilidadMaleSpanish,
   },
   {
     id: "2",
     name: "Weak on One Side",
-    nameEs: "Debilidad en un lado",
+    nameEs: "Débil de un Lado",
     image: WeakonOneSideImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: WeakOnOneSideMale,
     femaleEnglish: WeakOnOneSideFemale,
+    femaleSpanish: DebilUnLadoFemaleSpanish,
+    maleSpanish: DebilUnLadoMaleSpanish,
   },
   {
     id: "3",
     name: "Clumsy / Off Balance",
-    nameEs: "Torpe / Desequilibrado",
+    nameEs: "Torpe o Sin Equilibrio",
     image: Clumsy_OffBalanceImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: ClumsyOffBalanceMale,
     femaleEnglish: ClumsyOffBalanceFemale,
+    femaleSpanish: TorpeSinEquilibrioFemaleSpanish,
+    maleSpanish: TorpeSinEquilibrioMaleSpanish,
   },
   {
     id: "4",
@@ -5326,12 +5387,14 @@ const movementconcerns = [
   {
     id: "6",
     name: "Trouble Walking",
-    nameEs: "Dificultad para caminar",
+    nameEs: "Problemas al Caminar",
     image: TroubleWalkingImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: TroubleWalkingMale,
     femaleEnglish: TroubleWalkingFemale,
+    femaleSpanish: ProblemasCaminarFemaleSpanish,
+    maleSpanish: ProblemasCaminarMaleSpanish,
   },
   {
     id: "7",
@@ -5353,6 +5416,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: HardToUnderstandYouMale,
     femaleEnglish: HardToUnderstandYouFemale,
+    femaleSpanish: DificilEntenderFemaleSpanish,
+    maleSpanish: DificilEntenderMaleSpanish,
   },
   {
     id: "2",
@@ -5363,6 +5428,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: CantFindMyWordsMale,
     femaleEnglish: CantFindMyWordsFemale,
+    femaleSpanish: NoEncuentroPalabrasFemaleSpanish,
+    maleSpanish: NoEncuentroPalabrasMaleSpanish,
   },
   {
     id: "3",
@@ -5373,6 +5440,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: HardToTalkMale,
     femaleEnglish: HardToTalkFemale,
+    femaleSpanish: DificilHablarFemaleSpanish,
+    maleSpanish: DificilHablarMaleSpanish,
   },
   {
     id: "4",
@@ -5383,6 +5452,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: NoVoiceMale,
     femaleEnglish: NoVoiceFemale,
+    femaleSpanish: SinVozFemaleSpanish,
+    maleSpanish: SinVozMaleSpanish,
   },
   {
     id: "5",
@@ -5393,6 +5464,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: ImConfusedMale,
     femaleEnglish: ImConfusedFemale,
+    femaleSpanish: EstoyConfundidaFemaleSpanish,
+    maleSpanish: EstoyConfundidaMaleSpanish,
   },
   {
     id: "6",
@@ -5407,12 +5480,14 @@ const communicationConcerns = [
   {
     id: "7",
     name: "Wrong words come out",
-    nameEs: "Salen palabras incorrectas",
+    nameEs: "Salen Palabras Equivocadas",
     image: WrongWordsComeOutImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
     maleEnglish: WrongWordsComeOutMale,
     femaleEnglish: WrongWordsComeOutFemale,
+    femaleSpanish: SalenPalabrasEquivocadasFemaleSpanish,
+    maleSpanish: SalenPalabrasEquivocadasMaleSpanish,
   },
   {
     id: "8",
@@ -5423,6 +5498,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: DontKnowWhereIAmMale,
     femaleEnglish: DontKnowWhereIAmFemale,
+    femaleSpanish: NoSeDondeEstoyFemaleSpanish,
+    maleSpanish: NoSeDondeEstoyMaleSpanish,
   },
   {
     id: "9",
@@ -5433,6 +5510,8 @@ const communicationConcerns = [
     secPath: "/confrm-step-yesno",
     maleEnglish: MemoryTroubleMale,
     femaleEnglish: MemoryTroubleFemale,
+    femaleSpanish: ProblemasMemoriaFemaleSpanish,
+    maleSpanish: ProblemasMemoriaMaleSpanish,
   },
 
   {
@@ -5687,6 +5766,8 @@ const feedingBowels = [
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedChangedMale,
     femaleEnglish: NeedChangedFemale,
+    femaleSpanish: NecesitaCambioFemaleSpanish,
+    maleSpanish: NecesitaCambioMaleSpanish,
   },
   {
     id: "9",
@@ -6053,6 +6134,9 @@ export const diseasesData = {
       path: "/howoften",
       secPath: "/confrm-step-yesno",
       maleEnglish: RefluxMale,
+      femaleEnglish: RefluxFemale,
+      femaleSpanish: ReflujoFemaleSpanish,
+      maleSpanish: ReflujoMaleSpanish,
     },
     {
       id: "6",
@@ -6129,7 +6213,7 @@ export const diseasesData = {
     {
       id: "14",
       name: "Feeding Tube",
-      nameEs: "Sonda de alimentación",
+      nameEs: "Tubo de Alimentación",
       image: PainImg13,
       path: "/howoften",
       secPath: "/swallowingfeedingtube-problem",
@@ -6217,7 +6301,7 @@ export const diseasesData = {
     {
       id: "9",
       name: "Feeding Tube",
-      nameEs: "Sonda de alimentación",
+      nameEs: "Tubo de Alimentación",
       image: PainImg13,
       secPath: "/feeding-tube-problem-sub",
       path: "/howoften",
@@ -6439,7 +6523,7 @@ export const diseasesData = {
     {
       id: "10",
       name: "Feeding Tube",
-      nameEs: "Sonda de alimentación",
+      nameEs: "Tubo de Alimentación",
       image: PainImg13,
       secPath: "/bowelsfeedingtube-problem",
       path: "/when",
@@ -6617,11 +6701,14 @@ export const diseasesData = {
     {
       id: "10",
       name: "After Procedure",
-      nameEs: "Después del Procedimiento",
+      nameEs: "Después de un Procedimiento",
       image: AfterProcedure,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
       maleEnglish: AfterProcedureMale,
+      femaleEnglish: AfterProcedureFemale,
+      femaleSpanish: DespuesProcedimientoFemaleSpanish,
+      maleSpanish: DespuesProcedimientoMaleSpanish,
     },
 
     {
@@ -6695,6 +6782,8 @@ export const diseasesData = {
       secPath: "/summary",
       maleEnglish: NeedHelpEatingMale,
       femaleEnglish: NeedHelpEatingFemale,
+      femaleSpanish: NecesitoAyudaComerFemaleSpanish,
+      maleSpanish: NecesitoAyudaComerMaleSpanish,
     },
     {
       id: "6",
@@ -6970,6 +7059,8 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
       maleEnglish: NeedChangedMale,
       femaleEnglish: NeedChangedFemale,
+      femaleSpanish: NecesitaCambioFemaleSpanish,
+      maleSpanish: NecesitaCambioMaleSpanish,
     },
     {
       id: "7",
@@ -7147,6 +7238,8 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
       maleEnglish: RefluxMale,
       femaleEnglish: RefluxFemale,
+      femaleSpanish: ReflujoFemaleSpanish,
+      maleSpanish: ReflujoMaleSpanish,
     },
     {
       id: "6",
