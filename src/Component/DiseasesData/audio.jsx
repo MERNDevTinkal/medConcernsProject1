@@ -560,7 +560,10 @@ import Pesado_GruesofeMaleSpanish from "../../assets/audio/Spanish/female/Pesado
 import DressingChangeMale from "../../assets/audio/English/male/Dressing Change.mp3";
 import dressingchangeSpanishfeMale from "../../assets/audio/spanish/female/cambio de vendaje (dressing change).wav";
 import ConsalivaMale from "../../assets/audio/spanish/male/1 Con saliva.wav";
+import LostHearingAidsMale from "../../assets/audio/English/male/26 Lost Hearing Aids.wav";
+
 export {
+  LostHearingAidsMale,
   ConsalivaMale,
   JustFatigueMale,
   dressingchangeSpanishfeMale,
