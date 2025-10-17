@@ -22,18 +22,24 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
       image: yesImage,
       name: "Yes",
       nameEs: "SÍ",
+      newProblem: "new problem",
+      SpanishnewProblem: "nuevo problema",
     },
     {
       id: 2,
       image: NoImg,
       name: "No",
       nameEs: "No",
+      newProblem: "new problem",
+      SpanishnewProblem: "nuevo problema",
     },
     {
       id: 3,
       image: dontknowImg,
       name: "Don't Know",
       nameEs: "no lo sé",
+      newProblem: "new problem",
+      SpanishnewProblem: "nuevo problema",
     },
   ];
   const handleDecision = async (value, mainpath, id) => {

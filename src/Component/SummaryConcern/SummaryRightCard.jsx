@@ -9,6 +9,12 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
       return isSpanish ? item?.painFeelEs : item?.painFeel;
     }
     if (item?.data?.[0]?.name || item?.data?.[0]?.nameEs) {
+      if (item.route === "/new-problem") {
+        return isSpanish
+          ? item?.data?.[0]?.SpanishnewProblem
+          : item?.data?.[0]?.newProblem;
+      }
+
       return isSpanish ? item?.data?.[0]?.nameEs : item?.data?.[0]?.name;
     }
 
