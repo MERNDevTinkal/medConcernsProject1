@@ -36,7 +36,7 @@ const NewProblem = () => {
     },
     Spanish: {
       newProblem: "¿Es este un problema nuevo?",
-      overall: "¿Cómo te sientes en general?",
+      overall: "¿Cómo se siente en general?",
     },
   };
   return (

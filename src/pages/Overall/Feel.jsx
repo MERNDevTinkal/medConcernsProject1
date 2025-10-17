@@ -72,7 +72,7 @@ const Feel = () => {
             selectedLanguage={selectedLanguage}
             name={
               selectedLanguage === "Spanish"
-                ? "¿Cómo te sientes en general?"
+                ? "¿Cómo se siente en general?"
                 : "How do you feel overall?"
             }
           />
