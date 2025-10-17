@@ -28,20 +28,20 @@ export default function HowAreYou() {
           selectedLanguage === "Spanish" ? item.nameEs : item.name,
           selectedLanguage === "Spanish" ? "es-ES" : "",
           selectedLanguage === "" && selectedGender === ""
-            ? value?.maleEnglish
+            ? item?.maleEnglish
             : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? value?.maleSpanish
+            ? item?.maleSpanish
             : selectedLanguage === "Spanish" && selectedGender === "Female"
-            ? value?.femaleSpanish
+            ? item?.femaleSpanish
             : selectedLanguage === "" && selectedGender === "Female"
-            ? value?.femaleEnglish
+            ? item?.femaleEnglish
             : selectedLanguage === "" && selectedGender === "Male"
-            ? value?.maleEnglish
+            ? item?.maleEnglish
             : selectedLanguage === "English" && selectedGender === "Male"
-            ? value?.maleEnglish
+            ? item?.maleEnglish
             : selectedLanguage === "English" && selectedGender === "Female"
-            ? value?.femaleEnglish
-            : value?.maleEnglish
+            ? item?.femaleEnglish
+            : item?.maleEnglish
         );
         updateDisease(mainpath.replace("/", ""), item);
         navigate(path);

@@ -119,7 +119,7 @@ const FeelingListPain = () => {
             </button>
             <h2 className="text-[25px] font-normal text-black">
               {selectedLanguage === "Spanish"
-                ? "¿Qué tan fuerte es tu dolor?"
+                ? "¿Qué tan malo es tu dolor?"
                 : "How bad is your pain?"}
             </h2>
             <button></button>

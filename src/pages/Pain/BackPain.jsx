@@ -29,7 +29,7 @@ const BackPain = () => {
             selectedLanguage={selectedLanguage}
             name={
               selectedLanguage === "Spanish"
-                ? "donde esta tu dolor?"
+                ? "¿Dónde está su dolor?"
                 : "where is your pain?"
             }
           />

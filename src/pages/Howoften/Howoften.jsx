@@ -163,10 +163,10 @@ export default function TabsCalendar() {
     const text =
       selectedLanguage === "Spanish"
         ? item === "morning"
-          ? "mañana"
+          ? "Mañana"
           : item === "afternoon"
-          ? "tarde"
-          : "noche"
+          ? "Tarde"
+          : "Noche Temprano"
         : item;
     await getTextToSpeech(text, selectedLanguage === "Spanish" ? "es-ES" : "");
     updateDisease(pathprimary.replace("/", ""), { type: "day", value: text });
@@ -236,7 +236,7 @@ export default function TabsCalendar() {
                       role="tab"
                       aria-selected={activeTab === "day"}
                     >
-                      {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
+                      {selectedLanguage === "Spanish" ? "Hoy" : "TODAY"}
                     </button>
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
