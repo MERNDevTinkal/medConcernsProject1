@@ -264,12 +264,10 @@ import fingerRightMan from "../../assets/images/men/fingerright.png";
 import footToeMan from "../../assets/images/men/foot&toe.png";
 import footToeLeftMan from "../../assets/images/men/foot&toeleft.png";
 import foreheadMan from "../../assets/images/men/forhead.png";
-import hipRightMan from "../../assets/images/men/hipright.png";
 import kneeMan from "../../assets/images/men/knee.png";
 import kneeLeftMan from "../../assets/images/men/kneeleft.png";
 import leftButtMan from "../../assets/images/men/leftbutt.png";
 import leftEarMan from "../../assets/images/men/lefteear.png";
-import leftHip2Man from "../../assets/images/men/lefthip (2).png";
 import leftHipMan from "../../assets/images/men/lefthip.png";
 import leftThighMan from "../../assets/images/men/leftthai.png";
 import lowerArmRightMan from "../../assets/images/men/lower-arm-right.png";
@@ -310,10 +308,11 @@ export const bodyImages = {
     "Pelvis / Genitals": pelvisGenitalsWoman,
     Back: backWoman,
     Butt: buttWoman,
-
+    chin: chinWoman,
     // English keys - Left side
     "Left Eye": eyeWoman,
     "Left Ear": earWoman,
+    "Lower Back": lowerBackWoman,
     Cheek: cheekWoman,
     "Left Shoulder": shoulderLeftWoman,
     "Left Arm": leftUpperArmWoman,
@@ -436,11 +435,12 @@ export const bodyImages = {
     Nose: noseMan,
     Mouth: mouthMan,
     Neck: neckMan,
+    "Lower Back": lowerBackMan,
     "Chest & Breast": chestBreastMan,
     Abdomen: adomenMan,
     "Pelvis / Genitals": pelvisGenitalsMan,
     Back: backMan,
-
+    chin: chinMan,
     // English keys - Left side
     "Left Eye": eyeMan,
     "Left Ear": leftEarMan,
