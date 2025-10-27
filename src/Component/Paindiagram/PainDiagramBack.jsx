@@ -21,11 +21,11 @@ function makeRegion(name, x1, y1, x2, y2) {
 
 const backRegions = [
   makeRegion(`Back`, 110, 63, 260, 160),
-  makeRegion(`Elbow`, 220, 12, 250, 50),
+  makeRegion(`Right Elbow`, 220, 12, 250, 50),
   makeRegion(`Arm`, 250, 12, 300, 35),
   makeRegion(`Arm`, 120, 12, 220, 35),
-  makeRegion(`Hand`, 310, 12, 330, 35),
-  makeRegion(`Finger`, 335, 12, 360, 35),
+  makeRegion(`Right Hand`, 310, 12, 330, 35),
+  makeRegion(`Right Finger`, 335, 12, 360, 35),
   makeRegion(`Butt`, 260, 60, 340, 160),
   makeRegion(`Lower Leg`, 458, 60, 580, 100),
   makeRegion(`Lower Leg`, 458, 120, 580, 150),
@@ -35,10 +35,10 @@ const backRegions = [
   makeRegion(`Knee`, 430, 120, 460, 150),
   makeRegion(`Arm`, 250, 180, 300, 211),
   makeRegion(`Arm`, 150, 170, 220, 211),
-  makeRegion(`Elbow`, 225, 170, 250, 211),
+  makeRegion(`Left Elbow`, 225, 170, 250, 211),
   makeRegion(`Arm`, 255, 180, 301, 210),
-  makeRegion(`Hand`, 310, 210, 330, 190),
-  makeRegion(`Finger`, 335, 210, 350, 190),
+  makeRegion(`Left Hand`, 310, 210, 330, 190),
+  makeRegion(`Left Finger`, 335, 210, 350, 190),
 ];
 
 const backRegionsSpanish = [
@@ -69,29 +69,29 @@ const frontRegions = [
   makeRegion(`Eye`, 45, 105, 60, 122),
   makeRegion(`Nose`, 50, 95, 70, 105),
   makeRegion(`Mouth`, 70, 112, 80, 90),
-  makeRegion(`Ear`, 50, 70, 70, 80),
-  makeRegion(`Ear`, 50, 125, 70, 135),
+  makeRegion(`Right Ear`, 50, 70, 70, 80),
+  makeRegion(`Left Ear`, 50, 125, 70, 135),
   makeRegion(`Neck`, 90, 80, 110, 120),
   makeRegion(`Chest & Breast`, 120, 50, 185, 150),
   makeRegion(`Abdomen`, 220, 145, 265, 60),
   makeRegion(`Pelvis / Genitals`, 290, 88, 330, 110),
-  makeRegion(`Hip`, 280, 45, 320, 70),
-  makeRegion(`Hip`, 280, 160, 320, 135),
-  makeRegion(`Thigh`, 320, 115, 385, 160),
-  makeRegion(`Thigh`, 320, 45, 385, 90),
-  makeRegion(`Knee`, 400, 90, 440, 55),
-  makeRegion(`Knee`, 400, 110, 440, 145),
-  makeRegion(`Lower Leg`, 450, 58, 560, 90),
-  makeRegion(`Lower Leg`, 450, 107, 560, 140),
-  makeRegion(`Foot & Toe`, 570, 110, 610, 134),
-  makeRegion(`Foot & Toe`, 570, 65, 610, 90),
-  makeRegion(`Shoulder`, 180, 160, 117, 175),
-  makeRegion(`Arm `, 126, 170, 290, 190),
-  makeRegion(`Hand`, 298, 178, 321, 200),
+  makeRegion(`Right Hip`, 280, 45, 320, 70),
+  makeRegion(`Left Hip`, 280, 160, 320, 135),
+  makeRegion(`Left Thigh`, 320, 115, 385, 160),
+  makeRegion(`Right Thigh`, 320, 45, 385, 90),
+  makeRegion(`Right Knee`, 400, 90, 440, 55),
+  makeRegion(`Left Knee`, 400, 110, 440, 145),
+  makeRegion(`Right Lower Leg`, 450, 58, 560, 90),
+  makeRegion(`Left Lower Leg`, 450, 107, 560, 140),
+  makeRegion(`Left Foot & Toe`, 570, 110, 610, 134),
+  makeRegion(`Right Foot & Toe`, 570, 65, 610, 90),
+  makeRegion(`Left Shoulder`, 180, 160, 117, 175),
+  makeRegion(`Left Arm `, 126, 170, 290, 190),
+  makeRegion(`Left Hand`, 298, 178, 321, 200),
   makeRegion(`Finger`, 330, 178, 340, 200),
-  makeRegion(`Shoulder`, 97, 19, 131, 41),
-  makeRegion(`Arm`, 137, 9, 300, 32),
-  makeRegion(`Hand`, 300, 8, 330, 20),
+  makeRegion(`Right Shoulder`, 97, 19, 131, 41),
+  makeRegion(`Right Arm`, 137, 9, 300, 32),
+  makeRegion(`Right Hand`, 300, 8, 330, 20),
   makeRegion(`Finger`, 330, 12, 340, 30),
 ];
 
@@ -277,7 +277,6 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       : selectedGender === "Female"
       ? femalefrontRegions
       : frontRegions;
-
     let clickedRegion =
       activeRegions.find(
         (r) =>
@@ -286,7 +285,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           realY >= r.y1 - PADDING &&
           realY <= r.y2 + PADDING
       ) || null;
-
+    console.log("==>clickedRegionclickedRegion", clickedRegion);
     if (!clickedRegion) {
       let minDist = Infinity;
       activeRegions.forEach((r) => {
@@ -337,16 +336,15 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       setMarker({ x: clickX, y: clickY });
       setCroppedPart(croppedData);
       const value = clickedRegion?.name;
-      console.log("==value>", value);
       addOrUpdateSummary(mainpath, [
         { image: bodyImages?.men?.[value], name: clickedRegion.name },
       ]);
-      navigate("/concern-pain", {
-        state: {
-          partName: clickedRegion.name,
-          image: bodyImages?.men?.[value],
-        },
-      });
+      // navigate("/concern-pain", {
+      //   state: {
+      //     partName: clickedRegion.name,
+      //     image: bodyImages?.men?.[value],
+      //   },
+      // });
     };
   };
 
