@@ -62,7 +62,7 @@ export default function HowAreYou() {
       setLoader
     );
   }, []);
-
+  console.log("selectedIconCount", selectedIconCount);
   return (
     <>
       {loader ? (
@@ -91,6 +91,19 @@ export default function HowAreYou() {
               >
                 {howareyou.map((item) => (
                   <div
+                    className={
+                      selectedIconCount === 1
+                        ? "dash-single-items"
+                        : selectedIconCount === 2
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
+                    }
                     style={{ cursor: "pointer" }}
                     onClick={() => {
                       handleValue(`/yes-and-no/${item?.id}`, item);
@@ -101,7 +114,7 @@ export default function HowAreYou() {
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{
-                            height: selectedIconCount === 6 ? "50px" : "",
+                            height: selectedIconCount === 6 ? "" : "",
                           }}
                           src={item?.image}
                           className="w-full"

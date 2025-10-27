@@ -56,7 +56,7 @@ function YesAndNo() {
                   <img
                     src={option.image || HowAreYou1}
                     alt={option.name || "alt"}
-                    className="mx-auto rounded-xl shadow-lg"
+                    className="mx-auto rounded-xl w-full"
                   />
                 </div>
               </div>

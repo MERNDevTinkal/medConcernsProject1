@@ -44,6 +44,7 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
     <>
       {feelingsicons.map((item) => (
         <div
+          className={selectedIconCount === 1 ? "dash-single-items" : ""}
           style={{ cursor: "pointer" }}
           key={item.id}
           onClick={() =>

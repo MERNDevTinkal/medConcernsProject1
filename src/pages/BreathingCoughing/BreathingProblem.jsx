@@ -184,6 +184,9 @@ const BreathingProblem = () => {
               {problem?.map((data, index) => {
                 return (
                   <div
+                    className={
+                      selectedIconCount === 1 ? "dash-single-items" : ""
+                    }
                     style={{ cursor: "pointer" }}
                     key={data?.id + "-" + index}
                     onClick={() => {

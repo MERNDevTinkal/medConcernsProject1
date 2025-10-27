@@ -273,6 +273,9 @@ const NeedBoard = () => {
                 .filter((item) => !selectedNeedboard.includes(item.name))
                 .map((item, index) => (
                   <div
+                    className={
+                      selectedIconCount === 1 ? "dash-single-items" : ""
+                    }
                     style={{ cursor: "pointer" }}
                     key={index}
                     onClick={() => handleNeedBoard(item, item.secPath)}

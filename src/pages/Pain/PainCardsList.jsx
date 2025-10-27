@@ -54,6 +54,7 @@ const PainCardsList = ({
         <>
           {painFeelParams.map((item) => (
             <div
+              className={selectedIconCount === 1 ? "dash-single-items" : ""}
               style={{ cursor: "pointer" }}
               key={item.id}
               onClick={() => handleConcern(item, item.secPath)}

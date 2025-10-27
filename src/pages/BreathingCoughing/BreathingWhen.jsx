@@ -77,6 +77,9 @@ const BreathingWhen = () => {
               {breathingWhenOptions?.length > 0 &&
                 breathingWhenOptions?.map((item, index) => (
                   <div
+                    className={
+                      selectedIconCount === 1 ? "dash-single-items" : ""
+                    }
                     style={{ cursor: "pointer" }}
                     key={item.id}
                     onClick={() => {

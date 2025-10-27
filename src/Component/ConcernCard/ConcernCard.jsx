@@ -52,6 +52,7 @@ const ConcernCard = ({
         .filter((item) => !skipKeys.includes(item.name))
         .map((item) => (
           <div
+            className={selectedIconCount === 1 ? "dash-single-items" : ""}
             key={item.id}
             style={{
               cursor: "pointer",

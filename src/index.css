@@ -313,7 +313,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 100%;
 }
 .main-wrapper {
-  max-width: 800px;
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
   min-height: 100vh;
@@ -322,16 +322,18 @@ input[type="number"]::-webkit-outer-spin-button {
   overflow-x: hidden;
 }
 .home-wrapper {
+  /* background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
+  background: -webkit-linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
   background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
 }
 .main-header {
-  max-width: 800px;
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
   z-index: 9;
 }
 .innr-header {
-  max-width: 800px;
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
   z-index: 1020;
@@ -346,7 +348,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .thm-footer {
   background-color: #f0f5ff;
-  max-width: 800px;
+  max-width: 1024px;
 }
 .thm-footer li a img {
   height: 25px;
@@ -607,4 +609,50 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 50px 20px;
   border-radius: 0px 20px 20px 0px;
   box-shadow: 3px 0px 20px 1px rgb(0 0 0 / 10%);
+}
+
+.dash-single-items .dashboard-cards {
+  width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 150px);
+}
+.dash-single-items .dashboard-cards .dashboard-img img {
+  height: calc(90vh - 130px);
+}
+.dash-double-items .dashboard-cards {
+  width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 150px);
+}
+.dash-double-items .dashboard-cards .dashboard-img img {
+  height: calc(90vh - 130px);
+}
+.dash-triple-items .dashboard-cards {
+  width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 150px);
+}
+
+.dash-triple-items .dashboard-cards .dashboard-img img {
+  height: calc(90vh - 130px);
+  object-fit: inherit;
+}
+
+.dash-quadriple-items .dashboard-cards {
+  width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 150px);
+}
+.dash-quadriple-items .dashboard-cards .dashboard-img img {
+  height: calc(90vh - 130px);
+  object-fit: inherit;
+}
+.dash-hexuple-items .dashboard-cards {
+  width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 435px);
+}
+.dash-hexuple-items .dashboard-cards .dashboard-img img {
+  height: calc(50vh - 130px);
+  object-fit: inherit;
 }
