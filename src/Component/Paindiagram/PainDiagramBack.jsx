@@ -7,6 +7,8 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
 import Femalebodyback from "../../assets/images/female_bodyback.png";
 import Frontfemale from "../../assets/images/front_female.png";
+import { bodyImages } from "./bodyPartsImages.jsx";
+
 function makeRegion(name, x1, y1, x2, y2) {
   return {
     name,
@@ -177,7 +179,7 @@ const femaleBackImage = [
   makeRegion(`Thigh`, 914, 325, 1181, 437),
   makeRegion(`Knee`, 1191, 325, 1293, 434),
   makeRegion(`Lower Leg`, 1297, 329, 1605, 402),
-  makeRegion(`Foot & Toe`, 1602, 325, 1676, 406),
+  makeRegion(`Foot&Toe`, 1602, 325, 1676, 406),
 ];
 
 const femalefrontRegionsSpanish = [
@@ -334,11 +336,16 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       const croppedData = canvas.toDataURL("image/png");
       setMarker({ x: clickX, y: clickY });
       setCroppedPart(croppedData);
+      const value = clickedRegion?.name;
+      console.log("==value>", value);
       addOrUpdateSummary(mainpath, [
-        { image: croppedData, name: clickedRegion.name },
+        { image: bodyImages?.men?.[value], name: clickedRegion.name },
       ]);
       navigate("/concern-pain", {
-        state: { partName: clickedRegion.name, image: croppedData },
+        state: {
+          partName: clickedRegion.name,
+          image: bodyImages?.men?.[value],
+        },
       });
     };
   };

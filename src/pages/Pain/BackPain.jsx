@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import PainDiagramBack from "../../Component/Paindiagram/PainDiagramBack";
-import { Link } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 const BackPain = () => {
