@@ -308,16 +308,19 @@ export const bodyImages = {
     "Pelvis / Genitals": pelvisGenitalsWoman,
     Back: backWoman,
     Butt: buttWoman,
-    chin: chinWoman,
+    Chin: chinWoman,
+    "Lower Back": lowerBackWoman,
+    Cheek: cheekWoman,
+
     // English keys - Left side
     "Left Eye": eyeWoman,
     "Left Ear": earWoman,
-    "Lower Back": lowerBackWoman,
-    Cheek: cheekWoman,
+    "Left Cheek": cheekWoman,
     "Left Shoulder": shoulderLeftWoman,
     "Left Arm": leftUpperArmWoman,
     "Left Upper Arm": leftUpperArmWoman,
     "Left Lower Arm": lowerLeftArmWoman,
+    "Left Forearm": lowerLeftArmWoman,
     "Left Elbow": elbowWoman,
     "Left Hand": fingerWoman,
     "Left Finger": fingerWoman,
@@ -337,6 +340,7 @@ export const bodyImages = {
     "Right Arm": upperArmRightWoman,
     "Right Upper Arm": upperArmRightWoman,
     "Right Lower Arm": lowerRightArmWoman,
+    "Right Forearm": lowerRightArmWoman,
     "Right Elbow": rightElbowWoman,
     "Right Hand": rightFingerWoman,
     "Right Finger": rightFingerWoman,
@@ -360,6 +364,7 @@ export const bodyImages = {
     Finger: fingerWoman,
     Elbow: elbowWoman,
     "Lower Arm": lowerRightArmWoman,
+    Forearm: lowerRightArmWoman,
 
     // Spanish keys - General
     Frente: foreheadWoman,
@@ -374,6 +379,9 @@ export const bodyImages = {
     Espalda: backWoman,
     Glúteo: buttWoman,
     Glúteos: buttWoman,
+    Barbilla: chinWoman,
+    "Zona Lumbar": lowerBackWoman,
+    Mejilla: cheekWoman,
 
     // Spanish keys - Left side
     "Ojo Izquierdo": eyeWoman,
@@ -391,7 +399,7 @@ export const bodyImages = {
     "Muslo Izquierdo": thighWoman,
     "Rodilla Izquierda": kneeWoman,
     "Pierna Inferior Izquierda": lowerLegWoman,
-    "Pie y Dedos Izquierdo": footToeWoman,
+    "Pie y Dedos Izquierdos": footToeRightWoman,
     "Glúteo Izquierdo": buttWoman,
 
     // Spanish keys - Right side
@@ -410,7 +418,7 @@ export const bodyImages = {
     "Muslo Derecho": rightThighWoman,
     "Rodilla Derecha": kneeRightWoman,
     "Pierna Inferior Derecha": rightLowerLegWoman,
-    "Pie y Dedos Derecho": footToeRightWoman,
+    "Pie y Dedos Derechos": footToeWoman,
     "Glúteo Derecho": rightButtWoman,
 
     // Generic Spanish body parts (fallback)
@@ -440,7 +448,8 @@ export const bodyImages = {
     Abdomen: adomenMan,
     "Pelvis / Genitals": pelvisGenitalsMan,
     Back: backMan,
-    chin: chinMan,
+    Chin: chinMan,
+
     // English keys - Left side
     "Left Eye": eyeMan,
     "Left Ear": leftEarMan,
@@ -449,6 +458,7 @@ export const bodyImages = {
     "Left Arm": upperArmLeftMan,
     "Left Upper Arm": upperArmLeftMan,
     "Left Lower Arm": lowerArmMan,
+    "Left Forearm": lowerArmMan,
     "Left Elbow": elbowLeftMan,
     "Left Hand": fingerLeftMan,
     "Left Finger": fingerLeftMan,
@@ -468,6 +478,7 @@ export const bodyImages = {
     "Right Arm": rightArmMan,
     "Right Upper Arm": upperArmRightMan,
     "Right Lower Arm": lowerArmRightMan,
+    "Right Forearm": lowerArmRightMan,
     "Right Elbow": elbowRightMan,
     "Right Hand": fingerRightMan,
     "Right Finger": fingerRightMan,
@@ -493,6 +504,7 @@ export const bodyImages = {
     Elbow: elbowRightMan,
     Butt: rightButtMan,
     "Lower Arm": lowerArmMan,
+    Forearm: lowerArmRightMan,
 
     // Spanish keys - General
     Frente: foreheadMan,
@@ -504,6 +516,8 @@ export const bodyImages = {
     Abdomen: adomenMan,
     "Pelvis / Genitales": pelvisGenitalsMan,
     Espalda: backMan,
+    Barbilla: chinMan,
+    "Zona Lumbar": lowerBackMan,
 
     // Spanish keys - Left side
     "Ojo Izquierdo": eyeMan,
@@ -521,7 +535,7 @@ export const bodyImages = {
     "Muslo Izquierdo": leftThighMan,
     "Rodilla Izquierda": kneeLeftMan,
     "Pierna Inferior Izquierda": lowerLegMan,
-    "Pie y Dedos Izquierdo": footToeLeftMan,
+    "Pie y Dedos Izquierdos": footToeMan,
     "Glúteo Izquierdo": leftButtMan,
 
     // Spanish keys - Right side
@@ -540,7 +554,7 @@ export const bodyImages = {
     "Muslo Derecho": rightThighMan,
     "Rodilla Derecha": kneeMan,
     "Pierna Inferior Derecha": lowerLegRightMan,
-    "Pie y Dedos Derecho": footToeMan,
+    "Pie y Dedos Derechos": footToeLeftMan,
     "Glúteo Derecho": rightButtMan,
 
     // Generic Spanish body parts (fallback)

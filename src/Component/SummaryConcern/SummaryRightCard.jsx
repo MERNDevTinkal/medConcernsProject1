@@ -3,18 +3,28 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   const getTranslatedText = (item, selectedLanguage) => {
     const isSpanish = selectedLanguage === "Spanish";
     if (item?.name || item?.nameEs) {
+      console.log("==>11");
       return isSpanish ? item?.nameEs : item?.name || item?.name;
     }
     if (item?.painFeel || item?.painFeelEs) {
+      console.log("==>22");
       return isSpanish ? item?.painFeelEs : item?.painFeel;
     }
     if (item?.data?.[0]?.name || item?.data?.[0]?.nameEs) {
+      console.log("==>33", item?.data?.[0]?.name);
       if (item.route === "/new-problem") {
         return isSpanish
           ? item?.data?.[0]?.SpanishnewProblem
           : item?.data?.[0]?.newProblem;
       }
-      return isSpanish ? item?.data?.[0]?.nameEs : item?.data?.[0]?.name;
+      if (isSpanish) {
+        let value;
+        value = isSpanish ? item?.data?.[0]?.nameEs : item?.data?.[0]?.name;
+        if (!item?.data?.[0]?.nameEs && item?.data?.[0]?.name) {
+          value = item?.data?.[0]?.name;
+        }
+        return value;
+      }
     }
     if (item?.data?.[0]?.painFeel || item?.data?.[0]?.painFeelEs) {
       return isSpanish
