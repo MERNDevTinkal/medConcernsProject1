@@ -634,8 +634,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .dash-triple-items .dashboard-cards .dashboard-img img {
-  height: calc(90vh - 130px);
-  object-fit: inherit;
+  height: calc(90vh - 150px);
+  object-fit: fill;
 }
 
 .dash-quadriple-items .dashboard-cards {
@@ -645,14 +645,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .dash-quadriple-items .dashboard-cards .dashboard-img img {
   height: calc(90vh - 130px);
-  object-fit: inherit;
+  object-fit: fill;
 }
 .dash-hexuple-items .dashboard-cards {
   width: 100%;
   margin: 0 auto;
-  height: calc(100vh - 435px);
+  height: calc(60vh - 150px);
 }
 .dash-hexuple-items .dashboard-cards .dashboard-img img {
   height: calc(50vh - 130px);
-  object-fit: inherit;
+  object-fit: contain;
 }
