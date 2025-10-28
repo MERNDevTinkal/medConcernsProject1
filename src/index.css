@@ -191,7 +191,8 @@
 }
 
 body {
-  background-color: #fff;
+  background: -webkit-linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
+  background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
   color: #000;
   font-size: 16px;
   font-family: "Navigo";
@@ -645,7 +646,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .dash-quadriple-items .dashboard-cards .dashboard-img img {
   height: calc(90vh - 130px);
-  object-fit: fill;
+  object-fit: contain;
 }
 .dash-hexuple-items .dashboard-cards {
   width: 100%;
@@ -656,3 +657,39 @@ input[type="number"]::-webkit-outer-spin-button {
   height: calc(50vh - 130px);
   object-fit: contain;
 }
+@media only screen and (min-width: 414px) and (orientation: landscape) {
+  .dash-single-items .dashboard-cards .dashboard-img img {
+    height: calc(90vh - 155px);
+  }
+  .dash-double-items .dashboard-cards .dashboard-img img {
+    height: calc(90vh - 155px);
+  }
+  .dash-triple-items .dashboard-cards .dashboard-img img {
+    height: calc(90vh - 155px);
+  }
+  .dash-triple-items .dashboard-cards .dashboard-img img {
+    object-fit: contain;
+  }
+  .dash-quadriple-items .dashboard-cards .dashboard-img img {
+    height: calc(90vh - 155px);
+  }
+  .dash-hexuple-items .dashboard-cards .dashboard-img img {
+    height: calc(53vh - 135px);
+  }
+  .dash-hexuple-items .dashboard-cards {
+    height: calc(69vh - 150px);
+  }
+}
+/* iPhone 6, 6S, 7, 8 (4.7″) — Viewport approx 667px wide in landscape */
+@media only screen and (min-width: 667px) and (orientation: landscape) {
+}
+
+/* iPhone 6 Plus, 6S Plus, 7 Plus, 8 Plus (5.5″) — Viewport approx 736px wide in landscape */
+@media only screen and (min-width: 736px) and (orientation: landscape) {
+  .dash-quadriple-items .dashboard-cards .dashboard-img img {
+    height: calc(90vh - 165px);
+  }
+}
+
+/* iPhone newer models up to iPhone 17 — viewport widths vary (e.g., ~414px up se) */
+/* A “catch-all” for devices larger than ~414px CSS width in landscape */
