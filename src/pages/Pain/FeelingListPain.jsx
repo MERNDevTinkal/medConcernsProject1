@@ -42,7 +42,7 @@ const FeelingListPain = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(pathprimary, [value]);
-      navigate(path);
+      // navigate(path);
     }
   };
   useEffect(() => {
@@ -104,7 +104,7 @@ const FeelingListPain = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(pathprimary, [value]);
-      navigate(valuepath);
+      // navigate(valuepath);
     }
   };
   return (

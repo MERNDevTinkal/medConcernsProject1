@@ -809,11 +809,83 @@ import DisparandoSpanishMale from "../../assets/audio/spanish/male/Disparando.wa
 import DoloridoOSordoSpanishMale from "../../assets/audio/spanish/male/Dolorido o sordo.wav";
 import HeavyPesadoSpanishMale from "../../assets/audio/spanish/male/Heavy_pesado.wav";
 import SpasmingEspasmosSpanishMale from "../../assets/audio/spanish/male/spasming_espasmos.wav";
-import SqueezingOrTightApretandoOApretado1SpanishMale from "../../assets/audio/spanish/male/squeezing or tight_apretando o apretado (1).wav";
 import SqueezingOrTightApretandoOApretadoSpanishMale from "../../assets/audio/spanish/male/squeezing or tight_apretando o apretado.wav";
 import ThrobbingPalpitanteSpanishMale from "../../assets/audio/spanish/male/throbbing_palpitante.wav";
+import TraqueotomiaSpanishMale from "../../assets/audio/English/newFemaleEnglish/Traqueotomia (Trach).wav";
+import trachMale from "../../assets/audio/English/newFemaleEnglish/trachMale.mp3";
+import AlgomasMale from "../../assets/audio/English/newFemaleEnglish/algo mas.wav";
 
+import AfiladoOPunzanteSpanishFemale from "../../assets/audio/Spanish/female/afilado o punzante (sharp or stabbing).mp3";
+import AlgoMasSpanishFemale from "../../assets/audio/Spanish/female/algo mas (something else).mp3";
+import ApretandoOApretadoSpanishFemale from "../../assets/audio/Spanish/female/apretando o apretado (squeezing or tight).mp3";
+import CalambresSpanishFemale from "../../assets/audio/Spanish/female/calambres (cramping).mp3";
+import ComezonSpanishFemale from "../../assets/audio/Spanish/female/Comezón.mp3";
+import DisparandoSpanishFemale from "../../assets/audio/Spanish/female/disparando (shooting).mp3";
+import DoloridoOSorsoSpanishFemale from "../../assets/audio/Spanish/female/dolorido o sorso (aching or dull).mp3";
+import EntumecimientoOHormigueoSpanishFemale from "../../assets/audio/Spanish/female/Entumecimiento u hormigueo (numb or tingling).mp3";
+import EspasmosSpanishFemale from "../../assets/audio/Spanish/female/espasmos (spasming).mp3";
+import HormigueoDolorosoSpanishFemale from "../../assets/audio/Spanish/female/hormigueo doloroso (pins and needles).mp3";
+import PalpitanteSpanishFemale from "../../assets/audio/Spanish/female/palpitante (throbbing).mp3";
+import PesadoSpanishFemale from "../../assets/audio/Spanish/female/pesado (heavy).mp3";
+import QuemaSpanishFemale from "../../assets/audio/Spanish/female/quema (burning).mp3";
+import TraqueotomiaSpanishFemale from "../../assets/audio/Spanish/female/traqueotomia (trach).mp3";
+import TuboDeAlimentacionSpanishFemale from "../../assets/audio/Spanish/female/Tubo de alimentación (feeding tube).mp3";
+
+import MildMale from "../../assets/audio/English/male/Mild Male.wav";
+import ModerateMale from "../../assets/audio/English/male/Moderate Male.wav";
+import NoPainMale from "../../assets/audio/English/male/No Pain Male.wav";
+import SevereMale from "../../assets/audio/English/male/Severe Male.wav";
+import VerySevereMale from "../../assets/audio/English/male/Very Severe Male.wav";
+import WorstPainImaginableMale from "../../assets/audio/English/male/Worst Pain Imaginable_com Male.wav";
+
+import MildLeveSpanishMale from "../../assets/audio/spanish/male/mild_leve.wav";
+import ModerateModeradoSpanishMale from "../../assets/audio/spanish/male/moderate_moderado.wav";
+import NoPainSinDolorSpanishMale from "../../assets/audio/spanish/male/No pain_sin dolor.wav";
+import SevereGraveSpanishMale from "../../assets/audio/spanish/male/severe_grave.wav";
+import WorstPainImaginablePeorDolorImaginableSpanishMale from "../../assets/audio/spanish/male/worst pain imaginable_peor dolor imaginable.wav";
+
+import GraveSpanishFemale from "../../assets/audio/spanish/female/grave (severe)female.mp3";
+import LeveSpanishFemale from "../../assets/audio/spanish/female/leve (mild)female.mp3";
+import ModeradoSpanishFemale from "../../assets/audio/spanish/female/moderado (moderate)female.mp3";
+import MuyGraveSpanishFemale from "../../assets/audio/spanish/female/muy grave (very severe)female.mp3";
+import PeorDolorImaginableSpanishFemale from "../../assets/audio/spanish/female/Peor dolor imaginable (worst pain imaginable)female.mp3";
+import SinDolorSpanishFemale from "../../assets/audio/spanish/female/Sin dolor (No pain)female.mp3";
 export {
+  GraveSpanishFemale,
+  LeveSpanishFemale,
+  ModeradoSpanishFemale,
+  MuyGraveSpanishFemale,
+  PeorDolorImaginableSpanishFemale,
+  SinDolorSpanishFemale,
+  MildLeveSpanishMale,
+  ModerateModeradoSpanishMale,
+  NoPainSinDolorSpanishMale,
+  SevereGraveSpanishMale,
+  WorstPainImaginablePeorDolorImaginableSpanishMale,
+  MildMale,
+  ModerateMale,
+  NoPainMale,
+  SevereMale,
+  VerySevereMale,
+  WorstPainImaginableMale,
+  AfiladoOPunzanteSpanishFemale,
+  AlgoMasSpanishFemale,
+  ApretandoOApretadoSpanishFemale,
+  CalambresSpanishFemale,
+  ComezonSpanishFemale,
+  DisparandoSpanishFemale,
+  DoloridoOSorsoSpanishFemale,
+  EntumecimientoOHormigueoSpanishFemale,
+  EspasmosSpanishFemale,
+  HormigueoDolorosoSpanishFemale,
+  PalpitanteSpanishFemale,
+  PesadoSpanishFemale,
+  QuemaSpanishFemale,
+  TraqueotomiaSpanishFemale,
+  TuboDeAlimentacionSpanishFemale,
+  AlgomasMale,
+  TraqueotomiaSpanishMale,
+  trachMale,
   BurningMale,
   SqueezingTightMale,
   ItchingMale,
@@ -826,6 +898,14 @@ export {
   NumborTingling_comMale,
   SharporStabbing_comMale,
   AchingorDull_comMale,
+  ComezonSpanishMale,
+  CrampingCalambresSpanishMale,
+  DisparandoSpanishMale,
+  DoloridoOSordoSpanishMale,
+  HeavyPesadoSpanishMale,
+  SpasmingEspasmosSpanishMale,
+  SqueezingOrTightApretandoOApretadoSpanishMale,
+  ThrobbingPalpitanteSpanishMale,
   No_male,
   No_no_maleSpanish,
   MaybeMale,
