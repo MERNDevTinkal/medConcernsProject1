@@ -850,7 +850,86 @@ import ModeradoSpanishFemale from "../../assets/audio/spanish/female/moderado (m
 import MuyGraveSpanishFemale from "../../assets/audio/spanish/female/muy grave (very severe)female.mp3";
 import PeorDolorImaginableSpanishFemale from "../../assets/audio/spanish/female/Peor dolor imaginable (worst pain imaginable)female.mp3";
 import SinDolorSpanishFemale from "../../assets/audio/spanish/female/Sin dolor (No pain)female.mp3";
+
+import AllDayMale from "../../assets/audio/English/male/All Day(Fatigue)(male).wav";
+import ComesAndGoesMale from "../../assets/audio/English/male/Comes and Goes(male).wav";
+import IDontKnowMale from "../../assets/audio/English/male/I Don't Know (male).mp3";
+import MorningMale from "../../assets/audio/English/male/Morning(male).wav";
+import WhenSittingMale from "../../assets/audio/English/male/When Sitting(male).mp3";
+import WhenStandingMale from "../../assets/audio/English/male/When Standing(male).mp3";
+import WithActivityMale from "../../assets/audio/English/male/With Activity(How Often)(male).wav";
+import WithBloodPressureMale from "../../assets/audio/English/male/With Blood Pressure (male).mp3";
+import WithBloodSugarMale from "../../assets/audio/English/male/With Blood Sugar (male).mp3";
+
+import AlDormirMale from "../../assets/audio/spanish/male/72 Al dormir Male.wav";
+import AlCaminarMale from "../../assets/audio/spanish/male/73 Al caminar Male.wav";
+import AlTransferirOReposicionarMale from "../../assets/audio/spanish/male/74 Al transferir o reposicionar Male.wav";
+import ConMovimientoMale from "../../assets/audio/spanish/male/75 Con movimiento Male.wav";
+import AlUsarElBanoMale from "../../assets/audio/spanish/male/76 Al usar el baño Male.wav";
+import ConAlimentacionPorTuboMale from "../../assets/audio/spanish/male/78 Con alimentación por tubo Male.wav";
+import ConEstresOEmocionMale from "../../assets/audio/spanish/male/79 Con estrés o emoción Male.wav";
+import DespuesDeUnProcedimientoMale from "../../assets/audio/spanish/male/80 Después de un procedimiento Male.wav";
+import DesdeMiDerrameCerebralOLesionMale from "../../assets/audio/spanish/male/81 Desde mi derrame cerebral o lesión Male.wav";
+import DesdeLaEnfermedadMale from "../../assets/audio/spanish/male/82 Desde la enfermedadMale.wav";
+import DesdeLaCaidaOLesionMale from "../../assets/audio/spanish/male/83 Desde la caída o lesiónMale.wav";
+import AlTragarMale from "../../assets/audio/spanish/male/84 Al tragar Male.wav";
+import AlComerOBeberMale from "../../assets/audio/spanish/male/85 Al comer o beber Male.wav";
+import SiempreOCronicoMale from "../../assets/audio/spanish/male/86 Siempre o crónico Male.wav";
+import AlEstarSentadoV2Male from "../../assets/audio/spanish/male/Al estar sentado v2 Male.wav";
+import ConActividadMale from "../../assets/audio/spanish/male/con actividad Male.wav";
+import ConActividadMentalMale from "../../assets/audio/spanish/male/Con actividad mental Male.wav";
+import ConAzucarEnSangreMale from "../../assets/audio/spanish/male/Con Azucar en Sangre Male.mp3";
+import ConMedicacionMale from "../../assets/audio/spanish/male/con medicacion Male.wav";
+import ConPrecionArterialMale from "../../assets/audio/spanish/male/Con Precion Arterial (male sp) Male.mp3";
+import DespuesDeComerMale from "../../assets/audio/spanish/male/Despues de comer Male.wav";
+import EmpeoraALoLargoDelDiaMale from "../../assets/audio/spanish/male/Empeora a lo largo del dia Male.wav";
+import MananaMorningMale from "../../assets/audio/spanish/male/Mañana - morning Male.wav";
+import NocheTempranoEveningMale from "../../assets/audio/spanish/male/Noche Temprano - evening Male.wav";
+import RecienComenzadoMale from "../../assets/audio/spanish/male/Recien Comenzado Male.wav";
+import TodoElDiaMale from "../../assets/audio/spanish/male/todo el dia Male.wav";
+import AlEstarDePieMale from "../../assets/audio/spanish/male/VO - Al Estar de Pie Male.wav";
+import NoSeMale from "../../assets/audio/spanish/male/VO - No seMale.wav";
+import VieneYVaMale from "../../assets/audio/spanish/male/VO - Viene y Va Male.wav";
+
 export {
+  AlDormirMale,
+  AlCaminarMale,
+  AlTransferirOReposicionarMale,
+  ConMovimientoMale,
+  AlUsarElBanoMale,
+  ConAlimentacionPorTuboMale,
+  ConEstresOEmocionMale,
+  DespuesDeUnProcedimientoMale,
+  DesdeMiDerrameCerebralOLesionMale,
+  DesdeLaEnfermedadMale,
+  DesdeLaCaidaOLesionMale,
+  AlTragarMale,
+  AlComerOBeberMale,
+  SiempreOCronicoMale,
+  AlEstarSentadoV2Male,
+  ConActividadMale,
+  ConActividadMentalMale,
+  ConAzucarEnSangreMale,
+  ConMedicacionMale,
+  ConPrecionArterialMale,
+  DespuesDeComerMale,
+  EmpeoraALoLargoDelDiaMale,
+  MananaMorningMale,
+  NocheTempranoEveningMale,
+  RecienComenzadoMale,
+  TodoElDiaMale,
+  AlEstarDePieMale,
+  NoSeMale,
+  VieneYVaMale,
+  AllDayMale,
+  WithBloodSugarMale,
+  WithBloodPressureMale,
+  WithActivityMale,
+  WhenStandingMale,
+  WhenSittingMale,
+  MorningMale,
+  IDontKnowMale,
+  ComesAndGoesMale,
   GraveSpanishFemale,
   LeveSpanishFemale,
   ModeradoSpanishFemale,
