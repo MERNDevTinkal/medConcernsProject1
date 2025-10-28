@@ -9,8 +9,17 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import NoImg from "../../../src/assets/images/concern-img-08.png";
 import yesImage from "../../../src/assets/images/summary-img-06.png";
 import dontknowImg from "../../../src/assets/images/something-else.png";
-
-const DecisionCard = ({ selectedLanguage, partName }) => {
+import {
+  YesFemale,
+  YesFemaleSpanish,
+  NoFemale,
+  NoFemaleSpanish,
+  YesSpanishMale,
+  YesMale,
+  No_male,
+  No_no_maleSpanish,
+} from "../../../src/Component/DiseasesData/audio";
+const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
@@ -24,6 +33,11 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
       nameEs: "SÍ",
       newProblem: "new problem",
       SpanishnewProblem: "nuevo problema",
+
+      maleEnglish: YesMale,
+      femaleEnglish: YesFemale,
+      maleSpanish: YesSpanishMale,
+      femaleSpanish: YesFemaleSpanish,
     },
     {
       id: 2,
@@ -32,6 +46,10 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
       nameEs: "No",
       newProblem: "new problem",
       SpanishnewProblem: "nuevo problema",
+      maleEnglish: No_male,
+      femaleEnglish: NoFemale,
+      maleSpanish: No_no_maleSpanish,
+      femaleSpanish: NoFemaleSpanish,
     },
     {
       id: 3,
@@ -44,12 +62,27 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
   ];
   const handleDecision = async (value, mainpath, id) => {
     if (value && mainpath) {
+      const arrayFilter = newData.filter((data) => data.id === id);
       await getTextToSpeech(
         value,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        selectedLanguage === "" && selectedGender === ""
+          ? arrayFilter?.[0]?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? arrayFilter?.[0]?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? arrayFilter?.[0]?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? arrayFilter?.[0]?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? arrayFilter?.[0]?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? arrayFilter?.[0]?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? arrayFilter?.[0]?.femaleEnglish
+          : arrayFilter?.[0]?.maleEnglish
       );
       if (path === "/new-problem") {
-        const arrayFilter = newData.filter((data) => data.id === id);
         addOrUpdateSummary(path, arrayFilter);
       } else {
         updateDisease(path.replace("/", ""), value);
@@ -83,11 +116,7 @@ const DecisionCard = ({ selectedLanguage, partName }) => {
 
         <div
           onClick={() => {
-            handleDecision(
-              "No",
-              path === "/new-problem" ? "/summary" : navigate(-1),
-              2
-            );
+            handleDecision("No", path === "/new-problem" ? "/summary" : -1, 2);
           }}
         >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">

@@ -15,15 +15,20 @@ function ConcernPain() {
   const { partName, image } = state || {};
   const { deleteLastSummaryItem } = useContext(GlobalContext);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     getSetting(
       () => {},
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
-      setLoader
+      setLoader,
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -59,6 +64,7 @@ function ConcernPain() {
                 <DecisionCard
                   selectedLanguage={selectedLanguage}
                   partName={partName}
+                  selectedGender={selectedGender}
                 />
               </div>
             </div>

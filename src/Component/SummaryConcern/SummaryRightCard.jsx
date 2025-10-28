@@ -14,7 +14,14 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
           ? item?.data?.[0]?.SpanishnewProblem
           : item?.data?.[0]?.newProblem;
       }
-      return isSpanish ? item?.data?.[0]?.nameEs : item?.data?.[0]?.name;
+      if (isSpanish) {
+        let value;
+        value = isSpanish ? item?.data?.[0]?.nameEs : item?.data?.[0]?.name;
+        if (!item?.data?.[0]?.nameEs && item?.data?.[0]?.name) {
+          value = item?.data?.[0]?.name;
+        }
+        return value;
+      }
     }
     if (item?.data?.[0]?.painFeel || item?.data?.[0]?.painFeelEs) {
       return isSpanish

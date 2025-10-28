@@ -1,4 +1,5 @@
 export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
+  console.log("==>audioFile", audioFile);
   return new Promise((resolve, reject) => {
     if ((!text || !text.trim()) && !audioFile) {
       resolve();
