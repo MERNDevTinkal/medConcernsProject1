@@ -211,7 +211,7 @@ import UnPocoRaroMaleSpanish from "../../assets/audio/Spanish/male/30 Un poco ra
 import NoBienMaleSpanish from "../../assets/audio/Spanish/male/31 No bien.wav";
 import DeprimidoTristeMaleSpanish from "../../assets/audio/Spanish/male/32 Deprimido o triste.wav";
 import MuyDeprimidoMaleSpanish from "../../assets/audio/Spanish/male/33 Muy deprimido.wav";
-import TalVezMaleSpanish from "../../assets/audio/Spanish/male/34 Tal vez.wav";
+
 import PreocupadaCulpaMaleSpanish from "../../assets/audio/Spanish/male/35 Preocupada o con culpa.wav";
 import SinEsperanzaMaleSpanish from "../../assets/audio/Spanish/male/36 Sin esperanza.wav";
 import TardeNocheMaleSpanish from "../../assets/audio/Spanish/male/37 En la tarde o la noche.wav";
@@ -542,7 +542,7 @@ import MantaAlmohadaFemaleSpanish from "../../assets/audio/English/newFemaleEngl
 import marchFemale from "../../assets/audio/English/newFemaleEnglish/March.mp3";
 import marzoFemale from "../../assets/audio/English/newFemaleEnglish/Marzo (March).mp3";
 import mayFemale from "../../assets/audio/English/newFemaleEnglish/May.mp3";
-import MaybeFemale from "../../assets/audio/English/newFemaleEnglish/Maybe.mp3";
+
 import mayoFemale from "../../assets/audio/English/newFemaleEnglish/Mayo (May).mp3";
 import MedicamentosDolorFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Medicamentos para el Dolor (Pain Meds).mp3";
 import medicationEnglishFemale from "../../assets/audio/English/newFemaleEnglish/medication - English Female.mp3";
@@ -684,7 +684,7 @@ import swallowingFemale from "../../assets/audio/English/newFemaleEnglish/Swallo
 import SwellingFemale from "../../assets/audio/English/newFemaleEnglish/Swelling (1).mp3";
 
 // T files
-import TalVezFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Tal Vez (Maybe).mp3";
+
 import tasteChangesFemale from "../../assets/audio/English/newFemaleEnglish/Taste Changes.mp3";
 import TelefonoOrTabletaFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Telefono _ Tableta (Phone _ Tablet).mp3";
 import TelevisorFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Televisor (TV).mp3";
@@ -774,7 +774,67 @@ import YellowFemale from "../../assets/audio/English/newFemaleEnglish/Yellow .mp
 
 // _ files
 import bedPanFemale from "../../assets/audio/English/newFemaleEnglish/_Bed pan.mp3";
+// yes no
+import YesFemale from "../../assets/audio/English/newFemaleEnglish/Yes.mp3";
+import YesFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/si (yes).mp3";
+import NoFemale from "../../assets/audio/English/newFemaleEnglish/No.mp3";
+import NoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/No_no.wav";
+import YesMale from "../../assets/audio/English/newFemaleEnglish/YesMale.wav";
+import YesSpanishMale from "../../assets/audio/English/newFemaleEnglish/yes_si-male.wav";
+import MaybeFemale from "../../assets/audio/English/newFemaleEnglish/Maybe.mp3";
+import TalVezMaleSpanish from "../../assets/audio/Spanish/male/34 Tal vez.wav";
+import MaybeMale from "../../assets/audio/English/newFemaleEnglish/MaybeMale.wav";
+import TalVezFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Tal Vez (Maybe).mp3";
+import No_male from "../../assets/audio/English/newFemaleEnglish/No_male.wav";
+import No_no_maleSpanish from "../../assets/audio/English/newFemaleEnglish/No_no_male.wav";
+
+//male
+
+import BurningMale from "../../assets/audio/English/male/Burning(Urination)_com.wav";
+import SqueezingTightMale from "../../assets/audio/English/male/Squeezing or Tight_com.wav";
+import ItchingMale from "../../assets/audio/English/male/Itching.mp3";
+import throbbingMale from "../../assets/audio/English/male/throbbing.mp3";
+import ShootingMale from "../../assets/audio/English/male/Shooting.mp3";
+import HeavyMale from "../../assets/audio/English/male/Heavy.mp3";
+import CrampingMale from "../../assets/audio/English/male/Cramping.mp3";
+import PinsandneedlesMale from "../../assets/audio/English/male/Pins and needles.mp3";
+import SpasmingMale from "../../assets/audio/English/male/Spasming.wav";
+import NumborTingling_comMale from "../../assets/audio/English/male/Numb or Tingling_com.wav";
+import SharporStabbing_comMale from "../../assets/audio/English/male/Sharp or Stabbing_com.wav";
+import AchingorDull_comMale from "../../assets/audio/English/male/Aching or Dull_com.wav";
+
+import ComezonSpanishMale from "../../assets/audio/spanish/male/Comezon.wav";
+import CrampingCalambresSpanishMale from "../../assets/audio/spanish/male/cramping_calambres.wav";
+import DisparandoSpanishMale from "../../assets/audio/spanish/male/Disparando.wav";
+import DoloridoOSordoSpanishMale from "../../assets/audio/spanish/male/Dolorido o sordo.wav";
+import HeavyPesadoSpanishMale from "../../assets/audio/spanish/male/Heavy_pesado.wav";
+import SpasmingEspasmosSpanishMale from "../../assets/audio/spanish/male/spasming_espasmos.wav";
+import SqueezingOrTightApretandoOApretado1SpanishMale from "../../assets/audio/spanish/male/squeezing or tight_apretando o apretado (1).wav";
+import SqueezingOrTightApretandoOApretadoSpanishMale from "../../assets/audio/spanish/male/squeezing or tight_apretando o apretado.wav";
+import ThrobbingPalpitanteSpanishMale from "../../assets/audio/spanish/male/throbbing_palpitante.wav";
+
 export {
+  BurningMale,
+  SqueezingTightMale,
+  ItchingMale,
+  throbbingMale,
+  ShootingMale,
+  HeavyMale,
+  CrampingMale,
+  PinsandneedlesMale,
+  SpasmingMale,
+  NumborTingling_comMale,
+  SharporStabbing_comMale,
+  AchingorDull_comMale,
+  No_male,
+  No_no_maleSpanish,
+  MaybeMale,
+  YesFemale,
+  YesFemaleSpanish,
+  NoFemale,
+  YesMale,
+  YesSpanishMale,
+  NoFemaleSpanish,
   SinFructosSecosFemaleSpanish,
   noPainFemale,
   noPuedoVerALaIzquierdaFemale,

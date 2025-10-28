@@ -314,6 +314,20 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   const navigate = useNavigate();
   const [bodyImage, setBodyImage] = useState("");
   const { addOrUpdateSummary } = useContext(GlobalContext);
+  const replaceString = (bodyName) => {
+    const replacements = [
+      { en: "left", es: "izquierda" },
+      { en: "right", es: "derecha" },
+    ];
+    let result = bodyName;
+    replacements.forEach(({ en, es }) => {
+      const regexEn = new RegExp(en, "gi");
+      const regexEs = new RegExp(es, "gi");
+
+      result = result.replace(regexEn, "").replace(regexEs, "");
+    });
+    return result.replace(/\s+/g, " ").trim();
+  };
 
   const handleImageClick = (e) => {
     const img = e.target;
@@ -349,7 +363,6 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           realY >= r.y1 - PADDING &&
           realY <= r.y2 + PADDING
       ) || null;
-    console.log("======>", clickedRegion);
     if (!clickedRegion) {
       let minDist = Infinity;
       activeRegions.forEach((r) => {
@@ -406,12 +419,12 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
               value
             ],
-          name: clickedRegion.name,
+          name: replaceString(clickedRegion?.name),
         },
       ]);
       navigate("/concern-pain", {
         state: {
-          partName: clickedRegion.name,
+          partName: replaceString(clickedRegion?.name),
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
               value
