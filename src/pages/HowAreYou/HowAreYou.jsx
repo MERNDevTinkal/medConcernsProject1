@@ -62,7 +62,6 @@ export default function HowAreYou() {
       setLoader
     );
   }, []);
-  console.log("selectedIconCount", selectedIconCount);
   return (
     <>
       {loader ? (

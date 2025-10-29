@@ -450,7 +450,6 @@
 //     </>
 //   );
 // }
-
 import React, { useState, useContext, useEffect } from "react";
 import { ArrowLeft, Check } from "lucide-react";
 import Header from "../../Component/Layout/Header/Header";
@@ -721,121 +720,239 @@ export default function TabsCalendar() {
     selectedLanguage === "Spanish" ? monthsOfYearSpanish : monthsOfYear;
   const currentMonths = selectedLanguage === "Spanish" ? monthsSpanish : months;
 
-  // Audio mappings
+  // Audio mappings with gender support
   const getDayAudio = (item) => {
     if (selectedLanguage === "Spanish") {
-      switch (item) {
-        case "morning":
-          return MorningMale;
-        case "afternoon":
-          return TardeAfternoonSpanishMale;
-        case "evening":
-          return NocheTempranoEveningMale;
-        default:
-          return null;
+      if (selectedGender === "Female") {
+        switch (item) {
+          case "morning":
+            return MananaMorningSpanishFemale;
+          case "afternoon":
+            return TardeAfternoonSpanishFemale;
+          case "evening":
+            return NocheTempranoEveningSpanishFemale;
+          default:
+            return null;
+        }
+      } else {
+        switch (item) {
+          case "morning":
+            return MorningMale;
+          case "afternoon":
+            return TardeAfternoonSpanishMale;
+          case "evening":
+            return NocheTempranoEveningMale;
+          default:
+            return null;
+        }
       }
     } else {
-      switch (item) {
-        case "morning":
-          return MorningMale;
-        case "afternoon":
-          return AfternoonMale;
-        case "evening":
-          return EveningMale;
-        default:
-          return null;
+      if (selectedGender === "Female") {
+        switch (item) {
+          case "morning":
+            return MorningFemale;
+          case "afternoon":
+            return AfternoonFemale;
+          case "evening":
+            return EveningFemale;
+          default:
+            return null;
+        }
+      } else {
+        switch (item) {
+          case "morning":
+            return MorningMale;
+          case "afternoon":
+            return AfternoonMale;
+          case "evening":
+            return EveningMale;
+          default:
+            return null;
+        }
       }
     }
   };
 
   const getWeekAudio = (index) => {
     if (selectedLanguage === "Spanish") {
-      const spanishWeekAudios = [
-        DomingoSundaySpanishMale,
-        LunesMondaySpanishMale,
-        MartesTuesdaySpanishMale,
-        MiercolesSpanishMale,
-        JuevesThursdaySpanishMale,
-        ViernesFridaySpanishMale,
-        SabadoSaturdaySpanishMale,
-      ];
-      return spanishWeekAudios[index];
+      if (selectedGender === "Female") {
+        const spanishWeekAudiosFemale = [
+          DomingoSundaySpanishFemale,
+          LunesMondaySpanishFemale,
+          MartesTuesdaySpanishFemale,
+          MiercolesSpanishFemale,
+          JuevesThursdaySpanishFemale,
+          ViernesFridaySpanishFemale,
+          SabadoSaturdaySpanishFemale,
+        ];
+        return spanishWeekAudiosFemale[index];
+      } else {
+        const spanishWeekAudiosMale = [
+          DomingoSundaySpanishMale,
+          LunesMondaySpanishMale,
+          MartesTuesdaySpanishMale,
+          MiercolesSpanishMale,
+          JuevesThursdaySpanishMale,
+          ViernesFridaySpanishMale,
+          SabadoSaturdaySpanishMale,
+        ];
+        return spanishWeekAudiosMale[index];
+      }
     } else {
-      const englishWeekAudios = [
-        SundayMale,
-        MondayMale,
-        TuesdayMale,
-        WednesdayMale,
-        ThursdayMale,
-        FridayMale,
-        SaturdayMale,
-      ];
-      return englishWeekAudios[index];
+      if (selectedGender === "Female") {
+        const englishWeekAudiosFemale = [
+          SundayFemale,
+          MondayFemale,
+          TuesdayFemale,
+          WednesdayFemale,
+          ThursdayFemale,
+          FridayFemale,
+          SaturdayFemale,
+        ];
+        return englishWeekAudiosFemale[index];
+      } else {
+        const englishWeekAudiosMale = [
+          SundayMale,
+          MondayMale,
+          TuesdayMale,
+          WednesdayMale,
+          ThursdayMale,
+          FridayMale,
+          SaturdayMale,
+        ];
+        return englishWeekAudiosMale[index];
+      }
     }
   };
 
   const getMonthAudio = (index) => {
     if (selectedLanguage === "Spanish") {
-      const spanishMonthAudios = [
-        EneroJanuarySpanishMale,
-        FebreroFebruarySpanishMale,
-        MarzoMarchSpanishMale,
-        AbrilAprilSpanishMale,
-        MayoMaySpanishMale,
-        JunioJuneSpanishMale,
-        JulioJulySpanishMale,
-        AgostoAugustSpanishMale,
-        SeptiembreSeptemberSpanishMale,
-        OctubreSpanishMale,
-        NoviembreSpanishMale,
-        DiciembreDecemberSpanishMale,
-      ];
-      return spanishMonthAudios[index];
+      if (selectedGender === "Female") {
+        const spanishMonthAudiosFemale = [
+          EneroJanuarySpanishFemale,
+          FebreroFebruarySpanishFemale,
+          MarzoMarchSpanishFemale,
+          AbrilAprilSpanishFemale,
+          MayoMaySpanishFemale,
+          JunioJuneSpanishFemale,
+          JulioJulySpanishFemale,
+          AgostoAugustSpanishFemale,
+          SeptiembreSeptemberSpanishFemale,
+          OctubreSpanishFemale,
+          NoviembreSpanishFemale,
+          DiciembreDecemberSpanishFemale,
+        ];
+        return spanishMonthAudiosFemale[index];
+      } else {
+        const spanishMonthAudiosMale = [
+          EneroJanuarySpanishMale,
+          FebreroFebruarySpanishMale,
+          MarzoMarchSpanishMale,
+          AbrilAprilSpanishMale,
+          MayoMaySpanishMale,
+          JunioJuneSpanishMale,
+          JulioJulySpanishMale,
+          AgostoAugustSpanishMale,
+          SeptiembreSeptemberSpanishMale,
+          OctubreSpanishMale,
+          NoviembreSpanishMale,
+          DiciembreDecemberSpanishMale,
+        ];
+        return spanishMonthAudiosMale[index];
+      }
     } else {
-      const englishMonthAudios = [
-        JanuaryMale,
-        FebruaryMale,
-        MarchMale,
-        AprilMale,
-        MayMale,
-        JuneMale,
-        JulyMale,
-        AugustMale,
-        SeptemberMale,
-        OctoberMale,
-        NovemberMale,
-        DecemberMale,
-      ];
-      return englishMonthAudios[index];
+      if (selectedGender === "Female") {
+        const englishMonthAudiosFemale = [
+          JanuaryFemale,
+          FebruaryFemale,
+          MarchFemale,
+          AprilFemale,
+          MayFemale,
+          JuneFemale,
+          JulyFemale,
+          AugustFemale,
+          SeptemberFemale,
+          OctoberFemale,
+          NovemberFemale,
+          DecemberFemale,
+        ];
+        return englishMonthAudiosFemale[index];
+      } else {
+        const englishMonthAudiosMale = [
+          JanuaryMale,
+          FebruaryMale,
+          MarchMale,
+          AprilMale,
+          MayMale,
+          JuneMale,
+          JulyMale,
+          AugustMale,
+          SeptemberMale,
+          OctoberMale,
+          NovemberMale,
+          DecemberMale,
+        ];
+        return englishMonthAudiosMale[index];
+      }
     }
   };
 
   const getTabAudio = (tabName) => {
     if (selectedLanguage === "Spanish") {
-      switch (tabName) {
-        case "day":
-          return HoyTodaySpanishMale;
-        case "week":
-          return WeekEnglishMale;
-        case "month":
-          return MonthEnglishMale;
-        case "now":
-          return NowSpanishMale;
-        default:
-          return null;
+      if (selectedGender === "Female") {
+        switch (tabName) {
+          case "day":
+            return HoyTodaySpanishFemale;
+          case "week":
+            return SemanaWeekSpanishFemale;
+          case "month":
+            return MesMonthSpanishFemale;
+          case "now":
+            return AhoraNowSpanishFemale;
+          default:
+            return null;
+        }
+      } else {
+        switch (tabName) {
+          case "day":
+            return HoyTodaySpanishMale;
+          case "week":
+            return WeekEnglishMale;
+          case "month":
+            return MonthEnglishMale;
+          case "now":
+            return NowSpanishMale;
+          default:
+            return null;
+        }
       }
     } else {
-      switch (tabName) {
-        case "day":
-          return TodayMale;
-        case "week":
-          return WeekMale;
-        case "month":
-          return MonthEnglishMale;
-        case "now":
-          return NowMale;
-        default:
-          return null;
+      if (selectedGender === "Female") {
+        switch (tabName) {
+          case "day":
+            return TodayFemale;
+          case "week":
+            return WeekFemale;
+          case "month":
+            return MonthFemale;
+          case "now":
+            return NowFemale;
+          default:
+            return null;
+        }
+      } else {
+        switch (tabName) {
+          case "day":
+            return TodayMale;
+          case "week":
+            return WeekMale;
+          case "month":
+            return MonthEnglishMale;
+          case "now":
+            return NowMale;
+          default:
+            return null;
+        }
       }
     }
   };

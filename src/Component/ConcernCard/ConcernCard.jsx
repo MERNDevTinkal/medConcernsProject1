@@ -14,10 +14,6 @@ const ConcernCard = ({
   const path = location.pathname;
   const navigate = useNavigate();
   const { updateDisease, resetDiseases } = useContext(GlobalContext);
-  //  maleEnglish: "",
-  //   femaleEnglish: "",
-  //   maleSpanish: "", // Add if exists
-  //   femaleSpanish: "",
   const handleConcern = async (value, mainpath) => {
     if (value && mainpath) {
       resetDiseases();

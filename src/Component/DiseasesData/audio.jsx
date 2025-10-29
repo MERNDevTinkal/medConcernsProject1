@@ -1009,8 +1009,213 @@ import SemanaWeekSpanishFemale from "../../assets/audio/spanish/female/semana (w
 import SeptiembreSeptemberSpanishFemale from "../../assets/audio/spanish/female/Septiembre (September).mp3";
 import TardeAfternoonSpanishFemale from "../../assets/audio/spanish/female/tarde (afternoon).mp3";
 import ViernesFridaySpanishFemale from "../../assets/audio/spanish/female/Viernes (Friday).mp3";
+import SomethingElseFemale from "../../assets/audio/English/male/Something Else (male).mp3";
+import burning_quemaSpanishFemale from "../../assets/audio/spanish/male/burning_quema.wav";
+import MuygraveSpanishMale from "../../assets/audio/spanish/male/very severe_muy grave.wav";
+import juststartedMale from "../../assets/audio/English/male/just started.mp3";
+import WithMedicationMale from "../../assets/audio/English/male/With Medication(How Often).wav";
+import SqueezingorTightfeMale from "../../assets/audio/English/female/Squeezing or Tight.mp3";
+import HormigueodolorosoSpanishFemale from "../../assets/audio/spanish/male/Hormigueo doloroso.wav";
+import sharporstabbing_afiladoopunzanteSpanishFemale from "../../assets/audio/spanish/male/sharp or stabbing_afilado o punzante.wav";
+import numbortinglingSpanishFemale from "../../assets/audio/spanish/male/numb or tingling_entumecimiento u hormigueo.wav";
+
+import IllnessEnglishFemale from "../../assets/audio/English/female/Illness.mp3";
+import SomethingHappenedEnglishFemale from "../../assets/audio/English/female/Something Happened.mp3";
+import WoundIncisionEnglishFemale from "../../assets/audio/English/female/Wound_Incision.mp3";
+import MucousOrSecretionsEnglishFemale from "../../assets/audio/English/female/mucous or secretions.mp3";
+import FeedingTubeEnglishFemale from "../../assets/audio/English/female/feeding tube.mp3";
+import TrachEnglishFemale from "../../assets/audio/English/female/trach.mp3";
+import SomethingElseEnglishFemale from "../../assets/audio/English/female/Something else.mp3";
+import VisionEnglishFemale from "../../assets/audio/English/female/Vision.mp3";
+import MedicationEnglishFemale from "../../assets/audio/English/female/medication - English Female.mp3";
+import FatigueEnglishFemale from "../../assets/audio/English/female/fatigue.mp3";
+import UrinationEnglishFemale from "../../assets/audio/English/female/Urination.mp3";
+import BowelsEnglishFemale from "../../assets/audio/English/female/Bowels.mp3";
+import NauseaEnglishFemale from "../../assets/audio/English/female/Nausea.wav";
+import SwallowingEnglishFemale from "../../assets/audio/English/female/Swallowing.mp3";
+import BreathingOrCoughingEnglishFemale from "../../assets/audio/English/female/Breathing or Coughing.mp3";
+import PainEnglishFemale from "../../assets/audio/English/female/pain.wav";
+import EmotionsOrFeelingsEnglishFemale from "../../assets/audio/English/female/Emotions or Feelings.mp3";
+import HearingEnglishFemale from "../../assets/audio/English/female/Hearing.mp3";
+
+import AlgoMasSomethingElseSpanishFemale from "../../assets/audio/spanish/female/algo mas (something else).mp3";
+import DolorPainSpanishFemale from "../../assets/audio/spanish/female/Dolor (pain).wav";
+import RespirationTosBreathingCoughingSpanishFemale from "../../assets/audio/spanish/female/Respiración_Tos (Breathing_Coughing).mp3";
+import NauseasNauseaSpanishFemale from "../../assets/audio/spanish/female/náuseas (nausea).wav";
+import TragarSwallowSpanishFemale from "../../assets/audio/spanish/female/tragar (swallow).mp3";
+import IntestinosBowelsSpanishFemale from "../../assets/audio/spanish/female/intestinos (bowels).mp3";
+import MiccionUrinationSpanishFemale from "../../assets/audio/spanish/female/miccion (urination).mp3";
+import FatigaFatigueSpanishFemale from "../../assets/audio/spanish/female/fatiga (fatigue).mp3";
+import MedicacionMedicationSpanishFemale from "../../assets/audio/spanish/female/medicacion (medication).mp3";
+import EmocionesSentimientosEmotionsFeelingsSpanishFemale from "../../assets/audio/spanish/female/Emociones_Sentimientos (Emotions_Feelings).mp3";
+import VisionSpanishFemale from "../../assets/audio/spanish/female/Visión (Vision).mp3";
+import EnfermedadIllnessSpanishFemale from "../../assets/audio/spanish/female/Enfermedad (Illness - female).mp3";
+import OidoHearingSpanishFemale from "../../assets/audio/spanish/female/Oido (hearing - Spanish) good one.mp3";
+import AlgoPasoSomethingHappenedSpanishFemale from "../../assets/audio/spanish/female/Algo Pasó (Something Happened- Female).mp3";
+import HeridaIncisionWoundIncisionSpanishFemale from "../../assets/audio/spanish/female/Herida_Incision (Wound_Incision - female).mp3";
+import MucosidadSecrecionesMucusSecretionsSpanishFemale from "../../assets/audio/spanish/female/Mucosidad_Secreciones (Mucus_Secretions).mp3";
+import TuboDeAlimentacionPEGSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentación (PEG).mp3";
+import TraqueotomiaTrachSpanishFemale from "../../assets/audio/spanish/female/traqueotomia (trach).mp3";
+
+import BreathingOrCoughingEnglishMale from "../../assets/audio/English/male/Breathing or Coughing_com.wav";
+import NoConcernsEnglishMale from "../../assets/audio/English/male/70 No Concerns.wav";
+import PainUrinationEnglishMale from "../../assets/audio/English/male/Pain(Urination)_com.wav";
+import Trach1EnglishMale from "../../assets/audio/English/male/trach.mp3";
+import FeedingTubeEnglishMale from "../../assets/audio/English/male/6 Feeding Tube.wav";
+import WoundIncision1EnglishMale from "../../assets/audio/English/male/wound_incision.mp3";
+import MucousOrSecretionsEnglishMale from "../../assets/audio/English/male/mucous or secretions.mp3";
+import WoundIncisionEnglishMale from "../../assets/audio/English/male/wound_incision.mp3";
+import IllnessEnglishMale from "../../assets/audio/English/male/illness.mp3";
+import SomethingHappenedEnglishMale from "../../assets/audio/English/male/Something Happened .mp3";
+import HearingEnglishMale from "../../assets/audio/English/male/hearing.mp3";
+import CommunicationThinkingEnglishMale from "../../assets/audio/English/male/57 Communication _ Thinking.wav";
+import VisionEnglishMale from "../../assets/audio/English/male/vision.mp3";
+import MovementEnglishMale from "../../assets/audio/English/male/56 Movement.wav";
+import EmotionsOrFeelingsEnglishMale from "../../assets/audio/English/male/Emotions or feelings - edited.mp3";
+import MedicationEnglishMale from "../../assets/audio/English/male/Medication_com.wav";
+import EatingAndDrinkingEnglishMale from "../../assets/audio/English/male/39 Eating and Drinking.wav";
+import FatigueEnglishMale from "../../assets/audio/English/male/Fatigue_com.wav";
+import NauseaEnglishMale from "../../assets/audio/English/male/Nausea(Concerns page 2).wav";
+import UrinationEnglishMale from "../../assets/audio/English/male/Urination.wav";
+import BowelsEnglishMale from "../../assets/audio/English/male/Bowels_com.wav";
+import SwallowingEnglishMale from "../../assets/audio/English/male/Swallowing_com.wav";
+
+import AlgoMasSpanishMale from "../../assets/audio/spanish/male/algo mas.wav";
+import TraqueotomiaTrachSpanishMale from "../../assets/audio/spanish/male/Traqueotomia (Trach).wav";
+import TuboDeAlimentacionV2SpanishMale from "../../assets/audio/spanish/male/Tubo de alimentacion v2.wav";
+import ComunicacionPensamientoSpanishMale from "../../assets/audio/spanish/male/57 Comunicación o pensamiento.wav";
+import MovimientoSpanishMale from "../../assets/audio/spanish/male/56 Movimiento.wav";
+import MiccionSpanishMale from "../../assets/audio/spanish/male/Micción (Joaquin Vignoli).wav";
+import EmotionsFeelingsEmocionesSentimientosSpanishMale from "../../assets/audio/spanish/male/Emotions_Feelings Emociones_sentimientos.wav";
+import ComerYBeberSpanishMale from "../../assets/audio/spanish/male/39 Comer y beber.wav";
+import MedicacionSpanishMale from "../../assets/audio/spanish/male/Medicación  (Joaquin Vignoli).wav";
+import FatigaSpanishMale from "../../assets/audio/spanish/male/Fatiga .wav";
+import IntestinosBowelsSpanishMale from "../../assets/audio/spanish/male/Intestinos (Bowels).wav";
+import NauseasNauseaSpanishMale from "../../assets/audio/spanish/male/Nauseas (Nausea).wav";
+import TragarSpanishMale from "../../assets/audio/spanish/male/Tragar (male).mp3";
+import RespirationTosBreathingCoughingSpanishMale from "../../assets/audio/spanish/male/Respiración_Tos (Breathing_Coughing).wav";
+import DolorPainSpanishMale from "../../assets/audio/spanish/male/Dolor (Pain).wav";
+import MucosidadSecrecionesMucusSecretionsSpanishMale from "../../assets/audio/spanish/male/mucosidad_secreciones_mucus_secretions.wav";
+import HeridaIncisionWoundIncisionSpanishMale from "../../assets/audio/spanish/male/Herida_Incision (Wound_Incision).wav";
+import AlgoPasoSpanishMale from "../../assets/audio/spanish/male/algo paso.wav";
+import EnfermedadSpanishMale from "../../assets/audio/spanish/male/Enfermedad.wav";
+import OidoSpanishMale from "../../assets/audio/spanish/male/Oido.wav";
+import VisionSpanishMale from "../../assets/audio/spanish/male/Vision.wav";
+import SinPreocupacionesSpanishMale from "../../assets/audio/spanish/male/70 Sin preocupaciones .wav";
+
+// import TerapeutaRespiratorioMale from "../../assets/audio/English/newFemaleEnglish/121 Terapeuta respiratorioMale.wav";
+// import CateterMale from "../../assets/audio/English/newFemaleEnglish/CateterMale.wav";
+// import CatheterMale from "../../assets/audio/English/newFemaleEnglish/Catheter (male eng).mp3";
+// import CatererCatheterFemale from "../../assets/audio/English/newFemaleEnglish/Catéter (Catheter - increased volume).mp3";
+// import SuccionSuctionMale from "../../assets/audio/English/newFemaleEnglish/succion_suctionMale.wav";
+// import SuctionMale from "../../assets/audio/English/newFemaleEnglish/suctionMale.mp3";
+// import SuccionSuctionFemale from "../../assets/audio/English/newFemaleEnglish/succion (suction)Female.mp3";
+// import SalgaPorFavorMale from "../../assets/audio/English/newFemaleEnglish/VO - Salga, por favorMale.wav";
+// import PleaseLeaveMale from "../../assets/audio/English/newFemaleEnglish/Please Leave (male eng).mp3";
+// import LlamaALaFamiliaMale from "../../assets/audio/English/newFemaleEnglish/VO - Llama a la FamiliaMale.wav";
+// import CallFamilyMale from "../../assets/audio/English/newFemaleEnglish/Call Family (male eng).mp3";
+// import LuzDeLlamadaMale from "../../assets/audio/English/newFemaleEnglish/VO - Luz de LlamadaMale.wav";
+// import CallLightMale from "../../assets/audio/English/newFemaleEnglish/Call Light (male eng).mp3";
+// import AudifonosMale from "../../assets/audio/English/newFemaleEnglish/AudifonosMale.wav";
+// import HearingAidsMale from "../../assets/audio/English/newFemaleEnglish/Hearing AidsMale.mp3";
+// import AudifonosHearingAidesFemale from "../../assets/audio/English/newFemaleEnglish/Audífonos (hearing aides).mp3";
+// import GlassesGafasMale from "../../assets/audio/English/newFemaleEnglish/glasses_gafasmale.wav";
+// import GlassesMale from "../../assets/audio/English/newFemaleEnglish/glassesmale.mp3";
+// import GafasGlassesFemale from "../../assets/audio/English/newFemaleEnglish/gafas (glasses).mp3";
+// import NecesitaCambioMale from "../../assets/audio/English/newFemaleEnglish/7 Necesita cambioMale.wav";
+// import NecesitaCambioNeedChangedFemale from "../../assets/audio/English/newFemaleEnglish/Necesita Cambio (Need Changed).mp3";
+// import TerapeutaRespiratorioRespiratoryTherapistFemale from "../../assets/audio/English/newFemaleEnglish/Terapeuta Respiratorio (Respiratory Therapist).mp3";
 
 export {
+  AlgoMasSpanishMale,
+  TraqueotomiaTrachSpanishMale,
+  TuboDeAlimentacionV2SpanishMale,
+  ComunicacionPensamientoSpanishMale,
+  MovimientoSpanishMale,
+  MiccionSpanishMale,
+  EmotionsFeelingsEmocionesSentimientosSpanishMale,
+  ComerYBeberSpanishMale,
+  MedicacionSpanishMale,
+  FatigaSpanishMale,
+  IntestinosBowelsSpanishMale,
+  NauseasNauseaSpanishMale,
+  TragarSpanishMale,
+  RespirationTosBreathingCoughingSpanishMale,
+  DolorPainSpanishMale,
+  MucosidadSecrecionesMucusSecretionsSpanishMale,
+  HeridaIncisionWoundIncisionSpanishMale,
+  AlgoPasoSpanishMale,
+  EnfermedadSpanishMale,
+  OidoSpanishMale,
+  VisionSpanishMale,
+  SinPreocupacionesSpanishMale,
+  BreathingOrCoughingEnglishMale,
+  NoConcernsEnglishMale,
+  PainUrinationEnglishMale,
+  Trach1EnglishMale,
+  FeedingTubeEnglishMale,
+  WoundIncision1EnglishMale,
+  MucousOrSecretionsEnglishMale,
+  WoundIncisionEnglishMale,
+  IllnessEnglishMale,
+  SomethingHappenedEnglishMale,
+  HearingEnglishMale,
+  CommunicationThinkingEnglishMale,
+  VisionEnglishMale,
+  MovementEnglishMale,
+  EmotionsOrFeelingsEnglishMale,
+  MedicationEnglishMale,
+  EatingAndDrinkingEnglishMale,
+  FatigueEnglishMale,
+  NauseaEnglishMale,
+  UrinationEnglishMale,
+  BowelsEnglishMale,
+  SwallowingEnglishMale,
+  AlgoMasSomethingElseSpanishFemale,
+  DolorPainSpanishFemale,
+  RespirationTosBreathingCoughingSpanishFemale,
+  NauseasNauseaSpanishFemale,
+  TragarSwallowSpanishFemale,
+  IntestinosBowelsSpanishFemale,
+  MiccionUrinationSpanishFemale,
+  FatigaFatigueSpanishFemale,
+  MedicacionMedicationSpanishFemale,
+  EmocionesSentimientosEmotionsFeelingsSpanishFemale,
+  VisionSpanishFemale,
+  EnfermedadIllnessSpanishFemale,
+  OidoHearingSpanishFemale,
+  AlgoPasoSomethingHappenedSpanishFemale,
+  HeridaIncisionWoundIncisionSpanishFemale,
+  MucosidadSecrecionesMucusSecretionsSpanishFemale,
+  TuboDeAlimentacionPEGSpanishFemale,
+  TraqueotomiaTrachSpanishFemale,
+  IllnessEnglishFemale,
+  SomethingHappenedEnglishFemale,
+  WoundIncisionEnglishFemale,
+  MucousOrSecretionsEnglishFemale,
+  FeedingTubeEnglishFemale,
+  TrachEnglishFemale,
+  SomethingElseEnglishFemale,
+  VisionEnglishFemale,
+  MedicationEnglishFemale,
+  FatigueEnglishFemale,
+  UrinationEnglishFemale,
+  BowelsEnglishFemale,
+  NauseaEnglishFemale,
+  SwallowingEnglishFemale,
+  BreathingOrCoughingEnglishFemale,
+  PainEnglishFemale,
+  EmotionsOrFeelingsEnglishFemale,
+  HearingEnglishFemale,
+  SqueezingorTightfeMale,
+  WithMedicationMale,
+  juststartedMale,
+  MuygraveSpanishMale,
+  HormigueodolorosoSpanishFemale,
+  numbortinglingSpanishFemale,
+  sharporstabbing_afiladoopunzanteSpanishFemale,
+  burning_quemaSpanishFemale,
+  SomethingElseFemale,
   AfternoonFemale,
   AprilFemale,
   AugustFemale,
