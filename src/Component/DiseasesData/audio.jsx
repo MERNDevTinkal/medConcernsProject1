@@ -809,11 +809,162 @@ import DisparandoSpanishMale from "../../assets/audio/spanish/male/Disparando.wa
 import DoloridoOSordoSpanishMale from "../../assets/audio/spanish/male/Dolorido o sordo.wav";
 import HeavyPesadoSpanishMale from "../../assets/audio/spanish/male/Heavy_pesado.wav";
 import SpasmingEspasmosSpanishMale from "../../assets/audio/spanish/male/spasming_espasmos.wav";
-import SqueezingOrTightApretandoOApretado1SpanishMale from "../../assets/audio/spanish/male/squeezing or tight_apretando o apretado (1).wav";
 import SqueezingOrTightApretandoOApretadoSpanishMale from "../../assets/audio/spanish/male/squeezing or tight_apretando o apretado.wav";
 import ThrobbingPalpitanteSpanishMale from "../../assets/audio/spanish/male/throbbing_palpitante.wav";
+import TraqueotomiaSpanishMale from "../../assets/audio/English/newFemaleEnglish/Traqueotomia (Trach).wav";
+import trachMale from "../../assets/audio/English/newFemaleEnglish/trachMale.mp3";
+import AlgomasMale from "../../assets/audio/English/newFemaleEnglish/algo mas.wav";
+
+import AfiladoOPunzanteSpanishFemale from "../../assets/audio/Spanish/female/afilado o punzante (sharp or stabbing).mp3";
+import AlgoMasSpanishFemale from "../../assets/audio/Spanish/female/algo mas (something else).mp3";
+import ApretandoOApretadoSpanishFemale from "../../assets/audio/Spanish/female/apretando o apretado (squeezing or tight).mp3";
+import CalambresSpanishFemale from "../../assets/audio/Spanish/female/calambres (cramping).mp3";
+import ComezonSpanishFemale from "../../assets/audio/Spanish/female/Comezón.mp3";
+import DisparandoSpanishFemale from "../../assets/audio/Spanish/female/disparando (shooting).mp3";
+import DoloridoOSorsoSpanishFemale from "../../assets/audio/Spanish/female/dolorido o sorso (aching or dull).mp3";
+import EntumecimientoOHormigueoSpanishFemale from "../../assets/audio/Spanish/female/Entumecimiento u hormigueo (numb or tingling).mp3";
+import EspasmosSpanishFemale from "../../assets/audio/Spanish/female/espasmos (spasming).mp3";
+import HormigueoDolorosoSpanishFemale from "../../assets/audio/Spanish/female/hormigueo doloroso (pins and needles).mp3";
+import PalpitanteSpanishFemale from "../../assets/audio/Spanish/female/palpitante (throbbing).mp3";
+import PesadoSpanishFemale from "../../assets/audio/Spanish/female/pesado (heavy).mp3";
+import QuemaSpanishFemale from "../../assets/audio/Spanish/female/quema (burning).mp3";
+import TraqueotomiaSpanishFemale from "../../assets/audio/Spanish/female/traqueotomia (trach).mp3";
+import TuboDeAlimentacionSpanishFemale from "../../assets/audio/Spanish/female/Tubo de alimentación (feeding tube).mp3";
+
+import MildMale from "../../assets/audio/English/male/Mild Male.wav";
+import ModerateMale from "../../assets/audio/English/male/Moderate Male.wav";
+import NoPainMale from "../../assets/audio/English/male/No Pain Male.wav";
+import SevereMale from "../../assets/audio/English/male/Severe Male.wav";
+import VerySevereMale from "../../assets/audio/English/male/Very Severe Male.wav";
+import WorstPainImaginableMale from "../../assets/audio/English/male/Worst Pain Imaginable_com Male.wav";
+
+import MildLeveSpanishMale from "../../assets/audio/spanish/male/mild_leve.wav";
+import ModerateModeradoSpanishMale from "../../assets/audio/spanish/male/moderate_moderado.wav";
+import NoPainSinDolorSpanishMale from "../../assets/audio/spanish/male/No pain_sin dolor.wav";
+import SevereGraveSpanishMale from "../../assets/audio/spanish/male/severe_grave.wav";
+import WorstPainImaginablePeorDolorImaginableSpanishMale from "../../assets/audio/spanish/male/worst pain imaginable_peor dolor imaginable.wav";
+
+import GraveSpanishFemale from "../../assets/audio/spanish/female/grave (severe)female.mp3";
+import LeveSpanishFemale from "../../assets/audio/spanish/female/leve (mild)female.mp3";
+import ModeradoSpanishFemale from "../../assets/audio/spanish/female/moderado (moderate)female.mp3";
+import MuyGraveSpanishFemale from "../../assets/audio/spanish/female/muy grave (very severe)female.mp3";
+import PeorDolorImaginableSpanishFemale from "../../assets/audio/spanish/female/Peor dolor imaginable (worst pain imaginable)female.mp3";
+import SinDolorSpanishFemale from "../../assets/audio/spanish/female/Sin dolor (No pain)female.mp3";
+
+import AllDayMale from "../../assets/audio/English/male/All Day(Fatigue)(male).wav";
+import ComesAndGoesMale from "../../assets/audio/English/male/Comes and Goes(male).wav";
+import IDontKnowMale from "../../assets/audio/English/male/I Don't Know (male).mp3";
+import MorningMale from "../../assets/audio/English/male/Morning(male).wav";
+import WhenSittingMale from "../../assets/audio/English/male/When Sitting(male).mp3";
+import WhenStandingMale from "../../assets/audio/English/male/When Standing(male).mp3";
+import WithActivityMale from "../../assets/audio/English/male/With Activity(How Often)(male).wav";
+import WithBloodPressureMale from "../../assets/audio/English/male/With Blood Pressure (male).mp3";
+import WithBloodSugarMale from "../../assets/audio/English/male/With Blood Sugar (male).mp3";
+
+import AlDormirMale from "../../assets/audio/spanish/male/72 Al dormir Male.wav";
+import AlCaminarMale from "../../assets/audio/spanish/male/73 Al caminar Male.wav";
+import AlTransferirOReposicionarMale from "../../assets/audio/spanish/male/74 Al transferir o reposicionar Male.wav";
+import ConMovimientoMale from "../../assets/audio/spanish/male/75 Con movimiento Male.wav";
+import AlUsarElBanoMale from "../../assets/audio/spanish/male/76 Al usar el baño Male.wav";
+import ConAlimentacionPorTuboMale from "../../assets/audio/spanish/male/78 Con alimentación por tubo Male.wav";
+import ConEstresOEmocionMale from "../../assets/audio/spanish/male/79 Con estrés o emoción Male.wav";
+import DespuesDeUnProcedimientoMale from "../../assets/audio/spanish/male/80 Después de un procedimiento Male.wav";
+import DesdeMiDerrameCerebralOLesionMale from "../../assets/audio/spanish/male/81 Desde mi derrame cerebral o lesión Male.wav";
+import DesdeLaEnfermedadMale from "../../assets/audio/spanish/male/82 Desde la enfermedadMale.wav";
+import DesdeLaCaidaOLesionMale from "../../assets/audio/spanish/male/83 Desde la caída o lesiónMale.wav";
+import AlTragarMale from "../../assets/audio/spanish/male/84 Al tragar Male.wav";
+import AlComerOBeberMale from "../../assets/audio/spanish/male/85 Al comer o beber Male.wav";
+import SiempreOCronicoMale from "../../assets/audio/spanish/male/86 Siempre o crónico Male.wav";
+import AlEstarSentadoV2Male from "../../assets/audio/spanish/male/Al estar sentado v2 Male.wav";
+import ConActividadMale from "../../assets/audio/spanish/male/con actividad Male.wav";
+import ConActividadMentalMale from "../../assets/audio/spanish/male/Con actividad mental Male.wav";
+import ConAzucarEnSangreMale from "../../assets/audio/spanish/male/Con Azucar en Sangre Male.mp3";
+import ConMedicacionMale from "../../assets/audio/spanish/male/con medicacion Male.wav";
+import ConPrecionArterialMale from "../../assets/audio/spanish/male/Con Precion Arterial (male sp) Male.mp3";
+import DespuesDeComerMale from "../../assets/audio/spanish/male/Despues de comer Male.wav";
+import EmpeoraALoLargoDelDiaMale from "../../assets/audio/spanish/male/Empeora a lo largo del dia Male.wav";
+import MananaMorningMale from "../../assets/audio/spanish/male/Mañana - morning Male.wav";
+import NocheTempranoEveningMale from "../../assets/audio/spanish/male/Noche Temprano - evening Male.wav";
+import RecienComenzadoMale from "../../assets/audio/spanish/male/Recien Comenzado Male.wav";
+import TodoElDiaMale from "../../assets/audio/spanish/male/todo el dia Male.wav";
+import AlEstarDePieMale from "../../assets/audio/spanish/male/VO - Al Estar de Pie Male.wav";
+import NoSeMale from "../../assets/audio/spanish/male/VO - No seMale.wav";
+import VieneYVaMale from "../../assets/audio/spanish/male/VO - Viene y Va Male.wav";
 
 export {
+  AlDormirMale,
+  AlCaminarMale,
+  AlTransferirOReposicionarMale,
+  ConMovimientoMale,
+  AlUsarElBanoMale,
+  ConAlimentacionPorTuboMale,
+  ConEstresOEmocionMale,
+  DespuesDeUnProcedimientoMale,
+  DesdeMiDerrameCerebralOLesionMale,
+  DesdeLaEnfermedadMale,
+  DesdeLaCaidaOLesionMale,
+  AlTragarMale,
+  AlComerOBeberMale,
+  SiempreOCronicoMale,
+  AlEstarSentadoV2Male,
+  ConActividadMale,
+  ConActividadMentalMale,
+  ConAzucarEnSangreMale,
+  ConMedicacionMale,
+  ConPrecionArterialMale,
+  DespuesDeComerMale,
+  EmpeoraALoLargoDelDiaMale,
+  MananaMorningMale,
+  NocheTempranoEveningMale,
+  RecienComenzadoMale,
+  TodoElDiaMale,
+  AlEstarDePieMale,
+  NoSeMale,
+  VieneYVaMale,
+  AllDayMale,
+  WithBloodSugarMale,
+  WithBloodPressureMale,
+  WithActivityMale,
+  WhenStandingMale,
+  WhenSittingMale,
+  MorningMale,
+  IDontKnowMale,
+  ComesAndGoesMale,
+  GraveSpanishFemale,
+  LeveSpanishFemale,
+  ModeradoSpanishFemale,
+  MuyGraveSpanishFemale,
+  PeorDolorImaginableSpanishFemale,
+  SinDolorSpanishFemale,
+  MildLeveSpanishMale,
+  ModerateModeradoSpanishMale,
+  NoPainSinDolorSpanishMale,
+  SevereGraveSpanishMale,
+  WorstPainImaginablePeorDolorImaginableSpanishMale,
+  MildMale,
+  ModerateMale,
+  NoPainMale,
+  SevereMale,
+  VerySevereMale,
+  WorstPainImaginableMale,
+  AfiladoOPunzanteSpanishFemale,
+  AlgoMasSpanishFemale,
+  ApretandoOApretadoSpanishFemale,
+  CalambresSpanishFemale,
+  ComezonSpanishFemale,
+  DisparandoSpanishFemale,
+  DoloridoOSorsoSpanishFemale,
+  EntumecimientoOHormigueoSpanishFemale,
+  EspasmosSpanishFemale,
+  HormigueoDolorosoSpanishFemale,
+  PalpitanteSpanishFemale,
+  PesadoSpanishFemale,
+  QuemaSpanishFemale,
+  TraqueotomiaSpanishFemale,
+  TuboDeAlimentacionSpanishFemale,
+  AlgomasMale,
+  TraqueotomiaSpanishMale,
+  trachMale,
   BurningMale,
   SqueezingTightMale,
   ItchingMale,
@@ -826,6 +977,14 @@ export {
   NumborTingling_comMale,
   SharporStabbing_comMale,
   AchingorDull_comMale,
+  ComezonSpanishMale,
+  CrampingCalambresSpanishMale,
+  DisparandoSpanishMale,
+  DoloridoOSordoSpanishMale,
+  HeavyPesadoSpanishMale,
+  SpasmingEspasmosSpanishMale,
+  SqueezingOrTightApretandoOApretadoSpanishMale,
+  ThrobbingPalpitanteSpanishMale,
   No_male,
   No_no_maleSpanish,
   MaybeMale,
