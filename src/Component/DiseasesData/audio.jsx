@@ -1103,30 +1103,232 @@ import OidoSpanishMale from "../../assets/audio/spanish/male/Oido.wav";
 import VisionSpanishMale from "../../assets/audio/spanish/male/Vision.wav";
 import SinPreocupacionesSpanishMale from "../../assets/audio/spanish/male/70 Sin preocupaciones .wav";
 
-// import TerapeutaRespiratorioMale from "../../assets/audio/English/newFemaleEnglish/121 Terapeuta respiratorioMale.wav";
-// import CateterMale from "../../assets/audio/English/newFemaleEnglish/CateterMale.wav";
-// import CatheterMale from "../../assets/audio/English/newFemaleEnglish/Catheter (male eng).mp3";
-// import CatererCatheterFemale from "../../assets/audio/English/newFemaleEnglish/Catéter (Catheter - increased volume).mp3";
-// import SuccionSuctionMale from "../../assets/audio/English/newFemaleEnglish/succion_suctionMale.wav";
-// import SuctionMale from "../../assets/audio/English/newFemaleEnglish/suctionMale.mp3";
-// import SuccionSuctionFemale from "../../assets/audio/English/newFemaleEnglish/succion (suction)Female.mp3";
-// import SalgaPorFavorMale from "../../assets/audio/English/newFemaleEnglish/VO - Salga, por favorMale.wav";
-// import PleaseLeaveMale from "../../assets/audio/English/newFemaleEnglish/Please Leave (male eng).mp3";
-// import LlamaALaFamiliaMale from "../../assets/audio/English/newFemaleEnglish/VO - Llama a la FamiliaMale.wav";
-// import CallFamilyMale from "../../assets/audio/English/newFemaleEnglish/Call Family (male eng).mp3";
-// import LuzDeLlamadaMale from "../../assets/audio/English/newFemaleEnglish/VO - Luz de LlamadaMale.wav";
-// import CallLightMale from "../../assets/audio/English/newFemaleEnglish/Call Light (male eng).mp3";
-// import AudifonosMale from "../../assets/audio/English/newFemaleEnglish/AudifonosMale.wav";
-// import HearingAidsMale from "../../assets/audio/English/newFemaleEnglish/Hearing AidsMale.mp3";
-// import AudifonosHearingAidesFemale from "../../assets/audio/English/newFemaleEnglish/Audífonos (hearing aides).mp3";
-// import GlassesGafasMale from "../../assets/audio/English/newFemaleEnglish/glasses_gafasmale.wav";
-// import GlassesMale from "../../assets/audio/English/newFemaleEnglish/glassesmale.mp3";
-// import GafasGlassesFemale from "../../assets/audio/English/newFemaleEnglish/gafas (glasses).mp3";
-// import NecesitaCambioMale from "../../assets/audio/English/newFemaleEnglish/7 Necesita cambioMale.wav";
-// import NecesitaCambioNeedChangedFemale from "../../assets/audio/English/newFemaleEnglish/Necesita Cambio (Need Changed).mp3";
-// import TerapeutaRespiratorioRespiratoryTherapistFemale from "../../assets/audio/English/newFemaleEnglish/Terapeuta Respiratorio (Respiratory Therapist).mp3";
+import TerapeutaRespiratorioMale from "../../assets/audio/English/newFemaleEnglish/121 Terapeuta respiratorioMale.wav";
+import CateterMale from "../../assets/audio/English/newFemaleEnglish/CateterMale.wav";
+import CatheterMale from "../../assets/audio/English/newFemaleEnglish/Catheter (male eng).mp3";
+import CatererCatheterFemale from "../../assets/audio/English/newFemaleEnglish/Catéter (Catheter - increased volume).mp3";
+import SuccionSuctionMale from "../../assets/audio/English/newFemaleEnglish/succion_suctionMale.wav";
+import SuctionMale from "../../assets/audio/English/newFemaleEnglish/suctionMale.mp3";
+import SuccionSuctionFemale from "../../assets/audio/English/newFemaleEnglish/succion (suction)Female.mp3";
+import SalgaPorFavorMale from "../../assets/audio/English/newFemaleEnglish/VO - Salga, por favorMale.wav";
+import PleaseLeaveMale from "../../assets/audio/English/newFemaleEnglish/Please Leave (male eng).mp3";
+import LlamaALaFamiliaMale from "../../assets/audio/English/newFemaleEnglish/VO - Llama a la FamiliaMale.wav";
+import CallFamilyMale from "../../assets/audio/English/newFemaleEnglish/Call Family (male eng).mp3";
+import LuzDeLlamadaMale from "../../assets/audio/English/newFemaleEnglish/VO - Luz de LlamadaMale.wav";
+import CallLightMale from "../../assets/audio/English/newFemaleEnglish/Call Light (male eng).mp3";
+import AudifonosMale from "../../assets/audio/English/newFemaleEnglish/AudifonosMale.wav";
+import HearingAidsMale from "../../assets/audio/English/newFemaleEnglish/Hearing AidsMale.mp3";
+import AudifonosHearingAidesFemale from "../../assets/audio/English/newFemaleEnglish/Audífonos (hearing aides).mp3";
+import GlassesGafasMale from "../../assets/audio/English/newFemaleEnglish/glasses_gafasmale.wav";
+import GlassesMale from "../../assets/audio/English/newFemaleEnglish/glassesmale.mp3";
+import GafasGlassesFemale from "../../assets/audio/English/newFemaleEnglish/gafas (glasses).mp3";
+import NecesitaCambioMale from "../../assets/audio/English/newFemaleEnglish/7 Necesita cambioMale.wav";
+import NecesitaCambioNeedChangedFemale from "../../assets/audio/English/newFemaleEnglish/Necesita Cambio (Need Changed).mp3";
+import TerapeutaRespiratorioRespiratoryTherapistFemale from "../../assets/audio/English/newFemaleEnglish/Terapeuta Respiratorio (Respiratory Therapist).mp3";
 
+import FamilySupportMale from "../../assets/audio/English/male/family support.mp3";
+import StrokePreventionMale from "../../assets/audio/English/male/stroke prevention.mp3";
+import HomeSetupMale from "../../assets/audio/English/male/home set-up.mp3";
+import DrivingMale from "../../assets/audio/English/male/driving.mp3";
+import CommunicationMale from "../../assets/audio/English/male/communication.mp3";
+import TherapyMale from "../../assets/audio/English/male/therapy.mp3";
+import WillIGetBetterMale from "../../assets/audio/English/male/Will I get better_.mp3";
+import DischargeMale from "../../assets/audio/English/male/discharge.mp3";
+import WhatHappenedToMeMale from "../../assets/audio/English/male/What Happened to Me_ (male eng).mp3";
+import AlcoholMale from "../../assets/audio/English/male/alcohol.mp3";
+
+import RaisingChildrenMale from "../../assets/audio/English/male/raising children.mp3";
+import FamilyMale from "../../assets/audio/English/male/family.mp3";
+import SexMale from "../../assets/audio/English/male/sex.mp3";
+import CommunityActivityMale from "../../assets/audio/English/male/community activity.mp3";
+import WorkMale from "../../assets/audio/English/male/work.mp3";
+import HouseholdActivityMale from "../../assets/audio/English/male/household activity.mp3";
+import FollowUpAppointmentsMale from "../../assets/audio/English/male/follow up appointments.mp3";
+import MoneyMale from "../../assets/audio/English/male/money.mp3";
+
+import ComidaSpanishMale from "../../assets/audio/spanish/male/Comida.wav";
+import AlcoholSpanishMale from "../../assets/audio/spanish/male/Alcohol.wav";
+import CriarALosNinosSpanishMale from "../../assets/audio/spanish/male/Criar a los niños.wav";
+import FamiliaSpanishMale from "../../assets/audio/spanish/male/Familia.wav";
+import SexoSpanishMale from "../../assets/audio/spanish/male/Sexo.wav";
+import ActividadDeLaComunidadV2SpanishMale from "../../assets/audio/spanish/male/Actividad de la comunidad v2.wav";
+import TrabajoSpanishMale from "../../assets/audio/spanish/male/VO - Trabajo.wav";
+import ActividadDelHogarV2SpanishMale from "../../assets/audio/spanish/male/Actividad del hogar v2.wav";
+import CitasDeSeguimientoV2SpanishMale from "../../assets/audio/spanish/male/Citas de seguimiento v2.wav";
+import DineroSpanishMale from "../../assets/audio/spanish/male/Dinero.wav";
+import ApoyoDeLaFamiliaV2SpanishMale from "../../assets/audio/spanish/male/Apoyo de la familia v2.wav";
+import PrevencionDeAccidentesCerebrovascularesV2SpanishMale from "../../assets/audio/spanish/male/Prevencion de accidentes cerebrovasculares v2.wav";
+import ConfiguracionDelHogarV2SpanishMale from "../../assets/audio/spanish/male/Configuracion del hogar v2.wav";
+import ConduciendoSpanishMale from "../../assets/audio/spanish/male/Conduciendo.wav";
+import ComunicacionV2SpanishMale from "../../assets/audio/spanish/male/Comunicacion v2.wav";
+import TerapiaSpanishMale from "../../assets/audio/spanish/male/Terapia.wav";
+import MejorareSpanishMale from "../../assets/audio/spanish/male/Mejorare.wav";
+import DarDeAltaSpanishMale from "../../assets/audio/spanish/male/Dar de Alta.wav";
+import QueMePasoWhatHappenedToMeSpanishMale from "../../assets/audio/spanish/male/¿Que me paso_ (What happened to me_).wav";
+
+import FamilySupportEnglishFemale from "../../assets/audio/English/female/family support.mp3";
+import StrokePreventionEnglishFemale from "../../assets/audio/English/female/stroke prevention.mp3";
+import HomeSetupEnglishFemale from "../../assets/audio/English/female/home set-up.mp3";
+import DrivingEnglishFemale from "../../assets/audio/English/female/driving.mp3";
+import CommunicationEnglishFemale from "../../assets/audio/English/female/communication.mp3";
+import TherapyEnglishFemale from "../../assets/audio/English/female/therapy.mp3";
+import WillIGetBetterEnglishFemale from "../../assets/audio/English/female/Will I get better_.mp3";
+import DischargeEnglishFemale from "../../assets/audio/English/female/discharge.mp3";
+import AlcoholEnglishFemale from "../../assets/audio/English/female/alcohol.mp3";
+import FoodEnglishFemale from "../../assets/audio/English/female/food.mp3";
+import RaisingChildrenEnglishFemale from "../../assets/audio/English/female/raising children.mp3";
+import FamilyEnglishFemale from "../../assets/audio/English/female/family.mp3";
+import SexEnglishFemale from "../../assets/audio/English/female/sex.mp3";
+import CommunityActivityEnglishFemale from "../../assets/audio/English/female/community activity.mp3";
+import WorkEnglishFemale from "../../assets/audio/English/female/work.mp3";
+import HouseholdActivityEnglishFemale from "../../assets/audio/English/female/household activity.mp3";
+import FollowUpAppointmentsEnglishFemale from "../../assets/audio/English/female/follow up appointments.mp3";
+import MoneyEnglishFemale from "../../assets/audio/English/female/money.mp3";
+
+import QueMePasoWhatHappenedToMeSpanishFemale from "../../assets/audio/spanish/female/¿Qué me pasó_ (What happened to me_).wav";
+import DarDeAltaDischargeSpanishFemale from "../../assets/audio/spanish/female/dar de alta (discharge.mp3";
+import AlcoholSpanishFemale from "../../assets/audio/spanish/female/alcohol.mp3";
+import ComidaFoodSpanishFemale from "../../assets/audio/spanish/female/comida (food).mp3";
+import CriarALosNinosRaisingChildrenSpanishFemale from "../../assets/audio/spanish/female/criar a los niños (raising children).mp3";
+import FamiliaFamilySpanishFemale from "../../assets/audio/spanish/female/familia (family).mp3";
+import TrabajoWork1SpanishFemale from "../../assets/audio/spanish/female/trabajo (work) (1).mp3";
+import TrabajoWorkSpanishFemale from "../../assets/audio/spanish/female/trabajo (work).mp3";
+import ActividadDeLaComunidadCommunityActivitySpanishFemale from "../../assets/audio/spanish/female/Actividad de la comunidad (community activity).mp3";
+import ActividadDelHogarHouseholdActivitySpanishFemale from "../../assets/audio/spanish/female/actividad del hogar (household activity).mp3";
+import CitasDeSeguimientoFollowUpAppointmentsSpanishFemale from "../../assets/audio/spanish/female/Citas de seguimiento (follow up appointments).mp3";
+import DineroSpanishFemale from "../../assets/audio/spanish/female/dinero.mp3";
+
+import ApoyoDeLaFamiliaFamilySupportSpanishFemale from "../../assets/audio/spanish/female/apoyo de la familia (family support).mp3";
+import PrevencionDeAccidentesCerebrovascularesStrokePreventionSpanishFemale from "../../assets/audio/spanish/female/Prevención de accidentes cerebrovasculares (stroke prevention).mp3";
+import ConfiguracionDelHogarHomeSetUpSpanishFemale from "../../assets/audio/spanish/female/Configuración del hogar (home set up).mp3";
+import ConduciendoDrivingSpanishFemale from "../../assets/audio/spanish/female/conduciendo (driving).mp3";
+import ComunicacionCommunicationSpanishFemale from "../../assets/audio/spanish/female/Comunicacion (communiation).mp3";
+import TerapiaTherapySpanishFemale from "../../assets/audio/spanish/female/terapia (therapy).mp3";
+import MejorareWillIGetBetterSpanishFemale from "../../assets/audio/spanish/female/¿mejoraré_(Will I get better).mp3";
+
+import NoQuieroDontWantSpanishFemale from "../../assets/audio/spanish/female/No quiero (don't want).mp3";
+import OlorDeComidaSmellOfFoodSpanishFemale from "../../assets/audio/spanish/female/Olor de Comida (Smell of Food).mp3";
+import MeSientoLlenoAFeelFullSpanishFemale from "../../assets/audio/spanish/female/Me Siento Lleno_a (Feel Full).mp3";
+import CambiosDeSaborTasteChangesSpanishFemale from "../../assets/audio/spanish/female/Cambios de Sabor (Taste Changes).mp3";
+
+import SmellOfFoodMale from "../../assets/audio/English/male/Smell of Food (male eng).mp3";
+import TasteChangesMale from "../../assets/audio/English/male/Taste Changes (male).mp3";
+import DontWantMale from "../../assets/audio/English/male/don't want.mp3";
+import FeelFullMale from "../../assets/audio/English/male/Feel Full.mp3";
+
+import NoQuieroDontWantSpanishMale from "../../assets/audio/spanish/male/No Quiero (Don't Want).wav";
+import CambiosDeSaborTasteChangesSpanishMale from "../../assets/audio/spanish/male/Cambios de sabor (Taste Changes).wav";
+import MeSientoLlenoAFeelFullSpanishMale from "../../assets/audio/spanish/male/Me Siento Lleno_a (Feel Full).wav";
+import OlorDeComidaSmellOfFoodSpanishMale from "../../assets/audio/spanish/male/Olor de comida (Smell of Food).wav";
 export {
+  NoQuieroDontWantSpanishMale,
+  CambiosDeSaborTasteChangesSpanishMale,
+  MeSientoLlenoAFeelFullSpanishMale,
+  OlorDeComidaSmellOfFoodSpanishMale,
+  SmellOfFoodMale,
+  TasteChangesMale,
+  DontWantMale,
+  FeelFullMale,
+  NoQuieroDontWantSpanishFemale,
+  OlorDeComidaSmellOfFoodSpanishFemale,
+  MeSientoLlenoAFeelFullSpanishFemale,
+  CambiosDeSaborTasteChangesSpanishFemale,
+  QueMePasoWhatHappenedToMeSpanishFemale,
+  DarDeAltaDischargeSpanishFemale,
+  AlcoholSpanishFemale,
+  ComidaFoodSpanishFemale,
+  CriarALosNinosRaisingChildrenSpanishFemale,
+  FamiliaFamilySpanishFemale,
+  TrabajoWork1SpanishFemale,
+  TrabajoWorkSpanishFemale,
+  ActividadDeLaComunidadCommunityActivitySpanishFemale,
+  ActividadDelHogarHouseholdActivitySpanishFemale,
+  CitasDeSeguimientoFollowUpAppointmentsSpanishFemale,
+  DineroSpanishFemale,
+  ApoyoDeLaFamiliaFamilySupportSpanishFemale,
+  PrevencionDeAccidentesCerebrovascularesStrokePreventionSpanishFemale,
+  ConfiguracionDelHogarHomeSetUpSpanishFemale,
+  ConduciendoDrivingSpanishFemale,
+  ComunicacionCommunicationSpanishFemale,
+  TerapiaTherapySpanishFemale,
+  MejorareWillIGetBetterSpanishFemale,
+  FamilySupportEnglishFemale,
+  StrokePreventionEnglishFemale,
+  HomeSetupEnglishFemale,
+  DrivingEnglishFemale,
+  CommunicationEnglishFemale,
+  TherapyEnglishFemale,
+  WillIGetBetterEnglishFemale,
+  DischargeEnglishFemale,
+  AlcoholEnglishFemale,
+  FoodEnglishFemale,
+  RaisingChildrenEnglishFemale,
+  FamilyEnglishFemale,
+  SexEnglishFemale,
+  CommunityActivityEnglishFemale,
+  WorkEnglishFemale,
+  HouseholdActivityEnglishFemale,
+  FollowUpAppointmentsEnglishFemale,
+  MoneyEnglishFemale,
+  ComidaSpanishMale,
+  AlcoholSpanishMale,
+  CriarALosNinosSpanishMale,
+  FamiliaSpanishMale,
+  SexoSpanishMale,
+  ActividadDeLaComunidadV2SpanishMale,
+  TrabajoSpanishMale,
+  ActividadDelHogarV2SpanishMale,
+  CitasDeSeguimientoV2SpanishMale,
+  DineroSpanishMale,
+  ApoyoDeLaFamiliaV2SpanishMale,
+  PrevencionDeAccidentesCerebrovascularesV2SpanishMale,
+  ConfiguracionDelHogarV2SpanishMale,
+  ConduciendoSpanishMale,
+  ComunicacionV2SpanishMale,
+  TerapiaSpanishMale,
+  MejorareSpanishMale,
+  DarDeAltaSpanishMale,
+  QueMePasoWhatHappenedToMeSpanishMale,
+  FamilySupportMale,
+  StrokePreventionMale,
+  HomeSetupMale,
+  DrivingMale,
+  CommunicationMale,
+  TherapyMale,
+  WillIGetBetterMale,
+  DischargeMale,
+  WhatHappenedToMeMale,
+  AlcoholMale,
+  RaisingChildrenMale,
+  FamilyMale,
+  SexMale,
+  CommunityActivityMale,
+  WorkMale,
+  HouseholdActivityMale,
+  FollowUpAppointmentsMale,
+  MoneyMale,
+  TerapeutaRespiratorioMale,
+  CateterMale,
+  CatheterMale,
+  CatererCatheterFemale,
+  SuccionSuctionMale,
+  SuctionMale,
+  SuccionSuctionFemale,
+  SalgaPorFavorMale,
+  PleaseLeaveMale,
+  LlamaALaFamiliaMale,
+  CallFamilyMale,
+  LuzDeLlamadaMale,
+  CallLightMale,
+  AudifonosMale,
+  HearingAidsMale,
+  AudifonosHearingAidesFemale,
+  GlassesGafasMale,
+  GlassesMale,
+  GafasGlassesFemale,
+  NecesitaCambioMale,
+  NecesitaCambioNeedChangedFemale,
+  TerapeutaRespiratorioRespiratoryTherapistFemale,
   AlgoMasSpanishMale,
   TraqueotomiaTrachSpanishMale,
   TuboDeAlimentacionV2SpanishMale,
