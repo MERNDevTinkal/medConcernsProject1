@@ -957,7 +957,111 @@ import TuesdayMale from "../../assets/audio/English/male/Tuesday.mp3";
 import WednesdayMale from "../../assets/audio/English/male/Wednesday.mp3";
 import WeekMale from "../../assets/audio/English/male/Week.mp3";
 
+import AfternoonFemale from "../../assets/audio/English/female/afternoon.mp3";
+import AprilFemale from "../../assets/audio/English/female/April.mp3";
+import AugustFemale from "../../assets/audio/English/female/August.mp3";
+import DecemberFemale from "../../assets/audio/English/female/December.mp3";
+import FebruaryFemale from "../../assets/audio/English/female/February.mp3";
+import FridayFemale from "../../assets/audio/English/female/Friday.mp3";
+import JanuaryFemale from "../../assets/audio/English/female/January.mp3";
+import JulyFemale from "../../assets/audio/English/female/July.mp3";
+import JuneFemale from "../../assets/audio/English/female/June.mp3";
+import MarchFemale from "../../assets/audio/English/female/March.mp3";
+import MayFemale from "../../assets/audio/English/female/May.mp3";
+import MondayFemale from "../../assets/audio/English/female/Monday.mp3";
+import MonthFemale from "../../assets/audio/English/female/Month.mp3";
+import MorningFemale from "../../assets/audio/English/female/morning.mp3";
+import NovemberFemale from "../../assets/audio/English/female/November.mp3";
+import NowFemale from "../../assets/audio/English/female/Now (female).mp3";
+import OctoberFemale from "../../assets/audio/English/female/October.mp3";
+import SaturdayFemale from "../../assets/audio/English/female/Saturday.mp3";
+import SeptemberFemale from "../../assets/audio/English/female/September.mp3";
+import SundayFemale from "../../assets/audio/English/female/Sunday.mp3";
+import ThursdayFemale from "../../assets/audio/English/female/Thursday.mp3";
+import TodayFemale from "../../assets/audio/English/female/Today (1).mp3";
+import TuesdayFemale from "../../assets/audio/English/female/Tuesday.mp3";
+import WednesdayFemale from "../../assets/audio/English/female/Wednesday .mp3";
+import WeekFemale from "../../assets/audio/English/female/Week.mp3";
+
+import AbrilAprilSpanishFemale from "../../assets/audio/spanish/female/Abril (April).mp3";
+import AgostoAugustSpanishFemale from "../../assets/audio/spanish/female/Agosto (august).mp3";
+import AhoraNowSpanishFemale from "../../assets/audio/spanish/female/ahora (now - female).mp3";
+import DiciembreDecemberSpanishFemale from "../../assets/audio/spanish/female/Diciembre (December).mp3";
+import DomingoSundaySpanishFemale from "../../assets/audio/spanish/female/Domingo (Sunday).mp3";
+import EneroJanuarySpanishFemale from "../../assets/audio/spanish/female/Enero (January).mp3";
+import FebreroFebruarySpanishFemale from "../../assets/audio/spanish/female/Febrero (February).mp3";
+import HoyTodaySpanishFemale from "../../assets/audio/spanish/female/hoy (today).mp3";
+import JuevesThursdaySpanishFemale from "../../assets/audio/spanish/female/Jueves (Thursday).mp3";
+import JulioJulySpanishFemale from "../../assets/audio/spanish/female/Julio (July).mp3";
+import JunioJuneSpanishFemale from "../../assets/audio/spanish/female/Junio (June).mp3";
+import LunesMondaySpanishFemale from "../../assets/audio/spanish/female/Lunes (monday).mp3";
+import MananaMorningSpanishFemale from "../../assets/audio/spanish/female/manana (morning).mp3";
+import MartesTuesdaySpanishFemale from "../../assets/audio/spanish/female/Martes (Tuesday).mp3";
+import MarzoMarchSpanishFemale from "../../assets/audio/spanish/female/Marzo (March).mp3";
+import MayoMaySpanishFemale from "../../assets/audio/spanish/female/Mayo (May).mp3";
+import MesMonthSpanishFemale from "../../assets/audio/spanish/female/Mes (month).mp3";
+import MiercolesSpanishFemale from "../../assets/audio/spanish/female/Miercoles.mp3";
+import NocheTempranoEveningSpanishFemale from "../../assets/audio/spanish/female/noche temprano (evening - early evening).mp3";
+import NoviembreSpanishFemale from "../../assets/audio/spanish/female/Noviembre.mp3";
+import OctubreSpanishFemale from "../../assets/audio/spanish/female/Octubre.mp3";
+import SabadoSaturdaySpanishFemale from "../../assets/audio/spanish/female/Sabado (Saturday).mp3";
+import SemanaWeekSpanishFemale from "../../assets/audio/spanish/female/semana (week).mp3";
+import SeptiembreSeptemberSpanishFemale from "../../assets/audio/spanish/female/Septiembre (September).mp3";
+import TardeAfternoonSpanishFemale from "../../assets/audio/spanish/female/tarde (afternoon).mp3";
+import ViernesFridaySpanishFemale from "../../assets/audio/spanish/female/Viernes (Friday).mp3";
+
 export {
+  AfternoonFemale,
+  AprilFemale,
+  AugustFemale,
+  DecemberFemale,
+  FebruaryFemale,
+  FridayFemale,
+  JanuaryFemale,
+  JulyFemale,
+  JuneFemale,
+  MarchFemale,
+  MayFemale,
+  MondayFemale,
+  MonthFemale,
+  MorningFemale,
+  NovemberFemale,
+  NowFemale,
+  OctoberFemale,
+  SaturdayFemale,
+  SeptemberFemale,
+  SundayFemale,
+  ThursdayFemale,
+  TodayFemale,
+  TuesdayFemale,
+  WednesdayFemale,
+  WeekFemale,
+  AbrilAprilSpanishFemale,
+  AgostoAugustSpanishFemale,
+  AhoraNowSpanishFemale,
+  DiciembreDecemberSpanishFemale,
+  DomingoSundaySpanishFemale,
+  EneroJanuarySpanishFemale,
+  FebreroFebruarySpanishFemale,
+  HoyTodaySpanishFemale,
+  JuevesThursdaySpanishFemale,
+  JulioJulySpanishFemale,
+  JunioJuneSpanishFemale,
+  LunesMondaySpanishFemale,
+  MananaMorningSpanishFemale,
+  MartesTuesdaySpanishFemale,
+  MarzoMarchSpanishFemale,
+  MayoMaySpanishFemale,
+  MesMonthSpanishFemale,
+  MiercolesSpanishFemale,
+  NocheTempranoEveningSpanishFemale,
+  NoviembreSpanishFemale,
+  OctubreSpanishFemale,
+  SabadoSaturdaySpanishFemale,
+  SemanaWeekSpanishFemale,
+  SeptiembreSeptemberSpanishFemale,
+  TardeAfternoonSpanishFemale,
+  ViernesFridaySpanishFemale,
   AfternoonMale,
   AprilMale,
   AugustMale,
