@@ -140,13 +140,11 @@ import WhenWalkingMale from "../../assets/audio/English/male/When Walking.wav";
 import WithMentalActivityMale from "../../assets/audio/English/male/With Mental Activity.wav";
 
 // female
-
 import DoctorFemale from "../../assets/audio/English/female/117 Doctor.wav";
 import WeaknessFemale from "../../assets/audio/English/female/66 Weakness.wav";
 import BrainTiredmale from "../../assets/audio/English/male/Brain Tired.wav";
 import BreathingTreatmentmale from "../../assets/audio/English/male/Breathing Treatment.wav";
 import PEGRemovedFemale from "../../assets/audio/English/female/PEG removed.wav";
-
 // female audio spanish
 import InsomnioFemaleSpanish from "../../assets/audio/Spanish/female/11 Insomnio.wav";
 import InterrupcionesFemaleSpanish from "../../assets/audio/Spanish/female/14 Interrupciones.wav";
@@ -890,8 +888,142 @@ import TodoElDiaMale from "../../assets/audio/spanish/male/todo el dia Male.wav"
 import AlEstarDePieMale from "../../assets/audio/spanish/male/VO - Al Estar de Pie Male.wav";
 import NoSeMale from "../../assets/audio/spanish/male/VO - No seMale.wav";
 import VieneYVaMale from "../../assets/audio/spanish/male/VO - Viene y Va Male.wav";
+import MorningSpanishFemale from "../../assets/audio/spanish/female/manana (morning).mp3";
+import AlldaySpanishFemale from "../../assets/audio/spanish/female/todo el dia (all day).mp3";
+import JustStartedspanishFemale from "../../assets/audio/spanish/female/recien comenzando (just started).mp3";
+import ComesAndGoesSpanishFemale from "../../assets/audio/spanish/female/viene y va (comes and goes).mp3";
+import ComesAndGoesEnglishFemale from "../../assets/audio/English/female/Comes and Goes.mp3";
+import WhenStandingEnglishFemale from "../../assets/audio/English/female/When Standing.mp3";
+import whenStandingSpanishFemale from "../../assets/audio/spanish/female/al estar de pie (when standing).mp3";
+import whensittingSpanishFemale from "../../assets/audio/spanish/female/al estar sentado (when sitting).mp3";
+import whensittingFemale from "../../assets/audio/English/female/when sitting.mp3";
+import withactivityFemale from "../../assets/audio/English/female/with activity.mp3";
+import withactivitySpanishFemale from "../../assets/audio/spanish/female/con actividad (with activity).mp3";
+import withmedicacionSpanishFemale from "../../assets/audio/spanish/female/con medicacion.wav";
+import WithBloodPressureFemale from "../../assets/audio/English/female/With Blood Pressure.mp3";
+import WithBloodSugarSpanishFemale from "../../assets/audio/spanish/female/Con Azucar en Sangre (female).mp3";
+import WithBloodPressureSpanishFemale from "../../assets/audio/spanish/female/Con Presion Arterial (With Blood Pressure).mp3";
+import IdontknowSpanishFemale from "../../assets/audio/spanish/female/No se (I don't know).mp3";
+
+import MonthEnglishMale from "../../assets/audio/English/male/Month.mp3";
+import TodayEnglishMale from "../../assets/audio/English/male/Today.mp3";
+import WeekEnglishMale from "../../assets/audio/English/male/Week.mp3";
+
+import AbrilAprilSpanishMale from "../../assets/audio/spanish/male/Abril (April).mp3";
+import AgostoAugustSpanishMale from "../../assets/audio/spanish/male/Agosto (august).mp3";
+import DiciembreDecemberSpanishMale from "../../assets/audio/spanish/male/Diciembre (December).mp3";
+import DomingoSundaySpanishMale from "../../assets/audio/spanish/male/Domingo (Sunday).mp3";
+import EneroJanuarySpanishMale from "../../assets/audio/spanish/male/Enero (January).mp3";
+import FebreroFebruarySpanishMale from "../../assets/audio/spanish/male/Febrero (February).mp3";
+import HoyTodaySpanishMale from "../../assets/audio/spanish/male/Hoy - today.wav";
+import JuevesThursdaySpanishMale from "../../assets/audio/spanish/male/Jueves (Thursday).mp3";
+import JulioJulySpanishMale from "../../assets/audio/spanish/male/Julio (July).mp3";
+import JunioJuneSpanishMale from "../../assets/audio/spanish/male/Junio (June).mp3";
+import LunesMondaySpanishMale from "../../assets/audio/spanish/male/Lunes (monday).mp3";
+import MartesTuesdaySpanishMale from "../../assets/audio/spanish/male/Martes (Tuesday).mp3";
+import MarzoMarchSpanishMale from "../../assets/audio/spanish/male/Marzo (March).mp3";
+import MayoMaySpanishMale from "../../assets/audio/spanish/male/Mayo (May).mp3";
+import MiercolesSpanishMale from "../../assets/audio/spanish/male/Miercoles.mp3";
+import NoviembreSpanishMale from "../../assets/audio/spanish/male/Noviembre.mp3";
+import NowSpanishMale from "../../assets/audio/spanish/male/now (male) .mp3";
+import OctubreSpanishMale from "../../assets/audio/spanish/male/Octubre.mp3";
+import SabadoSaturdaySpanishMale from "../../assets/audio/spanish/male/Sabado (Saturday).mp3";
+import SeptiembreSeptemberSpanishMale from "../../assets/audio/spanish/male/Septiembre (September).mp3";
+import TardeAfternoonSpanishMale from "../../assets/audio/spanish/male/Tarde - afternoon.wav";
+import ViernesFridaySpanishMale from "../../assets/audio/spanish/male/Viernes (Friday).mp3";
+
+import AfternoonMale from "../../assets/audio/English/male/Afternoon.mp3";
+import AprilMale from "../../assets/audio/English/male/April (male).mp3";
+import AugustMale from "../../assets/audio/English/male/August (male).mp3";
+import DecemberMale from "../../assets/audio/English/male/December (male).mp3";
+import EveningMale from "../../assets/audio/English/male/Evening.wav";
+import FebruaryMale from "../../assets/audio/English/male/February (male).mp3";
+import FridayMale from "../../assets/audio/English/male/Friday.mp3";
+import JanuaryMale from "../../assets/audio/English/male/January (male).mp3";
+import JulyMale from "../../assets/audio/English/male/July (male).mp3";
+import JuneMale from "../../assets/audio/English/male/June (male).mp3";
+import MarchMale from "../../assets/audio/English/male/March (male).mp3";
+import MayMale from "../../assets/audio/English/male/May (male).mp3";
+import MondayMale from "../../assets/audio/English/male/Monday.mp3";
+import NovemberMale from "../../assets/audio/English/male/November (male).mp3";
+import NowMale from "../../assets/audio/English/male/now (male) .mp3";
+import OctoberMale from "../../assets/audio/English/male/October (male).mp3";
+import SaturdayMale from "../../assets/audio/English/male/Saturday.mp3";
+import SeptemberMale from "../../assets/audio/English/male/September (male).mp3";
+import SundayMale from "../../assets/audio/English/male/Sunday.mp3";
+import ThursdayMale from "../../assets/audio/English/male/Thursday.mp3";
+import TodayMale from "../../assets/audio/English/male/Today.mp3";
+import TuesdayMale from "../../assets/audio/English/male/Tuesday.mp3";
+import WednesdayMale from "../../assets/audio/English/male/Wednesday.mp3";
+import WeekMale from "../../assets/audio/English/male/Week.mp3";
 
 export {
+  AfternoonMale,
+  AprilMale,
+  AugustMale,
+  DecemberMale,
+  EveningMale,
+  FebruaryMale,
+  FridayMale,
+  JanuaryMale,
+  JulyMale,
+  JuneMale,
+  MarchMale,
+  MayMale,
+  MondayMale,
+  NovemberMale,
+  NowMale,
+  OctoberMale,
+  SaturdayMale,
+  SeptemberMale,
+  SundayMale,
+  ThursdayMale,
+  TodayMale,
+  TuesdayMale,
+  WednesdayMale,
+  WeekMale,
+  WeekEnglishMale,
+  AbrilAprilSpanishMale,
+  AgostoAugustSpanishMale,
+  DiciembreDecemberSpanishMale,
+  DomingoSundaySpanishMale,
+  EneroJanuarySpanishMale,
+  FebreroFebruarySpanishMale,
+  HoyTodaySpanishMale,
+  JuevesThursdaySpanishMale,
+  JulioJulySpanishMale,
+  JunioJuneSpanishMale,
+  LunesMondaySpanishMale,
+  MartesTuesdaySpanishMale,
+  MarzoMarchSpanishMale,
+  MayoMaySpanishMale,
+  MiercolesSpanishMale,
+  MonthEnglishMale,
+  NocheTempranoEveningMale,
+  NoviembreSpanishMale,
+  NowSpanishMale,
+  OctubreSpanishMale,
+  SabadoSaturdaySpanishMale,
+  SeptiembreSeptemberSpanishMale,
+  TardeAfternoonSpanishMale,
+  TodayEnglishMale,
+  ViernesFridaySpanishMale,
+  IdontknowSpanishFemale,
+  WithBloodSugarSpanishFemale,
+  WithBloodPressureFemale,
+  WithBloodPressureSpanishFemale,
+  withmedicacionSpanishFemale,
+  withactivitySpanishFemale,
+  withactivityFemale,
+  whensittingFemale,
+  whensittingSpanishFemale,
+  whenStandingSpanishFemale,
+  WhenStandingEnglishFemale,
+  ComesAndGoesEnglishFemale,
+  ComesAndGoesSpanishFemale,
+  JustStartedspanishFemale,
+  AlldaySpanishFemale,
+  MorningSpanishFemale,
   AlDormirMale,
   AlCaminarMale,
   AlTransferirOReposicionarMale,
@@ -915,7 +1047,6 @@ export {
   DespuesDeComerMale,
   EmpeoraALoLargoDelDiaMale,
   MananaMorningMale,
-  NocheTempranoEveningMale,
   RecienComenzadoMale,
   TodoElDiaMale,
   AlEstarDePieMale,

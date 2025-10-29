@@ -38,7 +38,7 @@ const BreathingWhen = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(pathprimary, [value]);
-      // navigate(path);
+      navigate(path);
     }
   };
   useEffect(() => {

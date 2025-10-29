@@ -10,6 +10,16 @@ import { useParams } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+import {
+  YesFemale,
+  YesFemaleSpanish,
+  NoFemale,
+  NoFemaleSpanish,
+  YesSpanishMale,
+  YesMale,
+  No_male,
+  No_no_maleSpanish,
+} from "../../../src/Component/DiseasesData/audio";
 function ConfrmStepWhen() {
   const { id } = useParams();
   const [loader, setLoader] = useState(true);
@@ -19,12 +29,14 @@ function ConfrmStepWhen() {
   const location = useLocation();
   const pathprimary = location.pathname;
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
   const [calendarOn, setCalendarOn] = React.useState("");
-  const handleConfrmStepWhen = async (value, path) => {
+  const handleConfrmStepWhen = async (value, path, audio) => {
     if (value && path) {
       await getTextToSpeech(
         value,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        audio
       );
       updateDisease(pathprimary.replace("/", ""), value);
       if (calendarOn && path === "/howoften") {
@@ -42,11 +54,15 @@ function ConfrmStepWhen() {
   useEffect(() => {
     getSetting(
       () => {},
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       () => {},
-      setLoader
+      setLoader,
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -85,7 +101,27 @@ function ConfrmStepWhen() {
                     onClick={() => {
                       handleConfrmStepWhen(
                         selectedLanguage === "Spanish" ? "SÍ" : "YES",
-                        "/howoften"
+                        "/howoften",
+                        selectedLanguage === "" && selectedGender === ""
+                          ? YesMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : YesMale
                       );
                     }}
                   >
@@ -104,7 +140,30 @@ function ConfrmStepWhen() {
                   <div
                     to="/"
                     onClick={() => {
-                      handleConfrmStepWhen("NO", "/");
+                      handleConfrmStepWhen(
+                        "NO",
+                        -1,
+                        selectedLanguage === "" && selectedGender === ""
+                          ? No_male
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
+                      );
                     }}
                   >
                     <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">

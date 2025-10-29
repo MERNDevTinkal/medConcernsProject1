@@ -292,6 +292,7 @@ import {
 
 // audiof============================================================================
 import {
+  MorningSpanishFemale,
   WithBloodPressureMale,
   WhenSittingMale,
   WhenStandingMale,
@@ -1059,6 +1060,22 @@ import {
   DespuesComerMaleSpanish,
   EmpeoraLargoDiaMaleSpanish,
   NieblaMentalMaleSpanish,
+  AlldaySpanishFemale,
+  JustStartedspanishFemale,
+  ComesAndGoesSpanishFemale,
+  ComesAndGoesEnglishFemale,
+  WhenStandingEnglishFemale,
+  whenStandingSpanishFemale,
+  whensittingSpanishFemale,
+  whensittingFemale,
+  withactivitySpanishFemale,
+  withactivityFemale,
+  withmedicacionSpanishFemale,
+  WithBloodPressureSpanishFemale,
+  WithBloodPressureFemale,
+  WithBloodSugarSpanishFemale,
+  IdontknowSpanishFemale,
+  ComesAndGoesMale,
 } from "./audio.jsx";
 
 export const breathingWhenOptions = [
@@ -1070,7 +1087,7 @@ export const breathingWhenOptions = [
     nameEs: "Mañana",
     maleEnglish: MorningMale,
     femaleEnglish: morningFemale,
-    femaleSpanish: "",
+    femaleSpanish: MorningSpanishFemale,
     maleSpanish: MananaMorningMale,
   },
   {
@@ -1081,7 +1098,7 @@ export const breathingWhenOptions = [
     nameEs: "Todo el Día",
     maleEnglish: AllDayMale,
     femaleEnglish: allDayFemale,
-    femaleSpanish: "",
+    femaleSpanish: AlldaySpanishFemale,
     maleSpanish: TodoElDiaMale,
   },
   {
@@ -1114,7 +1131,7 @@ export const breathingWhenOptions = [
     nameEs: "Recién Comenzado",
     maleEnglish: "",
     femaleEnglish: justStartedFemale,
-    femaleSpanish: "",
+    femaleSpanish: JustStartedspanishFemale,
     maleSpanish: RecienComenzadoMale,
   },
   {
@@ -1124,8 +1141,8 @@ export const breathingWhenOptions = [
     name: "Comes and Goes",
     nameEs: "Viene y Va",
     maleEnglish: ComesAndGoesMale,
-    femaleEnglish: "",
-    femaleSpanish: "",
+    femaleEnglish: ComesAndGoesEnglishFemale,
+    femaleSpanish: ComesAndGoesSpanishFemale,
     maleSpanish: VieneYVaMale,
   },
   {
@@ -1145,10 +1162,9 @@ export const breathingWhenOptions = [
     path: "/confrm-step-when",
     name: "When Standing",
     nameEs: "Al Estar de Pie",
-
     maleEnglish: WhenStandingMale,
-    femaleEnglish: "",
-    femaleSpanish: "",
+    femaleEnglish: WhenStandingEnglishFemale,
+    femaleSpanish: whenStandingSpanishFemale,
     maleSpanish: AlEstarDePieMale,
   },
   {
@@ -1157,10 +1173,9 @@ export const breathingWhenOptions = [
     path: "/confrm-step-when",
     name: "When Sitting",
     nameEs: "Al Estar Sentado",
-
     maleEnglish: WhenSittingMale,
-    femaleEnglish: "",
-    femaleSpanish: "",
+    femaleEnglish: whensittingFemale,
+    femaleSpanish: whensittingSpanishFemale,
     maleSpanish: AlEstarSentadoV2Male,
   },
   {
@@ -1202,10 +1217,10 @@ export const breathingWhenOptions = [
     path: "/confrm-step-when",
     name: "With Activity",
     nameEs: "Con Actividad",
-
     maleEnglish: WithActivityMale,
-    femaleEnglish: "",
-    femaleSpanish: "",
+
+    femaleEnglish: withactivityFemale,
+    femaleSpanish: withactivitySpanishFemale,
     maleSpanish: ConActividadMale,
   },
   {
@@ -1260,7 +1275,7 @@ export const breathingWhenOptions = [
     nameEs: "Con Medicación",
     maleEnglish: "",
     femaleEnglish: withMedicationFemale,
-    femaleSpanish: "",
+    femaleSpanish: withmedicacionSpanishFemale,
     maleSpanish: ConMedicacionMale,
   },
   {
@@ -1303,8 +1318,8 @@ export const breathingWhenOptions = [
     name: "With Blood Pressure",
     nameEs: "Con Presión Arterial",
     femaleEnglish: withBloodPressureFemale,
-    maleSpanish: "",
-    femaleSpanish: "",
+    maleSpanish: WithBloodPressureFemale,
+    femaleSpanish: WithBloodPressureSpanishFemale,
     maleEnglish: WithBloodPressureMale,
   },
   {
@@ -1315,7 +1330,7 @@ export const breathingWhenOptions = [
     nameEs: "Con Azúcar en Sangre",
     maleEnglish: WithBloodSugarMale,
     femaleEnglish: withBloodSugarFemale,
-    femaleSpanish: "",
+    femaleSpanish: WithBloodSugarSpanishFemale,
     maleSpanish: ConAzucarEnSangreMale,
   },
   {
@@ -1392,7 +1407,7 @@ export const breathingWhenOptions = [
     nameEs: "No Sé",
     maleEnglish: IDontKnowMale,
     femaleEnglish: iDontKnowFemale,
-    femaleSpanish: "",
+    femaleSpanish: IdontknowSpanishFemale,
     maleSpanish: NoSeMale,
   },
   {
