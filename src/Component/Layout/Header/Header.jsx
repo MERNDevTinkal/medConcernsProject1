@@ -259,79 +259,83 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
         onClose={() => setOpenPopup(false)}
         onConfirm={handleLogout}
       />
-      <header className="px-4 py-3 fixed left-0 right-0 top-0 bg-white main-header">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            {location.pathname !== "/introduction" && (
-              <img
-                onClick={() => {
-                  navigate(-1);
-                }}
-                src={BackArrow}
-                alt="back"
-              />
-            )}
-            {location.pathname !== "/howoften" && (
-              <button type="button" onClick={toggleSidebar}>
-                <img src={hamburger} alt="menu" />
-              </button>
-            )}
+      <div className="main-header-top bg-white fixed left-0 right-0 top-0">
+        <header className="px-4 py-3  main-header">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              {location.pathname !== "/introduction" && (
+                <img
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                  src={BackArrow}
+                  alt="back"
+                />
+              )}
+              {location.pathname !== "/howoften" && (
+                <button type="button" onClick={toggleSidebar}>
+                  <img src={hamburger} alt="menu" />
+                </button>
+              )}
+            </div>
+            <h2 className="text-[25px] font-normal text-black">
+              {name ??
+                (selectedLanguage === "Spanish"
+                  ? "Preocupaciones"
+                  : "Concerns")}
+            </h2>
+            <div style={{ cursor: "pointer" }}>
+              {location.pathname === "/introduction" && (
+                <img
+                  src={NextArrow}
+                  alt="next"
+                  onClick={() => {
+                    navigate("/how-are-you");
+                  }}
+                />
+              )}
+            </div>
           </div>
-          <h2 className="text-[25px] font-normal text-black">
-            {name ??
-              (selectedLanguage === "Spanish" ? "Preocupaciones" : "Concerns")}
-          </h2>
-          <div style={{ cursor: "pointer" }}>
-            {location.pathname === "/introduction" && (
-              <img
-                src={NextArrow}
-                alt="next"
-                onClick={() => {
-                  navigate("/how-are-you");
-                }}
-              />
-            )}
-          </div>
-        </div>
 
-        {/* Sidebar */}
-        <aside
-          className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
-            isSidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-          }`}
-        >
-          <button
-            className="close-btn absolute top-5 right-5"
-            onClick={() => setIsSidebarOpen(false)}
+          {/* Sidebar */}
+          <aside
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
+              isSidebarOpen
+                ? "translate-x-0"
+                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+            }`}
           >
-            <img src={CloseIcon} alt="close" />
-          </button>
-          <ul className="space-y-3">
-            {menuItems.map(
-              (item, index) =>
-                !item.hide && (
-                  <li
-                    key={index}
-                    onClick={handleSummery}
-                    className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
+            <button
+              className="close-btn absolute top-5 right-5"
+              onClick={() => setIsSidebarOpen(false)}
+            >
+              <img src={CloseIcon} alt="close" />
+            </button>
+            <ul className="space-y-3">
+              {menuItems.map(
+                (item, index) =>
+                  !item.hide && (
+                    <li
+                      key={index}
+                      onClick={handleSummery}
+                      className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
             ${
               location.pathname === item.path
                 ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
                 : "text-black hover:bg-gray-100"
             }`}
-                  >
-                    <img className="header-img" src={item.icon} alt="" />
-                    <Link to={item.path} onClick={item.fun}>
-                      {selectedLanguage === "Spanish" ? item.es : item.en}
-                    </Link>
-                  </li>
-                )
-            )}
-          </ul>
-        </aside>
-      </header>
+                    >
+                      <img className="header-img" src={item.icon} alt="" />
+                      <Link to={item.path} onClick={item.fun}>
+                        {selectedLanguage === "Spanish" ? item.es : item.en}
+                      </Link>
+                    </li>
+                  )
+              )}
+            </ul>
+          </aside>
+        </header>
+      </div>
     </>
   );
 };

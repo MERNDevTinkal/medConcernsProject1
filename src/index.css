@@ -328,11 +328,12 @@ input[type="number"]::-webkit-outer-spin-button {
   background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
 }
 .main-header {
+  z-index: 9;
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  z-index: 9;
 }
+
 .innr-header {
   max-width: 1024px;
   margin-left: auto;
@@ -349,11 +350,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .thm-footer {
   background-color: #f0f5ff;
-  max-width: 1024px;
 }
 .thm-footer li a img {
   height: 25px;
   width: 30px;
+}
+.thm-footer-innr {
+  max-width: 1024px;
 }
 
 .feel-list {
@@ -612,7 +615,7 @@ input[type="number"]::-webkit-outer-spin-button {
   box-shadow: 3px 0px 20px 1px rgb(0 0 0 / 10%);
 }
 
-.dash-single-items .dashboard-cards {
+.dash-single-items {
   width: 100%;
   margin: 0 auto;
   height: calc(100vh - 150px);
@@ -639,13 +642,15 @@ input[type="number"]::-webkit-outer-spin-button {
   object-fit: fill;
 }
 
-.dash-quadriple-items .dashboard-cards {
+.dash-quadriple-items {
   width: 100%;
   margin: 0 auto;
-  height: calc(100vh - 150px);
+  height: calc(70vh - 0px);
+  display: flex;
+  align-items: flex-end;
 }
-.dash-quadriple-items .dashboard-cards .dashboard-img img {
-  height: calc(90vh - 130px);
+.dash-quadriple-items .dashboard-img img {
+  height: calc(80vh - 210px);
   object-fit: contain;
 }
 .dash-hexuple-items .dashboard-cards {
@@ -657,39 +662,82 @@ input[type="number"]::-webkit-outer-spin-button {
   height: calc(50vh - 130px);
   object-fit: contain;
 }
-@media only screen and (min-width: 414px) and (orientation: landscape) {
+
+@media only screen and (max-width: 852px) and (orientation: landscape) {
   .dash-single-items .dashboard-cards .dashboard-img img {
-    height: calc(90vh - 155px);
+    height: calc(90vh - 160px);
+  }
+  .dash-single-items {
+    height: calc(90vh - 100px);
   }
   .dash-double-items .dashboard-cards .dashboard-img img {
     height: calc(90vh - 155px);
   }
   .dash-triple-items .dashboard-cards .dashboard-img img {
-    height: calc(90vh - 155px);
-  }
-  .dash-triple-items .dashboard-cards .dashboard-img img {
     object-fit: contain;
   }
-  .dash-quadriple-items .dashboard-cards .dashboard-img img {
-    height: calc(90vh - 155px);
+  .dash-quadriple-items {
+    height: calc(90vh - 100px);
+    display: block;
   }
-  .dash-hexuple-items .dashboard-cards .dashboard-img img {
-    height: calc(53vh - 135px);
+  .dash-quadriple-items .dashboard-img img {
+    height: calc(90vh - 170px);
   }
   .dash-hexuple-items .dashboard-cards {
+    width: 100%;
+    margin: 0 auto;
     height: calc(69vh - 150px);
   }
-}
-/* iPhone 6, 6S, 7, 8 (4.7″) — Viewport approx 667px wide in landscape */
-@media only screen and (min-width: 667px) and (orientation: landscape) {
-}
-
-/* iPhone 6 Plus, 6S Plus, 7 Plus, 8 Plus (5.5″) — Viewport approx 736px wide in landscape */
-@media only screen and (min-width: 736px) and (orientation: landscape) {
-  .dash-quadriple-items .dashboard-cards .dashboard-img img {
-    height: calc(90vh - 165px);
+  .dash-hexuple-items .dashboard-cards .dashboard-img img {
+    height: calc(53vh - 136px);
+    object-fit: contain;
   }
 }
 
-/* iPhone newer models up to iPhone 17 — viewport widths vary (e.g., ~414px up se) */
-/* A “catch-all” for devices larger than ~414px CSS width in landscape */
+@media only screen and (max-width: 926px) and (orientation: landscape) {
+  .dash-hexuple-items .dashboard-cards {
+    width: 100%;
+    margin: 0 auto;
+    height: calc(70vh - 145px);
+  }
+  .dash-hexuple-items .dashboard-cards .dashboard-img img {
+    height: calc(52vh - 125px);
+    object-fit: contain;
+  }
+}
+
+@media only screen and (max-width: 844px) and (orientation: landscape) {
+  .dash-triple-items .dashboard-cards .dashboard-img img {
+    height: calc(90vh - 160px);
+  }
+  .dash-hexuple-items .dashboard-cards {
+    height: calc(70vh - 140px);
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (max-width: 812px) and (orientation: landscape) {
+  .dash-hexuple-items .dashboard-cards {
+    height: calc(67vh - 140px);
+  }
+  .dash-hexuple-items .dashboard-cards {
+    height: calc(69vh - 140px);
+  }
+}
+
+@media only screen and (max-width: 736px) and (orientation: landscape) {
+  .main-wrapper {
+    padding-top: 50px;
+  }
+  .dash-hexuple-items .dashboard-cards {
+    height: calc(78vh - 140px);
+  }
+  .dash-hexuple-items .dashboard-cards .dashboard-img img {
+    height: calc(58vh - 110px);
+    object-fit: contain;
+  }
+  .dash-hexuple-items .dashboard-cards p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
