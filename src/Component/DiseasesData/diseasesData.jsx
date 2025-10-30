@@ -1130,6 +1130,7 @@ import {
   VisionEnglishMale,
   MovementEnglishMale,
   EmotionsOrFeelingsEnglishMale,
+  NoQuieroDontWantSpanishFemale,
   MedicationEnglishMale,
   EatingAndDrinkingEnglishMale,
   FatigueEnglishMale,
@@ -1261,7 +1262,6 @@ import {
   HouseholdActivityMale,
   FollowUpAppointmentsMale,
   MoneyMale,
-  NoQuieroDontWantSpanishFemale,
   OlorDeComidaSmellOfFoodSpanishFemale,
   MeSientoLlenoAFeelFullSpanishFemale,
   CambiosDeSaborTasteChangesSpanishFemale,
@@ -1397,6 +1397,91 @@ import {
   AchyMale,
   ChillsMale,
   FeverMale,
+  NauseaorvomitingFemale,
+  AudifonosHearingAidesSpanishFemale,
+  MareadoADizzySpanishFemale,
+  DolorDeOidoEarPainSpanishFemale,
+  SonandoRingingSpanishFemale,
+  NoPuedoOirCantHearSpanishFemale,
+  HearingAidsEnglishFemale,
+  DizzyEnglishFemale,
+  EarPainEnglishFemale,
+  CantHearEnglishFemale,
+  TapadosPluggedSpanishMale,
+  MareadoADizzySpanishMale,
+  SonandoRingingSpanishMale,
+  NoPuedoOirCantHearSpanishMale,
+  AudifonosSpanishMale,
+  DolorDeOidoEarPainSpanishMale,
+  RingingMale,
+  CantHearMale,
+  DizzyMale,
+  PluggedMale,
+  EarPainMale,
+
+  // English Female Variables
+  HardToSwallowEnglishFemale,
+  SideEffectsEnglishFemale,
+  DontWantEnglishFemale,
+  WholeCrushedOrLiquidEnglishFemale,
+  TimingEnglishFemale,
+  TooLittleEnglishFemale,
+  TooManyEnglishFemale,
+  InformationEnglishFemale,
+
+  // Spanish Female Variables
+  DemasiadoTooMuchSpanishFemale,
+  InformacionInformationSpanishFemale,
+  DificilDeTragarTroubleSwallowingSpanishFemale,
+  EfectosSecundariosSideEffectsSpanishFemale,
+  EnterosAplastadosOLiquidosSpanishFemale,
+  MuyPocoTooLittleFewSpanishFemale,
+  TiempoTimingSpanishFemale,
+  EnteroAplastadoLiquidoSpanishMale,
+  TiempoTimingSpanishMale,
+  DemasiadosSpanishMale,
+  MuyPocoTooLittleSpanishMale,
+  DificilDeTragarHardToSwallowSpanishMale,
+  InformacionInformationSpanishMale,
+  EfectosSecundariosSideEffectsSpanishMale,
+  SideEffectsMale,
+  WholeCrushedOrLiquidMale,
+  TimingMale,
+  InformationMale,
+  TooLittleMale,
+  TooManyMale,
+  HardToSwallowMale,
+  ThickMucusMale,
+  ColorMale,
+  TooMuchMale,
+  DryMouthMale,
+  BocaSecaSpanishMale,
+  DemasiadoTooMuchSpanishMale,
+  GruesaMucosaSpanishMale,
+  ColorSpanishMale,
+  GruesaMucosaThickMucusSpanishFemale,
+  ColorSpanishFemale,
+  BocaSecaDryMouthSpanishFemale,
+  // English Female
+  VomitingEnglishFemale,
+  JustNauseaEnglishFemale,
+
+  // Spanish Female
+  VomitosVomitingSpanishFemale,
+  SoloNauseasJustNauseaSpanishFemale,
+
+  // English Male
+  VomitingMale,
+
+  // Spanish Male
+  SoloNauseasSpanishMale,
+  VomitingVomitosSpanishMale,
+  RemoveMale,
+  QuitarRemoveSpanishMale,
+  LeakingMale,
+  GoteandoLeakingSpanishMale,
+  QuitarRemoveSpanishFemale,
+  GoteandoSpanishFemale,
 } from "./audio.jsx";
 
 export const breathingWhenOptions = [
@@ -3854,10 +3939,10 @@ const trachproblemDesises = [
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "3",
@@ -3882,8 +3967,10 @@ const trachproblemDesises = [
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: "",
+    maleEnglish: RemoveMale,
     femaleEnglish: RemoveFemale,
+    femaleSpanish: QuitarRemoveSpanishFemale,
+    maleSpanish: QuitarRemoveSpanishMale,
   },
   {
     id: "6",
@@ -3924,8 +4011,10 @@ const trachproblemDesises = [
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: LeakingMale,
     femaleEnglish: LeakingFemale,
+    femaleSpanish: GoteandoSpanishFemale,
+    maleSpanish: GoteandoLeakingSpanishMale,
   },
   {
     id: "10",
@@ -3961,10 +4050,10 @@ const trachDesises = [
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "3",
@@ -3989,8 +4078,10 @@ const trachDesises = [
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: "",
+    maleEnglish: RemoveMale,
     femaleEnglish: RemoveFemale,
+    femaleSpanish: QuitarRemoveSpanishFemale,
+    maleSpanish: QuitarRemoveSpanishMale,
   },
   {
     id: "6",
@@ -4033,8 +4124,10 @@ const trachDesises = [
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: LeakingMale,
     femaleEnglish: LeakingFemale,
+    femaleSpanish: GoteandoSpanishFemale,
+    maleSpanish: GoteandoLeakingSpanishMale,
   },
   {
     id: "10",
@@ -4070,10 +4163,10 @@ const mucussecretionsDesises = [
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "3",
@@ -4082,8 +4175,10 @@ const mucussecretionsDesises = [
     image: dashimg05,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: ThickMucusMale, // Added
     femaleEnglish: ThickMucusFemale,
+    femaleSpanish: GruesaMucosaThickMucusSpanishFemale, // Added
+    maleSpanish: GruesaMucosaSpanishMale, // Added
   },
   {
     id: "4",
@@ -4092,8 +4187,10 @@ const mucussecretionsDesises = [
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: TooMuchMale, // Added
     femaleEnglish: TooMuchFemale,
+    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+    maleSpanish: DemasiadoTooMuchSpanishMale, // Added
   },
 ];
 
@@ -4117,8 +4214,10 @@ const feedingtubeDesises = [
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: RemoveMale,
     femaleEnglish: RemoveFemale,
+    femaleSpanish: QuitarRemoveSpanishFemale,
+    maleSpanish: QuitarRemoveSpanishMale,
   },
   {
     id: "3",
@@ -4127,8 +4226,10 @@ const feedingtubeDesises = [
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: TooMuchMale, // Added
     femaleEnglish: TooMuchFemale,
+    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+    maleSpanish: DemasiadoTooMuchSpanishMale, // Added
   },
   {
     id: "4",
@@ -4164,10 +4265,10 @@ const trachproblemsubDesises = [
     path: "/when",
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "3",
@@ -4192,8 +4293,10 @@ const trachproblemsubDesises = [
     path: "/when",
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: RemoveMale,
     femaleEnglish: RemoveFemale,
+    femaleSpanish: QuitarRemoveSpanishFemale,
+    maleSpanish: QuitarRemoveSpanishMale,
   },
   {
     id: "6",
@@ -4234,8 +4337,10 @@ const trachproblemsubDesises = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: LeakingMale,
     femaleEnglish: LeakingFemale,
+    femaleSpanish: GoteandoSpanishFemale,
+    maleSpanish: GoteandoLeakingSpanishMale,
   },
   {
     id: "10",
@@ -4283,10 +4388,10 @@ const trachmucusSecretionsDesises = [
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "3",
@@ -4295,8 +4400,10 @@ const trachmucusSecretionsDesises = [
     image: dashimg05,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: ThickMucusMale, // Added
     femaleEnglish: ThickMucusFemale,
+    femaleSpanish: GruesaMucosaThickMucusSpanishFemale, // Added
+    maleSpanish: GruesaMucosaSpanishMale, // Added
   },
   {
     id: "4",
@@ -4305,8 +4412,10 @@ const trachmucusSecretionsDesises = [
     image: DrymouthImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: DryMouthMale, // Added
     femaleEnglish: DryMouthFemale,
+    femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+    maleSpanish: BocaSecaSpanishMale, // Added
   },
   {
     id: "5",
@@ -4315,8 +4424,10 @@ const trachmucusSecretionsDesises = [
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: TooMuchMale, // Added
     femaleEnglish: TooMuchFemale,
+    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+    maleSpanish: DemasiadoTooMuchSpanishMale, // Added
   },
   {
     id: "6",
@@ -4325,10 +4436,10 @@ const trachmucusSecretionsDesises = [
     path: "/howoften",
     image: ColorImage,
     secPath: "/color-problem-sub",
-    maleEnglish: "",
+    maleEnglish: ColorMale, // Added
     femaleEnglish: colorFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: ColorSpanishFemale, // Added
+    maleSpanish: ColorSpanishMale, // Added
   },
 ];
 
@@ -4599,10 +4710,10 @@ const trachDesies = [
     path: "/when",
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "5",
@@ -4639,8 +4750,10 @@ const trachDesies = [
     path: "/when",
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: RemoveMale,
     femaleEnglish: RemoveFemale,
+    femaleSpanish: QuitarRemoveSpanishFemale,
+    maleSpanish: QuitarRemoveSpanishMale,
   },
   {
     id: "9",
@@ -4681,8 +4794,10 @@ const trachDesies = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: LeakingMale,
     femaleEnglish: LeakingFemale,
+    femaleSpanish: GoteandoSpanishFemale,
+    maleSpanish: GoteandoLeakingSpanishMale,
   },
   {
     id: "13",
@@ -4730,10 +4845,10 @@ const SwallowingTrachDesies = [
     path: "/howoften",
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "3",
@@ -4758,8 +4873,10 @@ const SwallowingTrachDesies = [
     path: "/howoften",
     image: RemoveImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: RemoveMale,
     femaleEnglish: RemoveFemale,
+    femaleSpanish: QuitarRemoveSpanishFemale,
+    maleSpanish: QuitarRemoveSpanishMale,
   },
   {
     id: "6",
@@ -4812,8 +4929,10 @@ const SwallowingTrachDesies = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: LeakingMale,
     femaleEnglish: LeakingFemale,
+    femaleSpanish: GoteandoSpanishFemale,
+    maleSpanish: GoteandoLeakingSpanishMale,
   },
   {
     id: "11",
@@ -4909,8 +5028,10 @@ const MedicationSidEffectsDesies = [
     path: "/howoften",
     image: DrymouthImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: DryMouthMale, // Added
     femaleEnglish: DryMouthFemale,
+    femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+    maleSpanish: BocaSecaSpanishMale, // Added
   },
   {
     id: "7",
@@ -5050,8 +5171,10 @@ const medicationswallowing = [
     path: "",
     image: DrymouthImg,
     secPath: "/medicationswallowingdryMouth-problem",
-    maleEnglish: "",
+    maleEnglish: DryMouthMale, // Added
     femaleEnglish: DryMouthFemale,
+    femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+    maleSpanish: BocaSecaSpanishMale, // Added
   },
   {
     id: "9",
@@ -5060,8 +5183,10 @@ const medicationswallowing = [
     path: "/howoften",
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: TooMuchMale, // Added
     femaleEnglish: TooMuchFemale,
+    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+    maleSpanish: DemasiadoTooMuchSpanishMale, // Added
   },
   {
     id: "10",
@@ -5091,10 +5216,10 @@ const medicationswallowing = [
     path: "",
     image: infoImg,
     secPath: "/Whiteboard",
-    maleEnglish: "",
+    maleEnglish: InformationMale, // Added
     femaleEnglish: informationFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: InformacionInformationSpanishFemale, // Added
+    maleSpanish: InformacionInformationSpanishMale, // Added
   },
   {
     id: "13",
@@ -5418,6 +5543,10 @@ const nauseaSwallowingDesies = [
     image: vomitingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: VomitingMale,
+    femaleEnglish: VomitingEnglishFemale,
+    femaleSpanish: VomitosVomitingSpanishFemale,
+    maleSpanish: VomitingVomitosSpanishMale,
   },
   {
     id: "2",
@@ -5669,8 +5798,10 @@ const swallowingfeedingtube = [
     path: "/howoften",
     image: Remove_peg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: RemoveMale,
     femaleEnglish: RemoveFemale,
+    femaleSpanish: QuitarRemoveSpanishFemale,
+    maleSpanish: QuitarRemoveSpanishMale,
   },
   {
     id: "3",
@@ -5679,8 +5810,10 @@ const swallowingfeedingtube = [
     path: "/howoften",
     image: LeakingImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: LeakingMale,
     femaleEnglish: LeakingFemale,
+    femaleSpanish: GoteandoSpanishFemale,
+    maleSpanish: GoteandoLeakingSpanishMale,
   },
   {
     id: "4",
@@ -5689,8 +5822,10 @@ const swallowingfeedingtube = [
     path: "/when",
     image: FeelfullImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: TooMuchMale, // Added
     femaleEnglish: TooMuchFemale,
+    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+    maleSpanish: DemasiadoTooMuchSpanishMale, // Added
   },
   {
     id: "5",
@@ -6025,6 +6160,10 @@ const eatingdrinkingNoAppetiteNausea = [
     image: vomitingImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    maleEnglish: VomitingMale,
+    femaleEnglish: VomitingEnglishFemale,
+    femaleSpanish: VomitosVomitingSpanishFemale,
+    maleSpanish: VomitingVomitosSpanishMale,
   },
   {
     id: "2",
@@ -6095,6 +6234,10 @@ const medicationNausea = [
     image: vomitingImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    maleEnglish: VomitingMale,
+    femaleEnglish: VomitingEnglishFemale,
+    femaleSpanish: VomitosVomitingSpanishFemale,
+    maleSpanish: VomitingVomitosSpanishMale,
   },
   {
     id: "2",
@@ -6139,8 +6282,10 @@ const medicationNausea = [
     image: swallowingimg07,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    femaleEnglish: JustNauseaEnglishFemale,
     maleEnglish: JustNauseaMale,
-    femaleEnglish: JustNauseaFemale,
+    femaleSpanish: SoloNauseasJustNauseaSpanishFemale,
+    maleSpanish: SoloNauseasSpanishMale,
   },
   {
     id: "6",
@@ -6437,6 +6582,10 @@ const medicationSidEffectsAppetiteNausea = [
     image: vomitingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: VomitingMale,
+    femaleEnglish: VomitingEnglishFemale,
+    femaleSpanish: VomitosVomitingSpanishFemale,
+    maleSpanish: VomitingVomitosSpanishMale,
   },
   {
     id: "2",
@@ -6533,6 +6682,10 @@ const medicationHardtoSwallow = [
     image: swallowingimg11,
     secPath: "/new-problem",
     path: "",
+    maleEnglish: TooManyMale, // Added
+    femaleEnglish: TooManyEnglishFemale, // Added
+    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+    maleSpanish: DemasiadosSpanishMale, // Added
   },
   {
     id: "2",
@@ -6549,6 +6702,10 @@ const medicationHardtoSwallow = [
     image: Whole_crushed_liquid,
     secPath: "/medicationHardtoSwallowwholeliquid-problem",
     path: "",
+    maleEnglish: WholeCrushedOrLiquidMale, // Added
+    femaleEnglish: WholeCrushedOrLiquidEnglishFemale, // Added
+    femaleSpanish: EnterosAplastadosOLiquidosSpanishFemale, // Added
+    maleSpanish: EnteroAplastadoLiquidoSpanishMale, // Added
   },
   {
     id: "4",
@@ -6557,7 +6714,10 @@ const medicationHardtoSwallow = [
     image: DrymouthImg,
     secPath: "/medicationHardtoSwallowDryMouth-problem",
     path: "",
+    maleEnglish: DryMouthMale, // Added
     femaleEnglish: DryMouthFemale,
+    femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+    maleSpanish: BocaSecaSpanishMale, // Added
   },
   {
     id: "5",
@@ -6907,10 +7067,10 @@ const mucusProblemsub = [
     image: SuctiontrachImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: SuctionMale,
     femaleEnglish: suctionFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: SuccionSuctionFemale,
+    maleSpanish: SuccionSuctionMale,
   },
   {
     id: "3",
@@ -6919,7 +7079,10 @@ const mucusProblemsub = [
     image: dashimg05,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: ThickMucusMale, // Added
     femaleEnglish: ThickMucusFemale,
+    femaleSpanish: GruesaMucosaThickMucusSpanishFemale, // Added
+    maleSpanish: GruesaMucosaSpanishMale, // Added
   },
   {
     id: "4",
@@ -6928,7 +7091,10 @@ const mucusProblemsub = [
     image: DrymouthImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: DryMouthMale, // Added
     femaleEnglish: DryMouthFemale,
+    femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+    maleSpanish: BocaSecaSpanishMale, // Added
   },
   {
     id: "5",
@@ -6937,7 +7103,10 @@ const mucusProblemsub = [
     image: swallowingimg11,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: TooMuchMale, // Added
     femaleEnglish: TooMuchFemale,
+    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+    maleSpanish: DemasiadoTooMuchSpanishMale, // Added
   },
   {
     id: "6",
@@ -6946,10 +7115,10 @@ const mucusProblemsub = [
     image: colorImage,
     secPath: "/color-problem-sub",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: ColorMale, // Added
     femaleEnglish: colorFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: ColorSpanishFemale, // Added
+    maleSpanish: ColorSpanishMale, // Added
   },
   {
     id: "7",
@@ -7143,7 +7312,10 @@ const movementconcerns = [
     image: DizzyImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: DizzyMale, // Added
     femaleEnglish: DizzyFemale,
+    femaleSpanish: MareadoADizzySpanishFemale, // Added
+    maleSpanish: MareadoADizzySpanishMale, // Added
   },
   {
     id: "6",
@@ -7327,22 +7499,22 @@ const hearingConcers = [
     image: Hearingaid,
     path: "/",
     secPath: "/hearingAids-problem",
-    maleEnglish: "",
+    maleEnglish: HearingAidsMale,
     femaleEnglish: hearingAidsFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: AudifonosHearingAidesSpanishFemale,
+    maleSpanish: AudifonosSpanishMale,
   },
   {
     id: "2",
-    name: "Can’t Hear",
+    name: "Can't Hear",
     nameEs: "No Puedo Oir",
     image: Can_thearImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: CantHearMale,
     femaleEnglish: cantHearFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: NoPuedoOirCantHearSpanishFemale,
+    maleSpanish: NoPuedoOirCantHearSpanishMale,
   },
   {
     id: "3",
@@ -7351,7 +7523,10 @@ const hearingConcers = [
     image: RingingImg,
     path: "/when",
     secPath: "/confrm-step-yesno",
+    maleEnglish: RingingMale,
     femaleEnglish: RingingFemale,
+    femaleSpanish: SonandoRingingSpanishFemale,
+    maleSpanish: SonandoRingingSpanishMale,
   },
   {
     id: "4",
@@ -7360,7 +7535,10 @@ const hearingConcers = [
     image: ear_painImg,
     path: "/",
     secPath: "/pain-feel",
+    maleEnglish: EarPainMale,
     femaleEnglish: EarPainFemale,
+    femaleSpanish: DolorDeOidoEarPainSpanishFemale,
+    maleSpanish: DolorDeOidoEarPainSpanishMale,
   },
   {
     id: "5",
@@ -7369,7 +7547,10 @@ const hearingConcers = [
     image: pluggedImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
+    maleEnglish: PluggedMale,
     femaleEnglish: PluggedFemale,
+    femaleSpanish: TapadosPluggedSpanishMale,
+    maleSpanish: TapadosPluggedSpanishMale, // Added
   },
   {
     id: "6",
@@ -7378,7 +7559,10 @@ const hearingConcers = [
     image: DizzyImg,
     path: "/when",
     secPath: "/confrm-step-yesno",
+    maleEnglish: DizzyMale, // Added
     femaleEnglish: DizzyFemale,
+    femaleSpanish: MareadoADizzySpanishFemale, // Added
+    maleSpanish: MareadoADizzySpanishMale, // Added
   },
   {
     id: "7",
@@ -7471,7 +7655,10 @@ const visionConcers = [
     image: DizzyImg,
     path: "/when",
     secPath: "/confrm-step-yesno",
+    maleEnglish: DizzyMale, // Added
     femaleEnglish: DizzyFemale,
+    femaleSpanish: MareadoADizzySpanishFemale, // Added
+    maleSpanish: MareadoADizzySpanishMale, // Added
   },
   {
     id: "7",
@@ -7980,10 +8167,10 @@ export const diseasesData = {
       image: SuctiontrachImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: SuctionMale,
       femaleEnglish: suctionFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: SuccionSuctionFemale,
+      maleSpanish: SuccionSuctionMale,
     },
     {
       id: "3",
@@ -7992,7 +8179,10 @@ export const diseasesData = {
       image: dashimg05,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: ThickMucusMale, // Added
       femaleEnglish: ThickMucusFemale,
+      femaleSpanish: GruesaMucosaThickMucusSpanishFemale, // Added
+      maleSpanish: GruesaMucosaSpanishMale, // Added
     },
     {
       id: "4",
@@ -8001,7 +8191,10 @@ export const diseasesData = {
       image: DrymouthImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: DryMouthMale, // Added
       femaleEnglish: DryMouthFemale,
+      femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+      maleSpanish: BocaSecaSpanishMale, // Added
     },
     {
       id: "5",
@@ -8010,7 +8203,10 @@ export const diseasesData = {
       image: swallowingimg11,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: TooMuchMale, // Added
       femaleEnglish: TooMuchFemale,
+      femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+      maleSpanish: DemasiadoTooMuchSpanishMale, // Added
     },
     {
       id: "6",
@@ -8019,10 +8215,10 @@ export const diseasesData = {
       image: ColorImage,
       path: "/howoften",
       secPath: "/mucusColor-problem",
-      maleEnglish: "",
+      maleEnglish: ColorMale, // Added
       femaleEnglish: colorFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: ColorSpanishFemale, // Added
+      maleSpanish: ColorSpanishMale, // Added
     },
   ],
 
@@ -8139,7 +8335,10 @@ export const diseasesData = {
       image: DrymouthImg,
       path: "/howoften",
       secPath: "/swallowingdrymouth-problem",
+      maleEnglish: DryMouthMale, // Added
       femaleEnglish: DryMouthFemale,
+      femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+      maleSpanish: BocaSecaSpanishMale, // Added
     },
     {
       id: "11",
@@ -8148,7 +8347,10 @@ export const diseasesData = {
       image: swallowingimg11,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: TooMuchMale, // Added
       femaleEnglish: TooMuchFemale,
+      femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+      maleSpanish: DemasiadoTooMuchSpanishMale, // Added
     },
     {
       id: "12",
@@ -8257,7 +8459,10 @@ export const diseasesData = {
       image: DrymouthImg,
       secPath: "/drymouth-problem",
       path: "/howoften",
+      maleEnglish: DryMouthMale, // Added
       femaleEnglish: DryMouthFemale,
+      femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+      maleSpanish: BocaSecaSpanishMale, // Added
     },
     {
       id: "7",
@@ -8266,7 +8471,10 @@ export const diseasesData = {
       image: swallowingimg11,
       secPath: "/confrm-step-yesno",
       path: "/howoften",
+      maleEnglish: TooMuchMale, // Added
       femaleEnglish: TooMuchFemale,
+      femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+      maleSpanish: DemasiadoTooMuchSpanishMale, // Added
     },
     {
       id: "8",
@@ -8385,6 +8593,10 @@ export const diseasesData = {
       image: vomitingImg,
       secPath: "/confrm-step-yesno",
       path: "/when",
+      maleEnglish: VomitingMale,
+      femaleEnglish: VomitingEnglishFemale,
+      femaleSpanish: VomitosVomitingSpanishFemale,
+      maleSpanish: VomitingVomitosSpanishMale,
     },
     {
       id: "2",
@@ -8429,7 +8641,10 @@ export const diseasesData = {
       image: swallowingimg07,
       secPath: "/confrm-step-yesno",
       path: "/when",
+      femaleEnglish: JustNauseaEnglishFemale,
       maleEnglish: JustNauseaMale,
+      femaleSpanish: SoloNauseasJustNauseaSpanishFemale,
+      maleSpanish: SoloNauseasSpanishMale,
     },
     {
       id: "6",
@@ -8929,7 +9144,10 @@ export const diseasesData = {
       image: DrymouthImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: DryMouthMale, // Added
       femaleEnglish: DryMouthFemale,
+      femaleSpanish: BocaSecaDryMouthSpanishFemale, // Added
+      maleSpanish: BocaSecaSpanishMale, // Added
     },
     {
       id: "10",
@@ -8951,10 +9169,10 @@ export const diseasesData = {
       nameEs: "Efectos Secundarios",
       image: SideEffectsImg,
       secPath: "/medicationSideEffects-problem",
-      maleEnglish: "",
+      maleEnglish: SideEffectsMale, // Added
       femaleEnglish: sideEffectsFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: EfectosSecundariosSideEffectsSpanishFemale, // Added
+      maleSpanish: EfectosSecundariosSideEffectsSpanishMale, // Added
     },
     {
       id: "2",
@@ -8962,6 +9180,10 @@ export const diseasesData = {
       nameEs: "Dificil de Tragar",
       image: SwallowingImg,
       secPath: "/medicationHardtoSwallow-problem",
+      maleEnglish: HardToSwallowMale, // Added
+      femaleEnglish: HardToSwallowEnglishFemale, // Added
+      femaleSpanish: DificilDeTragarTroubleSwallowingSpanishFemale, // Added
+      maleSpanish: DificilDeTragarHardToSwallowSpanishMale, // Added
     },
     {
       id: "3",
@@ -8970,10 +9192,10 @@ export const diseasesData = {
       image: infoImg,
       path: "/",
       secPath: "/Whiteboard",
-      maleEnglish: "",
+      maleEnglish: InformationMale, // Added
       femaleEnglish: informationFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: InformacionInformationSpanishFemale, // Added
+      maleSpanish: InformacionInformationSpanishMale, // Added
     },
     {
       id: "4",
@@ -8982,6 +9204,10 @@ export const diseasesData = {
       image: TooMuchTooMany,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: TooManyMale, // Added
+      femaleEnglish: TooManyEnglishFemale, // Added
+      femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
+      maleSpanish: DemasiadosSpanishMale, // Added
     },
     {
       id: "5",
@@ -8990,10 +9216,10 @@ export const diseasesData = {
       image: toolittleImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: TooLittleMale, // Added
       femaleEnglish: tooLittleFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: MuyPocoTooLittleFewSpanishFemale, // Added
+      maleSpanish: MuyPocoTooLittleSpanishMale, // Added
     },
     {
       id: "6",
@@ -9002,10 +9228,10 @@ export const diseasesData = {
       image: timingImg,
       path: "/medicationTiming-problem",
       secPath: "/medicationTiming-problem",
-      maleEnglish: "",
+      maleEnglish: TimingMale, // Added
       femaleEnglish: timingFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: TiempoTimingSpanishFemale, // Added
+      maleSpanish: TiempoTimingSpanishMale, // Added
     },
     {
       id: "7",
@@ -9014,10 +9240,14 @@ export const diseasesData = {
       image: Whole_crushed_liquid,
       path: "/",
       secPath: "/medicationWholeCrushedLiquid-problem",
+      maleEnglish: WholeCrushedOrLiquidMale, // Added
+      femaleEnglish: WholeCrushedOrLiquidEnglishFemale, // Added
+      femaleSpanish: EnterosAplastadosOLiquidosSpanishFemale, // Added
+      maleSpanish: EnteroAplastadoLiquidoSpanishMale, // Added
     },
     {
       id: "8",
-      name: "Don’t Want",
+      name: "Don't Want",
       nameEs: "No Quiero",
       image: dontwantImg,
       path: "/",
@@ -9040,7 +9270,6 @@ export const diseasesData = {
       maleSpanish: AlgomasMale,
     },
   ],
-
   "/movement-problem": movementconcerns,
 
   "/communication-problem": communicationConcerns,
@@ -9117,6 +9346,8 @@ export const diseasesData = {
       image: nausea04,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: "",
+      femaleEnglish: NauseaorvomitingFemale,
       femaleSpanish: NauseasVomitosNauseaVomitingSpanishFemale, // Added
       maleSpanish: NauseasVomitosNauseaVomitingSpanishMale, // Added
     },
@@ -9356,7 +9587,10 @@ export const diseasesData = {
       image: Leakingwound,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: LeakingMale,
       femaleEnglish: LeakingFemale,
+      femaleSpanish: GoteandoSpanishFemale,
+      maleSpanish: GoteandoLeakingSpanishMale,
     },
     {
       id: "6",
@@ -9424,7 +9658,10 @@ export const diseasesData = {
       image: Remove_peg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: RemoveMale,
       femaleEnglish: RemoveFemale,
+      femaleSpanish: QuitarRemoveSpanishFemale,
+      maleSpanish: QuitarRemoveSpanishMale,
     },
     {
       id: "3",
@@ -9433,7 +9670,10 @@ export const diseasesData = {
       image: trachleakingImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: LeakingMale,
       femaleEnglish: LeakingFemale,
+      femaleSpanish: GoteandoSpanishFemale,
+      maleSpanish: GoteandoLeakingSpanishMale,
     },
     {
       id: "4",
@@ -9478,10 +9718,10 @@ export const diseasesData = {
       image: infoImg,
       path: "/howoften",
       secPath: "/Whiteboard",
-      maleEnglish: "",
+      maleEnglish: InformationMale,
       femaleEnglish: informationFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: InformacionInformationSpanishFemale,
+      maleSpanish: InformacionInformationSpanishMale,
     },
     {
       id: "8",
@@ -9517,10 +9757,10 @@ export const diseasesData = {
       image: SuctiontrachImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: SuctionMale,
       femaleEnglish: suctionFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: SuccionSuctionFemale,
+      maleSpanish: SuccionSuctionMale,
     },
     {
       id: "3",
@@ -9545,7 +9785,10 @@ export const diseasesData = {
       image: RemoveImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
+      maleEnglish: RemoveMale,
       femaleEnglish: RemoveFemale,
+      femaleSpanish: QuitarRemoveSpanishFemale,
+      maleSpanish: QuitarRemoveSpanishMale,
     },
     {
       id: "6",
@@ -9596,7 +9839,10 @@ export const diseasesData = {
       image: trachleakingImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
+      maleEnglish: LeakingMale,
       femaleEnglish: LeakingFemale,
+      femaleSpanish: GoteandoSpanishFemale,
+      maleSpanish: GoteandoLeakingSpanishMale,
     },
     {
       id: "11",

@@ -105,7 +105,6 @@ import WithTransferRepositioningMale from "../../assets/audio/English/male/74 Wi
 import WithMovementMale from "../../assets/audio/English/male/75 With Movement.wav";
 import WithTubeFeedMale from "../../assets/audio/English/male/78 With Tube Feed.wav";
 import WithStressEmotionMale from "../../assets/audio/English/male/79 With Stress _ Emotion.wav";
-import JustNauseaMale from "../../assets/audio/English/male/8 Just Nausea.wav";
 import AfterProcedureMale from "../../assets/audio/English/male/80 After Procedure.wav";
 import SinceIllnessMale from "../../assets/audio/English/male/82 Since Illness.wav";
 import AlwaysChronicMale from "../../assets/audio/English/male/86 Always _ Chronic.wav";
@@ -1353,10 +1352,10 @@ import AppetiteEnglishMale from "../../assets/audio/English/male/appetite.mp3";
 import ApetitoSpanishFeMale from "../../assets/audio/spanish/female/Apetito (Appetite).mp3";
 import ApetitoSpanishMale from "../../assets/audio/spanish/male/Apetito (Appetite).wav";
 
-import SoreThroatMale from "src/assets/audio/Spanish/male/Sore Throat (male eng).mp3";
-import AchyMale from "src/assets/audio/English/male/Achy (male eng).mp3";
-import ChillsMale from "src/assets/audio/English/male/Chills (male eng).mp3";
-import FeverMale from "src/assets/audio/English/male/Fever (male eng).mp3";
+import SoreThroatMale from "../../assets/audio/English/male/Sore Throat (male eng).mp3";
+import AchyMale from "../../assets/audio/English/male/Achy (male eng).mp3";
+import ChillsMale from "../../assets/audio/English/male/Chills (male eng).mp3";
+import FeverMale from "../../assets/audio/English/male/Fever (male eng).mp3";
 
 import NauseasVomitosNauseaVomitingSpanishMale from "../../assets/audio/spanish/male/Nauseas_Vomitos (Nausea_Vomiting).wav";
 import DolorDeGargantaSoreThroatSpanishMale from "../../assets/audio/spanish/male/Dolor de garganta (Sore Throat).wav";
@@ -1369,12 +1368,197 @@ import AchyEnglishFemale from "../../assets/audio/English/female/Achy.mp3";
 import ChillsEnglishFemale from "../../assets/audio/English/female/Chills.mp3";
 
 import FiebreFeverSpanishFemale from "../../assets/audio/English/female/Fiebre (fever).mp3";
+import NauseaorvomitingFemale from "../../assets/audio/English/female/Nausea or vomiting.wav";
 import FiebreFeverSpanishMale from "../../assets/audio/spanish/male/Fiebre (fever).wav";
 import NauseasVomitosNauseaVomitingSpanishFemale from "../../assets/audio/English/female/Nauseas_Vomitos (Nausea_Vomiting).wav";
 import AdoloridoAAcheySpanishFemale from "../../assets/audio/English/female/Adolorido_a (achey).wav";
 import DolorDeGargantaSoreThroatSpanishFemale from "../../assets/audio/English/female/Dolor de garganta (Sore Throat).wav";
 import EscalofriosChillsSpanishFemale from "../../assets/audio/English/female/Escalofrios (Chills).wav";
+
+import RingingMale from "../../assets/audio/English/male/ringing.mp3";
+import CantHearMale from "../../assets/audio/English/male/can't hear 1.mp3";
+import DizzyMale from "../../assets/audio/English/male/Dizzy.mp3";
+import EarPainMale from "../../assets/audio/English/male/Ear pain.mp3";
+import PluggedMale from "../../assets/audio/English/male/plugged.mp3";
+import DolorDeOidoEarPainSpanishMale from "../../assets/audio/English/male/Dolor de Oido (Ear Pain).wav";
+
+import TapadosPluggedSpanishMale from "../../assets/audio/spanish/male/Tapados (Plugged).wav";
+import MareadoADizzySpanishMale from "../../assets/audio/spanish/male/Mareado_a (Dizzy).wav";
+import SonandoRingingSpanishMale from "../../assets/audio/spanish/male/Sonando (Ringing).wav";
+import NoPuedoOirCantHearSpanishMale from "../../assets/audio/spanish/male/No Puedo Oir (Can't Hear).wav";
+import AudifonosSpanishMale from "../../assets/audio/spanish/male/Audifonos.wav";
+
+import HearingAidsEnglishFemale from "../../assets/audio/English/female/Hearing Aids.mp3";
+import DizzyEnglishFemale from "../../assets/audio/English/female/Dizzy (1).mp3";
+import EarPainEnglishFemale from "../../assets/audio/English/female/Ear Pain.mp3";
+import CantHearEnglishFemale from "../../assets/audio/English/female/can't hear.mp3";
+
+import AudifonosHearingAidesSpanishFemale from "../../assets/audio/spanish/female/Audífonos (hearing aides).mp3";
+import MareadoADizzySpanishFemale from "../../assets/audio/spanish/female/Mareado_a (Dizzy).mp3";
+import DolorDeOidoEarPainSpanishFemale from "../../assets/audio/spanish/female/dolor de oido (ear pain).mp3";
+import SonandoRingingSpanishFemale from "../../assets/audio/spanish/female/Sonando (Ringing).mp3";
+import NoPuedoOirCantHearSpanishFemale from "../../assets/audio/spanish/female/No Puedo Oir (Can't Hear).mp3";
+
+// Spanish Male
+import EnteroAplastadoLiquidoSpanishMale from "../../assets/audio/spanish/male/entero_aplastado_liquido.mp3";
+import TiempoTimingSpanishMale from "../../assets/audio/spanish/male/tiempo_timing(Joaquin Vignoli).wav";
+import DemasiadosSpanishMale from "../../assets/audio/spanish/male/Demasiados.wav";
+import MuyPocoTooLittleSpanishMale from "../../assets/audio/spanish/male/muy poco_too little (Joaquin Vignoli).wav";
+import DificilDeTragarHardToSwallowSpanishMale from "../../assets/audio/spanish/male/Dificil de tragar_Hard to Swallow(Joaquin Vignoli).wav";
+import InformacionInformationSpanishMale from "../../assets/audio/spanish/male/informacion_information.wav";
+import EfectosSecundariosSideEffectsSpanishMale from "../../assets/audio/spanish/male/Efectos Secundarios_Side Effects(Joaquin Vignoli).wav";
+
+// English Male
+import SideEffectsMale from "../../assets/audio/English/male/side effects.mp3";
+
+import WholeCrushedOrLiquidMale from "../../assets/audio/English/male/whole, crushed, or liquid.mp3";
+import TimingMale from "../../assets/audio/English/male/timing.mp3";
+import InformationMale from "../../assets/audio/English/male/Information.wav";
+import TooLittleMale from "../../assets/audio/English/male/Too Little.wav";
+import TooManyMale from "../../assets/audio/English/male/too many.mp3";
+import HardToSwallowMale from "../../assets/audio/English/male/hard to swallow.mp3";
+
+import HardToSwallowEnglishFemale from "../../assets/audio/English/female/hard to swallow.mp3";
+import SideEffectsEnglishFemale from "../../assets/audio/English/female/Side effects.mp3";
+import DontWantEnglishFemale from "../../assets/audio/English/female/Don't want.mp3";
+import WholeCrushedOrLiquidEnglishFemale from "../../assets/audio/English/female/whole, crushed, or liquid.mp3";
+import TimingEnglishFemale from "../../assets/audio/English/female/timing.mp3";
+import TooLittleEnglishFemale from "../../assets/audio/English/female/Too little.mp3";
+import TooManyEnglishFemale from "../../assets/audio/English/female/Too many.mp3";
+import InformationEnglishFemale from "../../assets/audio/English/female/information.mp3";
+
+import DemasiadoTooMuchSpanishFemale from "../../assets/audio/spanish/female/demasiado (too much) [mucus_secretios].mp3";
+import InformacionInformationSpanishFemale from "../../assets/audio/spanish/female/informacion (information).mp3";
+import DificilDeTragarTroubleSwallowingSpanishFemale from "../../assets/audio/spanish/female/dificil de tragar (trouble swallowing).mp3";
+import EfectosSecundariosSideEffectsSpanishFemale from "../../assets/audio/spanish/female/efectos secundarios (side effects).mp3";
+import EnterosAplastadosOLiquidosSpanishFemale from "../../assets/audio/spanish/female/enteros, aplastados, o liquidos.mp3";
+import MuyPocoTooLittleFewSpanishFemale from "../../assets/audio/spanish/female/muy poco (too little_few).mp3";
+import TiempoTimingSpanishFemale from "../../assets/audio/spanish/female/tiempo (timing).mp3";
+
+import BocaSecaSpanishMale from "../../assets/audio/spanish/male/Boca seca.wav";
+import DemasiadoTooMuchSpanishMale from "../../assets/audio/spanish/male/demasiado_too much (Joaquin Vignoli).wav";
+import GruesaMucosaSpanishMale from "../../assets/audio/spanish/male/Gruesa Mucosa.wav";
+import ColorSpanishMale from "../../assets/audio/spanish/male/VO - Color.wav";
+
+import ThickMucusMale from "../../assets/audio/English/male/Thick Mucus.mp3";
+import ColorMale from "../../assets/audio/English/male/Color (male Eng).mp3";
+import TooMuchMale from "../../assets/audio/English/male/Too Much.wav";
+import DryMouthMale from "../../assets/audio/English/male/Dry mouth.mp3";
+
+import GruesaMucosaThickMucusSpanishFemale from "../../assets/audio/spanish/female/Gruesa Mucosa (thick mucus) 1.mp3";
+import ColorSpanishFemale from "../../assets/audio/spanish/female/Color.mp3";
+import BocaSecaDryMouthSpanishFemale from "../../assets/audio/spanish/female/boca seca (dry mouth).mp3";
+
+// English Male
+import JustNauseaMale from "../../assets/audio/English/male/8 Just Nausea.wav";
+import VomitingMale from "../../assets/audio/English/male/Vomiting_com.wav";
+
+// Spanish Male
+import SoloNauseasSpanishMale from "../../assets/audio/spanish/male/8 Solo náuseas.wav";
+import VomitingVomitosSpanishMale from "../../assets/audio/spanish/male/vomiting_vomitos.wav";
+
+// English Female
+import VomitingEnglishFemale from "../../assets/audio/English/female/vomiting .mp3";
+import JustNauseaEnglishFemale from "../../assets/audio/English/female/Just Nausea.mp3";
+
+// Spanish Female
+import VomitosVomitingSpanishFemale from "../../assets/audio/spanish/female/vomitos (vomiting).mp3";
+import SoloNauseasJustNauseaSpanishFemale from "../../assets/audio/spanish/female/Solo Nauseas (Just Nausea).mp3";
+
+import RemoveMale from "../../assets/audio/English/male/remove.mp3";
+import QuitarRemoveSpanishMale from "../../assets/audio/English/male/Quitar_Remove 2.wav";
+
+import LeakingMale from "../../assets/audio/English/male/Leaking (male English).mp3";
+import GoteandoLeakingSpanishMale from "../../assets/audio/English/male/Goteando (Leaking).wav";
+
+import GoteandoSpanishFemale from "../../assets/audio/spanish/female/goteando.mp3";
+import QuitarRemoveSpanishFemale from "../../assets/audio/spanish/female/quitar (remove).mp3";
 export {
+  RemoveMale,
+  QuitarRemoveSpanishMale,
+  LeakingMale,
+  GoteandoLeakingSpanishMale,
+  QuitarRemoveSpanishFemale,
+  GoteandoSpanishFemale,
+  // English Female
+  VomitingEnglishFemale,
+  JustNauseaEnglishFemale,
+
+  // Spanish Female
+  VomitosVomitingSpanishFemale,
+  SoloNauseasJustNauseaSpanishFemale,
+
+  // English Male
+  VomitingMale,
+
+  // Spanish Male
+  SoloNauseasSpanishMale,
+  VomitingVomitosSpanishMale,
+  ThickMucusMale,
+  ColorMale,
+  TooMuchMale,
+  DryMouthMale,
+  BocaSecaSpanishMale,
+  DemasiadoTooMuchSpanishMale,
+  GruesaMucosaSpanishMale,
+  ColorSpanishMale,
+  ColorSpanishFemale,
+  GruesaMucosaThickMucusSpanishFemale,
+  BocaSecaDryMouthSpanishFemale,
+  // English Female Variables
+  HardToSwallowEnglishFemale,
+  SideEffectsEnglishFemale,
+  DontWantEnglishFemale,
+  WholeCrushedOrLiquidEnglishFemale,
+  TimingEnglishFemale,
+  TooLittleEnglishFemale,
+  TooManyEnglishFemale,
+  InformationEnglishFemale,
+
+  // Spanish Female Variables
+  DemasiadoTooMuchSpanishFemale,
+  InformacionInformationSpanishFemale,
+  DificilDeTragarTroubleSwallowingSpanishFemale,
+  EfectosSecundariosSideEffectsSpanishFemale,
+  NoQuieroDontWantSpanishFemale,
+  EnterosAplastadosOLiquidosSpanishFemale,
+  MuyPocoTooLittleFewSpanishFemale,
+  TiempoTimingSpanishFemale,
+  EnteroAplastadoLiquidoSpanishMale,
+  TiempoTimingSpanishMale,
+  DemasiadosSpanishMale,
+  MuyPocoTooLittleSpanishMale,
+  DificilDeTragarHardToSwallowSpanishMale,
+  InformacionInformationSpanishMale,
+  EfectosSecundariosSideEffectsSpanishMale,
+  SideEffectsMale,
+  WholeCrushedOrLiquidMale,
+  TimingMale,
+  InformationMale,
+  TooLittleMale,
+  TooManyMale,
+  HardToSwallowMale,
+  AudifonosHearingAidesSpanishFemale,
+  MareadoADizzySpanishFemale,
+  DolorDeOidoEarPainSpanishFemale,
+  SonandoRingingSpanishFemale,
+  NoPuedoOirCantHearSpanishFemale,
+  HearingAidsEnglishFemale,
+  DizzyEnglishFemale,
+  EarPainEnglishFemale,
+  CantHearEnglishFemale,
+  TapadosPluggedSpanishMale,
+  MareadoADizzySpanishMale,
+  SonandoRingingSpanishMale,
+  NoPuedoOirCantHearSpanishMale,
+  AudifonosSpanishMale,
+  DolorDeOidoEarPainSpanishMale,
+  RingingMale,
+  CantHearMale,
+  DizzyMale,
+  PluggedMale,
+  EarPainMale,
+  NauseaorvomitingFemale,
   FiebreFeverSpanishFemale,
   NauseasVomitosNauseaVomitingSpanishFemale,
   AdoloridoAAcheySpanishFemale,
@@ -1512,7 +1696,6 @@ export {
   TasteChangesMale,
   DontWantMale,
   FeelFullMale,
-  NoQuieroDontWantSpanishFemale,
   OlorDeComidaSmellOfFoodSpanishFemale,
   MeSientoLlenoAFeelFullSpanishFemale,
   CambiosDeSaborTasteChangesSpanishFemale,
