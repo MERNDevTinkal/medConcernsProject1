@@ -22,6 +22,7 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
         }
         return value;
       }
+      return item?.data?.[0]?.name;
     }
     if (item?.data?.[0]?.painFeel || item?.data?.[0]?.painFeelEs) {
       return isSpanish

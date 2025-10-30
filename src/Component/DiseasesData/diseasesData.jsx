@@ -1236,6 +1236,7 @@ import {
   ConfiguracionDelHogarV2SpanishMale,
   ConduciendoSpanishMale,
   ComunicacionV2SpanishMale,
+  WakeUpTiredMale,
   TerapiaSpanishMale,
   MejorareSpanishMale,
   DarDeAltaSpanishMale,
@@ -1285,6 +1286,8 @@ import {
   BloodEnglishFemale,
   CrampingEnglishFemale,
   GasOrBloatingEnglishFemale,
+  ApetitoSpanishFeMale,
+  ApetitoSpanishMale,
   ConstipationEnglishFemale,
   NeedChangedEnglishFemale,
   ColostomyOstomyBagEnglishFemale,
@@ -1309,6 +1312,91 @@ import {
   ChokingBreathingProblemsMale,
   CongestedRunnyNoseMale,
   ChestPainMale,
+  AnxiousAnsiosoSpanishMale,
+  PreocupadaOConCulpaSpanishMale,
+  SinEsperanzaSpanishMale,
+  PenaGriefSpanishMale,
+  AnsiosoAnxiousSpanishFemale,
+  PreocupadaConCulpaWorriedGuiltySpanishFemale,
+  SinEsperanzaHopelessSpanishFemale,
+  PenaGriefSpanishFemale,
+  TristeSadSpanishFemale,
+  AgotadoExhaustedSpanishFemale,
+  FrustradoFrustratedSpanishFemale,
+  AsustadoScaredSpanishFemale,
+  EnojadoAngrySpanishFemale,
+  DeprimidoDepressedSpanishFemale,
+  ExhaustedEnglishFemale,
+  HopelessEnglishFemale,
+  WorriedGuiltyEnglishFemale,
+  GriefEnglishFemale,
+  SadEnglishFemale,
+  AngryEnglishFemale,
+  ScaredEnglishFemale,
+  DepressedEnglishFemale,
+  AnxiousEnglishFemale,
+  TristeSpanishMale,
+  AgotadoExhaustedSpanishMale,
+  FrustradoFrustratedSpanishMale,
+  EnojadoAngrySpanishMale,
+  AsustadoScaredSpanishMale,
+  DeprimidoDepressedSpanishMale,
+  AnxiousMale,
+  GriefMale,
+  SadMale,
+  ExhaustedMale,
+  AngryMale,
+  ScaredMale,
+  DepressedMale,
+  DespertarCansadoWakeUpTiredSpanishFemale,
+  ProblemasParaDormirTroubleSleepingSpanishFemale,
+  SoloFatigaSpanishFemale,
+  DespuesDeUnProcedimientoAfterProcedureSpanishFemale,
+  ConActividadWithActivitySpanishFemale,
+  MasDeLoHabitualMoreThanUsualSpanishFemale,
+  CerebroCansadoBrainTiredSpanishFemale,
+  EmpeoraALoLargoDelDiaGetsWorseThroughTheDaySpanishFemale,
+  TodoElDiaAllDaySpanishFemale,
+  WakeUpTiredEnglishFemale,
+  JustFatigueEnglishFemale,
+  AfterProcedureEnglishFemale,
+  MoreThanUsualEnglishFemale,
+  WithActivityEnglishFemale,
+  BrainTiredEnglishFemale,
+  GetsWorseThroughTheDayEnglishFemale,
+  AllDayEnglishFemale,
+  TroubleSleepingEnglishFemale,
+  DespertarCansadoSpanishMale,
+  DespuesDeUnProcedimientoSpanishMale,
+  MasDeLoHabitualSpanishMale,
+  ConActividadSpanishMale,
+  CerebroCansadoSpanishMale,
+  EmpeoraALoLargoDelDiaSpanishMale,
+  ProblemasParaDormirSpanishMale,
+  WithActivityHowOftenMale,
+  TroubleSleepingMale,
+  AllDayFatigueMale,
+  BrainTiredMale,
+  MoreThanUsualMale,
+  AppetiteEnglishMale,
+  FiebreFeverSpanishFemale,
+  NauseasVomitosNauseaVomitingSpanishFemale,
+  AdoloridoAAcheySpanishFemale,
+  DolorDeGargantaSoreThroatSpanishFemale,
+  EscalofriosChillsSpanishFemale,
+  FeverEnglishFemale,
+  SoreThroatEnglishFemale,
+  AchyEnglishFemale,
+  ChillsEnglishFemale,
+  FiebreFeverSpanishMale,
+  NauseasVomitosNauseaVomitingSpanishMale,
+  DolorDeGargantaSoreThroatSpanishMale,
+  AdoloridoAAcheySpanishMale,
+  EscalofriosChillsSpanishMale,
+  SoreThroatMale,
+  AchyMale,
+  ChillsMale,
+  FeverMale,
 } from "./audio.jsx";
 
 export const breathingWhenOptions = [
@@ -1712,10 +1800,10 @@ export const concerns = [
     nameEs: "Dolor",
     image: ConcernImg1,
     path: "/concern/pain-yes-no/1",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: 2,
@@ -1723,10 +1811,10 @@ export const concerns = [
     nameEs: "Respiración/Tos",
     image: ConcernImg2,
     path: "/concern/breathing-coughing-yes-no/2",
-    maleEnglish: BreathingOrCoughingEnglishMale, // Added
+    maleEnglish: BreathingOrCoughingEnglishMale,
     femaleEnglish: breathingCoughingFemale,
-    femaleSpanish: RespirationTosBreathingCoughingSpanishFemale, // Added
-    maleSpanish: RespirationTosBreathingCoughingSpanishMale, // Added
+    femaleSpanish: RespirationTosBreathingCoughingSpanishFemale,
+    maleSpanish: RespirationTosBreathingCoughingSpanishMale,
   },
   {
     id: 3,
@@ -1734,10 +1822,10 @@ export const concerns = [
     nameEs: "Tragar",
     image: ConcernImg3,
     path: "/concern/swallowing-yes-no/3",
-    maleEnglish: SwallowingEnglishMale, // Added
+    maleEnglish: SwallowingEnglishMale,
     femaleEnglish: swallowingFemale,
-    femaleSpanish: TragarSwallowSpanishFemale, // Added
-    maleSpanish: TragarSpanishMale, // Added
+    femaleSpanish: TragarSwallowSpanishFemale,
+    maleSpanish: TragarSpanishMale,
   },
   {
     id: 4,
@@ -1745,10 +1833,10 @@ export const concerns = [
     nameEs: "Náuseas",
     image: ConcernImg4,
     path: "/concern/nausea-yes-no/4",
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: 5,
@@ -1756,10 +1844,10 @@ export const concerns = [
     nameEs: "Intestinos",
     image: ConcernImg5,
     path: "/concern/bowels-yes-no/5",
-    maleEnglish: BowelsEnglishMale, // Added
+    maleEnglish: BowelsEnglishMale,
     femaleEnglish: bowelsFemale,
-    femaleSpanish: IntestinosBowelsSpanishFemale, // Added
-    maleSpanish: IntestinosBowelsSpanishMale, // Added
+    femaleSpanish: IntestinosBowelsSpanishFemale,
+    maleSpanish: IntestinosBowelsSpanishMale,
   },
   {
     id: 6,
@@ -1778,10 +1866,10 @@ export const concerns = [
     nameEs: "Fatiga",
     image: ConcernImg7,
     path: "/concern/fatigue-yes-no/7",
-    maleEnglish: FatigueEnglishMale, // Added
+    maleEnglish: FatigueEnglishMale,
     femaleEnglish: fatigueFemale,
-    femaleSpanish: FatigaFatigueSpanishFemale, // Added
-    maleSpanish: FatigaSpanishMale, // Added
+    femaleSpanish: FatigaFatigueSpanishFemale,
+    maleSpanish: FatigaSpanishMale,
   },
   {
     id: 8,
@@ -1800,10 +1888,10 @@ export const concerns = [
     nameEs: "Medicación",
     image: BoardImg6,
     path: "/concern/medication-yes-no/9",
-    maleEnglish: MedicationEnglishMale, // Added
+    maleEnglish: MedicationEnglishMale,
     femaleEnglish: medicationEnglishFemale,
-    femaleSpanish: MedicacionMedicationSpanishFemale, // Added
-    maleSpanish: MedicacionSpanishMale, // Added
+    femaleSpanish: MedicacionMedicationSpanishFemale,
+    maleSpanish: MedicacionSpanishMale,
   },
   {
     id: 10,
@@ -1811,10 +1899,10 @@ export const concerns = [
     nameEs: "Emociones / Sentimientos",
     image: EmotionsImg2,
     path: "/concern/emotions-feelings-yes-no/10",
-    maleEnglish: EmotionsOrFeelingsEnglishMale, // Added
+    maleEnglish: EmotionsOrFeelingsEnglishMale,
     femaleEnglish: emotionsOrFeelingsFemale,
-    femaleSpanish: EmocionesSentimientosEmotionsFeelingsSpanishFemale, // Added
-    maleSpanish: EmotionsFeelingsEmocionesSentimientosSpanishMale, // Added
+    femaleSpanish: EmocionesSentimientosEmotionsFeelingsSpanishFemale,
+    maleSpanish: EmotionsFeelingsEmocionesSentimientosSpanishMale,
   },
   {
     id: 11,
@@ -1844,10 +1932,10 @@ export const concerns = [
     nameEs: "Visión",
     image: ConcernImg10,
     path: "/concern/vision-yes-no/13",
-    maleEnglish: VisionEnglishMale, // Added
-    femaleEnglish: VisionEnglishFemale, // Added
-    femaleSpanish: VisionSpanishFemale, // Added
-    maleSpanish: VisionSpanishMale, // Added
+    maleEnglish: VisionEnglishMale,
+    femaleEnglish: VisionEnglishFemale,
+    femaleSpanish: VisionSpanishFemale,
+    maleSpanish: VisionSpanishMale,
   },
   {
     id: 14,
@@ -1855,10 +1943,10 @@ export const concerns = [
     nameEs: "Oído",
     image: ConcernImg11,
     path: "/concern/hearing-yes-no/14",
-    maleEnglish: HearingEnglishMale, // Added
-    femaleEnglish: HearingEnglishFemale, // Added
-    femaleSpanish: OidoHearingSpanishFemale, // Added
-    maleSpanish: OidoSpanishMale, // Added
+    maleEnglish: HearingEnglishMale,
+    femaleEnglish: HearingEnglishFemale,
+    femaleSpanish: OidoHearingSpanishFemale,
+    maleSpanish: OidoSpanishMale,
   },
   {
     id: 15,
@@ -1866,10 +1954,10 @@ export const concerns = [
     nameEs: "Enfermedad",
     image: ConcernImg12,
     path: "/concern/illness-yes-no/15",
-    maleEnglish: IllnessEnglishMale, // Added
+    maleEnglish: IllnessEnglishMale,
     femaleEnglish: illnessFemale,
-    femaleSpanish: EnfermedadIllnessSpanishFemale, // Added
-    maleSpanish: EnfermedadSpanishMale, // Added
+    femaleSpanish: EnfermedadIllnessSpanishFemale,
+    maleSpanish: EnfermedadSpanishMale,
   },
   {
     id: 16,
@@ -1877,10 +1965,10 @@ export const concerns = [
     nameEs: "Algo Pasó",
     image: ConcernImg13,
     path: "/concern/something-happened-yes-no/16",
-    maleEnglish: SomethingHappenedEnglishMale, // Added
+    maleEnglish: SomethingHappenedEnglishMale,
     femaleEnglish: somethingHappenedFemale,
-    femaleSpanish: AlgoPasoSomethingHappenedSpanishFemale, // Added
-    maleSpanish: AlgoPasoSpanishMale, // Added
+    femaleSpanish: AlgoPasoSomethingHappenedSpanishFemale,
+    maleSpanish: AlgoPasoSpanishMale,
   },
   {
     id: 17,
@@ -1888,10 +1976,10 @@ export const concerns = [
     nameEs: "Herida/Incisión",
     image: ConcernImg14,
     path: "/concern/wound-incision-yes-no/17",
-    maleEnglish: WoundIncisionEnglishMale, // Added
+    maleEnglish: WoundIncisionEnglishMale,
     femaleEnglish: woundIncisionFemale,
-    femaleSpanish: HeridaIncisionWoundIncisionSpanishFemale, // Added
-    maleSpanish: HeridaIncisionWoundIncisionSpanishMale, // Added
+    femaleSpanish: HeridaIncisionWoundIncisionSpanishFemale,
+    maleSpanish: HeridaIncisionWoundIncisionSpanishMale,
   },
   {
     id: 18,
@@ -1899,10 +1987,10 @@ export const concerns = [
     nameEs: "Mucosidad/Secreciones",
     image: thickmucusImg,
     path: "/concern/mucus-secretions-yes-no/18",
-    maleEnglish: MucousOrSecretionsEnglishMale, // Added
+    maleEnglish: MucousOrSecretionsEnglishMale,
     femaleEnglish: mucousOrSecretionsFemale,
-    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
   },
   {
     id: 19,
@@ -1956,91 +2044,91 @@ export const topicBoard = [
     name: "What Happened to Me?",
     nameEs: "¿Qué me pasó?",
     path: "/topicboard/WhatHappenedtoMe/1",
-    maleEnglish: WhatHappenedToMeMale, // Added
+    maleEnglish: WhatHappenedToMeMale,
     femaleEnglish: whatHappenedToMeFemale,
-    femaleSpanish: QueMePasoWhatHappenedToMeSpanishFemale, // Added
-    maleSpanish: QueMePasoWhatHappenedToMeSpanishMale, // Added
+    femaleSpanish: QueMePasoWhatHappenedToMeSpanishFemale,
+    maleSpanish: QueMePasoWhatHappenedToMeSpanishMale,
   },
   {
     id: 2,
     name: "Discharge",
     nameEs: "Dar de alta",
     path: "/topicboard/discharge/2",
-    maleEnglish: DischargeMale, // Added
+    maleEnglish: DischargeMale,
     femaleEnglish: dischargeFemale,
-    femaleSpanish: DarDeAltaDischargeSpanishFemale, // Added
-    maleSpanish: DarDeAltaSpanishMale, // Added
+    femaleSpanish: DarDeAltaDischargeSpanishFemale,
+    maleSpanish: DarDeAltaSpanishMale,
   },
   {
     id: 3,
     name: "Will I Get Better?",
     nameEs: "¿Mejoraré?",
     path: "/topicboard/willIGetBetter/3",
-    maleEnglish: WillIGetBetterMale, // Added
+    maleEnglish: WillIGetBetterMale,
     femaleEnglish: willIGetBetterFemale,
-    femaleSpanish: MejorareWillIGetBetterSpanishFemale, // Added
-    maleSpanish: MejorareSpanishMale, // Added
+    femaleSpanish: MejorareWillIGetBetterSpanishFemale,
+    maleSpanish: MejorareSpanishMale,
   },
   {
     id: 4,
     name: "Therapy",
     nameEs: "Terapia",
     path: "/topicboard/therapy/4",
-    maleEnglish: TherapyMale, // Added
+    maleEnglish: TherapyMale,
     femaleEnglish: therapyFemale,
-    femaleSpanish: TerapiaTherapySpanishFemale, // Added
-    maleSpanish: TerapiaSpanishMale, // Added
+    femaleSpanish: TerapiaTherapySpanishFemale,
+    maleSpanish: TerapiaSpanishMale,
   },
   {
     id: 5,
     name: "Communication",
     nameEs: "Comunicación",
     path: "/topicboard/communication/5",
-    maleEnglish: CommunicationMale, // Added
+    maleEnglish: CommunicationMale,
     femaleEnglish: CommunicationFemale,
-    femaleSpanish: ComunicacionCommunicationSpanishFemale, // Added
-    maleSpanish: ComunicacionV2SpanishMale, // Added
+    femaleSpanish: ComunicacionCommunicationSpanishFemale,
+    maleSpanish: ComunicacionV2SpanishMale,
   },
   {
     id: 6,
     name: "Driving",
     nameEs: "Conduciendo",
     path: "/topicboard/driving/6",
-    maleEnglish: DrivingMale, // Added
+    maleEnglish: DrivingMale,
     femaleEnglish: drivingFemale,
-    femaleSpanish: ConduciendoDrivingSpanishFemale, // Added
-    maleSpanish: ConduciendoSpanishMale, // Added
+    femaleSpanish: ConduciendoDrivingSpanishFemale,
+    maleSpanish: ConduciendoSpanishMale,
   },
   {
     id: 7,
     name: "Home Set-Up",
     nameEs: "Configuración del Hogar",
     path: "/topicboard/homeSet-Up/7",
-    maleEnglish: HomeSetupMale, // Added
+    maleEnglish: HomeSetupMale,
     femaleEnglish: homeSetupFemale,
-    femaleSpanish: ConfiguracionDelHogarHomeSetUpSpanishFemale, // Added
-    maleSpanish: ConfiguracionDelHogarV2SpanishMale, // Added
+    femaleSpanish: ConfiguracionDelHogarHomeSetUpSpanishFemale,
+    maleSpanish: ConfiguracionDelHogarV2SpanishMale,
   },
   {
     id: 8,
     name: "Stroke Prevention",
     nameEs: "Prevención de Accidentes Cerebrovasculares",
     path: "/topicboard/strokePrevention/8",
-    maleEnglish: StrokePreventionMale, // Added
+    maleEnglish: StrokePreventionMale,
     femaleEnglish: strokePreventionFemale,
     femaleSpanish:
-      PrevencionDeAccidentesCerebrovascularesStrokePreventionSpanishFemale, // Added
-    maleSpanish: PrevencionDeAccidentesCerebrovascularesV2SpanishMale, // Added
+      PrevencionDeAccidentesCerebrovascularesStrokePreventionSpanishFemale,
+    maleSpanish: PrevencionDeAccidentesCerebrovascularesV2SpanishMale,
   },
   {
     id: 9,
     name: "Family Support",
     nameEs: "Apoyo de la Familia",
     path: "/topicboard/familySupport/9",
-    maleEnglish: FamilySupportMale, // Added
+    maleEnglish: FamilySupportMale,
     femaleEnglish: familySupportFemale,
-    femaleSpanish: ApoyoDeLaFamiliaFamilySupportSpanishFemale, // Added
-    maleSpanish: ApoyoDeLaFamiliaV2SpanishMale, // Added
+    femaleSpanish: ApoyoDeLaFamiliaFamilySupportSpanishFemale,
+    maleSpanish: ApoyoDeLaFamiliaV2SpanishMale,
   },
   {
     id: 10,
@@ -2068,80 +2156,80 @@ export const topicBoard = [
     name: "Money",
     nameEs: "Dinero",
     path: "/topicboard/money/12",
-    maleEnglish: MoneyMale, // Added
+    maleEnglish: MoneyMale,
     femaleEnglish: moneyFemale,
-    femaleSpanish: DineroSpanishFemale, // Added
-    maleSpanish: DineroSpanishMale, // Added
+    femaleSpanish: DineroSpanishFemale,
+    maleSpanish: DineroSpanishMale,
   },
   {
     id: 13,
     name: "Follow Up Appointment",
     nameEs: "Citas de Seguimiento",
     path: "/topicboard/followUpappointment/13",
-    maleEnglish: FollowUpAppointmentsMale, // Added
+    maleEnglish: FollowUpAppointmentsMale,
     femaleEnglish: followUpAppointmentsFemale,
-    femaleSpanish: CitasDeSeguimientoFollowUpAppointmentsSpanishFemale, // Added
-    maleSpanish: CitasDeSeguimientoV2SpanishMale, // Added
+    femaleSpanish: CitasDeSeguimientoFollowUpAppointmentsSpanishFemale,
+    maleSpanish: CitasDeSeguimientoV2SpanishMale,
   },
   {
     id: 14,
     name: "Household Activity",
     nameEs: "Actividad del Hogar",
     path: "/topicboard/householdActivity/14",
-    maleEnglish: HouseholdActivityMale, // Added
+    maleEnglish: HouseholdActivityMale,
     femaleEnglish: householdActivityFemale,
-    femaleSpanish: ActividadDelHogarHouseholdActivitySpanishFemale, // Added
-    maleSpanish: ActividadDelHogarV2SpanishMale, // Added
+    femaleSpanish: ActividadDelHogarHouseholdActivitySpanishFemale,
+    maleSpanish: ActividadDelHogarV2SpanishMale,
   },
   {
     id: 15,
     name: "Community Activity",
     nameEs: "Actividad de la Comunidad",
     path: "/topicboard/Communityactivity/15",
-    maleEnglish: CommunityActivityMale, // Added
+    maleEnglish: CommunityActivityMale,
     femaleEnglish: CommunityActivityFemale,
-    femaleSpanish: ActividadDeLaComunidadCommunityActivitySpanishFemale, // Added
-    maleSpanish: ActividadDeLaComunidadV2SpanishMale, // Added
+    femaleSpanish: ActividadDeLaComunidadCommunityActivitySpanishFemale,
+    maleSpanish: ActividadDeLaComunidadV2SpanishMale,
   },
   {
     id: 16,
     name: "Work",
     nameEs: "Trabajo",
     path: "/topicboard/Work/16",
-    maleEnglish: WorkMale, // Added
+    maleEnglish: WorkMale,
     femaleEnglish: workFemale,
-    femaleSpanish: TrabajoWorkSpanishFemale, // Added
-    maleSpanish: TrabajoSpanishMale, // Added
+    femaleSpanish: TrabajoWorkSpanishFemale,
+    maleSpanish: TrabajoSpanishMale,
   },
   {
     id: 17,
     name: "Sex",
     nameEs: "Sexo",
     path: "/topicboard/Sex/17",
-    maleEnglish: SexMale, // Added
+    maleEnglish: SexMale,
     femaleEnglish: sexFemale,
-    femaleSpanish: "", // Added
-    maleSpanish: SexoSpanishMale, // Added
+    femaleSpanish: TrabajoWorkSpanishFemale,
+    maleSpanish: SexoSpanishMale,
   },
   {
     id: 18,
     name: "Family",
     nameEs: "Familia",
     path: "/topicboard/family/18",
-    maleEnglish: FamilyMale, // Added
+    maleEnglish: FamilyMale,
     femaleEnglish: familyFemale,
-    femaleSpanish: FamiliaFamilySpanishFemale, // Added
-    maleSpanish: FamiliaSpanishMale, // Added
+    femaleSpanish: FamiliaFamilySpanishFemale,
+    maleSpanish: FamiliaSpanishMale,
   },
   {
     id: 19,
     name: "Raising Children",
     nameEs: "Criar a los Niños",
     path: "/topicboard/raisingChildren/19",
-    maleEnglish: RaisingChildrenMale, // Added
+    maleEnglish: RaisingChildrenMale,
     femaleEnglish: raisingChildrenFemale,
-    femaleSpanish: CriarALosNinosRaisingChildrenSpanishFemale, // Added
-    maleSpanish: CriarALosNinosSpanishMale, // Added
+    femaleSpanish: CriarALosNinosRaisingChildrenSpanishFemale,
+    maleSpanish: CriarALosNinosSpanishMale,
   },
   {
     id: 20,
@@ -2158,10 +2246,10 @@ export const topicBoard = [
     name: "Alcohol",
     nameEs: "Alcohol",
     path: "/Whiteboard",
-    maleEnglish: AlcoholMale, // Added
+    maleEnglish: AlcoholMale,
     femaleEnglish: AlcoholFemale,
-    femaleSpanish: AlcoholSpanishFemale, // Added
-    maleSpanish: AlcoholSpanishMale, // Added
+    femaleSpanish: AlcoholSpanishFemale,
+    maleSpanish: AlcoholSpanishMale,
   },
 ];
 
@@ -2232,10 +2320,10 @@ const emotionsData = [
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
-    maleEnglish: "",
+    maleEnglish: AnxiousMale,
     femaleEnglish: anxiousFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: AnsiosoAnxiousSpanishFemale,
+    maleSpanish: AnxiousAnsiosoSpanishMale,
   },
   {
     id: 2,
@@ -2246,10 +2334,10 @@ const emotionsData = [
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
-    maleEnglish: "",
+    maleEnglish: DepressedMale,
     femaleEnglish: depressedFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: DeprimidoDepressedSpanishFemale,
+    maleSpanish: DeprimidoDepressedSpanishMale,
   },
   {
     id: 3,
@@ -2260,10 +2348,10 @@ const emotionsData = [
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
-    maleEnglish: "",
+    maleEnglish: ScaredMale,
     femaleEnglish: scaredFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: AsustadoScaredSpanishFemale,
+    maleSpanish: AsustadoScaredSpanishMale,
   },
   {
     id: 4,
@@ -2274,10 +2362,10 @@ const emotionsData = [
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
-    maleEnglish: "",
+    maleEnglish: AngryMale,
     femaleEnglish: angryFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: EnojadoAngrySpanishFemale,
+    maleSpanish: EnojadoAngrySpanishMale,
   },
   {
     id: 5,
@@ -2288,6 +2376,10 @@ const emotionsData = [
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
+    maleEnglish: "",
+    femaleEnglish: "",
+    femaleSpanish: FrustradoFrustratedSpanishFemale,
+    maleSpanish: FrustradoFrustratedSpanishMale,
   },
   {
     id: 6,
@@ -2298,10 +2390,10 @@ const emotionsData = [
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
-    maleEnglish: "",
+    maleEnglish: ExhaustedMale,
     femaleEnglish: exhaustedFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: AgotadoExhaustedSpanishFemale,
+    maleSpanish: AgotadoExhaustedSpanishMale,
   },
   {
     id: 7,
@@ -2312,10 +2404,10 @@ const emotionsData = [
     path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
-    maleEnglish: "",
+    maleEnglish: SadMale,
     femaleEnglish: sadFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: TristeSadSpanishFemale,
+    maleSpanish: TristeSpanishMale,
   },
   {
     id: 8,
@@ -2326,8 +2418,10 @@ const emotionsData = [
     path: "/whesummaryn",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
-    maleEnglish: "",
+    maleEnglish: GriefMale,
     femaleEnglish: GriefFemale,
+    femaleSpanish: PenaGriefSpanishFemale,
+    maleSpanish: PenaGriefSpanishMale,
   },
   {
     id: 9,
@@ -2359,11 +2453,15 @@ const emotionsData = [
   },
   {
     id: 11,
-    name: "Something went wrong",
+    name: "Something Else",
     nameEs: "Algo salió mal",
     secPath: "/confrm-step-yesno",
     image: PainImg15,
     path: "/whiteboard",
+    maleEnglish: SomethingElseFemale,
+    femaleEnglish: somethingElseFemale,
+    femaleSpanish: AlgoMasSpanishFemale,
+    maleSpanish: AlgomasMale,
   },
 ];
 
@@ -2473,10 +2571,10 @@ const needBoard = [
     image: BoardImg6,
     secPath: "/board/confrm-step-yesno/6",
     path: "/summary",
-    maleEnglish: MedicationEnglishMale, // Added
+    maleEnglish: MedicationEnglishMale,
     femaleEnglish: medicationEnglishFemale,
-    femaleSpanish: MedicacionMedicationSpanishFemale, // Added
-    maleSpanish: MedicacionSpanishMale, // Added
+    femaleSpanish: MedicacionMedicationSpanishFemale,
+    maleSpanish: MedicacionSpanishMale,
   },
   {
     id: 7,
@@ -3744,10 +3842,10 @@ const trachproblemDesises = [
     image: dashimg05,
     secPath: "/mucussecretions-problem",
     path: "/howoften",
-    maleEnglish: MucousOrSecretionsEnglishMale, // Added
+    maleEnglish: MucousOrSecretionsEnglishMale,
     femaleEnglish: mucousOrSecretionsFemale,
-    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
   },
   {
     id: "2",
@@ -3794,10 +3892,10 @@ const trachproblemDesises = [
     image: Painimg,
     secPath: "/pain-feel",
     path: "/when",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: "7",
@@ -3851,10 +3949,10 @@ const trachDesises = [
     image: dashimg05,
     secPath: "/trachmucussecretions-problem",
     path: "/howoften",
-    maleEnglish: MucousOrSecretionsEnglishMale, // Added
+    maleEnglish: MucousOrSecretionsEnglishMale,
     femaleEnglish: mucousOrSecretionsFemale,
-    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
   },
   {
     id: "2",
@@ -3901,10 +3999,10 @@ const trachDesises = [
     image: ConcernImg2,
     secPath: "/trachBreathing-problem",
     path: "/when",
-    maleEnglish: BreathingOrCoughingEnglishMale, // Added
+    maleEnglish: BreathingOrCoughingEnglishMale,
     femaleEnglish: breathingCoughingFemale,
-    femaleSpanish: RespirationTosBreathingCoughingSpanishFemale, // Added
-    maleSpanish: RespirationTosBreathingCoughingSpanishMale, // Added
+    femaleSpanish: RespirationTosBreathingCoughingSpanishFemale,
+    maleSpanish: RespirationTosBreathingCoughingSpanishMale,
   },
   {
     id: "7",
@@ -3913,10 +4011,10 @@ const trachDesises = [
     image: Painimg,
     secPath: "/pain-feel",
     path: "/when",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: "8",
@@ -4007,10 +4105,10 @@ const feedingtubeDesises = [
     image: Painimg,
     secPath: "/pain-feel",
     path: "",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: "2",
@@ -4054,10 +4152,10 @@ const trachproblemsubDesises = [
     path: "",
     image: dashimg05,
     secPath: "/trachmucusSecretions-problem",
-    maleEnglish: MucousOrSecretionsEnglishMale, // Added
+    maleEnglish: MucousOrSecretionsEnglishMale,
     femaleEnglish: mucousOrSecretionsFemale,
-    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
   },
   {
     id: "2",
@@ -4104,10 +4202,10 @@ const trachproblemsubDesises = [
     path: "",
     image: Painimg,
     secPath: "/pain-feel",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: "7",
@@ -4146,10 +4244,10 @@ const trachproblemsubDesises = [
     path: "",
     image: SwallowingImg,
     secPath: "/trachswallowing-problem",
-    maleEnglish: SwallowingEnglishMale, // Added
+    maleEnglish: SwallowingEnglishMale,
     femaleEnglish: swallowingFemale,
-    femaleSpanish: TragarSwallowSpanishFemale, // Added
-    maleSpanish: TragarSpanishMale, // Added
+    femaleSpanish: TragarSwallowSpanishFemale,
+    maleSpanish: TragarSpanishMale,
   },
   {
     id: "11",
@@ -4489,10 +4587,10 @@ const trachDesies = [
     path: "/when",
     image: dashimg05,
     secPath: "/maintrachmucussecretions-problem",
-    maleEnglish: MucousOrSecretionsEnglishMale, // Added
+    maleEnglish: MucousOrSecretionsEnglishMale,
     femaleEnglish: mucousOrSecretionsFemale,
-    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
   },
   {
     id: "4",
@@ -4551,10 +4649,10 @@ const trachDesies = [
     path: "/when",
     image: Painimg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: "10",
@@ -4593,10 +4691,10 @@ const trachDesies = [
     path: "/howoften",
     image: SwallowingImg,
     secPath: "/trachmainswallowing-problem",
-    maleEnglish: SwallowingEnglishMale, // Added
+    maleEnglish: SwallowingEnglishMale,
     femaleEnglish: swallowingFemale,
-    femaleSpanish: TragarSwallowSpanishFemale, // Added
-    maleSpanish: TragarSpanishMale, // Added
+    femaleSpanish: TragarSwallowSpanishFemale,
+    maleSpanish: TragarSpanishMale,
   },
   {
     id: "14",
@@ -4620,10 +4718,10 @@ const SwallowingTrachDesies = [
     path: "",
     image: dashimg05,
     secPath: "/swallowingmucussecretions-problem",
-    maleEnglish: MucousOrSecretionsEnglishMale, // Added
+    maleEnglish: MucousOrSecretionsEnglishMale,
     femaleEnglish: mucousOrSecretionsFemale,
-    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+    femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+    maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
   },
   {
     id: "2",
@@ -4670,10 +4768,10 @@ const SwallowingTrachDesies = [
     path: "",
     image: ConcernImg2,
     secPath: "/swallowingbreathingcoughing-problem",
-    maleEnglish: BreathingOrCoughingEnglishMale, // Added
+    maleEnglish: BreathingOrCoughingEnglishMale,
     femaleEnglish: breathingCoughingFemale,
-    femaleSpanish: RespirationTosBreathingCoughingSpanishFemale, // Added
-    maleSpanish: RespirationTosBreathingCoughingSpanishMale, // Added
+    femaleSpanish: RespirationTosBreathingCoughingSpanishFemale,
+    maleSpanish: RespirationTosBreathingCoughingSpanishMale,
   },
   {
     id: "7",
@@ -4682,10 +4780,10 @@ const SwallowingTrachDesies = [
     path: "",
     image: Painimg,
     secPath: "/pain-feel",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: "8",
@@ -4724,10 +4822,10 @@ const SwallowingTrachDesies = [
     path: "",
     image: SwallowingImg,
     secPath: "/swallowingtrachswallowing-problem",
-    maleEnglish: SwallowingEnglishMale, // Added
+    maleEnglish: SwallowingEnglishMale,
     femaleEnglish: swallowingFemale,
-    femaleSpanish: TragarSwallowSpanishFemale, // Added
-    maleSpanish: TragarSpanishMale, // Added
+    femaleSpanish: TragarSwallowSpanishFemale,
+    maleSpanish: TragarSpanishMale,
   },
   {
     id: "12",
@@ -4751,10 +4849,10 @@ const MedicationSidEffectsDesies = [
     path: "",
     image: nausea04,
     secPath: "/medicationNausea-problem",
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: "2",
@@ -4763,10 +4861,10 @@ const MedicationSidEffectsDesies = [
     path: "/howoften",
     image: fatigueImg,
     secPath: "/medicationFatigue-problem",
-    maleEnglish: FatigueEnglishMale, // Added
+    maleEnglish: FatigueEnglishMale,
     femaleEnglish: fatigueFemale,
-    femaleSpanish: FatigaFatigueSpanishFemale, // Added
-    maleSpanish: FatigaSpanishMale, // Added
+    femaleSpanish: FatigaFatigueSpanishFemale,
+    maleSpanish: FatigaSpanishMale,
   },
   {
     id: "3",
@@ -4775,10 +4873,10 @@ const MedicationSidEffectsDesies = [
     path: "/howoften",
     image: ConcernImg5,
     secPath: "/medicationBowels-problem",
-    maleEnglish: BowelsEnglishMale, // Added
+    maleEnglish: BowelsEnglishMale,
     femaleEnglish: bowelsFemale,
-    femaleSpanish: IntestinosBowelsSpanishFemale, // Added
-    maleSpanish: IntestinosBowelsSpanishMale, // Added
+    femaleSpanish: IntestinosBowelsSpanishFemale,
+    maleSpanish: IntestinosBowelsSpanishMale,
   },
   {
     id: "4",
@@ -4821,10 +4919,10 @@ const MedicationSidEffectsDesies = [
     path: "",
     image: SwallowingImg,
     secPath: "/medicationswallowing-problem",
-    maleEnglish: SwallowingEnglishMale, // Added
+    maleEnglish: SwallowingEnglishMale,
     femaleEnglish: swallowingFemale,
-    femaleSpanish: TragarSwallowSpanishFemale, // Added
-    maleSpanish: TragarSpanishMale, // Added
+    femaleSpanish: TragarSwallowSpanishFemale,
+    maleSpanish: TragarSpanishMale,
   },
   {
     id: "8",
@@ -4833,8 +4931,10 @@ const MedicationSidEffectsDesies = [
     path: "",
     image: Noappetite,
     secPath: "/medicationSidEffectsAppetite-problem",
-    maleEnglish: "",
+    maleEnglish: AppetiteEnglishMale,
     femaleEnglish: AppetiteFemaleEnglish,
+    femaleSpanish: ApetitoSpanishFeMale,
+    maleSpanish: ApetitoSpanishMale,
   },
   {
     id: "9",
@@ -4916,10 +5016,10 @@ const medicationswallowing = [
     path: "/howoften",
     image: nausea04,
     secPath: "/confrm-step-yesno",
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: "6",
@@ -5038,10 +5138,10 @@ const medicationnoAppetite = [
     path: "",
     image: nausea04,
     secPath: "/medicationswallowingChoking-problem",
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: "4",
@@ -5095,10 +5195,10 @@ const medicationSidEffectsAppetite = [
     path: "",
     image: nausea04,
     secPath: "/medicationSidEffectsAppetiteNausea-problem",
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: "4",
@@ -5506,10 +5606,10 @@ const noappetiteDesies = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: nausea04,
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: "4",
@@ -5557,10 +5657,10 @@ const swallowingfeedingtube = [
     path: "",
     image: Painimg,
     secPath: "/male-body",
-    maleEnglish: PainUrinationEnglishMale, // Added
-    femaleEnglish: PainEnglishFemale, // Added
+    maleEnglish: PainUrinationEnglishMale,
+    femaleEnglish: PainEnglishFemale,
     femaleSpanish: dolorPainFemale,
-    maleSpanish: DolorPainSpanishMale, // Added
+    maleSpanish: DolorPainSpanishMale,
   },
   {
     id: "2",
@@ -5599,10 +5699,10 @@ const swallowingfeedingtube = [
     path: "",
     image: ConcernImg5,
     secPath: "/swallowingfeedingtubebowels-problem",
-    maleEnglish: BowelsEnglishMale, // Added
+    maleEnglish: BowelsEnglishMale,
     femaleEnglish: bowelsFemale,
-    femaleSpanish: IntestinosBowelsSpanishFemale, // Added
-    maleSpanish: IntestinosBowelsSpanishMale, // Added
+    femaleSpanish: IntestinosBowelsSpanishFemale,
+    maleSpanish: IntestinosBowelsSpanishMale,
   },
   {
     id: "6",
@@ -5812,10 +5912,10 @@ const fatigueTroubleSleeping = [
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: EmotionsImg2,
-    maleEnglish: EmotionsOrFeelingsEnglishMale, // Added
+    maleEnglish: EmotionsOrFeelingsEnglishMale,
     femaleEnglish: emotionsOrFeelingsFemale,
-    femaleSpanish: EmocionesSentimientosEmotionsFeelingsSpanishFemale, // Added
-    maleSpanish: EmotionsFeelingsEmocionesSentimientosSpanishMale, // Added
+    femaleSpanish: EmocionesSentimientosEmotionsFeelingsSpanishFemale,
+    maleSpanish: EmotionsFeelingsEmocionesSentimientosSpanishMale,
   },
   {
     id: "5",
@@ -5874,10 +5974,10 @@ const EatingdrinkingNoAppetite = [
     image: nausea04,
     secPath: "/eatingdrinkingNoAppetiteNausea-problem",
     path: "",
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: "4",
@@ -6063,10 +6163,10 @@ const medicationFatigue = [
     image: wakeuptiredImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: WakeUpTiredMale,
     femaleEnglish: wakeUpTiredFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: DespertarCansadoWakeUpTiredSpanishFemale,
+    maleSpanish: DespertarCansadoSpanishMale,
   },
   {
     id: "2",
@@ -6075,10 +6175,10 @@ const medicationFatigue = [
     image: Troublesleeping,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: TroubleSleepingMale,
     femaleEnglish: troubleSleepingFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: ProblemasParaDormirTroubleSleepingSpanishFemale,
+    maleSpanish: ProblemasParaDormirSpanishMale,
   },
   {
     id: "3",
@@ -6087,10 +6187,10 @@ const medicationFatigue = [
     image: morethanusualImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: MoreThanUsualMale,
     femaleEnglish: moreThanUsualFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: MasDeLoHabitualMoreThanUsualSpanishFemale,
+    maleSpanish: MasDeLoHabitualSpanishMale,
   },
   {
     id: "4",
@@ -6099,6 +6199,11 @@ const medicationFatigue = [
     image: WithActivityImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
+    maleEnglish: WithActivityMale,
+
+    femaleEnglish: withactivityFemale,
+    femaleSpanish: withactivitySpanishFemale,
+    maleSpanish: ConActividadMale,
   },
   {
     id: "5",
@@ -6107,10 +6212,10 @@ const medicationFatigue = [
     image: AllDayImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: "",
+    maleEnglish: AllDayMale,
     femaleEnglish: allDayFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: AlldaySpanishFemale,
+    maleSpanish: TodoElDiaMale,
   },
   {
     id: "6",
@@ -6888,10 +6993,10 @@ const illnessAppetite = [
     image: nausea04,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: NauseaEnglishMale, // Added
+    maleEnglish: NauseaEnglishMale,
     femaleEnglish: nauseaFemale,
-    femaleSpanish: NauseasNauseaSpanishFemale, // Added
-    maleSpanish: NauseasNauseaSpanishMale, // Added
+    femaleSpanish: NauseasNauseaSpanishFemale,
+    maleSpanish: NauseasNauseaSpanishMale,
   },
   {
     id: "4",
@@ -6951,10 +7056,10 @@ const somethingHappenedStrokeSymptoms = [
     image: Hearingaid,
     secPath: "/somethingHappenedStrokeSymptomsHearing-problem",
     path: "/howoften",
-    maleEnglish: HearingEnglishMale, // Added
-    femaleEnglish: HearingEnglishFemale, // Added
-    femaleSpanish: OidoHearingSpanishFemale, // Added
-    maleSpanish: OidoSpanishMale, // Added
+    maleEnglish: HearingEnglishMale,
+    femaleEnglish: HearingEnglishFemale,
+    femaleSpanish: OidoHearingSpanishFemale,
+    maleSpanish: OidoSpanishMale,
   },
   {
     id: "4",
@@ -6963,10 +7068,10 @@ const somethingHappenedStrokeSymptoms = [
     image: doubleVisionImg,
     secPath: "/somethingHappenedStrokeSymptomsVision-problem",
     path: "/howoften",
-    maleEnglish: VisionEnglishMale, // Added
-    femaleEnglish: VisionEnglishFemale, // Added
-    femaleSpanish: VisionSpanishFemale, // Added
-    maleSpanish: VisionSpanishMale, // Added
+    maleEnglish: VisionEnglishMale,
+    femaleEnglish: VisionEnglishFemale,
+    femaleSpanish: VisionSpanishFemale,
+    maleSpanish: VisionSpanishMale,
   },
   {
     id: "5",
@@ -7625,10 +7730,10 @@ export const diseasesData = {
       image: dashimg05,
       secPath: "/mucus-problem",
       path: null,
-      maleEnglish: MucousOrSecretionsEnglishMale, // Added
+      maleEnglish: MucousOrSecretionsEnglishMale,
       femaleEnglish: mucousOrSecretionsFemale,
-      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
     },
     {
       id: "6",
@@ -7713,10 +7818,10 @@ export const diseasesData = {
       image: dashimg05,
       secPath: "/mucus-problem-sub",
       path: "/when",
-      maleEnglish: MucousOrSecretionsEnglishMale, // Added
+      maleEnglish: MucousOrSecretionsEnglishMale,
       femaleEnglish: mucousOrSecretionsFemale,
-      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
     },
     {
       id: "2",
@@ -7737,10 +7842,10 @@ export const diseasesData = {
       image: SwallowingImg,
       secPath: "/swallowing-problem-sub",
       path: "/when",
-      maleEnglish: SwallowingEnglishMale, // Added
+      maleEnglish: SwallowingEnglishMale,
       femaleEnglish: swallowingFemale,
-      femaleSpanish: TragarSwallowSpanishFemale, // Added
-      maleSpanish: TragarSpanishMale, // Added
+      femaleSpanish: TragarSwallowSpanishFemale,
+      maleSpanish: TragarSpanishMale,
     },
     {
       id: "4",
@@ -7761,6 +7866,11 @@ export const diseasesData = {
       image: WithActivityImg,
       secPath: "/confrm-step-yesno",
       path: "/when",
+      maleEnglish: WithActivityMale,
+
+      femaleEnglish: withactivityFemale,
+      femaleSpanish: withactivitySpanishFemale,
+      maleSpanish: ConActividadMale,
     },
     {
       id: "6",
@@ -7984,10 +8094,10 @@ export const diseasesData = {
       image: nausea04,
       path: "/howoften",
       secPath: "/swallowingnausea-problem",
-      maleEnglish: NauseaEnglishMale, // Added
+      maleEnglish: NauseaEnglishMale,
       femaleEnglish: nauseaFemale,
-      femaleSpanish: NauseasNauseaSpanishFemale, // Added
-      maleSpanish: NauseasNauseaSpanishMale, // Added
+      femaleSpanish: NauseasNauseaSpanishFemale,
+      maleSpanish: NauseasNauseaSpanishMale,
     },
     {
       id: "7",
@@ -8582,10 +8692,10 @@ export const diseasesData = {
       image: wakeuptiredImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: WakeUpTiredMale,
       femaleEnglish: wakeUpTiredFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: DespertarCansadoWakeUpTiredSpanishFemale,
+      maleSpanish: DespertarCansadoSpanishMale,
     },
     {
       id: "2",
@@ -8594,10 +8704,10 @@ export const diseasesData = {
       image: Troublesleeping,
       path: "/howoften",
       secPath: "/fatigueTroubleSleeping-problem",
-      maleEnglish: "",
+      maleEnglish: TroubleSleepingMale,
       femaleEnglish: troubleSleepingFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: ProblemasParaDormirTroubleSleepingSpanishFemale,
+      maleSpanish: ProblemasParaDormirSpanishMale,
     },
     {
       id: "3",
@@ -8606,10 +8716,10 @@ export const diseasesData = {
       image: AllDayImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: AllDayFatigueMale,
       femaleEnglish: allDayFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: TodoElDiaAllDaySpanishFemale,
+      maleSpanish: TodoElDiaMale,
     },
     {
       id: "4",
@@ -8618,6 +8728,10 @@ export const diseasesData = {
       image: GetsWorseThroughtheDay,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: GetsWorseThroughTheDayMale,
+      femaleEnglish: GetsWorseThroughTheDayEnglishFemale,
+      femaleSpanish: EmpeoraALoLargoDelDiaGetsWorseThroughTheDaySpanishFemale,
+      maleSpanish: EmpeoraALoLargoDelDiaSpanishMale,
     },
     {
       id: "5",
@@ -8626,10 +8740,10 @@ export const diseasesData = {
       image: EmotionsImg6,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: ExhaustedMale,
       femaleEnglish: exhaustedFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: AgotadoExhaustedSpanishFemale,
+      maleSpanish: AgotadoExhaustedSpanishMale,
     },
     {
       id: "6",
@@ -8650,6 +8764,11 @@ export const diseasesData = {
       image: WithActivityImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: WithActivityMale,
+
+      femaleEnglish: withactivityFemale,
+      femaleSpanish: withactivitySpanishFemale,
+      maleSpanish: ConActividadMale,
     },
 
     {
@@ -8671,10 +8790,10 @@ export const diseasesData = {
       image: morethanusualImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: MoreThanUsualMale,
       femaleEnglish: moreThanUsualFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: MasDeLoHabitualMoreThanUsualSpanishFemale,
+      maleSpanish: MasDeLoHabitualSpanishMale,
     },
 
     {
@@ -8786,10 +8905,10 @@ export const diseasesData = {
       nameEs: "Tragar",
       image: SwallowingImg,
       secPath: "/swallowing-problem",
-      maleEnglish: SwallowingEnglishMale, // Added
+      maleEnglish: SwallowingEnglishMale,
       femaleEnglish: swallowingFemale,
-      femaleSpanish: TragarSwallowSpanishFemale, // Added
-      maleSpanish: TragarSpanishMale, // Added
+      femaleSpanish: TragarSwallowSpanishFemale,
+      maleSpanish: TragarSpanishMale,
     },
     {
       id: "8",
@@ -8929,6 +9048,7 @@ export const diseasesData = {
   "/vision-problem": visionConcers,
 
   "/hearing-problem": hearingConcers,
+
   "/illness-problem": [
     {
       id: "1",
@@ -8938,6 +9058,9 @@ export const diseasesData = {
       path: "/howoften",
       secPath: "/confrm-step-yesno",
       femaleEnglish: FeverFemale,
+      maleEnglish: FeverMale, // Added
+      femaleSpanish: FiebreFeverSpanishFemale, // Added
+      maleSpanish: FiebreFeverSpanishMale, // Added
     },
     {
       id: "2",
@@ -8946,10 +9069,10 @@ export const diseasesData = {
       image: chillsImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: ChillsMale, // Added
       femaleEnglish: chillsFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: EscalofriosChillsSpanishFemale, // Added
+      maleSpanish: EscalofriosChillsSpanishMale, // Added
     },
     {
       id: "3",
@@ -8958,10 +9081,10 @@ export const diseasesData = {
       image: achyImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: AchyMale, // Added
       femaleEnglish: achyFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: AdoloridoAAcheySpanishFemale, // Added
+      maleSpanish: AdoloridoAAcheySpanishMale, // Added
     },
     {
       id: "4",
@@ -8970,7 +9093,10 @@ export const diseasesData = {
       image: sorethroatImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: SoreThroatMale,
       femaleEnglish: SoreThroatFemale,
+      femaleSpanish: DolorDeGargantaSoreThroatSpanishFemale, // Added
+      maleSpanish: DolorDeGargantaSoreThroatSpanishMale, // Added
     },
     {
       id: "5",
@@ -8991,6 +9117,8 @@ export const diseasesData = {
       image: nausea04,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      femaleSpanish: NauseasVomitosNauseaVomitingSpanishFemale, // Added
+      maleSpanish: NauseasVomitosNauseaVomitingSpanishMale, // Added
     },
     {
       id: "7",
@@ -9024,10 +9152,10 @@ export const diseasesData = {
       image: dashimg05,
       path: "/",
       secPath: "/illnessMucus-problem",
-      maleEnglish: MucousOrSecretionsEnglishMale, // Added
+      maleEnglish: MucousOrSecretionsEnglishMale,
       femaleEnglish: mucousOrSecretionsFemale,
-      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
     },
     {
       id: "10",
@@ -9037,6 +9165,9 @@ export const diseasesData = {
       path: "/illnessAppetite-problem",
       secPath: "/illnessAppetite-problem",
       femaleEnglish: AppetiteFemaleEnglish,
+      maleEnglish: AppetiteEnglishMale,
+      femaleSpanish: ApetitoSpanishFeMale,
+      maleSpanish: ApetitoSpanishMale,
     },
     {
       id: "11",
@@ -9094,10 +9225,10 @@ export const diseasesData = {
       image: Troublesleeping,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
-      maleEnglish: "",
+      maleEnglish: TroubleSleepingMale,
       femaleEnglish: troubleSleepingFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: ProblemasParaDormirTroubleSleepingSpanishFemale,
+      maleSpanish: ProblemasParaDormirSpanishMale,
     },
     {
       id: "5",
@@ -9204,10 +9335,10 @@ export const diseasesData = {
       image: WoundPain,
       path: "/howoften",
       secPath: "/pain-feel",
-      maleEnglish: PainUrinationEnglishMale, // Added
-      femaleEnglish: PainEnglishFemale, // Added
+      maleEnglish: PainUrinationEnglishMale,
+      femaleEnglish: PainEnglishFemale,
       femaleSpanish: dolorPainFemale,
-      maleSpanish: DolorPainSpanishMale, // Added
+      maleSpanish: DolorPainSpanishMale,
     },
     {
       id: "4",
@@ -9281,10 +9412,10 @@ export const diseasesData = {
       image: Painimg,
       path: "/howoften",
       secPath: "/male-body",
-      maleEnglish: PainUrinationEnglishMale, // Added
-      femaleEnglish: PainEnglishFemale, // Added
+      maleEnglish: PainUrinationEnglishMale,
+      femaleEnglish: PainEnglishFemale,
       femaleSpanish: dolorPainFemale,
-      maleSpanish: DolorPainSpanishMale, // Added
+      maleSpanish: DolorPainSpanishMale,
     },
     {
       id: "2",
@@ -9335,10 +9466,10 @@ export const diseasesData = {
       image: ConcernImg5,
       path: "/howoften",
       secPath: "/feedingBowels-problem",
-      maleEnglish: BowelsEnglishMale, // Added
+      maleEnglish: BowelsEnglishMale,
       femaleEnglish: bowelsFemale,
-      femaleSpanish: IntestinosBowelsSpanishFemale, // Added
-      maleSpanish: IntestinosBowelsSpanishMale, // Added
+      femaleSpanish: IntestinosBowelsSpanishFemale,
+      maleSpanish: IntestinosBowelsSpanishMale,
     },
     {
       id: "7",
@@ -9374,10 +9505,10 @@ export const diseasesData = {
       image: MucusSecretionsTrach,
       path: "/",
       secPath: "/trachmucusSecretions-problem",
-      maleEnglish: MucousOrSecretionsEnglishMale, // Added
+      maleEnglish: MucousOrSecretionsEnglishMale,
       femaleEnglish: mucousOrSecretionsFemale,
-      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale, // Added
-      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale, // Added
+      femaleSpanish: MucosidadSecrecionesMucusSecretionsSpanishFemale,
+      maleSpanish: MucosidadSecrecionesMucusSecretionsSpanishMale,
     },
     {
       id: "2",
@@ -9423,10 +9554,10 @@ export const diseasesData = {
       image: ConcernImg2,
       path: "/when",
       secPath: "/breathing-problem",
-      maleEnglish: BreathingOrCoughingEnglishMale, // Added
+      maleEnglish: BreathingOrCoughingEnglishMale,
       femaleEnglish: breathingCoughingFemale,
-      femaleSpanish: RespirationTosBreathingCoughingSpanishFemale, // Added
-      maleSpanish: RespirationTosBreathingCoughingSpanishMale, // Added
+      femaleSpanish: RespirationTosBreathingCoughingSpanishFemale,
+      maleSpanish: RespirationTosBreathingCoughingSpanishMale,
     },
     {
       id: "7",
@@ -9435,10 +9566,10 @@ export const diseasesData = {
       image: TrachpainImg,
       path: "/when",
       secPath: "/pain-feel",
-      maleEnglish: PainUrinationEnglishMale, // Added
-      femaleEnglish: PainEnglishFemale, // Added
+      maleEnglish: PainUrinationEnglishMale,
+      femaleEnglish: PainEnglishFemale,
       femaleSpanish: dolorPainFemale,
-      maleSpanish: DolorPainSpanishMale, // Added
+      maleSpanish: DolorPainSpanishMale,
     },
     {
       id: "8",
@@ -9474,10 +9605,10 @@ export const diseasesData = {
       image: SwallowingImg,
       path: "/when",
       secPath: "/trachSwallowing-problem",
-      maleEnglish: SwallowingEnglishMale, // Added
+      maleEnglish: SwallowingEnglishMale,
       femaleEnglish: swallowingFemale,
-      femaleSpanish: TragarSwallowSpanishFemale, // Added
-      maleSpanish: TragarSpanishMale, // Added
+      femaleSpanish: TragarSwallowSpanishFemale,
+      maleSpanish: TragarSpanishMale,
     },
     {
       id: "12",

@@ -1278,7 +1278,184 @@ import ExhaustedMale from "../../assets/audio/English/male/exhausted.mp3";
 import AngryMale from "../../assets/audio/English/male/angry.mp3";
 import ScaredMale from "../../assets/audio/English/male/scared.mp3";
 import DepressedMale from "../../assets/audio/English/male/Depressed.mp3";
+
+import AnxiousAnsiosoSpanishMale from "../../assets/audio/spanish/male/Anxious_Ansioso.wav";
+import PreocupadaOConCulpaSpanishMale from "../../assets/audio/spanish/male/35 Preocupada o con culpa.wav";
+import SinEsperanzaSpanishMale from "../../assets/audio/spanish/male/36 Sin esperanza.wav";
+import PenaGriefSpanishMale from "../../assets/audio/spanish/male/Pena (Grief).wav";
+import TristeSpanishMale from "../../assets/audio/spanish/male/Triste male.mp3";
+import AgotadoExhaustedSpanishMale from "../../assets/audio/spanish/male/agotado_exhausted.wav";
+import FrustradoFrustratedSpanishMale from "../../assets/audio/spanish/male/frustrado_frustrated.wav";
+import EnojadoAngrySpanishMale from "../../assets/audio/spanish/male/enojado_angry.wav";
+import AsustadoScaredSpanishMale from "../../assets/audio/spanish/male/asustado_scared.wav";
+import DeprimidoDepressedSpanishMale from "../../assets/audio/spanish/male/deprimido_depressed.wav";
+
+import ExhaustedEnglishFemale from "../../assets/audio/English/female/exhausted.mp3";
+import HopelessEnglishFemale from "../../assets/audio/English/female/Hopeless.mp3";
+import WorriedGuiltyEnglishFemale from "../../assets/audio/English/female/Worried _ Guilty.mp3";
+import GriefEnglishFemale from "../../assets/audio/English/female/Grief.mp3";
+import SadEnglishFemale from "../../assets/audio/English/female/sad.mp3";
+import AngryEnglishFemale from "../../assets/audio/English/female/angry.mp3";
+import ScaredEnglishFemale from "../../assets/audio/English/female/scared.mp3";
+import DepressedEnglishFemale from "../../assets/audio/English/female/depressed.mp3";
+import AnxiousEnglishFemale from "../../assets/audio/English/female/anxious.mp3";
+
+import AnsiosoAnxiousSpanishFemale from "../../assets/audio/spanish/female/ansioso (anxious).mp3";
+import PreocupadaConCulpaWorriedGuiltySpanishFemale from "../../assets/audio/spanish/female/Preocupada _ Con Culpa (Worried _ Guilty).mp3";
+import SinEsperanzaHopelessSpanishFemale from "../../assets/audio/spanish/female/Sin Esperanza (Hopeless).mp3";
+import PenaGriefSpanishFemale from "../../assets/audio/spanish/female/Pena (Grief) .mp3";
+import TristeSadSpanishFemale from "../../assets/audio/spanish/female/triste (sad).mp3";
+import AgotadoExhaustedSpanishFemale from "../../assets/audio/spanish/female/agotado (exhausted).mp3";
+import FrustradoFrustratedSpanishFemale from "../../assets/audio/spanish/female/frustrado (frustrated).mp3";
+import AsustadoScaredSpanishFemale from "../../assets/audio/spanish/female/asustado (scared).mp3";
+import EnojadoAngrySpanishFemale from "../../assets/audio/spanish/female/enojado (angry).mp3";
+import DeprimidoDepressedSpanishFemale from "../../assets/audio/spanish/female/deprimido (depressed).mp3";
+
+import WithActivityHowOftenMale from "../../assets/audio/English/male/With Activity(How Often).wav";
+import WakeUpTiredMale from "../../assets/audio/English/male/Wake Up Tired.wav";
+import TroubleSleepingMale from "../../assets/audio/English/male/Trouble Sleeping.wav";
+import AllDayFatigueMale from "../../assets/audio/English/male/All Day(Fatigue).wav";
+
+import BrainTiredMale from "../../assets/audio/English/male/Brain Tired.wav";
+
+import MoreThanUsualMale from "../../assets/audio/English/male/More Than Usual_com.wav";
+
+import DespertarCansadoSpanishMale from "../../assets/audio/spanish/male/Despertar cansado.wav";
+import DespuesDeUnProcedimientoSpanishMale from "../../assets/audio/spanish/male/80 Después de un procedimiento.wav";
+import MasDeLoHabitualSpanishMale from "../../assets/audio/spanish/male/mas de lo habitual.wav";
+import ConActividadSpanishMale from "../../assets/audio/spanish/male/con actividad.wav";
+import CerebroCansadoSpanishMale from "../../assets/audio/spanish/male/Cerebro Cansado.wav";
+
+import EmpeoraALoLargoDelDiaSpanishMale from "../../assets/audio/spanish/male/Empeora a lo largo del dia.wav";
+import ProblemasParaDormirSpanishMale from "../../assets/audio/spanish/male/problemas para dormir.wav";
+
+import WakeUpTiredEnglishFemale from "../../assets/audio/English/female/wake up tired.mp3";
+import JustFatigueEnglishFemale from "../../assets/audio/English/female/Just Fatigue.mp3";
+import AfterProcedureEnglishFemale from "../../assets/audio/English/female/After Procedure.mp3";
+import MoreThanUsualEnglishFemale from "../../assets/audio/English/female/more than usual.mp3";
+import WithActivityEnglishFemale from "../../assets/audio/English/female/with activity.mp3";
+import BrainTiredEnglishFemale from "../../assets/audio/English/female/Brain Tired.mp3";
+
+import GetsWorseThroughTheDayEnglishFemale from "../../assets/audio/English/female/Gets Worse Through the Day.mp3";
+import AllDayEnglishFemale from "../../assets/audio/English/female/All day.mp3";
+import TroubleSleepingEnglishFemale from "../../assets/audio/English/female/trouble sleeping.mp3";
+
+import DespertarCansadoWakeUpTiredSpanishFemale from "../../assets/audio/spanish/female/despertar cansado (wake up tired).mp3";
+import ProblemasParaDormirTroubleSleepingSpanishFemale from "../../assets/audio/spanish/female/problemas para dormir (trouble sleeping).mp3";
+import SoloFatigaSpanishFemale from "../../assets/audio/spanish/female/Solo Fatiga.mp3";
+import DespuesDeUnProcedimientoAfterProcedureSpanishFemale from "../../assets/audio/spanish/female/Despues de un procedimiento (After Procedure).mp3";
+import ConActividadWithActivitySpanishFemale from "../../assets/audio/spanish/female/con actividad (with activity).mp3";
+import MasDeLoHabitualMoreThanUsualSpanishFemale from "../../assets/audio/spanish/female/mas de lo habitual (more than usual).mp3";
+import CerebroCansadoBrainTiredSpanishFemale from "../../assets/audio/spanish/female/Cerebro Cansado (brain tired).mp3";
+import EmpeoraALoLargoDelDiaGetsWorseThroughTheDaySpanishFemale from "../../assets/audio/spanish/female/Empeora a lo Largo del Día (Gets Worse Through the Day).mp3";
+import TodoElDiaAllDaySpanishFemale from "../../assets/audio/spanish/female/todo el dia (all day).mp3";
+import AppetiteEnglishMale from "../../assets/audio/English/male/appetite.mp3";
+import ApetitoSpanishFeMale from "../../assets/audio/spanish/female/Apetito (Appetite).mp3";
+import ApetitoSpanishMale from "../../assets/audio/spanish/male/Apetito (Appetite).wav";
+
+import SoreThroatMale from "src/assets/audio/Spanish/male/Sore Throat (male eng).mp3";
+import AchyMale from "src/assets/audio/English/male/Achy (male eng).mp3";
+import ChillsMale from "src/assets/audio/English/male/Chills (male eng).mp3";
+import FeverMale from "src/assets/audio/English/male/Fever (male eng).mp3";
+
+import NauseasVomitosNauseaVomitingSpanishMale from "../../assets/audio/spanish/male/Nauseas_Vomitos (Nausea_Vomiting).wav";
+import DolorDeGargantaSoreThroatSpanishMale from "../../assets/audio/spanish/male/Dolor de garganta (Sore Throat).wav";
+import AdoloridoAAcheySpanishMale from "../../assets/audio/spanish/male/Adolorido_a (achey).wav";
+import EscalofriosChillsSpanishMale from "../../assets/audio/spanish/male/Escalofrios (Chills).wav";
+
+import FeverEnglishFemale from "../../assets/audio/English/female/Fever.mp3";
+import SoreThroatEnglishFemale from "../../assets/audio/English/female/Sore Throat.mp3";
+import AchyEnglishFemale from "../../assets/audio/English/female/Achy.mp3";
+import ChillsEnglishFemale from "../../assets/audio/English/female/Chills.mp3";
+
+import FiebreFeverSpanishFemale from "../../assets/audio/English/female/Fiebre (fever).mp3";
+import FiebreFeverSpanishMale from "../../assets/audio/spanish/male/Fiebre (fever).wav";
+import NauseasVomitosNauseaVomitingSpanishFemale from "../../assets/audio/English/female/Nauseas_Vomitos (Nausea_Vomiting).wav";
+import AdoloridoAAcheySpanishFemale from "../../assets/audio/English/female/Adolorido_a (achey).wav";
+import DolorDeGargantaSoreThroatSpanishFemale from "../../assets/audio/English/female/Dolor de garganta (Sore Throat).wav";
+import EscalofriosChillsSpanishFemale from "../../assets/audio/English/female/Escalofrios (Chills).wav";
 export {
+  FiebreFeverSpanishFemale,
+  NauseasVomitosNauseaVomitingSpanishFemale,
+  AdoloridoAAcheySpanishFemale,
+  DolorDeGargantaSoreThroatSpanishFemale,
+  EscalofriosChillsSpanishFemale,
+  FeverEnglishFemale,
+  SoreThroatEnglishFemale,
+  AchyEnglishFemale,
+  ChillsEnglishFemale,
+  FiebreFeverSpanishMale,
+  NauseasVomitosNauseaVomitingSpanishMale,
+  DolorDeGargantaSoreThroatSpanishMale,
+  AdoloridoAAcheySpanishMale,
+  EscalofriosChillsSpanishMale,
+  SoreThroatMale,
+  AchyMale,
+  ChillsMale,
+  FeverMale,
+  ApetitoSpanishMale,
+  ApetitoSpanishFeMale,
+  AppetiteEnglishMale,
+  DespertarCansadoWakeUpTiredSpanishFemale,
+  ProblemasParaDormirTroubleSleepingSpanishFemale,
+  SoloFatigaSpanishFemale,
+  DespuesDeUnProcedimientoAfterProcedureSpanishFemale,
+  ConActividadWithActivitySpanishFemale,
+  MasDeLoHabitualMoreThanUsualSpanishFemale,
+  CerebroCansadoBrainTiredSpanishFemale,
+  EmpeoraALoLargoDelDiaGetsWorseThroughTheDaySpanishFemale,
+  TodoElDiaAllDaySpanishFemale,
+  WakeUpTiredEnglishFemale,
+  JustFatigueEnglishFemale,
+  AfterProcedureEnglishFemale,
+  MoreThanUsualEnglishFemale,
+  WithActivityEnglishFemale,
+  BrainTiredEnglishFemale,
+  GetsWorseThroughTheDayEnglishFemale,
+  AllDayEnglishFemale,
+  TroubleSleepingEnglishFemale,
+  DespertarCansadoSpanishMale,
+  DespuesDeUnProcedimientoSpanishMale,
+  MasDeLoHabitualSpanishMale,
+  ConActividadSpanishMale,
+  CerebroCansadoSpanishMale,
+  EmpeoraALoLargoDelDiaSpanishMale,
+  ProblemasParaDormirSpanishMale,
+  WithActivityHowOftenMale,
+  WakeUpTiredMale,
+  TroubleSleepingMale,
+  AllDayFatigueMale,
+  BrainTiredMale,
+  MoreThanUsualMale,
+  AnsiosoAnxiousSpanishFemale,
+  PreocupadaConCulpaWorriedGuiltySpanishFemale,
+  SinEsperanzaHopelessSpanishFemale,
+  PenaGriefSpanishFemale,
+  TristeSadSpanishFemale,
+  AgotadoExhaustedSpanishFemale,
+  FrustradoFrustratedSpanishFemale,
+  AsustadoScaredSpanishFemale,
+  EnojadoAngrySpanishFemale,
+  DeprimidoDepressedSpanishFemale,
+  ExhaustedEnglishFemale,
+  HopelessEnglishFemale,
+  WorriedGuiltyEnglishFemale,
+  GriefEnglishFemale,
+  SadEnglishFemale,
+  AngryEnglishFemale,
+  ScaredEnglishFemale,
+  DepressedEnglishFemale,
+  AnxiousEnglishFemale,
+  AnxiousAnsiosoSpanishMale,
+  PreocupadaOConCulpaSpanishMale,
+  SinEsperanzaSpanishMale,
+  PenaGriefSpanishMale,
+  TristeSpanishMale,
+  AgotadoExhaustedSpanishMale,
+  FrustradoFrustratedSpanishMale,
+  EnojadoAngrySpanishMale,
+  AsustadoScaredSpanishMale,
+  DeprimidoDepressedSpanishMale,
   AnxiousMale,
   GriefMale,
   SadMale,
