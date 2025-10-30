@@ -33,7 +33,7 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
     );
     const datevalue = new Date();
     addOrUpdateSummary(`${mainpath}-${datevalue}`, [item]);
-    navigate(path);
+    // navigate(path);
   };
 
   useEffect(() => {

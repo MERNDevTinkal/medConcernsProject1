@@ -10,6 +10,21 @@ import Close from "../../assets/images/close.svg";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
+
+import {
+  YesFemale,
+  YesFemaleSpanish,
+  NoFemale,
+  NoFemaleSpanish,
+  YesSpanishMale,
+  YesMale,
+  No_male,
+  No_no_maleSpanish,
+  MaybeFemale,
+  MaybeMale,
+  TalVezFemaleSpanish,
+  TalVezMaleSpanish,
+} from "../../../src/Component/DiseasesData/audio";
 function EmotionScreen() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -46,26 +61,12 @@ function EmotionScreen() {
     }
   }, [id, mainPath]);
 
-  const handleRoutes = async (item, value) => {
+  const handleRoutes = async (item, value, audio) => {
     if (item) {
       await getTextToSpeech(
         value,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        selectedLanguage === "" && selectedGender === ""
-          ? item?.maleEnglish
-          : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? item?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? item?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? item?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? item?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? item?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? item?.femaleEnglish
-          : item?.maleEnglish
+        audio
       );
       setLoader(true);
       addOrUpdateSummary(mainPath, [item]);
@@ -120,7 +121,27 @@ function EmotionScreen() {
                     onClick={() => {
                       handleRoutes(
                         getQuestions,
-                        selectedLanguage === "Spanish" ? "Sí" : "YES"
+                        selectedLanguage === "Spanish" ? "Sí" : "YES",
+                        selectedLanguage === "" && selectedGender === ""
+                          ? YesMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : YesMale
                       );
                     }}
                   >
@@ -137,7 +158,30 @@ function EmotionScreen() {
                   </div>
                   <div
                     onClick={() => {
-                      handleRoutes(getQuestions, "NO");
+                      handleRoutes(
+                        getQuestions,
+                        "NO",
+                        selectedLanguage === "" && selectedGender === ""
+                          ? No_male
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
+                      );
                     }}
                   >
                     <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
@@ -156,7 +200,29 @@ function EmotionScreen() {
                       onClick={() => {
                         handleRoutes(
                           getQuestions,
-                          selectedLanguage === "Spanish" ? "tal vez" : "Maybe"
+                          selectedLanguage === "Spanish" ? "tal vez" : "Maybe",
+
+                          selectedLanguage === "" && selectedGender === ""
+                            ? MaybeMale
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Male"
+                            ? TalVezMaleSpanish
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Female"
+                            ? TalVezFemaleSpanish
+                            : selectedLanguage === "" &&
+                              selectedGender === "Female"
+                            ? MaybeFemale
+                            : selectedLanguage === "" &&
+                              selectedGender === "Male"
+                            ? MaybeMale
+                            : selectedLanguage === "English" &&
+                              selectedGender === "Male"
+                            ? MaybeMale
+                            : selectedLanguage === "English" &&
+                              selectedGender === "Female"
+                            ? MaybeFemale
+                            : MaybeMale
                         );
                       }}
                       className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"

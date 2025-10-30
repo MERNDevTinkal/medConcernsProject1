@@ -1220,7 +1220,113 @@ import NoQuieroDontWantSpanishMale from "../../assets/audio/spanish/male/No Quie
 import CambiosDeSaborTasteChangesSpanishMale from "../../assets/audio/spanish/male/Cambios de sabor (Taste Changes).wav";
 import MeSientoLlenoAFeelFullSpanishMale from "../../assets/audio/spanish/male/Me Siento Lleno_a (Feel Full).wav";
 import OlorDeComidaSmellOfFoodSpanishMale from "../../assets/audio/spanish/male/Olor de comida (Smell of Food).wav";
+
+import BedPanEnglishFemale from "../../assets/audio/English/female/_Bed pan.mp3";
+import BloodEnglishFemale from "../../assets/audio/English/female/Blood.mp3";
+import CrampingEnglishFemale from "../../assets/audio/English/female/cramping.mp3";
+import GasOrBloatingEnglishFemale from "../../assets/audio/English/female/Gas or bloating updated.mp3";
+import ConstipationEnglishFemale from "../../assets/audio/English/female/Constipation - updated.mp3";
+import NeedChangedEnglishFemale from "../../assets/audio/English/female/Need Changed.mp3";
+import ColostomyOstomyBagEnglishFemale from "../../assets/audio/English/female/Colostomy _ Ostomy Bag.mp3";
+
+import BolsaDeColostomiaOstomiaColostomyOstomyBagSpanishFemale from "../../assets/audio/spanish/female/Bolsa de Colostomia _ Ostomia (Colostomy _ Ostomy Bag).mp3";
+import EstrenimientoConstipationSpanishFemale from "../../assets/audio/spanish/female/estrenimiento (constipation).mp3";
+import DiarreaDiarrheaSpanishFemale from "../../assets/audio/spanish/female/diarrea (diarrhea).mp3";
+import GasHinchazonGasBloatingSpanishFemale from "../../assets/audio/spanish/female/gas_hinchazon (gas_bloating).mp3";
+import CalambresCrampingSpanishFemale from "../../assets/audio/spanish/female/calambres (cramping).mp3";
+import SangreBloodSpanishFemale from "../../assets/audio/spanish/female/sangre (blood).mp3";
+import BandejaDeCamaBedPanSpanishFemale from "../../assets/audio/spanish/female/bandeja de cama (bed pan).mp3";
+
+import BloodUrinationMale from "../../assets/audio/English/male/Blood(Urination).wav";
+
+import GasOrBloatingMale from "../../assets/audio/English/male/gas or bloating.mp3";
+import DiarrheaMale from "../../assets/audio/English/male/Diarrhea.wav";
+
+import BedPanMale from "../../assets/audio/English/male/bed pan.mp3";
+
+import DiarrheaDiarreaSpanishMale from "../../assets/audio/spanish/male/diarrhea_diarrea.wav";
+import GasHinchazonSpanishMale from "../../assets/audio/spanish/male/Gas _ Hinchazon.wav";
+import SangreSpanishMale from "../../assets/audio/spanish/male/Sangre.wav";
+import BandejaDeCamaSpanishMale from "../../assets/audio/spanish/male/Bandeja de cama.wav";
+import BolsaDeColostomiaSpanishMale from "../../assets/audio/spanish/male/9 Bolsa de colostomía.wav";
+import EstrenimientoSpanishMale from "../../assets/audio/spanish/male/Estreñimiento.wav";
+
+import CPAPBiPAPMale from "../../assets/audio/English/male/CPAP_BiPAP.mp3";
+import HeavyThickMale from "../../assets/audio/English/male/Heavy_Thick.mp3";
+import BreathingTreatmentMale from "../../assets/audio/English/male/breathing treatment.mp3";
+import ChokingBreathingProblemsMale from "../../assets/audio/English/male/Choking(Breathing Problems)_com.wav";
+import ChestPainMale from "../../assets/audio/English/male/Chest Pain2.wav";
+import ShortnessOfBreathMale from "../../assets/audio/English/male/Shortness of Breath.wav";
+import MucousOrSecretionsMale from "../../assets/audio/English/male/mucous or secretions.mp3";
+import CoughingFeMale from "../../assets/audio/English/female/Coughing (female).mp3";
+import CongestedRunnyNoseMale from "../../assets/audio/English/male/Congested _ Runny Nose (male eng).mp3";
+
+import TratamientoDeRespiracionBreathingTreatmentSpanishMale from "../../assets/audio/spanish/male/Tratamiento de Respiracion (Breathing Treatment).wav";
+import FaltaDeAlientoShortnessOfBreathSpanishMale from "../../assets/audio/spanish/male/falta de aliento_shortness of breath.wav";
+import TosCoughingSpanishMale from "../../assets/audio/spanish/male/tos_coughing.m4a";
+import DolorDePechoChestPainSpanishMale from "../../assets/audio/spanish/male/dolor de pecho_chest pain.wav";
+import AsfixiaChokingSpanishMale from "../../assets/audio/spanish/male/asfixia_choking.wav";
+import NarizCongestionadaQueMoaqueaCongestedRunnyNoseSpanishMale from "../../assets/audio/spanish/male/Nariz congestionada_que moquea (Congested_Runny Nose).wav";
+import CPAPBiPAPSpanishMale from "../../assets/audio/spanish/male/CPAP_BiPAP (CPAP_BiPAP).wav";
+
+import NarizCongestionadaOQueMoaqueaCongestedOrRunnyNoseSpanishFeMale from "../../assets/audio/spanish/Female/Nariz congestionada o que moquea (Congested or runny nose).mp3";
+
+import AnxiousMale from "../../assets/audio/English/male/anxious.mp3";
+import GriefMale from "../../assets/audio/English/male/Grief (Replace the one in app it is cut off).mp3";
+import SadMale from "../../assets/audio/English/male/sad.mp3";
+import ExhaustedMale from "../../assets/audio/English/male/exhausted.mp3";
+import AngryMale from "../../assets/audio/English/male/angry.mp3";
+import ScaredMale from "../../assets/audio/English/male/scared.mp3";
+import DepressedMale from "../../assets/audio/English/male/Depressed.mp3";
 export {
+  AnxiousMale,
+  GriefMale,
+  SadMale,
+  ExhaustedMale,
+  AngryMale,
+  ScaredMale,
+  DepressedMale,
+  CoughingFeMale,
+  NarizCongestionadaOQueMoaqueaCongestedOrRunnyNoseSpanishFeMale,
+  TratamientoDeRespiracionBreathingTreatmentSpanishMale,
+  FaltaDeAlientoShortnessOfBreathSpanishMale,
+  TosCoughingSpanishMale,
+  DolorDePechoChestPainSpanishMale,
+  AsfixiaChokingSpanishMale,
+  NarizCongestionadaQueMoaqueaCongestedRunnyNoseSpanishMale,
+  CPAPBiPAPSpanishMale,
+  CPAPBiPAPMale,
+  HeavyThickMale,
+  BreathingTreatmentMale,
+  ChokingBreathingProblemsMale,
+  ChestPainMale,
+  ShortnessOfBreathMale,
+  MucousOrSecretionsMale,
+  CongestedRunnyNoseMale,
+  DiarrheaDiarreaSpanishMale,
+  GasHinchazonSpanishMale,
+  SangreSpanishMale,
+  BandejaDeCamaSpanishMale,
+  BolsaDeColostomiaSpanishMale,
+  EstrenimientoSpanishMale,
+  BloodUrinationMale,
+  GasOrBloatingMale,
+  DiarrheaMale,
+  BedPanMale,
+  BolsaDeColostomiaOstomiaColostomyOstomyBagSpanishFemale,
+  EstrenimientoConstipationSpanishFemale,
+  DiarreaDiarrheaSpanishFemale,
+  GasHinchazonGasBloatingSpanishFemale,
+  CalambresCrampingSpanishFemale,
+  SangreBloodSpanishFemale,
+  BandejaDeCamaBedPanSpanishFemale,
+  BedPanEnglishFemale,
+  BloodEnglishFemale,
+  CrampingEnglishFemale,
+  GasOrBloatingEnglishFemale,
+  ConstipationEnglishFemale,
+  NeedChangedEnglishFemale,
+  ColostomyOstomyBagEnglishFemale,
   NoQuieroDontWantSpanishMale,
   CambiosDeSaborTasteChangesSpanishMale,
   MeSientoLlenoAFeelFullSpanishMale,
