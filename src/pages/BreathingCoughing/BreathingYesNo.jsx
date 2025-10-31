@@ -16,6 +16,7 @@ function BreathingYesNo() {
   const { id } = useParams();
   const [concernValues, setConcernValues] = useState({});
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (concerns?.length > 0) {
@@ -29,11 +30,15 @@ function BreathingYesNo() {
   useEffect(() => {
     getSetting(
       () => {},
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
-      setLoader
+      setLoader,
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -82,12 +87,14 @@ function BreathingYesNo() {
               <div>
                 {location.pathname.includes("/topicboard/") ? (
                   <TopicBoard
+                    selectedGender={selectedGender}
                     concernValues={concernValues}
                     selectedLanguage={selectedLanguage}
                     concenFell={concernValues?.secPath}
                   />
                 ) : (
                   <DecisionCardFeeling
+                    selectedGender={selectedGender}
                     concernValues={concernValues}
                     selectedLanguage={selectedLanguage}
                     concenFell={concernValues?.secPath}

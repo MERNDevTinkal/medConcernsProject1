@@ -5,7 +5,18 @@ import Close from "../../assets/images/close.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import {
+  YesFemale,
+  YesFemaleSpanish,
+  NoFemale,
+  NoFemaleSpanish,
+  YesSpanishMale,
+  YesMale,
+  No_male,
+  No_no_maleSpanish,
+} from "../../../src/Component/DiseasesData/audio";
 const DecisionCardFeeling = ({
+  selectedGender,
   concernValues,
   selectedLanguage,
   concenFell,
@@ -14,11 +25,12 @@ const DecisionCardFeeling = ({
   const navigate = useNavigate();
   const [pathUrl, setPathUrl] = useState("");
   const { updateDisease, diseases } = useContext(GlobalContext);
-  const handleBreathingYesNo = async (value, path) => {
+  const handleBreathingYesNo = async (value, path, audio) => {
     if (value && path) {
       await getTextToSpeech(
         value,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        audio
       );
       updateDisease("concenyesno", value);
       if (path === "/pain-problem") {
@@ -49,7 +61,23 @@ const DecisionCardFeeling = ({
           onClick={() => {
             handleBreathingYesNo(
               selectedLanguage === "Spanish" ? "Sí" : "YES",
-              pathUrl
+              pathUrl,
+
+              selectedLanguage === "" && selectedGender === ""
+                ? YesMale
+                : selectedLanguage === "Spanish" && selectedGender === "Male"
+                ? YesSpanishMale
+                : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? YesFemaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                ? YesFemale
+                : selectedLanguage === "" && selectedGender === "Male"
+                ? YesMale
+                : selectedLanguage === "English" && selectedGender === "Male"
+                ? YesMale
+                : selectedLanguage === "English" && selectedGender === "Female"
+                ? YesFemaleSpanish
+                : YesMale
             );
           }}
         >
@@ -67,7 +95,25 @@ const DecisionCardFeeling = ({
 
         <div
           onClick={() => {
-            handleBreathingYesNo("NO", navigate(-1));
+            handleBreathingYesNo(
+              "NO",
+              -1,
+              selectedLanguage === "" && selectedGender === ""
+                ? No_male
+                : selectedLanguage === "Spanish" && selectedGender === "Male"
+                ? No_no_maleSpanish
+                : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? NoFemaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                ? NoFemale
+                : selectedLanguage === "" && selectedGender === "Male"
+                ? No_male
+                : selectedLanguage === "English" && selectedGender === "Male"
+                ? No_male
+                : selectedLanguage === "English" && selectedGender === "Female"
+                ? NoFemale
+                : No_male
+            );
           }}
         >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">

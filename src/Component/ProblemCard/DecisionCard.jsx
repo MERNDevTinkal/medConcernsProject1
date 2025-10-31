@@ -18,6 +18,10 @@ import {
   YesMale,
   No_male,
   No_no_maleSpanish,
+  iDontKnowFemale,
+  IDontKnowMale,
+  IdontknowSpanishFemale,
+  NoSeMale,
 } from "../../../src/Component/DiseasesData/audio";
 const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   const navigate = useNavigate();
@@ -58,6 +62,10 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
       nameEs: "no lo sé",
       newProblem: "new problem",
       SpanishnewProblem: "nuevo problema",
+      maleEnglish: IDontKnowMale,
+      femaleEnglish: iDontKnowFemale,
+      maleSpanish: NoSeMale,
+      femaleSpanish: IdontknowSpanishFemale,
     },
   ];
   const handleDecision = async (value, mainpath, id) => {

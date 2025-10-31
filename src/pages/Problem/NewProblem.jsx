@@ -10,18 +10,22 @@ import getSetting from "../../Component/settingApi/settings";
 
 const NewProblem = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     getSetting(
       () => {},
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
-      setLoader
+      setLoader,
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -60,7 +64,10 @@ const NewProblem = () => {
 
           <div className="main-wrapper home-wrapper ">
             <div className="px-10 my-10">
-              <DecisionCard selectedLanguage={selectedLanguage} />
+              <DecisionCard
+                selectedGender={selectedGender}
+                selectedLanguage={selectedLanguage}
+              />
             </div>
           </div>
         </>

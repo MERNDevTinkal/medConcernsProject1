@@ -4,14 +4,25 @@ import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-const YesNo = ({ selectedLanguage }) => {
+import {
+  YesFemale,
+  YesFemaleSpanish,
+  NoFemale,
+  NoFemaleSpanish,
+  YesSpanishMale,
+  YesMale,
+  No_male,
+  No_no_maleSpanish,
+} from "../../../src/Component/DiseasesData/audio";
+const YesNo = ({ selectedGender, selectedLanguage }) => {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
-  const handleYesNo = async (value, path) => {
+  const handleYesNo = async (value, path, audio) => {
     if (value && path) {
       await getTextToSpeech(
         value,
-        selectedLanguage === "Spanish" ? "es-ES" : ""
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        audio
       );
       updateDisease("yesno", value);
       navigate(path);
@@ -24,7 +35,22 @@ const YesNo = ({ selectedLanguage }) => {
           onClick={() => {
             handleYesNo(
               selectedLanguage === "Spanish" ? "Sí" : "YES",
-              "/concern"
+              "/concern",
+              selectedLanguage === "" && selectedGender === ""
+                ? YesMale
+                : selectedLanguage === "Spanish" && selectedGender === "Male"
+                ? YesSpanishMale
+                : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? YesFemaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                ? YesFemale
+                : selectedLanguage === "" && selectedGender === "Male"
+                ? YesMale
+                : selectedLanguage === "English" && selectedGender === "Male"
+                ? YesMale
+                : selectedLanguage === "English" && selectedGender === "Female"
+                ? YesFemaleSpanish
+                : YesMale
             );
           }}
         >
@@ -41,7 +67,25 @@ const YesNo = ({ selectedLanguage }) => {
         </div>
         <div
           onClick={() => {
-            handleYesNo("NO", -1);
+            handleYesNo(
+              "NO",
+              -1,
+              selectedLanguage === "" && selectedGender === ""
+                ? No_male
+                : selectedLanguage === "Spanish" && selectedGender === "Male"
+                ? No_no_maleSpanish
+                : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? NoFemaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                ? NoFemale
+                : selectedLanguage === "" && selectedGender === "Male"
+                ? No_male
+                : selectedLanguage === "English" && selectedGender === "Male"
+                ? No_male
+                : selectedLanguage === "English" && selectedGender === "Female"
+                ? NoFemale
+                : No_male
+            );
           }}
         >
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">

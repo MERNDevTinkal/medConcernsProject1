@@ -7,7 +7,7 @@ import HowAreYouImg6 from "../assets/images/getting-worse.png";
 import HowAreYouImg7 from "../assets/images/concern-img-08.png";
 import HowAreYouImg8 from "../assets/images/i-dont-know.png";
 import HowAreYouImg9 from "../assets/images/ic_the_same.png";
-
+import {} from "../../src/Component/DiseasesData/audio";
 export const howareyou = [
   { id: 1, name: "Good", nameEs: "Bien", image: HowAreYouImg1 },
   { id: 2, name: "Okay", nameEs: "Más o menos", image: HowAreYouImg2 },

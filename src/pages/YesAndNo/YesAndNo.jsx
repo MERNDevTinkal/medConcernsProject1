@@ -8,18 +8,33 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import { howareyou } from "../../assets/ImagesImports";
+import {
+  YesFemale,
+  YesFemaleSpanish,
+  NoFemale,
+  NoFemaleSpanish,
+  YesSpanishMale,
+  YesMale,
+  No_male,
+  No_no_maleSpanish,
+} from "../../../src/Component/DiseasesData/audio";
 function YesAndNo() {
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedGender, setSelectedGender] = React.useState("");
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     getSetting(
       () => {},
-      () => {},
+      setSelectedGender,
       setSelectedLanguage,
       () => {},
       () => {},
-      setLoader
+      setLoader,
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -61,7 +76,10 @@ function YesAndNo() {
                 </div>
               </div>
               <div>
-                <YesNo selectedLanguage={selectedLanguage} />
+                <YesNo
+                  selectedGender={selectedGender}
+                  selectedLanguage={selectedLanguage}
+                />
               </div>
             </div>
             <Footer />
