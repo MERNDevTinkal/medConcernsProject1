@@ -183,51 +183,49 @@ const BreathingProblem = () => {
                 }}
               >
                 {problem.map((data, index) => (
-                  <>
-                    <div
-                      className={
-                        selectedIconCount === 1
-                          ? "dash-single-items"
-                          : selectedIconCount === 2
-                          ? "dash-double-items"
-                          : selectedIconCount === 3
-                          ? "dash-triple-items"
-                          : selectedIconCount === 4
-                          ? "dash-quadriple-items"
-                          : selectedIconCount === 6
-                          ? "dash-hexuple-items"
-                          : ""
-                      }
-                      style={{ cursor: "pointer" }}
-                      onClick={() => {
-                        handleBreathingProblem(
-                          data,
-                          data?.secPath?.includes("/confrm-step-yesno")
-                            ? `${Mainpath}${data?.secPath}/${data?.id}`
-                            : `${data?.secPath}`
-                        );
-                      }}
-                      key={data?.id + "-" + index}
-                    >
-                      <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
-                        <div className="dashboard-img card-img-h rounded-2xl">
-                          <img
-                            style={{
-                              height: selectedIconCount === 6 ? "" : "",
-                            }}
-                            src={data?.image}
-                            className="w-full"
-                            alt={data?.name}
-                          />
-                        </div>
-                        <p className="text-[16px] mt-3 mb-2 text-black">
-                          {selectedLanguage === "Spanish"
-                            ? data?.nameEs
-                            : data?.name}
-                        </p>
+                  <div
+                    className={
+                      selectedIconCount === 1
+                        ? "dash-single-items"
+                        : selectedIconCount === 2
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
+                    }
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      handleBreathingProblem(
+                        data,
+                        data?.secPath?.includes("/confrm-step-yesno")
+                          ? `${Mainpath}${data?.secPath}/${data?.id}`
+                          : `${data?.secPath}`
+                      );
+                    }}
+                    key={data?.id + "-" + index}
+                  >
+                    <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                      <div className="dashboard-img card-img-h rounded-2xl">
+                        <img
+                          style={{
+                            height: selectedIconCount === 6 ? "" : "",
+                          }}
+                          src={data?.image}
+                          className="w-full"
+                          alt={data?.name}
+                        />
                       </div>
+                      <p className="text-[16px] mt-3 mb-2 text-black">
+                        {selectedLanguage === "Spanish"
+                          ? data?.nameEs
+                          : data?.name}
+                      </p>
                     </div>
-                  </>
+                  </div>
                 ))}
               </div>
             </div>

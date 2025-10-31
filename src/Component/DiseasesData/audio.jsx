@@ -1677,7 +1677,160 @@ import UpAndDownArribaYAbajoSpanishMale from "../../assets/audio/English/male/up
 import MaloSpanishMale from "../../assets/audio/English/male/Malo.wav";
 import EstaBienSpanishMale from "../../assets/audio/English/male/Esta bien.wav";
 import BuenoSpanishMale from "../../assets/audio/English/male/Bueno (Joaquin Vignoli).wav";
+
+// English Male
+import WithFoodAndDrinksMale from "../../assets/audio/English/male/With Food and Drinks_com.wav";
+
+import TroubleWritingMale from "../../assets/audio/English/male/Trouble Writing (male).mp3";
+import TroubleReadingMale from "../../assets/audio/English/male/Trouble Reading (male).mp3";
+
+import SpreadOutMale from "../../assets/audio/English/male/spread out.mp3";
+import DifferentTimesMale from "../../assets/audio/English/male/different times.mp3";
+import ScheduledPainMedsMale from "../../assets/audio/English/male/scheduled pain meds.mp3";
+import CrushedMale from "../../assets/audio/English/male/crushed.mp3";
+import LiquidMale from "../../assets/audio/English/male/liquid.mp3";
+import WholeMale from "../../assets/audio/English/male/whole.mp3";
+import TooBigMale from "../../assets/audio/English/male/too big.mp3";
+import WhiteMale from "../../assets/audio/English/male/White (male Eng).mp3";
+import YellowMale from "../../assets/audio/English/male/yellow (male eng).mp3";
+import BrownMale from "../../assets/audio/English/male/Brown (male eng).mp3";
+import GreenMale from "../../assets/audio/English/male/Green (male eng).mp3";
+import LiquidoSpanishMale from "../../assets/audio/English/male/liquido.m4a";
+
+// Spanish Male
+import AlergiaAlimentariaSpanishMale from "../../assets/audio/English/male/40 Alergia alimentaria.wav";
+import DificultadParaEscribirSpanishMale from "../../assets/audio/English/male/VO -  Dificultad para Escribir.wav";
+import DificultadParaLeerSpanishMale from "../../assets/audio/English/male/VO - Dificultad para leer.wav";
+import RepartidosEnElTiempoSpanishMale from "../../assets/audio/English/male/Repartidos en el tiempo.wav";
+import TiemposDiferentesDifferentTimesSpanishMale from "../../assets/audio/English/male/tiempos diferentes_different times(Joaquin Vignoli).wav";
+import MedicamentosParaElDolorProgramadosScheduledPainMedsSpanishMale from "../../assets/audio/English/male/medicamentos para el dolor programados_scheduled pain meds (Joaquin Vignoli).wav";
+
+import AplastadoSpanishMale from "../../assets/audio/English/male/Aplastado.wav";
+import EnteroSpanishMale from "../../assets/audio/English/male/Entero.wav";
+import DemasiadoGrandesSpanishMale from "../../assets/audio/English/male/Demasiado Grandes male.mp3";
+import BlancoSpanishMale from "../../assets/audio/English/male/Blanco.wav";
+import AmarilloSpanishMale from "../../assets/audio/English/male/Amarillo.wav";
+import MarronSpanishMale from "../../assets/audio/English/male/Marron.wav";
+import VerdeSpanishMale from "../../assets/audio/English/male/Verde.wav";
+import SoloAlTragarSpanishMale from "../../assets/audio/English/male/3 Solo al tragar.wav";
+import WithFoodAndDrinkConComidaYBebidaSpanishMale from "../../assets/audio/English/male/with food and drink_con comida y bebida.wav";
+
+// English Female
+import WholeEnglishFemale from "../../assets/audio/English/female/whole.mp3";
+import WhiteEnglishFemale from "../../assets/audio/English/female/White.mp3";
+import BrownEnglishFemale from "../../assets/audio/English/female/Brown.mp3";
+import YellowEnglishFemale from "../../assets/audio/English/female/Yellow .mp3";
+import GreenEnglishFemale from "../../assets/audio/English/female/Green.mp3";
+import WithFoodEnglishFemale from "../../assets/audio/English/female/With Food.mp3";
+import JustSwallowingEnglishFemale from "../../assets/audio/English/female/Just Swallowing .mp3";
+import WithFoodAndDrinkEnglishFemale from "../../assets/audio/English/female/With food and drink.mp3";
+import WithDrinksEnglishFemale from "../../assets/audio/English/female/With Drinks.mp3";
+import FoodAllergyEnglishFemale from "../../assets/audio/English/female/Food Allergy .mp3";
+import TroubleWritingEnglishFemale from "../../assets/audio/English/female/Trouble Writing.mp3";
+import TroubleReadingEnglishFemale from "../../assets/audio/English/female/Trouble Reading.mp3";
+import SpreadOutEnglishFemale from "../../assets/audio/English/female/Spread out.mp3";
+import DifferentTimesEnglishFemale from "../../assets/audio/English/female/different times.mp3";
+import LiquidEnglishFemale from "../../assets/audio/English/female/liquid.mp3";
+import ScheduledPainMedsEnglishFemale from "../../assets/audio/English/female/scheduled pain meds.mp3";
+import CrushedEnglishFemale from "../../assets/audio/English/female/crushed.mp3";
+
+// Spanish Female
+import BlancoWhiteSpanishFemale from "../../assets/audio/English/female/Blanco (white).mp3";
+import MarronBrownSpanishFemale from "../../assets/audio/English/female/Marron (Brown).mp3";
+import AmarilloYellowSpanishFemale from "../../assets/audio/English/female/Amarillo (yellow).mp3";
+import VerdeGreenSpanishFemale from "../../assets/audio/English/female/Verde (green).mp3";
+import ConComidaYBebidaWithFoodAndDrink1SpanishFemale from "../../assets/audio/English/female/Con comida y bebida (with food and drink) (1).mp3";
+import ConComidaWithFoodSpanishFemale from "../../assets/audio/English/female/con comida (with food).mp3";
+import SoloAlTragarJustSwallowingSpanishFemale from "../../assets/audio/English/female/Solo al Tragar (Just Swallowing).mp3";
+import ConComidaYBebidaWithFoodAndDrinkSpanishFemale from "../../assets/audio/English/female/Con comida y bebida (with food and drink).mp3";
+import ConBebidasWithDrinksSpanishFemale from "../../assets/audio/English/female/Con bebidas (with drinks).mp3";
+import AlergiaAlimentariaFoodAllergySpanishFemale from "../../assets/audio/English/female/Alergia Alimentaria (Food Allergy).mp3";
+import DificultadParaEscribirTroubleWritingSpanishFemale from "../../assets/audio/English/female/Dificultad para Escribir (trouble writing).mp3";
+import DificultadParaLeerTroubleReadingSpanishFemale from "../../assets/audio/English/female/Dificultad para Leer (trouble reading).mp3";
+import RepartidosEnElTiempoSpreadOutSpanishFemale from "../../assets/audio/English/female/repartidos en el tiempo (spread out).mp3";
+import TiemposDiferentesDifferentTimesSpanishFemale from "../../assets/audio/English/female/tiempos diferentes (different times).mp3";
+import MedicamentosParaElDolorProgramadosScheduledPainMedsSpanishFemale from "../../assets/audio/English/female/Medicamentos para el dolor programados (scheduled pain meds).mp3";
+import AplastadoCrushedSpanishFemale from "../../assets/audio/English/female/aplastado (crushed).mp3";
+import EnteroWholeSpanishFemale from "../../assets/audio/English/female/entero (whole).mp3";
+import ToobigEnglsihFemale from "../../assets/audio/English/female/Too big.mp3";
+import ToobigSpanishFemale from "../../assets/audio/English/female/demasiado grande (too big).mp3";
+
 export {
+  ToobigSpanishFemale,
+  ToobigEnglsihFemale,
+  // English Female
+  WholeEnglishFemale,
+  WhiteEnglishFemale,
+  BrownEnglishFemale,
+  YellowEnglishFemale,
+  GreenEnglishFemale,
+  WithFoodEnglishFemale,
+  JustSwallowingEnglishFemale,
+  WithFoodAndDrinkEnglishFemale,
+  WithDrinksEnglishFemale,
+  FoodAllergyEnglishFemale,
+  TroubleWritingEnglishFemale,
+  TroubleReadingEnglishFemale,
+  SpreadOutEnglishFemale,
+  DifferentTimesEnglishFemale,
+  LiquidEnglishFemale,
+  ScheduledPainMedsEnglishFemale,
+  CrushedEnglishFemale,
+
+  // Spanish Female
+  BlancoWhiteSpanishFemale,
+  MarronBrownSpanishFemale,
+  AmarilloYellowSpanishFemale,
+  VerdeGreenSpanishFemale,
+  ConComidaYBebidaWithFoodAndDrink1SpanishFemale,
+  ConComidaWithFoodSpanishFemale,
+  SoloAlTragarJustSwallowingSpanishFemale,
+  ConComidaYBebidaWithFoodAndDrinkSpanishFemale,
+  ConBebidasWithDrinksSpanishFemale,
+  AlergiaAlimentariaFoodAllergySpanishFemale,
+  DificultadParaEscribirTroubleWritingSpanishFemale,
+  DificultadParaLeerTroubleReadingSpanishFemale,
+  RepartidosEnElTiempoSpreadOutSpanishFemale,
+  TiemposDiferentesDifferentTimesSpanishFemale,
+  MedicamentosParaElDolorProgramadosScheduledPainMedsSpanishFemale,
+  AplastadoCrushedSpanishFemale,
+  EnteroWholeSpanishFemale,
+  // English Male
+  WithFoodAndDrinksMale,
+  TroubleWritingMale,
+  TroubleReadingMale,
+  SpreadOutMale,
+  DifferentTimesMale,
+  ScheduledPainMedsMale,
+  CrushedMale,
+  LiquidMale,
+  WholeMale,
+  TooBigMale,
+  WhiteMale,
+  YellowMale,
+  BrownMale,
+  GreenMale,
+  JustSwallowingMale,
+
+  // Spanish Male
+  AlergiaAlimentariaSpanishMale,
+  DificultadParaEscribirSpanishMale,
+  DificultadParaLeerSpanishMale,
+  NoPuedoOirCantHearSpanishMale,
+  RepartidosEnElTiempoSpanishMale,
+  TiemposDiferentesDifferentTimesSpanishMale,
+  MedicamentosParaElDolorProgramadosScheduledPainMedsSpanishMale,
+  LiquidoSpanishMale,
+  AplastadoSpanishMale,
+  EnteroSpanishMale,
+  DemasiadoGrandesSpanishMale,
+  BlancoSpanishMale,
+  AmarilloSpanishMale,
+  MarronSpanishMale,
+  VerdeSpanishMale,
+  SoloAlTragarSpanishMale,
+  WithFoodAndDrinkConComidaYBebidaSpanishMale,
+
   // English Female
   GettingBetterEnglishFemale,
   UpAndDownEnglishFemale,
@@ -1938,7 +2091,6 @@ export {
   TapadosPluggedSpanishMale,
   MareadoADizzySpanishMale,
   SonandoRingingSpanishMale,
-  NoPuedoOirCantHearSpanishMale,
   AudifonosSpanishMale,
   DolorDeOidoEarPainSpanishMale,
   RingingMale,
@@ -2742,7 +2894,6 @@ export {
   WriteItDownMale,
   StrokeSymptomsMale,
   GoodOrOkayMale,
-  JustSwallowingMale,
   ALittleOffMale,
   NotGoodMale,
   LowOrSadMale,
