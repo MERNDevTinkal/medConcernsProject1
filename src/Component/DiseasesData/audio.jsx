@@ -1502,7 +1502,92 @@ import DolorAlTragarPainWithSwallowingSpanishFemale from "../../assets/audio/Eng
 import AcidezEstomacalHeartburnSpanishFemale from "../../assets/audio/English/female/Acidez estomacal (heartburn).mp3";
 import ComidaQueSePegaFoodStickingSpanishFemale from "../../assets/audio/English/female/Comida que se Pega (food sticking).mp3";
 
+// Spanish Male
+import SintomasDeUnAccidenteCerebrovascularSpanishMale from "../../assets/audio/spanish/male/28 Síntomas de un accidente cerebrovascular.wav";
+import TraqueostomiaQuitadoSpanishMale from "../../assets/audio/spanish/male/Traqueostomia quitado.wav";
+import TuboDeAlimentacionQuitadoSpanishMale from "../../assets/audio/spanish/male/Tubo de alimentacion quitado.wav";
+import EsperarDemasiadoTiempoWaitedTooLongSpanishMale from "../../assets/audio/spanish/male/Esperar Demasiado Tiempo (Waited Too Long).wav";
+import MalToqueSpanishMale from "../../assets/audio/spanish/male/Mal toque.wav";
+import NecesitaCambioSpanishMale from "../../assets/audio/spanish/male/7 Necesita cambio.wav";
+import AnalisisDeSangreORayosXBloodworkXraySpanishMale from "../../assets/audio/spanish/male/Analisis de Sangre o Rayos X (Bloodwork_Xray).wav";
+
+import ArgumentoSpanishMale from "../../assets/audio/spanish/male/Argumento (argument).wav";
+import CaerseFallSpanishMale from "../../assets/audio/spanish/male/Caerse (Fall).wav";
+
+// English Male
+
+import TrachRemovedMale from "../../assets/audio/English/male/Trach Removed.mp3";
+
+import WaitedTooLongMale from "../../assets/audio/English/male/Waited too long.mp3";
+import BadTouchMale from "../../assets/audio/English/male/Bad Touch (male).mp3";
+
+import BloodworkXRayMale from "../../assets/audio/English/male/Bloodwork_X-Ray.mp3";
+
+import ArgumentMale from "../../assets/audio/English/male/Argument (male eng).mp3";
+import FallMale from "../../assets/audio/English/male/Fall.mp3";
+
+// Spanish Female
+import StrokeSymptomsSpanishFemale from "../../assets/audio/spanish/female/Sintomas de un accidente cerebrovascular (Stroke Symptoms).mp3";
+import NecesitaCambioNeedChangedSpanishFemale from "../../assets/audio/spanish/female/Necesita Cambio (Need Changed).mp3";
+import TraqueostomiaQuitadoTrachRemovedSpanishFemale from "../../assets/audio/spanish/female/Traqueostomia Quitado (Trach Removed - female).mp3";
+import TuboDeAlimentacionQuitadoPEGRemovedSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentacion Quitado (PEG Removed).mp3";
+import EsperarDemasiadoTiempoWaitedTooLongSpanishFemale from "../../assets/audio/spanish/female/Esperar Demasiado Tiempo (waited too long).mp3";
+import MalToqueBadTouchSpanishFemale from "../../assets/audio/spanish/female/Mal Toque (Bad Touch).wav";
+import AnalisisDeSangreORayosXBloodworkOrXraySpanishFemale from "../../assets/audio/spanish/female/Análisis de Sangre o Rayos X (Bloodwork or Xray).mp3";
+import ArgumentoArgumentSpanishFemale from "../../assets/audio/spanish/female/Argumento (Argument).mp3";
+import CaerseFallSpanishFemale from "../../assets/audio/spanish/female/Caerse (Fall).mp3";
+
+// English Female
+import StrokeSymptomsEnglishFemale from "../../assets/audio/English/female/Stroke Symptoms (female) (1).mp3";
+import TrachRemovedEnglishFemale from "../../assets/audio/English/female/Trach Removed.mp3";
+import FeedingTubeRemovedEnglishFemale from "../../assets/audio/English/female/Feeding Tube Removed.mp3";
+import WaitedTooLongEnglishFemale from "../../assets/audio/English/female/waited too long.mp3";
+import BadTouchEnglishFemale from "../../assets/audio/English/female/Bad Touch.mp3";
+import BloodworkOrXrayEnglishFemale from "../../assets/audio/English/female/Bloodwork or Xray.mp3";
+import ArgumentEnglishFemale from "../../assets/audio/English/female/Argument.mp3";
+import FallEnglishFemale from "../../assets/audio/English/female/Fall .mp3";
+
 export {
+  // Spanish Female
+  StrokeSymptomsSpanishFemale,
+  NecesitaCambioNeedChangedSpanishFemale,
+  TraqueostomiaQuitadoTrachRemovedSpanishFemale,
+  TuboDeAlimentacionQuitadoPEGRemovedSpanishFemale,
+  EsperarDemasiadoTiempoWaitedTooLongSpanishFemale,
+  MalToqueBadTouchSpanishFemale,
+  AnalisisDeSangreORayosXBloodworkOrXraySpanishFemale,
+  ArgumentoArgumentSpanishFemale,
+  CaerseFallSpanishFemale,
+
+  // English Female
+  StrokeSymptomsEnglishFemale,
+  NeedChangedEnglishFemale,
+  TrachRemovedEnglishFemale,
+  FeedingTubeRemovedEnglishFemale,
+  WaitedTooLongEnglishFemale,
+  BadTouchEnglishFemale,
+  BloodworkOrXrayEnglishFemale,
+  ArgumentEnglishFemale,
+  FallEnglishFemale,
+  // Spanish Male
+  SintomasDeUnAccidenteCerebrovascularSpanishMale,
+  TraqueostomiaQuitadoSpanishMale,
+  TuboDeAlimentacionQuitadoSpanishMale,
+  EsperarDemasiadoTiempoWaitedTooLongSpanishMale,
+  MalToqueSpanishMale,
+  NecesitaCambioSpanishMale,
+  AnalisisDeSangreORayosXBloodworkXraySpanishMale,
+  ArgumentoSpanishMale,
+  CaerseFallSpanishMale,
+
+  // English Male
+  TrachRemovedMale,
+  WaitedTooLongMale,
+  BadTouchMale,
+  BloodworkXRayMale,
+  ArgumentMale,
+  FallMale,
+
   // English Female
   FoodStickingEnglishFemale,
   NoAppetiteEnglishFemale,
@@ -1741,7 +1826,6 @@ export {
   CrampingEnglishFemale,
   GasOrBloatingEnglishFemale,
   ConstipationEnglishFemale,
-  NeedChangedEnglishFemale,
   ColostomyOstomyBagEnglishFemale,
   NoQuieroDontWantSpanishMale,
   CambiosDeSaborTasteChangesSpanishMale,
