@@ -104,7 +104,7 @@ const FeelingListPain = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(pathprimary, [value]);
-      // navigate(valuepath);
+      navigate(valuepath);
     }
   };
   return (

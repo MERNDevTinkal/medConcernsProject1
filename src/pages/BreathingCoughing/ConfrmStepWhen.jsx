@@ -120,7 +120,7 @@ function ConfrmStepWhen() {
                           ? YesMale
                           : selectedLanguage === "English" &&
                             selectedGender === "Female"
-                          ? YesFemaleSpanish
+                          ? YesFemale
                           : YesMale
                       );
                     }}

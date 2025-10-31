@@ -140,7 +140,7 @@ function EmotionScreen() {
                           ? YesMale
                           : selectedLanguage === "English" &&
                             selectedGender === "Female"
-                          ? YesFemaleSpanish
+                          ? YesFemale
                           : YesMale
                       );
                     }}

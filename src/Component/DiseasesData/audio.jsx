@@ -1636,7 +1636,87 @@ import ReposicionarRepositionSpanishFemale from "../../assets/audio/English/fema
 import CambioDeVendajeDressingChangeSpanishFemale from "../../assets/audio/English/female/Cambio de Vendaje (Dressing Change).mp3";
 import HinchazonSwellingSpanishFemale from "../../assets/audio/English/female/hinchazón (swelling).mp3";
 import PuntadasGrapasStitchesStaplesSpanishFemale from "../../assets/audio/English/female/Puntadas_Grapas (Stitches_Staples).mp3";
+
+// English Female
+import GettingBetterEnglishFemale from "../../assets/audio/English/female/Getting Better.mp3";
+import UpAndDownEnglishFemale from "../../assets/audio/English/female/Up and Down.mp3";
+import BadEnglishFemale from "../../assets/audio/English/female/bad.mp3";
+import OkayEnglishFemale from "../../assets/audio/English/female/Okay.mp3";
+import GoodEnglishFemale from "../../assets/audio/English/female/good.mp3";
+import IDontKnowEnglishFemale from "../../assets/audio/English/female/I don't know.mp3";
+import TheSameEnglishFemale from "../../assets/audio/English/female/The Same.mp3";
+import GettingWorseEnglishFemale from "../../assets/audio/English/female/Getting Worse.mp3";
+
+// Spanish Female
+import ArribaYAbajoUpAndDownSpanishFemale from "../../assets/audio/English/female/arriba y abajo (up and down).mp3";
+import MaloBadSpanishFemale from "../../assets/audio/English/female/malo (bad).mp3";
+import EstaBienOkaySpanishFemale from "../../assets/audio/English/female/esta bien (okay).mp3";
+import BuenoGoodSpanishFemale from "../../assets/audio/English/female/bueno (good).mp3";
+import NoSeIDontKnowSpanishFemale from "../../assets/audio/English/female/No se (I don't know).mp3";
+import LoMismoTheSameSpanishFemale from "../../assets/audio/English/female/lo mismo (the same).mp3";
+import EmpeorandoGettingWorseSpanishFemale from "../../assets/audio/English/female/empeorando (getting worse).mp3";
+import MejorandoGettingBetterSpanishFemale from "../../assets/audio/English/female/mejorando (getting better).mp3";
+
+// English Male
+import GoodMale from "../../assets/audio/English/male/Good.wav";
+
+import TheSameMale from "../../assets/audio/English/male/the same.mp3";
+import GettingWorseMale from "../../assets/audio/English/male/Getting worse.mp3";
+import GettingBetterMale from "../../assets/audio/English/male/getting better.mp3";
+import UpAndDownMale from "../../assets/audio/English/male/Upanddown1_com.wav";
+import BadMale from "../../assets/audio/English/male/Bad.wav";
+import OkayMale from "../../assets/audio/English/male/Okay.wav";
+
+// Spanish Male
+
+import NoSeSpanishMale from "../../assets/audio/English/male/VO - No se.wav";
+import LoMismoSpanishMale from "../../assets/audio/English/male/Lo mismo.wav";
+import GettingWorseEmpeorandoSpanishMale from "../../assets/audio/English/male/Gets Worse Through the Day(male).wav";
+import GettingBetterMejorandoSpanishMale from "../../assets/audio/English/male/getting better_mejorando.wav";
+import UpAndDownArribaYAbajoSpanishMale from "../../assets/audio/English/male/up and down_arriba y abajo.wav";
+import MaloSpanishMale from "../../assets/audio/English/male/Malo.wav";
+import EstaBienSpanishMale from "../../assets/audio/English/male/Esta bien.wav";
+import BuenoSpanishMale from "../../assets/audio/English/male/Bueno (Joaquin Vignoli).wav";
 export {
+  // English Female
+  GettingBetterEnglishFemale,
+  UpAndDownEnglishFemale,
+  BadEnglishFemale,
+  OkayEnglishFemale,
+  GoodEnglishFemale,
+  IDontKnowEnglishFemale,
+  TheSameEnglishFemale,
+  GettingWorseEnglishFemale,
+
+  // Spanish Female
+  ArribaYAbajoUpAndDownSpanishFemale,
+  MaloBadSpanishFemale,
+  EstaBienOkaySpanishFemale,
+  BuenoGoodSpanishFemale,
+  NoSeIDontKnowSpanishFemale,
+  LoMismoTheSameSpanishFemale,
+  EmpeorandoGettingWorseSpanishFemale,
+  MejorandoGettingBetterSpanishFemale,
+
+  // English Male
+  GoodMale,
+  TheSameMale,
+  GettingWorseMale,
+  GettingBetterMale,
+  UpAndDownMale,
+  BadMale,
+  OkayMale,
+
+  // Spanish Male
+  NoSeSpanishMale,
+  LoMismoSpanishMale,
+  GettingWorseEmpeorandoSpanishMale,
+  GettingBetterMejorandoSpanishMale,
+  UpAndDownArribaYAbajoSpanishMale,
+  MaloSpanishMale,
+  EstaBienSpanishMale,
+  BuenoSpanishMale,
+
   // English Female
   SwellingEnglishFemale,
   InfectionEnglishFemale,

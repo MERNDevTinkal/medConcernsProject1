@@ -76,7 +76,7 @@ const DecisionCardFeeling = ({
                 : selectedLanguage === "English" && selectedGender === "Male"
                 ? YesMale
                 : selectedLanguage === "English" && selectedGender === "Female"
-                ? YesFemaleSpanish
+                ? YesFemale
                 : YesMale
             );
           }}

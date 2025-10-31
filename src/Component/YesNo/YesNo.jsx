@@ -49,7 +49,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
                 : selectedLanguage === "English" && selectedGender === "Male"
                 ? YesMale
                 : selectedLanguage === "English" && selectedGender === "Female"
-                ? YesFemaleSpanish
+                ? YesFemale
                 : YesMale
             );
           }}

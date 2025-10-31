@@ -300,8 +300,10 @@ import TroubleReadingImg from "../../assets/images/Trouble Reading.png";
 import TroubleWritingImg from "../../assets/images/Trouble Writing.png";
 import LostHearingAidsImg from "../../assets/images/Lost Hearing Aids.png";
 import BrainTiredImg from "../../assets/images/Brain Tired.png";
+import SwellingImg from "../../assets/images/Swollen.png";
 
 export {
+  SwellingImg,
   achyImg,
   BrainTiredImg,
   NeedsChargingImg,

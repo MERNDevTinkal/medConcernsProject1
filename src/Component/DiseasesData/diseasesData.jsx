@@ -1,6 +1,7 @@
 import {
   LostHearingAidsImg,
   BrainTiredImg,
+  SwellingImg,
   achyImg,
   NeedsChargingImg,
   dashimg01,
@@ -9812,7 +9813,7 @@ export const diseasesData = {
       id: "4",
       name: "Swelling",
       nameEs: "Hinchazón",
-      image: swallowingimg04,
+      image: SwellingImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
       maleEnglish: SwellingMale,
