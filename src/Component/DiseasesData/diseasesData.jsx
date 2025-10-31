@@ -440,9 +440,14 @@ import {
   depressedFemale,
   crampingFemale,
   crushedFemale,
+  UrgencyMale,
   CommunicationFemale,
+  FrequenteFrequentSpanishFemale,
+  FrequentFrequenteSpanishMale,
   CommunityActivityFemale,
+  UrgenciaUrgencySpanishFemale,
   colorFemale,
+  UrgencyUrgenciaSpanishMale,
   chestPainFemale,
   chillsFemale,
   chokingFemale,
@@ -860,6 +865,29 @@ import {
   PerdiMisAudifonosFemaleSpanish,
   EscribeloFemaleSpanish,
   SintomasAccidenteCerebrovascularFemaleSpanish,
+
+  // Spanish Female
+  CanulaCapSpanishFemale,
+  PicazonItchySpanishFemale,
+  ApretadoAppetiteSpanishFemale,
+  ValvulaParlanteSpeakingValveSpanishFemale,
+
+  // English Female
+  ItchyEnglishFemale,
+  TightEnglishFemale,
+  SpeakingValveEnglishFemale,
+
+  // English Male
+  CapMale,
+  SpeakingValveMale,
+  ItchyMale,
+  TightMale,
+
+  // Spanish Male
+  CanulaSpanishMale,
+  PicazonSpanishMale,
+  ApretadoSpanishMale,
+  ValvulaParlanteSpanishMale,
   BienOrEnOrdenFemaleSpanish,
   SoloAlTragarFemaleSpanish,
   UnPocoRaroFemaleSpanish,
@@ -904,6 +932,7 @@ import {
   DebilUnLadoFemaleSpanish,
   TorpeSinEquilibrioFemaleSpanish,
   ProblemasCaminarFemaleSpanish,
+  FrequentMale,
   NecesitaCambioFemaleSpanish,
   SinPreocupacionesFemaleSpanish,
   AlAcostarseFemaleSpanish,
@@ -1255,6 +1284,11 @@ import {
   TerapiaSpanishMale,
   MejorareSpanishMale,
   DarDeAltaSpanishMale,
+  CatererCatheterSpanishFemale,
+  VeryLittleOrInfrequentMale,
+  MuyPocoOConPocaFrecuenciaSpanishMale,
+  MuyPocoOPocaFrequenciaSpanishFemale,
+  CateterSpanishMale,
   QueMePasoWhatHappenedToMeSpanishMale,
   FeedingTubeMale,
   FamilySupportMale,
@@ -1452,6 +1486,7 @@ import {
 
   // English Female Variables
   HardToSwallowEnglishFemale,
+  CapEnglishFemale,
   SideEffectsEnglishFemale,
   DontWantEnglishFemale,
   WholeCrushedOrLiquidEnglishFemale,
@@ -4003,6 +4038,10 @@ const trachproblemDesises = [
     image: CapImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    maleEnglish: CapMale, // Added
+    femaleEnglish: CapEnglishFemale,
+    femaleSpanish: CanulaCapSpanishFemale, // Added
+    maleSpanish: CanulaSpanishMale, // Added
   },
   {
     id: "4",
@@ -4011,6 +4050,10 @@ const trachproblemDesises = [
     image: SpeakingValve,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    maleEnglish: SpeakingValveMale, // Added
+    femaleEnglish: SpeakingValveEnglishFemale, // Added
+    femaleSpanish: ValvulaParlanteSpeakingValveSpanishFemale, // Added
+    maleSpanish: ValvulaParlanteSpanishMale, // Added
   },
   {
     id: "5",
@@ -4043,8 +4086,10 @@ const trachproblemDesises = [
     image: TightImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: "",
+    maleEnglish: TightMale, // Added
     femaleEnglish: TightFemale,
+    femaleSpanish: ApretadoAppetiteSpanishFemale, // Added
+    maleSpanish: ApretadoSpanishMale, // Added
   },
   {
     id: "8",
@@ -4053,8 +4098,10 @@ const trachproblemDesises = [
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: "",
+    maleEnglish: ItchyMale, // Added
     femaleEnglish: ItchyFemale,
+    femaleSpanish: PicazonItchySpanishFemale, // Added
+    maleSpanish: PicazonSpanishMale, // Added
   },
   {
     id: "9",
@@ -4114,6 +4161,10 @@ const trachDesises = [
     image: CapImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    maleEnglish: CapMale, // Added
+    femaleEnglish: CapEnglishFemale,
+    femaleSpanish: CanulaCapSpanishFemale, // Added
+    maleSpanish: CanulaSpanishMale, // Added
   },
   {
     id: "4",
@@ -4122,6 +4173,10 @@ const trachDesises = [
     image: SpeakingValve,
     secPath: "/confrm-step-yesno",
     path: "/when",
+    maleEnglish: SpeakingValveMale, // Added
+    femaleEnglish: SpeakingValveEnglishFemale, // Added
+    femaleSpanish: ValvulaParlanteSpeakingValveSpanishFemale, // Added
+    maleSpanish: ValvulaParlanteSpanishMale, // Added
   },
   {
     id: "5",
@@ -4166,8 +4221,10 @@ const trachDesises = [
     image: TightImg,
     secPath: "/confrm-step-yesno",
     path: "/when",
-    maleEnglish: "",
+    maleEnglish: TightMale, // Added
     femaleEnglish: TightFemale,
+    femaleSpanish: ApretadoAppetiteSpanishFemale, // Added
+    maleSpanish: ApretadoSpanishMale, // Added
   },
   {
     id: "9",
@@ -4329,6 +4386,10 @@ const trachproblemsubDesises = [
     path: "/when",
     image: CapImg,
     secPath: "/confrm-step-yesno",
+    maleEnglish: CapMale, // Added
+    femaleEnglish: CapEnglishFemale,
+    femaleSpanish: CanulaCapSpanishFemale, // Added
+    maleSpanish: CanulaSpanishMale, // Added
   },
   {
     id: "4",
@@ -4337,6 +4398,10 @@ const trachproblemsubDesises = [
     path: "/when",
     image: SpeakingValve,
     secPath: "/confrm-step-yesno",
+    maleEnglish: SpeakingValveMale, // Added
+    femaleEnglish: SpeakingValveEnglishFemale, // Added
+    femaleSpanish: ValvulaParlanteSpeakingValveSpanishFemale, // Added
+    maleSpanish: ValvulaParlanteSpanishMale, // Added
   },
   {
     id: "5",
@@ -4369,8 +4434,10 @@ const trachproblemsubDesises = [
     path: "/howoften",
     image: TightImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: TightMale, // Added
     femaleEnglish: TightFemale,
+    femaleSpanish: ApretadoAppetiteSpanishFemale, // Added
+    maleSpanish: ApretadoSpanishMale, // Added
   },
   {
     id: "8",
@@ -4379,8 +4446,10 @@ const trachproblemsubDesises = [
     path: "/howoften",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: ItchyMale, // Added
     femaleEnglish: ItchyFemale,
+    femaleSpanish: PicazonItchySpanishFemale, // Added
+    maleSpanish: PicazonSpanishMale, // Added
   },
   {
     id: "9",
@@ -4786,6 +4855,10 @@ const trachDesies = [
     path: "/when",
     image: CapImg,
     secPath: "/confrm-step-yesno",
+    maleEnglish: CapMale, // Added
+    femaleEnglish: CapEnglishFemale,
+    femaleSpanish: CanulaCapSpanishFemale, // Added
+    maleSpanish: CanulaSpanishMale, // Added
   },
   {
     id: "7",
@@ -4794,6 +4867,10 @@ const trachDesies = [
     path: "/when",
     image: SpeakingValve,
     secPath: "/confrm-step-yesno",
+    maleEnglish: SpeakingValveMale, // Added
+    femaleEnglish: SpeakingValveEnglishFemale, // Added
+    femaleSpanish: ValvulaParlanteSpeakingValveSpanishFemale, // Added
+    maleSpanish: ValvulaParlanteSpanishMale, // Added
   },
   {
     id: "8",
@@ -4826,8 +4903,10 @@ const trachDesies = [
     path: "/howoften",
     image: TightImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: TightMale, // Added
     femaleEnglish: TightFemale,
+    femaleSpanish: ApretadoAppetiteSpanishFemale, // Added
+    maleSpanish: ApretadoSpanishMale, // Added
   },
   {
     id: "11",
@@ -4836,8 +4915,10 @@ const trachDesies = [
     path: "/howoften",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: ItchyMale, // Added
     femaleEnglish: ItchyFemale,
+    femaleSpanish: PicazonItchySpanishFemale, // Added
+    maleSpanish: PicazonSpanishMale, // Added
   },
   {
     id: "12",
@@ -4909,6 +4990,10 @@ const SwallowingTrachDesies = [
     path: "/howoften",
     image: CapImg,
     secPath: "/confrm-step-yesno",
+    maleEnglish: CapMale, // Added
+    femaleEnglish: CapEnglishFemale,
+    femaleSpanish: CanulaCapSpanishFemale, // Added
+    maleSpanish: CanulaSpanishMale, // Added
   },
   {
     id: "4",
@@ -4917,6 +5002,10 @@ const SwallowingTrachDesies = [
     path: "/howoften",
     image: SpeakingValve,
     secPath: "/confrm-step-yesno",
+    maleEnglish: SpeakingValveMale, // Added
+    femaleEnglish: SpeakingValveEnglishFemale, // Added
+    femaleSpanish: ValvulaParlanteSpeakingValveSpanishFemale, // Added
+    maleSpanish: ValvulaParlanteSpanishMale, // Added
   },
   {
     id: "5",
@@ -4961,8 +5050,10 @@ const SwallowingTrachDesies = [
     path: "/when",
     image: TightImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: TightMale, // Added
     femaleEnglish: TightFemale,
+    femaleSpanish: ApretadoAppetiteSpanishFemale, // Added
+    maleSpanish: ApretadoSpanishMale, // Added
   },
   {
     id: "9",
@@ -4971,8 +5062,10 @@ const SwallowingTrachDesies = [
     path: "/when",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: ItchyMale, // Added
     femaleEnglish: ItchyFemale,
+    femaleSpanish: PicazonItchySpanishFemale, // Added
+    maleSpanish: PicazonSpanishMale, // Added
   },
   {
     id: "10",
@@ -5116,8 +5209,10 @@ const MedicationSidEffectsDesies = [
     path: "/when",
     image: ItchyImg,
     secPath: "/",
-    maleEnglish: "",
+    maleEnglish: ItchyMale, // Added
     femaleEnglish: ItchyFemale,
+    femaleSpanish: PicazonItchySpanishFemale, // Added
+    maleSpanish: PicazonSpanishMale, // Added
   },
   {
     id: "10",
@@ -5337,8 +5432,10 @@ const medicationnoAppetite = [
     path: "",
     image: ItchyImg,
     secPath: "/medicationswallowingChoking-problem",
-    maleEnglish: "",
+    maleEnglish: ItchyMale, // Added
     femaleEnglish: ItchyFemale,
+    femaleSpanish: PicazonItchySpanishFemale, // Added
+    maleSpanish: PicazonSpanishMale, // Added
   },
   {
     id: "5",
@@ -5398,8 +5495,10 @@ const medicationSidEffectsAppetite = [
     path: "/howoften",
     image: ItchyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: ItchyMale, // Added
     femaleEnglish: ItchyFemale,
+    femaleSpanish: PicazonItchySpanishFemale, // Added
+    maleSpanish: PicazonSpanishMale, // Added
   },
   {
     id: "5",
@@ -5533,10 +5632,10 @@ const medicationUrination = [
     nameEs: "Frecuente",
     path: "/howoften",
     image: FrequentImg,
-    maleEnglish: "",
+    maleEnglish: FrequentMale, // Added
     femaleEnglish: frequentFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: FrequenteFrequentSpanishFemale, // Added
+    maleSpanish: FrequentFrequenteSpanishMale, // Added
     secPath: "/confrm-step-yesno",
   },
   {
@@ -5546,10 +5645,10 @@ const medicationUrination = [
     path: "/howoften",
     image: UrgencyImg,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: UrgencyMale, // Added
     femaleEnglish: urgencyFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: UrgenciaUrgencySpanishFemale, // Added
+    maleSpanish: UrgencyUrgenciaSpanishMale, // Added
   },
   {
     id: "4",
@@ -5558,10 +5657,10 @@ const medicationUrination = [
     path: "/howoften",
     image: Very_Little_Infrequent,
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: VeryLittleOrInfrequentMale, // Added
     femaleEnglish: veryLittleOrInfrequentFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: MuyPocoOPocaFrequenciaSpanishFemale, // Added
+    maleSpanish: MuyPocoOConPocaFrecuenciaSpanishMale, // Added
   },
   {
     id: "5",
@@ -7713,10 +7812,10 @@ const visionConcers = [
     image: glassesImg,
     path: "/",
     secPath: "/visionGlasses-problem",
-    maleEnglish: "",
+    maleEnglish: GlassesMale,
     femaleEnglish: glassesFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: GafasGlassesFemale,
+    maleSpanish: GlassesGafasMale,
   },
   {
     id: "6",
@@ -8890,10 +8989,10 @@ export const diseasesData = {
       image: FrequentImg,
       secPath: "/confrm-step-yesno",
       path: "/when",
-      maleEnglish: "",
+      maleEnglish: FrequentMale, // Added
       femaleEnglish: frequentFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: FrequenteFrequentSpanishFemale, // Added
+      maleSpanish: FrequentFrequenteSpanishMale, // Added
     },
     {
       id: "3",
@@ -8902,10 +9001,10 @@ export const diseasesData = {
       image: UrgencyImg,
       secPath: "/confrm-step-yesno",
       path: "/when",
-      maleEnglish: "",
+      maleEnglish: UrgencyMale, // Added
       femaleEnglish: urgencyFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: UrgenciaUrgencySpanishFemale, // Added
+      maleSpanish: UrgencyUrgenciaSpanishMale, // Added
     },
     {
       id: "4",
@@ -8914,10 +9013,10 @@ export const diseasesData = {
       image: Very_Little_Infrequent,
       secPath: "/confrm-step-yesno",
       path: "/when",
-      maleEnglish: "",
+      maleEnglish: VeryLittleOrInfrequentMale, // Added
       femaleEnglish: veryLittleOrInfrequentFemale,
-      femaleSpanish: "",
-      maleSpanish: "",
+      femaleSpanish: MuyPocoOPocaFrequenciaSpanishFemale, // Added
+      maleSpanish: MuyPocoOConPocaFrecuenciaSpanishMale, // Added
     },
     {
       id: "5",
@@ -8950,7 +9049,10 @@ export const diseasesData = {
       image: Catheter,
       secPath: "/confrm-step-yesno",
       path: "/when",
+      maleEnglish: CatheterMale, // Added
       femaleEnglish: CatheterFemale,
+      femaleSpanish: CatererCatheterSpanishFemale, // Added
+      maleSpanish: CateterSpanishMale, // Added
     },
     {
       id: "8",
@@ -9690,7 +9792,10 @@ export const diseasesData = {
       image: ItchyImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: ItchyMale, // Added
       femaleEnglish: ItchyFemale,
+      femaleSpanish: PicazonItchySpanishFemale, // Added
+      maleSpanish: PicazonSpanishMale, // Added
     },
     {
       id: "7",
@@ -9860,6 +9965,10 @@ export const diseasesData = {
       image: CapImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
+      maleEnglish: CapMale, // Added
+      femaleEnglish: CapEnglishFemale,
+      femaleSpanish: CanulaCapSpanishFemale, // Added
+      maleSpanish: CanulaSpanishMale, // Added
     },
     {
       id: "4",
@@ -9868,6 +9977,10 @@ export const diseasesData = {
       image: SpeakingValve,
       path: "/when",
       secPath: "/confrm-step-yesno",
+      maleEnglish: SpeakingValveMale, // Added
+      femaleEnglish: SpeakingValveEnglishFemale, // Added
+      femaleSpanish: ValvulaParlanteSpeakingValveSpanishFemale, // Added
+      maleSpanish: ValvulaParlanteSpanishMale, // Added
     },
     {
       id: "5",
@@ -9912,7 +10025,10 @@ export const diseasesData = {
       image: TightImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
+      maleEnglish: TightMale, // Added
       femaleEnglish: TightFemale,
+      femaleSpanish: ApretadoAppetiteSpanishFemale, // Added
+      maleSpanish: ApretadoSpanishMale, // Added
     },
     {
       id: "9",
@@ -9921,7 +10037,10 @@ export const diseasesData = {
       image: ItchyImg,
       path: "/when",
       secPath: "/confrm-step-yesno",
+      maleEnglish: ItchyMale, // Added
       femaleEnglish: ItchyFemale,
+      femaleSpanish: PicazonItchySpanishFemale, // Added
+      maleSpanish: PicazonSpanishMale, // Added
     },
     {
       id: "10",

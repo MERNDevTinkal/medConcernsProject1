@@ -1547,7 +1547,100 @@ import BloodworkOrXrayEnglishFemale from "../../assets/audio/English/female/Bloo
 import ArgumentEnglishFemale from "../../assets/audio/English/female/Argument.mp3";
 import FallEnglishFemale from "../../assets/audio/English/female/Fall .mp3";
 
+import CapMale from "../../assets/audio/English/male/cap.mp3";
+import SpeakingValveMale from "../../assets/audio/English/male/speaking valve.mp3";
+import ItchyMale from "../../assets/audio/English/male/itchy.mp3";
+import TightMale from "../../assets/audio/English/male/tight.mp3";
+
+import CanulaSpanishMale from "../../assets/audio/spanish/male/Cánula.wav";
+import PicazonSpanishMale from "../../assets/audio/spanish/male/Picazon.wav";
+import ApretadoSpanishMale from "../../assets/audio/spanish/male/Apretado.wav";
+import ValvulaParlanteSpanishMale from "../../assets/audio/spanish/male/Valvula Parlante.wav";
+
+// Spanish Female
+import CanulaCapSpanishFemale from "../../assets/audio/English/newFemaleEnglish/Canula (cap).mp3";
+import PicazonItchySpanishFemale from "../../assets/audio/English/newFemaleEnglish/picazon (itchy - female) needs accent on o.mp3";
+import ApretadoAppetiteSpanishFemale from "../../assets/audio/English/newFemaleEnglish/apretado (appetite - female).mp3";
+import ValvulaParlanteSpeakingValveSpanishFemale from "../../assets/audio/English/newFemaleEnglish/Valvula Parlante (speaking valve).mp3";
+
+// English Female
+import ItchyEnglishFemale from "../../assets/audio/English/newFemaleEnglish/itchy (female english).mp3";
+import TightEnglishFemale from "../../assets/audio/English/newFemaleEnglish/tight (female - English).mp3";
+import SpeakingValveEnglishFemale from "../../assets/audio/English/newFemaleEnglish/speaking valve.mp3";
+// cap
+import CapEnglishFemale from "../../assets/audio/English/newFemaleEnglish/cap.mp3";
+
+//
+
+// English Female
+import FrequentEnglishFemale from "../../assets/audio/English/newFemaleEnglish/frequent.mp3";
+import CatheterEnglishFemale from "../../assets/audio/English/newFemaleEnglish/Catheter .wav";
+import VeryLittleOrInfrequentEnglishFemale from "../../assets/audio/English/newFemaleEnglish/Very Little or Infrequent.mp3";
+import UrgencyEnglishFemale from "../../assets/audio/English/newFemaleEnglish/Urgency.mp3";
+
+// Spanish Female
+import CatererCatheterSpanishFemale from "../../assets/audio/English/newFemaleEnglish/Catéter (Catheter - increased volume).mp3";
+import MuyPocoOPocaFrequenciaSpanishFemale from "../../assets/audio/English/newFemaleEnglish/muy poco o poca frequencia.mp3";
+import UrgenciaUrgencySpanishFemale from "../../assets/audio/English/newFemaleEnglish/Urgencia (urgency).mp3";
+import FrequenteFrequentSpanishFemale from "../../assets/audio/English/newFemaleEnglish/frequente (frequent).mp3";
+
+// English Male
+import FrequentMale from "../../assets/audio/English/male/Frequent.wav";
+import VeryLittleOrInfrequentMale from "../../assets/audio/English/male/Very Little or Infrequent.wav";
+import UrgencyMale from "../../assets/audio/English/male/Urgency.wav";
+
+// Spanish Male
+import CateterSpanishMale from "../../assets/audio/English/male/Cateter.wav";
+import MuyPocoOConPocaFrecuenciaSpanishMale from "../../assets/audio/English/male/Muy poco o con poca frecuencia.wav";
+import UrgencyUrgenciaSpanishMale from "../../assets/audio/English/male/urgency_urgencia.wav";
+import FrequentFrequenteSpanishMale from "../../assets/audio/English/male/frequent_frequente.wav";
 export {
+  // English Male
+  FrequentMale,
+  VeryLittleOrInfrequentMale,
+  UrgencyMale,
+
+  // Spanish Male
+  CateterSpanishMale,
+  MuyPocoOConPocaFrecuenciaSpanishMale,
+  UrgencyUrgenciaSpanishMale,
+  FrequentFrequenteSpanishMale,
+
+  // English Female
+  FrequentEnglishFemale,
+  CatheterEnglishFemale,
+  VeryLittleOrInfrequentEnglishFemale,
+  UrgencyEnglishFemale,
+
+  // Spanish Female
+  CatererCatheterSpanishFemale,
+  MuyPocoOPocaFrequenciaSpanishFemale,
+  UrgenciaUrgencySpanishFemale,
+  FrequenteFrequentSpanishFemale,
+  // Spanish Female
+  CapEnglishFemale,
+  CanulaCapSpanishFemale,
+  PicazonItchySpanishFemale,
+  ApretadoAppetiteSpanishFemale,
+  ValvulaParlanteSpeakingValveSpanishFemale,
+
+  // English Female
+  ItchyEnglishFemale,
+  TightEnglishFemale,
+  SpeakingValveEnglishFemale,
+
+  // English Male
+  CapMale,
+  SpeakingValveMale,
+  ItchyMale,
+  TightMale,
+
+  // Spanish Male
+  CanulaSpanishMale,
+  PicazonSpanishMale,
+  ApretadoSpanishMale,
+  ValvulaParlanteSpanishMale,
+
   // Spanish Female
   StrokeSymptomsSpanishFemale,
   NecesitaCambioNeedChangedSpanishFemale,
