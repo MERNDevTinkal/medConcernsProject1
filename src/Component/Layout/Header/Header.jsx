@@ -259,7 +259,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
         onClose={() => setOpenPopup(false)}
         onConfirm={handleLogout}
       />
-      <div className="main-header-top bg-white fixed left-0 right-0 top-0">
+      <div className="main-header-top bg-white fixed left-0 right-0 top-0 z-10">
         <header className="px-4 py-3  main-header">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">

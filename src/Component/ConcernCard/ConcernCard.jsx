@@ -52,7 +52,19 @@ const ConcernCard = ({
         .filter((item) => !skipKeys.includes(item.name))
         .map((item) => (
           <div
-            className={selectedIconCount === 1 ? "dash-single-items" : ""}
+            className={
+              selectedIconCount === 1
+                ? "dash-single-items"
+                : selectedIconCount === 2
+                ? "dash-double-items"
+                : selectedIconCount === 3
+                ? "dash-triple-items"
+                : selectedIconCount === 4
+                ? "dash-quadriple-items"
+                : selectedIconCount === 6
+                ? "dash-hexuple-items"
+                : ""
+            }
             key={item.id}
             style={{
               cursor: "pointer",
@@ -62,7 +74,7 @@ const ConcernCard = ({
             <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2">
               <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
                 <img
-                  style={{ height: selectedIconCount === 6 ? "50px" : "" }}
+                  style={{ height: selectedIconCount === 6 ? "" : "" }}
                   src={item?.image}
                   alt={item?.name}
                   className="w-full h-full object-contain"

@@ -34,23 +34,25 @@ const PainFeel = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper">
-            <div
-              className="dashboard-h grid gap-3 p-3"
-              style={{
-                gridTemplateColumns:
-                  selectedIconCount === 6
-                    ? "repeat(3, 1fr)" // 3 per row
-                    : `repeat(${selectedIconCount || 2}, 1fr)`,
-                gridTemplateRows:
-                  selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
-              }}
-            >
-              <PainCardsList
-                selectedGender={selectedGender}
-                selectedLanguage={selectedLanguage}
-                selectedIconCount={selectedIconCount}
-              />
+          <div className="main-wrapper home-wrapper ">
+            <div className="dashboard-wrapper px-4 py-1.5">
+              <div
+                className="dashboard-h grid gap-3 p-3"
+                style={{
+                  gridTemplateColumns:
+                    selectedIconCount === 6
+                      ? "repeat(3, 1fr)" // 3 per row
+                      : `repeat(${selectedIconCount || 2}, 1fr)`,
+                  gridTemplateRows:
+                    selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
+                }}
+              >
+                <PainCardsList
+                  selectedGender={selectedGender}
+                  selectedLanguage={selectedLanguage}
+                  selectedIconCount={selectedIconCount}
+                />
+              </div>
             </div>
           </div>
         </>

@@ -43,7 +43,19 @@ const TopicBoard = ({
     <>
       {topicBoard?.map((item) => (
         <div
-          className={selectedIconCount === 1 ? "dash-single-items" : ""}
+          className={
+            selectedIconCount === 1
+              ? "dash-single-items"
+              : selectedIconCount === 2
+              ? "dash-double-items"
+              : selectedIconCount === 3
+              ? "dash-triple-items"
+              : selectedIconCount === 4
+              ? "dash-quadriple-items"
+              : selectedIconCount === 6
+              ? "dash-hexuple-items"
+              : ""
+          }
           style={{ cursor: "pointer" }}
           key={item.id}
           onClick={() => handleConcern(item, item.path)}
@@ -51,7 +63,7 @@ const TopicBoard = ({
           <div className="dashboard-cards rounded-2xl bg-white h-[120px] flex items-center justify-center  text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
             <p
               className="text-[16px] mt-3 mb-2 text-black"
-              style={{ height: selectedIconCount === 6 ? "50px" : "" }}
+              style={{ height: selectedIconCount === 6 ? "" : "" }}
             >
               {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
             </p>
