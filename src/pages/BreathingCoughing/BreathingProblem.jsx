@@ -40,9 +40,9 @@ const BreathingProblem = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(Mainpath, [value]);
-      // navigate(path, {
-      //   state: value,
-      // });
+      navigate(path, {
+        state: value,
+      });
     }
   };
   useEffect(() => {

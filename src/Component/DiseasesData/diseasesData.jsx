@@ -658,7 +658,6 @@ import {
   BedMale,
   DrinkMale,
   PainMedsMale,
-  RepositionMale,
   IceMale,
   IcePackMale,
   BlanketPillowMale,
@@ -1226,6 +1225,14 @@ import {
   CriarALosNinosRaisingChildrenSpanishFemale,
   FamiliaFamilySpanishFemale,
   TrabajoWork1SpanishFemale,
+  DoubleMale,
+  BlurryMale,
+  BlurryBorrosoSpanishMale,
+  DoubleDobleSpanishMale,
+  BlurryEnglishFemale,
+  DoubleEnglishFemale,
+  DobleDoubleSpanishFemale,
+  BorrosoBlurrySpanishFemale,
   TrabajoWorkSpanishFemale,
   ActividadDeLaComunidadCommunityActivitySpanishFemale,
   ActividadDelHogarHouseholdActivitySpanishFemale,
@@ -1569,6 +1576,33 @@ import {
   TroubleSleepingEnglishFemale,
   ArgumentEnglishFemale,
   FallEnglishFemale,
+
+  // English Female
+  SwellingEnglishFemale,
+  InfectionEnglishFemale,
+  StitchesOrStaplesEnglishFemale,
+  RepositionEnglishFemale,
+  DressingChangeEnglishFemale,
+
+  // Spanish Female
+  InfeccionInfectionSpanishFemale,
+  ReposicionarRepositionSpanishFemale,
+  CambioDeVendajeDressingChangeSpanishFemale,
+  HinchazonSwellingSpanishFemale,
+  PuntadasGrapasStitchesStaplesSpanishFemale,
+
+  // English Male
+  RepositionMale,
+  SwellingMale,
+  StitchesStaplesMale,
+  InfectionMale,
+
+  // Spanish Male
+  CambioDeVendajeChangeDressingSpanishMale,
+  HinchazonSwellingSpanishMale,
+  PuntadasGrapasStitchesStaplesSpanishMale,
+  InfeccionInfectionSpanishMale,
+  ReposicionarSpanishMale,
 } from "./audio.jsx";
 
 export const breathingWhenOptions = [
@@ -7767,7 +7801,10 @@ const visionConcers = [
     image: DoubleVision,
     path: "/when",
     secPath: "/confrm-step-yesno",
-    femaleEnglish: DizzyFemale,
+    femaleEnglish: DoubleEnglishFemale,
+    maleEnglish: DoubleMale,
+    femaleSpanish: DobleDoubleSpanishFemale,
+    maleSpanish: DoubleDobleSpanishMale,
   },
   {
     id: "2",
@@ -7776,10 +7813,10 @@ const visionConcers = [
     image: doubleVisionImg,
     path: "/when",
     secPath: "/confrm-step-yesno",
-    maleEnglish: "",
+    maleEnglish: BlurryMale,
     femaleEnglish: BlurryFemale,
-    femaleSpanish: "",
-    maleSpanish: "",
+    femaleSpanish: BorrosoBlurrySpanishFemale,
+    maleSpanish: BlurryBorrosoSpanishMale,
   },
   {
     id: "3",
@@ -9742,6 +9779,10 @@ export const diseasesData = {
       image: InfectionImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: InfectionMale,
+      femaleEnglish: InfectionEnglishFemale,
+      femaleSpanish: InfeccionInfectionSpanishFemale,
+      maleSpanish: InfeccionInfectionSpanishMale,
     },
     {
       id: "2",
@@ -9750,7 +9791,10 @@ export const diseasesData = {
       image: ic_stitches_staplesImg,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: StitchesStaplesMale,
       femaleEnglish: StitchesOrStaplesWavFemale,
+      femaleSpanish: PuntadasGrapasStitchesStaplesSpanishFemale,
+      maleSpanish: PuntadasGrapasStitchesStaplesSpanishMale,
     },
     {
       id: "3",
@@ -9771,7 +9815,10 @@ export const diseasesData = {
       image: swallowingimg04,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
+      maleEnglish: SwellingMale,
       femaleEnglish: SwellingFemale,
+      femaleSpanish: HinchazonSwellingSpanishFemale,
+      maleSpanish: HinchazonSwellingSpanishMale,
     },
     {
       id: "5",
@@ -9807,6 +9854,7 @@ export const diseasesData = {
       femaleEnglish: DressingChangeFemale,
       maleEnglish: DressingChangeMale,
       femaleSpanish: dressingchangeSpanishfeMale,
+      maleSpanish: CambioDeVendajeChangeDressingSpanishMale,
     },
     {
       id: "8",

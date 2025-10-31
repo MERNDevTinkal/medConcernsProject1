@@ -1594,7 +1594,82 @@ import CateterSpanishMale from "../../assets/audio/English/male/Cateter.wav";
 import MuyPocoOConPocaFrecuenciaSpanishMale from "../../assets/audio/English/male/Muy poco o con poca frecuencia.wav";
 import UrgencyUrgenciaSpanishMale from "../../assets/audio/English/male/urgency_urgencia.wav";
 import FrequentFrequenteSpanishMale from "../../assets/audio/English/male/frequent_frequente.wav";
+
+// English Male
+import DoubleMale from "../../assets/audio/English/male/double.mp3";
+import BlurryMale from "../../assets/audio/English/male/blurry.mp3";
+
+// Spanish Male
+import BlurryBorrosoSpanishMale from "../../assets/audio/English/male/blurry_borroso.wav";
+import DoubleDobleSpanishMale from "../../assets/audio/English/male/double_doble.wav";
+
+// English Female
+import BlurryEnglishFemale from "../../assets/audio/English/female/Blurry.mp3";
+import DoubleEnglishFemale from "../../assets/audio/English/female/Double.mp3";
+
+// Spanish Female
+import DobleDoubleSpanishFemale from "../../assets/audio/English/female/doble (double).mp3";
+import BorrosoBlurrySpanishFemale from "../../assets/audio/English/female/borroso (blurry).mp3";
+
+// English Male
+import SwellingMale from "../../assets/audio/English/male/Swelling.mp3";
+import StitchesStaplesMale from "../../assets/audio/English/male/Stitches_Staples.mp3";
+import InfectionMale from "../../assets/audio/English/male/Infection.mp3";
+
+// Spanish Male
+import CambioDeVendajeChangeDressingSpanishMale from "../../assets/audio/English/male/Cambio de vendaje (Change Dressing).wav";
+import HinchazonSwellingSpanishMale from "../../assets/audio/English/male/Hinchazon (Swelling).wav";
+import PuntadasGrapasStitchesStaplesSpanishMale from "../../assets/audio/English/male/Puntadas_Grapas (Stitches_Staples).wav";
+import InfeccionInfectionSpanishMale from "../../assets/audio/English/male/Infeccion (infection).wav";
+import ReposicionarSpanishMale from "../../assets/audio/English/male/92 Reposicionar.wav";
+
+// English Female
+import SwellingEnglishFemale from "../../assets/audio/English/female/Swelling.mp3";
+import InfectionEnglishFemale from "../../assets/audio/English/newFemaleEnglish/Infection.wav";
+import StitchesOrStaplesEnglishFemale from "../../assets/audio/English/female/Stitches or Staples.mp3";
+import RepositionEnglishFemale from "../../assets/audio/English/female/Reposition.mp3";
+import DressingChangeEnglishFemale from "../../assets/audio/English/female/Dressing Change.mp3";
+
+// Spanish Female
+import InfeccionInfectionSpanishFemale from "../../assets/audio/English/female/Infección (Infection).mp3";
+import ReposicionarRepositionSpanishFemale from "../../assets/audio/English/female/Reposicionar (reposition).mp3";
+import CambioDeVendajeDressingChangeSpanishFemale from "../../assets/audio/English/female/Cambio de Vendaje (Dressing Change).mp3";
+import HinchazonSwellingSpanishFemale from "../../assets/audio/English/female/hinchazón (swelling).mp3";
+import PuntadasGrapasStitchesStaplesSpanishFemale from "../../assets/audio/English/female/Puntadas_Grapas (Stitches_Staples).mp3";
 export {
+  // English Female
+  SwellingEnglishFemale,
+  InfectionEnglishFemale,
+  StitchesOrStaplesEnglishFemale,
+  RepositionEnglishFemale,
+  DressingChangeEnglishFemale,
+
+  // Spanish Female
+  InfeccionInfectionSpanishFemale,
+  ReposicionarRepositionSpanishFemale,
+  CambioDeVendajeDressingChangeSpanishFemale,
+  HinchazonSwellingSpanishFemale,
+  PuntadasGrapasStitchesStaplesSpanishFemale,
+
+  // English Male
+  SwellingMale,
+  StitchesStaplesMale,
+  InfectionMale,
+
+  // Spanish Male
+  CambioDeVendajeChangeDressingSpanishMale,
+  HinchazonSwellingSpanishMale,
+  PuntadasGrapasStitchesStaplesSpanishMale,
+  InfeccionInfectionSpanishMale,
+  ReposicionarSpanishMale,
+  DoubleMale,
+  BlurryMale,
+  BlurryBorrosoSpanishMale,
+  DoubleDobleSpanishMale,
+  BlurryEnglishFemale,
+  DoubleEnglishFemale,
+  DobleDoubleSpanishFemale,
+  BorrosoBlurrySpanishFemale,
   // English Male
   FrequentMale,
   VeryLittleOrInfrequentMale,
