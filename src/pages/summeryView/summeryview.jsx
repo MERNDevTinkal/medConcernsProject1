@@ -106,7 +106,7 @@ const SummaryList = () => {
                 <div className="arrow-right mx-4">
                   <img src={Arrow} alt="arrow" />
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4.5 sm:gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4.5 sm:gap-3 summary-list-right">
                   <SummaryRightCard
                     selectedLanguage={selectedLanguage}
                     SummaryDetail={summaryData.summaryList}

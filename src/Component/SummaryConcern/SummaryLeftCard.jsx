@@ -11,7 +11,7 @@ const SummaryCards = ({ selectedLanguage, SummaryConcernData }) => {
   }, [SummaryConcernData]);
   return (
     <>
-      <div className="dashboard-cards rounded-2xl h-[200px] bg-white text-center py-4 px-3 shadow-sm cursor-pointer">
+      <div className="dashboard-cards rounded-2xl bg-white text-center py-4 px-3 shadow-sm cursor-pointer summary-left-cards">
         <div className="dashboard-img ">
           <img src={getData?.image} className="w-full" />
         </div>

@@ -274,7 +274,17 @@ const NeedBoard = () => {
                 .map((item, index) => (
                   <div
                     className={
-                      selectedIconCount === 1 ? "dash-single-items" : ""
+                      selectedIconCount === 1
+                        ? "dash-single-items"
+                        : selectedIconCount === 2
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
                     }
                     style={{ cursor: "pointer" }}
                     key={index}
@@ -303,13 +313,13 @@ const NeedBoard = () => {
                         <img
                           className="mainImageSize"
                           style={{
-                            height: selectedIconCount === 6 ? "50px" : "",
+                            height: selectedIconCount === 6 ? "" : "",
                           }}
                           src={item?.image}
                           alt={item?.name}
                         />
                       </div>
-                      <p className="text-[12px] mt-4 color-black mb-0 ">
+                      <p className="text-[16px] mt-4 color-black mb-0 ">
                         {selectedLanguage === "Spanish"
                           ? item?.nameEs || item?.name
                           : item?.name}

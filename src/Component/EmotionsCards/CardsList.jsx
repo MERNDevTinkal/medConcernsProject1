@@ -44,7 +44,19 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
     <>
       {feelingsicons.map((item) => (
         <div
-          className={selectedIconCount === 1 ? "dash-single-items" : ""}
+          className={
+            selectedIconCount === 1
+              ? "dash-single-items"
+              : selectedIconCount === 2
+              ? "dash-double-items"
+              : selectedIconCount === 3
+              ? "dash-triple-items"
+              : selectedIconCount === 4
+              ? "dash-quadriple-items"
+              : selectedIconCount === 6
+              ? "dash-hexuple-items"
+              : ""
+          }
           style={{ cursor: "pointer" }}
           key={item.id}
           onClick={() =>
@@ -60,7 +72,7 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
             <div className="dashboard-img card-img-h rounded-2xl">
               <img
                 style={{
-                  ...(selectedIconCount === 6 ? { height: "50px" } : ""),
+                  ...(selectedIconCount === 6 ? { height: "" } : ""),
                 }}
                 src={item.image}
                 className="w-full "

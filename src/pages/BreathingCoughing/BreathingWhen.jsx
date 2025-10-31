@@ -78,7 +78,17 @@ const BreathingWhen = () => {
                 breathingWhenOptions?.map((item, index) => (
                   <div
                     className={
-                      selectedIconCount === 1 ? "dash-single-items" : ""
+                      selectedIconCount === 1
+                        ? "dash-single-items"
+                        : selectedIconCount === 2
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
                     }
                     style={{ cursor: "pointer" }}
                     key={item.id}
@@ -93,7 +103,7 @@ const BreathingWhen = () => {
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{
-                            height: selectedIconCount === 6 ? "50px" : "",
+                            height: selectedIconCount === 6 ? "" : "",
                           }}
                           src={item.image}
                           className="w-full"
