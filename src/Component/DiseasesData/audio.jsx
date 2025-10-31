@@ -1473,7 +1473,62 @@ import GoteandoLeakingSpanishMale from "../../assets/audio/English/male/Goteando
 
 import GoteandoSpanishFemale from "../../assets/audio/spanish/female/goteando.mp3";
 import QuitarRemoveSpanishFemale from "../../assets/audio/spanish/female/quitar (remove).mp3";
+
+// English Male
+import FoodStickingMale from "../../assets/audio/English/newFemaleEnglish/Food Sticking.wav";
+import NoAppetiteMale from "../../assets/audio/English/newFemaleEnglish/No Appetite (male eng).mp3";
+import FearOfSwallowingMale from "../../assets/audio/English/newFemaleEnglish/Fear of Swallowing (male eng).mp3";
+import PainWithSwallowingMale from "../../assets/audio/English/newFemaleEnglish/Pain with Swallowing (male eng).mp3";
+import HeartburnMale from "../../assets/audio/English/newFemaleEnglish/Heartburn_com.wav";
+
+// Spanish Male
+import SinApetitoNoAppetiteSpanishMale from "../../assets/audio/English/newFemaleEnglish/Sin Apetito (No Appetite).wav";
+import MiedoDeTragarSpanishMale from "../../assets/audio/English/newFemaleEnglish/Miedo de tragar.wav";
+import DolorAlTragarSpanishMale from "../../assets/audio/English/newFemaleEnglish/Dolor al tragar.wav";
+import AcidezEstomacalHeartburnSpanishMale from "../../assets/audio/English/newFemaleEnglish/Acidez estomacal_heartburn.mp3";
+import ComidaQueSePegaSpanishMale from "../../assets/audio/English/newFemaleEnglish/comida que se pega.wav";
+
+// English Female
+import FoodStickingEnglishFemale from "../../assets/audio/English/female/Food Sticking.mp3";
+import NoAppetiteEnglishFemale from "../../assets/audio/English/female/No Appetite.mp3";
+import FearOfSwallowingEnglishFemale from "../../assets/audio/English/female/Fear of Swallowing.mp3";
+import PainWithSwallowingEnglishFemale from "../../assets/audio/English/female/Pain with Swallowing.mp3";
+import HeartburnEnglishFemale from "../../assets/audio/English/female/Heartburn.mp3";
+
+// Spanish Female
+import SinAppetitoNoAppetiteSpanishFemale from "../../assets/audio/English/female/Sin appetito (No appetite).mp3";
+import MiedoDeTragarFearOfSwallowingSpanishFemale from "../../assets/audio/English/female/Miedo de tragar (fear of swallowing).mp3";
+import DolorAlTragarPainWithSwallowingSpanishFemale from "../../assets/audio/English/female/Dolor al tragar (Pain with Swallowing).mp3";
+import AcidezEstomacalHeartburnSpanishFemale from "../../assets/audio/English/female/Acidez estomacal (heartburn).mp3";
+import ComidaQueSePegaFoodStickingSpanishFemale from "../../assets/audio/English/female/Comida que se Pega (food sticking).mp3";
+
 export {
+  // English Female
+  FoodStickingEnglishFemale,
+  NoAppetiteEnglishFemale,
+  FearOfSwallowingEnglishFemale,
+  PainWithSwallowingEnglishFemale,
+  HeartburnEnglishFemale,
+
+  // Spanish Female
+  SinAppetitoNoAppetiteSpanishFemale,
+  MiedoDeTragarFearOfSwallowingSpanishFemale,
+  DolorAlTragarPainWithSwallowingSpanishFemale,
+  AcidezEstomacalHeartburnSpanishFemale,
+  ComidaQueSePegaFoodStickingSpanishFemale,
+  // English Male
+  FoodStickingMale,
+  NoAppetiteMale,
+  FearOfSwallowingMale,
+  PainWithSwallowingMale,
+  HeartburnMale,
+
+  // Spanish Male
+  SinApetitoNoAppetiteSpanishMale,
+  MiedoDeTragarSpanishMale,
+  DolorAlTragarSpanishMale,
+  AcidezEstomacalHeartburnSpanishMale,
+  ComidaQueSePegaSpanishMale,
   RemoveMale,
   QuitarRemoveSpanishMale,
   LeakingMale,
