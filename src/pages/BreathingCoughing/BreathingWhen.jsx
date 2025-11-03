@@ -12,6 +12,8 @@ const BreathingWhen = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [selectedGender, setSelectedGender] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const pathprimary = location.pathname;
@@ -46,8 +48,8 @@ const BreathingWhen = () => {
       setSelectedIconCount,
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader
     );
   }, []);
@@ -59,6 +61,8 @@ const BreathingWhen = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={selectedLanguage === "Spanish" ? "Cuando?" : "When?"}
           />
 

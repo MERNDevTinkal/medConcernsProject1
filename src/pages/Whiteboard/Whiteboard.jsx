@@ -150,7 +150,8 @@ export default function Whiteboard() {
   const [textToolActive, setTextToolActive] = useState(false);
   const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
   const [typedText, setTypedText] = useState("");
-
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
   const [draggingImage, setDraggingImage] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(true);
@@ -902,9 +903,11 @@ export default function Whiteboard() {
       () => {},
       () => {},
       setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
       () => {},
-      () => {},
-      setLoader
+      () => {}
     );
   }, []);
 
@@ -1074,6 +1077,8 @@ export default function Whiteboard() {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={selectedLanguage === "Spanish" ? "Pizarra" : "Whiteboard"}
           />
 

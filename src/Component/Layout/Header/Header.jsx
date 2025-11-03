@@ -47,7 +47,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const { resetDiseases } = useContext(GlobalContext);
   const location = useLocation();
   const [openPopup, setOpenPopup] = useState(false);
-
+  console.log("===>calendarOn", calendarOn);
   const navigate = useNavigate();
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const handleSummery = () => resetDiseases();

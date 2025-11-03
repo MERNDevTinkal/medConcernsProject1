@@ -12,6 +12,8 @@ const BreathingProblem = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [selectedGender, setSelectedGender] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
   const location = useLocation();
   const Mainpath = location.pathname;
   const headerName = location.state;
@@ -54,8 +56,8 @@ const BreathingProblem = () => {
       setSelectedIconCount,
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader
     );
   }, []);
@@ -152,7 +154,6 @@ const BreathingProblem = () => {
     ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
       translations?.default[selectedLanguage];
-  console.log("===>", [name, headerName]);
   return (
     <>
       {loader ? (
@@ -161,6 +162,8 @@ const BreathingProblem = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish"
                 ? headerName?.nameEs

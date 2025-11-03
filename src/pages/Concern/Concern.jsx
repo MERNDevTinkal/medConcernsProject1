@@ -15,13 +15,15 @@ const Concern = () => {
   const [loader, setLoader] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [selectedGender, setSelectedGender] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = useState("");
+  const [CalendarOn, setCalendarOn] = useState("");
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader,
       () => {},
       () => {},
@@ -39,6 +41,8 @@ const Concern = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               location.pathname === "/topic-board"
                 ? selectedLanguage === "Spanish"

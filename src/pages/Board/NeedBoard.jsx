@@ -31,6 +31,8 @@ const NeedBoard = () => {
   const [isDelete, setIsDelete] = useState(false);
   const [topicId, setTopicId] = useState("");
   const [editData, setEditData] = useState(null);
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
   const { updateDisease, resetDiseases, addOrUpdateSummary } =
     useContext(GlobalContext);
   const path = location.pathname;
@@ -43,8 +45,8 @@ const NeedBoard = () => {
       setSelectedIconCount,
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader,
       () => {},
       () => {},
@@ -250,6 +252,8 @@ const NeedBoard = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish"
                 ? "Tablero de Necesidades"

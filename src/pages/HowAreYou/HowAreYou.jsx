@@ -12,6 +12,8 @@ import Loader from "../../Component/webLoader/loader";
 export default function HowAreYou() {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [selectedGender, setSelectedGender] = React.useState("");
 
@@ -57,9 +59,13 @@ export default function HowAreYou() {
       setSelectedIconCount,
       setSelectedGender,
       setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
       () => {},
       () => {},
-      setLoader
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -70,6 +76,8 @@ export default function HowAreYou() {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish" ? "Cómo estás ?" : "How are you ?"
             }

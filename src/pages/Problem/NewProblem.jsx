@@ -13,14 +13,15 @@ const NewProblem = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [selectedGender, setSelectedGender] = React.useState("");
   const [loader, setLoader] = useState(true);
-
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
   useEffect(() => {
     getSetting(
       () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader,
       () => {},
       () => {},
@@ -51,6 +52,8 @@ const NewProblem = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               location.pathname === "/new-problem"
                 ? !selectedLanguage

@@ -28,8 +28,8 @@ export default function PatientEducation() {
         <>
           <Header
             selectedLanguage={selectedLanguage}
-            IntroductionOn={IntroductionOn}
-            CalendarOn={CalendarOn}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish"
                 ? "PacienteEducación"

@@ -98,7 +98,7 @@ export default function Introduction() {
         });
       });
   }, []);
-
+  console.log("==>drertreterter", CalendarOn);
   return (
     <>
       {loader ? (
@@ -107,8 +107,8 @@ export default function Introduction() {
         <>
           <Header
             selectedLanguage={selectedLanguage}
-            IntroductionOn={IntroductionOn}
-            CalendarOn={CalendarOn}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish" ? "Introducción" : "Introduction"
             }
