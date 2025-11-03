@@ -43,6 +43,7 @@ const TopicBoard = ({
     <>
       {topicBoard?.map((item) => (
         <div
+          key={item.id}
           className={
             selectedIconCount === 1
               ? "dash-single-items"
@@ -57,16 +58,24 @@ const TopicBoard = ({
               : ""
           }
           style={{ cursor: "pointer" }}
-          key={item.id}
           onClick={() => handleConcern(item, item.path)}
         >
-          <div className="dashboard-cards rounded-2xl bg-white h-[120px] flex items-center justify-center  text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
-            <p
-              className="text-[16px] mt-3 mb-2 text-black"
-              style={{ height: selectedIconCount === 6 ? "" : "" }}
-            >
+          <div className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3">
+            {/* Spanish text stays centered */}
+            <p className="text-[16px] mt-3 mb-2 text-black">
               {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
             </p>
+
+            {/* English text positioned near bottom */}
+            {selectedLanguage === "Spanish" && (
+              <p
+                className="absolute bottom-2 text-[13
+              
+              px] text-black-500 break-words"
+              >
+                {item?.name}
+              </p>
+            )}
           </div>
         </div>
       ))}

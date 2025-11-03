@@ -375,13 +375,12 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
         }
       });
     }
+    const cleanedName = clickedRegion.name
+      .replace(/^(Right|Left)\s+/i, "") // English
+      .replace(/^(Derecho|Izquierdo|Derecha|Izquierda)\s+/i, ""); // Spanish
+
     // Speak the selected name
-    getTextToSpeech(
-      selectedLanguage === "Spanish"
-        ? clickedRegion.nameEs
-        : clickedRegion.name,
-      selectedLanguage === "Spanish" ? "es-ES" : ""
-    );
+    getTextToSpeech(cleanedName, selectedLanguage === "Spanish" ? "es-ES" : "");
     const imageObj = new Image();
     imageObj.src = bodyImage;
     imageObj.onload = () => {

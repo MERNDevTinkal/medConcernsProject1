@@ -42,7 +42,7 @@ const Concern = () => {
             name={
               location.pathname === "/topic-board"
                 ? selectedLanguage === "Spanish"
-                  ? "Tablero de temas"
+                  ? "Tablero Temático"
                   : "Topic Board"
                 : selectedLanguage === "Spanish"
                 ? "Preocupaciones"

@@ -260,7 +260,7 @@ import FoodAllergyImg from "../../assets/images/Food Allergy.png";
 import Hungry_Thirsty from "../../assets/images/Hungry _ Thirsty.png";
 import Don_tEatThis from "../../assets/images/Don_t Eat This.png";
 import NeedHelpEating from "../../assets/images/Need Help Eating.png";
-import NotAllowedtoEat_Drink from "../../assets/images/Not Allowed to Eat _ Drink.png";
+import NotAllowedtoEat_Drink from "../../assets/images/NPO  Not Allowed to EatDrink .png";
 import TooMuchLightImg from "../../assets/images/Too Much Light.png";
 import InterruptionsImg from "../../assets/images/Interruptions.png";
 import TooNoisyImg from "../../assets/images/Too Noisy - transparent.png";

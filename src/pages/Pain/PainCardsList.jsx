@@ -71,7 +71,7 @@ const PainCardsList = ({
                 handleConcern(
                   item,
                   item?.secPath?.includes("/confrm-step-yesno")
-                    ? `${path}${item?.secPath}/${item?.id}`
+                    ? `${pathprimary}${item?.secPath}/${item?.id}`
                     : `${item?.secPath}`
                 )
               }
