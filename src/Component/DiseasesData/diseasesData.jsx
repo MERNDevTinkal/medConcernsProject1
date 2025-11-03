@@ -3151,7 +3151,7 @@ const needBoard = [
     id: 31,
     name: "Charge Hearing Aids",
     nameEs: "Cargar Audífonos",
-    image: Hearingaid,
+    image: NeedsChargingImg,
     secPath: "/board/confrm-step-yesno/31",
     path: "/summary",
     maleEnglish: ChargeHearingAidsMale,

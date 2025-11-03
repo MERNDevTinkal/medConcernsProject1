@@ -606,7 +606,7 @@ export default function TabsCalendar() {
             name={
               selectedLanguage === "Spanish"
                 ? "¿Cómo empezó?"
-                : "How did it start?"
+                : "When did it start?"
             }
           />
           <div className="main-wrapper home-wrapper howoften-page mt-6 ">

@@ -325,8 +325,8 @@ const FeelingListPain = () => {
                 </div>
 
                 {/* <!-- Emoji Faces --> */}
-                <div className="flex flex-wrap justify-between items-center emoji-bar">
-                  {painFeelParams.map((data, index) => (
+                <div className="flex justify-between items-center emoji-bar overflow-x-auto whitespace-nowrap space-x-6 pb-3">
+                  {painFeelParams.map((data) => (
                     <div key={data.id}>
                       <div
                         style={{ cursor: "pointer" }}
@@ -341,7 +341,7 @@ const FeelingListPain = () => {
                               : data.painFeel
                           );
                         }}
-                        className={`flex flex-col items-center space-y-${index}  mb-3`}
+                        className="flex flex-col items-center space-y-2 mb-3"
                       >
                         <img src={data.image} alt="" />
                         <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
