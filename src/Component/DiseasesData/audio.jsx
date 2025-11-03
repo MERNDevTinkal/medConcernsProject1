@@ -1733,6 +1733,8 @@ import DifferentTimesEnglishFemale from "../../assets/audio/English/female/diffe
 import LiquidEnglishFemale from "../../assets/audio/English/female/liquid.mp3";
 import ScheduledPainMedsEnglishFemale from "../../assets/audio/English/female/scheduled pain meds.mp3";
 import CrushedEnglishFemale from "../../assets/audio/English/female/crushed.mp3";
+import withfoodSpanishmale from "../../assets/audio/English/male/con comida (with food).mp3";
+import withfoodEnglishhmale from "../../assets/audio/English/male/With Food.mp3";
 
 // Spanish Female
 import BlancoWhiteSpanishFemale from "../../assets/audio/English/female/Blanco (white).mp3";
@@ -1756,6 +1758,8 @@ import ToobigEnglsihFemale from "../../assets/audio/English/female/Too big.mp3";
 import ToobigSpanishFemale from "../../assets/audio/English/female/demasiado grande (too big).mp3";
 
 export {
+  withfoodSpanishmale,
+  withfoodEnglishhmale,
   ToobigSpanishFemale,
   ToobigEnglsihFemale,
   // English Female
