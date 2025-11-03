@@ -68,11 +68,7 @@ const SummaryList = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
-            name={
-              selectedLanguage === "Spanish"
-                ? "Lista veraniega"
-                : "Summery List"
-            }
+            name={selectedLanguage === "Spanish" ? "veraniega" : "Summery"}
           />
           {diseases?.concern?.name || diseases?.summaryList.length > 0 ? (
             <div className="main-wrapper home-wrapper">

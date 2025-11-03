@@ -57,7 +57,7 @@ import CheckMyHearingMale from "../../assets/audio/English/male/23 Check My Hear
 import NeedsChargingMale from "../../assets/audio/English/male/24 Needs Charging.wav";
 import NeedMyHearingAidsMale from "../../assets/audio/English/male/25 Need My Hearing Aids.wav";
 import WriteItDownMale from "../../assets/audio/English/male/27 Write it Down.wav";
-import StrokeSymptomsMale from "../../assets/audio/English/male/28 Stroke Symptoms.wav";
+import StrokeSymptomsMale from "../../assets/audio/English/male/StrokeSymptoms.wav";
 import GoodOrOkayMale from "../../assets/audio/English/male/29 Good or Okay.wav";
 import JustSwallowingMale from "../../assets/audio/English/male/3 Just Swallowing.wav";
 import ALittleOffMale from "../../assets/audio/English/male/30 A little off.wav";

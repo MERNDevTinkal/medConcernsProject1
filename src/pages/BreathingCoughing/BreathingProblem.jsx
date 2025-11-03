@@ -152,6 +152,7 @@ const BreathingProblem = () => {
     ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
       translations?.default[selectedLanguage];
+  console.log("===>", [name, headerName]);
   return (
     <>
       {loader ? (
@@ -161,14 +162,11 @@ const BreathingProblem = () => {
           <Header
             selectedLanguage={selectedLanguage}
             name={
-              name
-                ? name
-                : selectedLanguage === "Spanish"
+              selectedLanguage === "Spanish"
                 ? headerName?.nameEs
-                : headerName?.name
+                : headerName?.name ?? name
             }
           />
-
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5">
               <div

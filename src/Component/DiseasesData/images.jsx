@@ -112,7 +112,7 @@ import BreathingTreatment from "../../assets/images/Breathing-Treatment.png";
 import CapImg from "../../assets/images/Cap.png";
 import SpeakingValve from "../../assets/images/SpeakingValve.png";
 import RemoveImg from "../../assets/images/Remove.png";
-import Painimg from "../../assets/images/pain-img.png";
+import Painimg from "../../assets/images/achy.png";
 import TightImg from "../../assets/images/tight.png";
 import LeakingImg from "../../assets/images/ic_leaking.png";
 import Foodsticking from "../../assets/images/food_sticking.png";
@@ -222,6 +222,7 @@ import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
 import MovementImg from "../../assets/images/Movement.png";
 import Communication_ThinkingImg from "../../assets/images/Communication _ Thinking.png";
 import BoardImg6 from "../../assets/images/medicationConcern.png";
+import WeaknessImg6 from "../../assets/images/Weakness.png";
 import withFoodFrinkWhenEating from "../../assets/images/With food_drink & when eating_drinking.png";
 
 // how are u scree
@@ -303,6 +304,7 @@ import BrainTiredImg from "../../assets/images/Brain Tired.png";
 import SwellingImg from "../../assets/images/Swollen.png";
 
 export {
+  WeaknessImg6,
   SwellingImg,
   achyImg,
   BrainTiredImg,
