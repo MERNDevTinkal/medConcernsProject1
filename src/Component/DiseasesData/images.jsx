@@ -302,8 +302,12 @@ import TroubleWritingImg from "../../assets/images/Trouble Writing.png";
 import LostHearingAidsImg from "../../assets/images/Lost Hearing Aids.png";
 import BrainTiredImg from "../../assets/images/Brain Tired.png";
 import SwellingImg from "../../assets/images/Swollen.png";
+import IdontknowImg from "../../assets/images/i dont know.png";
+import PEG_FeedingPainImg from "../../assets/images/PEG _Feeding Tube_ Pain.png";
 
 export {
+  PEG_FeedingPainImg,
+  IdontknowImg,
   WeaknessImg6,
   SwellingImg,
   achyImg,

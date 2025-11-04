@@ -1,4 +1,5 @@
 import {
+  PEG_FeedingPainImg,
   LostHearingAidsImg,
   BrainTiredImg,
   SwellingImg,
@@ -3588,7 +3589,7 @@ const painCards = [
     id: "13",
     name: "Feeding Tube",
     nameEs: "Tubo de Alimentación",
-    image: PainImg13,
+    image: PEG_FeedingPainImg,
     path: "/feeling-list-pain",
     secPath: "/confrm-step-yesno",
     maleEnglish: FeedingTubeMale,
@@ -4487,7 +4488,7 @@ const feedingtubeDesises = [
     id: "1",
     name: "Pain",
     nameEs: "Dolor",
-    image: Painimg,
+    image: PEG_FeedingPainImg,
     secPath: "/pain-feel",
     path: "",
     maleEnglish: PainUrinationEnglishMale,
@@ -4511,7 +4512,7 @@ const feedingtubeDesises = [
     id: "3",
     name: "Too Much",
     nameEs: "Demasiado",
-    image: swallowingimg11,
+    image: Gas_BloatingImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     maleEnglish: TooMuchMale, // Added
@@ -8294,7 +8295,7 @@ export const diseasesData = {
     },
     {
       id: "6",
-      name: "Congested or Runny Nose",
+      name: "Congested / Runny Nose",
       nameEs: "Nariz Congestionada / que Moquea",
       image: dashimg06,
       secPath: "/confrm-step-yesno",
@@ -9770,7 +9771,7 @@ export const diseasesData = {
     },
     {
       id: "8",
-      name: "Congested or Runny Nose",
+      name: "Congested / Runny Nose",
       nameEs: "Nariz Congestionada / que Moquea",
       image: dashimg06,
       path: "/howoften",

@@ -7,6 +7,7 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+import { IdontknowImg } from "../../Component/DiseasesData/images";
 import {
   WeekEnglishMale,
   AbrilAprilSpanishMale,
@@ -111,6 +112,10 @@ import {
   SeptiembreSeptemberSpanishFemale,
   TardeAfternoonSpanishFemale,
   ViernesFridaySpanishFemale,
+  iDontKnowFemale,
+  IDontKnowMale,
+  NoSeSpanishMale,
+  NoSeIDontKnowSpanishFemale,
 } from "../../Component/DiseasesData/audio";
 
 function Howoften({ monthName, isSelected }) {
@@ -595,6 +600,30 @@ export default function TabsCalendar() {
     navigate("/new-problem");
   };
 
+  const getSkip = async (text) => {
+    await getTextToSpeech(
+      text,
+      selectedLanguage === "Spanish" ? "es-ES" : "",
+      selectedLanguage === "" && selectedGender === ""
+        ? IDontKnowMale
+        : selectedLanguage === "Spanish" && selectedGender === "Male"
+        ? NoSeSpanishMale
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? NoSeIDontKnowSpanishFemale
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? iDontKnowFemale
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? IDontKnowMale
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? IDontKnowMale
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? iDontKnowFemale
+        : IDontKnowMale
+    );
+
+    navigate("/new-problem");
+  };
+
   return (
     <>
       {loader ? (
@@ -678,6 +707,19 @@ export default function TabsCalendar() {
                     >
                       {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
                     </button>
+                  </div>
+                  <div
+                    className="mx-3 cursor-pointer"
+                    onClick={() => {
+                      getSkip("I Don't Know");
+                    }}
+                  >
+                    {" "}
+                    <img
+                      style={{ width: "40px", height: "40px" }}
+                      src={IdontknowImg}
+                      alt="icon"
+                    />
                   </div>
                 </div>
 

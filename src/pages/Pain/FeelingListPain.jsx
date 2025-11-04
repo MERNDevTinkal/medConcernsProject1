@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/DiseaseContext";
-import BackArrow from "../../assets/images/back-arrow.svg";
+import Header from "../../Component/Layout/Header/Header";
 import {
   diseasesData,
   feelingValues,
@@ -19,6 +19,8 @@ const FeelingListPain = () => {
   const navigate = useNavigate();
   const [painFeelParams, setPainFeelParams] = useState([]);
   const [selectedGender, setSelectedGender] = React.useState("");
+  const [CalendarOn, setCalendarOn] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = React.useState("");
   const { addOrUpdateSummary } = useContext(GlobalContext);
   const handlegetPain = async (value, path, painFeel) => {
     if (value && path) {
@@ -56,8 +58,8 @@ const FeelingListPain = () => {
       () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader
     );
   }, []);
@@ -113,17 +115,16 @@ const FeelingListPain = () => {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
-            <button onClick={handleBackRoute}>
-              <img src={BackArrow} />
-            </button>
-            <h2 className="text-[25px] font-normal text-black">
-              {selectedLanguage === "Spanish"
+          <Header
+            selectedLanguage={selectedLanguage}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
+            name={
+              selectedLanguage === "Spanish"
                 ? "¿Qué tan malo es tu dolor?"
-                : "How bad is your pain?"}
-            </h2>
-            <button></button>
-          </div>
+                : "How bad is your pain?"
+            }
+          />
 
           <div className="main-wrapper home-wrapper">
             <div className="w-full max-w-4xl mx-auto p-6 ">
