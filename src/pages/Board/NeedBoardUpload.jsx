@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import apiCall from "../../Component/apiCall/apiCall";
 import { useNavigate, useParams } from "react-router-dom";
-
+import Loader from "../../Component/webLoader/loader";
 const NeedBoardUpload = () => {
   const [audio, setAudio] = useState(null);
   const [image, setImage] = useState(null);
@@ -144,122 +144,133 @@ const NeedBoardUpload = () => {
     onSubmit: handleSubmit,
   });
 
-  if (isLoading) return <div>Loading...</div>;
-
+  //  {isLoading ? (
+  //     <Loader />
+  //   )
   return (
     <>
-      <Header />
-      <div className="main-wrapper home-wrapper">
-        <div className="mx-5 my-5">
-          <div className="py-9 px-5 bg-white shadow-lg rounded-2xl">
-            <form onSubmit={formik.handleSubmit}>
-              <div className="flex items-center mb-9 gap-11 justify-between upload-frm">
-                {/* Name Field */}
-                <div className="w-[266px]">
-                  <label className="block text-[16px] mb-4 font-medium text-black">
-                    Name
-                  </label>
-                  <input
-                    id="firstname"
-                    name="firstname"
-                    type="text"
-                    onChange={(e) => {
-                      formik.handleChange(e);
-                    }}
-                    value={formik.values.firstname}
-                    className="w-full px-4 py-2 border rounded-xl focus:outline-none border-[#D6D6D6] h-[54px]"
-                  />
-                  {/* ✅ Show validation error only after submit */}
-                  {isSubmitted && formik.errors.firstname && (
-                    <div className="text-red-500 text-sm mt-2">
-                      {formik.errors.firstname}
-                    </div>
-                  )}
-                </div>
-
-                {/* ✅ Audio Upload with preview */}
-                <div className="text-center">
-                  <label className="block text-[16px] mb-6 font-medium text-black">
-                    Audio
-                  </label>
-                  <input
-                    type="file"
-                    id="audio-upload"
-                    className="hidden"
-                    onChange={handleAudioUpload}
-                    accept="audio/*"
-                  />
-                  <label
-                    htmlFor="audio-upload"
-                    className="cursor-pointer flex justify-center items-center"
-                  >
-                    <img src={VoiceIcon} alt="Voice Icon" />
-                  </label>
-
-                  {audioPreview && (
-                    <audio
-                      controls
-                      src={audioPreview}
-                      className="mt-3 w-[250px] mx-auto"
-                    />
-                  )}
-
-                  {/* ✅ Show audio error only after submit */}
-                  {isSubmitted && isAudioError && (
-                    <div className="text-red-500 text-sm mt-2">
-                      Audio is required.
-                    </div>
-                  )}
-                </div>
-
-                {/* ✅ Image Upload with preview */}
-                <div className="w-[266px]">
-                  <label className="block text-[16px] mb-4 font-medium text-black">
-                    Upload Image
-                  </label>
-                  <label
-                    htmlFor="file-upload"
-                    className="cursor-pointer px-3 bg-white flex items-center justify-between rounded-xl border border-dashed border-[#D6D6D6] w-full h-[54px]"
-                  >
-                    <input
-                      id="file-upload"
-                      type="file"
-                      className="hidden"
-                      onChange={handleImageUpload}
-                      accept="image/png, image/jpeg"
-                    />
-                    <p className="text-sm font-normal text-[16px] text-[#0009]">
-                      Choose File
-                    </p>
-                    <img src={UploadIcon} alt="Upload Icon" />
-                  </label>
-
-                  {imagePreview && (
-                    <div className="mt-4">
-                      <img
-                        src={imagePreview}
-                        alt="Preview"
-                        className="w-[120px] h-[120px] object-cover rounded-lg border"
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Header />
+          <div className="main-wrapper home-wrapper">
+            <div className="mx-5 my-5">
+              <div className="py-9 px-5 bg-white shadow-lg rounded-2xl">
+                <form onSubmit={formik.handleSubmit}>
+                  <div className="flex items-center mb-9 gap-11 justify-between upload-frm">
+                    {/* Name Field */}
+                    <div className="w-[266px]">
+                      <label className="block text-[16px] mb-4 font-medium text-black">
+                        Name
+                      </label>
+                      <input
+                        id="firstname"
+                        name="firstname"
+                        type="text"
+                        onChange={(e) => {
+                          formik.handleChange(e);
+                        }}
+                        value={formik.values.firstname}
+                        className="w-full px-4 py-2 border rounded-xl focus:outline-none border-[#D6D6D6] h-[54px]"
                       />
+                      {/* ✅ Show validation error only after submit */}
+                      {isSubmitted && formik.errors.firstname && (
+                        <div className="text-red-500 text-sm mt-2">
+                          {formik.errors.firstname}
+                        </div>
+                      )}
                     </div>
-                  )}
 
-                  {/* ✅ Show image error only after submit */}
-                  {isSubmitted && imageError && (
-                    <div className="text-red-500 text-sm mt-2">
-                      Image is required.
+                    {/* ✅ Audio Upload with preview */}
+                    <div className="text-center">
+                      <label className="block text-[16px] mb-6 font-medium text-black">
+                        Audio
+                      </label>
+                      <input
+                        type="file"
+                        id="audio-upload"
+                        className="hidden"
+                        onChange={handleAudioUpload}
+                        accept="audio/*"
+                      />
+                      <label
+                        htmlFor="audio-upload"
+                        className="cursor-pointer flex justify-center items-center"
+                      >
+                        <img src={VoiceIcon} alt="Voice Icon" />
+                      </label>
+
+                      {audioPreview && (
+                        <audio
+                          controls
+                          src={audioPreview}
+                          className="mt-3 w-[250px] mx-auto"
+                        />
+                      )}
+
+                      {/* ✅ Show audio error only after submit */}
+                      {isSubmitted && isAudioError && (
+                        <div className="text-red-500 text-sm mt-2">
+                          Audio is required.
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
+
+                    {/* ✅ Image Upload with preview */}
+                    <div className="w-[266px]">
+                      <label className="block text-[16px] mb-4 font-medium text-black">
+                        Upload Image
+                      </label>
+                      <label
+                        htmlFor="file-upload"
+                        className="cursor-pointer px-3 bg-white flex items-center justify-between rounded-xl border border-dashed border-[#D6D6D6] w-full h-[54px]"
+                      >
+                        <input
+                          id="file-upload"
+                          type="file"
+                          className="hidden"
+                          onChange={handleImageUpload}
+                          accept="image/png, image/jpeg"
+                        />
+                        <p className="text-sm font-normal text-[16px] text-[#0009]">
+                          Choose File
+                        </p>
+                        <img src={UploadIcon} alt="Upload Icon" />
+                      </label>
+
+                      {imagePreview && (
+                        <div className="mt-4">
+                          <img
+                            src={imagePreview}
+                            alt="Preview"
+                            className="w-[120px] h-[120px] object-cover rounded-lg border"
+                          />
+                        </div>
+                      )}
+
+                      {/* ✅ Show image error only after submit */}
+                      {isSubmitted && imageError && (
+                        <div className="text-red-500 text-sm mt-2">
+                          Image is required.
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="thm-btn w-20"
+                    disabled={loader}
+                  >
+                    {loader ? "Submitting..." : id ? "Update" : "Save"}
+                  </button>
+                </form>
               </div>
-
-              <button type="submit" className="thm-btn w-20" disabled={loader}>
-                {loader ? "Submitting..." : id ? "Update" : "Save"}
-              </button>
-            </form>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
       <Footer />
     </>
   );

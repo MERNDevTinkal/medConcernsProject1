@@ -304,8 +304,12 @@ import BrainTiredImg from "../../assets/images/Brain Tired.png";
 import SwellingImg from "../../assets/images/Swollen.png";
 import IdontknowImg from "../../assets/images/i dont know.png";
 import PEG_FeedingPainImg from "../../assets/images/PEG _Feeding Tube_ Pain.png";
+import doorImg from "../../assets/images/door.png";
+import StrawImg from "../../assets/images/Straw.png";
 
 export {
+  StrawImg,
+  doorImg,
   PEG_FeedingPainImg,
   IdontknowImg,
   WeaknessImg6,

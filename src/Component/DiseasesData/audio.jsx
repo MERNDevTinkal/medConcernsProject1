@@ -1756,8 +1756,27 @@ import AplastadoCrushedSpanishFemale from "../../assets/audio/English/female/apl
 import EnteroWholeSpanishFemale from "../../assets/audio/English/female/entero (whole).mp3";
 import ToobigEnglsihFemale from "../../assets/audio/English/female/Too big.mp3";
 import ToobigSpanishFemale from "../../assets/audio/English/female/demasiado grande (too big).mp3";
+import NecesitounaPajitaSpanishmale from "../../assets/audio/English/male/VO - Necesito una Pajita.wav";
+import NeedStrawmale from "../../assets/audio/English/male/Need Straw (male eng).mp3";
+
+import NecesitounaPajaSpanishFemale from "../../assets/audio/English/female/Necesito una Paja (female).mp3";
+import NeedStrawFemale from "../../assets/audio/English/female/Need Straw.mp3";
+
+import Doormale from "../../assets/audio/English/male/Door (male eng).mp3";
+import Lapuertemale from "../../assets/audio/English/male/VO - La puerte.wav";
+
+import Doorfemale from "../../assets/audio/English/female/Door.wav";
+import LapuerteFemale from "../../assets/audio/English/female/la puerta (door).wav";
 
 export {
+  Doormale,
+  Lapuertemale,
+  Doorfemale,
+  LapuerteFemale,
+  NecesitounaPajaSpanishFemale,
+  NeedStrawFemale,
+  NecesitounaPajitaSpanishmale,
+  NeedStrawmale,
   withfoodSpanishmale,
   withfoodEnglishhmale,
   ToobigSpanishFemale,

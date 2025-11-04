@@ -190,8 +190,8 @@ export default function Settings() {
         spanish: "Spanish",
         calendar: "Calendar",
         introduction: "Introduction",
-        off: "OFF",
-        on: "ON",
+        off: "NO",
+        on: "YES",
 
         needsBoard: "Needs Board Settings",
         concerns: "Concerns Settings",
@@ -207,9 +207,8 @@ export default function Settings() {
         spanish: "Español",
         calendar: "Calendario",
         introduction: "Introducción",
-        off: "APAGADO",
-        on: "ENCENDIDO",
-
+        off: "NO",
+        on: "SÍ",
         needsBoard: "Configuración del tablero de necesidades",
         concerns: "Configuración de preocupaciones",
       },

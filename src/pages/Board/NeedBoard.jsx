@@ -300,7 +300,10 @@ const NeedBoard = () => {
                           <span style={{ color: "blue" }}>
                             <MdEdit
                               onClick={() => {
-                                handleEdit(item);
+                                // handleEdit(item);
+                                navigate(`/board-upload/${item.id}`, {
+                                  state: { item },
+                                });
                               }}
                             />
                           </span>
@@ -336,12 +339,14 @@ const NeedBoard = () => {
             {/* Add Button at bottom */}
             <div className="flex justify-center my-6">
               <button
-                onClick={() => setShowModal(true)}
+                onClick={() => {
+                  navigate("/board-upload");
+                }}
                 className="bg-blue-600 text-white px-6 py-2 rounded-2xl shadow-lg hover:bg-blue-700"
               >
                 {selectedLanguage === "Spanish"
-                  ? "+ Agregar nuevo"
-                  : "+ Add New"}
+                  ? "+ Agregar icono"
+                  : "+ Add Icon"}
               </button>
             </div>
           </div>
