@@ -32,8 +32,8 @@ export default function PatientEducation() {
             calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish"
-                ? "PacienteEducación"
-                : "PatientEducation"
+                ? "Educación del paciente"
+                : "Patient Education"
             }
           />
           <div className="main-wrapper home-wrapper">

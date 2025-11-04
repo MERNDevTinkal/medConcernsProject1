@@ -1071,7 +1071,6 @@ export default function Whiteboard() {
       column: charPosition,
     });
   };
-  console.log("====>", [selectedLanguage, IntroductionOn]);
   return (
     <>
       {loader ? (

@@ -2772,7 +2772,7 @@ const getEmotionQuestion = [
     id: 2,
     name: "Do you feel afraid?",
     nameEs: "¿Tiene miedo?",
-    image: EmotionsImg1,
+    image: EmotionsImg3,
     secPath: "/feelOptions/2",
   },
   {
@@ -3363,13 +3363,24 @@ const needBoard = [
     femaleSpanish: TerapeutaRespiratorioRespiratoryTherapistFemale,
     maleSpanish: TerapeutaRespiratorioMale,
   },
+  {
+    id: 48,
+    name: "Something Else",
+    nameEs: "Algo Más",
+    image: PainImg15,
+    secPath: "/whiteboard",
+    maleEnglish: SomethingElseFemale,
+    femaleEnglish: somethingElseFemale,
+    femaleSpanish: AlgoMasSpanishFemale,
+    maleSpanish: AlgomasMale,
+  },
 ];
 
 const feelOptions = [
   {
     id: "1",
     name: "Good / Okay",
-    nameEs: "Bien / en Orden",
+    nameEs: "Bien / En Orden",
     image: feel01,
     path: "/good",
     secPath: "",
@@ -3380,8 +3391,8 @@ const feelOptions = [
   },
   {
     id: "2",
-    name: "A little off",
-    nameEs: "Un poco raro",
+    name: "A Little Off",
+    nameEs: "Un Poco Raro",
     image: feel02,
     path: "/little-off",
     secPath: "",
@@ -3392,8 +3403,8 @@ const feelOptions = [
   },
   {
     id: "3",
-    name: "Not good",
-    nameEs: "No bien",
+    name: "Not Good",
+    nameEs: "No Bien",
     image: feel03,
     path: "/not-good",
     secPath: "",
@@ -3416,8 +3427,8 @@ const feelOptions = [
   },
   {
     id: "5",
-    name: "Very down",
-    nameEs: "Muy deprimido",
+    name: "Very Down",
+    nameEs: "Muy Deprimido",
     image: feel05,
     path: "/very-down",
     secPath: "",

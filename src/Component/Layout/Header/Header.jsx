@@ -42,12 +42,12 @@ import EmotionsImg2 from "../../../assets/images/emotion-img-02.png";
 import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
+import icon03 from "../../../assets/images/link-icon-03.svg";
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { resetDiseases } = useContext(GlobalContext);
   const location = useLocation();
   const [openPopup, setOpenPopup] = useState(false);
-  console.log("===>calendarOn", calendarOn);
   const navigate = useNavigate();
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const handleSummery = () => resetDiseases();
@@ -77,7 +77,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       en: "How are you?",
       es: "¿Cómo estás?",
     },
-    { icon: MenuIcon5, path: "/concern", en: "Concerns", es: "Preocupaciones" },
+    { icon: icon03, path: "/concern", en: "Concerns", es: "Preocupaciones" },
     {
       icon: MenuIcon6,
       path: "/whiteboard",

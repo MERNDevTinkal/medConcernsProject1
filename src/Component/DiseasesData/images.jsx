@@ -130,7 +130,7 @@ import FrequentImg from "../../assets/images/frequent.png";
 import UrgencyImg from "../../assets/images/urination.png";
 import Very_Little_Infrequent from "../../assets/images/Very_Little_Infrequent.png";
 import wakeuptiredImg from "../../assets/images/wakeuptired.png";
-import Troublesleeping from "../../assets/images/trouble-sleeping.png";
+import Troublesleeping from "../../assets/images/Trouble Sleeping.png";
 import morethanusualImg from "../../assets/images/morethanusual.png";
 import AllDayImg from "../../assets/images/All-Day.png";
 import AfterProcedure from "../../assets/images/After-Procedure.png";
