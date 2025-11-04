@@ -29,8 +29,8 @@ export default function Aboutus() {
         <>
           <Header
             selectedLanguage={selectedLanguage}
-            IntroductionOn={IntroductionOn}
-            CalendarOn={CalendarOn}
+            introductionOn={IntroductionOn}
+            calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish" ? "Sobre nosotras" : "About us"
             }

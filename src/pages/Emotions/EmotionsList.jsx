@@ -8,6 +8,8 @@ import Loader from "../../Component/webLoader/loader";
 const EmotionsList = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [calendarOn, setCalendarOn] = React.useState("");
+  const [introductionOn, setIntroductionOn] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [selectedGender, setSelectedGender] = React.useState("");
 
@@ -16,9 +18,13 @@ const EmotionsList = () => {
       setSelectedIconCount,
       setSelectedGender,
       setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
       () => {},
       () => {},
-      setLoader
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -29,6 +35,8 @@ const EmotionsList = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            calendarOn={calendarOn}
+            introductionOn={introductionOn}
             name={
               selectedLanguage === "Spanish"
                 ? "Emociones/Sentimientos"

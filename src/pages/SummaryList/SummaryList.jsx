@@ -11,6 +11,8 @@ const SummaryList = () => {
   const [summaryList, setSummaryList] = useState([]);
   const [loader, setLoader] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [calendarOn, setCalendarOn] = useState(1);
+  const [IntroductionOn, setIntroductionOn] = useState(1);
   const [lastPage, setLastPage] = useState(1); // From API
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const navigate = useNavigate();
@@ -52,15 +54,21 @@ const SummaryList = () => {
       () => {},
       () => {},
       setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
       () => {},
       () => {},
-      setLoader
+      () => {},
+      () => {}
     );
   }, []);
   return (
     <>
       <Header
         selectedLanguage={selectedLanguage}
+        calendarOn={calendarOn}
+        introductionOn={IntroductionOn}
         name={
           selectedLanguage === "Spanish" ? "Lista resumida" : "Summary List"
         }

@@ -7,15 +7,21 @@ import Loader from "../../Component/webLoader/loader";
 const BackPain = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
+  const [calendarOn, setCalendarOn] = useState("");
+  const [introductionOn, setIntroductionOn] = useState("");
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     getSetting(
       () => {},
       setSelectedGender,
       setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
       () => {},
       () => {},
-      setLoader
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -26,6 +32,8 @@ const BackPain = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            calendarOn={calendarOn}
+            introductionOn={introductionOn}
             name={
               selectedLanguage === "Spanish"
                 ? "¿Dónde está su dolor?"

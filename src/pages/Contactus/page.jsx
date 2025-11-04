@@ -4,6 +4,8 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 export default function Contactus() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [calendarOn, setCalendarOn] = React.useState("");
+  const [introductionOn, setIntroductionOn] = React.useState("");
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
@@ -11,9 +13,11 @@ export default function Contactus() {
       () => {},
       () => {},
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader,
+      () => {},
+      () => {},
       () => {},
       () => {}
     );
@@ -27,6 +31,8 @@ export default function Contactus() {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            introductionOn={introductionOn}
+            calendarOn={calendarOn}
             name={selectedLanguage === "Spanish" ? "Contáctanos" : "Contact Us"}
           />
           <div className="main-wrapper home-wrapper">

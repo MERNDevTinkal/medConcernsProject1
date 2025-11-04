@@ -17,6 +17,8 @@ const SummaryList = () => {
   const [loader, setLoader] = useState(true);
   const { diseases } = useContext(GlobalContext);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
+  const [calendarOn, setCalendarOn] = useState(false);
+  const [introductionOn, setIntroductionOn] = useState(false);
   const [saveAs, setSaveAs] = useState("");
   const saveData = () => {
     const licenses_id = localStorage.getItem("license_key");
@@ -54,9 +56,13 @@ const SummaryList = () => {
       () => {},
       () => {},
       setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
       () => {},
       () => {},
-      setLoader
+      () => {},
+      () => {}
     );
   }, []);
   console.log("===>", diseases);
@@ -68,6 +74,8 @@ const SummaryList = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            calendarOn={calendarOn}
+            introductionOn={introductionOn}
             name={selectedLanguage === "Spanish" ? "veraniega" : "Summery"}
           />
           {diseases?.concern?.name || diseases?.summaryList.length > 0 ? (

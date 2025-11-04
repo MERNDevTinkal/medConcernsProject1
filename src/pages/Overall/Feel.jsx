@@ -15,6 +15,8 @@ const Feel = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(false);
   const [selectedGender, setSelectedGender] = React.useState("");
+  const [calendarOn, setCalendarOn] = React.useState("");
+  const [introductionOn, setIntroductionOn] = React.useState("");
   let mainpath = location.pathname;
   const { addOrUpdateSummary } = useContext(GlobalContext);
   useEffect(() => {
@@ -53,8 +55,8 @@ const Feel = () => {
       () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      setCalendarOn,
+      setIntroductionOn,
       setLoader,
       () => {},
       () => {},
@@ -70,6 +72,8 @@ const Feel = () => {
         <>
           <Header
             selectedLanguage={selectedLanguage}
+            calendarOn={calendarOn}
+            introductionOn={introductionOn}
             name={
               selectedLanguage === "Spanish"
                 ? "¿Cómo se siente en general?"
