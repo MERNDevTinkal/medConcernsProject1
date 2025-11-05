@@ -8812,14 +8812,17 @@ export const diseasesData = {
       femaleSpanish: TuboAlimentacionFemaleSpanish,
       maleSpanish: TuboAlimentacionMaleSpanish,
     },
-    // {
-    //   id: "15",
-    //   name: "Something Else",
-    //   nameEs: "Algo Más",
-    //   image: swallowingimg14,
-    //   path: "/howoften",
-    //   secPath: "/confrm-step-yesno"
-    // }
+    {
+      id: "15",
+      name: "Something Else",
+      nameEs: "Algo Más",
+      image: dashimg11,
+      secPath: "/Whiteboard",
+      maleEnglish: SomethingElseFemale,
+      femaleEnglish: somethingElseFemale,
+      femaleSpanish: AlgoMasSpanishFemale,
+      maleSpanish: AlgomasMale,
+    },
   ],
   "/swallowing-problem-sub": [
     {
