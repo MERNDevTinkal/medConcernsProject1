@@ -77,8 +77,8 @@ const SummaryList = () => {
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
-                ? "Detalles veraniegos"
-                : "Summery Details"}
+                ? "Detalles resumidos"
+                : "Summary Details"}
             </h2>
             <button></button>
           </div>

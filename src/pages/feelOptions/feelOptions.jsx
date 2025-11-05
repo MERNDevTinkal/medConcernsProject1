@@ -10,7 +10,7 @@ import Close from "../../assets/images/close.svg";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
-
+import EmotionsImg from "../../assets/images/I-dont-know.png";
 import {
   YesFemale,
   YesFemaleSpanish,
@@ -233,7 +233,7 @@ function EmotionScreen() {
                         </p>
                       </div>
                       <div>
-                        <img src={Close} />
+                        <img width="40" height="40" src={EmotionsImg} />
                       </div>
                     </div>
                     <div

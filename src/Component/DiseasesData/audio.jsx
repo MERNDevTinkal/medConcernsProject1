@@ -1768,7 +1768,60 @@ import Lapuertemale from "../../assets/audio/English/male/VO - La puerte.wav";
 import Doorfemale from "../../assets/audio/English/female/Door.wav";
 import LapuerteFemale from "../../assets/audio/English/female/la puerta (door).wav";
 
+import ConstipationMale from "../../assets/audio/English/male/Constipation(Nausea).wav";
+import Nausea_VomitingMale from "../../assets/audio/English/male/Nausea _ Vomiting (male).mp3";
+import frustratedMale from "../../assets/audio/English/male/frustrated.mp3";
+
+import WithDrinksMale from "../../assets/audio/English/male/With Drinks.wav";
+import withMedicationHowOften from "../../assets/audio/English/female/With Medication(How Often).wav";
+import comerYBeber from "../../assets/audio/English/female/39 Comer y beber.wav";
+import ringing from "../../assets/audio/English/female/Ringing.mp3";
+import eatingDrinking from "../../assets/audio/English/female/39 Eating _ Drinking.wav";
+import noConcerns from "../../assets/audio/English/female/70 No Concerns.wav";
+import sinPreocupaciones from "../../assets/audio/English/female/70 Sin preocupaciones .wav";
+import comunicacionOPensamiento from "../../assets/audio/English/female/57 Comunicación o pensamiento.wav";
+import movimiento from "../../assets/audio/English/female/56 Movimiento.wav";
+import communicationThinking from "../../assets/audio/English/female/57 Communication _ Thinking.wav";
+import movement from "../../assets/audio/English/female/56 Movement.wav";
+import sexo from "../../assets/audio/English/female/sexo (sex).mp3";
+import sex from "../../assets/audio/English/female/sex.mp3";
+import exhausted from "../../assets/audio/English/female/exhausted.mp3";
+import frustrated from "../../assets/audio/English/female/frustrated.mp3";
+import diarrheaUpdated from "../../assets/audio/English/female/Diarrhea updated.mp3";
+import infection from "../../assets/audio/English/female/Infection.mp3";
+import plugged from "../../assets/audio/English/female/plugged.mp3";
+import tapadosPlugged from "../../assets/audio/English/female/Tapados (Plugged).mp3";
+
+import CoughingMale from "../../assets/audio/English/male/CoughingMale.mp3";
+import WithPillsFeMale from "../../assets/audio/English/female/With Pills.mp3";
+import WithPillsMale from "../../assets/audio/English/male/With Pills.wav";
+
 export {
+  WithPillsFeMale,
+  WithPillsMale,
+  withMedicationHowOften,
+  comerYBeber,
+  ringing,
+  eatingDrinking,
+  noConcerns,
+  sinPreocupaciones,
+  comunicacionOPensamiento,
+  movimiento,
+  communicationThinking,
+  movement,
+  sexo,
+  sex,
+  exhausted,
+  frustrated,
+  diarrheaUpdated,
+  infection,
+  plugged,
+  tapadosPlugged,
+  WithDrinksMale,
+  CoughingMale,
+  frustratedMale,
+  Nausea_VomitingMale,
+  ConstipationMale,
   Doormale,
   Lapuertemale,
   Doorfemale,

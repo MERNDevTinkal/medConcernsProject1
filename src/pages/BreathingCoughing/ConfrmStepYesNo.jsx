@@ -9,7 +9,7 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
+import EmotionsImg2 from "../../assets/images/feeling-emotions.png";
 import {
   YesFemale,
   YesFemaleSpanish,

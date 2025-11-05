@@ -50,7 +50,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const [openPopup, setOpenPopup] = useState(false);
   const navigate = useNavigate();
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  const handleSummery = () => resetDiseases();
+  const handleSummary = () => resetDiseases();
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("license_key");
@@ -316,7 +316,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   !item.hide && (
                     <li
                       key={index}
-                      onClick={handleSummery}
+                      onClick={handleSummary}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
             ${
               location.pathname === item.path
