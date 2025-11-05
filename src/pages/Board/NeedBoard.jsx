@@ -208,12 +208,15 @@ const NeedBoard = () => {
     setShowModal(true);
   };
   const handleNeedBoard = async (value, mainpath) => {
-    if (value && mainpath) {
+    console.log("value?.audiovalue?.audiovalue?.audio", value?.audio);
+    if (value && (value?.audio || mainpath)) {
       resetDiseases();
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        selectedLanguage === "" && selectedGender === ""
+        value?.audio
+          ? value?.audio
+          : selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
           ? value?.maleSpanish
@@ -230,7 +233,10 @@ const NeedBoard = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(path.replace("/", ""), [value]);
-      navigate(`${mainpath}`);
+      // navigate(
+      //   `${value?.audio ? "board/confrm-step-yesno/custom" : mainpath}`,
+      //   { state: { value } }
+      // );
     }
   };
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import UploadIcon from "../../assets/images/upload.svg";
 import VoiceIcon from "../../assets/images/voice.svg";
@@ -7,56 +7,37 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import apiCall from "../../Component/apiCall/apiCall";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
+
 const NeedBoardUpload = () => {
+  const location = useLocation();
+  const { item } = location.state || {};
   const [audio, setAudio] = useState(null);
   const [image, setImage] = useState(null);
   const [audioPreview, setAudioPreview] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loader, setLoader] = useState(false);
   const [existingData, setExistingData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isAudioError, setAudioError] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const [isRecording, setIsRecording] = useState(false);
+  const [recordedChunks, setRecordedChunks] = useState([]);
+  const mediaRecorderRef = useRef(null);
+
   const navigate = useNavigate();
   const { id } = useParams();
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
-
   useEffect(() => {
-    if (id) {
-      setLoader(true);
-      apiCall
-        .get(`your-api-endpoint-here/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then(({ data }) => {
-          if (data.status) {
-            setExistingData(data.data);
-            setAudio(data.data.audio);
-            setImage(data.data.image);
-            setAudioPreview(data.data.audio);
-            setImagePreview(data.data.image);
-            formik.setValues({
-              firstname: data.data.name || "",
-            });
-          } else {
-            toast.error(data.msg, { autoClose: 1500 });
-          }
-          setIsLoading(false);
-          setLoader(false);
-        })
-        .catch(() => {
-          toast.error("Error fetching data.", { autoClose: 1500 });
-          setIsLoading(false);
-          setLoader(false);
-        });
-    } else {
-      setIsLoading(false);
+    if (item) {
+      setExistingData(item);
+      setAudioPreview(item.audio || null);
+      setImagePreview(item.image || null);
     }
-  }, [id]);
+  }, [item]);
 
   const handleAudioUpload = (event) => {
     const file = event.target.files[0];
@@ -64,6 +45,7 @@ const NeedBoardUpload = () => {
       setAudioError(false);
       setAudio(file);
       setAudioPreview(URL.createObjectURL(file));
+      setRecordedChunks([]);
     } else {
       toast.error("Please upload a valid audio file.", { autoClose: 1500 });
     }
@@ -80,30 +62,80 @@ const NeedBoardUpload = () => {
     }
   };
 
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      setRecordedChunks([]);
+      mediaRecorder.start();
+      setIsRecording(true);
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          setRecordedChunks((prev) => [...prev, event.data]);
+        }
+      };
+
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(recordedChunks, { type: "audio/webm" });
+        const audioURL = URL.createObjectURL(blob);
+        setAudio(blob);
+        setAudioPreview(audioURL);
+        setIsRecording(false);
+      };
+    } catch (error) {
+      toast.error("Microphone access denied or not available.", {
+        autoClose: 1500,
+      });
+    }
+  };
+  const stopRecording = () => {
+    if (mediaRecorderRef.current) {
+      mediaRecorderRef.current.stop();
+      mediaRecorderRef.current.stream
+        .getTracks()
+        .forEach((track) => track.stop());
+    }
+  };
+
+  const deleteRecordedAudio = () => {
+    setAudio(null);
+    setAudioPreview(null);
+    setRecordedChunks([]);
+    setIsRecording(false);
+  };
   const handleSubmit = (values) => {
-    setIsSubmitted(true); // ✅ Mark form as submitted once
+    setIsSubmitted(true);
     let hasError = false;
-    if (!audio) {
+
+    if (!audio && !audioPreview) {
       setAudioError(true);
       hasError = true;
     } else {
       setAudioError(false);
     }
-    if (!image) {
+
+    if (!image && !imagePreview) {
       setImageError(true);
       hasError = true;
     } else {
       setImageError(false);
     }
+
     if (hasError) return;
+
     setLoader(true);
     const formData = new FormData();
     formData.append("licenses_id", licenses_id);
     formData.append("name", values.firstname);
-    formData.append("audio", audio);
-    formData.append("image", image);
+    if (audio) formData.append("audio", audio);
+    if (image) formData.append("image", image);
+
     if (id) formData.append("topic_id", id);
+
     const endpoint = id ? "topic-board/edit" : "topic-boardCreate";
+
     apiCall
       .post(endpoint, formData, {
         headers: {
@@ -144,12 +176,9 @@ const NeedBoardUpload = () => {
     onSubmit: handleSubmit,
   });
 
-  //  {isLoading ? (
-  //     <Loader />
-  //   )
   return (
     <>
-      {isLoading ? (
+      {loader ? (
         <Loader />
       ) : (
         <>
@@ -159,7 +188,6 @@ const NeedBoardUpload = () => {
               <div className="py-9 px-5 bg-white shadow-lg rounded-2xl">
                 <form onSubmit={formik.handleSubmit}>
                   <div className="flex items-center mb-9 gap-11 justify-between upload-frm">
-                    {/* Name Field */}
                     <div className="w-[266px]">
                       <label className="block text-[16px] mb-4 font-medium text-black">
                         Name
@@ -168,21 +196,16 @@ const NeedBoardUpload = () => {
                         id="firstname"
                         name="firstname"
                         type="text"
-                        onChange={(e) => {
-                          formik.handleChange(e);
-                        }}
+                        onChange={formik.handleChange}
                         value={formik.values.firstname}
                         className="w-full px-4 py-2 border rounded-xl focus:outline-none border-[#D6D6D6] h-[54px]"
                       />
-                      {/* ✅ Show validation error only after submit */}
                       {isSubmitted && formik.errors.firstname && (
                         <div className="text-red-500 text-sm mt-2">
                           {formik.errors.firstname}
                         </div>
                       )}
                     </div>
-
-                    {/* ✅ Audio Upload with preview */}
                     <div className="text-center">
                       <label className="block text-[16px] mb-6 font-medium text-black">
                         Audio
@@ -196,20 +219,52 @@ const NeedBoardUpload = () => {
                       />
                       <label
                         htmlFor="audio-upload"
-                        className="cursor-pointer flex justify-center items-center"
+                        className="cursor-pointer flex justify-center items-center mb-3"
                       >
                         <img src={VoiceIcon} alt="Voice Icon" />
+                        <span className="ml-2 text-sm text-[#0009]">
+                          Upload Audio
+                        </span>
                       </label>
 
-                      {audioPreview && (
-                        <audio
-                          controls
-                          src={audioPreview}
-                          className="mt-3 w-[250px] mx-auto"
-                        />
-                      )}
+                      {/* Recording Buttons */}
+                      <div className="flex flex-col items-center gap-2">
+                        {!isRecording ? (
+                          <button
+                            type="button"
+                            onClick={startRecording}
+                            className="bg-green-500 text-white rounded-xl px-4 py-2 text-sm"
+                          >
+                            🎙 Start Recording
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={stopRecording}
+                            className="bg-red-500 text-white rounded-xl px-4 py-2 text-sm"
+                          >
+                            ⏹ Stop Recording
+                          </button>
+                        )}
 
-                      {/* ✅ Show audio error only after submit */}
+                        {audioPreview && (
+                          <div className="flex flex-col items-center mt-3">
+                            <audio
+                              controls
+                              src={audioPreview}
+                              className="w-[250px]"
+                            />
+                            <button
+                              type="button"
+                              onClick={deleteRecordedAudio}
+                              className="mt-2 text-red-500 text-sm underline"
+                            >
+                              Delete Audio
+                            </button>
+                          </div>
+                        )}
+                      </div>
+
                       {isSubmitted && isAudioError && (
                         <div className="text-red-500 text-sm mt-2">
                           Audio is required.
@@ -217,7 +272,7 @@ const NeedBoardUpload = () => {
                       )}
                     </div>
 
-                    {/* ✅ Image Upload with preview */}
+                    {/* ✅ Image Upload + Preview */}
                     <div className="w-[266px]">
                       <label className="block text-[16px] mb-4 font-medium text-black">
                         Upload Image
@@ -249,7 +304,6 @@ const NeedBoardUpload = () => {
                         </div>
                       )}
 
-                      {/* ✅ Show image error only after submit */}
                       {isSubmitted && imageError && (
                         <div className="text-red-500 text-sm mt-2">
                           Image is required.
