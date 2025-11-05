@@ -24,6 +24,7 @@ function ConfrmStepYesNo() {
   const { name, id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const { value } = location?.state || {};
   const pathprimary = location.pathname;
 
   const { updateDisease } = useContext(GlobalContext);
@@ -69,15 +70,14 @@ function ConfrmStepYesNo() {
     setDisplayText(text);
   }, [selectedLanguage, selectedConcers]);
 
-  const handleConfrmStepYesNo = async (value, path, audio) => {
-    console.log("====>valuevaluevalue", audio);
-    if (value && audio) {
+  const handleConfrmStepYesNo = async (valueData, path, audio) => {
+    if (valueData && (audio || value?.audio)) {
       await getTextToSpeech(
-        value,
+        valueData,
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audio
       );
-      updateDisease(pathprimary.replace("/", ""), value);
+      updateDisease(pathprimary.replace("/", ""), valueData);
       if (calendarOn) {
         return navigate("/new-problem");
       }
@@ -85,6 +85,8 @@ function ConfrmStepYesNo() {
         navigate(path);
       } else if (typeof path === "number") {
         navigate(path);
+      } else if (value?.audio) {
+        navigate("/summary");
       }
     }
   };
@@ -100,7 +102,7 @@ function ConfrmStepYesNo() {
               <img src={BackArrow} alt="Back" />
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
-              {displayText}
+              {displayText ?? value?.name}
             </h2>
             <button></button>
           </div>
@@ -116,7 +118,7 @@ function ConfrmStepYesNo() {
                     src={
                       selectedConcers.Prompt
                         ? EmotionsImg2
-                        : selectedConcers?.image
+                        : selectedConcers?.image ?? value?.image
                     }
                     alt={selectedConcers?.name || "img"}
                     className="w-full rounded-xl"
