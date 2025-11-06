@@ -191,13 +191,15 @@
 }
 
 body {
-  background: -webkit-linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
-  background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
+  /* background: -webkit-linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
+  /* background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
+  background-color: #dceaf7;
   color: #000;
   font-size: 16px;
   font-family: "Navigo";
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 html,
@@ -253,7 +255,7 @@ a {
 }
 
 button {
-  border: none;
+  /* border: none; */
   cursor: pointer;
 }
 
@@ -324,8 +326,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .home-wrapper {
   /* background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
-  background: -webkit-linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
-  background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%);
+  /* background: -webkit-linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
+  /* background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
+  background-color: #dceaf7;
 }
 .main-header {
   z-index: 9;
@@ -339,6 +342,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-left: auto;
   margin-right: auto;
   z-index: 1020;
+  background-color: #dceaf7;
 }
 
 .dashboard-wrapper {
@@ -349,7 +353,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: block;
 }
 .thm-footer {
-  background-color: #f0f5ff;
+  background-color: #dceaf7;
 }
 .thm-footer li a img {
   height: 25px;
@@ -530,6 +534,9 @@ input[type="number"]::-webkit-outer-spin-button {
   .decision-cards div.flex.items-center p.font-medium {
     font-size: 20px;
   }
+  .decision-cards div.flex.items-center img.w-15.h-15 {
+    width: 50px;
+  }
   .decision-cards div.flex.items-center img {
     width: 20px;
   }
@@ -658,6 +665,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .dash-single-items .dashboard-cards .dashboard-img img {
   height: calc(90vh - 130px);
 }
+.dash-single-items .dashboard-cards p.text-black {
+  font-size: 22px;
+}
 .dash-double-items .dashboard-cards {
   width: 100%;
   margin: 0 auto;
@@ -757,6 +767,23 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   .dash-hexuple-items .dashboard-cards {
     height: calc(69vh - 140px);
+  }
+  .decision-cards div.flex.items-center p.font-medium {
+    font-size: 18px;
+  }
+  .decision-cards .concrn-icn {
+    height: 24px;
+    width: 24px;
+  }
+  .concrn-img {
+    width: 200px;
+  }
+  .brthng-card {
+    height: calc(100vh - 140px);
+  }
+  .brthng-card .dashboard-img img {
+    height: calc(80vh - 90px);
+    object-fit: contain;
   }
 }
 

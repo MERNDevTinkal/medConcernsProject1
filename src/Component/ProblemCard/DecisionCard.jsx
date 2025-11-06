@@ -110,14 +110,14 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="flex items-center justify-between sm:p-2 p-4 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-green-600">
+              <p className="text-[32px]  font-medium text-green-600">
                 {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
               </p>
             </div>
             <div>
-              <img src={Checked} alt="" />
+              <img src={Checked} className="concrn-icn" alt="" />
             </div>
           </div>
         </div>
@@ -127,14 +127,14 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
             handleDecision("No", path === "/new-problem" ? "/summary" : -1, 2);
           }}
         >
-          <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[32px] font-medium text-red-600">
                 {selectedLanguage === "Spanish" ? "NO" : "NO"}
               </p>
             </div>
             <div>
-              <img src={Close} />
+              <img src={Close} className="concrn-icn" />
             </div>
           </div>
         </div>
@@ -148,13 +148,13 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                   3
                 );
               }}
-              className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+              className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
             >
               <div className="flex items-center">
-                <img src={WomenIcon} alt="" className="w-15 h-15" />
+                <img src={WomenIcon} alt="" className="w-14 h-14" />
               </div>
               <div>
-                <img src={Question} />
+                <img src={Question} className="concrn-icn" />
               </div>
             </div>
           )}

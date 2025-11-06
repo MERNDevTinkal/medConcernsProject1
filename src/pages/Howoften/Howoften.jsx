@@ -727,11 +727,11 @@ export default function TabsCalendar() {
                 <div className="p-4 sm:p-6 pt-0">
                   {/* Day Tab */}
                   {activeTab === "day" && (
-                    <div className="grid gap-4">
+                    <div className="grid gap-4 ">
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 text-center">
                         {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
                       </h3>
-                      <div className="grid grid-cols-3 border-t border-l border-gray-200 rounded-lg overflow-hidden">
+                      <div className="grid grid-cols-3 border border-gray-200 rounded-lg overflow-hidden ">
                         {(selectedLanguage === "Spanish"
                           ? ["MAÑANA", "TARDE", "NOCHE"]
                           : ["MORNING", "AFTERNOON", "EVENING"]
@@ -748,7 +748,7 @@ export default function TabsCalendar() {
                         {["morning", "afternoon", "evening"].map((item) => (
                           <button
                             key={item}
-                            className={`flex items-center justify-center p-4 sm:p-6 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
+                            className={`flex items-center justify-center p-4 sm:p-6 border-r border-gray-200 cursor-pointer transition-all duration-200
                           ${
                             selectedDayItem === item
                               ? "bg-blue-50"
@@ -759,7 +759,7 @@ export default function TabsCalendar() {
                             aria-selected={selectedDayItem === item}
                           >
                             {selectedDayItem === item && (
-                              <Check className="w-15 h-15 text-green-500 check-mark" />
+                              <Check className="w-10 h-10 text-green-500 check-mark" />
                             )}
                           </button>
                         ))}

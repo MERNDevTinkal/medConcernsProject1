@@ -64,9 +64,9 @@ function BreathingYesNo() {
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5  items-center">
               <div
-                className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 ${
+                className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3 ${
                   location.pathname.includes("/topicboard/")
                     ? "h-[200px] flex justify-center items-center"
                     : ""
@@ -80,7 +80,10 @@ function BreathingYesNo() {
                   </p>
                 ) : (
                   <div className="dashboard-img rounded-2xl">
-                    <img src={concernValues?.image} className="w-full" />
+                    <img
+                      src={concernValues?.image}
+                      className="w-full sm:w-2xs mx-auto"
+                    />
                   </div>
                 )}
               </div>
