@@ -13,7 +13,7 @@ import imageUploadIcon from "../../assets/images/whiteboardIcon/imageUpload.svg"
 import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
-
+import ImageUpload from "./imageUpload.jsx";
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
@@ -164,6 +164,7 @@ export default function Whiteboard() {
   const [draggingImage, setDraggingImage] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(true);
+  const [FileUpload, setFileUpload] = useState(false);
 
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
@@ -1080,8 +1081,21 @@ export default function Whiteboard() {
       column: charPosition,
     });
   };
+
+  const handleFileUpload = (e) => {
+    e.preventDefault();
+    setFileUpload(true);
+  };
   return (
     <>
+      {FileUpload && (
+        <ImageUpload
+          handleImageUpload={handleImageUpload}
+          setOpen={setFileUpload}
+          open={FileUpload}
+        />
+      )}
+
       {loader ? (
         <Loader />
       ) : (
@@ -1180,13 +1194,15 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     title="Upload image"
-                    onClick={() =>
-                      document.getElementById("imageUpload").click()
-                    }
+                    onClick={(e) => {
+                      handleFileUpload(e);
+                    }}
+
+                    // document.getElementById("imageUpload").click()
                   >
                     <Icon.Image className="w-5 h-5" />
                   </Button>
-                  <input
+                  {/* <input
                     type="file"
                     id="imageUpload"
                     accept="image/*"
@@ -1196,7 +1212,7 @@ export default function Whiteboard() {
                       setTool("");
                       handleImageUpload(Array.from(e.target.files));
                     }}
-                  />
+                  /> */}
                   {/* <Button
                     variant="ghost"
                     size="icon"

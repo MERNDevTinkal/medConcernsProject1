@@ -55,6 +55,7 @@ import Contactus from "./pages/Contactus/page";
 import Introduction from "./pages/Introduction/page";
 import Aboutus from "./pages/Aboutus/page";
 import PatientEducation from "./pages/PatientEducation/page";
+import ImagesLibrery from "./pages/ImagesLibrery/page";
 function App() {
   return (
     <Router>
@@ -107,6 +108,7 @@ function App() {
           <Route path="/yes-and-no/:id" element={<YesAndNo />} />
           <Route path="/pain-feel" element={<PainFeel />} />
           <Route path="/feel-pain" element={<FeelPainYesNo />} />
+          <Route path="/images-library" element={<ImagesLibrery />} />
           <Route
             path="/concern-pain-feeling"
             element={<ConcernPainFeeling />}
