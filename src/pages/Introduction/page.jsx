@@ -115,7 +115,7 @@ export default function Introduction() {
           />
           <div className="main-wrapper home-wrapper">
             <div className="Intro_box">
-              <div className="min-h-screen px-4">
+              <div className="min-h-screen px-4 py-4">
                 <img src="/newlogo_4.png" width={400} className="m-auto" />
                 <div className="w-full m-auto mt-3 px-12">
                   {/* Name */}

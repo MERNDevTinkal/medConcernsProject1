@@ -81,7 +81,7 @@ const Feel = () => {
             }
           />
           <div className="main-wrapper home-wrapper ">
-            <div className="dashboard-wrapper px-4 py-1.5 feel-list-main">
+            <div className="dashboard-wrapper px-4 py-1.5 pt-4 feel-list-main">
               <ul className="flex flex-col gap-10 feel-list relative before:content-[''] before:absolute before:left-[50px] before:top-0 before:h-full before:w-[27px] before:bg-[linear-gradient(180deg,_#7ebe01_0%,_#fbcc00_25%,_#fbcc00_37.5%,_#f78d11_50%,_#f78d11_75%,_#f36218_87.5%,_#e92f1a_100%)]">
                 {emotionsicons.map((item) => (
                   <li

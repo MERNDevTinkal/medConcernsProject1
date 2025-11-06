@@ -298,9 +298,9 @@ const NeedBoard = () => {
                     style={{ cursor: "pointer" }}
                     key={index}
                   >
-                    <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
+                    <div className="dashboard-cards rounded-2xl bg-white text-center py-2 px-3 relative">
                       {item.name && !item.nameEs && (
-                        <div className="flex justify-end">
+                        <div className="flex justify-end absolute top-4 right-4">
                           <span style={{ color: "blue" }}>
                             <MdEdit
                               onClick={() => {
@@ -349,7 +349,7 @@ const NeedBoard = () => {
                 onClick={() => {
                   navigate("/board-upload");
                 }}
-                className="bg-blue-600 text-white px-6 py-2 rounded-2xl shadow-lg hover:bg-blue-700"
+                className="thm-btn"
               >
                 {selectedLanguage === "Spanish"
                   ? "+ Agregar icono"
