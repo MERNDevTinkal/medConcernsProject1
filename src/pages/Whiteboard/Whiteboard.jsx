@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Keyboard from "react-simple-keyboard";
@@ -141,6 +141,9 @@ const Icon = {
   // </svg>
 };
 export default function Whiteboard() {
+  const location = useLocation();
+  const pathname = location?.pathname ?? "";
+  const { selectedImages } = location?.state ?? [];
   const navigate = useNavigate();
   const { id } = useParams();
   const canvasRef = useRef(null);
@@ -165,10 +168,8 @@ export default function Whiteboard() {
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(true);
   const [FileUpload, setFileUpload] = useState(false);
-
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
-
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [imageFiles, setImageFiles] = useState([]);
@@ -176,6 +177,7 @@ export default function Whiteboard() {
   const [caretY, setCaretY] = useState(0);
   const [textBlocks, setTextBlocks] = useState([]);
   const [activeTextBlock, setActiveTextBlock] = useState(null);
+  const [SelectedImages, setSelectedImages] = useState([]);
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
@@ -528,6 +530,7 @@ export default function Whiteboard() {
 
         if (data.status) {
           const savedObj = data?.data || {};
+          setSelectedImages(savedObj?.images_url?.split(",") ?? []);
           setDrawingName(savedObj.name_key || "");
           if (Array.isArray(savedObj.imageFiles)) {
             const apiImages = savedObj.imageFiles.map((url) => ({
@@ -625,10 +628,10 @@ export default function Whiteboard() {
         width: drawingWidth,
       },
     };
-
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
+    payload.append("images_url", selectedImages);
     payload.append("data", JSON.stringify(state));
     if (imageFiles && imageFiles.length > 0) {
       Array.from(imageFiles).forEach((file) => {
@@ -1086,10 +1089,13 @@ export default function Whiteboard() {
     e.preventDefault();
     setFileUpload(true);
   };
+  console.log("selectedImages", [SelectedImages, selectedImages]);
   return (
     <>
       {FileUpload && (
         <ImageUpload
+          pathname={pathname}
+          uploadedImages={SelectedImages}
           handleImageUpload={handleImageUpload}
           setOpen={setFileUpload}
           open={FileUpload}
@@ -1146,6 +1152,29 @@ export default function Whiteboard() {
                     </div>
                   </CardHeader>
                 )}
+                {(SelectedImages || selectedImages) &&
+                  (SelectedImages?.length > 0 ||
+                    selectedImages?.length > 0) && (
+                    <CardHeader className="p-0">
+                      <div
+                        ref={stripRef}
+                        className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
+                      >
+                        {(selectedImages?.length > 0
+                          ? selectedImages
+                          : SelectedImages || []
+                        )?.map((img, idx) => (
+                          <img
+                            key={idx}
+                            src={img}
+                            alt={`upload-${idx}`}
+                            className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
+                            draggable={false}
+                          />
+                        ))}
+                      </div>
+                    </CardHeader>
+                  )}
                 <div
                   ref={wrapperRef}
                   className="relative w-[715px] bg-white overflow-y-auto overflow-x-hidden mx-auto"

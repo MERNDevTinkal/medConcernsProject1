@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function AddImagePopup({ handleImageUpload, setOpen, open }) {
+export default function AddImagePopup({
+  pathname,
+  uploadedImages,
+  handleImageUpload,
+  setOpen,
+  open,
+}) {
+  const navigate = useNavigate();
   const handleUploadClick = () => {
     const input = document.createElement("input");
     input.type = "file";
@@ -13,8 +20,9 @@ export default function AddImagePopup({ handleImageUpload, setOpen, open }) {
     input.click();
   };
 
-  const handleChooseFromLibrary = () => {
-    setOpen(false);
+  const handleChooseFromLibrary = (e) => {
+    e.preventDefault();
+    navigate("/images-library", { state: { uploadedImages, pathname } });
   };
   return (
     <div className="flex justify-center">
@@ -50,7 +58,9 @@ export default function AddImagePopup({ handleImageUpload, setOpen, open }) {
 
               {/* Choose from Library Option */}
               <button
-                onClick={handleChooseFromLibrary}
+                onClick={(e) => {
+                  handleChooseFromLibrary(e);
+                }}
                 className="flex flex-col items-center justify-center border rounded-xl p-5 hover:bg-gray-50 transition"
               >
                 🖼️
