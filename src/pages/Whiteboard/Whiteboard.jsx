@@ -12,6 +12,7 @@ import KeyBoardIcon from "../../assets/images/whiteboardIcon/Keyboard-Icon.svg";
 import imageUploadIcon from "../../assets/images/whiteboardIcon/imageUpload.svg";
 import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
+import { FaSave } from "react-icons/fa";
 
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
@@ -123,6 +124,7 @@ const Icon = {
     // </svg>
   ),
   Keyword: (p) => <img src={KeyBoardIcon} alt="keyboard icon" {...p} />,
+  FileSave: (p) => <FaSave {...p} />,
   // <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
   //   <path
   //     strokeWidth="2"
@@ -1092,8 +1094,26 @@ export default function Whiteboard() {
           />
 
           <div className="main-wrapper home-wrapper h-[150px]">
+            <div className="flex justify-end ml-2">
+              <Button
+                className="thm-btn"
+                onClick={() => navigate("/white-board-list")}
+              >
+                {selectedLanguage === "Spanish"
+                  ? "Pizarras blancas guardadas"
+                  : "Saved White Boards"}
+              </Button>
+            </div>
             <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8 ">
               <Card className="w-full max-w-4xl flex flex-col">
+                <div className="absolute top-3 right-3">
+                  <Button
+                    className="thm-btn"
+                    onClick={() => navigate("/white-board-list")}
+                  >
+                    {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
+                  </Button>
+                </div>
                 {uploadedImages && uploadedImages.length > 0 && (
                   <CardHeader className="p-0">
                     <div
@@ -1151,6 +1171,14 @@ export default function Whiteboard() {
                   <Button
                     variant="ghost"
                     size="icon"
+                    onClick={activateTextTool}
+                    title="Virtual Keyboard"
+                  >
+                    <Icon.Keyword className="w-5 h-5" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     title="Upload image"
                     onClick={() =>
                       document.getElementById("imageUpload").click()
@@ -1183,14 +1211,6 @@ export default function Whiteboard() {
                   >
                     <Icon.Eraser className="w-6 h-6" />{" "}
                   </Button> */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={activateTextTool}
-                    title="Virtual Keyboard"
-                  >
-                    <Icon.Keyword className="w-5 h-5" />
-                  </Button>
 
                   <Button
                     variant="ghost"
@@ -1200,6 +1220,15 @@ export default function Whiteboard() {
                   >
                     <Icon.Trash className="w-5 h-5" />
                   </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setShowSaveModal(true)}
+                    title="File Save"
+                  >
+                    <Icon.FileSave className="w-5 h-5" />
+                  </Button>
+
                   {/* <div className="flex items-center gap-2 ml-2">
                     <label className="text-sm text-gray-600">Color</label>
                     <input
@@ -1250,8 +1279,8 @@ export default function Whiteboard() {
                 </div>
               )}
 
-              <div className="w-full flex justify-between items-center mt-6">
-                <Button
+              {/* <div className="w-full flex justify-between items-center mt-6"> */}
+              {/* <Button
                   className="thm-btn"
                   onClick={() => setShowSaveModal(true)}
                 >
@@ -1262,14 +1291,14 @@ export default function Whiteboard() {
                     : id
                     ? "Update Whiteboard"
                     : "Save Whiteboard"}
-                </Button>
-                <Button
+                </Button> */}
+              {/* <Button
                   className="thm-btn"
                   onClick={() => navigate("/white-board-list")}
                 >
                   {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
-                </Button>
-              </div>
+                </Button> */}
+              {/* </div> */}
 
               {showSaveModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
