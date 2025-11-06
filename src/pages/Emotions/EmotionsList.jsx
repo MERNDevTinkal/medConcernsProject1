@@ -39,8 +39,8 @@ const EmotionsList = () => {
             introductionOn={introductionOn}
             name={
               selectedLanguage === "Spanish"
-                ? "Emociones/Sentimientos"
-                : "Emotions/Feelings"
+                ? "¿Cómo te sientes?"
+                : "How do you feel ?"
             }
           />
 

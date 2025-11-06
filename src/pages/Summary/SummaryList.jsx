@@ -76,7 +76,7 @@ const SummaryList = () => {
             selectedLanguage={selectedLanguage}
             calendarOn={calendarOn}
             introductionOn={introductionOn}
-            name={selectedLanguage === "Spanish" ? "veraniega" : "Summery"}
+            name={selectedLanguage === "Spanish" ? "Resumen" : "Summary"}
           />
           {diseases?.concern?.name || diseases?.summaryList.length > 0 ? (
             <div className="main-wrapper home-wrapper">

@@ -9,10 +9,11 @@ import { useFormik } from "formik";
 import apiCall from "../../Component/apiCall/apiCall";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
-
+import getSetting from "../../Component/settingApi/settings";
 const NeedBoardUpload = () => {
   const location = useLocation();
   const { item } = location.state || {};
+
   const [audio, setAudio] = useState(null);
   const [image, setImage] = useState(null);
   const [audioPreview, setAudioPreview] = useState(null);
@@ -23,14 +24,20 @@ const NeedBoardUpload = () => {
   const [imageError, setImageError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const [isRecording, setIsRecording] = useState(false);
-  const [recordedChunks, setRecordedChunks] = useState([]);
-  const mediaRecorderRef = useRef(null);
+  const [calendarOn, setCalendarOn] = useState(false);
+  const [introductionOn, setIntroductionOn] = useState(false);
 
+  // Recorder states
+  const [isRecording, setIsRecording] = useState(false);
+  const [mediaRecorder, setMediaRecorder] = useState(null);
+  const [recordedChunks, setRecordedChunks] = useState([]);
+  const mediaStreamRef = useRef(null);
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const navigate = useNavigate();
   const { id } = useParams();
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
+
   useEffect(() => {
     if (item) {
       setExistingData(item);
@@ -45,7 +52,6 @@ const NeedBoardUpload = () => {
       setAudioError(false);
       setAudio(file);
       setAudioPreview(URL.createObjectURL(file));
-      setRecordedChunks([]);
     } else {
       toast.error("Please upload a valid audio file.", { autoClose: 1500 });
     }
@@ -65,46 +71,57 @@ const NeedBoardUpload = () => {
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-      setRecordedChunks([]);
-      mediaRecorder.start();
-      setIsRecording(true);
+      mediaStreamRef.current = stream;
+      const recorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
+      const chunks = [];
 
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          setRecordedChunks((prev) => [...prev, event.data]);
-        }
+      recorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunks.push(e.data);
       };
 
-      mediaRecorder.onstop = () => {
-        const blob = new Blob(recordedChunks, { type: "audio/webm" });
+      recorder.onstop = () => {
+        // Convert to WAV to satisfy backend
+        const blob = new Blob(chunks, { type: "audio/wav" });
         const audioURL = URL.createObjectURL(blob);
         setAudio(blob);
         setAudioPreview(audioURL);
+        setRecordedChunks([]);
         setIsRecording(false);
+
+        // Stop mic
+        stream.getTracks().forEach((track) => track.stop());
       };
+
+      recorder.start();
+      setMediaRecorder(recorder);
+      setRecordedChunks(chunks);
+      setIsRecording(true);
     } catch (error) {
-      toast.error("Microphone access denied or not available.", {
-        autoClose: 1500,
-      });
-    }
-  };
-  const stopRecording = () => {
-    if (mediaRecorderRef.current) {
-      mediaRecorderRef.current.stop();
-      mediaRecorderRef.current.stream
-        .getTracks()
-        .forEach((track) => track.stop());
+      console.error("Mic access denied:", error);
+      toast.error("Microphone access denied.", { autoClose: 1500 });
     }
   };
 
-  const deleteRecordedAudio = () => {
-    setAudio(null);
-    setAudioPreview(null);
-    setRecordedChunks([]);
-    setIsRecording(false);
+  const stopRecording = () => {
+    if (mediaRecorder && mediaRecorder.state !== "inactive") {
+      mediaRecorder.stop();
+    }
   };
+
+  useEffect(() => {
+    getSetting(
+      () => {},
+      () => {},
+      setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
+      () => {},
+      () => {},
+      () => {}
+    );
+  }, [loader]);
+
   const handleSubmit = (values) => {
     setIsSubmitted(true);
     let hasError = false;
@@ -112,16 +129,12 @@ const NeedBoardUpload = () => {
     if (!audio && !audioPreview) {
       setAudioError(true);
       hasError = true;
-    } else {
-      setAudioError(false);
-    }
+    } else setAudioError(false);
 
     if (!image && !imagePreview) {
       setImageError(true);
       hasError = true;
-    } else {
-      setImageError(false);
-    }
+    } else setImageError(false);
 
     if (hasError) return;
 
@@ -129,12 +142,11 @@ const NeedBoardUpload = () => {
     const formData = new FormData();
     formData.append("licenses_id", licenses_id);
     formData.append("name", values.firstname);
-    if (audio) formData.append("audio", audio);
+    if (audio) formData.append("audio", audio, "recorded_audio.wav");
     if (image) formData.append("image", image);
-
     if (id) formData.append("topic_id", id);
 
-    const endpoint = id ? "topic-board/edit" : "topic-boardCreate";
+    const endpoint = id ? "topic-board" : "topic-boardCreate";
 
     apiCall
       .post(endpoint, formData, {
@@ -146,10 +158,10 @@ const NeedBoardUpload = () => {
       .then(({ data }) => {
         if (data.status) {
           toast.success(
-            id ? "Data updated successfully" : "Data created successfully",
+            id ? "Icon updated successfully" : "Icon created successfully",
             { autoClose: 1500 }
           );
-          navigate("/success-path");
+          navigate("/board");
         } else {
           toast.error(data.msg, { autoClose: 1500 });
         }
@@ -182,7 +194,16 @@ const NeedBoardUpload = () => {
         <Loader />
       ) : (
         <>
-          <Header />
+          <Header
+            selectedLanguage={selectedLanguage}
+            introductionOn={introductionOn}
+            calendarOn={calendarOn}
+            name={
+              selectedLanguage === "Spanish"
+                ? "Necesita subir la placa"
+                : "Needs Board Upload"
+            }
+          />
           <div className="main-wrapper home-wrapper">
             <div className="mx-5 my-5">
               <div className="py-9 px-5 bg-white shadow-lg rounded-2xl">
@@ -210,30 +231,26 @@ const NeedBoardUpload = () => {
                       <label className="block text-[16px] mb-6 font-medium text-black">
                         Audio
                       </label>
-                      <input
-                        type="file"
-                        id="audio-upload"
-                        className="hidden"
-                        onChange={handleAudioUpload}
-                        accept="audio/*"
-                      />
-                      <label
-                        htmlFor="audio-upload"
-                        className="cursor-pointer flex justify-center items-center mb-3"
-                      >
-                        <img src={VoiceIcon} alt="Voice Icon" />
-                        <span className="ml-2 text-sm text-[#0009]">
-                          Upload Audio
-                        </span>
-                      </label>
+                      <div className="flex flex-col items-center">
+                        <input
+                          type="file"
+                          id="audio-upload"
+                          className="hidden"
+                          onChange={handleAudioUpload}
+                          accept="audio/*"
+                        />
+                        <label
+                          htmlFor="audio-upload"
+                          className="cursor-pointer flex justify-center items-center mb-3"
+                        >
+                          <img src={VoiceIcon} alt="Voice Icon" />
+                        </label>
 
-                      {/* Recording Buttons */}
-                      <div className="flex flex-col items-center gap-2">
                         {!isRecording ? (
                           <button
                             type="button"
                             onClick={startRecording}
-                            className="bg-green-500 text-white rounded-xl px-4 py-2 text-sm"
+                            className="bg-green-500 text-white px-3 py-1 rounded-lg"
                           >
                             🎙 Start Recording
                           </button>
@@ -241,29 +258,20 @@ const NeedBoardUpload = () => {
                           <button
                             type="button"
                             onClick={stopRecording}
-                            className="bg-red-500 text-white rounded-xl px-4 py-2 text-sm"
+                            className="bg-red-500 text-white px-3 py-1 rounded-lg"
                           >
                             ⏹ Stop Recording
                           </button>
                         )}
-
-                        {audioPreview && (
-                          <div className="flex flex-col items-center mt-3">
-                            <audio
-                              controls
-                              src={audioPreview}
-                              className="w-[250px]"
-                            />
-                            <button
-                              type="button"
-                              onClick={deleteRecordedAudio}
-                              className="mt-2 text-red-500 text-sm underline"
-                            >
-                              Delete Audio
-                            </button>
-                          </div>
-                        )}
                       </div>
+
+                      {audioPreview && (
+                        <audio
+                          controls
+                          src={audioPreview}
+                          className="mt-3 w-[250px] mx-auto"
+                        />
+                      )}
 
                       {isSubmitted && isAudioError && (
                         <div className="text-red-500 text-sm mt-2">
@@ -272,7 +280,6 @@ const NeedBoardUpload = () => {
                       )}
                     </div>
 
-                    {/* ✅ Image Upload + Preview */}
                     <div className="w-[266px]">
                       <label className="block text-[16px] mb-4 font-medium text-black">
                         Upload Image
@@ -314,7 +321,7 @@ const NeedBoardUpload = () => {
 
                   <button
                     type="submit"
-                    className="thm-btn w-20"
+                    className="thm-btn w-32 flex items-center justify-center"
                     disabled={loader}
                   >
                     {loader ? "Submitting..." : id ? "Update" : "Save"}

@@ -306,8 +306,10 @@ import IdontknowImg from "../../assets/images/i dont know.png";
 import PEG_FeedingPainImg from "../../assets/images/PEG _Feeding Tube_ Pain.png";
 import doorImg from "../../assets/images/door.png";
 import StrawImg from "../../assets/images/Straw.png";
+import feelingemotionsImg from "../../assets/images/feeling-emotions.png";
 
 export {
+  feelingemotionsImg,
   StrawImg,
   doorImg,
   PEG_FeedingPainImg,

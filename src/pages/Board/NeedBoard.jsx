@@ -208,7 +208,6 @@ const NeedBoard = () => {
     setShowModal(true);
   };
   const handleNeedBoard = async (value, mainpath) => {
-    console.log("value?.audiovalue?.audiovalue?.audio", value?.audio);
     if (value && (value?.audio || mainpath)) {
       resetDiseases();
       await getTextToSpeech(
@@ -233,10 +232,10 @@ const NeedBoard = () => {
           : value?.maleEnglish
       );
       addOrUpdateSummary(path.replace("/", ""), [value]);
-      // navigate(
-      //   `${value?.audio ? "board/confrm-step-yesno/custom" : mainpath}`,
-      //   { state: { value } }
-      // );
+      navigate(
+        `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,
+        { state: { value } }
+      );
     }
   };
   return (
@@ -298,7 +297,6 @@ const NeedBoard = () => {
                     }
                     style={{ cursor: "pointer" }}
                     key={index}
-                    onClick={() => handleNeedBoard(item, item.secPath)}
                   >
                     <div className="dashboard-cards rounded-2xl bg-white text-center h-full py-2 px-3">
                       {item.name && !item.nameEs && (
@@ -322,7 +320,10 @@ const NeedBoard = () => {
                           </span>
                         </div>
                       )}
-                      <div className="dashboard-img flex justify-center items-center">
+                      <div
+                        className="dashboard-img flex justify-center items-center"
+                        onClick={() => handleNeedBoard(item, item.secPath)}
+                      >
                         <img
                           className="mainImageSize"
                           style={{

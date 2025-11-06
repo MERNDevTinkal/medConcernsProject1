@@ -9,7 +9,7 @@ import Concern from "./pages/Concern/Concern";
 import NewProblem from "./pages/Problem/NewProblem";
 import Summary from "./pages/Summary/SummaryList";
 import SummaryList from "./pages/SummaryList/SummaryList";
-import SummeryView from "./pages/summeryView/summeryview";
+import SummaryView from "./pages/summeryView/summeryview";
 import EmotionsList from "./pages/Emotions/EmotionsList";
 import NeedBoard from "./pages/Board/NeedBoard";
 import NeedBoardUpload from "./pages/Board/NeedBoardUpload";
@@ -89,7 +89,7 @@ function App() {
           <Route path="/face-pain" element={<FacePain />} />
           <Route path="/summary" element={<Summary />} />
           <Route path="/summary-list" element={<SummaryList />} />
-          <Route path="/summary-view/:id" element={<SummeryView />} />
+          <Route path="/summary-view/:id" element={<SummaryView />} />
           <Route path="/feeling" element={<FeelingListPain />} />
           <Route path="/emotions" element={<Feel />} />
           <Route path="/board" element={<NeedBoard />} />

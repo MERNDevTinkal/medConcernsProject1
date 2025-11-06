@@ -47,7 +47,7 @@ const Feel = () => {
           : item?.maleEnglish
       );
       addOrUpdateSummary(mainpath, [item]);
-      navigate(mainpath === "/emotions" ? "/feelOptions/1" : path);
+      navigate(mainpath === "/emotions" ? path : path);
     }
   };
   useEffect(() => {
@@ -87,7 +87,7 @@ const Feel = () => {
                   <li
                     key={item?.id}
                     onClick={() => {
-                      handleRoutes(item, "/feelOptions");
+                      handleRoutes(item, item.secPath);
                     }}
                     style={{ cursor: "pointer" }}
                   >
