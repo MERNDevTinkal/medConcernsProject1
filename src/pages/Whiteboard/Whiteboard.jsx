@@ -1104,7 +1104,7 @@ export default function Whiteboard() {
                   : "Saved White Boards"}
               </Button>
             </div>
-            <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8 ">
+            <div className="flex flex-col items-center">
               <Card className="w-full max-w-4xl flex flex-col">
                 <div className="absolute top-3 right-3">
                   <Button
@@ -1134,7 +1134,7 @@ export default function Whiteboard() {
                 )}
                 <div
                   ref={wrapperRef}
-                  className="relative w-[715px] h-[150px] bg-white overflow-y-auto overflow-x-hidden mx-auto"
+                  className="relative w-[715px] bg-white overflow-y-auto overflow-x-hidden mx-auto"
                 >
                   <canvas
                     ref={setCanvasSize}
