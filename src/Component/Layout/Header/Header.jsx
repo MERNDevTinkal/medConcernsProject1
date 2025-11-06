@@ -284,12 +284,17 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   : "Concerns")}
             </h2>
             <div style={{ cursor: "pointer" }}>
-              {location.pathname === "/introduction" && (
+              {(location.pathname === "/introduction" ||
+                location.pathname === "/howoften") && (
                 <img
                   src={NextArrow}
                   alt="next"
                   onClick={() => {
-                    navigate("/how-are-you");
+                    navigate(
+                      location.pathname === "/howoften"
+                        ? "/new-problem"
+                        : "/how-are-you"
+                    );
                   }}
                 />
               )}
