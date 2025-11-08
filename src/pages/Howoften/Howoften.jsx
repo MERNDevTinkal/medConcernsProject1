@@ -8,6 +8,7 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import { IdontknowImg } from "../../Component/DiseasesData/images";
+import MenuIcon11 from "../../assets/images/sidebar-icon-11.svg";
 import {
   WeekEnglishMale,
   AbrilAprilSpanishMale,
@@ -163,7 +164,7 @@ export default function TabsCalendar() {
   const location = useLocation();
   const pathprimary = location.pathname;
   const navigate = useNavigate();
-  const { updateDisease } = useContext(GlobalContext);
+  const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
 
   // Week abbreviations
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
@@ -519,7 +520,15 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-    updateDisease(pathprimary.replace("/", ""), { type: "now", value: text });
+
+    addOrUpdateSummary(pathprimary.replace("/", ""), [
+      {
+        image: MenuIcon11,
+        type: "now",
+        value: text,
+        name: `${selectedLanguage === "Spanish" ? "Ahora" : "Now"}`,
+      },
+    ]);
     navigate("/new-problem");
   };
 
@@ -564,7 +573,14 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-    updateDisease(pathprimary.replace("/", ""), { type: "day", value: text });
+    addOrUpdateSummary(pathprimary.replace("/", ""), [
+      {
+        image: MenuIcon11,
+        type: "day",
+        value: text,
+        name: `${selectedLanguage === "Spanish" ? "Día" : "Day"}: ${text}`,
+      },
+    ]);
     navigate("/new-problem");
   };
 
@@ -577,10 +593,14 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-    updateDisease(pathprimary.replace("/", ""), {
-      type: "week",
-      value: text,
-    });
+    addOrUpdateSummary(pathprimary.replace("/", ""), [
+      {
+        image: MenuIcon11,
+        type: "week",
+        value: text,
+        name: `${selectedLanguage === "Spanish" ? "Semana" : "Week"}: ${text}`,
+      },
+    ]);
     navigate("/new-problem");
   };
 
@@ -593,10 +613,15 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-    updateDisease(pathprimary.replace("/", ""), {
-      type: "month",
-      value: text,
-    });
+
+    addOrUpdateSummary(pathprimary.replace("/", ""), [
+      {
+        image: MenuIcon11,
+        type: "month",
+        value: text,
+        name: `${selectedLanguage === "Spanish" ? "Mes" : "Month"}: ${text}`,
+      },
+    ]);
     navigate("/new-problem");
   };
 

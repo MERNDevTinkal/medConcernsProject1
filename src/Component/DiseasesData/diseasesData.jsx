@@ -3684,7 +3684,7 @@ const painCards = [
 const swallowingDesises = [
   {
     id: "1",
-    name: "with Pills",
+    name: "With Pills",
     nameEs: "Con Medicación",
     image: BoardImg6,
     secPath: "/confrm-step-yesno",
@@ -3834,7 +3834,7 @@ const heartburnswallowingDesises = [
   },
   {
     id: "4",
-    name: "with Pills",
+    name: "With Pills",
     nameEs: "Con Medicación",
     image: BoardImg6,
     secPath: "/confrm-step-yesno",
