@@ -600,29 +600,29 @@ export default function TabsCalendar() {
     navigate("/new-problem");
   };
 
-  const getSkip = async (text) => {
-    await getTextToSpeech(
-      text,
-      selectedLanguage === "Spanish" ? "es-ES" : "",
-      selectedLanguage === "" && selectedGender === ""
-        ? IDontKnowMale
-        : selectedLanguage === "Spanish" && selectedGender === "Male"
-        ? NoSeSpanishMale
-        : selectedLanguage === "Spanish" && selectedGender === "Female"
-        ? NoSeIDontKnowSpanishFemale
-        : selectedLanguage === "" && selectedGender === "Female"
-        ? iDontKnowFemale
-        : selectedLanguage === "" && selectedGender === "Male"
-        ? IDontKnowMale
-        : selectedLanguage === "English" && selectedGender === "Male"
-        ? IDontKnowMale
-        : selectedLanguage === "English" && selectedGender === "Female"
-        ? iDontKnowFemale
-        : IDontKnowMale
-    );
+  // const getSkip = async (text) => {
+  //   await getTextToSpeech(
+  //     text,
+  //     selectedLanguage === "Spanish" ? "es-ES" : "",
+  //     selectedLanguage === "" && selectedGender === ""
+  //       ? IDontKnowMale
+  //       : selectedLanguage === "Spanish" && selectedGender === "Male"
+  //       ? NoSeSpanishMale
+  //       : selectedLanguage === "Spanish" && selectedGender === "Female"
+  //       ? NoSeIDontKnowSpanishFemale
+  //       : selectedLanguage === "" && selectedGender === "Female"
+  //       ? iDontKnowFemale
+  //       : selectedLanguage === "" && selectedGender === "Male"
+  //       ? IDontKnowMale
+  //       : selectedLanguage === "English" && selectedGender === "Male"
+  //       ? IDontKnowMale
+  //       : selectedLanguage === "English" && selectedGender === "Female"
+  //       ? iDontKnowFemale
+  //       : IDontKnowMale
+  //   );
 
-    navigate("/new-problem");
-  };
+  //   navigate("/new-problem");
+  // };
 
   return (
     <>
@@ -708,7 +708,7 @@ export default function TabsCalendar() {
                       {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
                     </button>
                   </div>
-                  <div
+                  {/* <div
                     className="mx-3 cursor-pointer"
                     onClick={() => {
                       getSkip("I Don't Know");
@@ -720,7 +720,7 @@ export default function TabsCalendar() {
                       src={IdontknowImg}
                       alt="icon"
                     />
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Content */}

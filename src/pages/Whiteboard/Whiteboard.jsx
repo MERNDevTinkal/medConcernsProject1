@@ -1089,7 +1089,6 @@ export default function Whiteboard() {
     e.preventDefault();
     setFileUpload(true);
   };
-  console.log("selectedImages", [SelectedImages, selectedImages]);
   return (
     <>
       {FileUpload && (
