@@ -162,6 +162,7 @@ export default function TabsCalendar() {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [selectedGender, setSelectedGender] = React.useState("");
   const location = useLocation();
+  const { pathValue } = location.state ?? {};
   const pathprimary = location.pathname;
   const navigate = useNavigate();
   const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
@@ -529,7 +530,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Ahora" : "Now"}`,
       },
     ]);
-    navigate("/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
   };
 
   const handleTabSelect = async (tabName) => {
@@ -581,7 +582,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Día" : "Day"}: ${text}`,
       },
     ]);
-    navigate("/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
   };
 
   const handleWeekSelect = async (index) => {
@@ -601,7 +602,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Semana" : "Week"}: ${text}`,
       },
     ]);
-    navigate("/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
   };
 
   const handleMonthSelect = async (index) => {
@@ -622,7 +623,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Mes" : "Month"}: ${text}`,
       },
     ]);
-    navigate("/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
   };
 
   // const getSkip = async (text) => {

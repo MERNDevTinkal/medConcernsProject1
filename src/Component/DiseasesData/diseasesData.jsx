@@ -6179,15 +6179,15 @@ const noappetiteDesies = [
   },
   {
     id: "4",
-    name: "Too Much",
-    nameEs: "Demasiado",
+    name: "Feel Full",
+    nameEs: "Siéntete lleno",
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    image: Gas_BloatingImg,
-    maleEnglish: TooMuchMale, // Added
-    femaleEnglish: TooMuchFemale,
-    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
-    maleSpanish: DemasiadoTooMuchSpanishMale,
+    image: FeelfullImg,
+    maleEnglish: FeelFullMale, // Added
+    femaleEnglish: FeelFullFemale,
+    femaleSpanish: MeSientoLlenoAFeelFullSpanishFemale, // Added
+    maleSpanish: MeSientoLlenoAFeelFullSpanishMale,
   },
   {
     id: "5",
@@ -6220,7 +6220,7 @@ const swallowingfeedingtube = [
     id: "1",
     name: "Pain",
     nameEs: "Dolor",
-    path: "/pain-concern",
+    path: "/pain-feel",
     image: PEG_FeedingPainImg,
     secPath: "/confrm-step-yesno",
     maleEnglish: PainUrinationEnglishMale,
@@ -6280,7 +6280,7 @@ const swallowingfeedingtube = [
     id: "6",
     name: "Something Else",
     nameEs: "Algo Más",
-    path: "/Whiteboard",
+    path: "/howoften",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     maleEnglish: SomethingElseFemale,
@@ -6482,7 +6482,7 @@ const fatigueTroubleSleeping = [
     name: "Emotions / Feelings",
     nameEs: "Emociones / Sentimientos",
     secPath: "/confrm-step-yesno",
-    path: "/howoften",
+    path: "/emotions",
     image: EmotionsImg2,
     maleEnglish: EmotionsOrFeelingsEnglishMale,
     femaleEnglish: emotionsOrFeelingsFemale,
@@ -6522,7 +6522,7 @@ const EatingdrinkingNoAppetite = [
     nameEs: "No Quiero",
     image: dontwantImg,
     secPath: "/confrm-step-yesno",
-    path: "/when",
+    path: "/summary",
     maleEnglish: DontWantMale,
     femaleEnglish: DontWantFemale,
     femaleSpanish: NoQuieroDontWantSpanishFemale,
@@ -6554,15 +6554,15 @@ const EatingdrinkingNoAppetite = [
   },
   {
     id: "4",
-    name: "Too Much",
-    nameEs: "Demasiado",
-    image: Gas_BloatingImg,
+    name: "Feel Full",
+    nameEs: "Siéntete lleno",
+    image: FeelfullImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
-    maleEnglish: TooMuchMale, // Added
-    femaleEnglish: TooMuchFemale,
-    femaleSpanish: DemasiadoTooMuchSpanishFemale, // Added
-    maleSpanish: DemasiadoTooMuchSpanishMale,
+    maleEnglish: FeelFullMale, // Added
+    femaleEnglish: FeelFullFemale,
+    femaleSpanish: MeSientoLlenoAFeelFullSpanishFemale, // Added
+    maleSpanish: MeSientoLlenoAFeelFullSpanishMale,
   },
   {
     id: "5",
@@ -6645,7 +6645,7 @@ const eatingdrinkingNoAppetiteNausea = [
     nameEs: "Solo náuseas",
     image: swallowingimg07,
     secPath: "/confrm-step-yesno",
-    path: "/howoften",
+    path: "/when",
     maleEnglish: JustNauseaMale,
     femaleEnglish: JustNauseaFemale,
     femaleSpanish: SoloNauseasFemaleSpanish,
@@ -7141,8 +7141,8 @@ const medicationHardtoSwallow = [
     secPath: "/confrm-step-yesno",
 
     maleEnglish: TooBigMale,
-    femaleEnglish: ToobigSpanishFemale,
-    femaleSpanish: ToobigEnglsihFemale,
+    femaleEnglish: ToobigEnglsihFemale,
+    femaleSpanish: ToobigSpanishFemale,
     maleSpanish: DemasiadoGrandesSpanishMale,
   },
   {
@@ -8491,7 +8491,7 @@ export const diseasesData = {
       nameEs: "Algo Más",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
-      path: "/Whiteboard",
+      path: "/howoften",
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
@@ -9581,7 +9581,7 @@ export const diseasesData = {
       name: "Just Fatigue",
       nameEs: "Solo Fatiga",
       image: fatigueImg,
-      path: "/howoften",
+      path: "/when",
       secPath: "/confrm-step-yesno",
       maleEnglish: JustFatigueMale,
       femaleEnglish: JustFatigueFemale,

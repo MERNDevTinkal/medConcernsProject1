@@ -82,7 +82,17 @@ function ConfrmStepYesNo() {
         return navigate("/new-problem");
       }
       if (typeof path === "string") {
-        navigate(path);
+        const noNewProblemPaths = [
+          "/visionGlasses-problem/confrm-step-yesno/1",
+          "/visionGlasses-problem/confrm-step-yesno/2",
+        ];
+
+        navigate(
+          path,
+          noNewProblemPaths.includes(pathprimary)
+            ? { state: { pathValue: "noNewProblem" } }
+            : ""
+        );
       } else if (typeof path === "number") {
         navigate(path);
       } else if (value?.audio) {
@@ -90,7 +100,8 @@ function ConfrmStepYesNo() {
       }
     }
   };
-
+  //
+  //
   return (
     <>
       {loader ? (
