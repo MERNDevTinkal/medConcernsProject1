@@ -1,206 +1,3 @@
-// // ==========================
-// // WOMEN IMAGES (from women directory)
-// // ==========================
-// import adomenWoman from "../../assets/images/women/adomen.png";
-// import backWoman from "../../assets/images/women/back.png";
-// import buttWoman from "../../assets/images/women/butt.png";
-// import cheekWoman from "../../assets/images/women/cheek.png";
-// import chestBreastWoman from "../../assets/images/women/chest&breast.png";
-// import chinWoman from "../../assets/images/women/chin.png";
-// import earWoman from "../../assets/images/women/ear.png";
-// import elbowWoman from "../../assets/images/women/elbow.png";
-// import eyeWoman from "../../assets/images/women/eye.png";
-// import fingerWoman from "../../assets/images/women/finger.png";
-// import footToeRightWoman from "../../assets/images/women/foot&toe-right.png";
-// import footToeWoman from "../../assets/images/women/foot&toe.png";
-// import foreheadWoman from "../../assets/images/women/forhead.png";
-// import kneeRightWoman from "../../assets/images/women/knee-right.png";
-// import kneeWoman from "../../assets/images/women/knee.png";
-// import leftHipWoman from "../../assets/images/women/left-hip.png";
-// import leftUpperArmWoman from "../../assets/images/women/left-upperArm.png";
-// import lowerLeftArmWoman from "../../assets/images/women/lower-left-arm.png";
-// import lowerLegWoman from "../../assets/images/women/lower-leg.png";
-// import lowerRightArmWoman from "../../assets/images/women/lower-right-arm.png";
-// import lowerBackWoman from "../../assets/images/women/lowerBack.png";
-// import mouthWoman from "../../assets/images/women/mouth.png";
-// import neckWoman from "../../assets/images/women/neck.png";
-// import noseWoman from "../../assets/images/women/nose.png";
-// import pelvisGenitalsWoman from "../../assets/images/women/pelvis&genitals.png";
-// import rightCheekWoman from "../../assets/images/women/right-cheek.png";
-// import rightElbowWoman from "../../assets/images/women/right-elbow.png";
-// import rightFingerWoman from "../../assets/images/women/right-finger.png";
-// import rightHipWoman from "../../assets/images/women/right-hip.png";
-// import rightLowerArmWoman from "../../assets/images/women/right-lower-arm.png";
-// import rightLowerLegWoman from "../../assets/images/women/right-lower-leg.png";
-// import rightShoulderWoman from "../../assets/images/women/right-sholder.png";
-// import rightThighWoman from "../../assets/images/women/right-thai.png";
-// import rightButtWoman from "../../assets/images/women/rightbutt.png";
-// import rightEarWoman from "../../assets/images/women/rightEar.png";
-// import shoulderLeftWoman from "../../assets/images/women/sholder-left.png";
-// import thighWoman from "../../assets/images/women/thai.png";
-// import upperArmWoman from "../../assets/images/women/upper-arm.png";
-// import upperArmRightWoman from "../../assets/images/women/upper-arm=right.png";
-// import wristLeftWoman from "../../assets/images/women/wrist-left.png";
-// import wristRightWoman from "../../assets/images/women/wrist-right.png";
-
-// // ==========================
-// // MEN IMAGES (from men directory)
-// // ==========================
-// import adomenMan from "../../assets/images/men/adomen.png";
-// import armMan from "../../assets/images/men/arm.png";
-// import backMan from "../../assets/images/men/back.png";
-// import cheekLeftMan from "../../assets/images/men/cheek-left.png";
-// import cheekRightMan from "../../assets/images/men/cheek-right.png";
-// import chestBreastMan from "../../assets/images/men/chest&breast.png";
-// import chinMan from "../../assets/images/men/chin.png";
-// import elbowLeftMan from "../../assets/images/men/elbowleft.png";
-// import elbowRightMan from "../../assets/images/men/elbowRight.png";
-// import eyeMan from "../../assets/images/men/eye.png";
-// import fingerLeftMan from "../../assets/images/men/fingerleft.png";
-// import fingerRightMan from "../../assets/images/men/fingerright.png";
-// import footToeMan from "../../assets/images/men/foot&toe.png";
-// import footToeLeftMan from "../../assets/images/men/foot&toeleft.png";
-// import foreheadMan from "../../assets/images/men/forhead.png";
-// import hipRightMan from "../../assets/images/men/hipright.png";
-// import kneeMan from "../../assets/images/men/knee.png";
-// import kneeLeftMan from "../../assets/images/men/kneeleft.png";
-// import leftButtMan from "../../assets/images/men/leftbutt.png";
-// import leftEarMan from "../../assets/images/men/lefteear.png";
-// import leftHip2Man from "../../assets/images/men/lefthip (2).png";
-// import leftHipMan from "../../assets/images/men/lefthip.png";
-// import leftThighMan from "../../assets/images/men/leftthai.png";
-// import lowerArmRightMan from "../../assets/images/men/lower-arm-right.png";
-// import lowerArmMan from "../../assets/images/men/lower-arm.png";
-// import lowerLegRightMan from "../../assets/images/men/lower-leg-right.png";
-// import lowerLegMan from "../../assets/images/men/lower-leg.png";
-// import lowerBackMan from "../../assets/images/men/lowerback.png";
-// import mouthMan from "../../assets/images/men/mouth.png";
-// import neckMan from "../../assets/images/men/neck.png";
-// import noseMan from "../../assets/images/men/nose.png";
-// import pelvisGenitalsMan from "../../assets/images/men/pelvis&genitals.png";
-// import rightArmMan from "../../assets/images/men/rightarm.png";
-// import rightButtMan from "../../assets/images/men/rightbutt.png";
-// import rightEarMan from "../../assets/images/men/rightear.png";
-// import rightHipMan from "../../assets/images/men/righthip.png";
-// import rightShoulderMan from "../../assets/images/men/rightshoulder.png";
-// import rightThighMan from "../../assets/images/men/rightthai.png";
-// import shoulderLeftMan from "../../assets/images/men/shoulderleft.png";
-// import upperArmLeftMan from "../../assets/images/men/upper-arm-left.png";
-// import upperArmRightMan from "../../assets/images/men/upper-arm-right.png";
-// import wristLeftMan from "../../assets/images/men/wristleft.png";
-// import wristRightMan from "../../assets/images/men/wristright.png";
-
-// // ==========================
-// // EXPORT ALL
-// // ==========================
-// export const bodyImages = {
-//   women: {
-//     // English keys
-//     Forhead: foreheadWoman,
-//     Eye: eyeWoman,
-//     Nose: noseWoman,
-//     Mouth: mouthWoman,
-//     Ear: earWoman,
-//     Neck: neckWoman,
-//     "Chest & Breast": chestBreastWoman,
-//     Abdomen: adomenWoman,
-//     "Pelvis / Genitals": pelvisGenitalsWoman,
-//     Hip: rightHipWoman,
-//     Thigh: thighWoman,
-//     Knee: kneeWoman,
-//     "Lower Leg": lowerLegWoman,
-//     "Foot & Toe": footToeWoman,
-//     Shoulder: rightShoulderWoman,
-//     Arm: upperArmWoman,
-//     Hand: fingerWoman,
-//     Finger: fingerWoman,
-//     Back: backWoman,
-//     Elbow: elbowWoman,
-//     Butt: buttWoman,
-//     "Lower Arm": lowerRightArmWoman,
-
-//     // Spanish keys (same images, different keys)
-//     Frente: foreheadWoman,
-//     Ojo: eyeWoman,
-//     Nariz: noseWoman,
-//     Boca: mouthWoman,
-//     Oreja: earWoman,
-//     Cuello: neckWoman,
-//     "Pecho y Senos": chestBreastWoman,
-//     Abdomen: adomenWoman,
-//     "Pelvis / Genitales": pelvisGenitalsWoman,
-//     Cadera: rightHipWoman,
-//     Muslo: thighWoman,
-//     Rodilla: kneeWoman,
-//     "Pierna inferior": lowerLegWoman,
-//     "Pie / Dedo": footToeWoman,
-//     "Pie y Dedos": footToeWoman,
-//     Hombro: rightShoulderWoman,
-//     Brazo: upperArmWoman,
-//     Mano: fingerWoman,
-//     Dedo: fingerWoman,
-//     Espalda: backWoman,
-//     Codo: elbowWoman,
-//     Glúteo: buttWoman,
-//     Antebrazo: lowerRightArmWoman,
-//     "Pierna Inferior": lowerLegWoman,
-//     Glúteos: buttWoman,
-//   },
-//   men: {
-//     // English keys
-//     Forhead: foreheadMan,
-//     Eye: eyeMan,
-//     Nose: noseMan,
-//     Mouth: mouthMan,
-//     Ear: leftEarMan,
-//     Neck: neckMan,
-//     "Chest & Breast": chestBreastMan,
-//     Abdomen: adomenMan,
-//     "Pelvis / Genitals": pelvisGenitalsMan,
-//     Hip: rightHipMan,
-//     Thigh: rightThighMan,
-//     Knee: kneeMan,
-//     "Lower Leg": lowerLegMan,
-//     "Foot & Toe": footToeMan,
-//     Shoulder: rightShoulderMan,
-//     Arm: armMan,
-//     Hand: fingerRightMan,
-//     Finger: fingerRightMan,
-//     Back: backMan,
-//     Elbow: elbowRightMan,
-//     Butt: rightButtMan,
-//     "Lower Arm": lowerArmMan,
-
-//     // Spanish keys (same images, different keys)
-//     Frente: foreheadMan,
-//     Ojo: eyeMan,
-//     Nariz: noseMan,
-//     Boca: mouthMan,
-//     Oreja: leftEarMan,
-//     Cuello: neckMan,
-//     "Pecho y Senos": chestBreastMan,
-//     Abdomen: adomenMan,
-//     "Pelvis / Genitales": pelvisGenitalsMan,
-//     Cadera: rightHipMan,
-//     Muslo: rightThighMan,
-//     Rodilla: kneeMan,
-//     "Pierna inferior": lowerLegMan,
-//     "Pie / Dedo": footToeMan,
-//     "Pie y Dedos": footToeMan,
-//     Hombro: rightShoulderMan,
-//     Brazo: armMan,
-//     Mano: fingerRightMan,
-//     Dedo: fingerRightMan,
-//     Espalda: backMan,
-//     Codo: elbowRightMan,
-//     Glúteo: rightButtMan,
-//     Antebrazo: lowerArmMan,
-//     "Pierna Inferior": lowerLegMan,
-//     Glúteos: rightButtMan,
-//   },
-// };
-
-// export default bodyImages;
 // ==========================
 // WOMEN IMAGES (from women directory)
 // ==========================
@@ -242,7 +39,7 @@ import rightEarWoman from "../../assets/images/women/rightEar.png";
 import shoulderLeftWoman from "../../assets/images/women/sholder-left.png";
 import thighWoman from "../../assets/images/women/thai.png";
 import upperArmWoman from "../../assets/images/women/upper-arm.png";
-import upperArmRightWoman from "../../assets/images/women/upper-arm=right.png";
+import upperArmRightWoman from "../../assets/images/women/right-lower-arm.png";
 import wristLeftWoman from "../../assets/images/women/wrist-left.png";
 import wristRightWoman from "../../assets/images/women/wrist-right.png";
 
@@ -399,7 +196,7 @@ export const bodyImages = {
     "Muslo Izquierdo": thighWoman,
     "Rodilla Izquierda": kneeWoman,
     "Pierna Inferior Izquierda": lowerLegWoman,
-    "Pie y Dedos Izquierdos": footToeRightWoman,
+    "Pie y Dedos Izquierdos": footToeWoman,
     "Glúteo Izquierdo": buttWoman,
 
     // Spanish keys - Right side
@@ -418,7 +215,7 @@ export const bodyImages = {
     "Muslo Derecho": rightThighWoman,
     "Rodilla Derecha": kneeRightWoman,
     "Pierna Inferior Derecha": rightLowerLegWoman,
-    "Pie y Dedos Derechos": footToeWoman,
+    "Pie y Dedos Derechos": footToeRightWoman,
     "Glúteo Derecho": rightButtWoman,
 
     // Generic Spanish body parts (fallback)

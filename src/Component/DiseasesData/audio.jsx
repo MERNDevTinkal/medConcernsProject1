@@ -1796,7 +1796,243 @@ import CoughingMale from "../../assets/audio/English/male/CoughingMale.mp3";
 import WithPillsFeMale from "../../assets/audio/English/female/With Pills.mp3";
 import WithPillsMale from "../../assets/audio/English/male/With Pills.wav";
 
+// body parts audio female english
+import Abdomen from "../../assets/audio/Female-body-audio/English/Abdomen.mp3";
+import ankle from "../../assets/audio/Female-body-audio/English/ankle.mp3";
+import back from "../../assets/audio/Female-body-audio/English/back.mp3";
+import butt from "../../assets/audio/Female-body-audio/English/butt.mp3";
+import cabeza_head from "../../assets/audio/Female-body-audio/English/cabeza_head.wav";
+import cheek from "../../assets/audio/Female-body-audio/English/cheek.mp3";
+import ChestOrBreasts from "../../assets/audio/Female-body-audio/English/Chest or breasts.mp3";
+import chin from "../../assets/audio/Female-body-audio/English/chin.mp3";
+import ear from "../../assets/audio/Female-body-audio/English/ear.mp3";
+import Elbow from "../../assets/audio/Female-body-audio/English/Elbow.mp3";
+import eye from "../../assets/audio/Female-body-audio/English/eye.mp3";
+import fingers from "../../assets/audio/Female-body-audio/English/fingers.mp3";
+import footOrToes from "../../assets/audio/Female-body-audio/English/foot or toes.mp3";
+import forearm from "../../assets/audio/Female-body-audio/English/forearm.mp3";
+import forehead from "../../assets/audio/Female-body-audio/English/forehead.mp3";
+import hand from "../../assets/audio/Female-body-audio/English/hand.mp3";
+import Head from "../../assets/audio/Female-body-audio/English/Head.mp3";
+import hip from "../../assets/audio/Female-body-audio/English/hip.mp3";
+import knee from "../../assets/audio/Female-body-audio/English/knee.mp3";
+import lowerBack from "../../assets/audio/Female-body-audio/English/lower back.mp3";
+import lowerLeg from "../../assets/audio/Female-body-audio/English/lower leg.mp3";
+import mouth from "../../assets/audio/Female-body-audio/English/mouth.mp3";
+import Neck from "../../assets/audio/Female-body-audio/English/Neck.mp3";
+import nose from "../../assets/audio/Female-body-audio/English/nose.mp3";
+import PelvisOrGenitals from "../../assets/audio/Female-body-audio/English/Pelvis or genitals.mp3";
+import Shoulder from "../../assets/audio/Female-body-audio/English/Shoulder.wav";
+import thigh from "../../assets/audio/Female-body-audio/English/thigh.mp3";
+import UpperArm from "../../assets/audio/Female-body-audio/English/Upper Arm.mp3";
+import wrist from "../../assets/audio/Female-body-audio/English/wrist.mp3";
+
+// female spanish
+import abdomenFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/abdomen (abdomen).mp3";
+import Abdomen_abdomenFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/Abdomen_abdomen.wav";
+import antebrazoFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/antebrazo (forearm).mp3";
+import barbillaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/barbilla (chin).mp3";
+import bocaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/boca (mouth).mp3";
+import brazoSuperiorFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/brazo superior (upper arm).mp3";
+import cabezaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/cabeza (head).mp3";
+import caderaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/cadera (hip).mp3";
+import codoFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/codo (elbow).mp3";
+import cuelloFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/cuello (neck).mp3";
+import dedosFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/dedos (fingers).mp3";
+import espaldaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/espalda (back).mp3";
+import frenteFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/frente (forehead).mp3";
+import hombroFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/hombro (shoulder).mp3";
+import Las_nalgasFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/Las nalgas.wav";
+import manoFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/mano (hand).mp3";
+import mejillaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/mejilla (cheek).mp3";
+import munecaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/muneca (wrist).mp3";
+import musloFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/muslo (thigh).mp3";
+import narizFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/nariz (nose).mp3";
+import ojoFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/ojo (eye).mp3";
+import orejaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/oreja (ear).mp3";
+import parteInferiorDeLaEspaldaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/parte inferior de la espalda (lower back).mp3";
+import parteInferiorDeLaPiernaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/parte inferior de la pierna (lower leg).mp3";
+import pechoOMamaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/pecho o mama (chest or breast).mp3";
+import pelvisOGenitalesFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/pevis o genitales (pelvis or genitals).mp3";
+import pieODedosDeLosPiesFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/pie o dedos de los pies (foot or toes).mp3";
+import rodillaFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/rodilla (knee).mp3";
+import tobilloFemaleSpanish from "../../assets/audio/Female-body-audio/Spanish/tobillo (ankle).mp3";
+
+// male english body parts
+import Abdomen_comMale from "../../assets/audio/Male-body-audio/English/Abdomen_com.wav";
+import AnkleMale from "../../assets/audio/Male-body-audio/English/Ankle.wav";
+import BackMale from "../../assets/audio/Male-body-audio/English/Back.wav";
+import buttMale from "../../assets/audio/Male-body-audio/English/butt.mp3";
+import Cheeks_comMale from "../../assets/audio/Male-body-audio/English/Cheeks_com.wav";
+import chestOrBreastsMale from "../../assets/audio/Male-body-audio/English/chest or breasts.mp3";
+import ChinMale from "../../assets/audio/Male-body-audio/English/Chin.wav";
+import EarMale from "../../assets/audio/Male-body-audio/English/Ear.wav";
+import Elbow_comMale from "../../assets/audio/Male-body-audio/English/Elbow_com.wav";
+import EyeMale from "../../assets/audio/Male-body-audio/English/Eye.wav";
+import FingersMale from "../../assets/audio/Male-body-audio/English/Fingers.wav";
+import FootOrToes_comMale from "../../assets/audio/Male-body-audio/English/Foot or Toes_com.wav";
+import Forearm_comMale from "../../assets/audio/Male-body-audio/English/Forearm_com.wav";
+import Forehead_comMale from "../../assets/audio/Male-body-audio/English/Forehead_com.wav";
+import HandMale from "../../assets/audio/Male-body-audio/English/Hand.wav";
+import HeadMale from "../../assets/audio/Male-body-audio/English/Head.wav";
+import HipMale from "../../assets/audio/Male-body-audio/English/Hip.wav";
+import Hombro_shoulderMale from "../../assets/audio/Male-body-audio/English/Hombro_shoulder.wav";
+import KneeMale from "../../assets/audio/Male-body-audio/English/Knee.wav";
+import LowerBackMale from "../../assets/audio/Male-body-audio/English/Lower Back.wav";
+import lowerLegMale from "../../assets/audio/Male-body-audio/English/lower leg.mp3";
+import MouthMale from "../../assets/audio/Male-body-audio/English/Mouth.wav";
+import neckMale from "../../assets/audio/Male-body-audio/English/neck.mp3";
+import NoseMale from "../../assets/audio/Male-body-audio/English/Nose.wav";
+import PelvisOrGenitals_comMale from "../../assets/audio/Male-body-audio/English/Pelvis or Genitals_com.wav";
+import ShoulderMale from "../../assets/audio/Male-body-audio/English/Shoulder.wav";
+import Thigh_comMale from "../../assets/audio/Male-body-audio/English/Thigh_com.wav";
+import UpperArmMale from "../../assets/audio/Male-body-audio/English/Upper Arm.wav";
+import WristMale from "../../assets/audio/Male-body-audio/English/Wrist (male).mp3";
+// spanish
+
+import antebrazoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/antebrazo_forearm.wav";
+import BarbillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Barbilla.wav";
+import bocaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/boca_mouth.wav";
+import brazoSuperiorMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/brazo superior_upper arm.wav";
+import CodoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Codo_Elbow.wav";
+import CuelloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Cuello.wav";
+import dedosMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/dedos_fingers.wav";
+import EspaldaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Espalda_back.wav";
+import caderaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/hip_cadera.wav";
+import nalgasMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Las nalgas.wav";
+import manoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/mano_hand.wav";
+import MejillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Mejilla.wav";
+import munecaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/muneca_wrist.wav";
+import musloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/muslo_thigh.wav";
+import narizMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/nariz_nose.wav";
+import ojoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/ojo_eye.wav";
+import orejaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/oreja_ear.wav";
+import parteInferiorEspaldaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Parte inferior de la espalda_lower back.wav";
+import parteInferiorPiernaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/parte inferior de la pierna_lower leg.wav";
+import pechoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Pecho o mama_chest or breast.wav";
+import pelvisMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Pelvis o genitales_Pelvis or genitals.wav";
+import pieMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/pie o dedos de los pies.wav";
+import RodillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Rodilla.wav";
+import TobilloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Tobillo.wav";
 export {
+  // Female English
+  Abdomen,
+  ankle,
+  back,
+  butt,
+  cabeza_head,
+  cheek,
+  ChestOrBreasts,
+  chin,
+  ear,
+  Elbow,
+  eye,
+  fingers,
+  footOrToes,
+  forearm,
+  forehead,
+  hand,
+  Head,
+  hip,
+  knee,
+  lowerBack,
+  lowerLeg,
+  mouth,
+  Neck,
+  nose,
+  PelvisOrGenitals,
+  Shoulder,
+  thigh,
+  UpperArm,
+  wrist,
+
+  // Female Spanish
+  abdomenFemaleSpanish,
+  Abdomen_abdomenFemaleSpanish,
+  antebrazoFemaleSpanish,
+  barbillaFemaleSpanish,
+  bocaFemaleSpanish,
+  brazoSuperiorFemaleSpanish,
+  cabezaFemaleSpanish,
+  caderaFemaleSpanish,
+  codoFemaleSpanish,
+  cuelloFemaleSpanish,
+  dedosFemaleSpanish,
+  espaldaFemaleSpanish,
+  frenteFemaleSpanish,
+  hombroFemaleSpanish,
+  Las_nalgasFemaleSpanish,
+  manoFemaleSpanish,
+  mejillaFemaleSpanish,
+  munecaFemaleSpanish,
+  musloFemaleSpanish,
+  narizFemaleSpanish,
+  ojoFemaleSpanish,
+  orejaFemaleSpanish,
+  parteInferiorDeLaEspaldaFemaleSpanish,
+  parteInferiorDeLaPiernaFemaleSpanish,
+  pechoOMamaFemaleSpanish,
+  pelvisOGenitalesFemaleSpanish,
+  pieODedosDeLosPiesFemaleSpanish,
+  rodillaFemaleSpanish,
+  tobilloFemaleSpanish,
+
+  // Male English
+  Abdomen_comMale,
+  AnkleMale,
+  BackMale,
+  buttMale,
+  Cheeks_comMale,
+  chestOrBreastsMale,
+  ChinMale,
+  EarMale,
+  Elbow_comMale,
+  EyeMale,
+  FingersMale,
+  FootOrToes_comMale,
+  Forearm_comMale,
+  Forehead_comMale,
+  HandMale,
+  HeadMale,
+  HipMale,
+  Hombro_shoulderMale,
+  KneeMale,
+  LowerBackMale,
+  lowerLegMale,
+  MouthMale,
+  neckMale,
+  NoseMale,
+  PelvisOrGenitals_comMale,
+  ShoulderMale,
+  Thigh_comMale,
+  UpperArmMale,
+  WristMale,
+
+  // Male Spanish
+  antebrazoMAleSpanish,
+  BarbillaMAleSpanish,
+  bocaMAleSpanish,
+  brazoSuperiorMAleSpanish,
+  CodoMAleSpanish,
+  CuelloMAleSpanish,
+  dedosMAleSpanish,
+  EspaldaMAleSpanish,
+  caderaMAleSpanish,
+  nalgasMAleSpanish,
+  manoMAleSpanish,
+  MejillaMAleSpanish,
+  munecaMAleSpanish,
+  musloMAleSpanish,
+  narizMAleSpanish,
+  ojoMAleSpanish,
+  orejaMAleSpanish,
+  parteInferiorEspaldaMAleSpanish,
+  parteInferiorPiernaMAleSpanish,
+  pechoMAleSpanish,
+  pelvisMAleSpanish,
+  pieMAleSpanish,
+  RodillaMAleSpanish,
+  TobilloMAleSpanish,
   WithPillsFeMale,
   WithPillsMale,
   withMedicationHowOften,

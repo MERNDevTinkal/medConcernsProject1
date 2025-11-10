@@ -168,7 +168,7 @@ import WithMovementImg from "../../assets/images/With-Movement.png";
 import InfectionImg from "../../assets/images/infection.png";
 import ic_stitches_staplesImg from "../../assets/images/ic_stitches_staples.png";
 import dressing_changeImg from "../../assets/images/dressing_change.png";
-import refluxImg from "../../assets/images/reflux.png";
+import refluxImg from "../../assets/images/Reflux.png";
 import infoImg from "../../assets/images/info@2x.png";
 import NeedChanged_formerly_Soiled_urine from "../../assets/images/NeedChanged_formerly_Soiled_urine .png";
 import Colostomy_OstomyBag from "../../assets/images/Colostomy_ OstomyBag.png";
@@ -195,7 +195,7 @@ import ItchyImg from "../../assets/images/Itchy.png";
 import WoundPain from "../../assets/images/WoundPain.png";
 import Leakingwound from "../../assets/images/Leaking (wound).png";
 import DoubleVision from "../../assets/images/Blurry.png";
-import TickleInMyThroat from "../../assets/images/TickleInMyThroat.png";
+import TickleInMyThroat from "../../assets/images/tickle in my throat.png";
 import MedicationAllergy from "../../assets/images/MedicationAllergy.png";
 import SpreadOutImg from "../../assets/images/Spread Out.png";
 import NeedMyGlassesImg from "../../assets/images/Need My Glasses.png";
@@ -307,8 +307,10 @@ import PEG_FeedingPainImg from "../../assets/images/PEG _Feeding Tube_ Pain.png"
 import doorImg from "../../assets/images/door.png";
 import StrawImg from "../../assets/images/Straw.png";
 import feelingemotionsImg from "../../assets/images/feeling-emotions.png";
+import Toilet_UrinalImg from "../../assets/images/Toilet _ Urinal .png";
 
 export {
+  Toilet_UrinalImg,
   feelingemotionsImg,
   StrawImg,
   doorImg,

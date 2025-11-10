@@ -34,7 +34,7 @@ const DecisionCardFeeling = ({
       );
       updateDisease("concenyesno", value);
       if (path === "/pain-problem") {
-        return navigate("/male-body");
+        return navigate("/pain-concern");
       }
       navigate("/whiteboard", {
         state: concernValues,

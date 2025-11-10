@@ -4,7 +4,6 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import apiCall from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
-
 export default function Introduction() {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [loader, setLoader] = useState(true);
@@ -116,7 +115,7 @@ export default function Introduction() {
           <div className="main-wrapper home-wrapper">
             <div className="Intro_box">
               <div className="min-h-screen px-4 py-4">
-                <img src="/newlogo_4.png" width={400} className="m-auto" />
+                <img src={"/introduction.png"} width={400} className="m-auto" />
                 <div className="w-full m-auto mt-3 px-12">
                   {/* Name */}
                   <label className="block text-2xl font-bold mb-2">

@@ -76,7 +76,7 @@ function App() {
         <Route path="/main" element={<Main />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<BreathingWhen />} />
-          <Route path="/male-body" element={<BackPain />} />
+          <Route path="/pain-concern" element={<BackPain />} />
           <Route path="/feel" element={<Feel />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/topic-board" element={<Concern />} />

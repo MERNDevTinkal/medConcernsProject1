@@ -174,7 +174,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     },
     {
       icon: MenuIcon20,
-      path: "/male-body",
+      path: "/pain-concern",
       en: "Pain Location",
       es: "Ubicación del dolor",
     },
