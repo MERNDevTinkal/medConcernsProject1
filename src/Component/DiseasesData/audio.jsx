@@ -559,7 +559,7 @@ import MusicFemale from "../../assets/audio/English/newFemaleEnglish/Music.mp3";
 import MusicaFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Musica (Music).mp3";
 import MuyDeprimidoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Muy Deprimido (Very Down).mp3";
 // N files
-import nauseaFemale from "../../assets/audio/English/newFemaleEnglish/Nausea.wav";
+import nauseaFemale from "../../assets/audio/English/female/Nausea.mp3";
 import NecesitoAyudaComerFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Necesita Ayuda para Comer (Need Help Eaitng).mp3";
 import NecesitaBateriasFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Necesita Baterias (Need Batteries).mp3";
 import NecesitaCambioFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Necesita Cambio (Need Changed).mp3";
@@ -647,7 +647,7 @@ import septiembreFemale from "../../assets/audio/English/newFemaleEnglish/Septie
 import severeFemale from "../../assets/audio/English/newFemaleEnglish/Severe.mp3";
 import sexFemale from "../../assets/audio/English/newFemaleEnglish/sex.mp3";
 import shootingFemale from "../../assets/audio/English/newFemaleEnglish/Shooting.mp3";
-import shortnessOfBreathFemale from "../../assets/audio/English/newFemaleEnglish/Shortness of Breath female.mp3";
+import shortnessOfBreathFemale from "../../assets/audio/English/female/Shortness of Breath.mp3";
 import sideEffectsFemale from "../../assets/audio/English/newFemaleEnglish/Side effects.mp3";
 import SiempreCronicoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Siempre _ Cronico .mp3";
 import HopelessFemale from "../../assets/audio/English/newFemaleEnglish/Sin Esperanza (Hopeless).mp3";
@@ -1033,7 +1033,7 @@ import BowelsEnglishFemale from "../../assets/audio/English/female/Bowels.mp3";
 import NauseaEnglishFemale from "../../assets/audio/English/female/Nausea.wav";
 import SwallowingEnglishFemale from "../../assets/audio/English/female/Swallowing.mp3";
 import BreathingOrCoughingEnglishFemale from "../../assets/audio/English/female/Breathing or Coughing.mp3";
-import PainEnglishFemale from "../../assets/audio/English/female/pain.wav";
+import PainEnglishFemale from "../../assets/audio/English/female/Pain.mp3";
 import EmotionsOrFeelingsEnglishFemale from "../../assets/audio/English/female/Emotions or Feelings.mp3";
 import HearingEnglishFemale from "../../assets/audio/English/female/Hearing.mp3";
 
@@ -1767,6 +1767,7 @@ import Lapuertemale from "../../assets/audio/English/male/VO - La puerte.wav";
 
 import Doorfemale from "../../assets/audio/English/female/Door.wav";
 import LapuerteFemale from "../../assets/audio/English/female/la puerta (door).wav";
+import SharporstabbingEnglishFemale from "../../assets/audio/English/female/Sharp or stabbing.mp3";
 
 import ConstipationMale from "../../assets/audio/English/male/Constipation(Nausea).wav";
 import Nausea_VomitingMale from "../../assets/audio/English/male/Nausea _ Vomiting (male).mp3";
@@ -2292,7 +2293,7 @@ export {
   AnalisisDeSangreORayosXBloodworkXraySpanishMale,
   ArgumentoSpanishMale,
   CaerseFallSpanishMale,
-
+  SharporstabbingEnglishFemale,
   // English Male
   TrachRemovedMale,
   WaitedTooLongMale,

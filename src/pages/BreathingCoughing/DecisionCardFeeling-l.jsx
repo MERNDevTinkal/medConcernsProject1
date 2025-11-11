@@ -52,7 +52,7 @@ const DecisionCardFeeling = ({
       return setPathUrl(concenFell);
     }
 
-    setPathUrl(newPath);
+    setPathUrl(firstPart === "whiteboard" ? "/whiteboard" : newPath);
   }, [name, concenFell]);
   return (
     <>
