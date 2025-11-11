@@ -285,7 +285,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
             </h2>
             <div style={{ cursor: "pointer" }}>
               {(location.pathname === "/introduction" ||
-                location.pathname === "/howoften") && (
+                location.pathname === "/howoften" ||
+                location.pathname === "/new-problem") && (
                 <img
                   src={NextArrow}
                   alt="next"
@@ -293,6 +294,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                     navigate(
                       location.pathname === "/howoften"
                         ? "/new-problem"
+                        : location.pathname === "/new-problem"
+                        ? "/summary"
                         : "/how-are-you"
                     );
                   }}

@@ -626,29 +626,29 @@ export default function TabsCalendar() {
     navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
   };
 
-  // const getSkip = async (text) => {
-  //   await getTextToSpeech(
-  //     text,
-  //     selectedLanguage === "Spanish" ? "es-ES" : "",
-  //     selectedLanguage === "" && selectedGender === ""
-  //       ? IDontKnowMale
-  //       : selectedLanguage === "Spanish" && selectedGender === "Male"
-  //       ? NoSeSpanishMale
-  //       : selectedLanguage === "Spanish" && selectedGender === "Female"
-  //       ? NoSeIDontKnowSpanishFemale
-  //       : selectedLanguage === "" && selectedGender === "Female"
-  //       ? iDontKnowFemale
-  //       : selectedLanguage === "" && selectedGender === "Male"
-  //       ? IDontKnowMale
-  //       : selectedLanguage === "English" && selectedGender === "Male"
-  //       ? IDontKnowMale
-  //       : selectedLanguage === "English" && selectedGender === "Female"
-  //       ? iDontKnowFemale
-  //       : IDontKnowMale
-  //   );
+  const getSkip = async (text) => {
+    await getTextToSpeech(
+      text,
+      selectedLanguage === "Spanish" ? "es-ES" : "",
+      selectedLanguage === "" && selectedGender === ""
+        ? IDontKnowMale
+        : selectedLanguage === "Spanish" && selectedGender === "Male"
+        ? NoSeSpanishMale
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? NoSeIDontKnowSpanishFemale
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? iDontKnowFemale
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? IDontKnowMale
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? IDontKnowMale
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? iDontKnowFemale
+        : IDontKnowMale
+    );
 
-  //   navigate("/new-problem");
-  // };
+    navigate("/new-problem");
+  };
 
   return (
     <>
@@ -733,20 +733,20 @@ export default function TabsCalendar() {
                     >
                       {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
                     </button>
+                    <div
+                      className="mx-3 cursor-pointer"
+                      onClick={() => {
+                        getSkip("I Don't Know");
+                      }}
+                    >
+                      {" "}
+                      <img
+                        style={{ width: "40px", height: "40px" }}
+                        src={IdontknowImg}
+                        alt="icon"
+                      />
+                    </div>
                   </div>
-                  {/* <div
-                    className="mx-3 cursor-pointer"
-                    onClick={() => {
-                      getSkip("I Don't Know");
-                    }}
-                  >
-                    {" "}
-                    <img
-                      style={{ width: "40px", height: "40px" }}
-                      src={IdontknowImg}
-                      alt="icon"
-                    />
-                  </div> */}
                 </div>
 
                 {/* Content */}
