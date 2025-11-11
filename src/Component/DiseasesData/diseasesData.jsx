@@ -10342,7 +10342,6 @@ export const diseasesData = {
       image: infoImg,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
-
       maleEnglish: InformationMale,
       femaleEnglish: informationFemale,
       femaleSpanish: InformacionInformationSpanishFemale,
