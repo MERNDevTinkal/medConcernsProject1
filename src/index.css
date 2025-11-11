@@ -707,13 +707,6 @@ input[type="number"]::-webkit-outer-spin-button {
   height: calc(50vh - 130px);
   object-fit: contain;
 }
-.whiteboard-toolbar {
-  position: relative;
-  background-color: #fff;
-  z-index: 9999;
-  border-radius: 0.75rem;
-  padding: 15px;
-}
 
 @media only screen and (max-width: 852px) and (orientation: landscape) {
   .dash-single-items .dashboard-cards .dashboard-img img {
