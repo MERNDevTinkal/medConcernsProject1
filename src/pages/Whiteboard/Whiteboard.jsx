@@ -1112,8 +1112,8 @@ export default function Whiteboard() {
             name={selectedLanguage === "Spanish" ? "Pizarra" : "Whiteboard"}
           />
 
-          <div className="main-wrapper home-wrapper h-[150px]">
-            <div className="flex justify-end ml-2">
+          <div className="main-wrapper home-wrapper ">
+            <div className="flex justify-end mb-2">
               <Button
                 className="thm-btn"
                 onClick={() => navigate("/white-board-list")}
@@ -1123,8 +1123,8 @@ export default function Whiteboard() {
                   : "Saved White Boards"}
               </Button>
             </div>
-            <div className="flex flex-col items-center">
-              <Card className="w-full max-w-4xl flex flex-col">
+            <div className="flex flex-col items-center whiteboard-card">
+              <Card className="w-full flex flex-col ">
                 <div className="absolute top-3 right-3">
                   <Button
                     className="thm-btn"
@@ -1197,7 +1197,7 @@ export default function Whiteboard() {
                     onClick={handleClick}
                   />
                 </div>
-                <CardContent className="relative z-1 flex flex-wrap items-center justify-center gap-3">
+                <CardContent className="relative z-1 flex flex-wrap items-center justify-center gap-3 whiteboard-toolbar">
                   <Button
                     variant="ghost"
                     size="icon"

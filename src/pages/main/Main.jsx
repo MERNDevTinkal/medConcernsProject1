@@ -78,11 +78,11 @@ const Main = () => {
               {licenseKey && (
                 <button
                   type="button"
-                  className="absolute right-3 top-12.5"
+                  className="absolute right-3 top-11"
                   onClick={() => setLicenseKey("")}
                   aria-label="Clear input"
                 >
-                  <img src={close} alt="Clear" />
+                  <img src={close} className="w-6.5" alt="Clear" />
                 </button>
               )}
             </div>
