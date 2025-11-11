@@ -523,6 +523,8 @@ const PADDING = 0;
 
 const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   const [marker, setMarker] = useState(null);
+  const isSpeakingRef = useRef(false);
+
   const [croppedPart, setCroppedPart] = useState(null);
   const location = useLocation();
   const mainpath = location.pathname;
@@ -548,6 +550,8 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   };
 
   const handleImageClick = (e) => {
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
     const img = e.target;
     const rect = img.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
@@ -652,6 +656,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
             ],
         },
       });
+      isSpeakingRef.current = false;
     };
   };
 

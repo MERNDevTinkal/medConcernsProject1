@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg";
 import Question from "../../assets/images/question.svg";
@@ -26,6 +26,7 @@ import {
 const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isSpeakingRef = useRef(false);
   const path = location.pathname;
   const { updateDisease, diseases, addOrUpdateSummary } =
     useContext(GlobalContext);
@@ -69,6 +70,8 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
     },
   ];
   const handleDecision = async (value, mainpath, id) => {
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
     if (value && mainpath) {
       const arrayFilter = newData.filter((data) => data.id === id);
       await getTextToSpeech(
@@ -96,6 +99,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
         updateDisease(path.replace("/", ""), value);
       }
       navigate(mainpath);
+      isSpeakingRef.current = false;
     }
   };
   return (

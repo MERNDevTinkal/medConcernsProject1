@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
@@ -32,6 +32,8 @@ const NeedBoard = () => {
   const [topicId, setTopicId] = useState("");
   const [editData, setEditData] = useState(null);
   const [IntroductionOn, setIntroductionOn] = React.useState("");
+  const isSpeakingRef = useRef(false);
+
   const [CalendarOn, setCalendarOn] = React.useState("");
   const { updateDisease, resetDiseases, addOrUpdateSummary } =
     useContext(GlobalContext);
@@ -209,33 +211,37 @@ const NeedBoard = () => {
   };
   const handleNeedBoard = async (value, mainpath) => {
     if (value && (value?.audio || mainpath)) {
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
       resetDiseases();
+      const audioValue = value?.audio
+        ? value?.audio
+        : selectedLanguage === "" && selectedGender === ""
+        ? value?.maleEnglish
+        : selectedLanguage === "Spanish" && selectedGender === "Male"
+        ? value?.maleSpanish
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? value?.femaleSpanish
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? value?.femaleEnglish
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? value?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? value?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? value?.femaleEnglish
+        : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        value?.audio
-          ? value?.audio
-          : selectedLanguage === "" && selectedGender === ""
-          ? value?.maleEnglish
-          : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+        audioValue
       );
       addOrUpdateSummary(path.replace("/", ""), [value]);
       navigate(
         `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,
         { state: { value } }
       );
+      isSpeakingRef.current = false;
     }
   };
   return (

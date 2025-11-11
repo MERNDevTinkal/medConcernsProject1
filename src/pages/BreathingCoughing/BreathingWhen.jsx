@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
@@ -17,12 +17,14 @@ const BreathingWhen = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const pathprimary = location.pathname;
+  const isSpeakingRef = useRef(false);
+
   const { addOrUpdateSummary } = useContext(GlobalContext);
   const handleBreathingWhen = async (value, path) => {
     if (value && path) {
-      await getTextToSpeech(
-        selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : "",
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
+      const audioDefault =
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
@@ -37,10 +39,15 @@ const BreathingWhen = () => {
           ? value?.maleEnglish
           : selectedLanguage === "English" && selectedGender === "Female"
           ? value?.femaleEnglish
-          : value?.maleEnglish
+          : value?.maleEnglish;
+      await getTextToSpeech(
+        selectedLanguage === "Spanish" ? value.nameEs : value.name,
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        audioDefault
       );
       addOrUpdateSummary(pathprimary, [value]);
       navigate(path);
+      isSpeakingRef.current = false;
     }
   };
   useEffect(() => {

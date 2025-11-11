@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { topicBoard } from "../DiseasesData/diseasesData";
@@ -12,12 +12,14 @@ const TopicBoard = ({
   const path = location.pathname;
   const navigate = useNavigate();
   const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
+  const isSpeakingRef = useRef(false);
 
   const handleConcern = async (value, mainpath) => {
-    if (value && mainpath) {
-      await getTextToSpeech(
-        selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : "",
+    try {
+      if (!value || !mainpath) return;
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
+      const voiceFile =
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
@@ -32,10 +34,17 @@ const TopicBoard = ({
           ? value?.maleEnglish
           : selectedLanguage === "English" && selectedGender === "Female"
           ? value?.femaleEnglish
-          : value?.maleEnglish
+          : value?.maleEnglish;
+      await getTextToSpeech(
+        selectedLanguage === "Spanish" ? value.nameEs : value.name,
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        voiceFile
       );
       addOrUpdateSummary(path, [value]);
       navigate(mainpath);
+      isSpeakingRef.current = false;
+    } catch (error) {
+      console.error("Error in handleConcern:", error);
     }
   };
 

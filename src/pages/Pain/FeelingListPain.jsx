@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { GlobalContext } from "../../context/DiseaseContext";
 import Header from "../../Component/Layout/Header/Header";
 import {
@@ -13,6 +13,8 @@ import Loader from "../../Component/webLoader/loader";
 const FeelingListPain = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
+  const isSpeakingRef = useRef(false);
+
   const location = useLocation();
   const pathprimary = location.pathname;
   const path = location.pathname;
@@ -24,6 +26,9 @@ const FeelingListPain = () => {
   const { addOrUpdateSummary } = useContext(GlobalContext);
   const handlegetPain = async (value, path, painFeel) => {
     if (value && path) {
+      if (!value || !path) return;
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
       await getTextToSpeech(
         painFeel,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -45,6 +50,7 @@ const FeelingListPain = () => {
       );
       addOrUpdateSummary(pathprimary, [value]);
       navigate(path);
+      isSpeakingRef.current = false;
     }
   };
   useEffect(() => {

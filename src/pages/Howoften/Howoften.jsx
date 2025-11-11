@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { ArrowLeft, Check } from "lucide-react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
@@ -165,8 +165,8 @@ export default function TabsCalendar() {
   const { pathValue } = location.state ?? {};
   const pathprimary = location.pathname;
   const navigate = useNavigate();
+  const isSpeakingRef = useRef(false);
   const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
-
   // Week abbreviations
   const daysOfWeek = ["S", "M", "T", "W", "TH", "F", "S"];
   const daysOfWeekSpanish = ["D", "L", "M", "X", "J", "V", "S"];
@@ -515,7 +515,8 @@ export default function TabsCalendar() {
   const handleNowSelect = async () => {
     const text = selectedLanguage === "Spanish" ? "Ahora" : "Now";
     const audioFile = getTabAudio("now");
-
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
     await getTextToSpeech(
       text,
       selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -531,6 +532,7 @@ export default function TabsCalendar() {
       },
     ]);
     navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    isSpeakingRef.current = false;
   };
 
   const handleTabSelect = async (tabName) => {
@@ -548,7 +550,6 @@ export default function TabsCalendar() {
       default:
         return;
     }
-
     const audioFile = getTabAudio(tabName);
     await getTextToSpeech(
       text,
@@ -559,6 +560,8 @@ export default function TabsCalendar() {
 
   const handleDaySelect = async (item) => {
     setSelectedDayItem(item);
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
     const text =
       selectedLanguage === "Spanish"
         ? item === "morning"
@@ -583,12 +586,15 @@ export default function TabsCalendar() {
       },
     ]);
     navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    isSpeakingRef.current = false;
   };
 
   const handleWeekSelect = async (index) => {
     setSelectedWeekDay(index);
     const text = currentWeekDays[index];
     const audioFile = getWeekAudio(index);
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
     await getTextToSpeech(
       text,
       selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -603,10 +609,13 @@ export default function TabsCalendar() {
       },
     ]);
     navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    isSpeakingRef.current = false;
   };
 
   const handleMonthSelect = async (index) => {
     setSelectedMonth(index);
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
     const text = currentMonths[index];
     const audioFile = getMonthAudio(index);
     await getTextToSpeech(
@@ -624,6 +633,7 @@ export default function TabsCalendar() {
       },
     ]);
     navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    isSpeakingRef.current = false;
   };
 
   const getSkip = async (text) => {

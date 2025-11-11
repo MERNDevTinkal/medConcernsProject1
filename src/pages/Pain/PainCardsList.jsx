@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -10,6 +10,8 @@ const PainCardsList = ({
   selectedIconCount,
 }) => {
   const { addOrUpdateSummary } = useContext(GlobalContext);
+  const isSpeakingRef = useRef(false);
+
   const navigate = useNavigate();
   const location = useLocation();
   const pathprimary = location.pathname;
@@ -17,6 +19,9 @@ const PainCardsList = ({
   const [painFeelParams, setPainFeelParams] = useState([]);
   const handleConcern = async (value, path) => {
     if (value && path) {
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
+
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -38,6 +43,7 @@ const PainCardsList = ({
       );
       addOrUpdateSummary(pathprimary, [value]);
       navigate(path);
+      isSpeakingRef.current = false;
     }
   };
   useEffect(() => {

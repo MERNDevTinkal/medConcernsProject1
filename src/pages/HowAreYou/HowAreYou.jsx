@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { ArrowLeft, Check } from "lucide-react"; // Removed Calendar icon as we'll use a custom SVG
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
@@ -16,6 +16,7 @@ export default function HowAreYou() {
   const [IntroductionOn, setIntroductionOn] = React.useState("");
   const [loader, setLoader] = useState(true);
   const [selectedGender, setSelectedGender] = React.useState("");
+  const isSpeakingRef = useRef(false);
 
   const navigate = useNavigate();
   const { updateDisease, resetDiseases, addOrUpdateSummary } =
@@ -25,10 +26,10 @@ export default function HowAreYou() {
   const handleValue = async (path, item) => {
     if (path && item.name) {
       try {
+        if (isSpeakingRef.current) return;
+        isSpeakingRef.current = true;
         resetDiseases();
-        await getTextToSpeech(
-          selectedLanguage === "Spanish" ? item.nameEs : item.name,
-          selectedLanguage === "Spanish" ? "es-ES" : "",
+        const audioDefault =
           selectedLanguage === "" && selectedGender === ""
             ? item?.maleEnglish
             : selectedLanguage === "Spanish" && selectedGender === "Male"
@@ -43,10 +44,15 @@ export default function HowAreYou() {
             ? item?.maleEnglish
             : selectedLanguage === "English" && selectedGender === "Female"
             ? item?.femaleEnglish
-            : item?.maleEnglish
+            : item?.maleEnglish;
+        await getTextToSpeech(
+          selectedLanguage === "Spanish" ? item.nameEs : item.name,
+          selectedLanguage === "Spanish" ? "es-ES" : "",
+          audioDefault
         );
         updateDisease(mainpath.replace("/", ""), item);
         navigate(path);
+        isSpeakingRef.current = false;
       } catch (error) {
         console.error("TTS Error:", error);
         navigate(path);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { concerns } from "../DiseasesData/diseasesData";
@@ -14,12 +14,21 @@ const ConcernCard = ({
   const path = location.pathname;
   const navigate = useNavigate();
   const { updateDisease, resetDiseases } = useContext(GlobalContext);
+  const isSpeakingRef = useRef(false);
+
   const handleConcern = async (value, mainpath) => {
-    if (value && mainpath) {
+    if (!value || !mainpath) return;
+    if (isSpeakingRef.current) return;
+
+    try {
+      isSpeakingRef.current = true;
+
       resetDiseases();
-      await getTextToSpeech(
-        selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : "",
+
+      const voiceText =
+        selectedLanguage === "Spanish" ? value.nameEs : value.name;
+
+      const voiceFile =
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
@@ -34,14 +43,23 @@ const ConcernCard = ({
           ? value?.maleEnglish
           : selectedLanguage === "English" && selectedGender === "Female"
           ? value?.femaleEnglish
-          : value?.maleEnglish
+          : value?.maleEnglish;
+
+      await getTextToSpeech(
+        voiceText,
+        selectedLanguage === "Spanish" ? "es-ES" : "",
+        voiceFile
       );
+
       updateDisease(path.replace("/", ""), value);
-      navigate(mainpath, {
-        state: value,
-      });
+      navigate(mainpath, { state: value });
+    } catch (error) {
+      console.error("Error in handleConcern:", error);
+    } finally {
+      isSpeakingRef.current = false;
     }
   };
+
   return (
     <>
       {concerns

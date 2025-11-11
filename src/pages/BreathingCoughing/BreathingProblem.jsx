@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
@@ -8,6 +8,8 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 const BreathingProblem = () => {
+  const isSpeakingRef = useRef(false);
+
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
@@ -22,6 +24,9 @@ const BreathingProblem = () => {
   const { addOrUpdateSummary } = useContext(GlobalContext);
   const handleBreathingProblem = async (value, path) => {
     if (value && path) {
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
+
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -45,6 +50,7 @@ const BreathingProblem = () => {
       navigate(path, {
         state: value,
       });
+      isSpeakingRef.current = false;
     }
   };
   useEffect(() => {

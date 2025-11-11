@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, useRef } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
@@ -26,6 +26,7 @@ function ConfrmStepYesNo() {
   const location = useLocation();
   const { value } = location?.state || {};
   const pathprimary = location.pathname;
+  const isSpeakingRef = useRef(false);
 
   const { updateDisease } = useContext(GlobalContext);
 
@@ -72,6 +73,8 @@ function ConfrmStepYesNo() {
 
   const handleConfrmStepYesNo = async (valueData, path, audio) => {
     if (valueData && (audio || value?.audio)) {
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
       await getTextToSpeech(
         valueData,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -98,6 +101,7 @@ function ConfrmStepYesNo() {
       } else if (value?.audio) {
         navigate("/summary");
       }
+      isSpeakingRef.current = false;
     }
   };
   //
