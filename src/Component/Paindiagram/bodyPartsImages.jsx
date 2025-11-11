@@ -101,7 +101,7 @@ export const bodyImages = {
     Ear: earWoman,
     Neck: neckWoman,
     "Chest & Breast": chestBreastWoman,
-    Abdomen: adomenWoman,
+
     "Pelvis / Genitals": pelvisGenitalsWoman,
     Back: backWoman,
     Butt: buttWoman,
@@ -242,7 +242,6 @@ export const bodyImages = {
     Neck: neckMan,
     "Lower Back": lowerBackMan,
     "Chest & Breast": chestBreastMan,
-    Abdomen: adomenMan,
     "Pelvis / Genitals": pelvisGenitalsMan,
     Back: backMan,
     Chin: chinMan,

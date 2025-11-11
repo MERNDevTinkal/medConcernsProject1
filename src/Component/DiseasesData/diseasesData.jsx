@@ -6658,7 +6658,7 @@ const eatingdrinkingNoAppetiteNausea = [
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
-    secPath: "/Whiteboard",
+    path: "/Whiteboard",
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
@@ -6847,7 +6847,6 @@ const eatingDonoteatThis = [
     id: "2",
     name: "Wrong Tray",
     nameEs: "Bandeja Equivocada",
-    path: "",
     image: WrongTrayImg,
     path: "/summary",
     secPath: "/confrm-step-yesno",
