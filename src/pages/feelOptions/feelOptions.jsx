@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import BackArrow from "../../assets/images/back-arrow.svg";
@@ -26,6 +26,7 @@ import {
   TalVezMaleSpanish,
 } from "../../../src/Component/DiseasesData/audio";
 function EmotionScreen() {
+  const isSpeakingRef = useRef(false);
   const navigate = useNavigate();
   const location = useLocation();
   const mainPath = location.pathname;
@@ -63,6 +64,8 @@ function EmotionScreen() {
 
   const handleRoutes = async (item, value, audio) => {
     if (item) {
+      if (isSpeakingRef.current) return;
+      isSpeakingRef.current = true;
       await getTextToSpeech(
         value,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -75,6 +78,7 @@ function EmotionScreen() {
           ? "/feeling-body"
           : `/feelOptions/${parseInt(id) + 1}`
       );
+      isSpeakingRef.current = false;
     }
   };
 

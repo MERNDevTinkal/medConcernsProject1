@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { GlobalContext } from "../../context/DiseaseContext";
@@ -10,8 +10,13 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
   const path = location.pathname;
   const mainpath = location.pathname;
   const { addOrUpdateSummary } = useContext(GlobalContext);
-
+  const isSpeakingRef = useRef(false);
   const handleCardClick = async (item, path) => {
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
+    if (!item && !path) {
+      return;
+    }
     await getTextToSpeech(
       selectedLanguage === "Spanish" ? item.nameEs : item.name,
       selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -34,6 +39,7 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
     const datevalue = new Date();
     addOrUpdateSummary(`${mainpath}-${datevalue}`, [item]);
     navigate(path);
+    isSpeakingRef.current = false;
   };
 
   useEffect(() => {

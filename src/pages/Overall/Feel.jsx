@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
@@ -9,6 +9,7 @@ import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import Header from "../../Component/Layout/Header/Header";
 const Feel = () => {
+  const isSpeakingRef = useRef(false);
   const navigate = useNavigate();
   const location = useLocation();
   const [emotionsicons, setEmotionsicons] = useState([]);
@@ -26,29 +27,33 @@ const Feel = () => {
     setEmotionsicons(diseasesData[mainpath]);
   }, [mainpath]);
   const handleRoutes = async (item, path) => {
-    if (item && path) {
-      await getTextToSpeech(
-        selectedLanguage === "Spanish" ? item?.nameEs : item?.name,
-        selectedLanguage === "Spanish" ? "es-ES" : "",
-        selectedLanguage === "" && selectedGender === ""
-          ? item?.maleEnglish
-          : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? item?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? item?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? item?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? item?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? item?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? item?.femaleEnglish
-          : item?.maleEnglish
-      );
-      addOrUpdateSummary(mainpath, [item]);
-      navigate(mainpath === "/emotions" ? path : path);
+    if (isSpeakingRef.current) return;
+    isSpeakingRef.current = true;
+    if (!item && !path) {
+      return;
     }
+    await getTextToSpeech(
+      selectedLanguage === "Spanish" ? item?.nameEs : item?.name,
+      selectedLanguage === "Spanish" ? "es-ES" : "",
+      selectedLanguage === "" && selectedGender === ""
+        ? item?.maleEnglish
+        : selectedLanguage === "Spanish" && selectedGender === "Male"
+        ? item?.maleSpanish
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? item?.femaleSpanish
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? item?.femaleEnglish
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? item?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? item?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? item?.femaleEnglish
+        : item?.maleEnglish
+    );
+    addOrUpdateSummary(mainpath, [item]);
+    navigate(mainpath === "/emotions" ? path : path);
+    isSpeakingRef.current = false;
   };
   useEffect(() => {
     getSetting(
