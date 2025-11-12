@@ -1735,6 +1735,7 @@ import ScheduledPainMedsEnglishFemale from "../../assets/audio/English/female/sc
 import CrushedEnglishFemale from "../../assets/audio/English/female/crushed.mp3";
 import withfoodSpanishmale from "../../assets/audio/English/male/con comida (with food).mp3";
 import withfoodEnglishhmale from "../../assets/audio/English/male/With Food.mp3";
+import liquidoSpanishFemale from "../../assets/audio/Spanish/female/liquido (liquid).mp3";
 
 // Spanish Female
 import BlancoWhiteSpanishFemale from "../../assets/audio/English/female/Blanco (white).mp3";
@@ -2201,7 +2202,7 @@ export {
   SwellingMale,
   StitchesStaplesMale,
   InfectionMale,
-
+  liquidoSpanishFemale,
   // Spanish Male
   CambioDeVendajeChangeDressingSpanishMale,
   HinchazonSwellingSpanishMale,
