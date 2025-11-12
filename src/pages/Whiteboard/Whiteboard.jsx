@@ -319,7 +319,7 @@ export default function Whiteboard() {
     if (ctx) {
       try {
         ctx.closePath();
-      } catch (err) {}
+      } catch (err) { }
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
@@ -527,11 +527,15 @@ export default function Whiteboard() {
         const { data } = await api.post("whiteBoardEdit", payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
-
         if (data.status) {
           const savedObj = data?.data || {};
-          setSelectedImages(savedObj?.images_url?.split(",") ?? []);
-          setDrawingName(savedObj.name_key || "");
+          const imagesUrl = savedObj?.images_url;
+          setSelectedImages(
+            imagesUrl && typeof imagesUrl === "string" && imagesUrl.trim() && imagesUrl.trim() !== "undefined"
+              ? imagesUrl.split(",")
+              : null
+          );
+          setDrawingName(savedObj?.name_key || "");
           if (Array.isArray(savedObj.imageFiles)) {
             const apiImages = savedObj.imageFiles.map((url) => ({
               src: url,
@@ -542,16 +546,13 @@ export default function Whiteboard() {
             }));
             setUploadedImages(apiImages);
           }
-
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
           if (savedState.paths) {
             setPaths(savedState.paths);
           }
-
           if (Array.isArray(savedState.texts)) {
             setTextBlocks(savedState.texts);
           }
-
           if (savedState.toolSettings) {
             setDrawingColor(savedState.toolSettings.color || "#000000");
             setDrawingWidth(savedState.toolSettings.width || 2);
@@ -563,7 +564,6 @@ export default function Whiteboard() {
         setLoader(false);
       }
     };
-
     fetchBoard();
   }, [id, licenses_id, token]);
 
@@ -628,6 +628,11 @@ export default function Whiteboard() {
         width: drawingWidth,
       },
     };
+    if (paths.length === 0 && committedTexts.length === 0 && selectedImages == undefined && imageFiles.length === 0) {
+      alert("Please Fill Something");
+      return;
+    }
+
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
@@ -913,16 +918,16 @@ export default function Whiteboard() {
   /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -1180,13 +1185,12 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-[715px] touch-none pt-5 z-0 ${
-                      tool === "text"
+                    className={`w-[715px] touch-none pt-5 z-0 ${tool === "text"
                         ? "cursor-text"
                         : tool === "eraser"
-                        ? "cursor-eraser"
-                        : "cursor-crosshair"
-                    }`}
+                          ? "cursor-eraser"
+                          : "cursor-crosshair"
+                      }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1226,7 +1230,7 @@ export default function Whiteboard() {
                       handleFileUpload(e);
                     }}
 
-                    // document.getElementById("imageUpload").click()
+                  // document.getElementById("imageUpload").click()
                   >
                     <Icon.Image className="w-5 h-5" />
                   </Button>
