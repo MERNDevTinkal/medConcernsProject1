@@ -273,6 +273,7 @@ const NeedBoard = () => {
           />
 
           <div className="main-wrapper home-wrapper ">
+              <div className="dashboard-wrapper px-4 py-1.5">
             <div
               className="dashboard-h grid gap-3 p-3"
               style={{
@@ -288,7 +289,7 @@ const NeedBoard = () => {
                 .filter((item) => !selectedNeedboard.includes(item.name))
                 .map((item, index) => (
                   <div
-                    className={
+                            className={
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
@@ -304,7 +305,7 @@ const NeedBoard = () => {
                     style={{ cursor: "pointer" }}
                     key={index}
                   >
-                    <div className="dashboard-cards rounded-2xl bg-white text-center py-2 px-3 relative">
+                      <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
                       {item.name && !item.nameEs && (
                         <div className="flex justify-end absolute top-4 right-4">
                           <span style={{ color: "blue" }}>
@@ -327,7 +328,7 @@ const NeedBoard = () => {
                         </div>
                       )}
                       <div
-                        className="dashboard-img flex justify-center items-center"
+                        className="dashboard-img card-img-h rounded-2xl"
                         onClick={() => handleNeedBoard(item, item.secPath)}
                       >
                         <img
@@ -348,7 +349,7 @@ const NeedBoard = () => {
                   </div>
                 ))}
             </div>
-
+</div>
             {/* Add Button at bottom */}
             <div className="flex justify-center my-6">
               <button
