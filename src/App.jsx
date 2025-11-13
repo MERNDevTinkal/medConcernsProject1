@@ -58,39 +58,35 @@ import PatientEducation from "./pages/PatientEducation/page";
 import ImagesLibrery from "./pages/ImagesLibrery/page";
 function App() {
   useEffect(() => {
-    // Force landscape on iOS
+    // Simple iOS detection and class addition
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     
     if (isIOS) {
-      // Method 1: Try to lock orientation
-      if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock('landscape').catch(error => {
-          console.log('Orientation lock not supported');
-        });
-      }
-      
-      // Method 2: CSS approach for iOS
       document.body.classList.add('ios-landscape');
       
-      // Method 3: Show message to rotate device
-      const checkOrientation = () => {
-        if (window.orientation === 0 || window.orientation === 180) {
-          // Portrait mode - show warning
-          document.body.classList.add('portrait-warning');
+      // Handle orientation changes
+      const handleOrientation = () => {
+        if (window.orientation === 90 || window.orientation === -90) {
+          document.body.classList.add('landscape-mode');
+          document.body.classList.remove('portrait-mode');
         } else {
-          // Landscape mode - hide warning
-          document.body.classList.remove('portrait-warning');
+          document.body.classList.add('portrait-mode');
+          document.body.classList.remove('landscape-mode');
         }
       };
       
-      checkOrientation();
-      window.addEventListener('orientationchange', checkOrientation);
+      // Initial check
+      handleOrientation();
+      
+      // Listen for orientation changes
+      window.addEventListener('orientationchange', handleOrientation);
       
       return () => {
-        window.removeEventListener('orientationchange', checkOrientation);
+        window.removeEventListener('orientationchange', handleOrientation);
       };
     }
   }, []);
+
   return (
     <Router>
       {" "}
