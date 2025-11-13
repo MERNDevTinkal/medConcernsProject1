@@ -1,14 +1,13 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { ArrowLeft, Check } from "lucide-react"; // Removed Calendar icon as we'll use a custom SVG
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { Link } from "react-router-dom";
 import { howareyou } from "../../assets/ImagesImports";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+import gifLoader from "../../assets/loaderGif/Spinner.gif"
 export default function HowAreYou() {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -129,7 +128,7 @@ export default function HowAreYou() {
                           style={{
                             height: selectedIconCount === 6 ? "" : "",
                           }}
-                          src={item?.image}
+                          src={item?.image ? item?.image :gifLoader}
                           className="w-full"
                           alt={item?.name}
                         />
