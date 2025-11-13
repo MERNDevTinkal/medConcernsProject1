@@ -5,6 +5,7 @@ import { concerns } from "../DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 
 const ConcernCard = ({
+  gifLoader,
   skipKeys = [],
   selectedLanguage,
   selectedIconCount,
@@ -89,7 +90,7 @@ const ConcernCard = ({
               <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
                 <img
                   style={{ height: selectedIconCount === 6 ? "" : "" }}
-                  src={item?.image}
+                  src={item?.image ?? gifLoader}
                   alt={item?.name}
                   className="w-full h-full object-contain"
                 />

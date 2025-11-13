@@ -7,7 +7,7 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-
+import gifLoader from "../../assets/loaderGif/Spinner.gif"
 const Concern = () => {
   const location = useLocation();
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
@@ -25,9 +25,9 @@ const Concern = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
       setUncheckConcerns
     );
   }, []);
@@ -49,8 +49,8 @@ const Concern = () => {
                   ? "Tablero Temático"
                   : "Topic Board"
                 : selectedLanguage === "Spanish"
-                ? "Preocupaciones"
-                : "Concerns"
+                  ? "Preocupaciones"
+                  : "Concerns"
             }
           />
 
@@ -68,6 +68,7 @@ const Concern = () => {
             >
               {location.pathname === "/concern" ? (
                 <ConcernCard
+                  gifLoader={gifLoader}
                   skipKeys={selectedConcerns}
                   selectedLanguage={selectedLanguage}
                   selectedIconCount={selectedIconCount}

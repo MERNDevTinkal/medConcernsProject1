@@ -7,6 +7,7 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+import gifLoader from "../../assets/loaderGif/Spinner.gif"
 const BreathingProblem = () => {
   const isSpeakingRef = useRef(false);
 
@@ -221,7 +222,7 @@ const BreathingProblem = () => {
                           style={{
                             height: selectedIconCount === 6 ? "" : "",
                           }}
-                          src={data?.image}
+                          src={data?.image ?? gifLoader}
                           className="w-full"
                           alt={data?.name}
                         />

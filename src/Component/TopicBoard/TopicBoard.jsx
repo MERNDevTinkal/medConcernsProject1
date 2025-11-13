@@ -4,6 +4,7 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import { topicBoard } from "../DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 const TopicBoard = ({
+  gifLoader,
   selectedLanguage,
   selectedIconCount,
   selectedGender,

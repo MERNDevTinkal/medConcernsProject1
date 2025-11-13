@@ -9,7 +9,7 @@ import { topicBoard } from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-
+import gifLoader from "../../assets/loaderGif/Spinner.gif"
 function BreathingYesNo() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -81,7 +81,7 @@ function BreathingYesNo() {
                 ) : (
                   <div className="dashboard-img rounded-2xl">
                     <img
-                      src={concernValues?.image}
+                      src={concernValues?.image ?? gifLoader}
                       className="w-full sm:w-2xs mx-auto"
                     />
                   </div>
