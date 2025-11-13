@@ -485,6 +485,10 @@ input[type="number"]::-webkit-outer-spin-button {
   object-fit: contain;
 }
 
+.Header-text{
+      margin-right: 38px;
+}
+
 @media (max-width: 799px) {
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;

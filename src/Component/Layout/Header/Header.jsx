@@ -58,195 +58,195 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     window.location.href = "/";
   };
   const menuItems = [
-    { icon: MenuIcon1 ? MenuIcon1:gifLoader, path: "/settings", en: "Settings", es: "Configuración" },
+    { icon: MenuIcon1 ? MenuIcon1 : gifLoader, path: "/settings", en: "Settings", es: "Configuración" },
     {
-      icon: MenuIcon2 ? MenuIcon2:gifLoader,
+      icon: MenuIcon2 ? MenuIcon2 : gifLoader,
       path: "/patient-education",
       en: "Patient Education",
       es: "Educación del paciente",
     },
     {
-      icon:  MenuIcon3 ? MenuIcon3:gifLoader,
+      icon: MenuIcon3 ? MenuIcon3 : gifLoader,
       path: "/introduction",
       en: "Introduction",
       es: "Introducción",
       hide: introductionOn,
     },
     {
-      icon: MenuIcon4?MenuIcon4:gifLoader,
+      icon: MenuIcon4 ? MenuIcon4 : gifLoader,
       path: "/how-are-you",
       en: "How are you?",
       es: "¿Cómo estás?",
     },
-    { icon: icon03?icon03:gifLoader, path: "/concern", en: "Concerns", es: "Preocupaciones" },
+    { icon: icon03 ? icon03 : gifLoader, path: "/concern", en: "Concerns", es: "Preocupaciones" },
     {
-      icon: MenuIcon6?MenuIcon6:gifLoader,
+      icon: MenuIcon6 ? MenuIcon6 : gifLoader,
       path: "/whiteboard",
       en: "White Board",
       es: "Pizarra blanca",
     },
     {
-      icon: MenuIcon7?MenuIcon7:gifLoader,
+      icon: MenuIcon7 ? MenuIcon7 : gifLoader,
       path: "/yes-no-concerns",
       en: "Yes / No / ? Board",
       es: "Sí / No / ? Pizarra",
     },
     {
-      icon: MenuIcon8?MenuIcon8:gifLoader,
+      icon: MenuIcon8 ? MenuIcon8 : gifLoader,
       path: "/board",
       en: "Needs Board",
       es: "Pizarra de necesidades",
     },
     {
-      icon: MenuIcon9?MenuIcon9:gifLoader,
+      icon: MenuIcon9 ? MenuIcon9 : gifLoader,
       path: "/topic-board",
       en: "Topic Board",
       es: "Pizarra de temas",
     },
-    { icon: MenuIcon10?MenuIcon10:gifLoader, path: "/when", en: "When?", es: "¿Cuándo?" },
+    { icon: MenuIcon10 ? MenuIcon10 : gifLoader, path: "/when", en: "When?", es: "¿Cuándo?" },
     {
-      icon: MenuIcon11?MenuIcon11:gifLoader,
+      icon: MenuIcon11 ? MenuIcon11 : gifLoader,
       path: "/howoften",
       en: "Calendar",
       es: "Calendario",
       hide: calendarOn,
     },
     {
-      icon: appetite?appetite:gifLoader,
+      icon: appetite ? appetite : gifLoader,
       path: "/noappetite-problem",
       en: "Appetite",
       es: "Apetito",
     },
     {
-      icon: MenuIcon13?MenuIcon13:gifLoader,
+      icon: MenuIcon13 ? MenuIcon13 : gifLoader,
       path: "/bowels-problem",
       en: "Bowel",
       es: "Intestinos",
     },
     {
-      icon: MenuIcon5?MenuIcon5:gifLoader,
+      icon: MenuIcon5 ? MenuIcon5 : gifLoader,
       path: "/breathing-problem",
       en: "Breathing / Coughing",
       es: "Respiración / Tos",
     },
     {
-      icon: EmotionsImg2?EmotionsImg2:gifLoader,
+      icon: EmotionsImg2 ? EmotionsImg2 : gifLoader,
       path: "/emotions",
       en: "Emotions / Feelings",
       es: "Emociones / Sentimientos",
     },
-    { icon: MenuIcon15?MenuIcon15:gifLoader, path: "/fatigue-problem", en: "Fatigue", es: "Fatiga" },
+    { icon: MenuIcon15 ? MenuIcon15 : gifLoader, path: "/fatigue-problem", en: "Fatigue", es: "Fatiga" },
     {
-      icon: IllnessImg?IllnessImg:gifLoader,
+      icon: IllnessImg ? IllnessImg : gifLoader,
       path: "/illness-problem",
       en: "Illness",
       es: "Enfermedad",
     },
     {
-      icon: hearingImg?hearingImg:gifLoader,
+      icon: hearingImg ? hearingImg : gifLoader,
       path: "/hearing-problem",
       en: "Hearing",
       es: "Audición",
     },
     {
-      icon: MenuIcon16?MenuIcon16:gifLoader,
+      icon: MenuIcon16 ? MenuIcon16 : gifLoader,
       path: "/medication-problem",
       en: "Medication",
       es: "Medicamentos",
     },
     {
-      icon: thickmucusImg?thickmucusImg:gifLoader,
+      icon: thickmucusImg ? thickmucusImg : gifLoader,
       path: "/illnessMucus-problem",
       en: "Mucus/Secretions",
       es: "Moco/Secreciones",
     },
-    { icon: MenuIcon17?MenuIcon17:gifLoader, path: "/nausea-problem", en: "Nausea", es: "Náuseas" },
+    { icon: MenuIcon17 ? MenuIcon17 : gifLoader, path: "/nausea-problem", en: "Nausea", es: "Náuseas" },
     {
-      icon: MenuIcon18?MenuIcon18:gifLoader,
+      icon: MenuIcon18 ? MenuIcon18 : gifLoader,
       path: "/pain-feel",
       en: "Pain Description",
       es: "Descripción del dolor",
     },
     {
-      icon: MenuIcon19?MenuIcon19:gifLoader,
+      icon: MenuIcon19 ? MenuIcon19 : gifLoader,
       path: "/feeling",
       en: "Pain Scale",
       es: "Escala del dolor",
     },
     {
-      icon: MenuIcon20?MenuIcon20:gifLoader,
+      icon: MenuIcon20 ? MenuIcon20 : gifLoader,
       path: "/pain-concern",
       en: "Pain Location",
       es: "Ubicación del dolor",
     },
     {
-      icon: PEGImg?PEGImg:gifLoader,
+      icon: PEGImg ? PEGImg : gifLoader,
       path: "/feeding-problem",
       en: "PEG",
       es: "Alimentación por sonda",
     },
     {
-      icon: MenuIcon21?MenuIcon21:gifLoader,
+      icon: MenuIcon21 ? MenuIcon21 : gifLoader,
       path: "/swallowing-problem",
       en: "Swallowing",
       es: "Deglución",
     },
     {
-      icon: somethinghappenedImg?somethinghappenedImg:gifLoader,
+      icon: somethinghappenedImg ? somethinghappenedImg : gifLoader,
       path: "/something-problem",
       en: "Something Happened",
       es: "Algo pasó",
     },
     {
-      icon: MenuIcon22?MenuIcon22:gifLoader,
+      icon: MenuIcon22 ? MenuIcon22 : gifLoader,
       path: "/trach-problem",
       en: "Trach",
       es: "Traqueotomía",
     },
     {
-      icon: MenuIcon23?MenuIcon23:gifLoader,
+      icon: MenuIcon23 ? MenuIcon23 : gifLoader,
       path: "/urination-problem",
       en: "Urination",
       es: "Orinación",
     },
     {
-      icon: MenuIcon24?MenuIcon24:gifLoader,
+      icon: MenuIcon24 ? MenuIcon24 : gifLoader,
       path: "/vision-problem",
       en: "Vision Problems",
       es: "Problemas de visión",
     },
     {
-      icon: woundImg?woundImg:gifLoader,
+      icon: woundImg ? woundImg : gifLoader,
       path: "/wound-problem",
       en: "Wound/Incision",
       es: "Herida/Incisión",
     },
     {
-      icon: MenuIcon25?MenuIcon25:gifLoader,
+      icon: MenuIcon25 ? MenuIcon25 : gifLoader,
       path: "/contact-us",
       en: "Contact Us",
       es: "Contáctenos",
     },
     {
-      icon: MenuIcon6?MenuIcon6:gifLoader,
+      icon: MenuIcon6 ? MenuIcon6 : gifLoader,
       path: "/white-board-list",
       en: "Saved Whiteboard",
       es: "Pizarra guardada",
     },
     {
-      icon: MenuIcon26?MenuIcon26:gifLoader,
+      icon: MenuIcon26 ? MenuIcon26 : gifLoader,
       path: "/summary-list",
       en: "Saved Summary",
       es: "Resumen guardado",
     },
     {
-      icon: MenuIcon27?MenuIcon27:gifLoader,
+      icon: MenuIcon27 ? MenuIcon27 : gifLoader,
       path: "/about-us",
       en: "About Us",
       es: "Sobre nosotros",
     },
     {
-      icon: logoutImg?logoutImg:gifLoader,
+      icon: logoutImg ? logoutImg : gifLoader,
       path: "#",
       en: "Logout",
       es: "Cerrar sesión",
@@ -278,7 +278,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                 <img src={hamburger} alt="menu" />
               </button>
             </div>
-            <h2 className="text-[25px] font-normal text-black transform -translate-x-[7.5px]">
+            <h2 className="Header-text text-[25px] font-normal text-black">
               {name ??
                 (selectedLanguage === "Spanish"
                   ? "Preocupaciones"
@@ -288,30 +288,29 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               {(location.pathname === "/introduction" ||
                 location.pathname === "/howoften" ||
                 location.pathname === "/new-problem") && (
-                <img
-                  src={NextArrow}
-                  alt="next"
-                  onClick={() => {
-                    navigate(
-                      location.pathname === "/howoften"
-                        ? "/new-problem"
-                        : location.pathname === "/new-problem"
-                        ? "/summary"
-                        : "/how-are-you"
-                    );
-                  }}
-                />
-              )}
+                  <img
+                    src={NextArrow}
+                    alt="next"
+                    onClick={() => {
+                      navigate(
+                        location.pathname === "/howoften"
+                          ? "/new-problem"
+                          : location.pathname === "/new-problem"
+                            ? "/summary"
+                            : "/how-are-you"
+                      );
+                    }}
+                  />
+                )}
             </div>
           </div>
 
           {/* Sidebar */}
           <aside
-            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
-              isSidebarOpen
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
                 ? "translate-x-0"
                 : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-            }`}
+              }`}
           >
             <button
               className="close-btn absolute top-5 right-5"
@@ -327,11 +326,10 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                       key={index}
                       onClick={handleSummary}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
-            ${
-              location.pathname === item.path
-                ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
-                : "text-black hover:bg-gray-100"
-            }`}
+            ${location.pathname === item.path
+                          ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                          : "text-black hover:bg-gray-100"
+                        }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path} onClick={item.fun}>
