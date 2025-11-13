@@ -25,6 +25,24 @@
   </head>
 
   <body>
+      <style>
+    /* Only target iOS devices in portrait */
+    @media (max-width: 768px) and (orientation: portrait) and (-webkit-touch-callout: none) {
+      body {
+        transform: rotate(90deg);
+        transform-origin: 0 0;
+        width: 100vh;
+        height: 100vw;
+        position: fixed;
+        top: 0;
+        left: 100vw;
+      }
+      #root {
+        width: 100vh;
+        height: 100vw;
+      }
+    }
+  </style>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

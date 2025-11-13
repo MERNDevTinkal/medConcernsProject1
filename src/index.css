@@ -807,3 +807,22 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
   }
 }
+
+
+
+
+/* ios landscop css */
+
+/* App.css - Add these lines */
+.app-container {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Fix for iOS landscape content */
+@media (max-width: 768px) and (orientation: portrait) and (-webkit-touch-callout: none) {
+  .app-container {
+    width: 100vh;
+    height: 100vw;
+  }
+}
