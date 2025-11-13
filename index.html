@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
 
-    <!-- <meta
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <!-- <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     /> -->
 
-    <title>Medconcerns</title>
-    <!-- <link rel="manifest" href="/manifest.json" /> -->
+  <title>Medconcerns</title>
+  <!-- <link rel="manifest" href="/manifest.json" /> -->
 
-    <!-- Apple PWA Support -->
-    <link rel="apple-touch-icon" href="/180.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="MedConcerns App" />
-  </head>
-
-  <body>
-      <style>
-    /* Only target iOS devices in portrait */
-    @media (max-width: 768px) and (orientation: portrait) and (-webkit-touch-callout: none) {
+  <!-- Apple PWA Support -->
+  <link rel="apple-touch-icon" href="/180.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="MedConcerns App" />
+  <style>
+    /* Force landscape on iOS mobile in portrait */
+    @media only screen and (max-device-width: 812px) and (orientation: portrait) {
       body {
         transform: rotate(90deg);
         transform-origin: 0 0;
@@ -36,14 +31,20 @@
         position: fixed;
         top: 0;
         left: 100vw;
+        overflow: hidden;
       }
+
       #root {
         width: 100vh;
         height: 100vw;
       }
     }
   </style>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
