@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect }from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/main/Home";
@@ -57,6 +57,40 @@ import Aboutus from "./pages/Aboutus/page";
 import PatientEducation from "./pages/PatientEducation/page";
 import ImagesLibrery from "./pages/ImagesLibrery/page";
 function App() {
+  useEffect(() => {
+    // Force landscape on iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    
+    if (isIOS) {
+      // Method 1: Try to lock orientation
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape').catch(error => {
+          console.log('Orientation lock not supported');
+        });
+      }
+      
+      // Method 2: CSS approach for iOS
+      document.body.classList.add('ios-landscape');
+      
+      // Method 3: Show message to rotate device
+      const checkOrientation = () => {
+        if (window.orientation === 0 || window.orientation === 180) {
+          // Portrait mode - show warning
+          document.body.classList.add('portrait-warning');
+        } else {
+          // Landscape mode - hide warning
+          document.body.classList.remove('portrait-warning');
+        }
+      };
+      
+      checkOrientation();
+      window.addEventListener('orientationchange', checkOrientation);
+      
+      return () => {
+        window.removeEventListener('orientationchange', checkOrientation);
+      };
+    }
+  }, []);
   return (
     <Router>
       {" "}

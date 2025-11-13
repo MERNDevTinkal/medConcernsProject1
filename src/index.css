@@ -810,17 +810,26 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 
+/* landscope in iphone */
 
-/* ios landscop css */
 .app-container {
   width: 100%;
   height: 100%;
 }
 
-/* iOS landscape adjustment */
-@media only screen and (max-device-width: 812px) and (orientation: portrait) {
-  .app-container {
-    width: 100vh;
-    height: 100vw;
-  }
+/* iOS Landscape forcing */
+.ios-landscape {
+  width: 100vh !important;
+  height: 100vw !important;
+  transform: rotate(90deg) translate(0%, -100%) !important;
+  transform-origin: 0% 0% !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.ios-landscape .app-container {
+  width: 100vh !important;
+  height: 100vw !important;
+  transform: rotate(0deg) !important;
 }
