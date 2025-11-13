@@ -3,7 +3,7 @@ import HowAreYouImg2 from "../assets/images/okay.png";
 import HowAreYouImg3 from "../assets/images/bad.png";
 import HowAreYouImg4 from "../assets/images/up-and-down.png";
 import HowAreYouImg5 from "../assets/images/getting-better.png";
-import HowAreYouImg6 from "../assets/images/getting-worse.png";
+import HowAreYouImg6 from "../assets/images/worse.png";
 import HowAreYouImg7 from "../assets/images/concern-img-08.png";
 import HowAreYouImg8 from "../assets/images/i-dont-know.png";
 import HowAreYouImg9 from "../assets/images/ic_the_same.png";
