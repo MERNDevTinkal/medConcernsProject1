@@ -4,8 +4,9 @@ const LogoutPopup = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center  bg-opacity-40 z-50">
-      <div className="bg-white rounded-2xl shadow-lg w-[90%] max-w-sm p-6 text-center">
+
+    <div className="fixed inset-0 flex items-center justify-center   bg-opacity-40 z-50">
+      <div className=" rounded-2xl shadow-lg w-[100%] max-w-sm p-6 text-center bg-[#87cefa]/80">
         <h2 className="text-lg font-semibold text-gray-800 mb-3">
           Confirm Logout
         </h2>
