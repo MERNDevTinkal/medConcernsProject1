@@ -121,6 +121,7 @@ export default function Settings() {
       calendar: calendarOn,
       introduction: newIntroduction,
     });
+    navigate(newIntroduction ? "/concern":"")
   };
 
   // ---------------- Custom Components ----------------

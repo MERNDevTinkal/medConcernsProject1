@@ -1212,7 +1212,7 @@ export default function Whiteboard() {
                     }}
                     title="Pencil"
                   >
-                    <Icon.Pencil className="w-5 h-5" />
+                    <Icon.Pencil className="w-6 h-6" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1220,7 +1220,7 @@ export default function Whiteboard() {
                     onClick={activateTextTool}
                     title="Virtual Keyboard"
                   >
-                    <Icon.Keyword className="w-5 h-5" />
+                    <Icon.Keyword className="w-6 h-6" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1232,7 +1232,7 @@ export default function Whiteboard() {
 
                   // document.getElementById("imageUpload").click()
                   >
-                    <Icon.Image className="w-5 h-5" />
+                    <Icon.Image className="w-6 h-6" />
                   </Button>
                   {/* <input
                     type="file"
@@ -1266,7 +1266,7 @@ export default function Whiteboard() {
                     onClick={handleClear}
                     title="Clear"
                   >
-                    <Icon.Trash className="w-5 h-5" />
+                    <Icon.Trash className="w-6 h-6" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1274,7 +1274,7 @@ export default function Whiteboard() {
                     onClick={() => setShowSaveModal(true)}
                     title="File Save"
                   >
-                    <Icon.FileSave className="w-5 h-5" />
+                    <Icon.FileSave className="w-6 h-6" />
                   </Button>
 
                   {/* <div className="flex items-center gap-2 ml-2">

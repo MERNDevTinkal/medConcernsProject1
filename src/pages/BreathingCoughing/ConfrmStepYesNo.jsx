@@ -106,7 +106,6 @@ function ConfrmStepYesNo() {
   };
   //
   //
-console.log("selectedConcersselectedConcersselectedConcers",selectedConcers)
   return (
     <>
       {loader ? (

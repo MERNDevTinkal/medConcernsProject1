@@ -69,13 +69,14 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/introduction",
       en: "Introduction",
       es: "Introducción",
-      hide: introductionOn,
+      // hide: introductionOn,
     },
     {
       icon: MenuIcon4 ? MenuIcon4 : gifLoader,
       path: "/how-are-you",
       en: "How are you?",
       es: "¿Cómo estás?",
+      // hide: introductionOn,
     },
     { icon: icon03 ? icon03 : gifLoader, path: "/concern", en: "Concerns", es: "Preocupaciones" },
     {
@@ -102,13 +103,15 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       en: "Topic Board",
       es: "Pizarra de temas",
     },
-    { icon: MenuIcon10 ? MenuIcon10 : gifLoader, path: "/when", en: "When?", es: "¿Cuándo?" },
+    { icon: MenuIcon10 ? MenuIcon10 : gifLoader, path: "/when", en: "When?", es: "¿Cuándo?", 
+      // hide: calendarOn, 
+    },
     {
       icon: MenuIcon11 ? MenuIcon11 : gifLoader,
       path: "/howoften",
       en: "Calendar",
       es: "Calendario",
-      hide: calendarOn,
+      // hide: calendarOn,
     },
     {
       icon: appetite ? appetite : gifLoader,
@@ -181,7 +184,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     {
       icon: PEGImg ? PEGImg : gifLoader,
       path: "/feeding-problem",
-      en: "PEG",
+      en: "Feeding Tube",
       es: "Alimentación por sonda",
     },
     {
@@ -193,7 +196,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     {
       icon: somethinghappenedImg ? somethinghappenedImg : gifLoader,
       path: "/something-problem",
-      en: "Something Happened",
+      en: "Something Happened",                               
       es: "Algo pasó",
     },
     {
@@ -300,7 +303,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                             ? "/new-problem"
                             : location.pathname === "/new-problem"
                               ? "/summary"
-                              : "/how-are-you"
+                              : introductionOn ? "/concern":"/how-are-you"
                         );
                       }}
                     />
