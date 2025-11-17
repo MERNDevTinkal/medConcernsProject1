@@ -84,7 +84,7 @@ export default function HowAreYou() {
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
             name={
-              selectedLanguage === "Spanish" ? "Cómo estás ?" : "How are you ?"
+              selectedLanguage === "Spanish" ? "Cómo estás?" : "How are you?"
             }
           />
 

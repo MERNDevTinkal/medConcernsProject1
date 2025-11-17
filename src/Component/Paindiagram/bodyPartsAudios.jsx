@@ -1,4 +1,3 @@
-// import audio from "../../Component/DiseasesData/"
 const bodyPartsData = {
   english: [
     { id: 1, name: "Shoulder", audio: "shoulder.mp3" },

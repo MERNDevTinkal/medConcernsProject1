@@ -287,67 +287,70 @@ const NeedBoard = () => {
               >
                 {mergedData
                   .filter((item) => !selectedNeedboard.includes(item.name))
-                  .map((item, index) => (
-                    <div
-                      className={
-                        selectedIconCount === 1
-                          ? "dash-single-items"
-                          : selectedIconCount === 2
-                            ? "dash-double-items"
-                            : selectedIconCount === 3
-                              ? "dash-triple-items"
-                              : selectedIconCount === 4
-                                ? "dash-quadriple-items"
-                                : selectedIconCount === 6
-                                  ? "dash-hexuple-items"
-                                  : ""
-                      }
-                      style={{ cursor: "pointer" }}
-                      key={index}
-                    >
-                      <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
-                        {item.name && !item.nameEs && (
-                          <div className="flex justify-end absolute top-4 right-4">
-                            <span style={{ color: "blue" }}>
-                              <MdEdit
-                                onClick={() => {
-                                  // handleEdit(item);
-                                  navigate(`/board-upload/${item.id}`, {
-                                    state: { item },
-                                  });
-                                }}
-                              />
-                            </span>
-                            <span style={{ color: "red" }}>
-                              <MdOutlineDelete
-                                onClick={() => {
-                                  handleDelete(item.id);
-                                }}
-                              />
-                            </span>
+                  .map((item, index) => {
+                    console.log("====>item",)
+                    return (
+                      <div
+                        className={
+                          selectedIconCount === 1
+                            ? "dash-single-items"
+                            : selectedIconCount === 2
+                              ? "dash-double-items"
+                              : selectedIconCount === 3
+                                ? "dash-triple-items"
+                                : selectedIconCount === 4
+                                  ? "dash-quadriple-items"
+                                  : selectedIconCount === 6
+                                    ? "dash-hexuple-items"
+                                    : ""
+                        }
+                        style={{ cursor: "pointer" }}
+                        key={index}
+                      >
+                        <div className="dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                          {item?.audio !== undefined && item?.audio && item?.audio.trim() !== "" && (
+                            <div className="flex justify-end absolute top-4 right-4">
+                              <span style={{ color: "blue" }}>
+                                <MdEdit
+                                  onClick={() => {
+                                    // handleEdit(item);
+                                    navigate(`/board-upload/${item.id}`, {
+                                      state: { item },
+                                    });
+                                  }}
+                                />
+                              </span>
+                              <span style={{ color: "red" }}>
+                                <MdOutlineDelete
+                                  onClick={() => {
+                                    handleDelete(item.id);
+                                  }}
+                                />
+                              </span>
+                            </div>
+                          )}
+                          <div
+                            className="dashboard-img card-img-h rounded-2xl"
+                            onClick={() => handleNeedBoard(item, item.secPath)}
+                          >
+                            <img
+                              className="w-full"
+                              style={{
+                                height: selectedIconCount === 6 ? "" : "",
+                              }}
+                              src={item?.image}
+                              alt={item?.name}
+                            />
                           </div>
-                        )}
-                        <div
-                          className="dashboard-img card-img-h rounded-2xl"
-                          onClick={() => handleNeedBoard(item, item.secPath)}
-                        >
-                          <img
-                            className="w-full"
-                            style={{
-                              height: selectedIconCount === 6 ? "" : "",
-                            }}
-                            src={item?.image}
-                            alt={item?.name}
-                          />
+                          <p className="text-[16px] mt-4 color-black mb-0 ">
+                            {selectedLanguage === "Spanish"
+                              ? item?.nameEs || item?.name
+                              : item?.name}
+                          </p>
                         </div>
-                        <p className="text-[16px] mt-4 color-black mb-0 ">
-                          {selectedLanguage === "Spanish"
-                            ? item?.nameEs || item?.name
-                            : item?.name}
-                        </p>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  })}
               </div>
             </div>
             {/* Add Button at bottom */}

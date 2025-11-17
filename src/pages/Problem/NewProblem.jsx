@@ -32,16 +32,16 @@ const NewProblem = () => {
 
   const translations = {
     English: {
-      newProblem: "Is this a new problem ?",
-      overall: "How do you feel overall ?",
+      newProblem: "Is this a new problem?",
+      overall: "How do you feel overall?",
     },
     "": {
-      newProblem: "Is this a new problem ?",
-      overall: "How do you feel overall ?",
+      newProblem: "Is this a new problem?",
+      overall: "How do you feel overall?",
     },
     Spanish: {
-      newProblem: "¿Es este un problema nuevo ?",
-      overall: "¿Cómo se siente en general ?",
+      newProblem: "¿Es este un problema nuevo?",
+      overall: "¿Cómo se siente en general?",
     },
   };
   return (

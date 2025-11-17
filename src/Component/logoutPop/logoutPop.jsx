@@ -11,9 +11,8 @@ const LogoutPopup = ({ isOpen, onClose, onConfirm }) => {
           Confirm Logout
         </h2>
         <p className="text-sm text-gray-600 mb-6">
-          Are you sure you want to log out?
+          Are you sure you want to logout?
         </p>
-
         <div className="flex justify-center gap-4">
           <button
             onClick={onClose}

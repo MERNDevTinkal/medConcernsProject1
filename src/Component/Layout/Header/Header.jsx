@@ -13,7 +13,6 @@ import MenuIcon8 from "../../../assets/images/sidebar-icon-08.svg";
 import MenuIcon9 from "../../../assets/images/sidebar-icon-09.svg";
 import MenuIcon10 from "../../../assets/images/sidebar-icon-10.svg";
 import MenuIcon11 from "../../../assets/images/sidebar-icon-11.svg";
-import MenuIcon12 from "../../../assets/images/sidebar-icon-12.svg";
 import MenuIcon13 from "../../../assets/images/sidebar-icon-13.svg";
 import MenuIcon15 from "../../../assets/images/sidebar-icon-15.svg";
 import MenuIcon16 from "../../../assets/images/sidebar-icon-18.svg";

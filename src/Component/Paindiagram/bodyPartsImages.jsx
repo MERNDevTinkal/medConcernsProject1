@@ -90,10 +90,8 @@ import wristRightMan from "../../assets/images/men/wristright.png";
 
 // ==========================
 // EXPORT ALL
-// ==========================
 export const bodyImages = {
   women: {
-    // English keys - General (no specific side)
     Forhead: foreheadWoman,
     Eye: eyeWoman,
     Nose: noseWoman,
@@ -109,7 +107,6 @@ export const bodyImages = {
     "Lower Back": lowerBackWoman,
     Cheek: cheekWoman,
 
-    // English keys - Left side
     "Left Eye": eyeWoman,
     "Left Ear": earWoman,
     "Left Cheek": cheekWoman,
@@ -129,7 +126,6 @@ export const bodyImages = {
     "Left Foot & Toe": footToeWoman,
     "Left Butt": buttWoman,
 
-    // English keys - Right side
     "Right Eye": eyeWoman,
     "Right Ear": rightEarWoman,
     "Right Cheek": rightCheekWoman,
@@ -149,7 +145,6 @@ export const bodyImages = {
     "Right Foot & Toe": footToeRightWoman,
     "Right Butt": rightButtWoman,
 
-    // Generic body parts (fallback)
     Hip: rightHipWoman,
     Thigh: thighWoman,
     Knee: kneeWoman,
@@ -163,7 +158,6 @@ export const bodyImages = {
     "Lower Arm": lowerRightArmWoman,
     Forearm: lowerRightArmWoman,
 
-    // Spanish keys - General
     Frente: foreheadWoman,
     Ojo: eyeWoman,
     Nariz: noseWoman,
@@ -180,7 +174,6 @@ export const bodyImages = {
     "Zona Lumbar": lowerBackWoman,
     Mejilla: cheekWoman,
 
-    // Spanish keys - Left side
     "Ojo Izquierdo": eyeWoman,
     "Oreja Izquierda": earWoman,
     "Mejilla Izquierda": cheekWoman,
@@ -199,7 +192,6 @@ export const bodyImages = {
     "Pie y Dedos Izquierdos": footToeWoman,
     "Glúteo Izquierdo": buttWoman,
 
-    // Spanish keys - Right side
     "Ojo Derecho": eyeWoman,
     "Oreja Derecha": rightEarWoman,
     "Mejilla Derecha": rightCheekWoman,
@@ -218,7 +210,6 @@ export const bodyImages = {
     "Pie y Dedos Derechos": footToeRightWoman,
     "Glúteo Derecho": rightButtWoman,
 
-    // Generic Spanish body parts (fallback)
     Cadera: rightHipWoman,
     Muslo: thighWoman,
     Rodilla: kneeWoman,
@@ -234,7 +225,6 @@ export const bodyImages = {
     "Pierna Inferior": lowerLegWoman,
   },
   men: {
-    // English keys - General (no specific side)
     Forhead: foreheadMan,
     Eye: eyeMan,
     Nose: noseMan,
@@ -246,7 +236,6 @@ export const bodyImages = {
     Back: backMan,
     Chin: chinMan,
 
-    // English keys - Left side
     "Left Eye": eyeMan,
     "Left Ear": leftEarMan,
     "Left Cheek": cheekLeftMan,
@@ -266,7 +255,6 @@ export const bodyImages = {
     "Left Foot & Toe": footToeLeftMan,
     "Left Butt": leftButtMan,
 
-    // English keys - Right side
     "Right Eye": eyeMan,
     "Right Ear": rightEarMan,
     "Right Cheek": cheekRightMan,
@@ -286,7 +274,6 @@ export const bodyImages = {
     "Right Foot & Toe": footToeMan,
     "Right Butt": rightButtMan,
 
-    // Generic body parts (fallback)
     Ear: leftEarMan,
     Hip: rightHipMan,
     Thigh: rightThighMan,
@@ -302,7 +289,6 @@ export const bodyImages = {
     "Lower Arm": lowerArmMan,
     Forearm: lowerArmRightMan,
 
-    // Spanish keys - General
     Frente: foreheadMan,
     Ojo: eyeMan,
     Nariz: noseMan,
@@ -315,7 +301,6 @@ export const bodyImages = {
     Barbilla: chinMan,
     "Zona Lumbar": lowerBackMan,
 
-    // Spanish keys - Left side
     "Ojo Izquierdo": eyeMan,
     "Oreja Izquierda": leftEarMan,
     "Mejilla Izquierda": cheekLeftMan,
@@ -334,7 +319,6 @@ export const bodyImages = {
     "Pie y Dedos Izquierdos": footToeMan,
     "Glúteo Izquierdo": leftButtMan,
 
-    // Spanish keys - Right side
     "Ojo Derecho": eyeMan,
     "Oreja Derecha": rightEarMan,
     "Mejilla Derecha": cheekRightMan,
@@ -353,7 +337,6 @@ export const bodyImages = {
     "Pie y Dedos Derechos": footToeLeftMan,
     "Glúteo Derecho": rightButtMan,
 
-    // Generic Spanish body parts (fallback)
     Oreja: leftEarMan,
     Cadera: rightHipMan,
     Muslo: rightThighMan,

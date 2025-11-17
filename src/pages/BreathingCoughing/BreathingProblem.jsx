@@ -19,7 +19,8 @@ const BreathingProblem = () => {
   const [CalendarOn, setCalendarOn] = React.useState("");
   const location = useLocation();
   const Mainpath = location.pathname;
-  const headerName = location.state;
+  console.log("===>location",location)
+  const headerName = location?.state ?? "";
   const [problem, setProblems] = useState([]);
   const navigate = useNavigate();
   const { addOrUpdateSummary } = useContext(GlobalContext);
@@ -49,7 +50,7 @@ const BreathingProblem = () => {
       );
       addOrUpdateSummary(Mainpath, [value]);
       navigate(path, {
-        state: value,
+        state: {headerName:value},
       });
       isSpeakingRef.current = false;
     }
@@ -173,7 +174,7 @@ const BreathingProblem = () => {
             calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish"
-                ? headerName?.nameEs
+                ? headerName?.nameEs ?? headerName?.name
                 : headerName?.name ?? name
             }
           />

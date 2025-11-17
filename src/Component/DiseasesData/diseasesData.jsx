@@ -2576,7 +2576,7 @@ export const topicBoard = [
   {
     id: 22,
     name: "Something Else",
-    nameEs: "Algo salió mal",
+    nameEs: "Algo Más",
     image: PainImg15,
     path: "/whiteboard",
     secpath: "/confrm-step-when",

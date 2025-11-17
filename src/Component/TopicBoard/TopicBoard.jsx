@@ -24,18 +24,18 @@ const TopicBoard = ({
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish;
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -58,30 +58,28 @@ const TopicBoard = ({
             selectedIconCount === 1
               ? "dash-single-items"
               : selectedIconCount === 2
-              ? "dash-double-items"
-              : selectedIconCount === 3
-              ? "dash-triple-items"
-              : selectedIconCount === 4
-              ? "dash-quadriple-items"
-              : selectedIconCount === 6
-              ? "dash-hexuple-items"
-              : ""
+                ? "dash-double-items"
+                : selectedIconCount === 3
+                  ? "dash-triple-items"
+                  : selectedIconCount === 4
+                    ? "dash-quadriple-items"
+                    : selectedIconCount === 6
+                      ? "dash-hexuple-items"
+                      : ""
           }
           style={{ cursor: "pointer" }}
           onClick={() => handleConcern(item, item.path)}
         >
           <div className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3">
             {/* Spanish text stays centered */}
-            <p className="text-[16px] mt-3 mb-2 text-black">
+            <p className="text-[20px] mt-3 mb-2 text-black">
               {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
             </p>
 
             {/* English text positioned near bottom */}
             {selectedLanguage === "Spanish" && (
               <p
-                className="absolute bottom-2 text-[13
-              
-              px] text-black-500 break-words"
+                className="absolute bottom-2   break-words"
               >
                 {item?.name}
               </p>

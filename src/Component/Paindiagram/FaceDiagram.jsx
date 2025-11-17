@@ -17,10 +17,7 @@ const EarDiagram = () => {
           className="relative w-[250px] md:w-[300px] cursor-crosshair"
           onClick={handleClick}
         >
-          {/* Face Image */}
           <img src={FaceDigram} alt="Face" className="w-full h-auto" />
-
-          {/* Red pain point marker */}
           {painPoints.map((point, index) => (
             <div
               key={index}

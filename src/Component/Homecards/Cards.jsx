@@ -16,7 +16,6 @@ import dashimg13 from "../../assets/images/When-Toileting.png";
 import dashimg14 from "../../assets/images/When-Walking.png";
 import dashimg15 from "../../assets/images/With-Activity.png";
 import dashimg16 from "../../assets/images/With-Blood-Sugar.png";
-import dashimg17 from "../../assets/images/With-Emotion-Stress.png";
 import dashimg18 from "../../assets/images/With-Medication.png";
 import dashimg19 from "../../assets/images/With-Movement.png";
 import dashimg20 from "../../assets/images/With-Transfer-Repositioning.png";
@@ -27,7 +26,6 @@ import dashimg24 from "../../assets/images/Since-Fall.png";
 import dashimg25 from "../../assets/images/I-dont-know.png";
 import dashimg26 from "../../assets/images/concern-img-03.png";
 import dashimg27 from "../../assets/images/something-else.png";
-import { Link } from "react-router-dom";
 import SaveMode from "../../Component/saveASModel/saveModel"
 const Cards = () => {
   const [showSaveModal, setShowSaveModal] = useState(false);
