@@ -1999,7 +1999,7 @@ export const breathingWhenOptions = [
   },
   {
     id: 26,
-    image: dashimghow19,
+    image: WithTubeFeed,
     path: "/confrm-step-when",
     name: "With Tube Feed",
     nameEs: "Con Alimentación por Tubo",

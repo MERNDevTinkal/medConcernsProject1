@@ -65,7 +65,6 @@ const SummaryList = () => {
       () => {}
     );
   }, []);
-  console.log("===>", diseases);
   return (
     <>
       {loader ? (
@@ -110,6 +109,7 @@ const SummaryList = () => {
               <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
                 <div className="md:w-1/4 sm:w-1/2 w-full">
                   <SummaryLeftCard
+                    board={diseases?.summaryList[0]?.route}
                     selectedLanguage={selectedLanguage}
                     SummaryConcernData={diseases?.concern}
                   />

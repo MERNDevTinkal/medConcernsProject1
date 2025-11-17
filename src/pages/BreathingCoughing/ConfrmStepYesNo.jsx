@@ -27,7 +27,6 @@ function ConfrmStepYesNo() {
   const { value } = location?.state || {};
   const pathprimary = location.pathname;
   const isSpeakingRef = useRef(false);
-
   const { updateDisease } = useContext(GlobalContext);
 
   const [selectedConcers, setSelectedConcers] = useState({});
@@ -59,11 +58,12 @@ function ConfrmStepYesNo() {
 
   useEffect(() => {
     let text = "";
-    if (selectedLanguage === "Spanish" && selectedConcers?.sPrompt) {
-      text = selectedConcers.sPrompt;
-    } else if (selectedConcers?.Prompt) {
-      text = selectedConcers.Prompt;
-    } else if (selectedLanguage === "Spanish") {
+    // if (selectedLanguage === "Spanish" && selectedConcers?.sPrompt) {
+    //   text = selectedConcers.sPrompt;
+    // } else if (selectedConcers?.Prompt) {
+    //   text = selectedConcers.Prompt;
+    // } else
+       if (selectedLanguage === "Spanish") {
       text = selectedConcers?.nameEs ?? selectedConcers?.painFeelEs;
     } else {
       text = selectedConcers?.name ?? selectedConcers?.painFeel;
@@ -81,7 +81,7 @@ function ConfrmStepYesNo() {
         audio
       );
       updateDisease(pathprimary.replace("/", ""), valueData);
-      if (calendarOn) {
+      if (!pathprimary.includes("/feel/confrm-step-yesno") && !pathprimary.includes('/feeling-body/confrm-step-yesno') && calendarOn) {
         return navigate("/new-problem");
       }
       if (typeof path === "string") {
@@ -89,12 +89,12 @@ function ConfrmStepYesNo() {
           "/visionGlasses-problem/confrm-step-yesno/1",
           "/visionGlasses-problem/confrm-step-yesno/2",
         ];
-        console.log("==afsfsf==>",[displayText,value?.name])
+
         navigate(
           path,
           noNewProblemPaths.includes(pathprimary)
             ? { state: { pathValue: "noNewProblem" } }
-            : { state:{name: displayText ?? value?.name} }
+            : { state: { name: displayText ?? value?.name } }
         );
       } else if (typeof path === "number") {
         navigate(path, { state: value });
@@ -106,6 +106,7 @@ function ConfrmStepYesNo() {
   };
   //
   //
+console.log("selectedConcersselectedConcersselectedConcers",selectedConcers)
   return (
     <>
       {loader ? (
@@ -131,9 +132,7 @@ function ConfrmStepYesNo() {
                 <div className="dashboard-img rounded-2xl">
                   <img
                     src={
-                      selectedConcers.Prompt
-                        ? EmotionsImg2
-                        : selectedConcers?.image ?? value?.image
+                      selectedConcers?.image ?? value?.image
                     }
                     alt={selectedConcers?.name || "img"}
                     className="w-full rounded-xl"
@@ -147,7 +146,7 @@ function ConfrmStepYesNo() {
                       handleConfrmStepYesNo(
                         selectedLanguage === "Spanish" ? "Sí" : "YES",
                         selectedConcers?.Prompt
-                          ? "/feeling-body"
+                          ? selectedConcers?.path
                           : selectedConcers?.path,
                         selectedLanguage === "" && selectedGender === ""
                           ? YesMale
@@ -183,7 +182,7 @@ function ConfrmStepYesNo() {
                     onClick={() =>
                       handleConfrmStepYesNo(
                         "NO",
-                        selectedConcers?.Prompt ? selectedConcers?.path : -1,
+                        selectedConcers?.Prompt ? selectedConcers?.path : selectedConcers?.path,
                         selectedLanguage === "" && selectedGender === ""
                           ? No_male
                           : selectedLanguage === "Spanish" &&

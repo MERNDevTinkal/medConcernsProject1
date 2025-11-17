@@ -171,9 +171,8 @@ const CustomRoundCheckbox = ({ value, checked, onChange, label }) => (
     onClick={() => onChange(value)}
   >
     <div
-      className={`w-5 h-5 rounded-full flex items-center justify-center border transition-colors ${
-        checked ? "bg-blue-theme border-blue-theme" : "border-gray-400 bg-white"
-      }`}
+      className={`w-5 h-5 rounded-full flex items-center justify-center border transition-colors ${checked ? "bg-blue-theme border-blue-theme" : "border-gray-400 bg-white"
+        }`}
     >
       {checked && <div className="w-2.5 h-2.5 rounded-full bg-white"></div>}
     </div>
@@ -244,11 +243,11 @@ export default function ConcernsSettings() {
   // ---------------- Load settings ----------------
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader,
       setConcerns,
       setNeedboard,
@@ -290,7 +289,7 @@ export default function ConcernsSettings() {
               <img src={BackArrow} />
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
-              {selectedLanguage === "Spanish" ? "Configuración" : "Settings"}
+              {selectedLanguage === "Spanish" ? `${name === "Needsboard" ? "Necesita Configuración De Tablero" : "Configuración De Preocupaciones"}` : `${name === "Needsboard" ? "Needs Board Settings":"Concern Settings"}`}
             </h2>
             <button></button>
           </div>

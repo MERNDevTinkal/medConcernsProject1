@@ -286,20 +286,27 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
             <div style={{ cursor: "pointer" }}>
               {(location.pathname === "/introduction" ||
                 location.pathname === "/howoften" ||
-                location.pathname === "/new-problem") && (
-                  <img
-                    src={NextArrow}
-                    alt="next"
-                    onClick={() => {
-                      navigate(
-                        location.pathname === "/howoften"
-                          ? "/new-problem"
-                          : location.pathname === "/new-problem"
-                            ? "/summary"
-                            : "/how-are-you"
-                      );
-                    }}
-                  />
+                location.pathname === "/new-problem" || location.pathname === "/emotions" || location.pathname === "/feeling-body") && (
+                  <div className="flex items-center gap-2 justify-end cursor-pointer">
+                    <h6>Skip</h6>
+                    <img
+                      src={NextArrow}
+                      alt="next"
+                      onClick={() => {
+                        navigate(
+                          location.pathname === "/feeling-body" ? "/summary":
+                          location.pathname === "/emotions" ? "/feelOptions/1":
+                          location.pathname === "/howoften"
+                            ? "/new-problem"
+                            : location.pathname === "/new-problem"
+                              ? "/summary"
+                              : "/how-are-you"
+                        );
+                      }}
+                    />
+                  </div>
+
+
                 )}
             </div>
           </div>
@@ -307,8 +314,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
           {/* Sidebar */}
           <aside
             className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-                ? "translate-x-0"
-                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+              ? "translate-x-0"
+              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
               }`}
           >
             <button
