@@ -363,7 +363,7 @@ import CantSeeLeftFemale from "../../assets/audio/English/newFemaleEnglish/Can_t
 import CantSeeRightFemale from "../../assets/audio/English/newFemaleEnglish/Can_t See Right.mp3";
 import CargarAudifonosFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Cargar Audifonos (Charge Hearing Aids).mp3";
 import CascoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Casco (Helmet).mp3";
-import CatheterFemale from "../../assets/audio/English/newFemaleEnglish/Catheter .wav";
+import CatheterFemale from "../../assets/audio/English/newFemaleEnglish/Catheter.mp3";
 import CerebroCansadoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Cerebro Cansado (brain tired).mp3";
 import CervicalCollarFemale from "../../assets/audio/English/newFemaleEnglish/Cervical Collar.mp3";
 import ChangeClothesFemale from "../../assets/audio/English/newFemaleEnglish/Change Clothes.mp3";

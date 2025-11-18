@@ -5617,7 +5617,7 @@ const medicationswallowing = [
     nameEs: "Sin Apetito",
     secPath: "/confrm-step-yesno",
     image: Noappetite,
-    path: "/medicationnoAppetite-problem",
+    path: "/howoften",
     maleEnglish: NoAppetiteMale,
     femaleEnglish: NoAppetiteEnglishFemale,
     femaleSpanish: SinAppetitoNoAppetiteSpanishFemale,

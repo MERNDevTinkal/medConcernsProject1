@@ -169,7 +169,7 @@ import InfectionImg from "../../assets/images/infection.png";
 import ic_stitches_staplesImg from "../../assets/images/ic_stitches_staples.png";
 import dressing_changeImg from "../../assets/images/dressing_change.png";
 import refluxImg from "../../assets/images/Reflux.png";
-import infoImg from "../../assets/images/info@2x.png";
+import infoImg from "../../assets/images/Information.png";
 import NeedChanged_formerly_Soiled_urine from "../../assets/images/NeedChanged_formerly_Soiled_urine .png";
 import Colostomy_OstomyBag from "../../assets/images/Colostomy_ OstomyBag.png";
 import BloodPressure from "../../assets/images/BloodPressure.png";

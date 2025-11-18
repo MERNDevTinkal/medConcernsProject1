@@ -33,7 +33,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   const newData = [
     {
       id: 1,
-      image: yesImage,
+      image: Checked,
       name: "Yes",
       nameEs: "SÍ",
       newProblem: "New Problem",
@@ -46,7 +46,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
     },
     {
       id: 2,
-      image: NoImg,
+      image: Close,
       name: "Not a New Problem",
       nameEs: "No Es Un Problema Nuevo",
       newProblem: "Not a New Problem",

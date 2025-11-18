@@ -207,9 +207,10 @@ const TopicBoard = ({
                     </span>
                   </div>
                 )}
-                <p className="text-[20px] mt-3 mb-2 text-black">
+                <div className="text-[20px] mt-3 mb-2 text-black">
                   {item?.image ? (
                     <>
+                      {/* IMAGE BLOCK */}
                       <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
                         <img
                           style={{ height: selectedIconCount === 6 ? "" : "" }}
@@ -218,18 +219,25 @@ const TopicBoard = ({
                           className="w-full h-full object-contain"
                         />
                       </div>
+
+                      {/* NAME BELOW IMAGE */}
                       <p className="text-[20px] mt-1 mb-1 text-black">
                         {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
                       </p>
                     </>
-                  ) :
+                  ) : (
                     <>
-                      {selectedLanguage === "Spanish" ? item?.audio ? item?.name : item?.nameEs : item?.name}
+                      <p className="text-[20px] mt-1 mb-1 text-black">
+                        {selectedLanguage === "Spanish"
+                          ? item?.audio
+                            ? item?.name
+                            : item?.nameEs
+                          : item?.name}
+                      </p>
                     </>
-                  }
+                  )}
+                </div>
 
-
-                </p>
 
                 {/* English text positioned near bottom */}
                 {!item.audio && selectedLanguage === "Spanish" && (

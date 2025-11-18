@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import {  useNavigate, useLocation } from "react-router-dom";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { GlobalContext } from "../../context/DiseaseContext";
@@ -10,7 +10,6 @@ import Loader from "../../Component/webLoader/loader";
 import gifLoader from "../../assets/loaderGif/Spinner.gif"
 const BreathingProblem = () => {
   const isSpeakingRef = useRef(false);
-
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
@@ -19,7 +18,6 @@ const BreathingProblem = () => {
   const [CalendarOn, setCalendarOn] = React.useState("");
   const location = useLocation();
   const Mainpath = location.pathname;
-  console.log("===>location",location)
   const headerName = location?.state ?? "";
   const [problem, setProblems] = useState([]);
   const navigate = useNavigate();
