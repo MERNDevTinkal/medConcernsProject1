@@ -124,7 +124,7 @@ function App() {
           <Route path="/feeling" element={<FeelingListPain />} />
           <Route path="/emotions" element={<Feel />} />
           <Route path="/board" element={<NeedBoard />} />
-          <Route path="/board-upload" element={<NeedBoardUpload />} />
+          <Route path="/icon-upload" element={<NeedBoardUpload />} />
           <Route path="/board-upload/:id" element={<NeedBoardUpload />} />
           <Route path="/whiteboard" element={<Whiteboard />} />
           <Route path="/whiteboard/:id" element={<Whiteboard />} />

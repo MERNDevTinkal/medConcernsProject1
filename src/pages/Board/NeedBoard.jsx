@@ -5,7 +5,7 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation, useNavigate } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import TopicBoard from "../../Component/TopicBoardPop/TopicBoardPop";
+import DeletePopup from "../../Component/TopicBoardPop/TopicBoardPop";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import apiCall from "../../Component/apiCall/apiCall";
@@ -247,7 +247,7 @@ const NeedBoard = () => {
   return (
     <>
       {showModal && (
-        <TopicBoard
+        <DeletePopup
           setEditData={setEditData}
           topicId={topicId}
           setIsDelete={setIsDelete}
@@ -287,9 +287,8 @@ const NeedBoard = () => {
               >
                 {mergedData
                   .filter((item) => !selectedNeedboard.includes(item.name))
-                  .map((item, index) => {
-                    console.log("====>item",)
-                    return (
+                  .map((item, index) => (
+                    item?.image && (
                       <div
                         className={
                           selectedIconCount === 1
@@ -308,56 +307,52 @@ const NeedBoard = () => {
                         key={index}
                       >
                         <div className="dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
-                          {item?.audio !== undefined && item?.audio && item?.audio.trim() !== "" && (
+
+                          {item?.audio && item.audio.trim() !== "" && (
                             <div className="flex justify-end absolute top-4 right-4">
                               <span style={{ color: "blue" }}>
                                 <MdEdit
-                                  onClick={() => {
-                                    // handleEdit(item);
-                                    navigate(`/board-upload/${item.id}`, {
+                                  onClick={() =>
+                                    navigate(`/icon-upload`, {
                                       state: { item },
-                                    });
-                                  }}
+                                    })
+                                  }
                                 />
                               </span>
                               <span style={{ color: "red" }}>
-                                <MdOutlineDelete
-                                  onClick={() => {
-                                    handleDelete(item.id);
-                                  }}
-                                />
+                                <MdOutlineDelete onClick={() => handleDelete(item.id)} />
                               </span>
                             </div>
                           )}
+
                           <div
                             className="dashboard-img card-img-h rounded-2xl"
                             onClick={() => handleNeedBoard(item, item.secPath)}
                           >
                             <img
                               className="w-full"
-                              style={{
-                                height: selectedIconCount === 6 ? "" : "",
-                              }}
-                              src={item?.image}
-                              alt={item?.name}
+                              src={item.image}
+                              alt={item.name}
                             />
                           </div>
-                          <p className="text-[16px] mt-4 color-black mb-0 ">
+
+                          <p className="text-[16px] mt-4 color-black mb-0">
                             {selectedLanguage === "Spanish"
-                              ? item?.nameEs || item?.name
-                              : item?.name}
+                              ? item.nameEs || item.name
+                              : item.name}
                           </p>
                         </div>
                       </div>
                     )
-                  })}
+                  ))}
+
               </div>
             </div>
             {/* Add Button at bottom */}
             <div className="flex justify-center my-6">
               <button
                 onClick={() => {
-                  navigate("/board-upload");
+                  navigate("/icon-upload");
                 }}
                 className="thm-btn"
               >

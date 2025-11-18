@@ -8,7 +8,9 @@ import { useLocation } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import gifLoader from "../../assets/loaderGif/Spinner.gif"
+import { useNavigate } from "react-router-dom";
 const Concern = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [concerns, setUncheckConcerns] = useState(null);
@@ -75,13 +77,32 @@ const Concern = () => {
                   selectedGender={selectedGender}
                 />
               ) : (
-                <TopicBoard
-                  selectedLanguage={selectedLanguage}
-                  selectedIconCount={selectedIconCount}
-                  selectedGender={selectedGender}
-                />
+                <>
+                  <TopicBoard
+                    selectedLanguage={selectedLanguage}
+                    selectedIconCount={selectedIconCount}
+                    selectedGender={selectedGender}
+                    setLoader={setLoader}
+                  />
+
+                </>
               )}
             </div>
+            {location.pathname === "/topic-board" && (
+              <div className="flex justify-center my-6">
+                <button
+                  onClick={() => {
+                    navigate("/icon-upload", { state: { hideImage: "boardside" } });
+                  }}
+                  className="thm-btn"
+                >
+                  {selectedLanguage === "Spanish"
+                    ? "+ Agregar icono"
+                    : "+ Add Icon"}
+                </button>
+
+              </div>
+            )}
           </div>
         </>
       )}
