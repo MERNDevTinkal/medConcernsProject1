@@ -11,12 +11,14 @@ import { toast } from "react-toastify";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import { useNavigate } from "react-router-dom";
+import ConcernPopUp from "../../Component/concernPopUp/ConcernPop"
 const SummaryList = () => {
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const { diseases } = useContext(GlobalContext);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
+  const [showDonePopUp, setshowDonePopUp] = useState(false);
   const [calendarOn, setCalendarOn] = useState(false);
   const [introductionOn, setIntroductionOn] = useState(false);
   const [saveAs, setSaveAs] = useState("");
@@ -53,18 +55,21 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
+  const confirmFun = () => {
+    setshowDonePopUp((pre) =>  !pre )
+  }
   return (
     <>
       {loader ? (
@@ -124,6 +129,11 @@ const SummaryList = () => {
                   />
                 </div>
               </div>
+              <div onClick={() => {confirmFun()}} className="flex justify-center mt-10 mb-6">
+                <button  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
+                  Done
+                </button>
+              </div>
             </div>
           ) : (
             <div className="flex items-center justify-center h-[70vh]">
@@ -134,12 +144,18 @@ const SummaryList = () => {
               </h1>
             </div>
           )}
+
           {ShowSaveModal && (
             <SaveModel
               selectedLanguage={selectedLanguage}
               saveData={saveData}
               setSaveAs={setSaveAs}
               setShowSaveModal={setShowSaveModal}
+            />
+          )}
+          {showDonePopUp && (
+            <ConcernPopUp
+              confirmFun={confirmFun}
             />
           )}
           <Footer />
