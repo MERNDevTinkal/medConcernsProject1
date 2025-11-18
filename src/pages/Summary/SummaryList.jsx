@@ -40,7 +40,7 @@ const SummaryList = () => {
           setShowSaveModal(false);
           toast.success(data.msg, {
             autoClose: 1500,
-            onClose: navigate("/summary-list"),
+            onClose: navigate("/concern"),
           });
         }
       })
@@ -68,7 +68,11 @@ const SummaryList = () => {
     );
   }, []);
   const confirmFun = () => {
-    setshowDonePopUp((pre) =>  !pre )
+    setshowDonePopUp(false)
+    setShowSaveModal(true)
+  }
+  const ConcernPopUpFun = () => {
+    setshowDonePopUp((pre) => !pre);
   }
   return (
     <>
@@ -129,9 +133,9 @@ const SummaryList = () => {
                   />
                 </div>
               </div>
-              <div onClick={() => {confirmFun()}} className="flex justify-center mt-10 mb-6">
-                <button  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
-                  Done
+              <div onClick={() => { ConcernPopUpFun() }} className="flex justify-center mt-10 mb-6">
+                <button className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
+                  {selectedLanguage === "Spanish" ? "Hecho" : "Done"}
                 </button>
               </div>
             </div>

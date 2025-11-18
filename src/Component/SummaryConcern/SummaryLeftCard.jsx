@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import boardImg from "../../assets/images/sidebar-icon-08.svg"
-
+import {EmotionsImg2} from "../../Component/DiseasesData/images"
 const SummaryCards = ({board, selectedLanguage, SummaryConcernData }) => {
   const [getData, setData] = useState({});
   useEffect(() => {
@@ -10,17 +10,16 @@ const SummaryCards = ({board, selectedLanguage, SummaryConcernData }) => {
     }
     setData(SummaryConcernData);
   }, [SummaryConcernData]);
-  console.log("===>board",board)
   return (
     <>
       <div className="dashboard-cards rounded-2xl bg-white text-center py-4 px-3 shadow-sm cursor-pointer summary-left-cards">
         <div className="dashboard-img ">
-          <img src={board === "board" ? boardImg: getData?.image} className="w-full" />
+          <img src={board === "board" ? boardImg: board === "/emotions" ? EmotionsImg2: getData?.image} className="w-full" />
         </div>
         <Link to="" className="text-[21px] font-normal color-black">
           {selectedLanguage === "Spanish"
             ? getData?.nameEs
-            : getData?.name || ""}
+            :board === "/emotions" ? "Emotions / Feelings" :getData?.name ||""}
         </Link>
       </div>
     </>

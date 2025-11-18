@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 export default function Popup({ confirmFun }) {
     return (
         <>
@@ -8,10 +7,10 @@ export default function Popup({ confirmFun }) {
                     <h2 className="title">
                         Do you have any<br />other concerns today?
                     </h2>
-                    <Link to="/concern" className="option yes flex items-center justify-center">
+                    <button className="option yes" onClick={confirmFun}>
                         <span className="icon">✔️</span>
                         Yes
-                    </Link>
+                    </button>
                     <button className="option no" onClick={confirmFun}>
                         <span className="icon">❌</span>
                         No
