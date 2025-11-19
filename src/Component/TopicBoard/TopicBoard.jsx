@@ -184,6 +184,7 @@ const TopicBoard = ({
               }
               style={{ cursor: "pointer" }}
               onClick={() => handleConcern(item, item.path)}
+              onTouchEnd={() => handleConcern(item, item.path)}
             >
               <div key={index} className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3">
                 {/* Spanish text stays centered */}
@@ -196,11 +197,19 @@ const TopicBoard = ({
                             state: { item, hideImage: "boardside" },
                           });
                         }}
+                        onTouchEnd={() => {
+                          navigate(`/icon-upload`, {
+                            state: { item, hideImage: "boardside" },
+                          });
+                        }}
                       />
                     </span>
                     <span style={{ color: "red" }}>
                       <MdOutlineDelete
                         onClick={() => {
+                          handleDelete(item.id);
+                        }}
+                        onTouchEnd={() => {
                           handleDelete(item.id);
                         }}
                       />

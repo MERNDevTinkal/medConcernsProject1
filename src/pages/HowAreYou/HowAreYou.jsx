@@ -32,18 +32,18 @@ export default function HowAreYou() {
           selectedLanguage === "" && selectedGender === ""
             ? item?.maleEnglish
             : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? item?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-            ? item?.femaleSpanish
-            : selectedLanguage === "" && selectedGender === "Female"
-            ? item?.femaleEnglish
-            : selectedLanguage === "" && selectedGender === "Male"
-            ? item?.maleEnglish
-            : selectedLanguage === "English" && selectedGender === "Male"
-            ? item?.maleEnglish
-            : selectedLanguage === "English" && selectedGender === "Female"
-            ? item?.femaleEnglish
-            : item?.maleEnglish;
+              ? item?.maleSpanish
+              : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? item?.femaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                  ? item?.femaleEnglish
+                  : selectedLanguage === "" && selectedGender === "Male"
+                    ? item?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Male"
+                      ? item?.maleEnglish
+                      : selectedLanguage === "English" && selectedGender === "Female"
+                        ? item?.femaleEnglish
+                        : item?.maleEnglish;
         await getTextToSpeech(
           selectedLanguage === "Spanish" ? item.nameEs : item.name,
           selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -67,10 +67,10 @@ export default function HowAreYou() {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
   return (
@@ -107,19 +107,23 @@ export default function HowAreYou() {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                        ? "dash-double-items"
-                        : selectedIconCount === 3
-                        ? "dash-triple-items"
-                        : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                          ? "dash-double-items"
+                          : selectedIconCount === 3
+                            ? "dash-triple-items"
+                            : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                                ? "dash-hexuple-items"
+                                : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {
                       handleValue(`/yes-and-no/${item?.id}`, item);
                     }}
+                    onTouchEnd={() => {
+                      handleValue(`/yes-and-no/${item?.id}`, item);
+                    }}
+
                     key={item?.id}
                   >
                     <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
@@ -128,7 +132,7 @@ export default function HowAreYou() {
                           style={{
                             height: selectedIconCount === 6 ? "" : "",
                           }}
-                          src={item?.image ? item?.image :gifLoader}
+                          src={item?.image ? item?.image : gifLoader}
                           className="w-full"
                           alt={item?.name}
                         />

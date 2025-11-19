@@ -94,6 +94,9 @@ const Concern = () => {
                   onClick={() => {
                     navigate("/icon-upload", { state: { hideImage: "boardside" } });
                   }}
+                  onTouchEnd={() => {
+                    navigate("/icon-upload", { state: { hideImage: "boardside" } });
+                  }}
                   className="thm-btn"
                 >
                   {selectedLanguage === "Spanish"

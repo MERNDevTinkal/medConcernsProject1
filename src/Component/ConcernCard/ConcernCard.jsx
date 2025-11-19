@@ -85,6 +85,7 @@ const ConcernCard = ({
               cursor: "pointer",
             }}
             onClick={() => handleConcern(item, item.path)}
+            onTouchEnd={() => handleConcern(item, item.path)}
           >
             <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2">
               <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">

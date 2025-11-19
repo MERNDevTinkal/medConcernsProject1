@@ -1130,6 +1130,7 @@ export default function Whiteboard() {
               <Button
                 className="thm-btn"
                 onClick={() => navigate("/white-board-list")}
+                onTouchEnd={() => navigate("/white-board-list")}
               >
                 {selectedLanguage === "Spanish"
                   ? "Pizarras blancas guardadas"
@@ -1142,6 +1143,7 @@ export default function Whiteboard() {
                   <Button
                     className="thm-btn"
                     onClick={() => navigate("/white-board-list")}
+                    onTouchEnd={() => navigate("/white-board-list")}
                   >
                     {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
                   </Button>
@@ -1208,6 +1210,7 @@ export default function Whiteboard() {
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
                     onClick={handleClick}
+                
                   />
                 </div>
                 <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3 whiteboard-toolbar">
@@ -1219,6 +1222,10 @@ export default function Whiteboard() {
                       setTool("pencil");
                       setShowKeyboard(false);
                     }}
+                    onTouchEnd={() => {
+                      setTool("pencil");
+                      setShowKeyboard(false);
+                    }}
                     title="Pencil"
                   >
                     <Icon.Pencil className="w-6 h-6" />
@@ -1227,6 +1234,8 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     onClick={activateTextTool}
+                    onTouchEnd={activateTextTool}
+                    
                     title="Virtual Keyboard"
                   >
                     <Icon.Keyword className="w-6 h-6" />
@@ -1236,6 +1245,9 @@ export default function Whiteboard() {
                     size="icon"
                     title="Upload image"
                     onClick={(e) => {
+                      handleFileUpload(e);
+                    }}
+                    onTouchEnd={(e) => {
                       handleFileUpload(e);
                     }}
 
@@ -1273,6 +1285,7 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     onClick={handleClear}
+                    onTouchEnd={handleClear}
                     title="Clear"
                   >
                     <Icon.Trash className="w-6 h-6" />
@@ -1281,6 +1294,7 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     onClick={() => setShowSaveModal(true)}
+                    onTouchEnd={() => setShowSaveModal(true)}
                     title="File Save"
                   >
                     <Icon.FileSave className="w-6 h-6" />
@@ -1394,12 +1408,17 @@ export default function Whiteboard() {
                         variant="outline"
                         className="h-12 rounded-lg px-6 text-base"
                         onClick={() => setShowSaveModal(false)}
+                        onTouchEnd={() => setShowSaveModal(false)}
                       >
                         {selectedLanguage === "Spanish" ? "Cancelar" : "Cancel"}
                       </Button>
                       <Button
                         className="h-12 rounded-lg bg-blue-600 px-6 text-base text-white hover:bg-blue-700"
                         onClick={() => {
+                          handleSaveDrawing();
+                          setShowSaveModal(false);
+                        }}
+                        onTouchEnd={() => {
                           handleSaveDrawing();
                           setShowSaveModal(false);
                         }}
