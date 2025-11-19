@@ -811,7 +811,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 /* landscope in iphone */
-html, body, #root {
+/* html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -857,8 +857,95 @@ html, body, #root {
 
 .landscape-mode::before {
   display: none !important;
+} */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
+/* Default styles for all routes */
+.app-container {
+  width: 100%;
+  min-height: 100%;
+  overflow: visible;
+}
+
+/* NO LANDSCAPE routes - / and /main */
+.no-landscape {
+  transform: none !important;
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: auto !important;
+}
+
+.no-landscape .app-container {
+  transform: none !important;
+  width: 100% !important;
+  min-height: 100% !important;
+}
+
+/* Prevent any rotation on excluded routes */
+.no-landscape body {
+  transform: none !important;
+}
+
+/* LANDSCAPE ENABLED routes - all except / and /main */
+
+/* iOS Portrait Mode Transform */
+.ios-device.portrait-mode {
+  transform: rotate(90deg) translate(0%, -100%);
+  transform-origin: 0% 0%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vh !important;
+  height: 100vw !important;
+  overflow: auto;
+}
+
+.ios-device.portrait-mode .app-container {
+  width: 100vh !important;
+  min-height: 100vw !important;
+  transform: rotate(0deg);
+  overflow: visible;
+}
+
+/* Landscape Mode - Normal behavior */
+.ios-device.landscape-mode {
+  transform: none;
+  position: static;
+  width: 100%;
+  height: auto;
+}
+
+.ios-device.landscape-mode .app-container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Media query backup for landscape routes */
+@media (orientation: portrait) and (-webkit-touch-callout: none) {
+  .ios-device:not(.no-landscape) body {
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    width: 100vh;
+    height: 100vw;
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    overflow: auto !important;
+  }
+  
+  .ios-device:not(.no-landscape) #root {
+    width: 100vh;
+    min-height: 100vw;
+    overflow: visible !important;
+  }
+}
 
 /* popup in summary page */
 
