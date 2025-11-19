@@ -17,16 +17,16 @@ const NewProblem = () => {
   const [CalendarOn, setCalendarOn] = React.useState("");
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -59,9 +59,9 @@ const NewProblem = () => {
                 ? !selectedLanguage
                   ? translations["English"]?.newProblem
                   : translations[selectedLanguage]?.newProblem ||
-                    translations["English"]?.newProblem
+                  translations["English"]?.newProblem
                 : translations[selectedLanguage]?.overall ||
-                  translations["English"]?.overall
+                translations["English"]?.overall
             }
           />
 
