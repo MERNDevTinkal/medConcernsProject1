@@ -9,7 +9,7 @@ import { topicBoard } from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import gifLoader from "../../assets/loaderGif/Spinner.gif"
+import gifLoader from "../../assets/loaderGif/Spinner.gif";
 function BreathingYesNo() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -64,7 +64,7 @@ function BreathingYesNo() {
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5  items-center">
+            <div className="grid grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5  items-center">
               <div
                 className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3 ${
                   location.pathname.includes("/topicboard/")

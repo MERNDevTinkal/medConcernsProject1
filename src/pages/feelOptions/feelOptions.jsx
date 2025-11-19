@@ -38,16 +38,16 @@ function EmotionScreen() {
   const { addOrUpdateSummary } = useContext(GlobalContext);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []); // runs once
 
@@ -116,7 +116,7 @@ function EmotionScreen() {
                   <img
                     src={getQuestions?.image || ""}
                     alt={getQuestions?.name || "alt"}
-                    className="mx-auto rounded-xl shadow-lg"
+                    className="mx-auto rounded-xl "
                   />
                 </div>
               </div>
@@ -131,22 +131,22 @@ function EmotionScreen() {
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? YesSpanishMale
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? YesFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? YesMale
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? YesMale
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? YesFemale
-                                      : YesMale
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : YesMale
                       );
                     }}
                   >
@@ -170,22 +170,22 @@ function EmotionScreen() {
                           ? No_male
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? No_no_maleSpanish
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? NoFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? No_male
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? No_male
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? NoFemale
-                                      : No_male
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
                       );
                     }}
                   >
@@ -211,23 +211,23 @@ function EmotionScreen() {
                             ? MaybeMale
                             : selectedLanguage === "Spanish" &&
                               selectedGender === "Male"
-                              ? TalVezMaleSpanish
-                              : selectedLanguage === "Spanish" &&
-                                selectedGender === "Female"
-                                ? TalVezFemaleSpanish
-                                : selectedLanguage === "" &&
-                                  selectedGender === "Female"
-                                  ? MaybeFemale
-                                  : selectedLanguage === "" &&
-                                    selectedGender === "Male"
-                                    ? MaybeMale
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Male"
-                                      ? MaybeMale
-                                      : selectedLanguage === "English" &&
-                                        selectedGender === "Female"
-                                        ? MaybeFemale
-                                        : MaybeMale
+                            ? TalVezMaleSpanish
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Female"
+                            ? TalVezFemaleSpanish
+                            : selectedLanguage === "" &&
+                              selectedGender === "Female"
+                            ? MaybeFemale
+                            : selectedLanguage === "" &&
+                              selectedGender === "Male"
+                            ? MaybeMale
+                            : selectedLanguage === "English" &&
+                              selectedGender === "Male"
+                            ? MaybeMale
+                            : selectedLanguage === "English" &&
+                              selectedGender === "Female"
+                            ? MaybeFemale
+                            : MaybeMale
                         );
                       }}
                       className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"

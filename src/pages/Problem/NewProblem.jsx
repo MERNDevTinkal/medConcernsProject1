@@ -66,7 +66,7 @@ const NewProblem = () => {
           />
 
           <div className="main-wrapper home-wrapper ">
-            <div className="px-10 my-10 sm:px-5 sm:my-0">
+            <div className="px-10 my-10 sm:px-5 ">
               <DecisionCard
                 selectedGender={selectedGender}
                 selectedLanguage={selectedLanguage}

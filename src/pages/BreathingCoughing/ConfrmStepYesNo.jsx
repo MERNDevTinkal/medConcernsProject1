@@ -43,16 +43,16 @@ function ConfrmStepYesNo() {
   }, [name, id]);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => { },
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -63,7 +63,7 @@ function ConfrmStepYesNo() {
     // } else if (selectedConcers?.Prompt) {
     //   text = selectedConcers.Prompt;
     // } else
-       if (selectedLanguage === "Spanish") {
+    if (selectedLanguage === "Spanish") {
       text = selectedConcers?.nameEs ?? selectedConcers?.painFeelEs;
     } else {
       text = selectedConcers?.name ?? selectedConcers?.painFeel;
@@ -81,7 +81,11 @@ function ConfrmStepYesNo() {
         audio
       );
       updateDisease(pathprimary.replace("/", ""), valueData);
-      if (!pathprimary.includes("/feel/confrm-step-yesno") && !pathprimary.includes('/feeling-body/confrm-step-yesno') && calendarOn) {
+      if (
+        !pathprimary.includes("/feel/confrm-step-yesno") &&
+        !pathprimary.includes("/feeling-body/confrm-step-yesno") &&
+        calendarOn
+      ) {
         return navigate("/new-problem");
       }
       if (typeof path === "string") {
@@ -123,16 +127,14 @@ function ConfrmStepYesNo() {
           </div>
           <div className="main-wrapper home-wrapper ">
             <div
-              className={`grid grid-cols-1 md:grid-cols-2
+              className={`grid grid-cols-2
 
               md:px-10 px-5 md:gap-20 gap-5 my-5 items-center`}
             >
               <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl">
                   <img
-                    src={
-                      selectedConcers?.image ?? value?.image
-                    }
+                    src={selectedConcers?.image ?? value?.image}
                     alt={selectedConcers?.name || "img"}
                     className="w-full rounded-xl"
                   />
@@ -151,22 +153,22 @@ function ConfrmStepYesNo() {
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? YesSpanishMale
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? YesFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? YesMale
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? YesMale
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? YesFemale
-                                      : YesMale
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : YesMale
                       )
                     }
                   >
@@ -181,27 +183,29 @@ function ConfrmStepYesNo() {
                     onClick={() =>
                       handleConfrmStepYesNo(
                         "NO",
-                        selectedConcers?.Prompt ? selectedConcers?.path : selectedConcers?.path,
+                        selectedConcers?.Prompt
+                          ? selectedConcers?.path
+                          : selectedConcers?.path,
                         selectedLanguage === "" && selectedGender === ""
                           ? No_male
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? No_no_maleSpanish
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? NoFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? No_male
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? No_male
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? NoFemale
-                                      : No_male
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
                       )
                     }
                   >

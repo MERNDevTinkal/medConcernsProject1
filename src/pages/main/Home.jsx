@@ -52,20 +52,20 @@ const Home = () => {
   return (
     <div>
       <div className="welcome-new bg-[#DCECFC]">
-        <div className="min-h-screen main-h flex items-center justify-center">
+        <div className="main-h flex items-center justify-center">
           <div className="w-full flex flex-col items-center text-center px-5">
             {/* Logo */}
-            <div className="mb-6">
+            <div className="mb-2">
               <img
                 src={logoicon}
                 alt="MedConcerns Logo"
-                className="w-40 mx-auto mb-2"
+                className="w-40 mx-auto mb-2 sm:w-28"
               />
             </div>
 
             {/* Title */}
             <div>
-              <h1 className="text-[24px] text-black font-medium mb-2">
+              <h1 className="text-[24px] text-black font-medium">
                 Welcome to MedConcerns
               </h1>
               <h5 className="text-[16px] font-normal">
