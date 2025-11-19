@@ -92,7 +92,6 @@ function App() {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     if (isIOS) {
-      // Check if current route should be excluded from landscape
       const excludedRoutes = ['/', '/main'];
       const shouldExcludeLandscape = excludedRoutes.includes(location.pathname);
 

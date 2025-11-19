@@ -97,7 +97,6 @@ export default function Introduction() {
         });
       });
   }, []);
-  console.log("==>drertreterter", CalendarOn);
   return (
     <>
       {loader ? (
