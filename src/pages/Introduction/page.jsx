@@ -59,14 +59,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {}
+      () => { },
+      () => { }
     );
   }, [loader]);
 
@@ -125,7 +125,7 @@ export default function Introduction() {
                   </label>
                   <input
                     type="text"
-                    className="w-full p-4 text-xl rounded-lg border border-gray-300 mb-6"
+                    className="w-full p-4 text-xl rounded-lg border border-gray-300 mb-6 bg-white"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     onBlur={handleNameBlur}
@@ -142,7 +142,7 @@ export default function Introduction() {
                   </label>
                   <input
                     type="text"
-                    className="w-full p-4 text-xl rounded-lg border border-gray-300"
+                    className="w-full p-4 text-xl rounded-lg border border-gray-300 bg-white"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     onBlur={handleRoleBlur}
