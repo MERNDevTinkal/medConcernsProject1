@@ -35,9 +35,11 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   return (
     <>
       {SummaryDetail.flat().map((item, index) => {
+        console.log("=gfegegerggegeg=>",)
         return (
           <div key={index}>
-            <div className="dashboard-cards rounded-2xl bg-white text-center px-5 py-4 h-full border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+            <div className={`dashboard-cards ${item?.decision ? "decision-card" : ""} rounded-2xl bg-white text-center px-5 py-4 h-full border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300`}>
+              <span>{item?.data[0].decision ?? ""}</span>
               <div className="dashboard-img">
                 <img src={item?.image ?? item?.data[0]?.image} />
               </div>

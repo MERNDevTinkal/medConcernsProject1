@@ -74,6 +74,7 @@ const SummaryList = () => {
   const ConcernPopUpFun = () => {
     setshowDonePopUp((pre) => !pre);
   }
+  console.log("===>diseases",diseases)
   return (
     <>
       {loader ? (
@@ -96,7 +97,6 @@ const SummaryList = () => {
                 >
                   {selectedLanguage === "Spanish" ? "Imprimir" : "Print"}
                 </button>
-
                 <button
                   onClick={handleSummaryListRoute}
                   style={{ border: "2px solid black" }}
