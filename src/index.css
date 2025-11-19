@@ -235,15 +235,15 @@ body {
 }
 
 .sidebar::-webkit-scrollbar {
-  width: 0;
+  width: 4px;
   border-radius: 50px;
 }
 .sidebar::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: transparent;
+  background-color: #818181;
   border-radius: 25px;
 }
 img {
@@ -510,14 +510,18 @@ input[type="number"]::-webkit-outer-spin-button {
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;
   }
-  .summary-main {
+  /* .summary-main {
     flex-direction: column;
     gap: 15px;
-  }
-  .summary-main .arrow-right {
+  } */
+  /* .summary-main .arrow-right {
     transform: rotate(90deg);
-  }
+  } */
   .calendar-main span.font-bold {
+    font-size: 16px;
+  }
+  .decision-badge {
+    padding: 5px 7px;
     font-size: 16px;
   }
 }

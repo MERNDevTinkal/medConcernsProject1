@@ -25,7 +25,10 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData }) => {
             className="w-full"
           />
         </div>
-        <Link to="" className="text-[21px] font-normal color-black">
+        <Link
+          to=""
+          className="text-xl md:text-lg sm:text-base font-normal color-black"
+        >
           {selectedLanguage === "Spanish"
             ? getData?.nameEs
             : board === "/emotions"

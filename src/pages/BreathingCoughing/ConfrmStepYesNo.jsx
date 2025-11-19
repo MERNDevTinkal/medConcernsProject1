@@ -133,11 +133,13 @@ function ConfrmStepYesNo() {
             >
               <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl">
-                  <img
-                    src={selectedConcers?.image ?? value?.image}
-                    alt={selectedConcers?.name || "img"}
-                    className="w-full rounded-xl"
-                  />
+                  <div className="flex justify-center align-center p-4">
+                    <img
+                      src={selectedConcers?.image ?? value?.image}
+                      alt={selectedConcers?.name || "img"}
+                      className="w-64 rounded-xl"
+                    />
+                  </div>
                 </div>
               </div>
               <div>

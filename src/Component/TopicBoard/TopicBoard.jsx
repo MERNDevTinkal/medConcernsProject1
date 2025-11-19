@@ -15,7 +15,7 @@ const TopicBoard = ({
   selectedLanguage,
   selectedIconCount,
   selectedGender,
-  setLoader
+  setLoader,
 }) => {
   const location = useLocation();
   const path = location.pathname;
@@ -44,8 +44,7 @@ const TopicBoard = ({
             const apiItems = Array.isArray(data.data) ? data.data : [data.data];
             const merged = [...topicBoard, ...apiItems];
             setMargedData(merged);
-          }
-          else {
+          } else {
             toast.error(data.msg, { autoClose: 1500 });
           }
         })
@@ -56,7 +55,7 @@ const TopicBoard = ({
         });
     };
     getData();
-  }, [])
+  }, []);
   const validationSchema = Yup.object({
     firstname: Yup.string().required("Name is required"),
   });
@@ -86,18 +85,18 @@ const TopicBoard = ({
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? value?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-              ? value?.femaleSpanish
-              : selectedLanguage === "" && selectedGender === "Female"
-                ? value?.femaleEnglish
-                : selectedLanguage === "" && selectedGender === "Male"
-                  ? value?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Male"
-                    ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
-                      ? value?.femaleEnglish
-                      : value?.maleEnglish;
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -161,52 +160,55 @@ const TopicBoard = ({
           setShowModal={setShowModal}
         />
       )}
-      {mergedData?.map((item, index) => (
-        (
-          ((!item?.image && item?.name !== "Something Else")
-            ||
-            (item?.name === "Something Else" && item?.image))
-          && (
+      {mergedData?.map(
+        (item, index) =>
+          ((!item?.image && item?.name !== "Something Else") ||
+            (item?.name === "Something Else" && item?.image)) && (
             <div
               key={item.id + "-" + index}
               className={
                 selectedIconCount === 1
                   ? "dash-single-items"
                   : selectedIconCount === 2
-                    ? "dash-double-items"
-                    : selectedIconCount === 3
-                      ? "dash-triple-items"
-                      : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                          ? "dash-hexuple-items"
-                          : ""
+                  ? "dash-double-items"
+                  : selectedIconCount === 3
+                  ? "dash-triple-items"
+                  : selectedIconCount === 4
+                  ? "dash-quadriple-items"
+                  : selectedIconCount === 6
+                  ? "dash-hexuple-items"
+                  : ""
               }
               style={{ cursor: "pointer" }}
               onClick={() => handleConcern(item, item.path)}
             >
-              <div key={index} className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3">
+              <div
+                key={index}
+                className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3"
+              >
                 {/* Spanish text stays centered */}
-                {item?.audio !== undefined && item?.audio && item?.audio.trim() !== "" && (
-                  <div className="flex justify-end absolute top-4 right-4">
-                    <span style={{ color: "blue" }}>
-                      <MdEdit
-                        onClick={() => {
-                          navigate(`/icon-upload`, {
-                            state: { item, hideImage: "boardside" },
-                          });
-                        }}
-                      />
-                    </span>
-                    <span style={{ color: "red" }}>
-                      <MdOutlineDelete
-                        onClick={() => {
-                          handleDelete(item.id);
-                        }}
-                      />
-                    </span>
-                  </div>
-                )}
+                {item?.audio !== undefined &&
+                  item?.audio &&
+                  item?.audio.trim() !== "" && (
+                    <div className="flex justify-end absolute top-4 right-4">
+                      <span style={{ color: "blue" }}>
+                        <MdEdit
+                          onClick={() => {
+                            navigate(`/icon-upload`, {
+                              state: { item, hideImage: "boardside" },
+                            });
+                          }}
+                        />
+                      </span>
+                      <span style={{ color: "red" }}>
+                        <MdOutlineDelete
+                          onClick={() => {
+                            handleDelete(item.id);
+                          }}
+                        />
+                      </span>
+                    </div>
+                  )}
                 <div className="text-[20px] mt-3 mb-2 text-black">
                   {item?.image ? (
                     <>
@@ -222,7 +224,9 @@ const TopicBoard = ({
 
                       {/* NAME BELOW IMAGE */}
                       <p className="text-[20px] mt-1 mb-1 text-black">
-                        {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
+                        {selectedLanguage === "Spanish"
+                          ? item?.nameEs
+                          : item?.name}
                       </p>
                     </>
                   ) : (
@@ -238,19 +242,14 @@ const TopicBoard = ({
                   )}
                 </div>
 
-
                 {/* English text positioned near bottom */}
                 {!item.audio && selectedLanguage === "Spanish" && (
-                  <p
-                    className="absolute bottom-2   break-words"
-                  >
-                    {item?.name}
-                  </p>
+                  <p className="absolute bottom-0 break-words">{item?.name}</p>
                 )}
               </div>
             </div>
-          ))
-      ))}
+          )
+      )}
     </>
   );
 };

@@ -59,7 +59,7 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
               <div className="dashboard-img">
                 <img src={item?.image ?? item?.data[0]?.image} />
               </div>
-              <p className="text-[16px] mt-3 color-black">
+              <p className="text-lg sm:text-base mt-3 color-black">
                 {getTranslatedText(item, selectedLanguage)}
               </p>
             </div>
