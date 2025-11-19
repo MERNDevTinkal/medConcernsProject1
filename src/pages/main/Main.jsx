@@ -46,7 +46,7 @@ const Main = () => {
   return (
     <div>
       <div className="welcome-new bg-[#DCECFC]">
-        <div className="min-h-screen main-h  flex items-center justify-center">
+        <div className=" main-h  flex items-center justify-center">
           <div className="w-full flex flex-col items-center text-center px-5">
             {/* Logo and Title */}
             <div className="mb-8">

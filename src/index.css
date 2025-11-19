@@ -207,8 +207,8 @@ body {
   touch-action: manipulation;
 }
 /* In your main CSS file or a dedicated CSS file imported into your project */
-body::-webkit-scrollbar {
-  width: 6px;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
 /* Add eraser cursor */
@@ -217,11 +217,13 @@ body::-webkit-scrollbar {
       12 12,
     auto;
 }
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background-color: #fff;
+  border-radius: 50px;
+  width: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: #00a8e9;
   border-radius: 25px;
 }
@@ -229,6 +231,18 @@ body::-webkit-scrollbar-thumb {
   color: #203964;
 }
 
+.sidebar::-webkit-scrollbar {
+  width: 0;
+  border-radius: 50px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 25px;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -438,9 +452,9 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 130px;
   object-fit: contain;
 }
-.howoften-page {
+/* .howoften-page {
   padding-top: 0;
-}
+} */
 .header-img {
   width: 34px;
   height: 31px;
@@ -470,7 +484,7 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  /* height: 200px; */
   cursor: pointer;
 }
 .summary-list-right .dashboard-cards .dashboard-img {
@@ -485,8 +499,8 @@ input[type="number"]::-webkit-outer-spin-button {
   object-fit: contain;
 }
 
-.Header-text{
-      margin-right: 38px;
+.Header-text {
+  margin-right: 38px;
 }
 
 @media (max-width: 799px) {
@@ -501,10 +515,7 @@ input[type="number"]::-webkit-outer-spin-button {
     transform: rotate(90deg);
   }
   .calendar-main span.font-bold {
-    font-size: 20px;
-  }
-  .calendar-main button.flex.items-center.justify-center {
-    padding: 10px;
+    font-size: 16px;
   }
 }
 
@@ -711,6 +722,29 @@ input[type="number"]::-webkit-outer-spin-button {
   height: calc(50vh - 130px);
   object-fit: contain;
 }
+.decision-card {
+  position: relative;
+}
+.decision-badge {
+  position: absolute;
+  right: 7px;
+  top: 20px;
+  padding: 7px 10px;
+  background-color: #fff;
+  font-size: 20px;
+  line-height: normal;
+  font-weight: 500;
+  border-radius: 4px;
+}
+.decision-badge.ys-cls {
+  color: #00a63e;
+}
+.decision-badge.no-cls {
+  color: #e7000b;
+}
+.decision-badge.maybe-cls {
+  color: #203964;
+}
 
 @media only screen and (max-width: 852px) and (orientation: landscape) {
   .dash-single-items .dashboard-cards .dashboard-img img {
@@ -793,7 +827,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 736px) and (orientation: landscape) {
   .main-wrapper {
-    padding-top: 50px;
+    padding-top: 60px;
   }
   .dash-hexuple-items .dashboard-cards {
     height: calc(78vh - 140px);
@@ -808,20 +842,20 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-
-
 /* landscope in iphone */
+
 /* html, body, #root {
+
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; 
+  overflow: auto;
 }
 
 .app-container {
   width: 100%;
-  min-height: 100%; 
+  min-height: 100%;
   overflow: visible;
 }
 
@@ -833,7 +867,7 @@ input[type="number"]::-webkit-outer-spin-button {
   left: 0 !important;
   width: 100vh !important;
   height: 100vw !important;
-  overflow: auto !important; 
+  overflow: auto !important;
 }
 
 .ios-landscape.portrait-mode .app-container {
@@ -858,7 +892,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .landscape-mode::before {
   display: none !important;
 } */
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -939,7 +975,7 @@ html, body, #root {
     left: 100vw;
     overflow: auto !important;
   }
-  
+
   .ios-device:not(.no-landscape) #root {
     width: 100vh;
     min-height: 100vw;
@@ -1009,6 +1045,12 @@ html, body, #root {
 
 /* Fade animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

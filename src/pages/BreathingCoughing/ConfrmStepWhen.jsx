@@ -88,7 +88,7 @@ function ConfrmStepWhen() {
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
+            <div className="grid grid-cols-2  md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
               <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl">
                   <img src={confirmData.image} className="w-full" />
