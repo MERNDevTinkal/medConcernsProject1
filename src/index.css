@@ -206,17 +206,20 @@ html,
 body {
   touch-action: manipulation;
 }
-/* In your main CSS file or a dedicated CSS file imported into your project */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
 /* Add eraser cursor */
 .cursor-eraser {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.5 19.5L20.5 11.5C21.328 10.672 21.328 9.328 20.5 8.5L15.5 3.5C14.672 2.672 13.328 2.672 12.5 3.5L4.5 11.5C3.672 12.328 3.672 13.672 4.5 14.5L9.5 19.5C10.328 20.328 11.672 20.328 12.5 19.5Z'/%3E%3Cpath d='M18 12L21 15'/%3E%3Cpath d='M3 21L12 12'/%3E%3C/svg%3E")
       12 12,
     auto;
 }
+.maybe-text {
+  color: #203964;
+}
+/* In your main CSS file or a dedicated CSS file imported into your project */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
 ::-webkit-scrollbar-track {
   background-color: #fff;
   border-radius: 50px;

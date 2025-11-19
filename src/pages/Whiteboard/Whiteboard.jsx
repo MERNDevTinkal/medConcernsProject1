@@ -319,7 +319,7 @@ export default function Whiteboard() {
     if (ctx) {
       try {
         ctx.closePath();
-      } catch (err) { }
+      } catch (err) {}
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
@@ -531,7 +531,10 @@ export default function Whiteboard() {
           const savedObj = data?.data || {};
           const imagesUrl = savedObj?.images_url;
           setSelectedImages(
-            imagesUrl && typeof imagesUrl === "string" && imagesUrl.trim() && imagesUrl.trim() !== "undefined"
+            imagesUrl &&
+              typeof imagesUrl === "string" &&
+              imagesUrl.trim() &&
+              imagesUrl.trim() !== "undefined"
               ? imagesUrl.split(",")
               : null
           );
@@ -628,7 +631,12 @@ export default function Whiteboard() {
         width: drawingWidth,
       },
     };
-    if (paths.length === 0 && committedTexts.length === 0 && selectedImages == undefined && imageFiles.length === 0) {
+    if (
+      paths.length === 0 &&
+      committedTexts.length === 0 &&
+      selectedImages == undefined &&
+      imageFiles.length === 0
+    ) {
       alert("Please Fill Something");
       return;
     }
@@ -918,16 +926,16 @@ export default function Whiteboard() {
   /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -1181,16 +1189,17 @@ export default function Whiteboard() {
                   )}
                 <div
                   ref={wrapperRef}
-                  className="relative w-[715px] bg-white overflow-y-auto overflow-x-hidden mx-auto"
+                  className="relative w-auto  overflow-y-auto overflow-x-hidden mx-auto"
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-[715px] touch-none pt-5 z-0 ${tool === "text"
+                    className={`w-auto touch-none pt-5 z-0 mx-auto ${
+                      tool === "text"
                         ? "cursor-text"
                         : tool === "eraser"
-                          ? "cursor-eraser"
-                          : "cursor-crosshair"
-                      }`}
+                        ? "cursor-eraser"
+                        : "cursor-crosshair"
+                    }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1201,7 +1210,7 @@ export default function Whiteboard() {
                     onClick={handleClick}
                   />
                 </div>
-                <CardContent className="relative z-1 flex flex-wrap items-center justify-center gap-3 whiteboard-toolbar">
+                <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3 whiteboard-toolbar">
                   <Button
                     variant="ghost"
                     size="icon"
@@ -1230,7 +1239,7 @@ export default function Whiteboard() {
                       handleFileUpload(e);
                     }}
 
-                  // document.getElementById("imageUpload").click()
+                    // document.getElementById("imageUpload").click()
                   >
                     <Icon.Image className="w-6 h-6" />
                   </Button>
