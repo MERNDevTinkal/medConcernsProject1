@@ -1213,7 +1213,7 @@ export default function Whiteboard() {
                 
                   />
                 </div>
-                <CardContent className="relative z-10 flex flex-wrap items-center justify-center gap-3 whiteboard-toolbar">
+                <CardContent className="relative flex flex-wrap items-center justify-center gap-3 whiteboard-toolbar p-0 bg-white">
                   <Button
                     variant="ghost"
                     size="icon"

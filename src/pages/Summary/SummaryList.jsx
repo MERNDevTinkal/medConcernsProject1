@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import { useNavigate } from "react-router-dom";
-import ConcernPopUp from "../../Component/concernPopUp/ConcernPop"
+import ConcernPopUp from "../../Component/concernPopUp/ConcernPop";
 const SummaryList = () => {
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -55,26 +55,26 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   const confirmFun = () => {
-    setshowDonePopUp(false)
-    setShowSaveModal(true)
-  }
+    setshowDonePopUp(false);
+    setShowSaveModal(true);
+  };
   const ConcernPopUpFun = () => {
     setshowDonePopUp((pre) => !pre);
-  }
-  console.log("===>diseases",diseases)
+  };
+  console.log("===>diseases", diseases);
   return (
     <>
       {loader ? (
@@ -126,14 +126,19 @@ const SummaryList = () => {
                 <div className="arrow-right mx-4">
                   <img src={Arrow} alt="arrow" />
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4.5 sm:gap-3 summary-list-right">
+                <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
                   <SummaryRightCard
                     selectedLanguage={selectedLanguage}
                     SummaryDetail={diseases?.summaryList}
                   />
                 </div>
               </div>
-              <div onClick={() => { ConcernPopUpFun() }} className="flex justify-center mt-10 mb-6">
+              <div
+                onClick={() => {
+                  ConcernPopUpFun();
+                }}
+                className="flex justify-center mt-10 mb-6"
+              >
                 <button className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
                   {selectedLanguage === "Spanish" ? "Hecho" : "Done"}
                 </button>
@@ -157,11 +162,7 @@ const SummaryList = () => {
               setShowSaveModal={setShowSaveModal}
             />
           )}
-          {showDonePopUp && (
-            <ConcernPopUp
-              confirmFun={confirmFun}
-            />
-          )}
+          {showDonePopUp && <ConcernPopUp confirmFun={confirmFun} />}
           <Footer />
         </>
       )}

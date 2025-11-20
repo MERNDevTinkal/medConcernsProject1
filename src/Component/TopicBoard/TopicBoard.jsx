@@ -15,7 +15,7 @@ const TopicBoard = ({
   selectedLanguage,
   selectedIconCount,
   selectedGender,
-  setLoader
+  setLoader,
 }) => {
   const location = useLocation();
   const path = location.pathname;
@@ -44,8 +44,7 @@ const TopicBoard = ({
             const apiItems = Array.isArray(data.data) ? data.data : [data.data];
             const merged = [...topicBoard, ...apiItems];
             setMargedData(merged);
-          }
-          else {
+          } else {
             toast.error(data.msg, { autoClose: 1500 });
           }
         })
@@ -56,7 +55,7 @@ const TopicBoard = ({
         });
     };
     getData();
-  }, [])
+  }, []);
   const validationSchema = Yup.object({
     firstname: Yup.string().required("Name is required"),
   });
@@ -161,12 +160,10 @@ const TopicBoard = ({
           setShowModal={setShowModal}
         />
       )}
-      {mergedData?.map((item, index) => (
-        (
-          ((!item?.image && item?.name !== "Something Else")
-            ||
-            (item?.name === "Something Else" && item?.image))
-          && (
+      {mergedData?.map(
+        (item, index) =>
+          ((!item?.image && item?.name !== "Something Else") ||
+            (item?.name === "Something Else" && item?.image)) && (
             <div
               key={item.id + "-" + index}
               className={
@@ -186,7 +183,10 @@ const TopicBoard = ({
               onClick={() => handleConcern(item, item.path)}
               onTouchEnd={() => handleConcern(item, item.path)}
             >
-              <div key={index} className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3">
+              <div
+                key={index}
+                className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3"
+              >
                 {/* Spanish text stays centered */}
                 {item?.audio !== undefined && item?.audio && item?.audio.trim() !== "" && (
                   <div className="flex justify-end absolute top-4 right-4">
@@ -231,7 +231,9 @@ const TopicBoard = ({
 
                       {/* NAME BELOW IMAGE */}
                       <p className="text-[20px] mt-1 mb-1 text-black">
-                        {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
+                        {selectedLanguage === "Spanish"
+                          ? item?.nameEs
+                          : item?.name}
                       </p>
                     </>
                   ) : (
@@ -247,19 +249,14 @@ const TopicBoard = ({
                   )}
                 </div>
 
-
                 {/* English text positioned near bottom */}
                 {!item.audio && selectedLanguage === "Spanish" && (
-                  <p
-                    className="absolute bottom-2   break-words"
-                  >
-                    {item?.name}
-                  </p>
+                  <p className="absolute bottom-0 break-words">{item?.name}</p>
                 )}
               </div>
             </div>
-          ))
-      ))}
+          )
+      )}
     </>
   );
 };

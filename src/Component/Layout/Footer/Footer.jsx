@@ -9,7 +9,7 @@ import icon05 from "../../../assets/images/link-icon-05.svg";
 const Footer = () => {
   return (
     <>
-      <div className="thm-footer fixed bottom-0 left-0 right-0 z-10">
+      <div className="thm-footer fixed bottom-0 left-0 right-0">
         <div className="py-2 px-5 mx-auto thm-footer-innr">
           <ul className="flex md:gap-30 sm:gap-5 justify-around">
             <li>
