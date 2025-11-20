@@ -12,8 +12,8 @@ import BackArrow from "../../assets/images/back-arrow.svg";
 export const concernsList = [
   { key: "Pain", label: { en: "Pain", es: "Dolor" } },
   {
-    key: "Breathing/Coughing",
-    label: { en: "Breathing/Coughing", es: "Respiración/Tos" },
+    key: "Breathing / Coughing",
+    label: { en: "Breathing / Coughing", es: "Respiración / Tos" },
   },
   { key: "Swallowing", label: { en: "Swallowing", es: "Deglución" } },
   { key: "Nausea", label: { en: "Nausea", es: "Náuseas" } },
@@ -21,18 +21,18 @@ export const concernsList = [
   { key: "Urination", label: { en: "Urination", es: "Orinación" } },
   { key: "Fatigue", label: { en: "Fatigue", es: "Fatiga" } },
   {
-    key: "Eating/Drinking",
-    label: { en: "Eating/Drinking", es: "Comer/Beber" },
+    key: "Eating / Drinking",
+    label: { en: "Eating / Drinking", es: "Comer / Beber" },
   },
   { key: "Medication", label: { en: "Medication", es: "Medicamentos" } },
   {
-    key: "Emotions/Feelings",
-    label: { en: "Emotions/Feelings", es: "Emociones/Sentimientos" },
+    key: "Emotions / Feelings",
+    label: { en: "Emotions / Feelings", es: "Emociones / Sentimientos" },
   },
   { key: "Movement", label: { en: "Movement", es: "Movimiento" } },
   {
-    key: "Communication/Thinking",
-    label: { en: "Communication/Thinking", es: "Comunicación/Pensamiento" },
+    key: "Communication / Thinking",
+    label: { en: "Communication / Thinking", es: "Comunicación / Pensamiento" },
   },
   { key: "Vision", label: { en: "Vision", es: "Visión" } },
   { key: "Hearing", label: { en: "Hearing", es: "Audición" } },
@@ -42,12 +42,12 @@ export const concernsList = [
     label: { en: "Something Happened", es: "Pasó Algo" },
   },
   {
-    key: "Wound/Incision",
-    label: { en: "Wound/Incision", es: "Herida/Incisión" },
+    key: "Wound / Incision",
+    label: { en: "Wound / Incision", es: "Herida / Incisión" },
   },
   {
-    key: "Mucus/Secretions",
-    label: { en: "Mucus/Secretions", es: "Moco/Secreciones" },
+    key: "Mucus / Secretions",
+    label: { en: "Mucus / Secretions", es: "Moco / Secreciones" },
   },
   {
     key: "Feeding Tube",
@@ -74,8 +74,8 @@ export const needsBoardList = [
   { key: "Tissue", label: { en: "Tissue", es: "Pañuelo" } },
   { key: "Call Light", label: { en: "Call Light", es: "Luz de Llamada" } },
   {
-    key: "Blanket/Pillow",
-    label: { en: "Blanket/Pillow", es: "Manta/Almohada" },
+    key: "Blanket / Pillow",
+    label: { en: "Blanket / Pillow", es: "Manta / Almohada" },
   },
   {
     key: "Room Temperature",
@@ -124,20 +124,20 @@ export const needsBoardList = [
     label: { en: "Heating Pad", es: "Almohadilla Eléctrica" },
   },
   {
-    key: "Phone/Tablet",
-    label: { en: "Phone/Tablet", es: "Teléfono/Tableta" },
+    key: "Phone / Tablet",
+    label: { en: "Phone / Tablet", es: "Teléfono / Tableta" },
   },
   {
-    key: "Inhaler/Breathing Treatment",
+    key: "Inhaler / Breathing Treatment",
     label: {
-      en: "Inhaler/Breathing Treatment",
-      es: "Inhalador/Tratamiento Respiratorio",
+      en: "Inhaler / Breathing Treatment",
+      es: "Inhalador / Tratamiento Respiratorio",
     },
   },
   { key: "Need Straw", label: { en: "Need Straw", es: "Necesito Popote" } },
   {
-    key: "Plug in Phone/Tablet",
-    label: { en: "Plug in Phone/Tablet", es: "Cargar Teléfono/Tableta" },
+    key: "Plug in Phone / Tablet",
+    label: { en: "Plug in Phone / Tablet", es: "Cargar Teléfono / Tableta" },
   },
   // { key: "PEG", label: { en: "PEG", es: "PEG" } },
   { key: "Trach", label: { en: "Trach", es: "Traqueostomía" } },
@@ -152,10 +152,10 @@ export const needsBoardList = [
     label: { en: "Nursing Aide", es: "Asistente de Enfermería" },
   },
   {
-    key: "Occupational/Physical Therapist",
+    key: "Occupational / Physical Therapist",
     label: {
-      en: "Occupational/Physical Therapist",
-      es: "Terapeuta Ocupacional/Físico",
+      en: "Occupational / Physical Therapist",
+      es: "Terapeuta Ocupacional / Físico",
     },
   },
   {
@@ -201,7 +201,7 @@ export default function ConcernsSettings() {
   const [UncheckConcerns, setUncheckConcerns] = useState([]);
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
-
+  const [isSticky, setIsSticky] = useState(false);
   const currentList = name === "Needsboard" ? needsBoardList : concernsList;
   const allKeys = currentList.map((c) => c.key);
   const [unCheckedValue, setUncheckedValue] = useState([]);
@@ -219,6 +219,7 @@ export default function ConcernsSettings() {
       })
       .then(({ data }) => {
         if (!data.status) {
+         
           toast.error(data.msg, { autoClose: 1500 });
         }
       })
@@ -240,9 +241,23 @@ export default function ConcernsSettings() {
     }
     setSelectedConcerns(updatedConcerns);
     setUncheckedValue(updatedUnchecked);
-    saveSettings(updatedConcerns, updatedUnchecked);
+    // saveSettings(updatedConcerns, updatedUnchecked);
+  };
+  const handleSelectAll = () => {
+    setSelectedConcerns(allKeys);
+    setUncheckedValue([]);
+    toast.info("All items selected", { autoClose: 1500 });
   };
 
+  const handleDeselectAll = () => {
+    setSelectedConcerns([]);
+    setUncheckedValue(allKeys);
+    toast.info("All items deselected", { autoClose: 1500 });
+  };
+
+  const handleSaveSettings = () => {
+    saveSettings(selectedConcerns, unCheckedValue);
+  };
   // ---------------- Load settings ----------------
   useEffect(() => {
     getSetting(
@@ -264,6 +279,7 @@ export default function ConcernsSettings() {
     if (!UncheckConcerns) setUncheckConcerns([]);
 
     if (name === "Needsboard" && needboard !== null) {
+      console.log("===>dgdfgdgdfgdfg")
       setSelectedConcerns(
         typeof needboard === "string"
           ? needboard.split(",").filter(Boolean)
@@ -279,14 +295,30 @@ export default function ConcernsSettings() {
       setSelectedConcerns(allKeys);
     }
   }, [concerns, needboard, name, uncheckNeedBoard, UncheckConcerns]);
-
+  const t = (key) => {
+    const translations = {
+      en: {
+        save: "Save",
+        selectAll: "Select All",
+        deselectAll: "Deselect All",
+      },
+      es: {
+        save: "Guardar",
+        selectAll: "Seleccionar Todo",
+        deselectAll: "Deseleccionar Todo",
+      },
+    };
+    return selectedLanguage === "Spanish"
+      ? translations.es[key]
+      : translations.en[key];
+  };
   return (
     <>
       {loader ? (
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header z-40">
             <div style={{ cursor: "pointer" }} onClick={() => navigate(-1)}>
               <img src={BackArrow} />
             </div>
@@ -300,28 +332,60 @@ export default function ConcernsSettings() {
             <div className="flex items-center justify-center p-4 setting-cards">
               <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
                 <div className="p-3 sm:p-4 md:p-6">
-                  <h1 className="text-xs text-gray-500 mb-6">
-                    {selectedLanguage === "Spanish"
-                      ? "Configuración"
-                      : "Settings"}
-                  </h1>
-
+                  <div className="flex justify-between align-center">
+                    <h1 className="text-xs text-gray-500 mb-0">
+                      {selectedLanguage === "Spanish"
+                        ? "Configuración"
+                        : "Settings"}
+                    </h1>
+                    <div className="flex justify-between ">
+                      <button
+                        className="bg-[#00acdcc4]
+ text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2 "
+                        onClick={handleSelectAll}
+                      >
+                        {t("selectAll")}
+                      </button>
+                      <button
+                        className="bg-[#00acdcc4]  text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2 "
+                        onClick={handleDeselectAll}
+                      >
+                        {t("deselectAll")}
+                      </button>
+                    </div>
+                  </div>
                   <div className="flex flex-col gap-3 py-6 px-2">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                      {currentList.map((c) => (
-                        <CustomRoundCheckbox
-                          key={c.key}
-                          value={c.key}
-                          checked={selectedConcerns.includes(c.key)}
-                          onChange={handleConcernToggle}
-                          label={
-                            selectedLanguage === "Spanish"
-                              ? c.label.es
-                              : c.label.en
-                          }
-                        />
-                      ))}
+                      {currentList.map((c) => {
+                        return (
+                          <CustomRoundCheckbox
+                            key={c.key}
+                            value={c.key}
+                            checked={selectedConcerns.includes(c.key)}
+                            onChange={handleConcernToggle}
+                            label={
+                              selectedLanguage === "Spanish"
+                                ? c.label.es
+                                : c.label.en
+                            }
+                          />
+                        )
+                      })}
                     </div>
+                  </div>
+
+                  <div className="">
+                    <div className="flex justify-center">
+                      <button
+                        className="bg-[#00acdcc4]
+ text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
+                        onClick={handleSaveSettings}
+                      >
+
+                        {t("save")}
+                      </button>
+                    </div>
+
                   </div>
                 </div>
               </div>

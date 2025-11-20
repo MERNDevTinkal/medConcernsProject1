@@ -60,7 +60,6 @@ const ConcernCard = ({
       isSpeakingRef.current = false;
     }
   };
-
   return (
     <>
       {concerns
