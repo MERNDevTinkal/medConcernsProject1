@@ -40,7 +40,7 @@ const EmotionsList = () => {
             name={
               selectedLanguage === "Spanish"
                 ? "¿Cómo te sientes?"
-                : "How do you feel ?"
+                : "How do you feel?"
             }
           />
 

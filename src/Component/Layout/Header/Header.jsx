@@ -338,7 +338,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
             <div style={{ cursor: "pointer" }}>
               {(location.pathname === "/introduction" ||
                 location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" || location.pathname === "/emotions" || location.pathname === "/feeling-body") && (
+                location.pathname === "/new-problem" || location.pathname === "/emotions" || location.pathname === "/how-are-you" || location.pathname === "/feeling-body") && (
                   <div className="flex items-center gap-2 justify-end cursor-pointer">
                     <h6>Skip</h6>
                     <img
@@ -352,7 +352,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                                 ? "/new-problem"
                                 : location.pathname === "/new-problem"
                                   ? "/summary"
-                                  : introductionOn ? "/concern" : "/how-are-you"
+                                  : introductionOn ? "/concern" : location.pathname === "/how-are-you" ? "/concern" : "/how-are-you"
                         );
                       }}
                     />
@@ -381,9 +381,15 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               {menuItems.map(
                 (item, index) =>
                   !item.hide && (
+                    // <Link to={item.path} onClick={item.fun} key={index}>
                     <li
+                      onClick={() => {
+                        handleSummary();
+                        if (item.fun) item.fun();
+                        navigate(item.path);
+                      }}
                       key={index}
-                      onClick={handleSummary}
+                      // onClick={handleSummary}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
             ${location.pathname === item.path
                           ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
@@ -395,6 +401,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                         {selectedLanguage === "Spanish" ? item.es : item.en}
                       </Link>
                     </li>
+                    // </Link>
                   )
               )}
             </ul>

@@ -162,8 +162,8 @@ const TopicBoard = ({
       )}
       {mergedData?.map(
         (item, index) =>
-          ((!item?.image && item?.name !== "Something Else") ||
-            (item?.name === "Something Else" && item?.image)) && (
+          (!item?.image
+            ) && (
             <div
               key={item.id + "-" + index}
               className={
@@ -217,27 +217,8 @@ const TopicBoard = ({
                   </div>
                 )}
                 <div className="text-[20px] mt-3 mb-2 text-black">
-                  {item?.image ? (
-                    <>
-                      {/* IMAGE BLOCK */}
-                      <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
-                        <img
-                          style={{ height: selectedIconCount === 6 ? "" : "" }}
-                          src={item?.image ?? gifLoader}
-                          alt={item?.name}
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-
-                      {/* NAME BELOW IMAGE */}
-                      <p className="text-[20px] mt-1 mb-1 text-black">
-                        {selectedLanguage === "Spanish"
-                          ? item?.nameEs
-                          : item?.name}
-                      </p>
-                    </>
-                  ) : (
-                    <>
+                  
+                    
                       <p className="text-[20px] mt-1 mb-1 text-black">
                         {selectedLanguage === "Spanish"
                           ? item?.audio
@@ -245,8 +226,8 @@ const TopicBoard = ({
                             : item?.nameEs
                           : item?.name}
                       </p>
-                    </>
-                  )}
+                   
+                
                 </div>
 
                 {/* English text positioned near bottom */}
