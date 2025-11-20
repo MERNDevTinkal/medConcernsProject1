@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import Cookies from "js-cookie";
 const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,21 +24,26 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
       selectedLanguage === "" && selectedGender === ""
         ? item?.maleEnglish
         : selectedLanguage === "Spanish" && selectedGender === "Male"
-        ? item?.maleSpanish
-        : selectedLanguage === "Spanish" && selectedGender === "Female"
-        ? item?.femaleSpanish
-        : selectedLanguage === "" && selectedGender === "Female"
-        ? item?.femaleEnglish
-        : selectedLanguage === "" && selectedGender === "Male"
-        ? item?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Male"
-        ? item?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Female"
-        ? item?.femaleEnglish
-        : item?.maleEnglish
+          ? item?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+            ? item?.femaleSpanish
+            : selectedLanguage === "" && selectedGender === "Female"
+              ? item?.femaleEnglish
+              : selectedLanguage === "" && selectedGender === "Male"
+                ? item?.maleEnglish
+                : selectedLanguage === "English" && selectedGender === "Male"
+                  ? item?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Female"
+                    ? item?.femaleEnglish
+                    : item?.maleEnglish
     );
     const datevalue = new Date();
-    addOrUpdateSummary(`${mainpath}-${datevalue}`, [item]);
+    const isConcern = Cookies.get("is_concern");
+    const prefix = isConcern && isConcern?.includes("true_")
+      ? isConcern + "/" + mainpath + "-" + datevalue
+      : mainpath + "-" + datevalue;
+
+    addOrUpdateSummary(prefix, [item]);
     navigate(path);
     isSpeakingRef.current = false;
   };
@@ -54,14 +60,14 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
             selectedIconCount === 1
               ? "dash-single-items"
               : selectedIconCount === 2
-              ? "dash-double-items"
-              : selectedIconCount === 3
-              ? "dash-triple-items"
-              : selectedIconCount === 4
-              ? "dash-quadriple-items"
-              : selectedIconCount === 6
-              ? "dash-hexuple-items"
-              : ""
+                ? "dash-double-items"
+                : selectedIconCount === 3
+                  ? "dash-triple-items"
+                  : selectedIconCount === 4
+                    ? "dash-quadriple-items"
+                    : selectedIconCount === 6
+                      ? "dash-hexuple-items"
+                      : ""
           }
           style={{ cursor: "pointer" }}
           key={item.id}

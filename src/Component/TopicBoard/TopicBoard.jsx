@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 import DeletePopup from "../../Component/TopicBoardPop/TopicBoardPop";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Cookies from "js-cookie";
+
 const TopicBoard = ({
   gifLoader,
   selectedLanguage,
@@ -102,7 +104,11 @@ const TopicBoard = ({
         selectedLanguage === "Spanish" ? "es-ES" : "",
         voiceFile
       );
-      addOrUpdateSummary(path, [value]);
+            const isConcern = Cookies.get("is_concern");
+      const prefix = isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + path
+        : path;
+      addOrUpdateSummary(prefix, [value]);
       navigate(mainpath);
       isSpeakingRef.current = false;
     } catch (error) {

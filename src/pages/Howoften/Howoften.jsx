@@ -9,6 +9,8 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import { IdontknowImg } from "../../Component/DiseasesData/images";
 import MenuIcon11 from "../../assets/images/sidebar-icon-11.svg";
+import Cookies from "js-cookie";
+
 import {
   WeekEnglishMale,
   AbrilAprilSpanishMale,
@@ -253,16 +255,16 @@ export default function TabsCalendar() {
 
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -522,8 +524,11 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-
-    addOrUpdateSummary(pathprimary.replace("/", ""), [
+    const isConcern = Cookies.get("is_concern");
+    const prefix = isConcern && isConcern?.includes("true_")
+      ? isConcern + "/" + pathprimary.replace("/", "")
+      : pathprimary.replace("/", "");
+    addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
         type: "now",
@@ -567,8 +572,8 @@ export default function TabsCalendar() {
         ? item === "morning"
           ? "Mañana"
           : item === "afternoon"
-          ? "Tarde"
-          : "Noche Temprano"
+            ? "Tarde"
+            : "Noche Temprano"
         : item.charAt(0).toUpperCase() + item.slice(1);
 
     const audioFile = getDayAudio(item);
@@ -577,7 +582,11 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-    addOrUpdateSummary(pathprimary.replace("/", ""), [
+    const isConcern = Cookies.get("is_concern");
+    const prefix = isConcern && isConcern?.includes("true_")
+      ? isConcern + "/" + pathprimary.replace("/", "")
+      : pathprimary.replace("/", "");
+    addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
         type: "day",
@@ -600,7 +609,11 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-    addOrUpdateSummary(pathprimary.replace("/", ""), [
+    const isConcern = Cookies.get("is_concern");
+    const prefix = isConcern && isConcern?.includes("true_")
+      ? isConcern + "/" + pathprimary.replace("/", "")
+      : pathprimary.replace("/", "");
+    addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
         type: "week",
@@ -623,8 +636,11 @@ export default function TabsCalendar() {
       selectedLanguage === "Spanish" ? "es-ES" : "",
       audioFile
     );
-
-    addOrUpdateSummary(pathprimary.replace("/", ""), [
+    const isConcern = Cookies.get("is_concern");
+    const prefix = isConcern && isConcern?.includes("true_")
+      ? isConcern + "/" + pathprimary.replace("/", "")
+      : pathprimary.replace("/", "");
+    addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
         type: "month",
@@ -643,18 +659,18 @@ export default function TabsCalendar() {
       selectedLanguage === "" && selectedGender === ""
         ? IDontKnowMale
         : selectedLanguage === "Spanish" && selectedGender === "Male"
-        ? NoSeSpanishMale
-        : selectedLanguage === "Spanish" && selectedGender === "Female"
-        ? NoSeIDontKnowSpanishFemale
-        : selectedLanguage === "" && selectedGender === "Female"
-        ? iDontKnowFemale
-        : selectedLanguage === "" && selectedGender === "Male"
-        ? IDontKnowMale
-        : selectedLanguage === "English" && selectedGender === "Male"
-        ? IDontKnowMale
-        : selectedLanguage === "English" && selectedGender === "Female"
-        ? iDontKnowFemale
-        : IDontKnowMale
+          ? NoSeSpanishMale
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+            ? NoSeIDontKnowSpanishFemale
+            : selectedLanguage === "" && selectedGender === "Female"
+              ? iDontKnowFemale
+              : selectedLanguage === "" && selectedGender === "Male"
+                ? IDontKnowMale
+                : selectedLanguage === "English" && selectedGender === "Male"
+                  ? IDontKnowMale
+                  : selectedLanguage === "English" && selectedGender === "Female"
+                    ? iDontKnowFemale
+                    : IDontKnowMale
     );
 
     navigate("/new-problem");
@@ -694,10 +710,9 @@ export default function TabsCalendar() {
                   >
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${
-                          activeTab === "day"
-                            ? "bg-blue-theme text-white"
-                            : "text-gray-700 hover:bg-gray-200"
+                        ${activeTab === "day"
+                          ? "bg-blue-theme text-white"
+                          : "text-gray-700 hover:bg-gray-200"
                         }`}
                       onClick={() => {
                         setActiveTab("day");
@@ -718,10 +733,9 @@ export default function TabsCalendar() {
                     </button>
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${
-                          activeTab === "week"
-                            ? "bg-blue-theme text-white"
-                            : "text-gray-700 hover:bg-gray-200"
+                        ${activeTab === "week"
+                          ? "bg-blue-theme text-white"
+                          : "text-gray-700 hover:bg-gray-200"
                         }`}
                       onClick={() => {
                         setActiveTab("week");
@@ -742,10 +756,9 @@ export default function TabsCalendar() {
                     </button>
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${
-                          activeTab === "month"
-                            ? "bg-blue-theme text-white"
-                            : "text-gray-700 hover:bg-gray-200"
+                        ${activeTab === "month"
+                          ? "bg-blue-theme text-white"
+                          : "text-gray-700 hover:bg-gray-200"
                         }`}
                       onClick={() => {
                         setActiveTab("month");
@@ -793,11 +806,10 @@ export default function TabsCalendar() {
                           <button
                             key={item}
                             className={`flex items-center justify-center p-4 sm:p-6 border-r border-gray-200 cursor-pointer transition-all duration-200
-                          ${
-                            selectedDayItem === item
-                              ? "bg-blue-50"
-                              : "bg-white hover:bg-gray-50"
-                          }`}
+                          ${selectedDayItem === item
+                                ? "bg-blue-50"
+                                : "bg-white hover:bg-gray-50"
+                              }`}
                             onClick={() => handleDaySelect(item)}
                             onTouchEnd={() => handleDaySelect(item)}
                             role="option"
@@ -833,11 +845,10 @@ export default function TabsCalendar() {
                           <button
                             key={dayName + index + "-check"}
                             className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                          ${
-                            selectedWeekDay === index
-                              ? "bg-blue-50"
-                              : "bg-white hover:bg-gray-50"
-                          }`}
+                          ${selectedWeekDay === index
+                                ? "bg-blue-50"
+                                : "bg-white hover:bg-gray-50"
+                              }`}
                             onClick={() => handleWeekSelect(index)}
                             onTouchEnd={() => handleWeekSelect(index)}
                             role="option"

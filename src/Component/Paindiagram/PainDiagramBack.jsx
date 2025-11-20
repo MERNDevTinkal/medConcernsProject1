@@ -8,6 +8,8 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import Femalebodyback from "../../assets/images/female_bodyback.png";
 import Frontfemale from "../../assets/images/front_female.png";
 import { bodyImages } from "./bodyPartsImages.jsx";
+import Cookies from "js-cookie";
+
 import {
   // Female English
   Abdomen,
@@ -568,15 +570,15 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           ? femaleBackImageSpanish
           : backRegionsSpanish
         : selectedGender === "Female"
-        ? femaleBackImage
-        : backRegions
+          ? femaleBackImage
+          : backRegions
       : selectedLanguage === "Spanish"
-      ? selectedGender === "Female"
-        ? femalefrontRegionsSpanish
-        : frontRegionsSpanish
-      : selectedGender === "Female"
-      ? femalefrontRegions
-      : frontRegions;
+        ? selectedGender === "Female"
+          ? femalefrontRegionsSpanish
+          : frontRegionsSpanish
+        : selectedGender === "Female"
+          ? femalefrontRegions
+          : frontRegions;
     let clickedRegion =
       activeRegions.find(
         (r) =>
@@ -638,11 +640,15 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       setMarker({ x: clickX, y: clickY });
       setCroppedPart(croppedData);
       const value = clickedRegion?.name;
-      addOrUpdateSummary(mainpath, [
+      const isConcern = Cookies.get("is_concern");
+      const prefix = isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + mainpath
+        : mainpath;
+      addOrUpdateSummary(prefix, [
         {
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-              value
+            value
             ],
           name: replaceString(clickedRegion?.name),
         },
@@ -652,7 +658,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           partName: replaceString(clickedRegion?.name),
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-              value
+            value
             ],
         },
       });

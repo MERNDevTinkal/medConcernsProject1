@@ -11,6 +11,8 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
 import EmotionsImg from "../../assets/images/I-dont-know.png";
+import Cookies from "js-cookie";
+
 import {
   YesFemale,
   YesFemaleSpanish,
@@ -73,7 +75,11 @@ function EmotionScreen() {
       );
       item.decision = value;
       setLoader(true);
-      addOrUpdateSummary(mainPath, [item]);
+            const isConcern = Cookies.get("is_concern");
+      const prefix = isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + mainPath
+        : mainPath;
+      addOrUpdateSummary(prefix, [item]);
       navigate(
         parseInt(id) === 5
           ? "/feeling-body"

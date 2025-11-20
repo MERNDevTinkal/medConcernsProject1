@@ -22,7 +22,6 @@ const getSetting = (
     })
     .then(({ data }) => {
       if (data?.status) {
-        console.log("ddddddddd",data.data)
         setSelectedIconCount(Number(data?.data?.number_of_icons));
         setSelectedGender(data?.data?.gender);
         setSelectedLanguage(data?.data?.language);

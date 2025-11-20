@@ -12,6 +12,7 @@ import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import { useNavigate } from "react-router-dom";
 import ConcernPopUp from "../../Component/concernPopUp/ConcernPop";
+import Cookies from "js-cookie";
 const SummaryList = () => {
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -55,26 +56,36 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
-  const confirmFun = () => {
+  const confirmFun = (decision) => {
     setshowDonePopUp(false);
-    setShowSaveModal(true);
+    if (decision === "Yes") {
+      const lastValue = Cookies.get("is_concern");
+      let count = 1;
+      if (lastValue && lastValue.includes("_")) {
+        count = Number(lastValue.split("_")[1]) + 1;
+      }
+      Cookies.set("is_concern", `true_${count}`);
+    } else {
+      const lastValue = Cookies.remove("is_concern");
+    }
+    navigate("/concern");
   };
+
   const ConcernPopUpFun = () => {
     setshowDonePopUp((pre) => !pre);
   };
-  console.log("===>diseases", diseases);
   return (
     <>
       {loader ? (
@@ -87,7 +98,7 @@ const SummaryList = () => {
             introductionOn={introductionOn}
             name={selectedLanguage === "Spanish" ? "Resumen" : "Summary"}
           />
-          {diseases?.concern?.name || diseases?.summaryList.length > 0 ? (
+          {diseases?.summaryList.length > 0 ? (
             <div className="main-wrapper home-wrapper">
               <div className="flex justify-end space-x-2">
                 <button
@@ -114,25 +125,32 @@ const SummaryList = () => {
                   {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                 </button>
               </div>
-
-              <div className="flex flex-row items-center w-full px-4 my-5 summary-main">
-                <div className="md:w-1/4 sm:w-1/2 w-full">
-                  <SummaryLeftCard
-                    board={diseases?.summaryList[0]?.route}
-                    selectedLanguage={selectedLanguage}
-                    SummaryConcernData={diseases?.concern}
-                  />
-                </div>
-                <div className="arrow-right mx-4">
-                  <img src={Arrow} alt="arrow" />
-                </div>
-                <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
-                  <SummaryRightCard
-                    selectedLanguage={selectedLanguage}
-                    SummaryDetail={diseases?.summaryList}
-                  />
-                </div>
-              </div>
+              {diseases?.summaryList.map((item, index) => {
+                const isConcernRoute =  item?.route?.includes("concern");
+                return (
+                  <div key={index} className="flex flex-row items-center w-full px-4 my-5 summary-main">
+                    {isConcernRoute && (
+                      <div className="md:w-1/4 sm:w-1/2 w-full">
+                        <SummaryLeftCard
+                          board={index === 0 ? item?.route : ""}
+                          selectedLanguage={selectedLanguage}
+                          SummaryConcernData={item?.route?.includes("concern") ? item : {}}
+                        />
+                      </div>
+                    )}
+                    <div className="arrow-right mx-4">
+                      <img src={Arrow} alt="arrow" />
+                    </div>
+                    <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
+                      <SummaryRightCard
+                        selectedLanguage={selectedLanguage}
+                        SummaryDetail={item}
+                        index={index}
+                      />
+                    </div>
+                  </div>
+                )
+              })}
               <div
                 onClick={() => {
                   ConcernPopUpFun();

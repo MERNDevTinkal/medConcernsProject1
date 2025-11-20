@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import {  useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { GlobalContext } from "../../context/DiseaseContext";
@@ -8,6 +8,8 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import gifLoader from "../../assets/loaderGif/Spinner.gif"
+import Cookies from "js-cookie";
+
 const BreathingProblem = () => {
   const isSpeakingRef = useRef(false);
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
@@ -33,22 +35,26 @@ const BreathingProblem = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish
       );
-      addOrUpdateSummary(Mainpath, [value]);
+      const isConcern = Cookies.get("is_concern");
+      const prefix = isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + Mainpath
+        : Mainpath;
+      addOrUpdateSummary(prefix, [value]);
       navigate(path, {
-        state: {headerName:value},
+        state: { headerName: value },
       });
       isSpeakingRef.current = false;
     }
@@ -159,7 +165,7 @@ const BreathingProblem = () => {
   const name = !selectedLanguage
     ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
-      translations?.default[selectedLanguage];
+    translations?.default[selectedLanguage];
   return (
     <>
       {loader ? (
@@ -195,14 +201,14 @@ const BreathingProblem = () => {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                        ? "dash-double-items"
-                        : selectedIconCount === 3
-                        ? "dash-triple-items"
-                        : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                          ? "dash-double-items"
+                          : selectedIconCount === 3
+                            ? "dash-triple-items"
+                            : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                                ? "dash-hexuple-items"
+                                : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {

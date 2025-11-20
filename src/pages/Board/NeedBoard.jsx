@@ -14,6 +14,7 @@ import { MdEdit } from "react-icons/md";
 import { MdOutlineDelete } from "react-icons/md";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
+import Cookies from "js-cookie";
 
 const NeedBoard = () => {
   const location = useLocation();
@@ -236,7 +237,11 @@ const NeedBoard = () => {
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audioValue
       );
-      addOrUpdateSummary(path.replace("/", ""), [value]);
+      const isConcern = Cookies.get("is_concern");
+      const prefix = isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + path.replace("/", "")
+        : path.replace("/", "");
+      addOrUpdateSummary(prefix, [value]);
       navigate(
         `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,
         { state: { value } }

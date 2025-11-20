@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { concerns } from "../DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-
+import Cookies from "js-cookie";
 const ConcernCard = ({
   gifLoader,
   skipKeys = [],
@@ -14,7 +14,7 @@ const ConcernCard = ({
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
-  const { updateDisease, resetDiseases } = useContext(GlobalContext);
+  const { updateDisease, resetDiseases, addOrUpdateSummary } = useContext(GlobalContext);
   const isSpeakingRef = useRef(false);
 
   const handleConcern = async (value, mainpath) => {
@@ -23,9 +23,9 @@ const ConcernCard = ({
 
     try {
       isSpeakingRef.current = true;
-
-      resetDiseases();
-
+      if (!Cookies.get("is_concern") || Cookies.get("is_concern") === undefined) {
+        resetDiseases();
+      }
       const voiceText =
         selectedLanguage === "Spanish" ? value.nameEs : value.name;
 
@@ -33,26 +33,29 @@ const ConcernCard = ({
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish;
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish;
 
       await getTextToSpeech(
         voiceText,
         selectedLanguage === "Spanish" ? "es-ES" : "",
         voiceFile
       );
-
-      updateDisease(path.replace("/", ""), value);
+      // if (!Cookies.get("is_concern").includes("true_")) {
+      //   updateDisease(path.replace("/", ""), value);
+      // } else {
+      addOrUpdateSummary(Cookies.get("is_concern")?.includes("true_") ? + "/" + path.replace("/", "") : path.replace("/", ""), [value]);
+      // }
       navigate(mainpath, { state: value });
     } catch (error) {
       console.error("Error in handleConcern:", error);
@@ -70,14 +73,14 @@ const ConcernCard = ({
               selectedIconCount === 1
                 ? "dash-single-items"
                 : selectedIconCount === 2
-                ? "dash-double-items"
-                : selectedIconCount === 3
-                ? "dash-triple-items"
-                : selectedIconCount === 4
-                ? "dash-quadriple-items"
-                : selectedIconCount === 6
-                ? "dash-hexuple-items"
-                : ""
+                  ? "dash-double-items"
+                  : selectedIconCount === 3
+                    ? "dash-triple-items"
+                    : selectedIconCount === 4
+                      ? "dash-quadriple-items"
+                      : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
             }
             key={item.id}
             style={{

@@ -9,6 +9,8 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import NoImg from "../../../src/assets/images/concern-img-08.png";
 import yesImage from "../../../src/assets/images/summary-img-06.png";
 import dontknowImg from "../../../src/assets/images/something-else.png";
+import Cookies from "js-cookie";
+
 import {
   YesFemale,
   YesFemaleSpanish,
@@ -94,7 +96,11 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
           : arrayFilter?.[0]?.maleEnglish
       );
       if (path === "/new-problem") {
-        addOrUpdateSummary(path, arrayFilter);
+      const isConcern = Cookies.get("is_concern");
+      const prefix = isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + path
+        : path;
+        addOrUpdateSummary(prefix, arrayFilter);
       } else {
         updateDisease(path.replace("/", ""), value);
       }

@@ -4,11 +4,12 @@ import boardImg from "../../assets/images/sidebar-icon-08.svg";
 import { EmotionsImg2 } from "../../Component/DiseasesData/images";
 const SummaryCards = ({ board, selectedLanguage, SummaryConcernData }) => {
   const [getData, setData] = useState({});
+  console.log("SummaryConcernData",)
   useEffect(() => {
-    if (!SummaryConcernData?.name) {
+    if (!SummaryConcernData?.data?.[0]) {
       return;
     }
-    setData(SummaryConcernData);
+    setData(SummaryConcernData?.data?.[0]);
   }, [SummaryConcernData]);
   return (
     <>

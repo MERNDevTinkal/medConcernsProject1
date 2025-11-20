@@ -8,6 +8,8 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import Header from "../../Component/Layout/Header/Header";
+import Cookies from "js-cookie";
+
 const Feel = () => {
   const isSpeakingRef = useRef(false);
   const navigate = useNavigate();
@@ -38,35 +40,39 @@ const Feel = () => {
       selectedLanguage === "" && selectedGender === ""
         ? item?.maleEnglish
         : selectedLanguage === "Spanish" && selectedGender === "Male"
-        ? item?.maleSpanish
-        : selectedLanguage === "Spanish" && selectedGender === "Female"
-        ? item?.femaleSpanish
-        : selectedLanguage === "" && selectedGender === "Female"
-        ? item?.femaleEnglish
-        : selectedLanguage === "" && selectedGender === "Male"
-        ? item?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Male"
-        ? item?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Female"
-        ? item?.femaleEnglish
-        : item?.maleEnglish
+          ? item?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+            ? item?.femaleSpanish
+            : selectedLanguage === "" && selectedGender === "Female"
+              ? item?.femaleEnglish
+              : selectedLanguage === "" && selectedGender === "Male"
+                ? item?.maleEnglish
+                : selectedLanguage === "English" && selectedGender === "Male"
+                  ? item?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Female"
+                    ? item?.femaleEnglish
+                    : item?.maleEnglish
     );
-    addOrUpdateSummary(mainpath, [item]);
+    const isConcern = Cookies.get("is_concern");
+    const prefix = isConcern && isConcern?.includes("true_")
+      ? isConcern + "/" + mainpath
+      : mainpath;
+    addOrUpdateSummary(prefix, [item]);
     navigate(mainpath === "/emotions" ? path : path);
     isSpeakingRef.current = false;
   };
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
   return (

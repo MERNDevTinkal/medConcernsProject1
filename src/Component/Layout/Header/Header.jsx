@@ -43,6 +43,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "../../../assets/images/link-icon-03.svg";
 import gifLoader from "../../../assets/loaderGif/Spinner.gif"
+import Cookies from "js-cookie";
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { resetDiseases } = useContext(GlobalContext);
@@ -384,6 +385,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                     // <Link to={item.path} onClick={item.fun} key={index}>
                     <li
                       onClick={() => {
+                        Cookies.remove("is_concern")
                         handleSummary();
                         if (item.fun) item.fun();
                         navigate(item.path);
