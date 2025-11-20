@@ -106,12 +106,12 @@ export const needsBoardList = [
     key: "Change Underwear",
     label: { en: "Change Underwear", es: "Cambiar Ropa Interior" },
   },
-  { key: "Light", label: { en: "Light", es: "Luz" } },
+  // { key: "Light", label: { en: "Light", es: "Luz" } },
   { key: "Please Leave", label: { en: "Please Leave", es: "Por Favor Salga" } },
   { key: "Reposition", label: { en: "Reposition", es: "Recolocar" } },
   { key: "Suction", label: { en: "Suction", es: "Succión" } },
   { key: "Catheter", label: { en: "Catheter", es: "Catéter" } },
-  { key: "Soiled", label: { en: "Soiled", es: "Sucio" } },
+  // { key: "Soiled", label: { en: "Soiled", es: "Sucio" } },
   {
     key: "Pain Meds",
     label: { en: "Pain Meds", es: "Medicamentos para el Dolor" },
@@ -139,7 +139,7 @@ export const needsBoardList = [
     key: "Plug in Phone/Tablet",
     label: { en: "Plug in Phone/Tablet", es: "Cargar Teléfono/Tableta" },
   },
-  { key: "PEG", label: { en: "PEG", es: "PEG" } },
+  // { key: "PEG", label: { en: "PEG", es: "PEG" } },
   { key: "Trach", label: { en: "Trach", es: "Traqueostomía" } },
   {
     key: "Respiratory Therapist",
@@ -162,6 +162,15 @@ export const needsBoardList = [
     key: "Speech Therapist",
     label: { en: "Speech Therapist", es: "Terapeuta del Habla" },
   },
+  // Missing items from needBoard array
+  { key: "Need Changed", label: { en: "Need Changed", es: "Necesita Cambio" } },
+  { key: "Lights", label: { en: "Lights", es: "Luces" } },
+  { key: "Charge Hearing Aids", label: { en: "Charge Hearing Aids", es: "Cargar Audífonos" } },
+  { key: "Ostomy / Colostomy Bag", label: { en: "Ostomy / Colostomy Bag", es: "Bolsa de Ostomía / Colostomía" } },
+  { key: "Blood Sugar", label: { en: "Blood Sugar", es: "Azúcar en Sangre" } },
+  { key: "Blood Pressure", label: { en: "Blood Pressure", es: "Presión Arterial" } },
+  { key: "Feeding Tube", label: { en: "Feeding Tube", es: "Tubo de Alimentación" } },
+  { key: "Something Else", label: { en: "Something Else", es: "Algo Más" } }
 ];
 
 // ---------------- Checkbox Component ----------------
@@ -180,10 +189,6 @@ const CustomRoundCheckbox = ({ value, checked, onChange, label }) => (
   </div>
 );
 
-// ---------------- Needs Board List ----------------
-
-// ---------------- Checkbox Component ----------------
-
 export default function ConcernsSettings() {
   const navigate = useNavigate();
   const { name } = useParams();
@@ -200,8 +205,6 @@ export default function ConcernsSettings() {
   const currentList = name === "Needsboard" ? needsBoardList : concernsList;
   const allKeys = currentList.map((c) => c.key);
   const [unCheckedValue, setUncheckedValue] = useState([]);
-
-  // ---------------- Save to API ----------------
   const saveSettings = (updatedConcerns, updatedUnchecked) => {
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
@@ -256,7 +259,6 @@ export default function ConcernsSettings() {
     );
   }, [licenses_id, token]);
 
-  // ✅ Fix: Initialize properly & prevent null errors
   useEffect(() => {
     if (!uncheckNeedBoard) setUncheckNeedBoard([]);
     if (!UncheckConcerns) setUncheckConcerns([]);
@@ -289,7 +291,7 @@ export default function ConcernsSettings() {
               <img src={BackArrow} />
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
-              {selectedLanguage === "Spanish" ? `${name === "Needsboard" ? "Necesita Configuración De Tablero" : "Configuración De Preocupaciones"}` : `${name === "Needsboard" ? "Needs Board Settings":"Concern Settings"}`}
+              {selectedLanguage === "Spanish" ? `${name === "Needsboard" ? "Necesita Configuración De Tablero" : "Configuración De Preocupaciones"}` : `${name === "Needsboard" ? "Needs Board Settings" : "Concern Settings"}`}
             </h2>
             <button></button>
           </div>

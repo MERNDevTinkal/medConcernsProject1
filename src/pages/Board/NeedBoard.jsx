@@ -326,9 +326,9 @@ const NeedBoard = () => {
                               </span>
                               <span style={{ color: "red" }}>
                                 <MdOutlineDelete
-                                 onClick={() => handleDelete(item.id)}
-                                 onTouchEnd={() => handleDelete(item.id)}
-                                  />
+                                  onClick={() => handleDelete(item.id)}
+                                  onTouchEnd={() => handleDelete(item.id)}
+                                />
                               </span>
                             </div>
                           )}

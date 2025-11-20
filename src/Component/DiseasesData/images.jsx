@@ -92,7 +92,7 @@ import Respiratory_therapist from "../../assets/images/respiratory_therapist.png
 import DoctorImg from "../../assets/images/doctor_1.png";
 import NurseImg from "../../assets/images/nurse_1.png";
 import Nursing_aide from "../../assets/images/Nursing-Aide.png";
-import occupational from "../../assets/images/occupational.png";
+import occupational from "../../assets/images/Physical_Occupational Therapist [Needs Board].png";
 import speech_thrapistImg from "../../assets/images/speech_thrapist_1.png";
 import chokingImg from "../../assets/images/choking.png";
 import SwallowingImg from "../../assets/images/swallowing.png";
