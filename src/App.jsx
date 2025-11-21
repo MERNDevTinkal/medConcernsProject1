@@ -57,40 +57,9 @@ import Aboutus from "./pages/Aboutus/page";
 import PatientEducation from "./pages/PatientEducation/page";
 import ImagesLibrery from "./pages/ImagesLibrery/page";
 function App() {
-    const location = useLocation();
-  
-  // useEffect(() => {
-  //   // Simple iOS detection and class addition
-  //   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-  //   if (isIOS) {
-  //     document.body.classList.add('ios-landscape');
-
-  //     // Handle orientation changes
-  //     const handleOrientation = () => {
-  //       if (window.orientation === 90 || window.orientation === -90) {
-  //         document.body.classList.add('landscape-mode');
-  //         document.body.classList.remove('portrait-mode');
-  //       } else {
-  //         document.body.classList.add('portrait-mode');
-  //         document.body.classList.remove('landscape-mode');
-  //       }
-  //     };
-
-  //     // Initial check
-  //     handleOrientation();
-
-  //     // Listen for orientation changes
-  //     window.addEventListener('orientationchange', handleOrientation);
-
-  //     return () => {
-  //       window.removeEventListener('orientationchange', handleOrientation);
-  //     };
-  //   }
-  // }, []);
+  const location = useLocation();
   useEffect(() => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
     if (isIOS) {
       const excludedRoutes = ['/', '/main'];
       const shouldExcludeLandscape = excludedRoutes.includes(location.pathname);
@@ -213,7 +182,7 @@ function App() {
           <Route path="/feeling-body" element={<EmotionsList />} />
         </Route>
       </Routes>
-      </>
+    </>
 
   );
 }

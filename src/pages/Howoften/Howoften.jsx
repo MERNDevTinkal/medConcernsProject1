@@ -699,7 +699,6 @@ export default function TabsCalendar() {
                     <button
                       className="px-4 py-2 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 "
                       onClick={handleNowSelect}
-                      onTouchEnd={handleNowSelect}
                     >
                       {selectedLanguage === "Spanish" ? "Ahora" : "Now"}
                     </button>
@@ -715,12 +714,6 @@ export default function TabsCalendar() {
                           : "text-gray-700 hover:bg-gray-200"
                         }`}
                       onClick={() => {
-                        setActiveTab("day");
-                        setSelectedWeekDay(null);
-                        setSelectedMonth(null);
-                        handleTabSelect("day");
-                      }}
-                      onTouchEnd={() => {
                         setActiveTab("day");
                         setSelectedWeekDay(null);
                         setSelectedMonth(null);
@@ -743,12 +736,7 @@ export default function TabsCalendar() {
                         setSelectedMonth(null);
                         handleTabSelect("week");
                       }}
-                      onTouchEnd={() => {
-                        setActiveTab("week");
-                        setSelectedDayItem(null);
-                        setSelectedMonth(null);
-                        handleTabSelect("week");
-                      }}
+        
                       role="tab"
                       aria-selected={activeTab === "week"}
                     >
@@ -766,12 +754,7 @@ export default function TabsCalendar() {
                         setSelectedWeekDay(null);
                         handleTabSelect("month");
                       }}
-                      onTouchEnd={() => {
-                        setActiveTab("month");
-                        setSelectedDayItem(null);
-                        setSelectedWeekDay(null);
-                        handleTabSelect("month");
-                      }}
+           
                       role="tab"
                       aria-selected={activeTab === "month"}
                     >
@@ -811,7 +794,7 @@ export default function TabsCalendar() {
                                 : "bg-white hover:bg-gray-50"
                               }`}
                             onClick={() => handleDaySelect(item)}
-                            onTouchEnd={() => handleDaySelect(item)}
+                       
                             role="option"
                             aria-selected={selectedDayItem === item}
                           >
@@ -850,7 +833,7 @@ export default function TabsCalendar() {
                                 : "bg-white hover:bg-gray-50"
                               }`}
                             onClick={() => handleWeekSelect(index)}
-                            onTouchEnd={() => handleWeekSelect(index)}
+                        
                             role="option"
                             aria-selected={selectedWeekDay === index}
                           >
@@ -876,7 +859,7 @@ export default function TabsCalendar() {
                             className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
                           ${selectedMonth === index ? "text-blue" : ""}`}
                             onClick={() => handleMonthSelect(index)}
-                            onTouchEnd={() => handleMonthSelect(index)}
+                          
                             role="option"
                             aria-selected={selectedMonth === index}
                           >
@@ -894,9 +877,7 @@ export default function TabsCalendar() {
                       onClick={() => {
                         getSkip("I Don't Know");
                       }}
-                      onTouchEnd={() => {
-                        getSkip("I Don't Know");
-                      }}
+          
                       className="flex items-end gap-3 bg-white text-black px-3 py-2 sm:px-1.5 sm:py-1 rounded-md border border-black hover:bg-gray-100"
                     >
                       {/* Text */}

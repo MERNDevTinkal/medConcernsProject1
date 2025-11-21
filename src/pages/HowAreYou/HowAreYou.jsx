@@ -120,11 +120,7 @@ export default function HowAreYou() {
                     onClick={() => {
                       handleValue(`/yes-and-no/${item?.id}`, item);
                     }}
-                    onTouchEnd={() => {
-                      handleValue(`/yes-and-no/${item?.id}`, item);
-                    }}
-
-                    key={item?.id}
+                                   key={item?.id}
                   >
                     <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
                       <div className="dashboard-img card-img-h rounded-2xl">

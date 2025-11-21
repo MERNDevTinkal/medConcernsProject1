@@ -121,7 +121,7 @@ function ConfrmStepYesNo() {
           <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 bg-white innr-header">
             <div 
             onClick={() => navigate(-1)} 
-            onTouchEnd={() => navigate(-1)} 
+         
             style={{ cursor: "pointer" }}>
               <img src={BackArrow} alt="Back" />
             </div>
@@ -178,34 +178,6 @@ function ConfrmStepYesNo() {
                                       : YesMale
                       )
                     }
-                    onTouchEnd={() =>
-                      handleConfrmStepYesNo(
-                        selectedLanguage === "Spanish" ? "Sí" : "YES",
-                        selectedConcers?.Prompt
-                          ? selectedConcers?.path
-                          : selectedConcers?.path,
-                        selectedLanguage === "" && selectedGender === ""
-                          ? YesMale
-                          : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
-                            ? YesSpanishMale
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? YesFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? YesMale
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? YesMale
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? YesFemale
-                                      : YesMale
-                      )
-                    }
                   >
                     <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <p className="text-[32px] font-medium text-green-600">
@@ -216,34 +188,6 @@ function ConfrmStepYesNo() {
                   </div>
                   <div
                     onClick={() =>
-                      handleConfrmStepYesNo(
-                        "NO",
-                        selectedConcers?.Prompt
-                          ? selectedConcers?.path
-                          : selectedConcers?.path,
-                        selectedLanguage === "" && selectedGender === ""
-                          ? No_male
-                          : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
-                            ? No_no_maleSpanish
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? NoFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? No_male
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? No_male
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? NoFemale
-                                      : No_male
-                      )
-                    }
-                    onTouchEnd={() =>
                       handleConfrmStepYesNo(
                         "NO",
                         selectedConcers?.Prompt

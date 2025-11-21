@@ -105,9 +105,7 @@ const WhiteBoardList = () => {
                       onClick={() => {
                         handleNavigate(d.id);
                       }}
-                      onTouchEnd={() => {
-                        handleNavigate(d.id);
-                      }}
+           
                       style={{ cursor: "pointer" }}
                       key={d.id}
                       className="flex justify-between items-center py-3.5 px-5 bg-white rounded-2xl shadow-lg mb-2"

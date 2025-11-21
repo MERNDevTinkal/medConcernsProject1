@@ -45,11 +45,7 @@ function ConcernPain() {
                 deleteLastSummaryItem();
                 navigate(-1);
               }}
-              onTouchEnd={(e) => {
-                e.preventDefault();
-                deleteLastSummaryItem();
-                navigate(-1);
-              }}
+    
             >
               <img src={BackArrow} />
             </Link>

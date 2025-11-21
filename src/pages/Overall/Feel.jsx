@@ -100,9 +100,7 @@ const Feel = () => {
                     onClick={() => {
                       handleRoutes(item, item.secPath);
                     }}
-                    onTouchEnd={() => {
-                      handleRoutes(item, item.secPath);
-                    }}
+           
                     style={{ cursor: "pointer" }}
                   >
                     <div className="flex gap-12 items-center">

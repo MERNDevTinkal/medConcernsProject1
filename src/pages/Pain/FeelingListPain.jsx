@@ -151,9 +151,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(0);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(0);
-                    }}
+           
                     className="text-2xl font-bold text-gray-800"
                   >
                     0
@@ -162,18 +160,13 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(1);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(1);
-                    }}
+        
                     className="text-2xl font-bold text-gray-800"
                   >
                     1
                   </div>
                   <div
                     onClick={() => {
-                      handleBynumber(2);
-                    }}
-                    onTouchEnd={() => {
                       handleBynumber(2);
                     }}
                     className="text-2xl font-bold text-gray-800"
@@ -184,9 +177,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(3);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(3);
-                    }}
+          
                     className="text-2xl font-bold text-gray-800"
                   >
                     3
@@ -195,9 +186,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(4);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(4);
-                    }}
+          
                     className="text-2xl font-bold text-gray-800"
                   >
                     4
@@ -206,9 +195,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(5);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(5);
-                    }}
+         
                     className="text-2xl font-bold text-gray-800"
                   >
                     5
@@ -217,9 +204,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(6);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(6);
-                    }}
+          
                     className="text-2xl font-bold text-gray-800"
                   >
                     6
@@ -228,9 +213,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(7);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(7);
-                    }}
+        
                     className="text-2xl font-bold text-gray-800"
                   >
                     7
@@ -239,9 +222,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(8);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(8);
-                    }}
+          
                     className="text-2xl font-bold text-gray-800"
                   >
                     8
@@ -250,9 +231,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(9);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(9);
-                    }}
+         
                     className="text-2xl font-bold text-gray-800"
                   >
                     9
@@ -261,9 +240,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(10);
                     }}
-                    onTouchEnd={() => {
-                      handleBynumber(10);
-                    }}
+      
                     className="text-2xl font-bold text-gray-800"
                   >
                     10
@@ -278,99 +255,77 @@ const FeelingListPain = () => {
                       onClick={() => {
                         handleBynumber(0);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(0);
-                      }}
+       
                       className="w-2 h-[30px] line-1"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(1);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(1);
-                      }}
+      
                       className="w-2 h-[30px] line-2"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(2);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(2);
-                      }}
+       
                       className="w-2 h-[30px] line-3"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(3);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(3);
-                      }}
+       
                       className="w-2 h-[30px] line-4"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(4);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(4);
-                      }}
+     
                       className="w-2 h-[30px] line-5"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(5);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(5);
-                      }}
+   
                       className="w-2 h-[30px] line-6"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(6);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(6);
-                      }}
+          
                       className="w-2 h-[30px] line-7"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(7);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(7);
-                      }}
+         
                       className="w-2 h-[30px] line-8"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(8);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(8);
-                      }}
+      
                       className="w-2 h-[30px] line-9"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(9);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(9);
-                      }}
+        
                       className="w-2 h-[30px] line-10"
                     ></div>
                     <div
                       onClick={() => {
                         handleBynumber(10);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(10);
-                      }}
+         
                       className="w-2 h-[30px] line-11"
                     ></div>
                   </div>
@@ -383,9 +338,7 @@ const FeelingListPain = () => {
                       onClick={() => {
                         handleBynumber(`feeling_${index}`);
                       }}
-                      onTouchEnd={() => {
-                        handleBynumber(`feeling_${index}`);
-                      }}
+     
                       key={item.id}
                       className="text-[16px] font-medium text-center"
                     >
@@ -427,17 +380,7 @@ const FeelingListPain = () => {
                               : data.painFeel
                           );
                         }}
-                        onTouchEnd={() => {
-                          handlegetPain(
-                            data,
-                            data?.secPath?.includes("/confrm-step-yesno")
-                              ? `${path}${data?.secPath}/${data?.id}`
-                              : `${data?.secPath}`,
-                            selectedLanguage === "Spanish"
-                              ? data.painFeelEs
-                              : data.painFeel
-                          );
-                        }}
+         
                         className="flex flex-col items-center space-y-2 mb-3"
                       >
                         <img src={data.image} alt="" />

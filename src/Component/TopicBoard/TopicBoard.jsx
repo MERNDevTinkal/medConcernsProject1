@@ -187,7 +187,6 @@ const TopicBoard = ({
               }
               style={{ cursor: "pointer" }}
               onClick={() => handleConcern(item, item.path)}
-              onTouchEnd={() => handleConcern(item, item.path)}
             >
               <div
                 key={index}
@@ -203,19 +202,11 @@ const TopicBoard = ({
                             state: { item, hideImage: "boardside" },
                           });
                         }}
-                        onTouchEnd={() => {
-                          navigate(`/icon-upload`, {
-                            state: { item, hideImage: "boardside" },
-                          });
-                        }}
                       />
                     </span>
                     <span style={{ color: "red" }}>
                       <MdOutlineDelete
                         onClick={() => {
-                          handleDelete(item.id);
-                        }}
-                        onTouchEnd={() => {
                           handleDelete(item.id);
                         }}
                       />

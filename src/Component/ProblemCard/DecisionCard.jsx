@@ -119,13 +119,6 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
               1
             );
           }}
-          onTouchEnd={() => {
-            handleDecision(
-              selectedLanguage === "Spanish" ? "SÍ" : "Yes",
-              path === "/new-problem" ? "/summary" : "/pain-feel",
-              1
-            );
-          }}
         >
           <div className="flex items-center justify-between sm:p-2 p-4 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
@@ -141,9 +134,6 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
 
         <div
           onClick={() => {
-            handleDecision("No", path === "/new-problem" ? "/summary" : -1, 2);
-          }}
-          onTouchEnd={() => {
             handleDecision("No", path === "/new-problem" ? "/summary" : -1, 2);
           }}
         >
@@ -162,13 +152,6 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
           !["/concern-pain", "/face-pain"].includes(location.pathname) && (
             <div
               onClick={() => {
-                handleDecision(
-                  selectedLanguage === "Spanish" ? "no lo sé" : "Don't Know",
-                  "/summary",
-                  3
-                );
-              }}
-              onTouchEnd={() => {
                 handleDecision(
                   selectedLanguage === "Spanish" ? "no lo sé" : "Don't Know",
                   "/summary",

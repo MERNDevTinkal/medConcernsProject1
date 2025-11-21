@@ -322,17 +322,11 @@ const NeedBoard = () => {
                                       state: { item },
                                     })
                                   }
-                                  onTouchEnd={() =>
-                                    navigate(`/icon-upload`, {
-                                      state: { item },
-                                    })
-                                  }
                                 />
                               </span>
                               <span style={{ color: "red" }}>
                                 <MdOutlineDelete
                                   onClick={() => handleDelete(item.id)}
-                                  onTouchEnd={() => handleDelete(item.id)}
                                 />
                               </span>
                             </div>
@@ -341,7 +335,6 @@ const NeedBoard = () => {
                           <div
                             className="dashboard-img card-img-h rounded-2xl"
                             onClick={() => handleNeedBoard(item, item.secPath)}
-                            onTouchEnd={() => handleNeedBoard(item, item.secPath)}
                           >
                             <img
                               className="w-full"
@@ -366,9 +359,6 @@ const NeedBoard = () => {
             <div className="flex justify-center my-6">
               <button
                 onClick={() => {
-                  navigate("/icon-upload");
-                }}
-                onTouchEnd={() => {
                   navigate("/icon-upload");
                 }}
                 className="thm-btn"

@@ -219,14 +219,6 @@ const BreathingProblem = () => {
                           : `${data?.secPath}`
                       );
                     }}
-                    onTouchEnd={() => {
-                      handleBreathingProblem(
-                        data,
-                        data?.secPath?.includes("/confrm-step-yesno")
-                          ? `${Mainpath}${data?.secPath}/${data?.id}`
-                          : `${data?.secPath}`
-                      );
-                    }}
                     key={data?.id + "-" + index}
                   >
                     <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">

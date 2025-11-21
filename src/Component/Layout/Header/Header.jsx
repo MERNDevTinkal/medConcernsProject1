@@ -321,9 +321,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   onClick={() => {
                     navigate(-1);
                   }}
-                  onTouchEnd={() => {
-                    navigate(-1);
-                  }}
                   src={BackArrow}
                   alt="back"
                 />
@@ -331,7 +328,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
 
               <button type="button" 
               onClick={toggleSidebar}
-              onTouchEnd={toggleSidebar}
+            
               >
                 <img src={hamburger} alt="menu" />
               </button>
@@ -357,17 +354,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                               : introductionOn ? "/concern" : location.pathname === "/how-are-you" ? "/concern" : "/how-are-you"
                     );
                   }}
-                    onTouchEnd={() => {
-                      navigate(
-                        location.pathname === "/feeling-body" ? "/summary" :
-                          location.pathname === "/emotions" ? "/feelOptions/1" :
-                            location.pathname === "/howoften"
-                              ? "/new-problem"
-                              : location.pathname === "/new-problem"
-                                ? "/summary"
-                                : introductionOn ? "/concern" : location.pathname === "/how-are-you" ? "/concern" : "/how-are-you"
-                      );
-                    }}
+     
                     className="flex items-center gap-2 justify-end cursor-pointer">
                     <h6>Skip</h6>
                     <img
@@ -394,7 +381,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               className="close-btn absolute top-5 right-5"
               onClick={() => setIsSidebarOpen(false)}
               
-              onTouchEnd={() => setIsSidebarOpen(false)}
+             
             >
               <img src={CloseIcon} alt="close" />
             </button>
@@ -410,12 +397,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                         if (item.fun) item.fun();
                         navigate(item.path);
                       }}
-                      onTouchEnd={() => {
-                        Cookies.remove("is_concern")
-                        handleSummary();
-                        if (item.fun) item.fun();
-                        navigate(item.path);
-                      }}
                       key={index}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
             ${location.pathname === item.path
@@ -426,7 +407,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path}
                        onClick={item.fun}
-                       onTouchEnd={item.fun}
                       >
                         {selectedLanguage === "Spanish" ? item.es : item.en}
                       </Link>
