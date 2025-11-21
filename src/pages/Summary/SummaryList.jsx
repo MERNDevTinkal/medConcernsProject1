@@ -118,6 +118,7 @@ const SummaryList = () => {
               <div className="flex justify-end space-x-2">
                 <button
                   onClick={() => window.print()}
+                  onTouchEnd={() => window.print()}
                   style={{ border: "2px solid black" }}
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
@@ -125,6 +126,7 @@ const SummaryList = () => {
                 </button>
                 <button
                   onClick={handleSummaryListRoute}
+                  onTouchEnd={handleSummaryListRoute}
                   style={{ border: "2px solid black" }}
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
@@ -132,6 +134,9 @@ const SummaryList = () => {
                 </button>
                 <button
                   onClick={() => {
+                    setShowSaveModal(true);
+                  }}
+                  onTouchEnd={() => {
                     setShowSaveModal(true);
                   }}
                   style={{ border: "2px solid black" }}
@@ -165,6 +170,9 @@ const SummaryList = () => {
               {diseases?.summaryList[0]?.concern && (
                 <div
                   onClick={() => {
+                    ConcernPopUpFun();
+                  }}
+                  onTouchEnd={() => {
                     ConcernPopUpFun();
                   }}
                   className="flex justify-center mt-10 mb-6"

@@ -76,6 +76,9 @@ function ConfrmStepWhen() {
               onClick={() => {
                 navigate(-1);
               }}
+              onTouchEnd={() => {
+                navigate(-1);
+              }}
               style={{ cursor: "pointer" }}
             >
               <img src={BackArrow} />
@@ -124,6 +127,32 @@ function ConfrmStepWhen() {
                           : YesMale
                       );
                     }}
+                    onTouchEnd={() => {
+                      handleConfrmStepWhen(
+                        selectedLanguage === "Spanish" ? "SÍ" : "YES",
+                        "/howoften",
+                        selectedLanguage === "" && selectedGender === ""
+                          ? YesMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : YesMale
+                      );
+                    }}
                   >
                     <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
@@ -140,6 +169,32 @@ function ConfrmStepWhen() {
                   <div
                     to="/"
                     onClick={() => {
+                      handleConfrmStepWhen(
+                        "NO",
+                        -1,
+                        selectedLanguage === "" && selectedGender === ""
+                          ? No_male
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
+                      );
+                    }}
+                    onTouchEnd={() => {
                       handleConfrmStepWhen(
                         "NO",
                         -1,

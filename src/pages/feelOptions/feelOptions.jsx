@@ -104,6 +104,9 @@ function EmotionScreen() {
               onClick={() => {
                 navigate(-1);
               }}
+              onTouchEnd={() => {
+                navigate(-1);
+              }}
               style={{ cursor: "pointer" }}
             >
               <img src={BackArrow} />
@@ -155,6 +158,32 @@ function EmotionScreen() {
                           : YesMale
                       );
                     }}
+                    onTouchEnd={() => {
+                      handleRoutes(
+                        getQuestions,
+                        selectedLanguage === "Spanish" ? "Sí" : "YES",
+                        selectedLanguage === "" && selectedGender === ""
+                          ? YesMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : YesMale
+                      );
+                    }}
                   >
                     <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
@@ -169,6 +198,32 @@ function EmotionScreen() {
                   </div>
                   <div
                     onClick={() => {
+                      handleRoutes(
+                        getQuestions,
+                        "NO",
+                        selectedLanguage === "" && selectedGender === ""
+                          ? No_male
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Male"
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
+                      );
+                    }}
+                    onTouchEnd={() => {
                       handleRoutes(
                         getQuestions,
                         "NO",
@@ -236,6 +291,34 @@ function EmotionScreen() {
                             : MaybeMale
                         );
                       }}
+                      onTouchEnd={() => {
+                        handleRoutes(
+                          getQuestions,
+                          selectedLanguage === "Spanish" ? "tal vez" : "Maybe",
+
+                          selectedLanguage === "" && selectedGender === ""
+                            ? MaybeMale
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Male"
+                            ? TalVezMaleSpanish
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Female"
+                            ? TalVezFemaleSpanish
+                            : selectedLanguage === "" &&
+                              selectedGender === "Female"
+                            ? MaybeFemale
+                            : selectedLanguage === "" &&
+                              selectedGender === "Male"
+                            ? MaybeMale
+                            : selectedLanguage === "English" &&
+                              selectedGender === "Male"
+                            ? MaybeMale
+                            : selectedLanguage === "English" &&
+                              selectedGender === "Female"
+                            ? MaybeFemale
+                            : MaybeMale
+                        );
+                      }}
                       className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
                     >
                       <div className="flex items-center">
@@ -249,6 +332,9 @@ function EmotionScreen() {
                     </div>
                     <div
                       onClick={() => {
+                        handleSkip();
+                      }}
+                      onTouchEnd={() => {
                         handleSkip();
                       }}
                       className="mt-6 text-center"

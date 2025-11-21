@@ -84,6 +84,7 @@ const SummaryList = () => {
                   <li
                     key={index}
                     onClick={() => handleRoute(item.name_key)}
+                    onTouchEnd={() => handleRoute(item.name_key)}
                     className="flex justify-between items-center bg-[#ffff] hover:bg-[#ffff] px-4 py-3 rounded-full font-medium text-sm sm:text-base cursor-pointer transition-all duration-200"
                   >
                     <span>{item.name_key}</span>

@@ -87,6 +87,14 @@ const PainCardsList = ({
                     : `${item?.secPath}`
                 )
               }
+              onTouchEnd={() =>
+                handleConcern(
+                  item,
+                  item?.secPath?.includes("/confrm-step-yesno")
+                    ? `${pathprimary}${item?.secPath}/${item?.id}`
+                    : `${item?.secPath}`
+                )
+              }
             >
               <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
                 <div className="dashboard-img card-img-h rounded-2xl">

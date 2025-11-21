@@ -68,7 +68,6 @@ const WhiteBoardList = () => {
       setLoader
     );
   }, []);
-  console.log("");
   return (
     <>
       {loader ? (
@@ -104,6 +103,9 @@ const WhiteBoardList = () => {
                   {savedDrawings.map((d, index) => (
                     <div
                       onClick={() => {
+                        handleNavigate(d.id);
+                      }}
+                      onTouchEnd={() => {
                         handleNavigate(d.id);
                       }}
                       style={{ cursor: "pointer" }}
