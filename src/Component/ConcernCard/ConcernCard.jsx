@@ -51,15 +51,11 @@ const ConcernCard = ({
         selectedLanguage === "Spanish" ? "es-ES" : "",
         voiceFile
       );
-      // if (!Cookies.get("is_concern").includes("true_")) {
-      //   updateDisease(path.replace("/", ""), value);
-      // } else {
       const concernKey = Cookies.get("is_concern");
       const routeKey =
         concernKey && concernKey.includes("true_")
           ? `${concernKey}${path}`
           : path;
-      console.log("dddddddrouteKey", [routeKey,Cookies.get("is_concern")])
       addOrUpdateSummary(routeKey, [value]);
 
 
