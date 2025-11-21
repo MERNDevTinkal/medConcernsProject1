@@ -80,6 +80,9 @@ function ConfrmStepYesNo() {
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audio
       );
+      if (valueData === "NO") {
+        navigate(-1)
+      }
       updateDisease(pathprimary.replace("/", ""), valueData);
       // if (
       //   !pathprimary.includes("/feel/confrm-step-yesno") &&
@@ -93,7 +96,6 @@ function ConfrmStepYesNo() {
           "/visionGlasses-problem/confrm-step-yesno/1",
           "/visionGlasses-problem/confrm-step-yesno/2",
         ];
-        console.log("===>sdfsdfsdfsdf",)
         navigate(
           path,
           noNewProblemPaths.includes(pathprimary)

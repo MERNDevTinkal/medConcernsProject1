@@ -104,7 +104,7 @@ const TopicBoard = ({
         selectedLanguage === "Spanish" ? "es-ES" : "",
         voiceFile
       );
-            const isConcern = Cookies.get("is_concern");
+      const isConcern = Cookies.get("is_concern");
       const prefix = isConcern && isConcern?.includes("true_")
         ? isConcern + "/" + path
         : path;
@@ -169,7 +169,7 @@ const TopicBoard = ({
       {mergedData?.map(
         (item, index) =>
           (!item?.image
-            ) && (
+          ) && (
             <div
               key={item.id + "-" + index}
               className={
@@ -223,17 +223,17 @@ const TopicBoard = ({
                   </div>
                 )}
                 <div className="text-[20px] mt-3 mb-2 text-black">
-                  
-                    
-                      <p className="text-[20px] mt-1 mb-1 text-black">
-                        {selectedLanguage === "Spanish"
-                          ? item?.audio
-                            ? item?.name
-                            : item?.nameEs
-                          : item?.name}
-                      </p>
-                   
-                
+
+
+                  <p className="text-[20px] mt-1 mb-1 text-black">
+                    {selectedLanguage === "Spanish"
+                      ? item?.audio
+                        ? item?.name
+                        : item?.nameEs
+                      : item?.name}
+                  </p>
+
+
                 </div>
 
                 {/* English text positioned near bottom */}

@@ -1,5 +1,4 @@
 export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
-  console.log("==>audioFile", audioFile);
   return new Promise((resolve, reject) => {
     if ((!text || !text.trim()) && !audioFile) {
       resolve();
@@ -9,7 +8,6 @@ export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
       const audio = new Audio(audioFile);
       audio.onended = () => resolve();
       audio.onerror = (err) => {
-        console.warn("Audio playback failed, falling back to TTS", err);
         playTTS(text, lang, resolve, reject);
       };
       audio.play().catch((err) => {

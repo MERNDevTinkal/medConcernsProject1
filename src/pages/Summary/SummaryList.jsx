@@ -13,9 +13,11 @@ import getSetting from "../../Component/settingApi/settings";
 import { useNavigate } from "react-router-dom";
 import ConcernPopUp from "../../Component/concernPopUp/ConcernPop";
 import Cookies from "js-cookie";
+import SaveWarningPopup from "../../Component/SaveWarningPopup/SaveWarningPopup";
 const SummaryList = () => {
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [loader, setLoader] = useState(true);
   const { diseases } = useContext(GlobalContext);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
@@ -41,7 +43,7 @@ const SummaryList = () => {
           setShowSaveModal(false);
           toast.success(data.msg, {
             autoClose: 1500,
-            onClose: navigate("/concern"),
+            onClose: navigate("/summary-list"),
           });
         }
       })
@@ -68,23 +70,36 @@ const SummaryList = () => {
       () => { }
     );
   }, []);
-  const confirmFun = (decision) => {
+  const confirmFun = (value) => {
     setshowDonePopUp(false);
-    if (decision === "Yes") {
+    if (value === "Yes") {
       const lastValue = Cookies.get("is_concern");
       let count = 1;
       if (lastValue && lastValue.includes("_")) {
         count = Number(lastValue.split("_")[1]) + 1;
       }
       Cookies.set("is_concern", `true_${count}`);
+      navigate("/concern");
     } else {
-      const lastValue = Cookies.remove("is_concern");
+      setIsPopupOpen(true);
+      Cookies.remove("is_concern")
+
     }
-    navigate("/concern");
+
   };
 
   const ConcernPopUpFun = () => {
     setshowDonePopUp((pre) => !pre);
+  };
+
+  const discardChanges = () => {
+    setIsPopupOpen(false);
+    navigate("/concern");
+  };
+
+  const keepEditing = () => {
+    setIsPopupOpen(false);
+    setShowSaveModal(true)
   };
   return (
     <>
@@ -125,42 +140,40 @@ const SummaryList = () => {
                   {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                 </button>
               </div>
-              {diseases?.summaryList.map((item, index) => {
-                const isConcernRoute =  item?.route?.includes("concern");
+              {diseases?.summaryList?.length > 0 && diseases?.summaryList.map((item, index) => {
                 return (
                   <div key={index} className="flex flex-row items-center w-full px-4 my-5 summary-main">
-                    {isConcernRoute && (
-                      <div className="md:w-1/4 sm:w-1/2 w-full">
-                        <SummaryLeftCard
-                          board={index === 0 ? item?.route : ""}
-                          selectedLanguage={selectedLanguage}
-                          SummaryConcernData={item?.route?.includes("concern") ? item : {}}
-                        />
-                      </div>
-                    )}
+                    <div className="md:w-1/4 sm:w-1/2 w-full">
+                      <SummaryLeftCard
+                        board={item?.flow[0]?.route}
+                        selectedLanguage={selectedLanguage}
+                        SummaryConcernData={item?.concern?.data?.[0]}
+                      />
+                    </div>
                     <div className="arrow-right mx-4">
                       <img src={Arrow} alt="arrow" />
                     </div>
                     <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
                       <SummaryRightCard
                         selectedLanguage={selectedLanguage}
-                        SummaryDetail={item}
-                        index={index}
+                        SummaryDetail={item?.flow}
                       />
                     </div>
                   </div>
                 )
               })}
-              <div
-                onClick={() => {
-                  ConcernPopUpFun();
-                }}
-                className="flex justify-center mt-10 mb-6"
-              >
-                <button className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
-                  {selectedLanguage === "Spanish" ? "Hecho" : "Done"}
-                </button>
-              </div>
+              {diseases?.summaryList[0]?.concern && (
+                <div
+                  onClick={() => {
+                    ConcernPopUpFun();
+                  }}
+                  className="flex justify-center mt-10 mb-6"
+                >
+                  <button className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
+                    {selectedLanguage === "Spanish" ? "Hecho" : "Done"}
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <div className="flex items-center justify-center h-[70vh]">
@@ -181,6 +194,9 @@ const SummaryList = () => {
             />
           )}
           {showDonePopUp && <ConcernPopUp confirmFun={confirmFun} />}
+          {isPopupOpen && <SaveWarningPopup open={isPopupOpen}
+            onConfirm={discardChanges}
+            onCancel={keepEditing} />}
           <Footer />
         </>
       )}

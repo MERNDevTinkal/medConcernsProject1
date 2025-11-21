@@ -8,6 +8,8 @@ export const GlobalProvider = ({ children }) => {
     const stored = localStorage.getItem("diseases");
     return stored ? JSON.parse(stored) : initialState;
   });
+  const CONCERN_ROUTES = ["/concern"];
+
 
   const PRESERVE_KEYS = ["how-are-you", "yesno"];
 
@@ -55,28 +57,75 @@ export const GlobalProvider = ({ children }) => {
     const updatedList = currentList.slice(0, -1);
     updateDisease("summaryList", updatedList, true);
   };
+
+
   const addOrUpdateSummary = (routeKey, newDataArray) => {
     setDiseases((prev) => {
       const currentList = Array.isArray(prev.summaryList)
         ? [...prev.summaryList]
         : [];
 
-      const existingIndex = currentList.findIndex(
-        (item) => item.route === routeKey
-      );
-
+      const isConcern = routeKey.includes("/concern");
       let updatedList = [...currentList];
 
-      if (existingIndex !== -1) {
-        updatedList[existingIndex] = {
-          route: routeKey,
-          data: newDataArray,
-        };
-      } else {
-        updatedList.push({
-          route: routeKey,
-          data: newDataArray,
+      // Case 1: Concern Page
+      if (isConcern) {
+        const existingIndex = updatedList.findIndex(
+          group => group.concern?.route === routeKey
+        );
+
+        if (existingIndex !== -1) {
+          // Override concern, reset flow
+          updatedList[existingIndex].concern = {
+            route: routeKey,
+            data: newDataArray,
+          };
+          updatedList[existingIndex].flow = [];
+        } else {
+          // Create new concern group
+          updatedList.push({
+            concern: {
+              route: routeKey,
+              data: newDataArray,
+            },
+            flow: [],
+          });
+        }
+      }
+
+      // Case 2: Flow Page
+      else {
+        // If flow route already exists → override it in the correct group
+        let replaced = false;
+
+        updatedList = updatedList.map(group => {
+          const flowIndex = group.flow.findIndex(item => item.route === routeKey);
+
+          if (flowIndex !== -1) {
+            group.flow[flowIndex] = {
+              route: routeKey,
+              data: newDataArray,
+            };
+            replaced = true;
+          }
+          return group;
         });
+
+        // If not replaced → append to latest group or create fallback
+        if (!replaced) {
+          if (updatedList.length === 0) {
+            // fallback: user never visited concern
+            updatedList.push({
+              concern: null,
+              flow: [],
+            });
+          }
+
+          updatedList[updatedList.length - 1].flow.push({
+            route: routeKey,
+            data: newDataArray,
+          });
+        }
       }
 
       const updated = {
@@ -88,6 +137,9 @@ export const GlobalProvider = ({ children }) => {
       return updated;
     });
   };
+
+
+
 
   return (
     <GlobalContext.Provider

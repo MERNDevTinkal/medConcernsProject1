@@ -6,10 +6,10 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData }) => {
   const [getData, setData] = useState({});
   console.log("SummaryConcernData",)
   useEffect(() => {
-    if (!SummaryConcernData?.data?.[0]) {
+    if (!SummaryConcernData) {
       return;
     }
-    setData(SummaryConcernData?.data?.[0]);
+    setData(SummaryConcernData);
   }, [SummaryConcernData]);
   return (
     <>

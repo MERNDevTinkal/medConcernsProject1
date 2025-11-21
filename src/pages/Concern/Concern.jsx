@@ -77,15 +77,12 @@ const Concern = () => {
                   selectedGender={selectedGender}
                 />
               ) : (
-                <>
-                  <TopicBoard
-                    selectedLanguage={selectedLanguage}
-                    selectedIconCount={selectedIconCount}
-                    selectedGender={selectedGender}
-                    setLoader={setLoader}
-                  />
-
-                </>
+                <TopicBoard
+                  selectedLanguage={selectedLanguage}
+                  selectedIconCount={selectedIconCount}
+                  selectedGender={selectedGender}
+                  setLoader={setLoader}
+                />
               )}
             </div>
             {location.pathname === "/topic-board" && (

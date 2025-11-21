@@ -54,8 +54,15 @@ const ConcernCard = ({
       // if (!Cookies.get("is_concern").includes("true_")) {
       //   updateDisease(path.replace("/", ""), value);
       // } else {
-      addOrUpdateSummary(Cookies.get("is_concern")?.includes("true_") ? + "/" + path.replace("/", "") : path.replace("/", ""), [value]);
-      // }
+      const concernKey = Cookies.get("is_concern");
+      const routeKey =
+        concernKey && concernKey.includes("true_")
+          ? `${concernKey}${path}`
+          : path;
+      console.log("dddddddrouteKey", [routeKey,Cookies.get("is_concern")])
+      addOrUpdateSummary(routeKey, [value]);
+
+
       navigate(mainpath, { state: value });
     } catch (error) {
       console.error("Error in handleConcern:", error);
