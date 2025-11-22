@@ -219,7 +219,7 @@ export default function ConcernsSettings() {
       })
       .then(({ data }) => {
         if (!data.status) {
-         
+
           toast.error(data.msg, { autoClose: 1500 });
         }
       })
@@ -334,9 +334,7 @@ export default function ConcernsSettings() {
                 <div className="p-3 sm:p-4 md:p-6">
                   <div className="flex justify-between align-center">
                     <h1 className="text-xs text-gray-500 mb-0">
-                      {selectedLanguage === "Spanish"
-                        ? "Configuración"
-                        : "Settings"}
+
                     </h1>
                     <div className="flex justify-between ">
                       <button

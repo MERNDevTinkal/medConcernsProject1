@@ -80,17 +80,18 @@ function ConfrmStepYesNo() {
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audio
       );
+      console.log("pathpathpath",[valueData,path])
       if (valueData === "NO") {
-        navigate(-1)
+        // navigate(-1)
       }
       updateDisease(pathprimary.replace("/", ""), valueData);
-      // if (
-      //   !pathprimary.includes("/feel/confrm-step-yesno") &&
-      //   !pathprimary.includes("/feeling-body/confrm-step-yesno") &&
-      //   calendarOn
-      // ) {
-      //   // return navigate("/new-problem");
-      // }
+      if (
+        !pathprimary.includes("/feel/confrm-step-yesno") &&
+        !pathprimary.includes("/feeling-body/confrm-step-yesno") && path === "/howoften"&&
+        calendarOn
+      ) {
+         return navigate("/new-problem");
+      }
       if (typeof path === "string") {
         const noNewProblemPaths = [
           "/visionGlasses-problem/confrm-step-yesno/1",
@@ -103,9 +104,9 @@ function ConfrmStepYesNo() {
             : { state: { name: displayText ?? value?.name } }
         );
       } else if (typeof path === "number") {
-        navigate(path, { state: value });
+         navigate(path, { state: value });
       } else if (value?.audio) {
-        navigate("/summary");
+         navigate("/summary");
       }
       isSpeakingRef.current = false;
     }
@@ -119,10 +120,10 @@ function ConfrmStepYesNo() {
       ) : (
         <>
           <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 bg-white innr-header">
-            <div 
-            onClick={() => navigate(-1)} 
-         
-            style={{ cursor: "pointer" }}>
+            <div
+              onClick={() => navigate(-1)}
+
+              style={{ cursor: "pointer" }}>
               <img src={BackArrow} alt="Back" />
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
