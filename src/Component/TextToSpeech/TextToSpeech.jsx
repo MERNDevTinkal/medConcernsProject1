@@ -1,6 +1,13 @@
 let voicesLoaded = false;
 let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 let audioContext = null;
+let userInteracted = false; // NEW: Track user interaction
+
+// Listen for user interaction to enable audio
+if (typeof window !== 'undefined') {
+  document.addEventListener('click', () => { userInteracted = true; }, { once: true });
+  document.addEventListener('touchstart', () => { userInteracted = true; }, { once: true });
+}
 
 // Pre-initialize speech synthesis immediately
 if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
@@ -17,7 +24,7 @@ export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
       resolve();
       return;
     }
-
+    
     // IMMEDIATE execution - no delay
     if (audioFile) {
       playAudioWithFallback(audioFile, text, lang, resolve);
@@ -29,12 +36,12 @@ export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
 
 const playAudioWithFallback = async (audioFile, text, lang, resolve) => {
   try {
-    await playAnyAudioFile(audioFile); // <--- FAILS IN LIVE
+    await playAnyAudioFile(audioFile);
     resolve();
   } catch (error) {
     console.warn("Audio playback failed, quick fallback to TTS:", error);
     if (text && text.trim()) {
-      playTTSFast(text, lang, resolve); // <--- FALLBACK IS CALLED
+      playTTSFast(text, lang, resolve);
     } else {
       resolve();
     }
@@ -43,13 +50,19 @@ const playAudioWithFallback = async (audioFile, text, lang, resolve) => {
 
 const playAnyAudioFile = (audioFile) => {
   return new Promise((resolve, reject) => {
+    // iOS FIX: Check if user has interacted first
+    if (isIOS && !userInteracted) {
+      reject(new Error('iOS requires user interaction for audio'));
+      return;
+    }
+
     const audio = new Audio();
     audio.preload = 'auto';
     audio.src = audioFile;
-
+    
     // SUPPORT ALL AUDIO FORMATS
     audio.type = getAudioMimeType(audioFile);
-
+    
     let resolved = false;
     let playAttempted = false;
 
@@ -71,6 +84,7 @@ const playAnyAudioFile = (audioFile) => {
 
     const cleanup = () => {
       audio.removeEventListener('canplaythrough', onCanPlay);
+      audio.removeEventListener('loadeddata', onCanPlay);
       audio.removeEventListener('ended', complete);
       audio.removeEventListener('error', onError);
       audio.removeEventListener('stalled', onStalled);
@@ -91,7 +105,7 @@ const playAnyAudioFile = (audioFile) => {
     const onStalled = () => {
       console.log("Audio stalled, retrying...");
       if (!resolved) {
-        attemptPlay();
+        setTimeout(attemptPlay, 100);
       }
     };
 
@@ -103,29 +117,27 @@ const playAnyAudioFile = (audioFile) => {
     };
 
     const attemptPlay = () => {
-      const playPromise = audio.play();
-
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Playback started successfully
-            console.log("Audio playback started successfully");
-          })
-          .catch(error => {
-            // iOS SPECIFIC FIX: Handle autoplay restrictions
-            if (isIOS) {
-              console.log("iOS autoplay prevention, attempting user gesture workaround");
-              // For iOS, we might need to inform user to tap to play
-              fail(new Error('iOS autoplay restriction'));
-            } else {
+      try {
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log("Audio playback started successfully");
+            })
+            .catch(error => {
+              console.error("Play failed:", error);
               fail(error);
-            }
-          });
+            });
+        }
+      } catch (error) {
+        fail(error);
       }
     };
 
     // Event listeners for all possible states
     audio.addEventListener('canplaythrough', onCanPlay);
+    audio.addEventListener('loadeddata', onCanPlay); // ADDED: loadeddata event
     audio.addEventListener('ended', complete);
     audio.addEventListener('error', onError);
     audio.addEventListener('stalled', onStalled);
@@ -134,30 +146,30 @@ const playAnyAudioFile = (audioFile) => {
     // Load the audio
     audio.load();
 
-    // FAST TIMEOUT - 1.5 seconds
+    // FAST TIMEOUT - 2 seconds
     setTimeout(() => {
-      if (!resolved) {
-        if (audio.readyState >= 3) { // HAVE_FUTURE_DATA or HAVE_ENOUGH_DATA
+      if (!resolved && !playAttempted) {
+        if (audio.readyState >= 2) { // HAVE_CURRENT_DATA or better
           attemptPlay();
         } else {
           fail(new Error('Audio loading timeout'));
         }
       }
-    }, 1500);
+    }, 2000);
 
-    // ABSOLUTE TIMEOUT - 3 seconds max
+    // ABSOLUTE TIMEOUT - 4 seconds max
     setTimeout(() => {
       if (!resolved) {
         fail(new Error('Audio playback timeout'));
       }
-    }, 3000);
+    }, 4000);
   });
 };
 
 // DETECT AUDIO TYPE FROM FILE EXTENSION
 const getAudioMimeType = (filename) => {
   const ext = filename.split('.').pop().toLowerCase();
-
+  
   const mimeTypes = {
     'mp3': 'audio/mpeg',
     'wav': 'audio/wav',
@@ -172,7 +184,7 @@ const getAudioMimeType = (filename) => {
     'mp4': 'audio/mp4',
     'weba': 'audio/webm'
   };
-
+  
   return mimeTypes[ext] || 'audio/*';
 };
 
@@ -228,7 +240,7 @@ export const preloadAudio = (audioFile) => {
     audio.preload = 'auto';
     audio.src = audioFile;
     audio.type = getAudioMimeType(audioFile);
-
+    
     audio.oncanplaythrough = resolve;
     audio.onerror = resolve;
 
@@ -252,7 +264,7 @@ export const quickTTS = (text, lang = "en-US") => {
     const utterance = new SpeechSynthesisUtterance(shortText);
     utterance.lang = lang;
     utterance.rate = 1.3;
-
+    
     utterance.onend = resolve;
     utterance.onerror = resolve;
 
@@ -261,6 +273,7 @@ export const quickTTS = (text, lang = "en-US") => {
     setTimeout(resolve, 1500);
   });
 };
+
 export const immediateTTS = (text, lang = "en-US") => {
   if (!text || !text.trim() || !("speechSynthesis" in window)) {
     return Promise.resolve();
@@ -278,45 +291,66 @@ export const immediateTTS = (text, lang = "en-US") => {
 // NEW: UNIVERSAL AUDIO PLAYER WITH FORMAT SUPPORT
 export const playUniversalAudio = (audioFile) => {
   return new Promise((resolve, reject) => {
-    const audio = new Audio(audioFile);
+    // iOS FIX: Check user interaction
+    if (isIOS && !userInteracted) {
+      reject(new Error('User interaction required for iOS audio'));
+      return;
+    }
 
+    const audio = new Audio(audioFile);
+    
     // Set proper MIME type for better browser support
     const mimeType = getAudioMimeType(audioFile);
     if (mimeType !== 'audio/*') {
       audio.type = mimeType;
     }
-
+    
     audio.preload = 'auto';
-
+    
     audio.onended = () => resolve();
     audio.onerror = () => reject(new Error('Audio playback error'));
-
+    
     // iOS FIX: Handle autoplay restrictions
     const playPromise = audio.play();
-
+    
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           // Success - wait for ended event
         })
         .catch(error => {
-          // For iOS, we might need user interaction
-          console.warn('Autoplay prevented, attempting workaround:', error);
+          console.warn('Autoplay prevented:', error);
           reject(error);
         });
     }
-
-    // Timeout after 2 seconds
+    
+    // Timeout after 3 seconds
     setTimeout(() => {
-      if (audio.readyState >= 3) {
-        // Audio is loaded and can play
-        const retryPromise = audio.play();
-        if (retryPromise !== undefined) {
-          retryPromise.catch(reject);
-        }
-      } else {
-        reject(new Error('Audio loading timeout'));
-      }
-    }, 2000);
+      reject(new Error('Audio loading timeout'));
+    }, 3000);
+  });
+};
+
+// NEW: Function to ensure user interaction for iOS
+export const ensureUserInteraction = () => {
+  return new Promise((resolve) => {
+    if (!isIOS || userInteracted) {
+      resolve();
+      return;
+    }
+    
+    // Wait for user interaction
+    const handleInteraction = () => {
+      userInteracted = true;
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+      resolve();
+    };
+    
+    document.addEventListener('click', handleInteraction, { once: true });
+    document.addEventListener('touchstart', handleInteraction, { once: true });
+    
+    // Auto-resolve after 5 seconds if no interaction
+    setTimeout(resolve, 5000);
   });
 };
