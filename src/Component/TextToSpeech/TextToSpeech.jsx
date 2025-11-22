@@ -17,7 +17,7 @@ export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
       resolve();
       return;
     }
-    
+
     // IMMEDIATE execution - no delay
     if (audioFile) {
       playAudioWithFallback(audioFile, text, lang, resolve);
@@ -29,12 +29,12 @@ export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
 
 const playAudioWithFallback = async (audioFile, text, lang, resolve) => {
   try {
-    await playAnyAudioFile(audioFile);
+    await playAnyAudioFile(audioFile); // <--- FAILS IN LIVE
     resolve();
   } catch (error) {
     console.warn("Audio playback failed, quick fallback to TTS:", error);
     if (text && text.trim()) {
-      playTTSFast(text, lang, resolve);
+      playTTSFast(text, lang, resolve); // <--- FALLBACK IS CALLED
     } else {
       resolve();
     }
@@ -46,10 +46,10 @@ const playAnyAudioFile = (audioFile) => {
     const audio = new Audio();
     audio.preload = 'auto';
     audio.src = audioFile;
-    
+
     // SUPPORT ALL AUDIO FORMATS
     audio.type = getAudioMimeType(audioFile);
-    
+
     let resolved = false;
     let playAttempted = false;
 
@@ -104,7 +104,7 @@ const playAnyAudioFile = (audioFile) => {
 
     const attemptPlay = () => {
       const playPromise = audio.play();
-      
+
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
@@ -157,7 +157,7 @@ const playAnyAudioFile = (audioFile) => {
 // DETECT AUDIO TYPE FROM FILE EXTENSION
 const getAudioMimeType = (filename) => {
   const ext = filename.split('.').pop().toLowerCase();
-  
+
   const mimeTypes = {
     'mp3': 'audio/mpeg',
     'wav': 'audio/wav',
@@ -172,7 +172,7 @@ const getAudioMimeType = (filename) => {
     'mp4': 'audio/mp4',
     'weba': 'audio/webm'
   };
-  
+
   return mimeTypes[ext] || 'audio/*';
 };
 
@@ -228,11 +228,10 @@ export const preloadAudio = (audioFile) => {
     audio.preload = 'auto';
     audio.src = audioFile;
     audio.type = getAudioMimeType(audioFile);
-    
+
     audio.oncanplaythrough = resolve;
     audio.onerror = resolve;
-    
-    // For iOS, resolve immediately to avoid delays
+
     if (isIOS) {
       setTimeout(resolve, 100);
     }
@@ -253,7 +252,7 @@ export const quickTTS = (text, lang = "en-US") => {
     const utterance = new SpeechSynthesisUtterance(shortText);
     utterance.lang = lang;
     utterance.rate = 1.3;
-    
+
     utterance.onend = resolve;
     utterance.onerror = resolve;
 
@@ -262,8 +261,6 @@ export const quickTTS = (text, lang = "en-US") => {
     setTimeout(resolve, 1500);
   });
 };
-
-// IMMEDIATE RESPONSE - doesn't wait for completion
 export const immediateTTS = (text, lang = "en-US") => {
   if (!text || !text.trim() || !("speechSynthesis" in window)) {
     return Promise.resolve();
@@ -282,21 +279,21 @@ export const immediateTTS = (text, lang = "en-US") => {
 export const playUniversalAudio = (audioFile) => {
   return new Promise((resolve, reject) => {
     const audio = new Audio(audioFile);
-    
+
     // Set proper MIME type for better browser support
     const mimeType = getAudioMimeType(audioFile);
     if (mimeType !== 'audio/*') {
       audio.type = mimeType;
     }
-    
+
     audio.preload = 'auto';
-    
+
     audio.onended = () => resolve();
     audio.onerror = () => reject(new Error('Audio playback error'));
-    
+
     // iOS FIX: Handle autoplay restrictions
     const playPromise = audio.play();
-    
+
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
@@ -308,7 +305,7 @@ export const playUniversalAudio = (audioFile) => {
           reject(error);
         });
     }
-    
+
     // Timeout after 2 seconds
     setTimeout(() => {
       if (audio.readyState >= 3) {
