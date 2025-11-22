@@ -80,17 +80,17 @@ function ConfrmStepYesNo() {
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audio
       );
-      console.log("pathpathpath",[valueData,path])
+      console.log("pathpathpath", [valueData, path])
       if (valueData === "NO") {
-        // navigate(-1)
+        navigate(-1)
       }
       updateDisease(pathprimary.replace("/", ""), valueData);
       if (
         !pathprimary.includes("/feel/confrm-step-yesno") &&
-        !pathprimary.includes("/feeling-body/confrm-step-yesno") && path === "/howoften"&&
+        !pathprimary.includes("/feeling-body/confrm-step-yesno") && path === "/howoften" &&
         calendarOn
       ) {
-         return navigate("/new-problem");
+        return navigate("/new-problem");
       }
       if (typeof path === "string") {
         const noNewProblemPaths = [
@@ -104,15 +104,13 @@ function ConfrmStepYesNo() {
             : { state: { name: displayText ?? value?.name } }
         );
       } else if (typeof path === "number") {
-         navigate(path, { state: value });
+        navigate(path, { state: value });
       } else if (value?.audio) {
-         navigate("/summary");
+        navigate("/summary");
       }
       isSpeakingRef.current = false;
     }
   };
-  //
-  //
   return (
     <>
       {loader ? (
