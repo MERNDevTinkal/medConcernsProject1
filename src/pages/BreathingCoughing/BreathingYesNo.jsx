@@ -29,16 +29,16 @@ function BreathingYesNo() {
 
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
   return (
@@ -66,11 +66,10 @@ function BreathingYesNo() {
           <div className="main-wrapper home-wrapper ">
             <div className="grid grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5  items-center">
               <div
-                className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3 ${
-                  location.pathname.includes("/topicboard/")
+                className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3 ${location.pathname.includes("/topicboard/")
                     ? "h-[200px] flex justify-center items-center"
                     : ""
-                } `}
+                  } `}
               >
                 {location.pathname.includes("/topicboard/") ? (
                   <p className="text-xl">

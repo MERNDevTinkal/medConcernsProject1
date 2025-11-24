@@ -12,7 +12,7 @@ import { debounce } from "lodash";
 
 export default function Settings() {
   const navigate = useNavigate();
-  const [selectedIconCount, setSelectedIconCount] = useState(3);
+  const [selectedIconCount, setSelectedIconCount] = useState(6);
   const [selectedGender, setSelectedGender] = useState("Male");
   const [selectedLanguage, setSelectedLanguage] = useState("English");
   const [calendarOn, setCalendarOn] = useState(true);
@@ -245,8 +245,8 @@ export default function Settings() {
                         <button
                           key={count}
                           className={`w-10 h-10 rounded-md flex items-center justify-center text-lg font-medium ${selectedIconCount === count
-                              ? "bg-blue-theme text-white"
-                              : "bg-white text-gray-800 border border-gray-200 hover:bg-gray-50"
+                            ? "bg-blue-theme text-white"
+                            : "bg-white text-gray-800 border border-gray-200 hover:bg-gray-50"
                             }`}
                           onClick={() => handleIconCountChange(count)}
                         >

@@ -736,7 +736,7 @@ export default function TabsCalendar() {
                         setSelectedMonth(null);
                         handleTabSelect("week");
                       }}
-        
+
                       role="tab"
                       aria-selected={activeTab === "week"}
                     >
@@ -754,7 +754,7 @@ export default function TabsCalendar() {
                         setSelectedWeekDay(null);
                         handleTabSelect("month");
                       }}
-           
+
                       role="tab"
                       aria-selected={activeTab === "month"}
                     >
@@ -779,6 +779,7 @@ export default function TabsCalendar() {
                           <div
                             key={label}
                             className="flex items-center justify-center p-4 sm:p-2 border-b border-r border-gray-200 bg-white"
+                            onClick={() => handleDaySelect(label)}
                           >
                             <span className="font-bold text-[40px] sm:text-xl text-gray-800">
                               {label}
@@ -794,7 +795,7 @@ export default function TabsCalendar() {
                                 : "bg-white hover:bg-gray-50"
                               }`}
                             onClick={() => handleDaySelect(item)}
-                       
+
                             role="option"
                             aria-selected={selectedDayItem === item}
                           >
@@ -833,7 +834,7 @@ export default function TabsCalendar() {
                                 : "bg-white hover:bg-gray-50"
                               }`}
                             onClick={() => handleWeekSelect(index)}
-                        
+
                             role="option"
                             aria-selected={selectedWeekDay === index}
                           >
@@ -859,7 +860,7 @@ export default function TabsCalendar() {
                             className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
                           ${selectedMonth === index ? "text-blue" : ""}`}
                             onClick={() => handleMonthSelect(index)}
-                          
+
                             role="option"
                             aria-selected={selectedMonth === index}
                           >
@@ -875,24 +876,24 @@ export default function TabsCalendar() {
                   <div className="flex items-center justify-center mt-3">
                     <button
                       onClick={() => {
-                        getSkip("I Don't Know");
+                        getSkip("I Don't Know?");
                       }}
-          
+
                       className="flex items-end gap-3 bg-white text-black px-3 py-2 sm:px-1.5 sm:py-1 rounded-md border border-black hover:bg-gray-100"
                     >
                       {/* Text */}
                       <span>
                         {selectedLanguage === "Spanish"
-                          ? "NO SÉ"
-                          : "I DON'T KNOW"}
+                          ? "NO SÉ?"
+                          : "I DON'T KNOW?"}
                       </span>
 
                       {/* Image */}
-                      <img
+                      {/* <img
                         style={{ width: "30px", height: "30px" }}
                         src={IdontknowImg}
                         alt="icon"
-                      />
+                      /> */}
                     </button>
                   </div>
                 </div>
