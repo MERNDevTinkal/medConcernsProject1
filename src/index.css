@@ -954,7 +954,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* landscope in iphone */
-html,
+/* html,
 body,
 #root {
   margin: 0;
@@ -962,7 +962,7 @@ body,
   width: 100%;
   height: 100%;
   overflow: auto;
-}
+} */
 
 /* Default styles for all routes */
 /* .app-container {
@@ -972,7 +972,7 @@ body,
 } */
 
 /* NO LANDSCAPE routes - / and /main */
-.no-landscape {
+/* .no-landscape {
   transform: none !important;
   position: static !important;
   width: 100% !important;
@@ -984,17 +984,17 @@ body,
   transform: none !important;
   width: 100% !important;
   min-height: 100% !important;
-}
+} */
 
 /* Prevent any rotation on excluded routes */
-.no-landscape body {
+/* .no-landscape body {
   transform: none !important;
-}
+} */
 
 /* LANDSCAPE ENABLED routes - all except / and /main */
 
 /* iOS Portrait Mode Transform */
-.ios-device.portrait-mode {
+/* .ios-device.portrait-mode {
   transform: rotate(90deg) translate(0%, -100%);
   transform-origin: 0% 0%;
   position: fixed;
@@ -1005,17 +1005,17 @@ body,
   overflow: auto;
   z-index: 1020;
 
-}
+} */
 
-.ios-device.portrait-mode .app-container {
+/* .ios-device.portrait-mode .app-container {
   width: 100vh !important;
   min-height: 100vw !important;
   transform: rotate(0deg);
   overflow: visible;
-}
+} */
 
 /* Landscape Mode - Normal behavior */
-.ios-device.landscape-mode {
+/* .ios-device.landscape-mode {
   transform: none;
   position: static;
   width: 100%;
@@ -1025,10 +1025,10 @@ body,
 .ios-device.landscape-mode .app-container {
   width: 100%;
   min-height: 100vh;
-}
+} */
 
 /* Media query backup for landscape routes */
-@media (orientation: portrait) and (-webkit-touch-callout: none) {
+/* @media (orientation: portrait) and (-webkit-touch-callout: none) {
   .ios-device:not(.no-landscape) body {
     transform: rotate(90deg);
     transform-origin: 0 0;
@@ -1046,8 +1046,108 @@ body,
     min-height: 100vw;
     overflow: visible !important;
   }
+} */
+
+/* index.css */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
+/* NO LANDSCAPE routes - / and /main - Normal behavior */
+.no-landscape {
+  transform: none !important;
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: auto !important;
+}
+
+.no-landscape .app-container {
+  transform: none !important;
+  width: 100% !important;
+  min-height: 100% !important;
+}
+
+/* FORCE LANDSCAPE - All other routes */
+.force-landscape {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Natural Landscape - Device is physically in landscape */
+.force-landscape.landscape-natural {
+  transform: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Portrait forced to Landscape - Device is physically portrait but we force landscape view */
+.force-landscape.portrait-forced-to-landscape {
+  transform: rotate(90deg) translate(0%, -100%);
+  transform-origin: 0% 0%;
+  width: 100vh;
+  height: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.force-landscape.portrait-forced-to-landscape #root,
+.force-landscape.portrait-forced-to-landscape .app-container {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(0deg);
+}
+
+/* Prevent zoom and ensure proper scaling */
+.force-landscape {
+  touch-action: pan-x pan-y;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Media query backup for extra protection */
+@media (orientation: portrait) {
+  .force-landscape {
+    position: fixed !important;
+    width: 100vh !important;
+    height: 100vw !important;
+    transform: rotate(90deg) translate(0%, -100%) !important;
+    transform-origin: 0% 0% !important;
+    top: 0 !important;
+    left: 0 !important;
+    overflow: auto !important;
+  }
+  
+  .force-landscape #root {
+    width: 100vh !important;
+    height: 100vw !important;
+    transform: rotate(0deg) !important;
+  }
+}
+
+/* Hide scrollbars but maintain functionality */
+.force-landscape ::-webkit-scrollbar {
+  display: none;
+}
+
+.force-landscape {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 /* popup in summary page */
 
 /* Background blur */

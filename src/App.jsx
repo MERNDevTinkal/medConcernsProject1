@@ -58,41 +58,92 @@ import PatientEducation from "./pages/PatientEducation/page";
 import ImagesLibrery from "./pages/ImagesLibrery/page";
 function App() {
   const location = useLocation();
+  // useEffect(() => {
+  //   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  //   if (isIOS) {
+  //     const excludedRoutes = ['/', '/main'];
+  //     const shouldExcludeLandscape = excludedRoutes.includes(location.pathname);
+
+  //     if (shouldExcludeLandscape) {
+  //       document.body.classList.add('no-landscape');
+  //       document.body.classList.remove('ios-device');
+  //     } else {
+  //       document.body.classList.add('ios-device');
+  //       document.body.classList.remove('no-landscape');
+
+  //       const handleOrientation = () => {
+  //         const isLandscape = window.orientation === 90 || window.orientation === -90;
+
+  //         if (isLandscape) {
+  //           document.body.classList.add('landscape-mode');
+  //           document.body.classList.remove('portrait-mode');
+  //         } else {
+  //           document.body.classList.add('portrait-mode');
+  //           document.body.classList.remove('landscape-mode');
+  //         }
+  //       };
+
+  //       handleOrientation();
+  //       window.addEventListener('orientationchange', handleOrientation);
+
+  //       return () => {
+  //         window.removeEventListener('orientationchange', handleOrientation);
+  //       };
+  //     }
+  //   }
+  // }, [location.pathname]);
   useEffect(() => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    if (isIOS) {
-      const excludedRoutes = ['/', '/main'];
-      const shouldExcludeLandscape = excludedRoutes.includes(location.pathname);
+    const isAndroid = /Android/.test(navigator.userAgent);
 
-      if (shouldExcludeLandscape) {
-        document.body.classList.add('no-landscape');
-        document.body.classList.remove('ios-device');
-      } else {
-        document.body.classList.add('ios-device');
-        document.body.classList.remove('no-landscape');
+    // Always force landscape for all routes except excluded ones
+    const excludedRoutes = ['/', '/main'];
+    const shouldForceLandscape = !excludedRoutes.includes(location.pathname);
 
-        const handleOrientation = () => {
-          const isLandscape = window.orientation === 90 || window.orientation === -90;
+    if ((isIOS || isAndroid) && shouldForceLandscape) {
+      document.body.classList.add('force-landscape');
+      document.body.classList.remove('no-landscape');
 
-          if (isLandscape) {
-            document.body.classList.add('landscape-mode');
-            document.body.classList.remove('portrait-mode');
-          } else {
-            document.body.classList.add('portrait-mode');
-            document.body.classList.remove('landscape-mode');
-          }
-        };
+      const lockToLandscape = () => {
+        // Force landscape orientation
+        if (window.screen && window.screen.orientation && window.screen.orientation.lock) {
+          window.screen.orientation.lock('landscape').catch((error) => {
+            console.log('Orientation lock failed:', error);
+          });
+        }
 
-        handleOrientation();
-        window.addEventListener('orientationchange', handleOrientation);
+        // CSS fallback
+        const isPortrait = window.orientation === 0 || window.orientation === 180;
+        if (isPortrait) {
+          document.body.classList.add('portrait-forced-to-landscape');
+          document.body.classList.remove('landscape-natural');
+        } else {
+          document.body.classList.add('landscape-natural');
+          document.body.classList.remove('portrait-forced-to-landscape');
+        }
+      };
 
-        return () => {
-          window.removeEventListener('orientationchange', handleOrientation);
-        };
-      }
+      // Lock immediately
+      lockToLandscape();
+
+      // Listen for orientation changes
+      window.addEventListener('orientationchange', lockToLandscape);
+      window.addEventListener('resize', lockToLandscape);
+
+      return () => {
+        window.removeEventListener('orientationchange', lockToLandscape);
+        window.removeEventListener('resize', lockToLandscape);
+        // Unlock orientation when leaving
+        if (window.screen && window.screen.orientation && window.screen.orientation.unlock) {
+          window.screen.orientation.unlock();
+        }
+      };
+    } else {
+      // For excluded routes, remove landscape forcing
+      document.body.classList.add('no-landscape');
+      document.body.classList.remove('force-landscape');
     }
   }, [location.pathname]);
-
   return (
     // <Router>
     <>
