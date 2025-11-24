@@ -1108,6 +1108,12 @@ body,
   color: #e74c3c;
 }
 
+/* whiteboard icons */
+.icon-size-add {
+  width: 30px;
+  height: 30px;
+}
+
 /* Fade animation */
 @keyframes fadeIn {
   from {

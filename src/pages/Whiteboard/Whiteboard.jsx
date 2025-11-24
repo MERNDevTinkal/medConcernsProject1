@@ -1225,7 +1225,7 @@ export default function Whiteboard() {
     
                     title="Pencil"
                   >
-                    <Icon.Pencil className="w-6 h-6" />
+                    <Icon.Pencil className="icon-size-add" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1234,7 +1234,7 @@ export default function Whiteboard() {
                
                     title="Virtual Keyboard"
                   >
-                    <Icon.Keyword className="w-6 h-6" />
+                    <Icon.Keyword className="icon-size-add" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1247,7 +1247,7 @@ export default function Whiteboard() {
 
                     // document.getElementById("imageUpload").click()
                   >
-                    <Icon.Image className="w-6 h-6" />
+                    <Icon.Image className="icon-size-add" />
                   </Button>
                   {/* <input
                     type="file"
@@ -1272,7 +1272,7 @@ export default function Whiteboard() {
                     }}
                     title="Eraser"
                   >
-                    <Icon.Eraser className="w-6 h-6" />{" "}
+                    <Icon.Eraser className="icon-size-add" />{" "}
                   </Button> */}
 
                   <Button
@@ -1282,7 +1282,7 @@ export default function Whiteboard() {
                 
                     title="Clear"
                   >
-                    <Icon.Trash className="w-6 h-6" />
+                    <Icon.Trash className="icon-size-add" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1291,7 +1291,7 @@ export default function Whiteboard() {
       
                     title="File Save"
                   >
-                    <Icon.FileSave className="w-6 h-6" />
+                    <Icon.FileSave className="icon-size-add" />
                   </Button>
 
                   {/* <div className="flex items-center gap-2 ml-2">
