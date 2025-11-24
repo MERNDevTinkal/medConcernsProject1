@@ -16,7 +16,7 @@ import JustFatigueMale from "../../assets/audio/English/male/Just Fatigue.wav";
 
 import ColostomyOstomyBagMale from "../../assets/audio/English/male/09 Colostomy _ Ostomy Bag.wav";
 import HopelessMale from "../../assets/audio/English/male/36 Hopeless.wav";
-import WithSalivaMale from "../../assets/audio/English/male/1 With Saliva.wav";
+import WithSalivaMale from "../../assets/audio/English/male/1 With Saliva.mp3";
 import ToiletUrinalMale from "../../assets/audio/English/male/10 Toilet _ Urinal.wav";
 import TVMale from "../../assets/audio/English/male/100 TV.wav";
 import MusicMale from "../../assets/audio/English/male/101 Music.wav";

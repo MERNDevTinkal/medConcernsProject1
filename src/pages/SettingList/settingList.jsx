@@ -67,12 +67,21 @@ export const needsBoardList = [
   { key: "Bed", label: { en: "Bed", es: "Cama" } },
   { key: "Food", label: { en: "Food", es: "Comida" } },
   { key: "Drink", label: { en: "Drink", es: "Bebida" } },
-  { key: "Glasses", label: { en: "Glasses", es: "Gafas" } },
+
+  {
+    key: "Pain Meds",
+    label: { en: "Pain Meds", es: "Medicamentos para el Dolor" },
+  },
   { key: "Medication", label: { en: "Medication", es: "Medicamentos" } },
-  { key: "Hearing Aids", label: { en: "Hearing Aids", es: "Audífonos" } },
-  { key: "Dentures", label: { en: "Dentures", es: "Dentadura" } },
-  { key: "Tissue", label: { en: "Tissue", es: "Pañuelo" } },
-  { key: "Call Light", label: { en: "Call Light", es: "Luz de Llamada" } },
+  { key: "Need Changed", label: { en: "Need Changed", es: "Necesita Cambio" } },
+  { key: "Reposition", label: { en: "Reposition", es: "Recolocar" } },
+  { key: "Ice", label: { en: "Ice", es: "Hielo" } },
+  { key: "Ice Pack", label: { en: "Ice Pack", es: "Compresa de Hielo" } },
+
+  {
+    key: "Heating Pad",
+    label: { en: "Heating Pad", es: "Almohadilla Eléctrica" },
+  },
   {
     key: "Blanket / Pillow",
     label: { en: "Blanket / Pillow", es: "Manta / Almohada" },
@@ -81,52 +90,55 @@ export const needsBoardList = [
     key: "Room Temperature",
     label: { en: "Room Temperature", es: "Temperatura de la Habitación" },
   },
-  { key: "Open for Me", label: { en: "Open for Me", es: "Ábreme" } },
+  { key: "Tissue", label: { en: "Tissue", es: "Pañuelo" } },
+  { key: "Lights", label: { en: "Lights", es: "Luces" } },
   { key: "TV", label: { en: "TV", es: "Televisión" } },
   { key: "Music", label: { en: "Music", es: "Música" } },
-  {
-    key: "Call Family",
-    label: { en: "Call Family", es: "Llamar a la Familia" },
-  },
+
+  { key: "Need Straw", label: { en: "Need Straw", es: "Necesito Popote" } },
+  { key: "Glasses", label: { en: "Glasses", es: "Gafas" } },
+
+
+  { key: "Hearing Aids", label: { en: "Hearing Aids", es: "Audífonos" } },
+  { key: "Dentures", label: { en: "Dentures", es: "Dentadura" } },
   {
     key: "Change Clothes",
     label: { en: "Change Clothes", es: "Cambiar Ropa" },
   },
-  { key: "Need Socks", label: { en: "Need Socks", es: "Necesito Calcetines" } },
-  {
-    key: "Cervical Collar",
-    label: { en: "Cervical Collar", es: "Collarín Cervical" },
-  },
-  { key: "Helmet", label: { en: "Helmet", es: "Casco" } },
   {
     key: "Adjust Clothes",
     label: { en: "Adjust Clothes", es: "Ajustar Ropa" },
   },
+
   {
     key: "Change Underwear",
     label: { en: "Change Underwear", es: "Cambiar Ropa Interior" },
   },
-  // { key: "Light", label: { en: "Light", es: "Luz" } },
-  { key: "Please Leave", label: { en: "Please Leave", es: "Por Favor Salga" } },
-  { key: "Reposition", label: { en: "Reposition", es: "Recolocar" } },
-  { key: "Suction", label: { en: "Suction", es: "Succión" } },
-  { key: "Catheter", label: { en: "Catheter", es: "Catéter" } },
-  // { key: "Soiled", label: { en: "Soiled", es: "Sucio" } },
-  {
-    key: "Pain Meds",
-    label: { en: "Pain Meds", es: "Medicamentos para el Dolor" },
-  },
-  { key: "Ice", label: { en: "Ice", es: "Hielo" } },
+  { key: "Need Socks", label: { en: "Need Socks", es: "Necesito Calcetines" } },
+
+  { key: "Call Light", label: { en: "Call Light", es: "Luz de Llamada" } },
   { key: "Door", label: { en: "Door", es: "Puerta" } },
-  { key: "Ice Pack", label: { en: "Ice Pack", es: "Compresa de Hielo" } },
   {
-    key: "Heating Pad",
-    label: { en: "Heating Pad", es: "Almohadilla Eléctrica" },
+    key: "Call Family",
+    label: { en: "Call Family", es: "Llamar a la Familia" },
   },
+  { key: "Please Leave", label: { en: "Please Leave", es: "Por Favor Salga" } },
+
+  { key: "Open for Me", label: { en: "Open for Me", es: "Ábreme" } },
+
   {
     key: "Phone / Tablet",
     label: { en: "Phone / Tablet", es: "Teléfono / Tableta" },
   },
+
+  {
+    key: "Plug in Phone / Tablet",
+    label: { en: "Plug in Phone / Tablet", es: "Cargar Teléfono / Tableta" },
+  },
+
+  { key: "Charge Hearing Aids", label: { en: "Charge Hearing Aids", es: "Cargar Audífonos" } },
+
+
   {
     key: "Inhaler / Breathing Treatment",
     label: {
@@ -134,23 +146,40 @@ export const needsBoardList = [
       es: "Inhalador / Tratamiento Respiratorio",
     },
   },
-  { key: "Need Straw", label: { en: "Need Straw", es: "Necesito Popote" } },
-  {
-    key: "Plug in Phone / Tablet",
-    label: { en: "Plug in Phone / Tablet", es: "Cargar Teléfono / Tableta" },
-  },
-  // { key: "PEG", label: { en: "PEG", es: "PEG" } },
+
+  { key: "Suction", label: { en: "Suction", es: "Succión" } },
+  { key: "Catheter", label: { en: "Catheter", es: "Catéter" } },
+  { key: "Ostomy / Colostomy Bag", label: { en: "Ostomy / Colostomy Bag", es: "Bolsa de Ostomía / Colostomía" } },
+
+  { key: "Blood Sugar", label: { en: "Blood Sugar", es: "Azúcar en Sangre" } },
+  { key: "Blood Pressure", label: { en: "Blood Pressure", es: "Presión Arterial" } },
+
   { key: "Trach", label: { en: "Trach", es: "Traqueostomía" } },
+
+
+
+  { key: "Feeding Tube", label: { en: "Feeding Tube", es: "Tubo de Alimentación" } },
+  { key: "Helmet", label: { en: "Helmet", es: "Casco" } },
+
+
+
   {
-    key: "Respiratory Therapist",
-    label: { en: "Respiratory Therapist", es: "Terapeuta Respiratorio" },
+    key: "Cervical Collar",
+    label: { en: "Cervical Collar", es: "Collarín Cervical" },
   },
-  { key: "Doctor", label: { en: "Doctor", es: "Doctor" } },
   { key: "Nurse", label: { en: "Nurse", es: "Enfermera" } },
+  { key: "Doctor", label: { en: "Doctor", es: "Doctor" } },
+
+
   {
     key: "Nursing Aide",
     label: { en: "Nursing Aide", es: "Asistente de Enfermería" },
   },
+  {
+    key: "Speech Therapist",
+    label: { en: "Speech Therapist", es: "Terapeuta del Habla" },
+  },
+
   {
     key: "Occupational / Physical Therapist",
     label: {
@@ -158,18 +187,13 @@ export const needsBoardList = [
       es: "Terapeuta Ocupacional / Físico",
     },
   },
+
+
   {
-    key: "Speech Therapist",
-    label: { en: "Speech Therapist", es: "Terapeuta del Habla" },
+    key: "Respiratory Therapist",
+    label: { en: "Respiratory Therapist", es: "Terapeuta Respiratorio" },
   },
-  // Missing items from needBoard array
-  { key: "Need Changed", label: { en: "Need Changed", es: "Necesita Cambio" } },
-  { key: "Lights", label: { en: "Lights", es: "Luces" } },
-  { key: "Charge Hearing Aids", label: { en: "Charge Hearing Aids", es: "Cargar Audífonos" } },
-  { key: "Ostomy / Colostomy Bag", label: { en: "Ostomy / Colostomy Bag", es: "Bolsa de Ostomía / Colostomía" } },
-  { key: "Blood Sugar", label: { en: "Blood Sugar", es: "Azúcar en Sangre" } },
-  { key: "Blood Pressure", label: { en: "Blood Pressure", es: "Presión Arterial" } },
-  { key: "Feeding Tube", label: { en: "Feeding Tube", es: "Tubo de Alimentación" } },
+
   { key: "Something Else", label: { en: "Something Else", es: "Algo Más" } }
 ];
 
@@ -201,11 +225,10 @@ export default function ConcernsSettings() {
   const [UncheckConcerns, setUncheckConcerns] = useState([]);
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
-  const [isSticky, setIsSticky] = useState(false);
   const currentList = name === "Needsboard" ? needsBoardList : concernsList;
   const allKeys = currentList.map((c) => c.key);
   const [unCheckedValue, setUncheckedValue] = useState([]);
-  const saveSettings = (updatedConcerns, updatedUnchecked) => {
+  const saveSettings = (updatedConcerns, updatedUnchecked, isSaveClick = "") => {
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     const value = name === "Needsboard" ? "need_board" : "concerns";
@@ -219,8 +242,10 @@ export default function ConcernsSettings() {
       })
       .then(({ data }) => {
         if (!data.status) {
-
           toast.error(data.msg, { autoClose: 1500 });
+        }
+        if (isSaveClick === "Save") {
+          toast.success("Saved successfully! ", { autoClose: 1500 });
         }
       })
       .catch(() => toast.error("Something went wrong", { autoClose: 1500 }));
@@ -256,7 +281,7 @@ export default function ConcernsSettings() {
   };
 
   const handleSaveSettings = () => {
-    saveSettings(selectedConcerns, unCheckedValue);
+    saveSettings(selectedConcerns, unCheckedValue, "Save");
   };
   // ---------------- Load settings ----------------
   useEffect(() => {
