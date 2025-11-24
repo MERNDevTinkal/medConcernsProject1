@@ -95,8 +95,6 @@ function App() {
   useEffect(() => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isAndroid = /Android/.test(navigator.userAgent);
-
-    // Always force landscape for all routes except excluded ones
     const excludedRoutes = ['/', '/main'];
     const shouldForceLandscape = !excludedRoutes.includes(location.pathname);
 
@@ -104,44 +102,39 @@ function App() {
       document.body.classList.add('force-landscape');
       document.body.classList.remove('no-landscape');
 
-      const lockToLandscape = () => {
-        // Force landscape orientation
-        if (window.screen && window.screen.orientation && window.screen.orientation.lock) {
-          window.screen.orientation.lock('landscape').catch((error) => {
-            console.log('Orientation lock failed:', error);
-          });
-        }
+      // Apply landscape immediately using CSS
+      const applyInstantLandscape = () => {
+        const viewport = document.querySelector('meta[name="viewport"]');
+        const isPortrait = window.innerHeight > window.innerWidth;
 
-        // CSS fallback
-        const isPortrait = window.orientation === 0 || window.orientation === 180;
         if (isPortrait) {
           document.body.classList.add('portrait-forced-to-landscape');
           document.body.classList.remove('landscape-natural');
+
+          // Force landscape viewport
+          if (viewport) {
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+          }
         } else {
           document.body.classList.add('landscape-natural');
           document.body.classList.remove('portrait-forced-to-landscape');
         }
       };
 
-      // Lock immediately
-      lockToLandscape();
+      // Apply immediately
+      applyInstantLandscape();
 
-      // Listen for orientation changes
-      window.addEventListener('orientationchange', lockToLandscape);
-      window.addEventListener('resize', lockToLandscape);
+      // Listen for resize (faster than orientationchange)
+      window.addEventListener('resize', applyInstantLandscape);
 
       return () => {
-        window.removeEventListener('orientationchange', lockToLandscape);
-        window.removeEventListener('resize', lockToLandscape);
-        // Unlock orientation when leaving
-        if (window.screen && window.screen.orientation && window.screen.orientation.unlock) {
-          window.screen.orientation.unlock();
-        }
+        window.removeEventListener('resize', applyInstantLandscape);
+        document.body.classList.remove('force-landscape', 'portrait-forced-to-landscape', 'landscape-natural');
+        document.body.classList.add('no-landscape');
       };
     } else {
-      // For excluded routes, remove landscape forcing
       document.body.classList.add('no-landscape');
-      document.body.classList.remove('force-landscape');
+      document.body.classList.remove('force-landscape', 'portrait-forced-to-landscape', 'landscape-natural');
     }
   }, [location.pathname]);
   return (
