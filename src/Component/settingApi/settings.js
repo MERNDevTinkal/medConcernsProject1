@@ -22,18 +22,18 @@ const getSetting = (
     })
     .then(({ data }) => {
       if (data?.status) {
-        setSelectedIconCount(Number(data?.data?.number_of_icons));
+        setSelectedIconCount(data?.data?.number_of_icons ? Number(data?.data?.number_of_icons) : 6);
         setSelectedGender(data?.data?.gender);
         setSelectedLanguage(data?.data?.language);
         setCalendarOn(
           data?.data?.calendar === true ||
-            data?.data?.calendar === "true" ||
-            data?.data?.calendar === 1
+          data?.data?.calendar === "true" ||
+          data?.data?.calendar === 1
         );
         setIntroductionOn(
           data?.data?.introduction === true ||
-            data?.data?.introduction === "true" ||
-            data?.data?.introduction === 1
+          data?.data?.introduction === "true" ||
+          data?.data?.introduction === 1
         );
         setUncheckNeedBoard(data?.data?.uncheck_need_board);
         setUncheckConcerns(data?.data?.uncheck_concerns);
