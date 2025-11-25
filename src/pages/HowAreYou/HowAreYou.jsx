@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import gifLoader from "../../assets/loaderGif/Spinner.gif"
+import gifLoader from "../../assets/loaderGif/Spinner.gif";
 export default function HowAreYou() {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -32,18 +32,18 @@ export default function HowAreYou() {
           selectedLanguage === "" && selectedGender === ""
             ? item?.maleEnglish
             : selectedLanguage === "Spanish" && selectedGender === "Male"
-              ? item?.maleSpanish
-              : selectedLanguage === "Spanish" && selectedGender === "Female"
-                ? item?.femaleSpanish
-                : selectedLanguage === "" && selectedGender === "Female"
-                  ? item?.femaleEnglish
-                  : selectedLanguage === "" && selectedGender === "Male"
-                    ? item?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Male"
-                      ? item?.maleEnglish
-                      : selectedLanguage === "English" && selectedGender === "Female"
-                        ? item?.femaleEnglish
-                        : item?.maleEnglish;
+            ? item?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+            ? item?.femaleSpanish
+            : selectedLanguage === "" && selectedGender === "Female"
+            ? item?.femaleEnglish
+            : selectedLanguage === "" && selectedGender === "Male"
+            ? item?.maleEnglish
+            : selectedLanguage === "English" && selectedGender === "Male"
+            ? item?.maleEnglish
+            : selectedLanguage === "English" && selectedGender === "Female"
+            ? item?.femaleEnglish
+            : item?.maleEnglish;
         await getTextToSpeech(
           selectedLanguage === "Spanish" ? item.nameEs : item.name,
           selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -67,10 +67,10 @@ export default function HowAreYou() {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -88,10 +88,10 @@ export default function HowAreYou() {
             }
           />
 
-          <div className="main-wrapper home-wrapper ">
-            <div className="dashboard-wrapper px-4 py-1.5">
+          <div className="main-wrapper home-wrapper pt-20">
+            <div className="dashboard-wrapper py-1.5">
               <div
-                className="dashboard-h grid gap-3 p-3"
+                className="dashboard-h grid gap-3 p-3 px-0"
                 style={{
                   gridTemplateColumns:
                     selectedIconCount === 6
@@ -107,20 +107,20 @@ export default function HowAreYou() {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                          ? "dash-double-items"
-                          : selectedIconCount === 3
-                            ? "dash-triple-items"
-                            : selectedIconCount === 4
-                              ? "dash-quadriple-items"
-                              : selectedIconCount === 6
-                                ? "dash-hexuple-items"
-                                : ""
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {
                       handleValue(`/yes-and-no/${item?.id}`, item);
                     }}
-                                   key={item?.id}
+                    key={item?.id}
                   >
                     <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
                       <div className="dashboard-img card-img-h rounded-2xl">

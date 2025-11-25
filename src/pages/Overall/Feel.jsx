@@ -40,39 +40,40 @@ const Feel = () => {
       selectedLanguage === "" && selectedGender === ""
         ? item?.maleEnglish
         : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? item?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-            ? item?.femaleSpanish
-            : selectedLanguage === "" && selectedGender === "Female"
-              ? item?.femaleEnglish
-              : selectedLanguage === "" && selectedGender === "Male"
-                ? item?.maleEnglish
-                : selectedLanguage === "English" && selectedGender === "Male"
-                  ? item?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Female"
-                    ? item?.femaleEnglish
-                    : item?.maleEnglish
+        ? item?.maleSpanish
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? item?.femaleSpanish
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? item?.femaleEnglish
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? item?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? item?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? item?.femaleEnglish
+        : item?.maleEnglish
     );
     const isConcern = Cookies.get("is_concern");
-    const prefix = isConcern && isConcern?.includes("true_")
-      ? isConcern + "/" + mainpath
-      : mainpath;
+    const prefix =
+      isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + mainpath
+        : mainpath;
     addOrUpdateSummary(prefix, [item]);
     navigate(mainpath === "/emotions" ? path : path);
     isSpeakingRef.current = false;
   };
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -93,14 +94,13 @@ const Feel = () => {
           />
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5 pt-4 feel-list-main">
-              <ul className="flex flex-col gap-10 feel-list relative before:content-[''] before:absolute before:left-[50px] before:top-0 before:h-full before:w-[27px] before:bg-[linear-gradient(180deg,_#7ebe01_0%,_#fbcc00_25%,_#fbcc00_37.5%,_#f78d11_50%,_#f78d11_75%,_#f36218_87.5%,_#e92f1a_100%)]">
+              {/* <ul className="flex flex-col gap-10 feel-list relative before:content-[''] before:absolute before:left-[50px] before:top-0 before:h-full before:w-[27px] before:bg-[linear-gradient(180deg,_#7ebe01_0%,_#fbcc00_25%,_#fbcc00_37.5%,_#f78d11_50%,_#f78d11_75%,_#f36218_87.5%,_#e92f1a_100%)]">
                 {emotionsicons.map((item) => (
                   <li
                     key={item?.id}
                     onClick={() => {
                       handleRoutes(item, item.secPath);
                     }}
-           
                     style={{ cursor: "pointer" }}
                   >
                     <div className="flex gap-12 items-center">
@@ -113,7 +113,28 @@ const Feel = () => {
                     </div>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
+              <div className="feel-overall-card">
+                {/* <h3 className="text-center">How do you feel overall?</h3> */}
+                <ul className="feel-overall-list">
+                  {emotionsicons.map((item) => (
+                    <li
+                      className="feel-overall-list-item"
+                      key={item?.id}
+                      onClick={() => {
+                        handleRoutes(item, item.secPath);
+                      }}
+                    >
+                      <img src={item?.image} alt="" />
+                      <span>
+                        {selectedLanguage === "Spanish"
+                          ? item?.nameEs
+                          : item?.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </>

@@ -51,8 +51,8 @@ const NeedBoard = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setUncheckNeedBoard
     );
 
@@ -218,29 +218,30 @@ const NeedBoard = () => {
       const audioValue = value?.audio
         ? value?.audio
         : selectedLanguage === "" && selectedGender === ""
-          ? value?.maleEnglish
-          : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? value?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-              ? value?.femaleSpanish
-              : selectedLanguage === "" && selectedGender === "Female"
-                ? value?.femaleEnglish
-                : selectedLanguage === "" && selectedGender === "Male"
-                  ? value?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Male"
-                    ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
-                      ? value?.femaleEnglish
-                      : value?.maleEnglish;
+        ? value?.maleEnglish
+        : selectedLanguage === "Spanish" && selectedGender === "Male"
+        ? value?.maleSpanish
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? value?.femaleSpanish
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? value?.femaleEnglish
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? value?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? value?.maleEnglish
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? value?.femaleEnglish
+        : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audioValue
       );
       const isConcern = Cookies.get("is_concern");
-      const prefix = isConcern && isConcern?.includes("true_")
-        ? isConcern + "/" + path.replace("/", "")
-        : path.replace("/", "");
+      const prefix =
+        isConcern && isConcern?.includes("true_")
+          ? isConcern + "/" + path.replace("/", "")
+          : path.replace("/", "");
       addOrUpdateSummary(prefix, [value]);
       navigate(
         `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,
@@ -277,10 +278,10 @@ const NeedBoard = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper ">
-            <div className="dashboard-wrapper px-4 py-1.5">
+          <div className="main-wrapper home-wrapper pt-20">
+            <div className="dashboard-wrapper px-0 py-1.5">
               <div
-                className="dashboard-h grid gap-3 p-3"
+                className="dashboard-h grid gap-3 p-3 px-0"
                 style={{
                   gridTemplateColumns:
                     selectedIconCount === 6
@@ -292,67 +293,68 @@ const NeedBoard = () => {
               >
                 {mergedData
                   .filter((item) => !selectedNeedboard.includes(item.name))
-                  .map((item, index) => (
-                    item?.image && (
-                      <div
-                        className={
-                          selectedIconCount === 1
-                            ? "dash-single-items"
-                            : selectedIconCount === 2
+                  .map(
+                    (item, index) =>
+                      item?.image && (
+                        <div
+                          className={
+                            selectedIconCount === 1
+                              ? "dash-single-items"
+                              : selectedIconCount === 2
                               ? "dash-double-items"
                               : selectedIconCount === 3
-                                ? "dash-triple-items"
-                                : selectedIconCount === 4
-                                  ? "dash-quadriple-items"
-                                  : selectedIconCount === 6
-                                    ? "dash-hexuple-items"
-                                    : ""
-                        }
-                        style={{ cursor: "pointer" }}
-                        key={index}
-                      >
-                        <div className="dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                              ? "dash-triple-items"
+                              : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                              ? "dash-hexuple-items"
+                              : ""
+                          }
+                          style={{ cursor: "pointer" }}
+                          key={index}
+                        >
+                          <div className="dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                            {item?.audio && item.audio.trim() !== "" && (
+                              <div className="flex justify-end absolute top-4 right-4">
+                                <span style={{ color: "blue" }}>
+                                  <MdEdit
+                                    onClick={() =>
+                                      navigate(`/icon-upload`, {
+                                        state: { item },
+                                      })
+                                    }
+                                  />
+                                </span>
+                                <span style={{ color: "red" }}>
+                                  <MdOutlineDelete
+                                    onClick={() => handleDelete(item.id)}
+                                  />
+                                </span>
+                              </div>
+                            )}
 
-                          {item?.audio && item.audio.trim() !== "" && (
-                            <div className="flex justify-end absolute top-4 right-4">
-                              <span style={{ color: "blue" }}>
-                                <MdEdit
-                                  onClick={() =>
-                                    navigate(`/icon-upload`, {
-                                      state: { item },
-                                    })
-                                  }
-                                />
-                              </span>
-                              <span style={{ color: "red" }}>
-                                <MdOutlineDelete
-                                  onClick={() => handleDelete(item.id)}
-                                />
-                              </span>
+                            <div
+                              className="dashboard-img card-img-h rounded-2xl"
+                              onClick={() =>
+                                handleNeedBoard(item, item.secPath)
+                              }
+                            >
+                              <img
+                                className="w-full"
+                                src={item.image}
+                                alt={item.name}
+                              />
                             </div>
-                          )}
 
-                          <div
-                            className="dashboard-img card-img-h rounded-2xl"
-                            onClick={() => handleNeedBoard(item, item.secPath)}
-                          >
-                            <img
-                              className="w-full"
-                              src={item.image}
-                              alt={item.name}
-                            />
+                            <p className="text-[16px] mt-4 color-black mb-0">
+                              {selectedLanguage === "Spanish"
+                                ? item.nameEs || item.name
+                                : item.name}
+                            </p>
                           </div>
-
-                          <p className="text-[16px] mt-4 color-black mb-0">
-                            {selectedLanguage === "Spanish"
-                              ? item.nameEs || item.name
-                              : item.name}
-                          </p>
                         </div>
-                      </div>
-                    )
-                  ))}
-
+                      )
+                  )}
               </div>
             </div>
             {/* Add Button at bottom */}

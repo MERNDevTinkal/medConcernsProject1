@@ -96,10 +96,11 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
           : arrayFilter?.[0]?.maleEnglish
       );
       if (path === "/new-problem") {
-      const isConcern = Cookies.get("is_concern");
-      const prefix = isConcern && isConcern?.includes("true_")
-        ? isConcern + "/" + path
-        : path;
+        const isConcern = Cookies.get("is_concern");
+        const prefix =
+          isConcern && isConcern?.includes("true_")
+            ? isConcern + "/" + path
+            : path;
         addOrUpdateSummary(prefix, arrayFilter);
       } else {
         updateDisease(path.replace("/", ""), value);
@@ -111,63 +112,69 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        <div
-          onClick={() => {
-            handleDecision(
-              selectedLanguage === "Spanish" ? "SÍ" : "Yes",
-              path === "/new-problem" ? "/summary" : "/pain-feel",
-              1
-            );
-          }}
-        >
-          <div className="flex items-center justify-between sm:p-2 p-4 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-            <div className="flex items-center">
-              <p className="text-[32px]  font-medium text-green-600">
-                {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
-              </p>
-            </div>
-            <div>
-              <img src={Checked} className="concrn-icn" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div
-          onClick={() => {
-            handleDecision("No", path === "/new-problem" ? "/summary" : -1, 2);
-          }}
-        >
-          <div className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-            <div className="flex items-center">
-              <p className="text-[32px] font-medium text-red-600">
-                {selectedLanguage === "Spanish" ? "NO" : "NO"}
-              </p>
-            </div>
-            <div>
-              <img src={Close} className="concrn-icn" />
-            </div>
-          </div>
-        </div>
-        {!partName &&
-          !["/concern-pain", "/face-pain"].includes(location.pathname) && (
-            <div
-              onClick={() => {
-                handleDecision(
-                  selectedLanguage === "Spanish" ? "no lo sé" : "Don't Know",
-                  "/summary",
-                  3
-                );
-              }}
-              className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
-            >
+        <div className="decision-cards-innr">
+          <div
+            onClick={() => {
+              handleDecision(
+                selectedLanguage === "Spanish" ? "SÍ" : "Yes",
+                path === "/new-problem" ? "/summary" : "/pain-feel",
+                1
+              );
+            }}
+          >
+            <div className="flex items-center justify-between sm:p-2 p-4 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
               <div className="flex items-center">
-                <img src={WomenIcon} alt="" className="w-14 h-14" />
+                <p className="text-[32px]  font-medium text-green-600">
+                  {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
+                </p>
               </div>
               <div>
-                <img src={Question} className="concrn-icn" />
+                <img src={Checked} className="concrn-icn" alt="" />
               </div>
             </div>
-          )}
+          </div>
+
+          <div
+            onClick={() => {
+              handleDecision(
+                "No",
+                path === "/new-problem" ? "/summary" : -1,
+                2
+              );
+            }}
+          >
+            <div className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+              <div className="flex items-center">
+                <p className="text-[32px] font-medium text-red-600">
+                  {selectedLanguage === "Spanish" ? "NO" : "NO"}
+                </p>
+              </div>
+              <div>
+                <img src={Close} className="concrn-icn" />
+              </div>
+            </div>
+          </div>
+          {!partName &&
+            !["/concern-pain", "/face-pain"].includes(location.pathname) && (
+              <div
+                onClick={() => {
+                  handleDecision(
+                    selectedLanguage === "Spanish" ? "no lo sé" : "Don't Know",
+                    "/summary",
+                    3
+                  );
+                }}
+                className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+              >
+                <div className="flex items-center">
+                  <img src={WomenIcon} alt="" className="w-14 h-14" />
+                </div>
+                <div>
+                  <img src={Question} className="concrn-icn" />
+                </div>
+              </div>
+            )}
+        </div>
       </div>
     </>
   );

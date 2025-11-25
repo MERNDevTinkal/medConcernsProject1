@@ -7,7 +7,7 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import gifLoader from "../../assets/loaderGif/Spinner.gif"
+import gifLoader from "../../assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
 
 const BreathingProblem = () => {
@@ -35,23 +35,24 @@ const BreathingProblem = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? value?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-              ? value?.femaleSpanish
-              : selectedLanguage === "" && selectedGender === "Female"
-                ? value?.femaleEnglish
-                : selectedLanguage === "" && selectedGender === "Male"
-                  ? value?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Male"
-                    ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
-                      ? value?.femaleEnglish
-                      : value?.maleEnglish
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       const isConcern = Cookies.get("is_concern");
-      const prefix = isConcern && isConcern?.includes("true_")
-        ? isConcern + "/" + Mainpath
-        : Mainpath;
+      const prefix =
+        isConcern && isConcern?.includes("true_")
+          ? isConcern + "/" + Mainpath
+          : Mainpath;
       addOrUpdateSummary(prefix, [value]);
       navigate(path, {
         state: { headerName: value },
@@ -165,7 +166,7 @@ const BreathingProblem = () => {
   const name = !selectedLanguage
     ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
-    translations?.default[selectedLanguage];
+      translations?.default[selectedLanguage];
   return (
     <>
       {loader ? (
@@ -182,10 +183,10 @@ const BreathingProblem = () => {
                 : headerName?.name ?? name
             }
           />
-          <div className="main-wrapper home-wrapper ">
-            <div className="dashboard-wrapper px-4 py-1.5">
+          <div className="main-wrapper home-wrapper pt-20">
+            <div className="dashboard-wrapper px-0 py-1.5">
               <div
-                className="dashboard-h grid gap-3 p-3"
+                className="dashboard-h grid gap-3 p-3 px-0"
                 style={{
                   gridTemplateColumns:
                     selectedIconCount === 6
@@ -201,14 +202,14 @@ const BreathingProblem = () => {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                          ? "dash-double-items"
-                          : selectedIconCount === 3
-                            ? "dash-triple-items"
-                            : selectedIconCount === 4
-                              ? "dash-quadriple-items"
-                              : selectedIconCount === 6
-                                ? "dash-hexuple-items"
-                                : ""
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {

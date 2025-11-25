@@ -42,10 +42,10 @@ const PainFeel = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper ">
-            <div className="dashboard-wrapper px-4 py-1.5">
+          <div className="main-wrapper home-wrapper pt-20">
+            <div className="dashboard-wrapper px-0 py-1.5">
               <div
-                className="dashboard-h grid gap-3 p-3"
+                className="dashboard-h grid gap-3 p-3 px-0"
                 style={{
                   gridTemplateColumns:
                     selectedIconCount === 6

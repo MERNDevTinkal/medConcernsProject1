@@ -27,6 +27,7 @@ import {
   TalVezFemaleSpanish,
   TalVezMaleSpanish,
 } from "../../../src/Component/DiseasesData/audio";
+import { MoveRight } from "lucide-react";
 function EmotionScreen() {
   const isSpeakingRef = useRef(false);
   const navigate = useNavigate();
@@ -75,10 +76,11 @@ function EmotionScreen() {
       );
       item.decision = value;
       setLoader(true);
-            const isConcern = Cookies.get("is_concern");
-      const prefix = isConcern && isConcern?.includes("true_")
-        ? isConcern + "/" + mainPath
-        : mainPath;
+      const isConcern = Cookies.get("is_concern");
+      const prefix =
+        isConcern && isConcern?.includes("true_")
+          ? isConcern + "/" + mainPath
+          : mainPath;
       addOrUpdateSummary(prefix, [item]);
       navigate(
         parseInt(id) === 5
@@ -116,8 +118,8 @@ function EmotionScreen() {
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
-              <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
+            <div className="">
+              <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 depressed-cards">
                 <div className="dashboard-img rounded-2xl">
                   <img
                     src={getQuestions?.image || ""}
@@ -127,7 +129,7 @@ function EmotionScreen() {
                 </div>
               </div>
               <div>
-                <div className="w-full overflow-hidden decision-cards">
+                <div className="grid grid-cols-3 gap-8">
                   <div
                     onClick={() => {
                       handleRoutes(
@@ -251,13 +253,13 @@ function EmotionScreen() {
                       onClick={() => {
                         handleSkip();
                       }}
-                      className="mt-6 text-center"
+                      className="mt-6 text-end"
                     >
                       <p
                         style={{ cursor: "pointer" }}
-                        className="text-[18px] font-medium text-gray-600"
+                        className="text-[20px] font-medium text-gray-600 flex items-center gap-2 justify-end"
                       >
-                        Skip Screening Questions →
+                        Skip Screening Questions <MoveRight />
                       </p>
                     </div>
                   </div>

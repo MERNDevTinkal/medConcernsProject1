@@ -255,16 +255,16 @@ export default function TabsCalendar() {
 
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -525,9 +525,10 @@ export default function TabsCalendar() {
       audioFile
     );
     const isConcern = Cookies.get("is_concern");
-    const prefix = isConcern && isConcern?.includes("true_")
-      ? isConcern + "/" + pathprimary.replace("/", "")
-      : pathprimary.replace("/", "");
+    const prefix =
+      isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + pathprimary.replace("/", "")
+        : pathprimary.replace("/", "");
     addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
@@ -572,8 +573,8 @@ export default function TabsCalendar() {
         ? item === "morning"
           ? "Mañana"
           : item === "afternoon"
-            ? "Tarde"
-            : "Noche Temprano"
+          ? "Tarde"
+          : "Noche Temprano"
         : item.charAt(0).toUpperCase() + item.slice(1);
 
     const audioFile = getDayAudio(item);
@@ -583,9 +584,10 @@ export default function TabsCalendar() {
       audioFile
     );
     const isConcern = Cookies.get("is_concern");
-    const prefix = isConcern && isConcern?.includes("true_")
-      ? isConcern + "/" + pathprimary.replace("/", "")
-      : pathprimary.replace("/", "");
+    const prefix =
+      isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + pathprimary.replace("/", "")
+        : pathprimary.replace("/", "");
     addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
@@ -610,9 +612,10 @@ export default function TabsCalendar() {
       audioFile
     );
     const isConcern = Cookies.get("is_concern");
-    const prefix = isConcern && isConcern?.includes("true_")
-      ? isConcern + "/" + pathprimary.replace("/", "")
-      : pathprimary.replace("/", "");
+    const prefix =
+      isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + pathprimary.replace("/", "")
+        : pathprimary.replace("/", "");
     addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
@@ -637,9 +640,10 @@ export default function TabsCalendar() {
       audioFile
     );
     const isConcern = Cookies.get("is_concern");
-    const prefix = isConcern && isConcern?.includes("true_")
-      ? isConcern + "/" + pathprimary.replace("/", "")
-      : pathprimary.replace("/", "");
+    const prefix =
+      isConcern && isConcern?.includes("true_")
+        ? isConcern + "/" + pathprimary.replace("/", "")
+        : pathprimary.replace("/", "");
     addOrUpdateSummary(prefix, [
       {
         image: MenuIcon11,
@@ -659,18 +663,18 @@ export default function TabsCalendar() {
       selectedLanguage === "" && selectedGender === ""
         ? IDontKnowMale
         : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? NoSeSpanishMale
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-            ? NoSeIDontKnowSpanishFemale
-            : selectedLanguage === "" && selectedGender === "Female"
-              ? iDontKnowFemale
-              : selectedLanguage === "" && selectedGender === "Male"
-                ? IDontKnowMale
-                : selectedLanguage === "English" && selectedGender === "Male"
-                  ? IDontKnowMale
-                  : selectedLanguage === "English" && selectedGender === "Female"
-                    ? iDontKnowFemale
-                    : IDontKnowMale
+        ? NoSeSpanishMale
+        : selectedLanguage === "Spanish" && selectedGender === "Female"
+        ? NoSeIDontKnowSpanishFemale
+        : selectedLanguage === "" && selectedGender === "Female"
+        ? iDontKnowFemale
+        : selectedLanguage === "" && selectedGender === "Male"
+        ? IDontKnowMale
+        : selectedLanguage === "English" && selectedGender === "Male"
+        ? IDontKnowMale
+        : selectedLanguage === "English" && selectedGender === "Female"
+        ? iDontKnowFemale
+        : IDontKnowMale
     );
 
     navigate("/new-problem");
@@ -709,9 +713,10 @@ export default function TabsCalendar() {
                   >
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${activeTab === "day"
-                          ? "bg-blue-theme text-white"
-                          : "text-gray-700 hover:bg-gray-200"
+                        ${
+                          activeTab === "day"
+                            ? "bg-blue-theme text-white"
+                            : "text-gray-700 hover:bg-gray-200"
                         }`}
                       onClick={() => {
                         setActiveTab("day");
@@ -722,13 +727,14 @@ export default function TabsCalendar() {
                       role="tab"
                       aria-selected={activeTab === "day"}
                     >
-                      {selectedLanguage === "Spanish" ? "Hoy" : "TODAY"}
+                      {selectedLanguage === "Spanish" ? "Hoy" : "Today"}
                     </button>
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${activeTab === "week"
-                          ? "bg-blue-theme text-white"
-                          : "text-gray-700 hover:bg-gray-200"
+                        ${
+                          activeTab === "week"
+                            ? "bg-blue-theme text-white"
+                            : "text-gray-700 hover:bg-gray-200"
                         }`}
                       onClick={() => {
                         setActiveTab("week");
@@ -736,17 +742,17 @@ export default function TabsCalendar() {
                         setSelectedMonth(null);
                         handleTabSelect("week");
                       }}
-
                       role="tab"
                       aria-selected={activeTab === "week"}
                     >
-                      {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
+                      {selectedLanguage === "Spanish" ? "SEMANA" : "Week"}
                     </button>
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                        ${activeTab === "month"
-                          ? "bg-blue-theme text-white"
-                          : "text-gray-700 hover:bg-gray-200"
+                        ${
+                          activeTab === "month"
+                            ? "bg-blue-theme text-white"
+                            : "text-gray-700 hover:bg-gray-200"
                         }`}
                       onClick={() => {
                         setActiveTab("month");
@@ -754,11 +760,10 @@ export default function TabsCalendar() {
                         setSelectedWeekDay(null);
                         handleTabSelect("month");
                       }}
-
                       role="tab"
                       aria-selected={activeTab === "month"}
                     >
-                      {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
+                      {selectedLanguage === "Spanish" ? "MES" : "Month"}
                     </button>
                   </div>
                 </div>
@@ -768,7 +773,7 @@ export default function TabsCalendar() {
                   {/* Day Tab */}
                   {activeTab === "day" && (
                     <div className="grid gap-4 sm:gap-0">
-                      <h3 className="text-xl sm:text-lg sm:mb-0 font-bold text-gray-800 mb-2 text-center">
+                      <h3 className="text-2xl sm:mb-0 font-bold text-gray-800 mb-2 text-center">
                         {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
                       </h3>
                       <div className="grid grid-cols-3 border border-gray-200 rounded-lg overflow-hidden ">
@@ -790,12 +795,12 @@ export default function TabsCalendar() {
                           <button
                             key={item}
                             className={`flex items-center justify-center p-4 sm:p-6 border-r border-gray-200 cursor-pointer transition-all duration-200
-                          ${selectedDayItem === item
-                                ? "bg-blue-50"
-                                : "bg-white hover:bg-gray-50"
-                              }`}
+                          ${
+                            selectedDayItem === item
+                              ? "bg-blue-50"
+                              : "bg-white hover:bg-gray-50"
+                          }`}
                             onClick={() => handleDaySelect(item)}
-
                             role="option"
                             aria-selected={selectedDayItem === item}
                           >
@@ -811,7 +816,7 @@ export default function TabsCalendar() {
                   {/* Week Tab */}
                   {activeTab === "week" && (
                     <div className="grid gap-4 sm:gap-0">
-                      <h3 className="text-xl sm:text-lg sm:mb-0 font-bold text-gray-800 mb-2 text-center">
+                      <h3 className="text-2xl sm:mb-0 font-bold text-gray-800 mb-2 text-center">
                         {selectedLanguage === "Spanish" ? "SEMANA" : "WEEK"}
                       </h3>
                       <div className="grid grid-cols-7 border-t border-l border-gray-200 rounded-lg overflow-hidden">
@@ -829,12 +834,12 @@ export default function TabsCalendar() {
                           <button
                             key={dayName + index + "-check"}
                             className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
-                          ${selectedWeekDay === index
-                                ? "bg-blue-50"
-                                : "bg-white hover:bg-gray-50"
-                              }`}
+                          ${
+                            selectedWeekDay === index
+                              ? "bg-blue-50"
+                              : "bg-white hover:bg-gray-50"
+                          }`}
                             onClick={() => handleWeekSelect(index)}
-
                             role="option"
                             aria-selected={selectedWeekDay === index}
                           >
@@ -850,7 +855,7 @@ export default function TabsCalendar() {
                   {/* Month Tab */}
                   {activeTab === "month" && (
                     <div className="grid gap-4 sm:gap-0">
-                      <h3 className="text-xl sm:text-lg sm:mb-0 font-bold text-gray-800 mb-2 text-center">
+                      <h3 className="text-2xl sm:mb-0 font-bold text-gray-800 mb-2 text-center">
                         {selectedLanguage === "Spanish" ? "MES" : "MONTH"}
                       </h3>
                       <div className="grid  sm:grid-cols-4 gap-4 sm:gap-0">
@@ -860,7 +865,6 @@ export default function TabsCalendar() {
                             className={`flex flex-col items-center justify-center p-0 rounded-lg cursor-pointer transition-all duration-200
                           ${selectedMonth === index ? "text-blue" : ""}`}
                             onClick={() => handleMonthSelect(index)}
-
                             role="option"
                             aria-selected={selectedMonth === index}
                           >
@@ -878,7 +882,6 @@ export default function TabsCalendar() {
                       onClick={() => {
                         getSkip("I Don't Know?");
                       }}
-
                       className="flex items-end gap-3 bg-white text-black px-3 py-2 sm:px-1.5 sm:py-1 rounded-md border border-black hover:bg-gray-100"
                     >
                       {/* Text */}

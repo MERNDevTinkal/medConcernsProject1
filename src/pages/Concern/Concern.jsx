@@ -7,7 +7,7 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import gifLoader from "../../assets/loaderGif/Spinner.gif"
+import gifLoader from "../../assets/loaderGif/Spinner.gif";
 import { useNavigate } from "react-router-dom";
 const Concern = () => {
   const navigate = useNavigate();
@@ -27,9 +27,9 @@ const Concern = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
+      () => {},
+      () => {},
+      () => {},
       setUncheckConcerns
     );
   }, []);
@@ -51,14 +51,14 @@ const Concern = () => {
                   ? "Tablero Temático"
                   : "Topic Board"
                 : selectedLanguage === "Spanish"
-                  ? "Preocupaciones"
-                  : "Concerns"
+                ? "Preocupaciones"
+                : "Concerns"
             }
           />
 
-          <div className="main-wrapper home-wrapper ">
+          <div className="main-wrapper home-wrapper pt-20">
             <div
-              className="dashboard-h grid gap-3 p-3"
+              className="dashboard-h grid gap-3 p-3 px-0"
               style={{
                 gridTemplateColumns:
                   selectedIconCount === 6
@@ -89,7 +89,9 @@ const Concern = () => {
               <div className="flex justify-center my-6">
                 <button
                   onClick={() => {
-                    navigate("/icon-upload", { state: { hideImage: "boardside" } });
+                    navigate("/icon-upload", {
+                      state: { hideImage: "boardside" },
+                    });
                   }}
                   className="thm-btn"
                 >
@@ -97,7 +99,6 @@ const Concern = () => {
                     ? "+ Agregar icono"
                     : "+ Add Icon"}
                 </button>
-
               </div>
             )}
           </div>

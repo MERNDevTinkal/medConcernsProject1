@@ -121,7 +121,7 @@ export default function Settings() {
       calendar: calendarOn,
       introduction: newIntroduction,
     });
-    navigate(newIntroduction ? "/concern" : "")
+    navigate(newIntroduction ? "/concern" : "");
   };
 
   // ---------------- Custom Components ----------------
@@ -131,8 +131,9 @@ export default function Settings() {
       onClick={() => onChange(value)}
     >
       <div
-        className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors ${checked ? "bg-blue-theme" : "border-gray-300 border-2 bg-white"
-          }`}
+        className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors ${
+          checked ? "bg-blue-theme" : "border-gray-300 border-2 bg-white"
+        }`}
       >
         {checked && <div className="w-2.5 h-2.5 rounded-full bg-white"></div>}
       </div>
@@ -143,25 +144,29 @@ export default function Settings() {
   const CustomToggleSwitch = ({ checked, onChange, labelOn, labelOff }) => (
     <div className="flex items-center gap-2">
       <span
-        className={`ml-2 text-sm font-medium ${checked ? "text-gray-500" : "text-blue-600"
-          }`}
+        className={`ml-2 text-sm font-medium ${
+          checked ? "text-gray-500" : "text-blue-600"
+        }`}
       >
         {labelOff}
       </span>
 
       <div
-        className={`relative inline-flex h-6 w-11 cursor-pointer rounded-full border-2 border-transparent transition-colors ${checked ? "bg-blue-theme" : "bg-gray-200"
-          }`}
+        className={`relative inline-flex h-6 w-11 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
+          checked ? "bg-blue-theme" : "bg-gray-200"
+        }`}
         onClick={onChange}
       >
         <span
-          className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${checked ? "translate-x-5" : "translate-x-0"
-            }`}
+          className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+            checked ? "translate-x-5" : "translate-x-0"
+          }`}
         />
       </div>
       <span
-        className={`text-sm font-medium ${checked ? "primary-text" : "text-gray-500"
-          }`}
+        className={`text-sm font-medium ${
+          checked ? "primary-text" : "text-gray-500"
+        }`}
       >
         {labelOn}
       </span>
@@ -227,10 +232,10 @@ export default function Settings() {
             name={t("settings")}
           />
 
-          <div className="main-wrapper home-wrapper howoften-page">
-            <div className="flex items-center justify-center p-4 setting-cards">
+          <div className="main-wrapper home-wrapper howoften-page pt-10">
+            <div className="flex items-center justify-center p-4 setting-cards px-0">
               <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
-                <div className="p-3 sm:p-4 md:p-6">
+                <div className="p-3 px-0 sm:p-4 md:p-6">
                   <h1 className="text-xs text-gray-500 mb-6">
                     {t("settings")}
                   </h1>
@@ -244,10 +249,11 @@ export default function Settings() {
                       {iconCounts.map((count) => (
                         <button
                           key={count}
-                          className={`w-10 h-10 rounded-md flex items-center justify-center text-lg font-medium ${selectedIconCount === count
+                          className={`w-10 h-10 rounded-md flex items-center justify-center text-lg font-medium ${
+                            selectedIconCount === count
                               ? "bg-blue-theme text-white"
                               : "bg-white text-gray-800 border border-gray-200 hover:bg-gray-50"
-                            }`}
+                          }`}
                           onClick={() => handleIconCountChange(count)}
                         >
                           {count}
