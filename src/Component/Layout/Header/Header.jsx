@@ -118,11 +118,9 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/topic-board",
       en: "Topic Board",
       es: "Pizarra de temas",
-
     },
     {
       icon: MenuIcon10 ? MenuIcon10 : gifLoader, path: "/when", en: "When?", es: "¿Cuándo?",
-
       // hide: calendarOn, 
     },
     {
@@ -130,7 +128,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/howoften",
       en: "Calendar",
       es: "Calendario",
-
       // hide: calendarOn,
     },
     {
@@ -138,7 +135,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/noappetite-problem",
       en: "Appetite",
       es: "Apetito",
-
     },
     {
       icon: MenuIcon13 ? MenuIcon13 : gifLoader,
@@ -258,28 +254,24 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/contact-us",
       en: "Contact Us",
       es: "Contáctenos",
-
     },
     {
       icon: MenuIcon6 ? MenuIcon6 : gifLoader,
       path: "/white-board-list",
       en: "Saved Whiteboard",
       es: "Pizarra guardada",
-
     },
     {
       icon: MenuIcon26 ? MenuIcon26 : gifLoader,
       path: "/summary-list",
       en: "Saved Summary",
       es: "Resumen guardado",
-
     },
     {
       icon: MenuIcon27 ? MenuIcon27 : gifLoader,
       path: "/about-us",
       en: "About Us",
       es: "Sobre nosotros",
-
     },
     {
       icon: logoutImg ? logoutImg : gifLoader,
