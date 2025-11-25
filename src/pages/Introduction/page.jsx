@@ -59,14 +59,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { }
+      () => {},
+      () => {}
     );
   }, [loader]);
 
@@ -111,9 +111,9 @@ export default function Introduction() {
               selectedLanguage === "Spanish" ? "Introducción" : "Introduction"
             }
           />
-          <div className="main-wrapper home-wrapper">
+          <div className="main-wrapper home-wrapper introduction_page">
             <div className="Intro_box">
-              <div className="min-h-screen px-4 py-4">
+              <div className="px-4 py-4">
                 <img src={"/introduction.png"} width={400} className="m-auto" />
                 <div className="w-full m-auto mt-3 px-12">
                   {/* Name */}

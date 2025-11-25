@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import "./index.css";
 import Home from "./pages/main/Home";
 import Main from "./pages/main/Main";
@@ -56,17 +61,18 @@ import Introduction from "./pages/Introduction/page";
 import Aboutus from "./pages/Aboutus/page";
 import PatientEducation from "./pages/PatientEducation/page";
 import ImagesLibrery from "./pages/ImagesLibrery/page";
+import DepressionScreener from "./pages/feelOptions/DepressionScreener";
 function App() {
   const location = useLocation();
   useEffect(() => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isAndroid = /Android/.test(navigator.userAgent);
-    const excludedRoutes = ['/', '/main'];
+    const excludedRoutes = ["/", "/main"];
     const shouldForceLandscape = !excludedRoutes.includes(location.pathname);
 
     if ((isIOS || isAndroid) && shouldForceLandscape) {
-      document.body.classList.add('force-landscape');
-      document.body.classList.remove('no-landscape');
+      document.body.classList.add("force-landscape");
+      document.body.classList.remove("no-landscape");
 
       // Apply landscape immediately using CSS
       const applyInstantLandscape = () => {
@@ -78,11 +84,14 @@ function App() {
           document.body.classList.remove('landscape-natural');
           // Force landscape viewport
           if (viewport) {
-            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            viewport.setAttribute(
+              "content",
+              "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+            );
           }
         } else {
-          document.body.classList.add('landscape-natural');
-          document.body.classList.remove('portrait-forced-to-landscape');
+          document.body.classList.add("landscape-natural");
+          document.body.classList.remove("portrait-forced-to-landscape");
         }
       };
 
@@ -90,16 +99,24 @@ function App() {
       applyInstantLandscape();
 
       // Listen for resize (faster than orientationchange)
-      window.addEventListener('resize', applyInstantLandscape);
+      window.addEventListener("resize", applyInstantLandscape);
 
       return () => {
-        window.removeEventListener('resize', applyInstantLandscape);
-        document.body.classList.remove('force-landscape', 'portrait-forced-to-landscape', 'landscape-natural');
-        document.body.classList.add('no-landscape');
+        window.removeEventListener("resize", applyInstantLandscape);
+        document.body.classList.remove(
+          "force-landscape",
+          "portrait-forced-to-landscape",
+          "landscape-natural"
+        );
+        document.body.classList.add("no-landscape");
       };
     } else {
-      document.body.classList.add('no-landscape');
-      document.body.classList.remove('force-landscape', 'portrait-forced-to-landscape', 'landscape-natural');
+      document.body.classList.add("no-landscape");
+      document.body.classList.remove(
+        "force-landscape",
+        "portrait-forced-to-landscape",
+        "landscape-natural"
+      );
     }
   }, [location.pathname]);
   return (
@@ -189,10 +206,10 @@ function App() {
           <Route path="/contact-us" element={<Contactus />} />
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/feeling-body" element={<EmotionsList />} />
+          <Route path="/depression-screener" element={<DepressionScreener />} />
         </Route>
       </Routes>
     </>
-
   );
 }
 

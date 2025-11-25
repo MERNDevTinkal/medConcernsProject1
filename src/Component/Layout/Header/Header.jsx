@@ -42,7 +42,7 @@ import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "../../../assets/images/link-icon-03.svg";
-import gifLoader from "../../../assets/loaderGif/Spinner.gif"
+import gifLoader from "../../../assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -73,7 +73,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     };
   }, []);
   const menuItems = [
-    { icon: MenuIcon1 ? MenuIcon1 : gifLoader, path: "/settings", en: "Settings", es: "Configuración", },
+    {
+      icon: MenuIcon1 ? MenuIcon1 : gifLoader,
+      path: "/settings",
+      en: "Settings",
+      es: "Configuración",
+    },
     {
       icon: MenuIcon2 ? MenuIcon2 : gifLoader,
       path: "/patient-education",
@@ -94,7 +99,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "¿Cómo estás?",
       // hide: introductionOn,
     },
-    { icon: icon03 ? icon03 : gifLoader, path: "/concern", en: "Concerns", es: "Preocupaciones", },
+    {
+      icon: icon03 ? icon03 : gifLoader,
+      path: "/concern",
+      en: "Concerns",
+      es: "Preocupaciones",
+    },
     {
       icon: MenuIcon6 ? MenuIcon6 : gifLoader,
       path: "/whiteboard",
@@ -120,8 +130,14 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Pizarra de temas",
     },
     {
-      icon: MenuIcon10 ? MenuIcon10 : gifLoader, path: "/when", en: "When?", es: "¿Cuándo?",
-      // hide: calendarOn, 
+      path: "/when",
+      en: "When?",
+      es: "¿Cuándo?",
+      // hide: calendarOn,
+      icon: MenuIcon10 ? MenuIcon10 : gifLoader,
+      path: "/when",
+      en: "When?",
+      es: "¿Cuándo?",
     },
     {
       icon: MenuIcon11 ? MenuIcon11 : gifLoader,
@@ -141,23 +157,25 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/bowels-problem",
       en: "Bowel",
       es: "Intestinos",
-
     },
     {
       icon: MenuIcon5 ? MenuIcon5 : gifLoader,
       path: "/breathing-problem",
       en: "Breathing / Coughing",
       es: "Respiración / Tos",
-
     },
     {
       icon: EmotionsImg2 ? EmotionsImg2 : gifLoader,
       path: "/emotions",
       en: "Emotions / Feelings",
       es: "Emociones / Sentimientos",
-
     },
-    { icon: MenuIcon15 ? MenuIcon15 : gifLoader, path: "/fatigue-problem", en: "Fatigue", es: "Fatiga", },
+    {
+      icon: MenuIcon15 ? MenuIcon15 : gifLoader,
+      path: "/fatigue-problem",
+      en: "Fatigue",
+      es: "Fatiga",
+    },
     {
       icon: PEGImg ? PEGImg : gifLoader,
       path: "/feeding-problem",
@@ -169,43 +187,42 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/illness-problem",
       en: "Illness",
       es: "Enfermedad",
-
     },
     {
       icon: hearingImg ? hearingImg : gifLoader,
       path: "/hearing-problem",
       en: "Hearing",
       es: "Audición",
-
     },
     {
       icon: MenuIcon16 ? MenuIcon16 : gifLoader,
       path: "/medication-problem",
       en: "Medication",
       es: "Medicamentos",
-
     },
     {
       icon: thickmucusImg ? thickmucusImg : gifLoader,
       path: "/illnessMucus-problem",
       en: "Mucus/Secretions",
       es: "Moco/Secreciones",
-
     },
-    { icon: MenuIcon17 ? MenuIcon17 : gifLoader, path: "/nausea-problem", en: "Nausea", es: "Náuseas" },
+    {
+      icon: MenuIcon17 ? MenuIcon17 : gifLoader,
+      path: "/nausea-problem",
+      en: "Nausea",
+      es: "Náuseas",
+    },
     {
       icon: MenuIcon18 ? MenuIcon18 : gifLoader,
       path: "/pain-feel",
       en: "Pain Description",
       es: "Descripción del dolor",
-
     },
     {
       icon: MenuIcon19 ? MenuIcon19 : gifLoader,
       path: "/feeling",
       en: "Pain Scale",
       es: "Escala del dolor",
-
     },
     {
       icon: MenuIcon20 ? MenuIcon20 : gifLoader,
@@ -288,8 +305,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
         onClose={() => setOpenPopup(false)}
         onConfirm={handleLogout}
       />
-      <div className="main-header-top bg-[#dceaf7] fixed left-0 right-0 top-0 z-10">
-        <header className="px-4 py-3  main-header">
+      <div className="main-header-top bg-[#dceaf7] sticky left-0 right-0 top-0 z-10">
+        <header className=" py-3  main-header">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               {location.pathname !== "/introduction" && (
@@ -301,11 +318,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   alt="back"
                 />
               )}
-
-              <button type="button"
-                onClick={toggleSidebar}
-
-              >
+              <button type="button" onClick={toggleSidebar}>
                 <img src={hamburger} alt="menu" />
               </button>
             </div>
@@ -313,51 +326,57 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               {name ??
                 (selectedLanguage === "Spanish"
                   ? "Preocupaciones"
+                  : location.pathname === "/depression-screener"
+                  ? ""
                   : "Concerns")}
             </h2>
             <div style={{ cursor: "pointer" }}>
               {(location.pathname === "/introduction" ||
+                location.pathname !== "/depression-screener" ||
                 location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" || location.pathname === "/emotions" || location.pathname === "/how-are-you" || location.pathname === "/feeling-body") && (
-                  <div onClick={() => {
+                location.pathname === "/new-problem" ||
+                location.pathname === "/emotions" ||
+                location.pathname === "/how-are-you" ||
+                location.pathname === "/feeling-body") && (
+                <div
+                  onClick={() => {
                     navigate(
-                      location.pathname === "/feeling-body" ? "/summary" :
-                        location.pathname === "/emotions" ? "/feelOptions/1" :
-                          location.pathname === "/howoften"
-                            ? "/new-problem"
-                            : location.pathname === "/new-problem"
-                              ? "/summary"
-                              : introductionOn ? "/concern" : location.pathname === "/how-are-you" ? "/concern" : "/how-are-you"
+                      location.pathname === "/feeling-body"
+                        ? "/summary"
+                        : location.pathname === "/emotions"
+                        ? "/feelOptions/1"
+                        : location.pathname === "/howoften"
+                        ? "/new-problem"
+                        : location.pathname === "/new-problem"
+                        ? "/summary"
+                        : introductionOn
+                        ? "/concern"
+                        : location.pathname === "/how-are-you"
+                        ? "/concern"
+                        : "/how-are-you"
                     );
                   }}
-
-                    className="flex items-center gap-2 justify-end cursor-pointer">
-                    <h6>Skip</h6>
-                    <img
-                      src={NextArrow}
-                      alt="next"
-
-                    />
-                  </div>
-
-
-                )}
+                  className="flex items-center gap-2 justify-end cursor-pointer"
+                >
+                  <h6>Skip</h6>
+                  <img src={NextArrow} alt="next" />
+                </div>
+              )}
             </div>
           </div>
 
           {/* Sidebar */}
           <aside
             ref={sidebarRef}
-            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-              }`}
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
+              isSidebarOpen
+                ? "translate-x-0"
+                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+            }`}
           >
             <button
               className="close-btn absolute top-5 right-5"
               onClick={() => setIsSidebarOpen(false)}
-
-
             >
               <img src={CloseIcon} alt="close" />
             </button>
@@ -368,22 +387,21 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                     // <Link to={item.path} onClick={item.fun} key={index}>
                     <li
                       onClick={() => {
-                        Cookies.remove("is_concern")
+                        Cookies.remove("is_concern");
                         handleSummary();
                         if (item.fun) item.fun();
                         navigate(item.path);
                       }}
                       key={index}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
-            ${location.pathname === item.path
-                          ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
-                          : "text-black hover:bg-gray-100"
-                        }`}
+            ${
+              location.pathname === item.path
+                ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                : "text-black hover:bg-gray-100"
+            }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
-                      <Link to={item.path}
-                        onClick={item.fun}
-                      >
+                      <Link to={item.path} onClick={item.fun}>
                         {selectedLanguage === "Spanish" ? item.es : item.en}
                       </Link>
                     </li>
