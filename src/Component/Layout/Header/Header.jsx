@@ -135,9 +135,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "¿Cuándo?",
       // hide: calendarOn,
       icon: MenuIcon10 ? MenuIcon10 : gifLoader,
-      path: "/when",
-      en: "When?",
-      es: "¿Cuándo?",
     },
     {
       icon: MenuIcon11 ? MenuIcon11 : gifLoader,
