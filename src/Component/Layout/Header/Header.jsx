@@ -67,9 +67,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
         setIsSidebarOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -132,19 +130,20 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Pizarra de temas",
     },
     {
+      path: "/when",
+      en: "When?",
+      es: "¿Cuándo?",
+      // hide: calendarOn,
       icon: MenuIcon10 ? MenuIcon10 : gifLoader,
       path: "/when",
       en: "When?",
       es: "¿Cuándo?",
-
-      // hide: calendarOn,
     },
     {
       icon: MenuIcon11 ? MenuIcon11 : gifLoader,
       path: "/howoften",
       en: "Calendar",
       es: "Calendario",
-
       // hide: calendarOn,
     },
     {
@@ -176,6 +175,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/fatigue-problem",
       en: "Fatigue",
       es: "Fatiga",
+    },
+    {
+      icon: PEGImg ? PEGImg : gifLoader,
+      path: "/feeding-problem",
+      en: "Feeding Tube",
+      es: "Alimentación por sonda",
     },
     {
       icon: IllnessImg ? IllnessImg : gifLoader,
@@ -224,12 +229,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/pain-concern",
       en: "Pain Location",
       es: "Ubicación del dolor",
-    },
-    {
-      icon: PEGImg ? PEGImg : gifLoader,
-      path: "/feeding-problem",
-      en: "Feeding Tube",
-      es: "Alimentación por sonda",
     },
     {
       icon: MenuIcon21 ? MenuIcon21 : gifLoader,
@@ -319,7 +318,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   alt="back"
                 />
               )}
-
               <button type="button" onClick={toggleSidebar}>
                 <img src={hamburger} alt="menu" />
               </button>
