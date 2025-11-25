@@ -67,9 +67,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
         setIsSidebarOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -81,7 +79,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/patient-education",
       en: "Patient Education",
       es: "Educación del paciente",
-
     },
     {
       icon: MenuIcon3 ? MenuIcon3 : gifLoader,
@@ -89,7 +86,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       en: "Introduction",
       es: "Introducción",
       // hide: introductionOn,
-
     },
     {
       icon: MenuIcon4 ? MenuIcon4 : gifLoader,
@@ -97,7 +93,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       en: "How are you?",
       es: "¿Cómo estás?",
       // hide: introductionOn,
-
     },
     { icon: icon03 ? icon03 : gifLoader, path: "/concern", en: "Concerns", es: "Preocupaciones", },
     {
@@ -105,21 +100,18 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/whiteboard",
       en: "White Board",
       es: "Pizarra blanca",
-
     },
     {
       icon: MenuIcon7 ? MenuIcon7 : gifLoader,
       path: "/yes-no-concerns",
       en: "Yes / No / ? Board",
       es: "Sí / No / ? Pizarra",
-
     },
     {
       icon: MenuIcon8 ? MenuIcon8 : gifLoader,
       path: "/board",
       en: "Needs Board",
       es: "Pizarra de necesidades",
-
     },
     {
       icon: MenuIcon9 ? MenuIcon9 : gifLoader,
@@ -171,6 +163,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
     },
     { icon: MenuIcon15 ? MenuIcon15 : gifLoader, path: "/fatigue-problem", en: "Fatigue", es: "Fatiga", },
     {
+      icon: PEGImg ? PEGImg : gifLoader,
+      path: "/feeding-problem",
+      en: "Feeding Tube",
+      es: "Alimentación por sonda",
+    },
+    {
       icon: IllnessImg ? IllnessImg : gifLoader,
       path: "/illness-problem",
       en: "Illness",
@@ -218,56 +216,42 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       path: "/pain-concern",
       en: "Pain Location",
       es: "Ubicación del dolor",
-
-    },
-    {
-      icon: PEGImg ? PEGImg : gifLoader,
-      path: "/feeding-problem",
-      en: "Feeding Tube",
-      es: "Alimentación por sonda",
-
     },
     {
       icon: MenuIcon21 ? MenuIcon21 : gifLoader,
       path: "/swallowing-problem",
       en: "Swallowing",
       es: "Deglución",
-
     },
     {
       icon: somethinghappenedImg ? somethinghappenedImg : gifLoader,
       path: "/something-problem",
       en: "Something Happened",
       es: "Algo pasó",
-
     },
     {
       icon: MenuIcon22 ? MenuIcon22 : gifLoader,
       path: "/trach-problem",
       en: "Trach",
       es: "Traqueotomía",
-
     },
     {
       icon: MenuIcon23 ? MenuIcon23 : gifLoader,
       path: "/urination-problem",
       en: "Urination",
       es: "Orinación",
-
     },
     {
       icon: MenuIcon24 ? MenuIcon24 : gifLoader,
       path: "/vision-problem",
       en: "Vision Problems",
       es: "Problemas de visión",
-
     },
     {
       icon: woundImg ? woundImg : gifLoader,
       path: "/wound-problem",
       en: "Wound/Incision",
       es: "Herida/Incisión",
-
     },
     {
       icon: MenuIcon25 ? MenuIcon25 : gifLoader,
@@ -326,9 +310,9 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                 />
               )}
 
-              <button type="button" 
-              onClick={toggleSidebar}
-            
+              <button type="button"
+                onClick={toggleSidebar}
+
               >
                 <img src={hamburger} alt="menu" />
               </button>
@@ -354,7 +338,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                               : introductionOn ? "/concern" : location.pathname === "/how-are-you" ? "/concern" : "/how-are-you"
                     );
                   }}
-     
+
                     className="flex items-center gap-2 justify-end cursor-pointer">
                     <h6>Skip</h6>
                     <img
@@ -380,8 +364,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
             <button
               className="close-btn absolute top-5 right-5"
               onClick={() => setIsSidebarOpen(false)}
-              
-             
+
+
             >
               <img src={CloseIcon} alt="close" />
             </button>
@@ -406,7 +390,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                     >
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path}
-                       onClick={item.fun}
+                        onClick={item.fun}
                       >
                         {selectedLanguage === "Spanish" ? item.es : item.en}
                       </Link>
