@@ -9,14 +9,10 @@ export const GlobalProvider = ({ children }) => {
     return stored ? JSON.parse(stored) : initialState;
   });
   const CONCERN_ROUTES = ["/concern"];
-
-
   const PRESERVE_KEYS = ["how-are-you", "yesno"];
-
   const updateDisease = (key, value, overwrite = false) => {
     setDiseases((prev) => {
       let newValue;
-
       if (overwrite) {
         newValue = value;
       } else if (Array.isArray(prev[key])) {
@@ -26,12 +22,10 @@ export const GlobalProvider = ({ children }) => {
       } else {
         newValue = value;
       }
-
       const updated = {
         ...prev,
         [key]: newValue,
       };
-
       localStorage.setItem("diseases", JSON.stringify(updated));
       return updated;
     });
@@ -64,16 +58,13 @@ export const GlobalProvider = ({ children }) => {
       const currentList = Array.isArray(prev.summaryList)
         ? [...prev.summaryList]
         : [];
-
       const isConcern = routeKey.includes("/concern");
       let updatedList = [...currentList];
-
       // Case 1: Concern Page
       if (isConcern) {
         const existingIndex = updatedList.findIndex(
           group => group.concern?.route === routeKey
         );
-
         if (existingIndex !== -1) {
           // Override concern, reset flow
           updatedList[existingIndex].concern = {
@@ -92,10 +83,8 @@ export const GlobalProvider = ({ children }) => {
           });
         }
       }
-
       // Case 2: Flow Page
       else {
-        // If flow route already exists → override it in the correct group
         let replaced = false;
 
         updatedList = updatedList.map(group => {

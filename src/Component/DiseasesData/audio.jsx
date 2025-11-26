@@ -9,140 +9,12 @@ import PluggedFemale from "../../assets/audio/English/female/Plugged (female).mp
 import RemoveFemale from "../../assets/audio/English/female/Remove.mp3";
 import RingingFemale from "../../assets/audio/English/female/Ringing.mp3";
 import TightFemale from "../../assets/audio/English/female/tight.mp3";
-import Pesado_GruesoMale from "../../assets/audio/spanish/male/Pesado_Grueso (Heavy_Thick).wav";
-import JustFatigueMale from "../../assets/audio/English/male/Just Fatigue.wav";
 
-// male audio
-
-import ColostomyOstomyBagMale from "../../assets/audio/English/male/09 Colostomy _ Ostomy Bag.wav";
-import HopelessMale from "../../assets/audio/English/male/36 Hopeless.wav";
-import WithSalivaMale from "../../assets/audio/English/male/1 With Saliva.mp3";
-import ToiletUrinalMale from "../../assets/audio/English/male/10 Toilet _ Urinal.mp3";
-import TVMale from "../../assets/audio/English/male/100 TV.wav";
-import MusicMale from "../../assets/audio/English/male/101 Music.wav";
-import DenturesMale from "../../assets/audio/English/male/102 Dentures.wav";
-import ChangeClothesMale from "../../assets/audio/English/male/103 Change Clothes.wav";
-import AdjustClothesMale from "../../assets/audio/English/male/104 Adjust Clothes.wav";
-import ChangeUnderwearMale from "../../assets/audio/English/male/105 Change Underwear.wav";
-import NeedSocksMale from "../../assets/audio/English/male/106 Need Socks.wav";
-import OpenForMeMale from "../../assets/audio/English/male/107 Open for Me.wav";
-import PhoneTabletMale from "../../assets/audio/English/male/108 Phone _ Tablet.wav";
-import PlugInPhoneTabletMale from "../../assets/audio/English/male/109 Plug in Phone _ Tablet.wav";
-import InsomniaMale from "../../assets/audio/English/male/11 Insomnia.mp3";
-import ChargeHearingAidsMale from "../../assets/audio/English/male/110 Charge Hearing Aids.wav";
-import InhalerBreathingTreatmentMale from "../../assets/audio/English/male/111 Inhaler _ Breathing Treatment.wav";
-import BloodSugarMale from "../../assets/audio/English/male/112 Blood Sugar.wav";
-import BloodPressureMale from "../../assets/audio/English/male/113 Blood Pressure.wav";
-import HelmetMale from "../../assets/audio/English/male/114 Helmet.wav";
-import CervicalCollarMale from "../../assets/audio/English/male/115 Cervical Collar.wav";
-import NurseMale from "../../assets/audio/English/male/116 Nurse.wav";
-import DoctorMale from "../../assets/audio/English/male/117 Doctor.wav";
-import SpeechTherapistMale from "../../assets/audio/English/male/119 Speech Therapist.wav";
-import NoisyMale from "../../assets/audio/English/male/12 Noisy.mp3";
-import OccupationalPhysicalTherapistMale from "../../assets/audio/English/male/120 Occupational _ Physical Therapist.wav";
-import RespiratoryTherapistMale from "../../assets/audio/English/male/121 Respiratory Therapist.wav";
-import TickleInMyThroatMale from "../../assets/audio/English/male/123 Tickle In My Throat.wav";
-import TooMuchLight from "../../assets/audio/English/male/13 Too Much Light.mp3";
-import InterruptionsMale from "../../assets/audio/English/male/14 Interruptions.mp3";
-import LostGlassesMale from "../../assets/audio/English/male/15 Lost Glasses.mp3";
-import NotWorkingOrBrokenMale from "../../assets/audio/English/male/16 Not Working or Broken.mp3";
-import NeedMyGlassesMale from "../../assets/audio/English/male/17 Need My Glasses.mp3";
-import CheckMyVisionMale from "../../assets/audio/English/male/18 Check My Vision.mp3";
-import CantSeeLeftMale from "../../assets/audio/English/male/19 Can’t See Left.wav";
-import JustDryOrUncomfortableMale from "../../assets/audio/English/male/2 Just Dry or Uncomfortable.mp3";
-import CantSeeRightMale from "../../assets/audio/English/male/20 Can’t See Right.wav";
-import HeadacheMale from "../../assets/audio/English/male/21 Headache.wav";
-import NeedBatteriesMale from "../../assets/audio/English/male/22 Need Batteries.wav";
-import CheckMyHearingMale from "../../assets/audio/English/male/23 Check My Hearing.wav";
-import NeedsChargingMale from "../../assets/audio/English/male/24 Needs Charging.wav";
-import NeedMyHearingAidsMale from "../../assets/audio/English/male/25 Need My Hearing Aids.wav";
-import WriteItDownMale from "../../assets/audio/English/male/27 Write it Down.wav";
-import StrokeSymptomsMale from "../../assets/audio/English/male/StrokeSymptoms.wav";
-import GoodOrOkayMale from "../../assets/audio/English/male/29 Good or Okay.wav";
-import JustSwallowingMale from "../../assets/audio/English/male/3 Just Swallowing.mp3";
-import ALittleOffMale from "../../assets/audio/English/male/30 A little off.wav";
-import NotGoodMale from "../../assets/audio/English/male/31 Not good.wav";
-import LowOrSadMale from "../../assets/audio/English/male/32 Low or Sad.wav";
-import VeryDownMale from "../../assets/audio/English/male/33 Very Down.wav";
-import WorriedGuiltyMale from "../../assets/audio/English/male/35 Worried _ Guilty.wav";
-import EveningNightMale from "../../assets/audio/English/male/37 Evening _ Night.wav";
-import FeedingTubeRemovedMale from "../../assets/audio/English/male/38 Feeding Tube Removed.wav";
-import EatingAndDrinkingMale from "../../assets/audio/English/male/39 Eating and Drinking.wav";
-import MedicationAllergyMale from "../../assets/audio/English/male/4 Medication Allergy.mp3";
-import FoodAllergyMale from "../../assets/audio/English/male/40 Food Allergy.wav";
-import HungryThirstyMale from "../../assets/audio/English/male/41 Hungry _ Thirsty.wav";
-import DontEatThisMale from "../../assets/audio/English/male/42 Don’t Eat This.wav";
-import NotAllowedToEatOrDrinkMale from "../../assets/audio/English/male/43 Not Allowed to Eat or Drink.wav";
-import WrongTrayMale from "../../assets/audio/English/male/44 Wrong Tray.wav";
-import SpecialDietMale from "../../assets/audio/English/male/45 Special Diet.wav";
-import VegetarianVeganMale from "../../assets/audio/English/male/46 Vegetarian _ Vegan.wav";
-import NoDairyMale from "../../assets/audio/English/male/47 No Dairy.wav";
-import KosherMale from "../../assets/audio/English/male/48 Kosher.wav";
-import HalalMale from "../../assets/audio/English/male/49 Halal.wav";
-import RefluxMale from "../../assets/audio/English/male/5 Reflux.mp3";
-import GlutenFreeMale from "../../assets/audio/English/male/50 Gluten-Free.wav";
-import NutFreeMale from "../../assets/audio/English/male/51 Nut-Free.wav";
-import LowSodiumMale from "../../assets/audio/English/male/52 Low Sodium.wav";
-import DiabeticCarbControlledMale from "../../assets/audio/English/male/53 Diabetic _ Carb Controlled.wav";
-import TextureModifiedMale from "../../assets/audio/English/male/54 Texture Modified.wav";
-import MovementMale from "../../assets/audio/English/male/56 Movement.wav";
-import CommunicationThinkingMale from "../../assets/audio/English/male/57 Communication _ Thinking.wav";
-import NoVoiceMale from "../../assets/audio/English/male/58 No Voice.wav";
-import HardToUnderstandYouMale from "../../assets/audio/English/male/59 Hard to Understand You.wav";
-import FeedingTubeMale from "../../assets/audio/English/male/6 Feeding Tube.mp3";
-import CantFindMyWordsMale from "../../assets/audio/English/male/60 Can’t Find My Words.wav";
-import HardToTalkMale from "../../assets/audio/English/male/61 Hard to Talk.wav";
-import ImConfusedMale from "../../assets/audio/English/male/62 I’m Confused.wav";
-import WrongWordsComeOutMale from "../../assets/audio/English/male/63 Wrong Words Come Out.wav";
-import DontKnowWhereIAmMale from "../../assets/audio/English/male/64 Don’t Know Where I Am.wav";
-import MemoryTroubleMale from "../../assets/audio/English/male/65 Memory Trouble.wav";
-import WeaknessMale from "../../assets/audio/English/male/66 Weakness.wav";
-import WeakOnOneSideMale from "../../assets/audio/English/male/67 Weak on One Side.wav";
-import ClumsyOffBalanceMale from "../../assets/audio/English/male/68 Clumsy _ Off Balance.wav";
-import NeedChangedMale from "../../assets/audio/English/male/7 Need Changed.wav";
-import NoConcernsMale from "../../assets/audio/English/male/70 No Concerns.wav";
-import WithTransferRepositioningMale from "../../assets/audio/English/male/74 With Transfer _ Repositioning.wav";
-import WithMovementMale from "../../assets/audio/English/male/75 With Movement.wav";
-import WithTubeFeedMale from "../../assets/audio/English/male/78 With Tube Feed.wav";
-import WithStressEmotionMale from "../../assets/audio/English/male/79 With Stress _ Emotion.wav";
-import AfterProcedureMale from "../../assets/audio/English/male/80 After Procedure.wav";
-import SinceIllnessMale from "../../assets/audio/English/male/82 Since Illness.wav";
-import AlwaysChronicMale from "../../assets/audio/English/male/86 Always _ Chronic.wav";
-import BathroomMale from "../../assets/audio/English/male/87 Bathroom.wav";
-import BedMale from "../../assets/audio/English/male/88 Bed.wav";
-import FoodMale from "../../assets/audio/English/male/89 Food.wav";
-import DrinkMale from "../../assets/audio/English/male/90 Drink.wav";
-import PainMedsMale from "../../assets/audio/English/male/91 Pain Meds.wav";
-import RepositionMale from "../../assets/audio/English/male/92 Reposition.wav";
-import IceMale from "../../assets/audio/English/male/93 Ice.wav";
-import IcePackMale from "../../assets/audio/English/male/94 Ice Pack.wav";
-import BlanketPillowMale from "../../assets/audio/English/male/96 Blanket _ Pillow.wav";
-import RoomTemperatureMale from "../../assets/audio/English/male/97 Room Temperature.wav";
-import TissueMale from "../../assets/audio/English/male/98 Tissue.wav";
-import LightsMale from "../../assets/audio/English/male/99 Lights.wav";
-import AfterMealsMale from "../../assets/audio/English/male/After Meals.wav";
-import BrainFogMale from "../../assets/audio/English/male/Brain Fog.wav";
-import GetsWorseThroughTheDayMale from "../../assets/audio/English/male/Gets Worse Through the Day.wav";
-import HeatingPadMale from "../../assets/audio/English/male/Heating Pad.wav";
-import LostWeightWithoutTryingMale from "../../assets/audio/English/male/Lost Weight Without Trying.wav";
-import NeedHelpEatingMale from "../../assets/audio/English/male/Need Help Eating.wav";
-import NursingAideMale from "../../assets/audio/English/male/Nursing Aide.wav";
-import SinceFallInjuryMale from "../../assets/audio/English/male/Since Fall _ Injury.wav";
-import SinceMyStrokeInjuryMale from "../../assets/audio/English/male/Since My Stroke _ Injury.wav";
-import TroubleWalkingMale from "../../assets/audio/English/male/Trouble Walking.wav";
-import WhenEatingDrinkingMale from "../../assets/audio/English/male/When Eating _ Drinking.wav";
-import WhenLyingDownMale from "../../assets/audio/English/male/When Lying Down.wav";
-import WhenSleepingMale from "../../assets/audio/English/male/When Sleeping.wav";
-import WhenSwallowingMale from "../../assets/audio/English/male/When Swallowing.wav";
-import WhenToiletingMale from "../../assets/audio/English/male/When Toileting.wav";
-import WhenWalkingMale from "../../assets/audio/English/male/When Walking.wav";
-import WithMentalActivityMale from "../../assets/audio/English/male/With Mental Activity.wav";
 
 // female
 import DoctorFemale from "../../assets/audio/English/female/117 Doctor.wav";
 import WeaknessFemale from "../../assets/audio/English/female/66 Weakness.wav";
-import BrainTiredmale from "../../assets/audio/English/male/Brain Tired.wav";
-import BreathingTreatmentmale from "../../assets/audio/English/male/Breathing Treatment.wav";
+
 import PEGRemovedFemale from "../../assets/audio/English/female/PEG removed.wav";
 // female audio spanish
 import InsomnioFemaleSpanish from "../../assets/audio/Spanish/female/11 Insomnio.wav";
@@ -157,139 +29,6 @@ import TuboAlimentacionFemaleSpanish from "../../assets/audio/Spanish/female/6 T
 import DespuesProcedimientoFemaleSpanish from "../../assets/audio/Spanish/female/80 Después de un procedimiento.wav";
 // male spanish
 
-import InodoroOrUrinarioMaleSpanish from "../../assets/audio/Spanish/male/10 Inodoro o urinario.wav";
-import TelevisorMaleSpanish from "../../assets/audio/Spanish/male/100 Televisor.wav";
-import MusicaMaleSpanish from "../../assets/audio/Spanish/male/101 Música.wav";
-import DentadurasMaleSpanish from "../../assets/audio/Spanish/male/102 Dentaduras.wav";
-import CambiarRopaMaleSpanish from "../../assets/audio/Spanish/male/103 Cambiar ropa.wav";
-import AjustarRopaMaleSpanish from "../../assets/audio/Spanish/male/104 Ajustar ropa.wav";
-import CambiarRopaInteriorMaleSpanish from "../../assets/audio/Spanish/male/105 Cambiar ropa interior.wav";
-import NecesitoCalcetinesMaleSpanish from "../../assets/audio/Spanish/male/106 Necesito calcetines.wav";
-import AbreloPorMiMaleSpanish from "../../assets/audio/Spanish/male/107 Ábrelo por mí.wav";
-import TelefonoOrTabletaMaleSpanish from "../../assets/audio/Spanish/male/108 Teléfono o tableta.wav";
-import ConectarTelefonoTabletaMaleSpanish from "../../assets/audio/Spanish/male/109 Conectar teléfono o tableta.wav";
-import InsomnioMaleSpanish from "../../assets/audio/Spanish/male/11 Insomnio.wav";
-import CargarAudifonosMaleSpanish from "../../assets/audio/Spanish/male/110 Cargar audífonos.wav";
-import InhaladorOrTratamientoRespiratorioMaleSpanish from "../../assets/audio/Spanish/male/111 Inhalador o tratamiento respiratorio.wav";
-import AzucarEnSangreMaleSpanish from "../../assets/audio/Spanish/male/112 Azúcar en sangre.wav";
-import PresionArterialMaleSpanish from "../../assets/audio/Spanish/male/113 Presión arterial.wav";
-import CascoMaleSpanish from "../../assets/audio/Spanish/male/114 Casco.wav";
-import CollarCervicalMaleSpanish from "../../assets/audio/Spanish/male/115 Collar cervical.wav";
-import EnfermeraMaleSpanish from "../../assets/audio/Spanish/male/116 Enfermera.wav";
-import DoctorMaleSpanish from "../../assets/audio/Spanish/male/117 Doctor.wav";
-import AsistenteEnfermeriaMaleSpanish from "../../assets/audio/Spanish/male/118 Asistente de enfermería.wav";
-import TerapeutaHablaMaleSpanish from "../../assets/audio/Spanish/male/119 Terapeuta del habla.wav";
-import RuidosoMaleSpanish from "../../assets/audio/Spanish/male/12 Ruidoso.wav";
-import TerapeutaOcupacionalFisicoMaleSpanish from "../../assets/audio/Spanish/male/120 Terapeuta ocupacional o físico.wav";
-import TerapeutaRespiratorioMaleSpanish from "../../assets/audio/Spanish/male/121 Terapeuta respiratorio.wav";
-import BajePesoSinIntentarloMaleSpanish from "../../assets/audio/Spanish/male/122 Bajé de peso sin intentarlo.wav";
-import CosquilleoGargantaMaleSpanish from "../../assets/audio/Spanish/male/123 Cosquilleo en la garganta.wav";
-import SoloFatigaMaleSpanish from "../../assets/audio/Spanish/male/124 solo fatiga.wav";
-import DemasiadaLuzMaleSpanish from "../../assets/audio/Spanish/male/13 Demasiada luz.wav";
-import InterrupcionesMaleSpanish from "../../assets/audio/Spanish/male/14 Interrupciones.wav";
-import PerdiMisGafasMaleSpanish from "../../assets/audio/Spanish/male/15 Perdí mis gafas.wav";
-import NoFuncionaRotoMaleSpanish from "../../assets/audio/Spanish/male/16 No funciona o está roto.wav";
-import NecesitoMisGafasMaleSpanish from "../../assets/audio/Spanish/male/17 Necesito mis gafas.wav";
-import RevisarMiVisionMaleSpanish from "../../assets/audio/Spanish/male/18 Revisar mi visión.wav";
-import NoPuedoVerIzquierdaMaleSpanish from "../../assets/audio/Spanish/male/19 No puedo ver a la izquierda.wav";
-import SoloSecoIncomodoMaleSpanish from "../../assets/audio/Spanish/male/2 Solo seco o incómodo.wav";
-import NoPuedoVerDerechaMaleSpanish from "../../assets/audio/Spanish/male/20 No puedo ver a la derecha.wav";
-import DolorCabezaMaleSpanish from "../../assets/audio/Spanish/male/21 Dolor de cabeza.wav";
-import NecesitaBateriasMaleSpanish from "../../assets/audio/Spanish/male/22 Necesita baterías.wav";
-import RevisarMiAudicionMaleSpanish from "../../assets/audio/Spanish/male/23 Revisar mi audición.wav";
-import NecesitaCargarseMaleSpanish from "../../assets/audio/Spanish/male/24 Necesita cargarse.wav";
-import NecesitoMisAudifonosMaleSpanish from "../../assets/audio/Spanish/male/25 Necesito mis audífonos.wav";
-import PerdiMisAudifonosMaleSpanish from "../../assets/audio/Spanish/male/26 Perdí mis audífonos.wav";
-import EscribeloMaleSpanish from "../../assets/audio/Spanish/male/27 Escríbelo.wav";
-import SintomasAccidenteCerebrovascularMaleSpanish from "../../assets/audio/Spanish/male/28 Síntomas de un accidente cerebrovascular.wav";
-import BienOrEnOrdenMaleSpanish from "../../assets/audio/Spanish/male/29 Bien o en orden.wav";
-import SoloAlTragarMaleSpanish from "../../assets/audio/Spanish/male/3 Solo al tragar.wav";
-import UnPocoRaroMaleSpanish from "../../assets/audio/Spanish/male/30 Un poco raro.wav";
-import NoBienMaleSpanish from "../../assets/audio/Spanish/male/31 No bien.wav";
-import DeprimidoTristeMaleSpanish from "../../assets/audio/Spanish/male/32 Deprimido o triste.wav";
-import MuyDeprimidoMaleSpanish from "../../assets/audio/Spanish/male/33 Muy deprimido.wav";
-
-import PreocupadaCulpaMaleSpanish from "../../assets/audio/Spanish/male/35 Preocupada o con culpa.wav";
-import SinEsperanzaMaleSpanish from "../../assets/audio/Spanish/male/36 Sin esperanza.wav";
-import TardeNocheMaleSpanish from "../../assets/audio/Spanish/male/37 En la tarde o la noche.wav";
-import TuboAlimentacionRetiradaMaleSpanish from "../../assets/audio/Spanish/male/38 Tubo de alimentación retirada.wav";
-import ComerBeberMaleSpanish from "../../assets/audio/Spanish/male/39 Comer y beber.wav";
-import AlergiaMedicamentosMaleSpanish from "../../assets/audio/Spanish/male/4 Alergia a medicamentos.wav";
-import AlergiaAlimentariaMaleSpanish from "../../assets/audio/Spanish/male/40 Alergia alimentaria.wav";
-import HambreSedMaleSpanish from "../../assets/audio/Spanish/male/41 Con hambre o sed.wav";
-import NoComerEstoMaleSpanish from "../../assets/audio/Spanish/male/42 No comer esto.wav";
-import NoPermitidoComerBeberMaleSpanish from "../../assets/audio/Spanish/male/43 No se permite comer o beber .wav";
-import BandejaEquivocadaMaleSpanish from "../../assets/audio/Spanish/male/44 Bandeja equivocada.wav";
-import DietaEspecialMaleSpanish from "../../assets/audio/Spanish/male/45 Dieta especial.wav";
-import VegetarianaVeganaMaleSpanish from "../../assets/audio/Spanish/male/46 Vegetariana o vegana.wav";
-import SinLacteosMaleSpanish from "../../assets/audio/Spanish/male/47 Sin lácteos.wav";
-import KosherMaleSpanish from "../../assets/audio/Spanish/male/48 Kosher.wav";
-import HalalMaleSpanish from "../../assets/audio/Spanish/male/49 Halal.wav";
-import ReflujoMaleSpanish from "../../assets/audio/Spanish/male/5 Reflujo.wav";
-import SinGlutenMaleSpanish from "../../assets/audio/Spanish/male/50 Sin gluten.wav";
-import SinFrutosSecosMaleSpanish from "../../assets/audio/Spanish/male/51 Sin frutos secos.wav";
-import BajoSodioMaleSpanish from "../../assets/audio/Spanish/male/52 Bajo en sodio.wav";
-import ParaDiabeticosMaleSpanish from "../../assets/audio/Spanish/male/53 Para diabéticos.wav";
-import TexturaModificadaMaleSpanish from "../../assets/audio/Spanish/male/54 Textura modificada.wav";
-import NecesitoAyudaComerMaleSpanish from "../../assets/audio/Spanish/male/55 Necesito ayuda para comer.wav";
-import MovimientoMaleSpanish from "../../assets/audio/Spanish/male/56 Movimiento.wav";
-import ComunicacionPensamientoMaleSpanish from "../../assets/audio/Spanish/male/57 Comunicación o pensamiento.wav";
-import SinVozMaleSpanish from "../../assets/audio/Spanish/male/58 Sin voz.wav";
-import DificilEntenderMaleSpanish from "../../assets/audio/Spanish/male/59 Difícil de entender.wav";
-import TuboAlimentacionMaleSpanish from "../../assets/audio/Spanish/male/6 Tubo de alimentación.wav";
-import NoEncuentroPalabrasMaleSpanish from "../../assets/audio/Spanish/male/60 No encuentro las palabras.wav";
-import DificilHablarMaleSpanish from "../../assets/audio/Spanish/male/61 Difícil hablar.wav";
-import EstoyConfundidaMaleSpanish from "../../assets/audio/Spanish/male/62 Estoy confundida.wav";
-import SalenPalabrasEquivocadasMaleSpanish from "../../assets/audio/Spanish/male/63 Salen palabras equivocadas.wav";
-import NoSeDondeEstoyMaleSpanish from "../../assets/audio/Spanish/male/64 No sé dónde estoy.wav";
-import ProblemasMemoriaMaleSpanish from "../../assets/audio/Spanish/male/65 Problemas de memoria.wav";
-import DebilidadMaleSpanish from "../../assets/audio/Spanish/male/66 Debilidad.wav";
-import DebilUnLadoMaleSpanish from "../../assets/audio/Spanish/male/67 Débil de un lado.wav";
-import TorpeSinEquilibrioMaleSpanish from "../../assets/audio/Spanish/male/68 Torpe o sin equilibrio.wav";
-import ProblemasCaminarMaleSpanish from "../../assets/audio/Spanish/male/69 Problemas al caminar.wav";
-import NecesitaCambioMaleSpanish from "../../assets/audio/Spanish/male/7 Necesita cambio.wav";
-import SinPreocupacionesMaleSpanish from "../../assets/audio/Spanish/male/70 Sin preocupaciones .wav";
-import AlAcostarseMaleSpanish from "../../assets/audio/Spanish/male/71 Al acostarse.wav";
-import AlDormirMaleSpanish from "../../assets/audio/Spanish/male/72 Al dormir.wav";
-import AlCaminarMaleSpanish from "../../assets/audio/Spanish/male/73 Al caminar.wav";
-import AlTransferirReposicionarMaleSpanish from "../../assets/audio/Spanish/male/74 Al transferir o reposicionar.wav";
-import ConMovimientoMaleSpanish from "../../assets/audio/Spanish/male/75 Con movimiento.wav";
-import AlUsarBanoMaleSpanish from "../../assets/audio/Spanish/male/76 Al usar el baño.wav";
-import ConAzucarPresionSangreMaleSpanish from "../../assets/audio/Spanish/male/77 Con azúcar o presión en sangre.wav";
-import ConAlimentacionTuboMaleSpanish from "../../assets/audio/Spanish/male/78 Con alimentación por tubo.wav";
-import ConEstresEmocionMaleSpanish from "../../assets/audio/Spanish/male/79 Con estrés o emoción.wav";
-import SoloNauseasMaleSpanish from "../../assets/audio/Spanish/male/8 Solo náuseas.wav";
-import DespuesProcedimientoMaleSpanish from "../../assets/audio/Spanish/male/80 Después de un procedimiento.wav";
-import DesdeDerrameCerebralLesionMaleSpanish from "../../assets/audio/Spanish/male/81 Desde mi derrame cerebral o lesión .wav";
-import DesdeEnfermedadMaleSpanish from "../../assets/audio/Spanish/male/82 Desde la enfermedad.wav";
-import DesdeCaidaLesionMaleSpanish from "../../assets/audio/Spanish/male/83 Desde la caída o lesión.wav";
-import AlTragarMaleSpanish from "../../assets/audio/Spanish/male/84 Al tragar.wav";
-import AlComerBeberMaleSpanish from "../../assets/audio/Spanish/male/85 Al comer o beber.wav";
-import SiempreCronicoMaleSpanish from "../../assets/audio/Spanish/male/86 Siempre o crónico.wav";
-import BanoMaleSpanish from "../../assets/audio/Spanish/male/87 Baño.wav";
-import CamaMaleSpanish from "../../assets/audio/Spanish/male/88 Cama.wav";
-import ComidaMaleSpanish from "../../assets/audio/Spanish/male/89 Comida.wav";
-import BolsaColostomiaMaleSpanish from "../../assets/audio/Spanish/male/9 Bolsa de colostomía.wav";
-import BebidaMaleSpanish from "../../assets/audio/Spanish/male/90 Bebida.wav";
-import MedicamentosDolorMaleSpanish from "../../assets/audio/Spanish/male/91 Medicamentos para el dolor.wav";
-import ReposicionarMaleSpanish from "../../assets/audio/Spanish/male/92 Reposicionar.wav";
-import HieloMaleSpanish from "../../assets/audio/Spanish/male/93 Hielo.wav";
-import BolsaHieloMaleSpanish from "../../assets/audio/Spanish/male/94 Bolsa de hielo.wav";
-import AlmohadillaTermicaMaleSpanish from "../../assets/audio/Spanish/male/95 Almohadilla térmica.wav";
-import MantaAlmohadaMaleSpanish from "../../assets/audio/Spanish/male/96 Manta o almohada.wav";
-import TemperaturaHabitacionMaleSpanish from "../../assets/audio/Spanish/male/97 Temperatura de la habitación.wav";
-import PanueloMaleSpanish from "../../assets/audio/Spanish/male/98 Pañuelo.wav";
-import LucesMaleSpanish from "../../assets/audio/Spanish/male/99 Luces.wav";
-import CerebroCansadoMaleSpanish from "../../assets/audio/Spanish/male/Cerebro Cansado.wav";
-import ConActividadMentalMaleSpanish from "../../assets/audio/Spanish/male/Con actividad mental.wav";
-import DespuesComerMaleSpanish from "../../assets/audio/Spanish/male/Despues de comer (1).wav";
-import EmpeoraLargoDiaMaleSpanish from "../../assets/audio/Spanish/male/Empeora a lo largo del dia.wav";
-import NieblaMentalMaleSpanish from "../../assets/audio/Spanish/male/Niebla Mental.wav";
-import Pesado_GruesofeMaleSpanish from "../../assets/audio/Spanish/female/Pesado_Grueso (Heavy_Thick - female).mp3";
-import DressingChangeMale from "../../assets/audio/English/male/Dressing Change.mp3";
-import dressingchangeSpanishfeMale from "../../assets/audio/spanish/female/cambio de vendaje (dressing change).wav";
-import ConsalivaMaleSpanish from "../../assets/audio/spanish/male/1 Con saliva.wav";
-import LostHearingAidsMale from "../../assets/audio/English/male/26 Lost Hearing Aids.wav";
 // new female audio
 import ALittleOffFemale from "../../assets/audio/English/newFemaleEnglish/A little off.mp3";
 import AbreloPorMiFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Abrelo por mi (Open for me).mp3";
@@ -787,18 +526,14 @@ import No_no_maleSpanish from "../../assets/audio/English/newFemaleEnglish/No_no
 
 //male
 
-import BurningMale from "../../assets/audio/English/male/Burning(Urination)_com.wav";
-import SqueezingTightMale from "../../assets/audio/English/male/Squeezing or Tight_com.wav";
+
 import ItchingMale from "../../assets/audio/English/male/Itching.mp3";
 import throbbingMale from "../../assets/audio/English/male/throbbing.mp3";
 import ShootingMale from "../../assets/audio/English/male/Shooting.mp3";
 import HeavyMale from "../../assets/audio/English/male/Heavy.mp3";
 import CrampingMale from "../../assets/audio/English/male/Cramping.mp3";
 import PinsandneedlesMale from "../../assets/audio/English/male/Pins and needles.mp3";
-import SpasmingMale from "../../assets/audio/English/male/Spasming.wav";
-import NumborTingling_comMale from "../../assets/audio/English/male/Numb or Tingling_com.wav";
-import SharporStabbing_comMale from "../../assets/audio/English/male/Sharp or Stabbing_com.wav";
-import AchingorDull_comMale from "../../assets/audio/English/male/Aching or Dull_com.wav";
+
 
 import ComezonSpanishMale from "../../assets/audio/spanish/male/Comezon.wav";
 import CrampingCalambresSpanishMale from "../../assets/audio/spanish/male/cramping_calambres.wav";
@@ -828,11 +563,7 @@ import QuemaSpanishFemale from "../../assets/audio/Spanish/female/quema (burning
 import TraqueotomiaSpanishFemale from "../../assets/audio/Spanish/female/traqueotomia (trach).mp3";
 import TuboDeAlimentacionSpanishFemale from "../../assets/audio/Spanish/female/Tubo de alimentación (feeding tube).mp3";
 
-import MildMale from "../../assets/audio/English/male/Mild Male.wav";
-import ModerateMale from "../../assets/audio/English/male/Moderate Male.wav";
-import NoPainMale from "../../assets/audio/English/male/No Pain Male.wav";
-import SevereMale from "../../assets/audio/English/male/Severe Male.wav";
-import VerySevereMale from "../../assets/audio/English/male/Very Severe Male.wav";
+
 import WorstPainImaginableMale from "../../assets/audio/English/male/Worst Pain Imaginable_com Male.mp3";
 
 import MildLeveSpanishMale from "../../assets/audio/spanish/male/mild_leve.wav";
@@ -848,13 +579,12 @@ import MuyGraveSpanishFemale from "../../assets/audio/spanish/female/muy grave (
 import PeorDolorImaginableSpanishFemale from "../../assets/audio/spanish/female/Peor dolor imaginable (worst pain imaginable)female.mp3";
 import SinDolorSpanishFemale from "../../assets/audio/spanish/female/Sin dolor (No pain)female.mp3";
 
-import AllDayMale from "../../assets/audio/English/male/All Day(Fatigue)(male).wav";
-import ComesAndGoesMale from "../../assets/audio/English/male/Comes and Goes(male).wav";
+
 import IDontKnowMale from "../../assets/audio/English/male/I Don't Know (male).mp3";
-import MorningMale from "../../assets/audio/English/male/Morning(male).wav";
+
 import WhenSittingMale from "../../assets/audio/English/male/When Sitting(male).mp3";
 import WhenStandingMale from "../../assets/audio/English/male/When Standing(male).mp3";
-import WithActivityMale from "../../assets/audio/English/male/With Activity(How Often)(male).wav";
+
 import WithBloodPressureMale from "../../assets/audio/English/male/With Blood Pressure (male).mp3";
 import WithBloodSugarMale from "../../assets/audio/English/male/With Blood Sugar (male).mp3";
 
@@ -1008,11 +738,10 @@ import SemanaWeekSpanishFemale from "../../assets/audio/spanish/female/semana (w
 import SeptiembreSeptemberSpanishFemale from "../../assets/audio/spanish/female/Septiembre (September).mp3";
 import TardeAfternoonSpanishFemale from "../../assets/audio/spanish/female/tarde (afternoon).mp3";
 import ViernesFridaySpanishFemale from "../../assets/audio/spanish/female/Viernes (Friday).mp3";
-import SomethingElseFemale from "../../assets/audio/English/male/Something Else (male).mp3";
+
 import burning_quemaSpanishFemale from "../../assets/audio/spanish/male/burning_quema.wav";
 import MuygraveSpanishMale from "../../assets/audio/spanish/male/very severe_muy grave.wav";
-import juststartedMale from "../../assets/audio/English/male/just started.mp3";
-import WithMedicationMale from "../../assets/audio/English/male/With Medication(How Often).wav";
+
 import SqueezingorTightfeMale from "../../assets/audio/English/female/Squeezing or Tight.mp3";
 import HormigueodolorosoSpanishFemale from "../../assets/audio/spanish/male/Hormigueo doloroso.wav";
 import sharporstabbing_afiladoopunzanteSpanishFemale from "../../assets/audio/spanish/male/sharp or stabbing_afilado o punzante.wav";
@@ -1055,29 +784,6 @@ import HeridaIncisionWoundIncisionSpanishFemale from "../../assets/audio/spanish
 import MucosidadSecrecionesMucusSecretionsSpanishFemale from "../../assets/audio/spanish/female/Mucosidad_Secreciones (Mucus_Secretions).mp3";
 import TuboDeAlimentacionPEGSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentación (PEG).mp3";
 import TraqueotomiaTrachSpanishFemale from "../../assets/audio/spanish/female/traqueotomia (trach).mp3";
-
-import BreathingOrCoughingEnglishMale from "../../assets/audio/English/male/Breathing or Coughing_com.wav";
-import NoConcernsEnglishMale from "../../assets/audio/English/male/70 No Concerns.wav";
-import PainUrinationEnglishMale from "../../assets/audio/English/male/Pain(Urination)_com.wav";
-import Trach1EnglishMale from "../../assets/audio/English/male/trach.mp3";
-import FeedingTubeEnglishMale from "../../assets/audio/English/male/6 Feeding Tube.mp3";
-import WoundIncision1EnglishMale from "../../assets/audio/English/male/wound_incision.mp3";
-import MucousOrSecretionsEnglishMale from "../../assets/audio/English/male/mucous or secretions.mp3";
-import WoundIncisionEnglishMale from "../../assets/audio/English/male/wound_incision.mp3";
-import IllnessEnglishMale from "../../assets/audio/English/male/illness.mp3";
-import SomethingHappenedEnglishMale from "../../assets/audio/English/male/Something Happened .mp3";
-import HearingEnglishMale from "../../assets/audio/English/male/hearing.mp3";
-import CommunicationThinkingEnglishMale from "../../assets/audio/English/male/57 Communication _ Thinking.wav";
-import VisionEnglishMale from "../../assets/audio/English/male/vision.mp3";
-import MovementEnglishMale from "../../assets/audio/English/male/56 Movement.wav";
-import EmotionsOrFeelingsEnglishMale from "../../assets/audio/English/male/Emotions or feelings - edited.mp3";
-import MedicationEnglishMale from "../../assets/audio/English/male/Medication_com.wav";
-import EatingAndDrinkingEnglishMale from "../../assets/audio/English/male/39 Eating and Drinking.wav";
-import FatigueEnglishMale from "../../assets/audio/English/male/Fatigue_com.wav";
-import NauseaEnglishMale from "../../assets/audio/English/male/Nausea(Concerns page 2).wav";
-import UrinationEnglishMale from "../../assets/audio/English/male/Urination.wav";
-import BowelsEnglishMale from "../../assets/audio/English/male/Bowels_com.wav";
-import SwallowingEnglishMale from "../../assets/audio/English/male/Swallowing_com.wav";
 
 import AlgoMasSpanishMale from "../../assets/audio/spanish/male/algo mas.wav";
 import TraqueotomiaTrachSpanishMale from "../../assets/audio/spanish/male/Traqueotomia (Trach).wav";
@@ -1124,26 +830,6 @@ import GafasGlassesFemale from "../../assets/audio/English/newFemaleEnglish/gafa
 import NecesitaCambioMale from "../../assets/audio/English/newFemaleEnglish/7 Necesita cambioMale.wav";
 import NecesitaCambioNeedChangedFemale from "../../assets/audio/English/newFemaleEnglish/Necesita Cambio (Need Changed).mp3";
 import TerapeutaRespiratorioRespiratoryTherapistFemale from "../../assets/audio/English/newFemaleEnglish/Terapeuta Respiratorio (Respiratory Therapist).mp3";
-
-import FamilySupportMale from "../../assets/audio/English/male/family support.mp3";
-import StrokePreventionMale from "../../assets/audio/English/male/stroke prevention.mp3";
-import HomeSetupMale from "../../assets/audio/English/male/home set-up.mp3";
-import DrivingMale from "../../assets/audio/English/male/driving.mp3";
-import CommunicationMale from "../../assets/audio/English/male/communication.mp3";
-import TherapyMale from "../../assets/audio/English/male/therapy.mp3";
-import WillIGetBetterMale from "../../assets/audio/English/male/Will I get better_.mp3";
-import DischargeMale from "../../assets/audio/English/male/discharge.mp3";
-import WhatHappenedToMeMale from "../../assets/audio/English/male/What Happened to Me_ (male eng).mp3";
-import AlcoholMale from "../../assets/audio/English/male/alcohol.mp3";
-
-import RaisingChildrenMale from "../../assets/audio/English/male/raising children.mp3";
-import FamilyMale from "../../assets/audio/English/male/family.mp3";
-import SexMale from "../../assets/audio/English/male/sex.mp3";
-import CommunityActivityMale from "../../assets/audio/English/male/community activity.mp3";
-import WorkMale from "../../assets/audio/English/male/work.mp3";
-import HouseholdActivityMale from "../../assets/audio/English/male/household activity.mp3";
-import FollowUpAppointmentsMale from "../../assets/audio/English/male/follow up appointments.mp3";
-import MoneyMale from "../../assets/audio/English/male/money.mp3";
 
 import ComidaSpanishMale from "../../assets/audio/spanish/male/Comida.wav";
 import AlcoholSpanishMale from "../../assets/audio/spanish/male/Alcohol.wav";
@@ -1210,11 +896,6 @@ import OlorDeComidaSmellOfFoodSpanishFemale from "../../assets/audio/spanish/fem
 import MeSientoLlenoAFeelFullSpanishFemale from "../../assets/audio/spanish/female/Me Siento Lleno_a (Feel Full).mp3";
 import CambiosDeSaborTasteChangesSpanishFemale from "../../assets/audio/spanish/female/Cambios de Sabor (Taste Changes).mp3";
 
-import SmellOfFoodMale from "../../assets/audio/English/male/Smell of Food (male eng).mp3";
-import TasteChangesMale from "../../assets/audio/English/male/Taste Changes (male).mp3";
-import DontWantMale from "../../assets/audio/English/male/don't want.mp3";
-import FeelFullMale from "../../assets/audio/English/male/Feel Full.mp3";
-
 import NoQuieroDontWantSpanishMale from "../../assets/audio/spanish/male/No Quiero (Don't Want).wav";
 import CambiosDeSaborTasteChangesSpanishMale from "../../assets/audio/spanish/male/Cambios de sabor (Taste Changes).wav";
 import MeSientoLlenoAFeelFullSpanishMale from "../../assets/audio/spanish/male/Me Siento Lleno_a (Feel Full).wav";
@@ -1236,12 +917,6 @@ import CalambresCrampingSpanishFemale from "../../assets/audio/spanish/female/ca
 import SangreBloodSpanishFemale from "../../assets/audio/spanish/female/sangre (blood).mp3";
 import BandejaDeCamaBedPanSpanishFemale from "../../assets/audio/spanish/female/bandeja de cama (bed pan).mp3";
 
-import BloodUrinationMale from "../../assets/audio/English/male/Blood(Urination).wav";
-
-import GasOrBloatingMale from "../../assets/audio/English/male/gas or bloating.mp3";
-import DiarrheaMale from "../../assets/audio/English/male/Diarrhea.wav";
-
-import BedPanMale from "../../assets/audio/English/male/bed pan.mp3";
 
 import DiarrheaDiarreaSpanishMale from "../../assets/audio/spanish/male/diarrhea_diarrea.wav";
 import GasHinchazonSpanishMale from "../../assets/audio/spanish/male/Gas _ Hinchazon.wav";
@@ -1250,15 +925,8 @@ import BandejaDeCamaSpanishMale from "../../assets/audio/spanish/male/Bandeja de
 import BolsaDeColostomiaSpanishMale from "../../assets/audio/spanish/male/9 Bolsa de colostomía.wav";
 import EstrenimientoSpanishMale from "../../assets/audio/spanish/male/Estreñimiento.wav";
 
-import CPAPBiPAPMale from "../../assets/audio/English/male/CPAP_BiPAP.mp3";
-import HeavyThickMale from "../../assets/audio/English/male/Heavy_Thick.mp3";
-import BreathingTreatmentMale from "../../assets/audio/English/male/breathing treatment.mp3";
-import ChokingBreathingProblemsMale from "../../assets/audio/English/male/Choking(Breathing Problems)_com.wav";
-import ChestPainMale from "../../assets/audio/English/male/Chest Pain2.wav";
-import ShortnessOfBreathMale from "../../assets/audio/English/male/Shortness of Breath.wav";
-import MucousOrSecretionsMale from "../../assets/audio/English/male/mucous or secretions.mp3";
+
 import CoughingFeMale from "../../assets/audio/English/female/Coughing (female).mp3";
-import CongestedRunnyNoseMale from "../../assets/audio/English/male/Congested _ Runny Nose (male eng).mp3";
 
 import TratamientoDeRespiracionBreathingTreatmentSpanishMale from "../../assets/audio/spanish/male/Tratamiento de Respiracion (Breathing Treatment).wav";
 import FaltaDeAlientoShortnessOfBreathSpanishMale from "../../assets/audio/spanish/male/falta de aliento_shortness of breath.wav";
@@ -1270,13 +938,6 @@ import CPAPBiPAPSpanishMale from "../../assets/audio/spanish/male/CPAP_BiPAP (CP
 
 import NarizCongestionadaOQueMoaqueaCongestedOrRunnyNoseSpanishFeMale from "../../assets/audio/spanish/Female/Nariz congestionada o que moquea (Congested or runny nose).mp3";
 
-import AnxiousMale from "../../assets/audio/English/male/anxious.mp3";
-import GriefMale from "../../assets/audio/English/male/Grief (Replace the one in app it is cut off).mp3";
-import SadMale from "../../assets/audio/English/male/sad.mp3";
-import ExhaustedMale from "../../assets/audio/English/male/exhausted.mp3";
-import AngryMale from "../../assets/audio/English/male/angry.mp3";
-import ScaredMale from "../../assets/audio/English/male/scared.mp3";
-import DepressedMale from "../../assets/audio/English/male/Depressed.mp3";
 
 import AnxiousAnsiosoSpanishMale from "../../assets/audio/spanish/male/Anxious_Ansioso.wav";
 import PreocupadaOConCulpaSpanishMale from "../../assets/audio/spanish/male/35 Preocupada o con culpa.wav";
@@ -1310,14 +971,6 @@ import AsustadoScaredSpanishFemale from "../../assets/audio/spanish/female/asust
 import EnojadoAngrySpanishFemale from "../../assets/audio/spanish/female/enojado (angry).mp3";
 import DeprimidoDepressedSpanishFemale from "../../assets/audio/spanish/female/deprimido (depressed).mp3";
 
-import WithActivityHowOftenMale from "../../assets/audio/English/male/With Activity(How Often).wav";
-import WakeUpTiredMale from "../../assets/audio/English/male/Wake Up Tired.wav";
-import TroubleSleepingMale from "../../assets/audio/English/male/Trouble Sleeping.wav";
-import AllDayFatigueMale from "../../assets/audio/English/male/All Day(Fatigue).wav";
-
-import BrainTiredMale from "../../assets/audio/English/male/Brain Tired.wav";
-
-import MoreThanUsualMale from "../../assets/audio/English/male/More Than Usual_com.wav";
 
 import DespertarCansadoSpanishMale from "../../assets/audio/spanish/male/Despertar cansado.wav";
 import DespuesDeUnProcedimientoSpanishMale from "../../assets/audio/spanish/male/80 Después de un procedimiento.wav";
@@ -1348,14 +1001,9 @@ import MasDeLoHabitualMoreThanUsualSpanishFemale from "../../assets/audio/spanis
 import CerebroCansadoBrainTiredSpanishFemale from "../../assets/audio/spanish/female/Cerebro Cansado (brain tired).mp3";
 import EmpeoraALoLargoDelDiaGetsWorseThroughTheDaySpanishFemale from "../../assets/audio/spanish/female/Empeora a lo Largo del Día (Gets Worse Through the Day).mp3";
 import TodoElDiaAllDaySpanishFemale from "../../assets/audio/spanish/female/todo el dia (all day).mp3";
-import AppetiteEnglishMale from "../../assets/audio/English/male/appetite.mp3";
+
 import ApetitoSpanishFeMale from "../../assets/audio/spanish/female/Apetito (Appetite).mp3";
 import ApetitoSpanishMale from "../../assets/audio/spanish/male/Apetito (Appetite).wav";
-
-import SoreThroatMale from "../../assets/audio/English/male/Sore Throat (male eng).mp3";
-import AchyMale from "../../assets/audio/English/male/Achy (male eng).mp3";
-import ChillsMale from "../../assets/audio/English/male/Chills (male eng).mp3";
-import FeverMale from "../../assets/audio/English/male/Fever (male eng).mp3";
 
 import NauseasVomitosNauseaVomitingSpanishMale from "../../assets/audio/spanish/male/Nauseas_Vomitos (Nausea_Vomiting).wav";
 import DolorDeGargantaSoreThroatSpanishMale from "../../assets/audio/spanish/male/Dolor de garganta (Sore Throat).wav";
@@ -1375,12 +1023,6 @@ import AdoloridoAAcheySpanishFemale from "../../assets/audio/English/female/Adol
 import DolorDeGargantaSoreThroatSpanishFemale from "../../assets/audio/English/female/Dolor de garganta (Sore Throat).wav";
 import EscalofriosChillsSpanishFemale from "../../assets/audio/English/female/Escalofrios (Chills).wav";
 
-import RingingMale from "../../assets/audio/English/male/ringing.mp3";
-import CantHearMale from "../../assets/audio/English/male/can't hear 1.mp3";
-import DizzyMale from "../../assets/audio/English/male/Dizzy.mp3";
-import EarPainMale from "../../assets/audio/English/male/Ear pain.mp3";
-import PluggedMale from "../../assets/audio/English/male/plugged.mp3";
-import DolorDeOidoEarPainSpanishMale from "../../assets/audio/English/male/Dolor de Oido (Ear Pain).wav";
 
 import TapadosPluggedSpanishMale from "../../assets/audio/spanish/male/Tapados (Plugged).wav";
 import MareadoADizzySpanishMale from "../../assets/audio/spanish/male/Mareado_a (Dizzy).wav";
@@ -1409,14 +1051,7 @@ import InformacionInformationSpanishMale from "../../assets/audio/spanish/male/i
 import EfectosSecundariosSideEffectsSpanishMale from "../../assets/audio/spanish/male/Efectos Secundarios_Side Effects(Joaquin Vignoli).wav";
 
 // English Male
-import SideEffectsMale from "../../assets/audio/English/male/side effects.mp3";
 
-import WholeCrushedOrLiquidMale from "../../assets/audio/English/male/whole, crushed, or liquid.mp3";
-import TimingMale from "../../assets/audio/English/male/timing.mp3";
-import InformationMale from "../../assets/audio/English/male/Information.wav";
-import TooLittleMale from "../../assets/audio/English/male/Too Little.wav";
-import TooManyMale from "../../assets/audio/English/male/too many.mp3";
-import HardToSwallowMale from "../../assets/audio/English/male/hard to swallow.mp3";
 
 import HardToSwallowEnglishFemale from "../../assets/audio/English/female/hard to swallow.mp3";
 import SideEffectsEnglishFemale from "../../assets/audio/English/female/Side effects.mp3";
@@ -1435,27 +1070,14 @@ import EnterosAplastadosOLiquidosSpanishFemale from "../../assets/audio/spanish/
 import MuyPocoTooLittleFewSpanishFemale from "../../assets/audio/spanish/female/muy poco (too little_few).mp3";
 import TiempoTimingSpanishFemale from "../../assets/audio/spanish/female/tiempo (timing).mp3";
 
-import BocaSecaSpanishMale from "../../assets/audio/spanish/male/Boca seca.wav";
-import DemasiadoTooMuchSpanishMale from "../../assets/audio/spanish/male/demasiado_too much (Joaquin Vignoli).wav";
-import GruesaMucosaSpanishMale from "../../assets/audio/spanish/male/Gruesa Mucosa.wav";
-import ColorSpanishMale from "../../assets/audio/spanish/male/VO - Color.wav";
-
-import ThickMucusMale from "../../assets/audio/English/male/Thick Mucus.mp3";
-import ColorMale from "../../assets/audio/English/male/Color (male Eng).mp3";
-import TooMuchMale from "../../assets/audio/English/male/Too Much.wav";
-import DryMouthMale from "../../assets/audio/English/male/Dry mouth.mp3";
 
 import GruesaMucosaThickMucusSpanishFemale from "../../assets/audio/spanish/female/Gruesa Mucosa (thick mucus) 1.mp3";
 import ColorSpanishFemale from "../../assets/audio/spanish/female/Color.mp3";
 import BocaSecaDryMouthSpanishFemale from "../../assets/audio/spanish/female/boca seca (dry mouth).mp3";
 
 // English Male
-import JustNauseaMale from "../../assets/audio/English/male/8 Just Nausea.wav";
-import VomitingMale from "../../assets/audio/English/male/Vomiting_com.wav";
 
 // Spanish Male
-import SoloNauseasSpanishMale from "../../assets/audio/spanish/male/8 Solo náuseas.wav";
-import VomitingVomitosSpanishMale from "../../assets/audio/spanish/male/vomiting_vomitos.wav";
 
 // English Female
 import VomitingEnglishFemale from "../../assets/audio/English/female/vomiting .mp3";
@@ -1465,11 +1087,7 @@ import JustNauseaEnglishFemale from "../../assets/audio/English/female/Just Naus
 import VomitosVomitingSpanishFemale from "../../assets/audio/spanish/female/vomitos (vomiting).mp3";
 import SoloNauseasJustNauseaSpanishFemale from "../../assets/audio/spanish/female/Solo Nauseas (Just Nausea).mp3";
 
-import RemoveMale from "../../assets/audio/English/male/remove.mp3";
-import QuitarRemoveSpanishMale from "../../assets/audio/English/male/Quitar_Remove 2.wav";
 
-import LeakingMale from "../../assets/audio/English/male/Leaking (male English).mp3";
-import GoteandoLeakingSpanishMale from "../../assets/audio/English/male/Goteando (Leaking).wav";
 
 import GoteandoSpanishFemale from "../../assets/audio/spanish/female/goteando.mp3";
 import QuitarRemoveSpanishFemale from "../../assets/audio/spanish/female/quitar (remove).mp3";
@@ -1503,28 +1121,10 @@ import AcidezEstomacalHeartburnSpanishFemale from "../../assets/audio/English/fe
 import ComidaQueSePegaFoodStickingSpanishFemale from "../../assets/audio/English/female/Comida que se Pega (food sticking).mp3";
 
 // Spanish Male
-import SintomasDeUnAccidenteCerebrovascularSpanishMale from "../../assets/audio/spanish/male/28 Síntomas de un accidente cerebrovascular.wav";
-import TraqueostomiaQuitadoSpanishMale from "../../assets/audio/spanish/male/Traqueostomia quitado.wav";
-import TuboDeAlimentacionQuitadoSpanishMale from "../../assets/audio/spanish/male/Tubo de alimentacion quitado.wav";
-import EsperarDemasiadoTiempoWaitedTooLongSpanishMale from "../../assets/audio/spanish/male/Esperar Demasiado Tiempo (Waited Too Long).wav";
-import MalToqueSpanishMale from "../../assets/audio/spanish/male/Mal toque.wav";
-import NecesitaCambioSpanishMale from "../../assets/audio/spanish/male/7 Necesita cambio.wav";
-import AnalisisDeSangreORayosXBloodworkXraySpanishMale from "../../assets/audio/spanish/male/Analisis de Sangre o Rayos X (Bloodwork_Xray).wav";
 
-import ArgumentoSpanishMale from "../../assets/audio/spanish/male/Argumento (argument).wav";
-import CaerseFallSpanishMale from "../../assets/audio/spanish/male/Caerse (Fall).wav";
 
 // English Male
 
-import TrachRemovedMale from "../../assets/audio/English/male/Trach Removed.mp3";
-
-import WaitedTooLongMale from "../../assets/audio/English/male/Waited too long.mp3";
-import BadTouchMale from "../../assets/audio/English/male/Bad Touch (male).mp3";
-
-import BloodworkXRayMale from "../../assets/audio/English/male/Bloodwork_X-Ray.mp3";
-
-import ArgumentMale from "../../assets/audio/English/male/Argument (male eng).mp3";
-import FallMale from "../../assets/audio/English/male/Fall.mp3";
 
 // Spanish Female
 import StrokeSymptomsSpanishFemale from "../../assets/audio/spanish/female/Sintomas de un accidente cerebrovascular (Stroke Symptoms).mp3";
@@ -1547,15 +1147,6 @@ import BloodworkOrXrayEnglishFemale from "../../assets/audio/English/female/Bloo
 import ArgumentEnglishFemale from "../../assets/audio/English/female/Argument.mp3";
 import FallEnglishFemale from "../../assets/audio/English/female/Fall .mp3";
 
-import CapMale from "../../assets/audio/English/male/cap.mp3";
-import SpeakingValveMale from "../../assets/audio/English/male/speaking valve.mp3";
-import ItchyMale from "../../assets/audio/English/male/itchy.mp3";
-import TightMale from "../../assets/audio/English/male/tight.mp3";
-
-import CanulaSpanishMale from "../../assets/audio/spanish/male/Cánula.wav";
-import PicazonSpanishMale from "../../assets/audio/spanish/male/Picazon.wav";
-import ApretadoSpanishMale from "../../assets/audio/spanish/male/Apretado.wav";
-import ValvulaParlanteSpanishMale from "../../assets/audio/spanish/male/Valvula Parlante.wav";
 
 // Spanish Female
 import CanulaCapSpanishFemale from "../../assets/audio/English/newFemaleEnglish/Canula (cap).mp3";
@@ -1585,23 +1176,12 @@ import UrgenciaUrgencySpanishFemale from "../../assets/audio/English/newFemaleEn
 import FrequenteFrequentSpanishFemale from "../../assets/audio/English/newFemaleEnglish/frequente (frequent).mp3";
 
 // English Male
-import FrequentMale from "../../assets/audio/English/male/Frequent.wav";
-import VeryLittleOrInfrequentMale from "../../assets/audio/English/male/Very Little or Infrequent.wav";
-import UrgencyMale from "../../assets/audio/English/male/Urgency.wav";
 
 // Spanish Male
-import CateterSpanishMale from "../../assets/audio/English/male/Cateter.wav";
-import MuyPocoOConPocaFrecuenciaSpanishMale from "../../assets/audio/English/male/Muy poco o con poca frecuencia.wav";
-import UrgencyUrgenciaSpanishMale from "../../assets/audio/English/male/urgency_urgencia.wav";
-import FrequentFrequenteSpanishMale from "../../assets/audio/English/male/frequent_frequente.wav";
 
 // English Male
-import DoubleMale from "../../assets/audio/English/male/double.mp3";
-import BlurryMale from "../../assets/audio/English/male/blurry.mp3";
 
 // Spanish Male
-import BlurryBorrosoSpanishMale from "../../assets/audio/English/male/blurry_borroso.wav";
-import DoubleDobleSpanishMale from "../../assets/audio/English/male/double_doble.wav";
 
 // English Female
 import BlurryEnglishFemale from "../../assets/audio/English/female/Blurry.mp3";
@@ -1612,16 +1192,8 @@ import DobleDoubleSpanishFemale from "../../assets/audio/English/female/doble (d
 import BorrosoBlurrySpanishFemale from "../../assets/audio/English/female/borroso (blurry).mp3";
 
 // English Male
-import SwellingMale from "../../assets/audio/English/male/Swelling.mp3";
-import StitchesStaplesMale from "../../assets/audio/English/male/Stitches_Staples.mp3";
-import InfectionMale from "../../assets/audio/English/male/Infection.mp3";
 
 // Spanish Male
-import CambioDeVendajeChangeDressingSpanishMale from "../../assets/audio/English/male/Cambio de vendaje (Change Dressing).wav";
-import HinchazonSwellingSpanishMale from "../../assets/audio/English/male/Hinchazon (Swelling).wav";
-import PuntadasGrapasStitchesStaplesSpanishMale from "../../assets/audio/English/male/Puntadas_Grapas (Stitches_Staples).wav";
-import InfeccionInfectionSpanishMale from "../../assets/audio/English/male/Infeccion (infection).wav";
-import ReposicionarSpanishMale from "../../assets/audio/English/male/92 Reposicionar.wav";
 
 // English Female
 import SwellingEnglishFemale from "../../assets/audio/English/female/Swelling.mp3";
@@ -1658,62 +1230,13 @@ import EmpeorandoGettingWorseSpanishFemale from "../../assets/audio/English/fema
 import MejorandoGettingBetterSpanishFemale from "../../assets/audio/English/female/mejorando (getting better).mp3";
 
 // English Male
-import GoodMale from "../../assets/audio/English/male/Good.wav";
-
-import TheSameMale from "../../assets/audio/English/male/the same.mp3";
-import GettingWorseMale from "../../assets/audio/English/male/Getting worse.mp3";
-import GettingBetterMale from "../../assets/audio/English/male/getting better.mp3";
-import UpAndDownMale from "../../assets/audio/English/male/Upanddown1_com.wav";
-import BadMale from "../../assets/audio/English/male/Bad.wav";
-import OkayMale from "../../assets/audio/English/male/Okay.wav";
 
 // Spanish Male
-
-import NoSeSpanishMale from "../../assets/audio/English/male/VO - No se.wav";
-import LoMismoSpanishMale from "../../assets/audio/English/male/Lo mismo.wav";
-import GettingWorseEmpeorandoSpanishMale from "../../assets/audio/English/male/Gets Worse Through the Day(male).wav";
-import GettingBetterMejorandoSpanishMale from "../../assets/audio/English/male/getting better_mejorando.wav";
-import UpAndDownArribaYAbajoSpanishMale from "../../assets/audio/English/male/up and down_arriba y abajo.wav";
-import MaloSpanishMale from "../../assets/audio/English/male/Malo.wav";
-import EstaBienSpanishMale from "../../assets/audio/English/male/Esta bien.wav";
-import BuenoSpanishMale from "../../assets/audio/English/male/Bueno (Joaquin Vignoli).wav";
 
 // English Male
-import WithFoodAndDrinksMale from "../../assets/audio/English/male/With Food and Drinks_com.wav";
 
-import TroubleWritingMale from "../../assets/audio/English/male/Trouble Writing (male).mp3";
-import TroubleReadingMale from "../../assets/audio/English/male/Trouble Reading (male).mp3";
-
-import SpreadOutMale from "../../assets/audio/English/male/spread out.mp3";
-import DifferentTimesMale from "../../assets/audio/English/male/different times.mp3";
-import ScheduledPainMedsMale from "../../assets/audio/English/male/scheduled pain meds.mp3";
-import CrushedMale from "../../assets/audio/English/male/crushed.mp3";
-import LiquidMale from "../../assets/audio/English/male/liquid.mp3";
-import WholeMale from "../../assets/audio/English/male/whole.mp3";
-import TooBigMale from "../../assets/audio/English/male/too big.mp3";
-import WhiteMale from "../../assets/audio/English/male/White (male Eng).mp3";
-import YellowMale from "../../assets/audio/English/male/yellow (male eng).mp3";
-import BrownMale from "../../assets/audio/English/male/Brown (male eng).mp3";
-import GreenMale from "../../assets/audio/English/male/Green (male eng).mp3";
-import LiquidoSpanishMale from "../../assets/audio/English/male/liquido.m4a";
 
 // Spanish Male
-import AlergiaAlimentariaSpanishMale from "../../assets/audio/English/male/40 Alergia alimentaria.wav";
-import DificultadParaEscribirSpanishMale from "../../assets/audio/English/male/VO -  Dificultad para Escribir.wav";
-import DificultadParaLeerSpanishMale from "../../assets/audio/English/male/VO - Dificultad para leer.wav";
-import RepartidosEnElTiempoSpanishMale from "../../assets/audio/English/male/Repartidos en el tiempo.wav";
-import TiemposDiferentesDifferentTimesSpanishMale from "../../assets/audio/English/male/tiempos diferentes_different times(Joaquin Vignoli).wav";
-import MedicamentosParaElDolorProgramadosScheduledPainMedsSpanishMale from "../../assets/audio/English/male/medicamentos para el dolor programados_scheduled pain meds (Joaquin Vignoli).wav";
-
-import AplastadoSpanishMale from "../../assets/audio/English/male/Aplastado.wav";
-import EnteroSpanishMale from "../../assets/audio/English/male/Entero.wav";
-import DemasiadoGrandesSpanishMale from "../../assets/audio/English/male/Demasiado Grandes male.mp3";
-import BlancoSpanishMale from "../../assets/audio/English/male/Blanco.wav";
-import AmarilloSpanishMale from "../../assets/audio/English/male/Amarillo.wav";
-import MarronSpanishMale from "../../assets/audio/English/male/Marron.wav";
-import VerdeSpanishMale from "../../assets/audio/English/male/Verde.wav";
-import SoloAlTragarSpanishMale from "../../assets/audio/English/male/3 Solo al tragar.mp3";
-import WithFoodAndDrinkConComidaYBebidaSpanishMale from "../../assets/audio/English/male/with food and drink_con comida y bebida.wav";
 
 // English Female
 import WholeEnglishFemale from "../../assets/audio/English/female/whole.mp3";
@@ -1733,8 +1256,6 @@ import DifferentTimesEnglishFemale from "../../assets/audio/English/female/diffe
 import LiquidEnglishFemale from "../../assets/audio/English/female/liquid.mp3";
 import ScheduledPainMedsEnglishFemale from "../../assets/audio/English/female/scheduled pain meds.mp3";
 import CrushedEnglishFemale from "../../assets/audio/English/female/crushed.mp3";
-import withfoodSpanishmale from "../../assets/audio/English/male/con comida (with food).mp3";
-import withfoodEnglishhmale from "../../assets/audio/English/male/With Food.mp3";
 import liquidoSpanishFemale from "../../assets/audio/Spanish/female/liquido (liquid).mp3";
 
 // Spanish Female
@@ -1757,24 +1278,16 @@ import AplastadoCrushedSpanishFemale from "../../assets/audio/English/female/apl
 import EnteroWholeSpanishFemale from "../../assets/audio/English/female/entero (whole).mp3";
 import ToobigEnglsihFemale from "../../assets/audio/English/female/Too big.mp3";
 import ToobigSpanishFemale from "../../assets/audio/English/female/demasiado grande (too big).mp3";
-import NecesitounaPajitaSpanishmale from "../../assets/audio/English/male/VO - Necesito una Pajita.wav";
-import NeedStrawmale from "../../assets/audio/English/male/Need Straw (male eng).mp3";
 
 import NecesitounaPajaSpanishFemale from "../../assets/audio/English/female/Necesito una Paja (female).mp3";
 import NeedStrawFemale from "../../assets/audio/English/female/Need Straw.mp3";
 
-import Doormale from "../../assets/audio/English/male/Door (male eng).mp3";
-import Lapuertemale from "../../assets/audio/English/male/VO - La puerte.wav";
 
 import Doorfemale from "../../assets/audio/English/female/Door.wav";
 import LapuerteFemale from "../../assets/audio/English/female/la puerta (door).wav";
 import SharporstabbingEnglishFemale from "../../assets/audio/English/female/Sharp or stabbing.mp3";
 
-import ConstipationMale from "../../assets/audio/English/male/Constipation(Nausea).wav";
-import Nausea_VomitingMale from "../../assets/audio/English/male/Nausea _ Vomiting (male).mp3";
-import frustratedMale from "../../assets/audio/English/male/frustrated.mp3";
 
-import WithDrinksMale from "../../assets/audio/English/male/With Drinks.wav";
 import withMedicationHowOften from "../../assets/audio/English/female/With Medication(How Often).wav";
 import comerYBeber from "../../assets/audio/English/female/39 Comer y beber.wav";
 import ringing from "../../assets/audio/English/female/Ringing.mp3";
@@ -1794,9 +1307,7 @@ import infection from "../../assets/audio/English/female/Infection.mp3";
 import plugged from "../../assets/audio/English/female/plugged.mp3";
 import tapadosPlugged from "../../assets/audio/English/female/Tapados (Plugged).mp3";
 
-import CoughingMale from "../../assets/audio/English/male/CoughingMale.mp3";
 import WithPillsFeMale from "../../assets/audio/English/female/With Pills.mp3";
-import WithPillsMale from "../../assets/audio/English/male/With Pills.wav";
 
 // body parts audio female english
 import Abdomen from "../../assets/audio/Female-body-audio/English/Abdomen.mp3";
@@ -1916,6 +1427,528 @@ import pelvisMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Pelvis
 import pieMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/pie o dedos de los pies.wav";
 import RodillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Rodilla.wav";
 import TobilloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Tobillo.wav";
+
+// male spanish audio
+
+
+
+import InodoroOrUrinarioMaleSpanish from "../../assets/audio/Spanish/male/10 Inodoro o urinario.wav";
+import TelevisorMaleSpanish from "../../assets/audio/Spanish/male/100 Televisor.wav";
+import MusicaMaleSpanish from "../../assets/audio/Spanish/male/101 Música.wav";
+import DentadurasMaleSpanish from "../../assets/audio/Spanish/male/102 Dentaduras.wav";
+import CambiarRopaMaleSpanish from "../../assets/audio/Spanish/male/103 Cambiar ropa.wav";
+import AjustarRopaMaleSpanish from "../../assets/audio/Spanish/male/104 Ajustar ropa.wav";
+import CambiarRopaInteriorMaleSpanish from "../../assets/audio/Spanish/male/105 Cambiar ropa interior.wav";
+import NecesitoCalcetinesMaleSpanish from "../../assets/audio/Spanish/male/106 Necesito calcetines.wav";
+import AbreloPorMiMaleSpanish from "../../assets/audio/Spanish/male/107 Ábrelo por mí.wav";
+import TelefonoOrTabletaMaleSpanish from "../../assets/audio/Spanish/male/108 Teléfono o tableta.wav";
+import ConectarTelefonoTabletaMaleSpanish from "../../assets/audio/Spanish/male/109 Conectar teléfono o tableta.wav";
+import InsomnioMaleSpanish from "../../assets/audio/Spanish/male/11 Insomnio.wav";
+import CargarAudifonosMaleSpanish from "../../assets/audio/Spanish/male/110 Cargar audífonos.wav";
+import InhaladorOrTratamientoRespiratorioMaleSpanish from "../../assets/audio/Spanish/male/111 Inhalador o tratamiento respiratorio.wav";
+import AzucarEnSangreMaleSpanish from "../../assets/audio/Spanish/male/112 Azúcar en sangre.wav";
+import PresionArterialMaleSpanish from "../../assets/audio/Spanish/male/113 Presión arterial.wav";
+import CascoMaleSpanish from "../../assets/audio/Spanish/male/114 Casco.wav";
+import CollarCervicalMaleSpanish from "../../assets/audio/Spanish/male/115 Collar cervical.wav";
+import EnfermeraMaleSpanish from "../../assets/audio/Spanish/male/116 Enfermera.wav";
+import DoctorMaleSpanish from "../../assets/audio/Spanish/male/117 Doctor.wav";
+import AsistenteEnfermeriaMaleSpanish from "../../assets/audio/Spanish/male/118 Asistente de enfermería.wav";
+import TerapeutaHablaMaleSpanish from "../../assets/audio/Spanish/male/119 Terapeuta del habla.wav";
+import RuidosoMaleSpanish from "../../assets/audio/Spanish/male/12 Ruidoso.wav";
+import TerapeutaOcupacionalFisicoMaleSpanish from "../../assets/audio/Spanish/male/120 Terapeuta ocupacional o físico.wav";
+import TerapeutaRespiratorioMaleSpanish from "../../assets/audio/Spanish/male/121 Terapeuta respiratorio.wav";
+import BajePesoSinIntentarloMaleSpanish from "../../assets/audio/Spanish/male/122 Bajé de peso sin intentarlo.wav";
+import CosquilleoGargantaMaleSpanish from "../../assets/audio/Spanish/male/123 Cosquilleo en la garganta.wav";
+import SoloFatigaMaleSpanish from "../../assets/audio/Spanish/male/124 solo fatiga.wav";
+import DemasiadaLuzMaleSpanish from "../../assets/audio/Spanish/male/13 Demasiada luz.wav";
+import InterrupcionesMaleSpanish from "../../assets/audio/Spanish/male/14 Interrupciones.wav";
+import PerdiMisGafasMaleSpanish from "../../assets/audio/Spanish/male/15 Perdí mis gafas.wav";
+import NoFuncionaRotoMaleSpanish from "../../assets/audio/Spanish/male/16 No funciona o está roto.wav";
+import NecesitoMisGafasMaleSpanish from "../../assets/audio/Spanish/male/17 Necesito mis gafas.wav";
+import RevisarMiVisionMaleSpanish from "../../assets/audio/Spanish/male/18 Revisar mi visión.wav";
+import NoPuedoVerIzquierdaMaleSpanish from "../../assets/audio/Spanish/male/19 No puedo ver a la izquierda.wav";
+import SoloSecoIncomodoMaleSpanish from "../../assets/audio/Spanish/male/2 Solo seco o incómodo.wav";
+import NoPuedoVerDerechaMaleSpanish from "../../assets/audio/Spanish/male/20 No puedo ver a la derecha.wav";
+import DolorCabezaMaleSpanish from "../../assets/audio/Spanish/male/21 Dolor de cabeza.wav";
+import NecesitaBateriasMaleSpanish from "../../assets/audio/Spanish/male/22 Necesita baterías.wav";
+import RevisarMiAudicionMaleSpanish from "../../assets/audio/Spanish/male/23 Revisar mi audición.wav";
+import NecesitaCargarseMaleSpanish from "../../assets/audio/Spanish/male/24 Necesita cargarse.wav";
+import NecesitoMisAudifonosMaleSpanish from "../../assets/audio/Spanish/male/25 Necesito mis audífonos.wav";
+import PerdiMisAudifonosMaleSpanish from "../../assets/audio/Spanish/male/26 Perdí mis audífonos.wav";
+import EscribeloMaleSpanish from "../../assets/audio/Spanish/male/27 Escríbelo.wav";
+import SintomasAccidenteCerebrovascularMaleSpanish from "../../assets/audio/Spanish/male/28 Síntomas de un accidente cerebrovascular.wav";
+import BienOrEnOrdenMaleSpanish from "../../assets/audio/Spanish/male/29 Bien o en orden.wav";
+import SoloAlTragarMaleSpanish from "../../assets/audio/Spanish/male/3 Solo al tragar.wav";
+import UnPocoRaroMaleSpanish from "../../assets/audio/Spanish/male/30 Un poco raro.wav";
+import NoBienMaleSpanish from "../../assets/audio/Spanish/male/31 No bien.wav";
+import DeprimidoTristeMaleSpanish from "../../assets/audio/Spanish/male/32 Deprimido o triste.wav";
+import MuyDeprimidoMaleSpanish from "../../assets/audio/Spanish/male/33 Muy deprimido.wav";
+
+import PreocupadaCulpaMaleSpanish from "../../assets/audio/Spanish/male/35 Preocupada o con culpa.wav";
+import SinEsperanzaMaleSpanish from "../../assets/audio/Spanish/male/36 Sin esperanza.wav";
+import TardeNocheMaleSpanish from "../../assets/audio/Spanish/male/37 En la tarde o la noche.wav";
+import TuboAlimentacionRetiradaMaleSpanish from "../../assets/audio/Spanish/male/38 Tubo de alimentación retirada.wav";
+import ComerBeberMaleSpanish from "../../assets/audio/Spanish/male/39 Comer y beber.wav";
+import AlergiaMedicamentosMaleSpanish from "../../assets/audio/Spanish/male/4 Alergia a medicamentos.wav";
+import AlergiaAlimentariaMaleSpanish from "../../assets/audio/Spanish/male/40 Alergia alimentaria.wav";
+import HambreSedMaleSpanish from "../../assets/audio/Spanish/male/41 Con hambre o sed.wav";
+import NoComerEstoMaleSpanish from "../../assets/audio/Spanish/male/42 No comer esto.wav";
+import NoPermitidoComerBeberMaleSpanish from "../../assets/audio/Spanish/male/43 No se permite comer o beber .wav";
+import BandejaEquivocadaMaleSpanish from "../../assets/audio/Spanish/male/44 Bandeja equivocada.wav";
+import DietaEspecialMaleSpanish from "../../assets/audio/Spanish/male/45 Dieta especial.wav";
+import VegetarianaVeganaMaleSpanish from "../../assets/audio/Spanish/male/46 Vegetariana o vegana.wav";
+import SinLacteosMaleSpanish from "../../assets/audio/Spanish/male/47 Sin lácteos.wav";
+import KosherMaleSpanish from "../../assets/audio/Spanish/male/48 Kosher.wav";
+import HalalMaleSpanish from "../../assets/audio/Spanish/male/49 Halal.wav";
+import ReflujoMaleSpanish from "../../assets/audio/Spanish/male/5 Reflujo.wav";
+import SinGlutenMaleSpanish from "../../assets/audio/Spanish/male/50 Sin gluten.wav";
+import SinFrutosSecosMaleSpanish from "../../assets/audio/Spanish/male/51 Sin frutos secos.wav";
+import BajoSodioMaleSpanish from "../../assets/audio/Spanish/male/52 Bajo en sodio.wav";
+import ParaDiabeticosMaleSpanish from "../../assets/audio/Spanish/male/53 Para diabéticos.wav";
+import TexturaModificadaMaleSpanish from "../../assets/audio/Spanish/male/54 Textura modificada.wav";
+import NecesitoAyudaComerMaleSpanish from "../../assets/audio/Spanish/male/55 Necesito ayuda para comer.wav";
+import MovimientoMaleSpanish from "../../assets/audio/Spanish/male/56 Movimiento.wav";
+import ComunicacionPensamientoMaleSpanish from "../../assets/audio/Spanish/male/57 Comunicación o pensamiento.wav";
+import SinVozMaleSpanish from "../../assets/audio/Spanish/male/58 Sin voz.wav";
+import DificilEntenderMaleSpanish from "../../assets/audio/Spanish/male/59 Difícil de entender.wav";
+import TuboAlimentacionMaleSpanish from "../../assets/audio/Spanish/male/6 Tubo de alimentación.wav";
+import NoEncuentroPalabrasMaleSpanish from "../../assets/audio/Spanish/male/60 No encuentro las palabras.wav";
+import DificilHablarMaleSpanish from "../../assets/audio/Spanish/male/61 Difícil hablar.wav";
+import EstoyConfundidaMaleSpanish from "../../assets/audio/Spanish/male/62 Estoy confundida.wav";
+import SalenPalabrasEquivocadasMaleSpanish from "../../assets/audio/Spanish/male/63 Salen palabras equivocadas.wav";
+import NoSeDondeEstoyMaleSpanish from "../../assets/audio/Spanish/male/64 No sé dónde estoy.wav";
+import ProblemasMemoriaMaleSpanish from "../../assets/audio/Spanish/male/65 Problemas de memoria.wav";
+import DebilidadMaleSpanish from "../../assets/audio/Spanish/male/66 Debilidad.wav";
+import DebilUnLadoMaleSpanish from "../../assets/audio/Spanish/male/67 Débil de un lado.wav";
+import TorpeSinEquilibrioMaleSpanish from "../../assets/audio/Spanish/male/68 Torpe o sin equilibrio.wav";
+import ProblemasCaminarMaleSpanish from "../../assets/audio/Spanish/male/69 Problemas al caminar.wav";
+import NecesitaCambioMaleSpanish from "../../assets/audio/Spanish/male/7 Necesita cambio.wav";
+import SinPreocupacionesMaleSpanish from "../../assets/audio/Spanish/male/70 Sin preocupaciones .wav";
+import AlAcostarseMaleSpanish from "../../assets/audio/Spanish/male/71 Al acostarse.wav";
+import AlDormirMaleSpanish from "../../assets/audio/Spanish/male/72 Al dormir.wav";
+import AlCaminarMaleSpanish from "../../assets/audio/Spanish/male/73 Al caminar.wav";
+import AlTransferirReposicionarMaleSpanish from "../../assets/audio/Spanish/male/74 Al transferir o reposicionar.wav";
+import ConMovimientoMaleSpanish from "../../assets/audio/Spanish/male/75 Con movimiento.wav";
+import AlUsarBanoMaleSpanish from "../../assets/audio/Spanish/male/76 Al usar el baño.wav";
+import ConAzucarPresionSangreMaleSpanish from "../../assets/audio/Spanish/male/77 Con azúcar o presión en sangre.wav";
+import ConAlimentacionTuboMaleSpanish from "../../assets/audio/Spanish/male/78 Con alimentación por tubo.wav";
+import ConEstresEmocionMaleSpanish from "../../assets/audio/Spanish/male/79 Con estrés o emoción.wav";
+import SoloNauseasMaleSpanish from "../../assets/audio/Spanish/male/8 Solo náuseas.wav";
+import DespuesProcedimientoMaleSpanish from "../../assets/audio/Spanish/male/80 Después de un procedimiento.wav";
+import DesdeDerrameCerebralLesionMaleSpanish from "../../assets/audio/Spanish/male/81 Desde mi derrame cerebral o lesión .wav";
+import DesdeEnfermedadMaleSpanish from "../../assets/audio/Spanish/male/82 Desde la enfermedad.wav";
+import DesdeCaidaLesionMaleSpanish from "../../assets/audio/Spanish/male/83 Desde la caída o lesión.wav";
+import AlTragarMaleSpanish from "../../assets/audio/Spanish/male/84 Al tragar.wav";
+import AlComerBeberMaleSpanish from "../../assets/audio/Spanish/male/85 Al comer o beber.wav";
+import SiempreCronicoMaleSpanish from "../../assets/audio/Spanish/male/86 Siempre o crónico.wav";
+import BanoMaleSpanish from "../../assets/audio/Spanish/male/87 Baño.wav";
+import CamaMaleSpanish from "../../assets/audio/Spanish/male/88 Cama.wav";
+import ComidaMaleSpanish from "../../assets/audio/Spanish/male/89 Comida.wav";
+import BolsaColostomiaMaleSpanish from "../../assets/audio/Spanish/male/9 Bolsa de colostomía.wav";
+import BebidaMaleSpanish from "../../assets/audio/Spanish/male/90 Bebida.wav";
+import MedicamentosDolorMaleSpanish from "../../assets/audio/Spanish/male/91 Medicamentos para el dolor.wav";
+import ReposicionarMaleSpanish from "../../assets/audio/Spanish/male/92 Reposicionar.wav";
+import HieloMaleSpanish from "../../assets/audio/Spanish/male/93 Hielo.wav";
+import BolsaHieloMaleSpanish from "../../assets/audio/Spanish/male/94 Bolsa de hielo.wav";
+import AlmohadillaTermicaMaleSpanish from "../../assets/audio/Spanish/male/95 Almohadilla térmica.wav";
+import MantaAlmohadaMaleSpanish from "../../assets/audio/Spanish/male/96 Manta o almohada.wav";
+import TemperaturaHabitacionMaleSpanish from "../../assets/audio/Spanish/male/97 Temperatura de la habitación.wav";
+import PanueloMaleSpanish from "../../assets/audio/Spanish/male/98 Pañuelo.wav";
+import LucesMaleSpanish from "../../assets/audio/Spanish/male/99 Luces.wav";
+import Pesado_GruesoMale from "../../assets/audio/spanish/male/Pesado_Grueso (Heavy_Thick).wav";
+
+import CerebroCansadoMaleSpanish from "../../assets/audio/Spanish/male/Cerebro Cansado.wav";
+import ConActividadMentalMaleSpanish from "../../assets/audio/Spanish/male/Con actividad mental.wav";
+import DespuesComerMaleSpanish from "../../assets/audio/Spanish/male/Despues de comer (1).wav";
+import EmpeoraLargoDiaMaleSpanish from "../../assets/audio/Spanish/male/Empeora a lo largo del dia.wav";
+import NieblaMentalMaleSpanish from "../../assets/audio/Spanish/male/Niebla Mental.wav";
+import Pesado_GruesofeMaleSpanish from "../../assets/audio/Spanish/female/Pesado_Grueso (Heavy_Thick - female).mp3";
+import CanulaSpanishMale from "../../assets/audio/spanish/male/Cánula.wav";
+import PicazonSpanishMale from "../../assets/audio/spanish/male/Picazon.wav";
+import ApretadoSpanishMale from "../../assets/audio/spanish/male/Apretado.wav";
+import ValvulaParlanteSpanishMale from "../../assets/audio/spanish/male/Valvula Parlante.wav";
+import SintomasDeUnAccidenteCerebrovascularSpanishMale from "../../assets/audio/spanish/male/28 Síntomas de un accidente cerebrovascular.wav";
+import TraqueostomiaQuitadoSpanishMale from "../../assets/audio/spanish/male/Traqueostomia quitado.wav";
+import TuboDeAlimentacionQuitadoSpanishMale from "../../assets/audio/spanish/male/Tubo de alimentacion quitado.wav";
+import EsperarDemasiadoTiempoWaitedTooLongSpanishMale from "../../assets/audio/spanish/male/Esperar Demasiado Tiempo (Waited Too Long).wav";
+import MalToqueSpanishMale from "../../assets/audio/spanish/male/Mal toque.wav";
+import NecesitaCambioSpanishMale from "../../assets/audio/spanish/male/7 Necesita cambio.wav";
+import AnalisisDeSangreORayosXBloodworkXraySpanishMale from "../../assets/audio/spanish/male/Analisis de Sangre o Rayos X (Bloodwork_Xray).wav";
+import ArgumentoSpanishMale from "../../assets/audio/spanish/male/Argumento (argument).wav";
+import CaerseFallSpanishMale from "../../assets/audio/spanish/male/Caerse (Fall).wav";
+import SoloNauseasSpanishMale from "../../assets/audio/spanish/male/8 Solo náuseas.wav";
+import VomitingVomitosSpanishMale from "../../assets/audio/spanish/male/vomiting_vomitos.wav";
+import BocaSecaSpanishMale from "../../assets/audio/spanish/male/Boca seca.wav";
+import DemasiadoTooMuchSpanishMale from "../../assets/audio/spanish/male/demasiado_too much (Joaquin Vignoli).wav";
+import GruesaMucosaSpanishMale from "../../assets/audio/spanish/male/Gruesa Mucosa.wav";
+import ColorSpanishMale from "../../assets/audio/spanish/male/VO - Color.wav";
+
+import dressingchangeSpanishfeMale from "../../assets/audio/spanish/female/cambio de vendaje (dressing change).wav";
+import ConsalivaMaleSpanish from "../../assets/audio/spanish/male/1 Con saliva.wav";
+
+// male auido
+import WithSalivaMale from "../../assets/audio/English/male/1 With Saliva.mp3";
+import ToiletUrinalMale from "../../assets/audio/English/male/10 Toilet _ Urinal.mp3";
+import InsomniaMale from "../../assets/audio/English/male/11 Insomnia.mp3";
+import NoisyMale from "../../assets/audio/English/male/12 Noisy.mp3";
+import TooMuchLight from "../../assets/audio/English/male/13 Too Much Light.mp3";
+import InterruptionsMale from "../../assets/audio/English/male/14 Interruptions.mp3";
+import LostGlassesMale from "../../assets/audio/English/male/15 Lost Glasses.mp3";
+import NotWorkingOrBrokenMale from "../../assets/audio/English/male/16 Not Working or Broken.mp3";
+import NeedMyGlassesMale from "../../assets/audio/English/male/17 Need My Glasses.mp3";
+import CheckMyVisionMale from "../../assets/audio/English/male/18 Check My Vision.mp3";
+import JustDryOrUncomfortableMale from "../../assets/audio/English/male/2 Just Dry or Uncomfortable.mp3";
+import JustSwallowingMale from "../../assets/audio/English/male/3 Just Swallowing.mp3";
+import MedicationAllergyMale from "../../assets/audio/English/male/4 Medication Allergy.mp3";
+import RefluxMale from "../../assets/audio/English/male/5 Reflux.mp3";
+import FeedingTubeMale from "../../assets/audio/English/male/6 Feeding Tube.mp3";
+import DressingChangeMale from "../../assets/audio/English/male/Dressing Change.mp3";
+import CoughingMale from "../../assets/audio/English/male/CoughingMale.mp3";
+
+import Nausea_VomitingMale from "../../assets/audio/English/male/Nausea _ Vomiting (male).mp3";
+import frustratedMale from "../../assets/audio/English/male/frustrated.mp3";
+
+import Doormale from "../../assets/audio/English/male/Door (male eng).mp3";
+import NeedStrawmale from "../../assets/audio/English/male/Need Straw (male eng).mp3";
+
+import withfoodSpanishmale from "../../assets/audio/English/male/con comida (with food).mp3";
+import withfoodEnglishhmale from "../../assets/audio/English/male/With Food.mp3";
+import SoloAlTragarSpanishMale from "../../assets/audio/English/male/3 Solo al tragar.mp3";
+import DemasiadoGrandesSpanishMale from "../../assets/audio/English/male/Demasiado Grandes male.mp3";
+import DifferentTimesMale from "../../assets/audio/English/male/different times.mp3";
+import ScheduledPainMedsMale from "../../assets/audio/English/male/scheduled pain meds.mp3";
+
+
+import SpreadOutMale from "../../assets/audio/English/male/spread out.mp3";
+
+import CrushedMale from "../../assets/audio/English/male/crushed.mp3";
+import LiquidMale from "../../assets/audio/English/male/liquid.mp3";
+import WholeMale from "../../assets/audio/English/male/whole.mp3";
+import TooBigMale from "../../assets/audio/English/male/too big.mp3";
+import WhiteMale from "../../assets/audio/English/male/White (male Eng).mp3";
+import YellowMale from "../../assets/audio/English/male/yellow (male eng).mp3";
+import BrownMale from "../../assets/audio/English/male/Brown (male eng).mp3";
+import GreenMale from "../../assets/audio/English/male/Green (male eng).mp3";
+import TroubleWritingMale from "../../assets/audio/English/male/Trouble Writing (male).mp3";
+import TroubleReadingMale from "../../assets/audio/English/male/Trouble Reading (male).mp3";
+import TheSameMale from "../../assets/audio/English/male/the same.mp3";
+import GettingWorseMale from "../../assets/audio/English/male/Getting worse.mp3";
+import GettingBetterMale from "../../assets/audio/English/male/getting better.mp3";
+
+import SwellingMale from "../../assets/audio/English/male/Swelling.mp3";
+import StitchesStaplesMale from "../../assets/audio/English/male/Stitches_Staples.mp3";
+import InfectionMale from "../../assets/audio/English/male/Infection.mp3";
+
+import DoubleMale from "../../assets/audio/English/male/double.mp3";
+import BlurryMale from "../../assets/audio/English/male/blurry.mp3";
+import CapMale from "../../assets/audio/English/male/cap.mp3";
+import SpeakingValveMale from "../../assets/audio/English/male/speaking valve.mp3";
+import ItchyMale from "../../assets/audio/English/male/itchy.mp3";
+import TightMale from "../../assets/audio/English/male/tight.mp3";
+import TrachRemovedMale from "../../assets/audio/English/male/Trach Removed.mp3";
+
+import WaitedTooLongMale from "../../assets/audio/English/male/Waited too long.mp3";
+import BadTouchMale from "../../assets/audio/English/male/Bad Touch (male).mp3";
+import BloodworkXRayMale from "../../assets/audio/English/male/Bloodwork_X-Ray.mp3";
+
+import ArgumentMale from "../../assets/audio/English/male/Argument (male eng).mp3";
+import FallMale from "../../assets/audio/English/male/Fall.mp3";
+
+
+import LeakingMale from "../../assets/audio/English/male/Leaking (male English).mp3";
+import RemoveMale from "../../assets/audio/English/male/remove.mp3";
+import ThickMucusMale from "../../assets/audio/English/male/Thick Mucus.mp3";
+import ColorMale from "../../assets/audio/English/male/Color (male Eng).mp3";
+import TooMuchMale from "../../assets/audio/English/male/Too Much.wav";
+import DryMouthMale from "../../assets/audio/English/male/Dry mouth.mp3";
+
+import WholeCrushedOrLiquidMale from "../../assets/audio/English/male/whole, crushed, or liquid.mp3";
+
+import TimingMale from "../../assets/audio/English/male/timing.mp3";
+import TooManyMale from "../../assets/audio/English/male/too many.mp3";
+import HardToSwallowMale from "../../assets/audio/English/male/hard to swallow.mp3";
+
+import SideEffectsMale from "../../assets/audio/English/male/side effects.mp3";
+
+import RingingMale from "../../assets/audio/English/male/ringing.mp3";
+import CantHearMale from "../../assets/audio/English/male/can't hear.mp3";
+import DizzyMale from "../../assets/audio/English/male/Dizzy.mp3";
+import EarPainMale from "../../assets/audio/English/male/Ear pain.mp3";
+import PluggedMale from "../../assets/audio/English/male/plugged.mp3";
+import SoreThroatMale from "../../assets/audio/English/male/Sore Throat (male eng).mp3";
+import AchyMale from "../../assets/audio/English/male/Achy (male eng).mp3";
+import ChillsMale from "../../assets/audio/English/male/Chills (male eng).mp3";
+import FeverMale from "../../assets/audio/English/male/Fever (male eng).mp3";
+import AppetiteEnglishMale from "../../assets/audio/English/male/appetite.mp3";
+import SadMale from "../../assets/audio/English/male/sad.mp3";
+import ExhaustedMale from "../../assets/audio/English/male/exhausted.mp3";
+import AngryMale from "../../assets/audio/English/male/angry.mp3";
+import ScaredMale from "../../assets/audio/English/male/scared.mp3";
+import DepressedMale from "../../assets/audio/English/male/Depressed.mp3";
+
+
+import AnxiousMale from "../../assets/audio/English/male/anxious.mp3";
+import GriefMale from "../../assets/audio/English/male/Grief (Replace the one in app it is cut off).mp3";
+
+import CPAPBiPAPMale from "../../assets/audio/English/male/CPAP_BiPAP.mp3";
+import HeavyThickMale from "../../assets/audio/English/male/Heavy_Thick.mp3";
+import BreathingTreatmentMale from "../../assets/audio/English/male/breathing treatment.mp3";
+import MucousOrSecretionsMale from "../../assets/audio/English/male/mucous or secretions.mp3";
+import CongestedRunnyNoseMale from "../../assets/audio/English/male/Congested _ Runny Nose (male eng).mp3";
+
+import GasOrBloatingMale from "../../assets/audio/English/male/gas or bloating.mp3";
+
+import BedPanMale from "../../assets/audio/English/male/bed pan.mp3";
+
+import SmellOfFoodMale from "../../assets/audio/English/male/Smell of Food (male eng).mp3";
+import TasteChangesMale from "../../assets/audio/English/male/Taste Changes (male).mp3";
+import DontWantMale from "../../assets/audio/English/male/don't want.mp3";
+import FeelFullMale from "../../assets/audio/English/male/Feel Full.mp3";
+import FamilySupportMale from "../../assets/audio/English/male/family support.mp3";
+import StrokePreventionMale from "../../assets/audio/English/male/stroke prevention.mp3";
+import HomeSetupMale from "../../assets/audio/English/male/home set-up.mp3";
+import DrivingMale from "../../assets/audio/English/male/driving.mp3";
+import CommunicationMale from "../../assets/audio/English/male/communication.mp3";
+import TherapyMale from "../../assets/audio/English/male/therapy.mp3";
+import WillIGetBetterMale from "../../assets/audio/English/male/Will I get better_.mp3";
+import DischargeMale from "../../assets/audio/English/male/discharge.mp3";
+import WhatHappenedToMeMale from "../../assets/audio/English/male/What Happened to Me_ (male eng).mp3";
+import AlcoholMale from "../../assets/audio/English/male/alcohol.mp3";
+
+import RaisingChildrenMale from "../../assets/audio/English/male/raising children.mp3";
+import FamilyMale from "../../assets/audio/English/male/family.mp3";
+import SexMale from "../../assets/audio/English/male/sex.mp3";
+import CommunityActivityMale from "../../assets/audio/English/male/community activity.mp3";
+import WorkMale from "../../assets/audio/English/male/work.mp3";
+import HouseholdActivityMale from "../../assets/audio/English/male/household activity.mp3";
+import FollowUpAppointmentsMale from "../../assets/audio/English/male/follow up appointments.mp3";
+import MoneyMale from "../../assets/audio/English/male/money.mp3";
+import Trach1EnglishMale from "../../assets/audio/English/male/trach.mp3";
+import FeedingTubeEnglishMale from "../../assets/audio/English/male/6 Feeding Tube.mp3";
+import WoundIncision1EnglishMale from "../../assets/audio/English/male/wound_incision.mp3";
+import MucousOrSecretionsEnglishMale from "../../assets/audio/English/male/mucous or secretions.mp3";
+import WoundIncisionEnglishMale from "../../assets/audio/English/male/wound_incision.mp3";
+import IllnessEnglishMale from "../../assets/audio/English/male/illness.mp3";
+import SomethingHappenedEnglishMale from "../../assets/audio/English/male/Something Happened .mp3";
+import EmotionsOrFeelingsEnglishMale from "../../assets/audio/English/male/Emotions or feelings - edited.mp3";
+import VisionEnglishMale from "../../assets/audio/English/male/vision.mp3";
+import HearingEnglishMale from "../../assets/audio/English/male/hearing.mp3";
+import juststartedMale from "../../assets/audio/English/male/just started.mp3";
+import SomethingElseFemale from "../../assets/audio/English/male/Something Else (male).mp3";
+import ColostomyOstomyBagMale from "../../assets/audio/English/male/09 Colostomy or Ostomy Bag.mp3";
+import HopelessMale from "../../assets/audio/English/male/36 Hopeless.mp3";
+import TVMale from "../../assets/audio/English/male/100 TV.mp3";
+import MusicMale from "../../assets/audio/English/male/101 Music.mp3";
+import DenturesMale from "../../assets/audio/English/male/102 Dentures.mp3";
+import ChangeClothesMale from "../../assets/audio/English/male/103 Change Clothes.wav";
+import AdjustClothesMale from "../../assets/audio/English/male/104 Adjust Clothes.mp3";
+import ChangeUnderwearMale from "../../assets/audio/English/male/105 Change Underwear.mp3";
+import NeedSocksMale from "../../assets/audio/English/male/106 Need Socks.mp3";
+import OpenForMeMale from "../../assets/audio/English/male/107 Open for Me.wav";
+import PhoneTabletMale from "../../assets/audio/English/male/108 Phone _ Tablet.wav";
+import PlugInPhoneTabletMale from "../../assets/audio/English/male/109 Plug in Phone or Tablet.mp3";
+
+import ChargeHearingAidsMale from "../../assets/audio/English/male/110 Charge Hearing Aids.mp3";
+import InhalerBreathingTreatmentMale from "../../assets/audio/English/male/111 Inhaler or Breathing Treatment.mp3";
+import BloodSugarMale from "../../assets/audio/English/male/112 Blood Sugar.mp3";
+import BloodPressureMale from "../../assets/audio/English/male/113 Blood Pressure.mp3";
+import HelmetMale from "../../assets/audio/English/male/114 Helmet.mp3";
+import CervicalCollarMale from "../../assets/audio/English/male/115 Cervical Collar.mp3";
+import NurseMale from "../../assets/audio/English/male/116 Nurse.mp3";
+import DoctorMale from "../../assets/audio/English/male/117 Doctor.mp3";
+import SpeechTherapistMale from "../../assets/audio/English/male/119 Speech Therapist.mp3";
+
+import OccupationalPhysicalTherapistMale from "../../assets/audio/English/male/120 Occupational or Physical Therapist.mp3";
+import RespiratoryTherapistMale from "../../assets/audio/English/male/121 Respiratory Therapist.mp3";
+import TickleInMyThroatMale from "../../assets/audio/English/male/123 Tickle In My Throat.mp3";
+
+import CantSeeLeftMale from "../../assets/audio/English/male/19 Can’t See Left.mp3";
+import CantSeeRightMale from "../../assets/audio/English/male/20 Can’t See Right.mp3";
+import HeadacheMale from "../../assets/audio/English/male/21 Headache.mp3";
+import NeedBatteriesMale from "../../assets/audio/English/male/22 Need Batteries.mp3";
+import CheckMyHearingMale from "../../assets/audio/English/male/23 Check My Hearing.mp3";
+import NeedsChargingMale from "../../assets/audio/English/male/24 Needs Charging.mp3";
+import NeedMyHearingAidsMale from "../../assets/audio/English/male/25 Need My Hearing Aids.mp3";
+import WriteItDownMale from "../../assets/audio/English/male/27 Write it Down.mp3";
+import StrokeSymptomsMale from "../../assets/audio/English/male/28 Stroke Symptoms.mp3";
+import GoodOrOkayMale from "../../assets/audio/English/male/29 Good or Okay.mp3";
+
+import ALittleOffMale from "../../assets/audio/English/male/30 A little off.wav";
+import NotGoodMale from "../../assets/audio/English/male/31 Not good.mp3";
+import LowOrSadMale from "../../assets/audio/English/male/32 Low or Sad.mp3";
+import VeryDownMale from "../../assets/audio/English/male/33 Very Down.mp3";
+import WorriedGuiltyMale from "../../assets/audio/English/male/35 Worried or Guilty.mp3";
+import EveningNightMale from "../../assets/audio/English/male/37 Evening _ Night.mp3";
+import FeedingTubeRemovedMale from "../../assets/audio/English/male/38 Feeding Tube Removed.mp3";
+import EatingAndDrinkingMale from "../../assets/audio/English/male/39 Eating and Drinking.mp3";
+
+import FoodAllergyMale from "../../assets/audio/English/male/40 Food Allergy.mp3";
+import HungryThirstyMale from "../../assets/audio/English/male/41 Hungry or Thirsty.mp3";
+import DontEatThisMale from "../../assets/audio/English/male/42 Don’t Eat This.mp3";
+import NotAllowedToEatOrDrinkMale from "../../assets/audio/English/male/43 Not Allowed to Eat or Drink.mp3";
+import WrongTrayMale from "../../assets/audio/English/male/44 Wrong Tray.mp3";
+import SpecialDietMale from "../../assets/audio/English/male/45 Special Diet.mp3";
+import VegetarianVeganMale from "../../assets/audio/English/male/46 Vegetarian _ Vegan.mp3";
+import NoDairyMale from "../../assets/audio/English/male/47 No Dairy.mp3";
+import KosherMale from "../../assets/audio/English/male/48 Kosher.mp3";
+import HalalMale from "../../assets/audio/English/male/49 Halal.mp3";
+
+import GlutenFreeMale from "../../assets/audio/English/male/50 Gluten-Free.mp3";
+import NutFreeMale from "../../assets/audio/English/male/51 Nut-Free.mp3";
+import LowSodiumMale from "../../assets/audio/English/male/52 Low Sodium.mp3";
+import DiabeticCarbControlledMale from "../../assets/audio/English/male/53 Diabetic _ Carb Controlled.wav";
+import TextureModifiedMale from "../../assets/audio/English/male/54 Texture Modified.mp3";
+import MovementMale from "../../assets/audio/English/male/56 Movement.mp3";
+import CommunicationThinkingMale from "../../assets/audio/English/male/57 Communication or Thinking.mp3";
+import NoVoiceMale from "../../assets/audio/English/male/58 No Voice.mp3";
+import HardToUnderstandYouMale from "../../assets/audio/English/male/59 Hard to Understand You.wav";
+
+import CantFindMyWordsMale from "../../assets/audio/English/male/60 Can’t Find My Words.mp3";
+import HardToTalkMale from "../../assets/audio/English/male/61 Hard to Talk.mp3";
+import ImConfusedMale from "../../assets/audio/English/male/62 I’m Confused.mp3";
+import WrongWordsComeOutMale from "../../assets/audio/English/male/63 Wrong Words Come Out.wav";
+import DontKnowWhereIAmMale from "../../assets/audio/English/male/64 Don’t Know Where I Am.mp3";
+import MemoryTroubleMale from "../../assets/audio/English/male/65 Memory Trouble.mp3";
+import WeaknessMale from "../../assets/audio/English/male/66 Weakness.mp3";
+import WeakOnOneSideMale from "../../assets/audio/English/male/67 Weak on One Side.mp3";
+import ClumsyOffBalanceMale from "../../assets/audio/English/male/68 Clumsy _ Off Balance.mp3";
+import NeedChangedMale from "../../assets/audio/English/male/7 Need Changed.mp3";
+import NoConcernsMale from "../../assets/audio/English/male/70 No Concerns.mp3";
+import WithTransferRepositioningMale from "../../assets/audio/English/male/74 With Transfer _ Repositioning.mp3";
+import WithMovementMale from "../../assets/audio/English/male/75 With Movement.mp3";
+import WithTubeFeedMale from "../../assets/audio/English/male/78 With Tube Feed.mp3";
+import WithStressEmotionMale from "../../assets/audio/English/male/79 With Stress or Emotion.mp3";
+import AfterProcedureMale from "../../assets/audio/English/male/80 After Procedure.mp3";
+import SinceIllnessMale from "../../assets/audio/English/male/82 Since Illness.mp3";
+import AlwaysChronicMale from "../../assets/audio/English/male/86 Always _ Chronic.mp3";
+import BathroomMale from "../../assets/audio/English/male/87 Bathroom.mp3";
+import BedMale from "../../assets/audio/English/male/88 Bed.wav";
+import FoodMale from "../../assets/audio/English/male/89 Food.wav";
+import DrinkMale from "../../assets/audio/English/male/90 Drink.mp3";
+import PainMedsMale from "../../assets/audio/English/male/91 Pain Meds.mp3";
+import RepositionMale from "../../assets/audio/English/male/92 Reposition.mp3";
+import IceMale from "../../assets/audio/English/male/93 Ice.mp3";
+import IcePackMale from "../../assets/audio/English/male/94 Ice Pack.mp3";
+import BlanketPillowMale from "../../assets/audio/English/male/96 Blanket or Pillow.mp3";
+import RoomTemperatureMale from "../../assets/audio/English/male/97 Room Temperature.mp3";
+import TissueMale from "../../assets/audio/English/male/98 Tissue.mp3";
+import LightsMale from "../../assets/audio/English/male/99 Lights.mp3";
+import AfterMealsMale from "../../assets/audio/English/male/After Meals.mp3";
+import BrainFogMale from "../../assets/audio/English/male/Brain Fog.mp3";
+import GetsWorseThroughTheDayMale from "../../assets/audio/English/male/Gets Worse Through the Day.mp3";
+import HeatingPadMale from "../../assets/audio/English/male/Heating Pad.mp3";
+import LostWeightWithoutTryingMale from "../../assets/audio/English/male/Lost Weight Without Trying.mp3";
+import NeedHelpEatingMale from "../../assets/audio/English/male/Need Help Eating.wav";
+import NursingAideMale from "../../assets/audio/English/male/Nursing Aide.mp3";
+import SinceFallInjuryMale from "../../assets/audio/English/male/Since Fall or Injury.mp3";
+import SinceMyStrokeInjuryMale from "../../assets/audio/English/male/Since My Stroke or Injury.mp3";
+import TroubleWalkingMale from "../../assets/audio/English/male/Trouble Walking.mp3";
+import WhenEatingDrinkingMale from "../../assets/audio/English/male/When Eating _ Drinking.wav";
+import WhenLyingDownMale from "../../assets/audio/English/male/When Lying Down.mp3";
+import WhenSleepingMale from "../../assets/audio/English/male/When Sleeping.wav";
+import WhenSwallowingMale from "../../assets/audio/English/male/When Swallowing.wav";
+import WhenToiletingMale from "../../assets/audio/English/male/When Toileting.mp3";
+import WhenWalkingMale from "../../assets/audio/English/male/When Walking.mp3";
+import WithMentalActivityMale from "../../assets/audio/English/male/With Mental Activity.mp3";
+
+import LostHearingAidsMale from "../../assets/audio/English/male/26 Lost Hearing Aids.mp3";
+import JustFatigueMale from "../../assets/audio/English/male/Just Fatigue.mp3";
+import WithPillsMale from "../../assets/audio/English/male/With Pills.wav";
+import WithDrinksMale from "../../assets/audio/English/male/With Drinks.wav";
+import ConstipationMale from "../../assets/audio/English/male/Constipation(Nausea).wav";
+
+import Lapuertemale from "../../assets/audio/English/male/VO - La puerte.wav";
+import NecesitounaPajitaSpanishmale from "../../assets/audio/English/male/VO - Necesito una Pajita.wav";
+import BlancoSpanishMale from "../../assets/audio/English/male/Blanco.wav";
+import AmarilloSpanishMale from "../../assets/audio/English/male/Amarillo.wav";
+import MarronSpanishMale from "../../assets/audio/English/male/Marron.wav";
+import VerdeSpanishMale from "../../assets/audio/English/male/Verde.wav";
+import AplastadoSpanishMale from "../../assets/audio/English/male/Aplastado.wav";
+import EnteroSpanishMale from "../../assets/audio/English/male/Entero.wav";
+import AlergiaAlimentariaSpanishMale from "../../assets/audio/English/male/40 Alergia alimentaria.wav";
+import DificultadParaEscribirSpanishMale from "../../assets/audio/English/male/VO -  Dificultad para Escribir.wav";
+import DificultadParaLeerSpanishMale from "../../assets/audio/English/male/VO - Dificultad para leer.wav";
+import RepartidosEnElTiempoSpanishMale from "../../assets/audio/English/male/Repartidos en el tiempo.wav";
+import TiemposDiferentesDifferentTimesSpanishMale from "../../assets/audio/English/male/tiempos diferentes_different times(Joaquin Vignoli).wav";
+import MedicamentosParaElDolorProgramadosScheduledPainMedsSpanishMale from "../../assets/audio/English/male/medicamentos para el dolor programados_scheduled pain meds (Joaquin Vignoli).wav";
+import WithFoodAndDrinkConComidaYBebidaSpanishMale from "../../assets/audio/English/male/with food and drink_con comida y bebida.wav";
+import LiquidoSpanishMale from "../../assets/audio/English/male/liquido.m4a";
+import WithFoodAndDrinksMale from "../../assets/audio/English/male/With Food and Drinks_com.wav";
+import MaloSpanishMale from "../../assets/audio/English/male/Malo.wav";
+import EstaBienSpanishMale from "../../assets/audio/English/male/Esta bien.wav";
+import BuenoSpanishMale from "../../assets/audio/English/male/Bueno (Joaquin Vignoli).wav";
+import GettingWorseEmpeorandoSpanishMale from "../../assets/audio/English/male/Gets Worse Through the Day(male).wav";
+import GettingBetterMejorandoSpanishMale from "../../assets/audio/English/male/getting better_mejorando.wav";
+import UpAndDownArribaYAbajoSpanishMale from "../../assets/audio/English/male/up and down_arriba y abajo.wav";
+import NoSeSpanishMale from "../../assets/audio/English/male/VO - No se.wav";
+import LoMismoSpanishMale from "../../assets/audio/English/male/Lo mismo.wav";
+import GoodMale from "../../assets/audio/English/male/Good.wav";
+import UpAndDownMale from "../../assets/audio/English/male/Upanddown1_com.wav";
+import BadMale from "../../assets/audio/English/male/Bad.wav";
+import OkayMale from "../../assets/audio/English/male/Okay.wav";
+import CambioDeVendajeChangeDressingSpanishMale from "../../assets/audio/English/male/Cambio de vendaje (Change Dressing).wav";
+import HinchazonSwellingSpanishMale from "../../assets/audio/English/male/Hinchazon (Swelling).wav";
+import PuntadasGrapasStitchesStaplesSpanishMale from "../../assets/audio/English/male/Puntadas_Grapas (Stitches_Staples).wav";
+import InfeccionInfectionSpanishMale from "../../assets/audio/English/male/Infeccion (infection).wav";
+import ReposicionarSpanishMale from "../../assets/audio/English/male/92 Reposicionar.wav";
+import BlurryBorrosoSpanishMale from "../../assets/audio/English/male/blurry_borroso.wav";
+import DoubleDobleSpanishMale from "../../assets/audio/English/male/double_doble.wav";
+import CateterSpanishMale from "../../assets/audio/English/male/Cateter.wav";
+import MuyPocoOConPocaFrecuenciaSpanishMale from "../../assets/audio/English/male/Muy poco o con poca frecuencia.wav";
+import UrgencyUrgenciaSpanishMale from "../../assets/audio/English/male/urgency_urgencia.wav";
+import FrequentFrequenteSpanishMale from "../../assets/audio/English/male/frequent_frequente.wav";
+import FrequentMale from "../../assets/audio/English/male/Frequent.wav";
+import VeryLittleOrInfrequentMale from "../../assets/audio/English/male/Very Little or Infrequent.wav";
+import UrgencyMale from "../../assets/audio/English/male/Urgency.wav";
+import GoteandoLeakingSpanishMale from "../../assets/audio/English/male/Goteando (Leaking).wav";
+import QuitarRemoveSpanishMale from "../../assets/audio/English/male/Quitar_Remove 2.wav";
+import JustNauseaMale from "../../assets/audio/English/male/8 Just Nausea.mp3";
+import VomitingMale from "../../assets/audio/English/male/Vomiting_com.wav";
+import InformationMale from "../../assets/audio/English/male/Information.wav";
+import TooLittleMale from "../../assets/audio/English/male/Too Little.wav";
+import DolorDeOidoEarPainSpanishMale from "../../assets/audio/English/male/Dolor de Oido (Ear Pain).wav";
+import WithActivityHowOftenMale from "../../assets/audio/English/male/With Activity(How Often).wav";
+import WakeUpTiredMale from "../../assets/audio/English/male/Wake Up Tired.wav";
+import TroubleSleepingMale from "../../assets/audio/English/male/Trouble Sleeping.wav";
+import AllDayFatigueMale from "../../assets/audio/English/male/All Day(Fatigue).wav";
+import BrainTiredMale from "../../assets/audio/English/male/Brain Tired.mp3";
+import MoreThanUsualMale from "../../assets/audio/English/male/More Than Usual_com.wav";
+import ChokingBreathingProblemsMale from "../../assets/audio/English/male/Choking(Breathing Problems)_com.wav";
+import ChestPainMale from "../../assets/audio/English/male/Chest Pain2.wav";
+import ShortnessOfBreathMale from "../../assets/audio/English/male/Shortness of Breath.wav";
+import BloodUrinationMale from "../../assets/audio/English/male/Blood(Urination).wav";
+import DiarrheaMale from "../../assets/audio/English/male/Diarrhea.wav";
+import BreathingOrCoughingEnglishMale from "../../assets/audio/English/male/Breathing or Coughing_com.wav";
+import NoConcernsEnglishMale from "../../assets/audio/English/male/70 No Concerns.mp3";
+import PainUrinationEnglishMale from "../../assets/audio/English/male/Pain(Urination)_com.wav";
+import CommunicationThinkingEnglishMale from "../../assets/audio/English/male/57 Communication or Thinking.mp3";
+import MovementEnglishMale from "../../assets/audio/English/male/56 Movement.mp3";
+import MedicationEnglishMale from "../../assets/audio/English/male/Medication_com.wav";
+import EatingAndDrinkingEnglishMale from "../../assets/audio/English/male/39 Eating and Drinking.mp3";
+import FatigueEnglishMale from "../../assets/audio/English/male/Fatigue_com.wav";
+import NauseaEnglishMale from "../../assets/audio/English/male/Nausea(Concerns page 2).wav";
+import UrinationEnglishMale from "../../assets/audio/English/male/Urination.wav";
+import BowelsEnglishMale from "../../assets/audio/English/male/Bowels_com.wav";
+import SwallowingEnglishMale from "../../assets/audio/English/male/Swallowing_com.wav";
+import WithMedicationMale from "../../assets/audio/English/male/With Medication(How Often).wav";
+import WithActivityMale from "../../assets/audio/English/male/With Activity(How Often).wav";
+import MorningMale from "../../assets/audio/English/male/Morning.wav";
+import AllDayMale from "../../assets/audio/English/male/All Day(Fatigue).wav";
+import ComesAndGoesMale from "../../assets/audio/English/male/Comes and Goes.wav";
+import MildMale from "../../assets/audio/English/male/Mild Male.wav";
+import ModerateMale from "../../assets/audio/English/male/Moderate Male.wav";
+import NoPainMale from "../../assets/audio/English/male/No Pain Male.wav";
+import SevereMale from "../../assets/audio/English/male/Severe Male.wav";
+import VerySevereMale from "../../assets/audio/English/male/Very Severe Male.wav";
+import SpasmingMale from "../../assets/audio/English/male/Spasming.wav";
+import NumborTingling_comMale from "../../assets/audio/English/male/Numb or Tingling_com.wav";
+import SharporStabbing_comMale from "../../assets/audio/English/male/Sharp or Stabbing_com.wav";
+import AchingorDull_comMale from "../../assets/audio/English/male/Aching or Dull_com.wav";
+import BurningMale from "../../assets/audio/English/male/Burning(Urination)_com.wav";
+import SqueezingTightMale from "../../assets/audio/English/male/Squeezing or Tight_com.wav";
+import BrainTiredmale from "../../assets/audio/English/male/Brain Tired.mp3";
+import BreathingTreatmentmale from "../../assets/audio/English/male/Breathing Treatment.wav";
+
 export {
   // Female English
   Abdomen,
