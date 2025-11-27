@@ -507,11 +507,11 @@ import YellowFemale from "../../assets/audio/English/newFemaleEnglish/Yellow .mp
 // _ files
 import bedPanFemale from "../../assets/audio/English/newFemaleEnglish/_Bed pan.mp3";
 // yes no
-import YesFemale from "../../assets/audio/English/newFemaleEnglish/Yes.mp3";
+import YesFemale from "../../assets/audio/English/newFemaleEnglish/YesMale.mp3";
 import YesFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/si (yes).mp3";
 import NoFemale from "../../assets/audio/English/newFemaleEnglish/No.mp3";
 import NoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/No_no.wav";
-import YesMale from "../../assets/audio/English/newFemaleEnglish/YesMale.wav";
+import YesMale from "../../assets/audio/English/newFemaleEnglish/Yes.mp3";
 import YesSpanishMale from "../../assets/audio/English/newFemaleEnglish/yes_si-male.wav";
 import MaybeFemale from "../../assets/audio/English/newFemaleEnglish/Maybe.mp3";
 
