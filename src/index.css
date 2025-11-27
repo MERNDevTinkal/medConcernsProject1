@@ -587,7 +587,7 @@ input[type="number"]::-webkit-outer-spin-button {
 @media (orientation: landscape) {
   .main-wrapper {
     padding-bottom: 60px;
-    padding-top: 0;
+    padding-top: 60px;
   }
 }
 
@@ -941,7 +941,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .decision-cards div.flex.items-center p.font-medium {
-    font-size: 18px;
+    font-size: 30px;
   }
 
   .decision-cards .concrn-icn {
