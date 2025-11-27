@@ -81,25 +81,17 @@ const playAnyAudio = (audioFile) => {
       reject(new Error('Tap screen to enable audio'));
       return;
     }
-
     const audio = new Audio(audioFile);
     currentAudio = audio;
-
-    // CRITICAL for iOS
     audio.setAttribute('playsinline', '');
     audio.setAttribute('webkit-playsinline', '');
-
     audio.preload = 'auto';
-
     let played = false;
     let resolved = false;
-
     const playNow = () => {
       if (played) return;
       played = true;
-
       const promise = audio.play();
-
       if (promise !== undefined) {
         promise
           .then(() => {
@@ -135,10 +127,8 @@ const playAnyAudio = (audioFile) => {
         reject(new Error('Audio file error'));
       }
     };
-
     // Load the audio
     audio.load();
-
     setTimeout(() => {
       if (!played && audio.readyState >= 2) {
         playNow();

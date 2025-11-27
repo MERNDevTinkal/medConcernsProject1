@@ -3,8 +3,9 @@ import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import emotionsImg from "../../assets/images/emotion-img-02.png";
 import skipArrow from "../../assets/images/skip-arrow.svg";
-
+import { useNavigate } from "react-router-dom";
 function DepressionScreener() {
+  const navigate = useNavigate();
   return (
     <>
       <Header />
@@ -14,11 +15,11 @@ function DepressionScreener() {
             Do you want to answer questions about depression?
           </h3>
           <ul className="depression-list">
-            <li className="depression-item">
+            <li className="depression-item" onClick={() => { navigate("/feelOptions/1") }} >
               <img src={emotionsImg} alt="" />
               <span>Start Depression Screener</span>
             </li>
-            <li className="depression-item">
+            <li className="depression-item" onClick={() => { navigate("/feeling-body") }}>
               <img src={skipArrow} alt="" />
               <span>Skip Screening Question</span>
             </li>
