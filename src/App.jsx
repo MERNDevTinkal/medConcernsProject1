@@ -73,12 +73,10 @@ function App() {
     if ((isIOS || isAndroid) && shouldForceLandscape) {
       document.body.classList.add("force-landscape");
       document.body.classList.remove("no-landscape");
-
       // Apply landscape immediately using CSS
       const applyInstantLandscape = () => {
         const viewport = document.querySelector('meta[name="viewport"]');
         const isPortrait = window.innerHeight > window.innerWidth;
-
         if (isPortrait) {
           document.body.classList.add('portrait-forced-to-landscape');
           document.body.classList.remove('landscape-natural');
@@ -120,7 +118,6 @@ function App() {
     }
   }, [location.pathname]);
   return (
-    // <Router>
     <>
       {" "}
       <ToastContainer
