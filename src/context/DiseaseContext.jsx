@@ -51,8 +51,6 @@ export const GlobalProvider = ({ children }) => {
     const updatedList = currentList.slice(0, -1);
     updateDisease("summaryList", updatedList, true);
   };
-
-
   const addOrUpdateSummary = (routeKey, newDataArray) => {
     setDiseases((prev) => {
       const currentList = Array.isArray(prev.summaryList)
@@ -126,10 +124,6 @@ export const GlobalProvider = ({ children }) => {
       return updated;
     });
   };
-
-
-
-
   return (
     <GlobalContext.Provider
       value={{

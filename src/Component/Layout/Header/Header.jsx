@@ -329,7 +329,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
             </h2>
             <div style={{ cursor: "pointer" }}>
               {(location.pathname === "/introduction" ||
-                location.pathname !== "/depression-screener" ||
                 location.pathname === "/howoften" ||
                 location.pathname === "/new-problem" ||
                 location.pathname === "/emotions" ||

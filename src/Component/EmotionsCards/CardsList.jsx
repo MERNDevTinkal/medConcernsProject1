@@ -37,12 +37,10 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
                     ? item?.femaleEnglish
                     : item?.maleEnglish
     );
-    const datevalue = new Date();
     const isConcern = Cookies.get("is_concern");
     const prefix = isConcern && isConcern?.includes("true_")
-      ? isConcern + "/" + mainpath + "-" + datevalue
-      : mainpath + "-" + datevalue;
-
+      ? isConcern + "/" + mainpath
+      : mainpath;
     addOrUpdateSummary(prefix, [item]);
     navigate(path);
     isSpeakingRef.current = false;
