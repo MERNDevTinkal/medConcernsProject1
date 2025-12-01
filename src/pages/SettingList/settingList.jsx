@@ -231,11 +231,23 @@ export default function ConcernsSettings() {
   const saveSettings = (updatedConcerns, updatedUnchecked, isSaveClick = "") => {
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
-    const value = name === "Needsboard" ? "need_board" : "concerns";
-    const unChecked =
-      name === "Needsboard" ? "uncheck_need_board" : "uncheck_concerns";
-    payload.append(value, updatedConcerns);
-    payload.append(unChecked, updatedUnchecked);
+
+    const isNeeds = name === "Needsboard";
+    const value = isNeeds ? "need_board" : "concerns";
+    const unCheckedKey = isNeeds ? "uncheck_need_board" : "uncheck_concerns";
+
+    // ORIGINAL values coming from API
+    const originalUncheck = isNeeds ? uncheckNeedBoard : UncheckConcerns;
+
+    // If user has not changed unchecked list → keep API value
+    const finalUnchecked =
+      updatedUnchecked.length === 0 && originalUncheck
+        ? originalUncheck
+        : updatedUnchecked.join(",");
+
+    payload.append(value, updatedConcerns.join(","));
+    payload.append(unCheckedKey, finalUnchecked);
+    payload.append(isNeeds ? "uncheck_concerns" : "uncheck_need_board", originalUncheck.split(","));
     api
       .post("saveSettings", payload, {
         headers: { Authorization: `Bearer ${token}` },
@@ -300,11 +312,10 @@ export default function ConcernsSettings() {
   }, [licenses_id, token]);
 
   useEffect(() => {
-    if (!uncheckNeedBoard) setUncheckNeedBoard([]);
-    if (!UncheckConcerns) setUncheckConcerns([]);
-
+    if (!uncheckNeedBoard && !UncheckConcerns) {
+      return
+    }
     if (name === "Needsboard" && needboard !== null) {
-      console.log("===>dgdfgdgdfgdfg")
       setSelectedConcerns(
         typeof needboard === "string"
           ? needboard.split(",").filter(Boolean)

@@ -319,7 +319,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                 <img src={hamburger} alt="menu" />
               </button>
             </div>
-            <h2 className="Header-text text-[25px] font-normal text-black">
+            <h2 className="Header-text text-[30px] font-normal text-black">
               {name ??
                 (selectedLanguage === "Spanish"
                   ? "Preocupaciones"
