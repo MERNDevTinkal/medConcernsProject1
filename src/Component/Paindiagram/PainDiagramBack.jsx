@@ -128,7 +128,6 @@ import {
   pelvisMAleSpanish,
   pieMAleSpanish,
   RodillaMAleSpanish,
-  TobilloMAleSpanish,
 } from "../../Component/DiseasesData/audio.jsx";
 function makeRegion(name, x1, y1, x2, y2, audio) {
   return {

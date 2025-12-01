@@ -236,9 +236,9 @@ export default function Settings() {
             <div className="flex items-center justify-center p-4 setting-cards px-0">
               <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
                 <div className="p-3 px-0 sm:p-4 md:p-6">
-                  <h1 className="text-xs text-gray-500 mb-6">
+                  {/* <h1 className="text-xs text-gray-500 mb-6">
                     {t("settings")}
-                  </h1>
+                  </h1> */}
 
                   {/* Number of Icons */}
                   <div className="flex items-center justify-between py-4 border-b border-white">
