@@ -77,7 +77,7 @@ const BreathingWhen = () => {
             selectedLanguage={selectedLanguage}
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
-            name={selectedLanguage === "Spanish" ? "Cuando?" : "When?"}
+            name={selectedLanguage === "Spanish" ? "¿Cuando?" : "When?"}
           />
 
           <div className="main-wrapper home-wrapper pt-20">

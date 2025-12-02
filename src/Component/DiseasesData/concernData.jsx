@@ -141,7 +141,7 @@ export const concerns = [
   {
     id: 17,
     name: "Wound/Incision",
-    nameEs: "Herida/Incisión",
+    nameEs: "Herida / Incisión",
     image: ConcernImg14,
     path: "/concern/wound-incision-yes-no/17",
   },
