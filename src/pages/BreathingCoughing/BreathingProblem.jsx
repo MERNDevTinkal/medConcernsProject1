@@ -28,25 +28,24 @@ const BreathingProblem = () => {
     if (value && path) {
       if (isSpeakingRef.current) return;
       isSpeakingRef.current = true;
-
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -166,7 +165,7 @@ const BreathingProblem = () => {
   const name = !selectedLanguage
     ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
-      translations?.default[selectedLanguage];
+    translations?.default[selectedLanguage];
   return (
     <>
       {loader ? (
@@ -202,14 +201,14 @@ const BreathingProblem = () => {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                        ? "dash-double-items"
-                        : selectedIconCount === 3
-                        ? "dash-triple-items"
-                        : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                          ? "dash-double-items"
+                          : selectedIconCount === 3
+                            ? "dash-triple-items"
+                            : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                                ? "dash-hexuple-items"
+                                : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {
@@ -233,11 +232,11 @@ const BreathingProblem = () => {
                           alt={data?.name}
                         />
                       </div>
-                      <p    className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? data?.nameEs : data?.name)?.split(" ").length > 12)
-                  ? "shirnk-txt"
-                  : ""
-                }`}>
-  
+                      <p className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? data?.nameEs : data?.name)?.split(" ").length > 12)
+                        ? "shirnk-txt"
+                        : ""
+                        }`}>
+
                         {selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name}
