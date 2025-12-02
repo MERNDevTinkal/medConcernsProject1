@@ -660,12 +660,46 @@ export default function ConcernsSettings() {
   const currentList = name === "Needsboard" ? needsBoardList : concernsList;
   const allKeys = currentList.map((c) => c.key);
   const [unCheckedValue, setUncheckedValue] = useState([]);
-  
+
   // Use a ref to track initialization per page type
   const initializedRef = useRef({
     needsboard: false,
     concerns: false
   });
+
+  // const saveSettings = (checkedItems, uncheckedItems, isSaveClick = "") => {
+  //   const payload = new FormData();
+  //   payload.append("licenses_id", licenses_id);
+  //   const isNeeds = name === "Needsboard";
+  //   const value = isNeeds ? "need_board" : "concerns";
+  //   const unCheckedKey = isNeeds ? "uncheck_need_board" : "uncheck_concerns";
+  //   const concernsString = checkedItems.join(",");
+  //   const uncheckedString = uncheckedItems.join(",");
+  //   payload.append(value, concernsString);
+  //   payload.append(unCheckedKey, uncheckedString);
+  //   const oppositeKey = isNeeds ? "concerns" : "need_board";
+  //   const oppositeUncheckKey = isNeeds ? "uncheck_concerns" : "uncheck_need_board";
+  //   const oppositeData = isNeeds ? concerns : needboard;
+  //   const oppositeUncheckData = isNeeds ? UncheckConcerns : uncheckNeedBoard;
+  //   payload.append(oppositeKey, oppositeData || "");
+  //   payload.append(oppositeUncheckKey, oppositeUncheckData || "");
+
+  //   api
+  //     .post("saveSettings", payload, {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     })
+  //     .then(({ data }) => {
+  //       if (!data.status) {
+  //         toast.error(data.msg, { autoClose: 1500 });
+  //       }
+  //       if (isSaveClick === "Save") {
+  //         toast.success("Saved successfully! ", { autoClose: 1500 });
+  //       }
+  //     })
+  //     .catch(() => toast.error("Something went wrong", { autoClose: 1500 }));
+  // };
+
+  // ---------------- Handle toggle ----------------
 
   const saveSettings = (checkedItems, uncheckedItems, isSaveClick = "") => {
     const payload = new FormData();
@@ -673,17 +707,26 @@ export default function ConcernsSettings() {
     const isNeeds = name === "Needsboard";
     const value = isNeeds ? "need_board" : "concerns";
     const unCheckedKey = isNeeds ? "uncheck_need_board" : "uncheck_concerns";
-    const concernsString = checkedItems.join(",");
-    const uncheckedString = uncheckedItems.join(",");
+
+    // Fix: Use null when arrays are empty
+    const concernsString = checkedItems.length > 0 ? checkedItems.join(",") : null;
+    const uncheckedString = uncheckedItems.length > 0 ? uncheckedItems.join(",") : null;
+
     payload.append(value, concernsString);
     payload.append(unCheckedKey, uncheckedString);
+
     const oppositeKey = isNeeds ? "concerns" : "need_board";
     const oppositeUncheckKey = isNeeds ? "uncheck_concerns" : "uncheck_need_board";
     const oppositeData = isNeeds ? concerns : needboard;
     const oppositeUncheckData = isNeeds ? UncheckConcerns : uncheckNeedBoard;
-    payload.append(oppositeKey, oppositeData || "");
-    payload.append(oppositeUncheckKey, oppositeUncheckData || "");
-    
+
+    // Apply same fix to opposite data
+    const oppositeDataString = oppositeData && oppositeData.length > 0 ? oppositeData : null;
+    const oppositeUncheckDataString = oppositeUncheckData && oppositeUncheckData.length > 0 ? oppositeUncheckData : null;
+
+    payload.append(oppositeKey, oppositeDataString || "");
+    payload.append(oppositeUncheckKey, oppositeUncheckDataString || "");
+
     api
       .post("saveSettings", payload, {
         headers: { Authorization: `Bearer ${token}` },
@@ -699,7 +742,6 @@ export default function ConcernsSettings() {
       .catch(() => toast.error("Something went wrong", { autoClose: 1500 }));
   };
 
-  // ---------------- Handle toggle ----------------
   const handleConcernToggle = (key) => {
     setSelectedConcerns(prev => {
       let updatedConcerns;
@@ -808,8 +850,8 @@ export default function ConcernsSettings() {
               <img src={BackArrow} />
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
-              {selectedLanguage === "Spanish" 
-                ? `${name === "Needsboard" ? "Necesita Configuración De Tablero" : "Configuración De Preocupaciones"}` 
+              {selectedLanguage === "Spanish"
+                ? `${name === "Needsboard" ? "Necesita Configuración De Tablero" : "Configuración De Preocupaciones"}`
                 : `${name === "Needsboard" ? "Needs Board Settings" : "Concern Settings"}`
               }
             </h2>
