@@ -1702,7 +1702,6 @@ import {
   Nausea_VomitingMale,
   ConstipationMale,
   withMedicationHowOften,
-  comerYBeber,
   ringing,
   eatingDrinking,
   noConcerns,
@@ -2383,7 +2382,7 @@ export const topicBoard = [
   },
   {
     id: 3,
-    name: "Will i get better?",
+    name: "Will I get better?",
     nameEs: "¿Mejoraré?",
     path: "/topicboard/willIGetBetter/3",
     maleEnglish: WillIGetBetterMale,
@@ -2423,7 +2422,7 @@ export const topicBoard = [
   },
   {
     id: 7,
-    name: "Home set-up",
+    name: "Home Setup",
     nameEs: "Configuración del hogar",
     path: "/topicboard/homeSet-Up/7",
     maleEnglish: HomeSetupMale,
@@ -2433,7 +2432,7 @@ export const topicBoard = [
   },
   {
     id: 8,
-    name: "Stroke prevention",
+    name: "Stroke Prevention",
     nameEs: "Prevención de accidentes cerebrovasculares",
     path: "/topicboard/strokePrevention/8",
     maleEnglish: StrokePreventionMale,
@@ -2443,7 +2442,7 @@ export const topicBoard = [
   },
   {
     id: 9,
-    name: "Family support",
+    name: "Family Support",
     nameEs: "Apoyo de la familia",
     path: "/topicboard/familySupport/9",
     maleEnglish: FamilySupportMale,
@@ -2453,7 +2452,7 @@ export const topicBoard = [
   },
   {
     id: 10,
-    name: "Feeding tube",
+    name: "Feeding Tube",
     nameEs: "Tubo de alimentación",
     path: "/topicboard/feedingTube/10",
     secPath: "/feel",
@@ -2494,7 +2493,7 @@ export const topicBoard = [
   },
   {
     id: 14,
-    name: "Household activity",
+    name: "Household Activity",
     nameEs: "Actividad del hogar",
     path: "/topicboard/householdActivity/14",
     maleEnglish: HouseholdActivityMale,
@@ -2504,7 +2503,7 @@ export const topicBoard = [
   },
   {
     id: 15,
-    name: "Community activity",
+    name: "Community Activity",
     nameEs: "Actividad de la comunidad",
     path: "/topicboard/Communityactivity/15",
     maleEnglish: CommunityActivityMale,
@@ -2544,7 +2543,7 @@ export const topicBoard = [
   },
   {
     id: 19,
-    name: "Raising children",
+    name: "Raising Children",
     nameEs: "Criar a los niños",
     path: "/topicboard/raisingChildren/19",
     maleEnglish: RaisingChildrenMale,
@@ -2566,7 +2565,7 @@ export const topicBoard = [
     id: 21,
     name: "Alcohol",
     nameEs: "Alcohol",
-    path: "/Whiteboard",
+    path: "/topicboard/alcohol/21",
     maleEnglish: AlcoholMale,
     femaleEnglish: AlcoholFemale,
     femaleSpanish: AlcoholSpanishFemale,
@@ -2574,10 +2573,9 @@ export const topicBoard = [
   },
   {
     id: 22,
-    name: "Something else",
+    name: "Something Else",
     nameEs: "Algo más",
-    path: "/whiteboard",
-    secpath: "/confrm-step-when",
+    path: "/topicboard/something else/22",
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,

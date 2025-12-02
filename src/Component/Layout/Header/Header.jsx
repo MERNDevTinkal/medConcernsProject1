@@ -320,12 +320,19 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               </button>
             </div>
             <h2 className="Header-text text-[30px] font-normal text-black">
+<<<<<<< HEAD
               {location.pathname === "/emotions"
                 ? ""
                 : name ??
                   (selectedLanguage === "Spanish"
                     ? "Preocupaciones"
                     : location.pathname === "/depression-screener"
+=======
+              {name ??
+                (selectedLanguage === "Spanish"
+                  ? "Preocupaciones"
+                  : location.pathname === "/depression-screener"
+>>>>>>> 6b9c35c0d57f909bdaa07fdc65180bae187be241
                     ? ""
                     : "Concerns")}
             </h2>
