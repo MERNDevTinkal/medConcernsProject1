@@ -42,7 +42,7 @@ const BackPain = () => {
           />
 
           <div className="main-wrapper home-wrapper">
-            <div className="px-4 my-5 flex justify-center items-center">
+            <div className="my-5 flex justify-center items-center">
               <div className="w-full p-5 bg-white shadow-sm rounded-md">
                 <PainDiagramBack
                   selectedGender={selectedGender}

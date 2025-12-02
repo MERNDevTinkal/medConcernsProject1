@@ -81,14 +81,14 @@ const DecisionCardFeeling = ({
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-green-600">
+              <p className="text-[40px] font-medium text-green-600">
                 {selectedLanguage === "Spanish" ? "Sí" : "YES"}
               </p>
             </div>
             <div>
-              <img src={Checked} className="concrn-icn" alt="" />
+              <img src={Checked} width="50px" className="concrn-icn" alt="" />
             </div>
           </div>
         </div>
@@ -116,12 +116,12 @@ const DecisionCardFeeling = ({
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 sm:p-2 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-red-600">NO</p>
+              <p className="text-[40px] font-medium text-red-600">NO</p>
             </div>
             <div>
-              <img src={Close} className="concrn-icn" />
+              <img src={Close} width="50px" className="concrn-icn" />
             </div>
           </div>
         </div>

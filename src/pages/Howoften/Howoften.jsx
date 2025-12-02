@@ -695,7 +695,7 @@ export default function TabsCalendar() {
             }
           />
           <div className="main-wrapper home-wrapper howoften-page mt-6 ">
-            <div className="w-full flex justify-center items-center p-4 sm:p-6 calendar-main">
+            <div className="w-full flex justify-center items-center calendar-main">
               <div className="w-full bg-white rounded-xl overflow-hidden">
                 {/* Tabs */}
                 <div className="flex items-center justify-end p-4 sm:p-2 calendar-buttons">

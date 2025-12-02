@@ -14,6 +14,11 @@ import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
 import ImageUpload from "./imageUpload.jsx";
+import PencilIcon from "../../assets/images/whiteboard-pencil.svg";
+import TextIcon from "../../assets/images/whiteboard-text.svg";
+import ImgIcon from "../../assets/images/whiteboard-img.svg";
+import EraserIcon from "../../assets/images/whiteboard-eraser.svg";
+import SaveIcon from "../../assets/images/whiteboard-save.svg";
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
@@ -1130,7 +1135,6 @@ export default function Whiteboard() {
               <Button
                 className="thm-btn"
                 onClick={() => navigate("/white-board-list")}
-             
               >
                 {selectedLanguage === "Spanish"
                   ? "Pizarras blancas guardadas"
@@ -1143,7 +1147,6 @@ export default function Whiteboard() {
                   <Button
                     className="thm-btn"
                     onClick={() => navigate("/white-board-list")}
-                  
                   >
                     {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
                   </Button>
@@ -1210,10 +1213,9 @@ export default function Whiteboard() {
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
                     onClick={handleClick}
-                
                   />
                 </div>
-                <CardContent className="relative flex flex-wrap items-center justify-center gap-3 whiteboard-toolbar p-0 bg-white">
+                <CardContent className="relative flex flex-wrap items-center justify-center gap-5 whiteboard-toolbar p-0 bg-white">
                   <Button
                     variant="ghost"
                     size="icon"
@@ -1222,19 +1224,27 @@ export default function Whiteboard() {
                       setTool("pencil");
                       setShowKeyboard(false);
                     }}
-    
                     title="Pencil"
                   >
-                    <Icon.Pencil className="icon-size-add" />
+                    {/* <Icon.Pencil className="icon-size-add" /> */}
+                    <img
+                      src={PencilIcon}
+                      className="icon-size-add"
+                      alt="Pencil Icon"
+                    />
                   </Button>
                   <Button
                     variant="ghost"
                     size="icon"
                     onClick={activateTextTool}
-               
                     title="Virtual Keyboard"
                   >
-                    <Icon.Keyword className="icon-size-add" />
+                    {/* <Icon.Keyword className="icon-size-add" /> */}
+                    <img
+                      src={TextIcon}
+                      className="icon-size-add"
+                      alt="Pencil Icon"
+                    />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1243,11 +1253,15 @@ export default function Whiteboard() {
                     onClick={(e) => {
                       handleFileUpload(e);
                     }}
-       
 
                     // document.getElementById("imageUpload").click()
                   >
-                    <Icon.Image className="icon-size-add" />
+                    {/* <Icon.Image className="icon-size-add" /> */}
+                    <img
+                      src={ImgIcon}
+                      className="icon-size-add"
+                      alt="Pencil Icon"
+                    />
                   </Button>
                   {/* <input
                     type="file"
@@ -1279,19 +1293,27 @@ export default function Whiteboard() {
                     variant="ghost"
                     size="icon"
                     onClick={handleClear}
-                
                     title="Clear"
                   >
-                    <Icon.Trash className="icon-size-add" />
+                    {/* <Icon.Trash className="icon-size-add" /> */}
+                    <img
+                      src={EraserIcon}
+                      className="icon-size-add"
+                      alt="Pencil Icon"
+                    />
                   </Button>
                   <Button
                     variant="ghost"
                     size="icon"
                     onClick={() => setShowSaveModal(true)}
-      
                     title="File Save"
                   >
-                    <Icon.FileSave className="icon-size-add" />
+                    {/* <Icon.FileSave className="icon-size-add" /> */}
+                    <img
+                      src={SaveIcon}
+                      className="icon-size-add"
+                      alt="Pencil Icon"
+                    />
                   </Button>
 
                   {/* <div className="flex items-center gap-2 ml-2">
@@ -1402,7 +1424,6 @@ export default function Whiteboard() {
                         variant="outline"
                         className="h-12 rounded-lg px-6 text-base"
                         onClick={() => setShowSaveModal(false)}
-                     
                       >
                         {selectedLanguage === "Spanish" ? "Cancelar" : "Cancel"}
                       </Button>
@@ -1412,7 +1433,6 @@ export default function Whiteboard() {
                           handleSaveDrawing();
                           setShowSaveModal(false);
                         }}
-            
                       >
                         {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                       </Button>

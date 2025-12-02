@@ -115,7 +115,7 @@ const Feel = () => {
                 ))}
               </ul> */}
               <div className="feel-overall-card">
-                {/* <h3 className="text-center">How do you feel overall?</h3> */}
+                <h3 className="text-center">How do you feel overall?</h3>
                 <ul className="feel-overall-list">
                   {emotionsicons.map((item) => (
                     <li

@@ -113,9 +113,9 @@ export default function Introduction() {
           />
           <div className="main-wrapper home-wrapper introduction_page">
             <div className="Intro_box">
-              <div className="px-4 py-4">
+              <div className="py-4">
                 <img src={"/introduction.png"} width={400} className="m-auto" />
-                <div className="w-full m-auto mt-3 px-12">
+                <div className="w-full m-auto mt-3 ">
                   {/* Name */}
                   <label className="block text-2xl font-bold mb-2">
                     {selectedLanguage === "Spanish"

@@ -43,16 +43,16 @@ function ConfrmStepYesNo() {
   }, [name, id]);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => { },
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -80,14 +80,15 @@ function ConfrmStepYesNo() {
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audio
       );
-      console.log("pathpathpath", [valueData, path])
+      console.log("pathpathpath", [valueData, path]);
       if (valueData === "NO") {
-        navigate(-1)
+        navigate(-1);
       }
       updateDisease(pathprimary.replace("/", ""), valueData);
       if (
         !pathprimary.includes("/feel/confrm-step-yesno") &&
-        !pathprimary.includes("/feeling-body/confrm-step-yesno") && path === "/howoften" &&
+        !pathprimary.includes("/feeling-body/confrm-step-yesno") &&
+        path === "/howoften" &&
         calendarOn
       ) {
         return navigate("/new-problem");
@@ -118,10 +119,7 @@ function ConfrmStepYesNo() {
       ) : (
         <>
           <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 bg-white innr-header">
-            <div
-              onClick={() => navigate(-1)}
-
-              style={{ cursor: "pointer" }}>
+            <div onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
               <img src={BackArrow} alt="Back" />
             </div>
             <h2 className="text-[25px] font-normal text-black text-center">
@@ -135,13 +133,13 @@ function ConfrmStepYesNo() {
 
               md:px-10 px-5 md:gap-20 gap-5 my-5 items-center`}
             >
-              <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
-                <div className="dashboard-img rounded-2xl">
-                  <div className="flex justify-center align-center p-4">
+              <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
+                <div className="dashboard-img rounded-2xl h-full w-full">
+                  <div className="h-full w-full">
                     <img
                       src={selectedConcers?.image ?? value?.image}
                       alt={selectedConcers?.name || "img"}
-                      className="w-64 rounded-xl"
+                      className="rounded-xl w-full h-full object-cover"
                     />
                   </div>
                 </div>
@@ -159,30 +157,30 @@ function ConfrmStepYesNo() {
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? YesSpanishMale
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? YesFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? YesMale
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? YesMale
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? YesFemale
-                                      : YesMale
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : YesMale
                       )
                     }
                   >
-                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                      <p className="text-[32px] font-medium text-green-600">
+                    <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      <p className="text-[40px] font-medium text-green-600">
                         {selectedLanguage === "Spanish" ? "Sí" : "YES"}
                       </p>
-                      <img src={Checked} alt="yes" />
+                      <img src={Checked} width="50px" alt="yes" />
                     </div>
                   </div>
                   <div
@@ -196,28 +194,28 @@ function ConfrmStepYesNo() {
                           ? No_male
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? No_no_maleSpanish
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? NoFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? No_male
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? No_male
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? NoFemale
-                                      : No_male
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
                       )
                     }
                   >
-                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-                      <p className="text-[32px] font-medium text-red-600">NO</p>
-                      <img src={Close} alt="no" />
+                    <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                      <p className="text-[40px] font-medium text-red-600">NO</p>
+                      <img src={Close} width="50px" alt="no" />
                     </div>
                   </div>
                 </div>
