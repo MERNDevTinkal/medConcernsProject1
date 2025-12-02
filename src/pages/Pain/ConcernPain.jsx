@@ -37,7 +37,7 @@ function ConcernPain() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
             <Link
               to="#"
               onClick={(e) => {
@@ -45,17 +45,16 @@ function ConcernPain() {
                 deleteLastSummaryItem();
                 navigate(-1);
               }}
-    
             >
               <img src={BackArrow} />
             </Link>
-            <h2 className="text-[25px] font-normal text-black text-center">
+            <h2 className="text-[30px] font-normal text-black text-center">
               {partName || "Pain"}
             </h2>
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-2  md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
+            <div className="grid grid-cols-2 md:gap-20 gap-5 my-5 items-center">
               <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl">
                   <img src={image || ConcernImg1} className="w-full" />

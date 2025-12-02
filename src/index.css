@@ -593,6 +593,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .brthng-card .dashboard-img img {
   height: 100%;
+  object-fit: cover;
+}
+.objct-cls {
+  object-fit: contain !important;
+}
+.content-cls {
+  object-fit: contain !important;
 }
 
 @media (max-width: 799px) {

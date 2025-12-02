@@ -58,16 +58,16 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   const confirmFun = (value) => {
@@ -82,10 +82,8 @@ const SummaryList = () => {
       navigate("/concern");
     } else {
       setIsPopupOpen(true);
-      Cookies.remove("is_concern")
-
+      Cookies.remove("is_concern");
     }
-
   };
 
   const ConcernPopUpFun = () => {
@@ -99,7 +97,7 @@ const SummaryList = () => {
 
   const keepEditing = () => {
     setIsPopupOpen(false);
-    setShowSaveModal(true)
+    setShowSaveModal(true);
   };
   return (
     <>
@@ -118,7 +116,6 @@ const SummaryList = () => {
               <div className="flex justify-end space-x-2">
                 <button
                   onClick={() => window.print()}
-         
                   style={{ border: "2px solid black" }}
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
@@ -126,7 +123,6 @@ const SummaryList = () => {
                 </button>
                 <button
                   onClick={handleSummaryListRoute}
-          
                   style={{ border: "2px solid black" }}
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
@@ -136,41 +132,43 @@ const SummaryList = () => {
                   onClick={() => {
                     setShowSaveModal(true);
                   }}
-          
                   style={{ border: "2px solid black" }}
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
                   {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                 </button>
               </div>
-              {diseases?.summaryList?.length > 0 && diseases?.summaryList.map((item, index) => {
-                return (
-                  <div key={index} className="flex flex-row items-center w-full px-4 my-5 summary-main">
-                    <div className="md:w-1/4 sm:w-1/2 w-full">
-                      <SummaryLeftCard
-                        board={item?.flow[0]?.route}
-                        selectedLanguage={selectedLanguage}
-                        SummaryConcernData={item?.concern?.data?.[0]}
-                      />
+              {diseases?.summaryList?.length > 0 &&
+                diseases?.summaryList.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex flex-row items-center w-full my-5 summary-main"
+                    >
+                      <div className="md:w-1/4 sm:w-1/2 w-full">
+                        <SummaryLeftCard
+                          board={item?.flow[0]?.route}
+                          selectedLanguage={selectedLanguage}
+                          SummaryConcernData={item?.concern?.data?.[0]}
+                        />
+                      </div>
+                      <div className="arrow-right mx-4">
+                        <img src={Arrow} alt="arrow" />
+                      </div>
+                      <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
+                        <SummaryRightCard
+                          selectedLanguage={selectedLanguage}
+                          SummaryDetail={item?.flow}
+                        />
+                      </div>
                     </div>
-                    <div className="arrow-right mx-4">
-                      <img src={Arrow} alt="arrow" />
-                    </div>
-                    <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
-                      <SummaryRightCard
-                        selectedLanguage={selectedLanguage}
-                        SummaryDetail={item?.flow}
-                      />
-                    </div>
-                  </div>
-                )
-              })}
+                  );
+                })}
               {diseases?.summaryList[0]?.concern && (
                 <div
                   onClick={() => {
                     ConcernPopUpFun();
                   }}
-      
                   className="flex justify-center mt-10 mb-6"
                 >
                   <button className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
@@ -198,9 +196,13 @@ const SummaryList = () => {
             />
           )}
           {showDonePopUp && <ConcernPopUp confirmFun={confirmFun} />}
-          {isPopupOpen && <SaveWarningPopup open={isPopupOpen}
-            onConfirm={discardChanges}
-            onCancel={keepEditing} />}
+          {isPopupOpen && (
+            <SaveWarningPopup
+              open={isPopupOpen}
+              onConfirm={discardChanges}
+              onCancel={keepEditing}
+            />
+          )}
           <Footer />
         </>
       )}

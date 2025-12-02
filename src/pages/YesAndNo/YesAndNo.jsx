@@ -37,7 +37,7 @@ function YesAndNo() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
             <div
               onClick={() => {
                 navigate(-1);
@@ -46,7 +46,7 @@ function YesAndNo() {
             >
               <img src={BackArrow} />
             </div>
-            <h2 className="text-[25px] font-normal text-black text-center">
+            <h2 className="text-[30px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
                 ? option?.nameEs || "Dolor"
                 : option?.name || "Pain"}
@@ -54,16 +54,18 @@ function YesAndNo() {
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
+            <div className="grid grid-cols-2 md:gap-20 gap-5 my-5 items-center">
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
-                <div className="dashboard-img rounded-2xl">
+                <div className="dashboard-img rounded-2xl w-full h-full">
                   {/* <img src={HowAreYou1} className="w-full" /> */}
 
-                  <img
-                    src={option.image || HowAreYou1}
-                    alt={option.name || "alt"}
-                    className="mx-auto rounded-xl w-full"
-                  />
+                  <div className="w-full h-full">
+                    <img
+                      src={option.image || HowAreYou1}
+                      alt={option.name || "alt"}
+                      className="mx-auto rounded-xl w-full content-cls"
+                    />
+                  </div>
                 </div>
               </div>
               <div>

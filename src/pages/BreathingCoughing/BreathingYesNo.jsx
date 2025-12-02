@@ -29,16 +29,16 @@ function BreathingYesNo() {
 
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -47,7 +47,7 @@ function BreathingYesNo() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
             <div
               style={{ cursor: "pointer" }}
               onClick={() => {
@@ -56,7 +56,7 @@ function BreathingYesNo() {
             >
               <img src={BackArrow} />
             </div>
-            <h2 className="text-[25px] font-normal text-black text-center">
+            <h2 className="text-[30px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
                 ? concernValues.nameEs
                 : concernValues.name || ""}
@@ -64,12 +64,13 @@ function BreathingYesNo() {
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5  items-center">
+            <div className="grid grid-cols-2  md:gap-20 gap-5 my-5  items-center">
               <div
-                className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3 ${location.pathname.includes("/topicboard/")
+                className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3 ${
+                  location.pathname.includes("/topicboard/")
                     ? "h-[200px] flex justify-center items-center"
                     : ""
-                  } `}
+                } `}
               >
                 {location.pathname.includes("/topicboard/") ? (
                   <p className="text-xl">
@@ -78,11 +79,13 @@ function BreathingYesNo() {
                       : concernValues?.name}
                   </p>
                 ) : (
-                  <div className="dashboard-img rounded-2xl">
-                    <img
-                      src={concernValues?.image ?? gifLoader}
-                      className="w-full sm:w-2xs mx-auto"
-                    />
+                  <div className="dashboard-img rounded-2xl w-full h-full">
+                    <div className="h-full w-full">
+                      <img
+                        src={concernValues?.image ?? gifLoader}
+                        className="mx-auto rounded-xl w-full"
+                      />
+                    </div>
                   </div>
                 )}
               </div>

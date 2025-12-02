@@ -37,7 +37,7 @@ export default function Aboutus() {
           />
 
           <div className="main-wrapper bg-white">
-            <img src="/about_mg.jpg" className="ml-auto rounded-4xl mb-4 " />
+            <img src="/about_mg.jpg" className="mx-auto rounded-4xl mb-4 " />
 
             {selectedLanguage === "Spanish" ? (
               <p className="text-[18px] font-medium color-black mb-0 text-center">

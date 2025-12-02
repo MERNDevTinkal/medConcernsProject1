@@ -112,17 +112,18 @@ function ConfrmStepYesNo() {
       isSpeakingRef.current = false;
     }
   };
+  console.log("pathprimarypathprimarypathprimary", pathprimary);
   return (
     <>
       {loader ? (
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 bg-white innr-header">
+          <div className="flex items-center justify-between py-4 fixed left-0 right-0 bg-white innr-header">
             <div onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
               <img src={BackArrow} alt="Back" />
             </div>
-            <h2 className="text-[25px] font-normal text-black text-center">
+            <h2 className="text-[30px] font-normal text-black text-center">
               {displayText ?? value?.name}
             </h2>
             <button></button>
@@ -131,7 +132,7 @@ function ConfrmStepYesNo() {
             <div
               className={`grid grid-cols-2
 
-              md:px-10 px-5 md:gap-20 gap-5 my-5 items-center`}
+               md:gap-20 gap-5 my-5 items-center`}
             >
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">
@@ -139,7 +140,13 @@ function ConfrmStepYesNo() {
                     <img
                       src={selectedConcers?.image ?? value?.image}
                       alt={selectedConcers?.name || "img"}
-                      className="rounded-xl w-full h-full object-cover"
+                      className={`rounded-xl w-full h-full ${
+                        pathprimary.includes(
+                          "/feeling-list-pain/confrm-step-yesno"
+                        ) || pathprimary.includes("/feeling/confrm-step-yesno")
+                          ? "objct-cls"
+                          : "object-cover"
+                      } `}
                     />
                   </div>
                 </div>

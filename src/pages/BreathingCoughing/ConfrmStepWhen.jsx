@@ -80,7 +80,7 @@ function ConfrmStepWhen() {
             >
               <img src={BackArrow} />
             </div>
-            <h2 className="text-[25px] font-normal text-black text-center">
+            <h2 className="text-[30px] font-normal text-black text-center">
               {selectedLanguage === "Spanish"
                 ? confirmData.nameEs
                 : confirmData.name}
@@ -88,10 +88,15 @@ function ConfrmStepWhen() {
             <button></button>
           </div>
           <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-2  md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
+            <div className="grid grid-cols-2  md:gap-20 gap-5 my-5 items-center">
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
-                <div className="dashboard-img rounded-2xl">
-                  <img src={confirmData.image} className="w-full" />
+                <div className="dashboard-img rounded-2xl h-full w-full">
+                  <div className="h-full w-full">
+                    <img
+                      src={confirmData.image}
+                      className="mx-auto rounded-xl w-full"
+                    />
+                  </div>
                 </div>
               </div>
               <div>
