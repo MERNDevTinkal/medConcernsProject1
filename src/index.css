@@ -620,7 +620,7 @@ input[type="number"]::-webkit-outer-spin-button {
 @media (orientation: landscape) {
   .main-wrapper {
     padding-bottom: 60px;
-    padding-top: 60px;
+    padding-top: 10px;
   }
 }
 
@@ -868,7 +868,7 @@ font-size: 22px;
   object-fit: contain;
 }
 
-@media only screen and (max-width: 852px) and (orientation: landscape) {
+@media only screen and (max-height: 852px) and (orientation: landscape) {
   .dash-single-items .dashboard-cards .dashboard-img img {
     height: calc(90vh - 160px);
   }
@@ -906,7 +906,7 @@ font-size: 22px;
   }
 }
 
-@media only screen and (max-width: 926px) and (orientation: landscape) {
+@media only screen and (max-height: 926px) and (orientation: landscape) {
   .dash-hexuple-items .dashboard-cards {
     width: 100%;
     margin: 0 auto;
@@ -914,12 +914,12 @@ font-size: 22px;
   }
 
   .dash-hexuple-items .dashboard-cards .dashboard-img img {
-    height: calc(52vh - 125px);
+    height: calc(52vh - 65px);
     object-fit: contain;
   }
 }
 
-@media only screen and (max-width: 844px) and (orientation: landscape) {
+@media only screen and (max-height: 844px) and (orientation: landscape) {
   .dash-triple-items .dashboard-cards .dashboard-img img {
     height: calc(90vh - 160px);
   }
@@ -937,7 +937,7 @@ font-size: 22px;
   }
 }
 
-@media only screen and (max-width: 812px) and (orientation: landscape) {
+@media only screen and (max-height: 812px) and (orientation: landscape) {
   .dash-hexuple-items .dashboard-cards {
     height: calc(67vh - 140px);
   }
@@ -969,7 +969,7 @@ font-size: 22px;
   } */
 }
 
-@media only screen and (max-width: 736px) and (orientation: landscape) {
+@media only screen and (max-height: 736px) and (orientation: landscape) {
   /* .main-wrapper {
     padding-top: 60px;
   } */
@@ -1292,7 +1292,19 @@ body,
 .dash-single-items .dashboard-cards p,
 .dash-double-items .dashboard-cards p,
 .dash-triple-items .dashboard-cards p,
-.dash-quadriple-items .dashboard-cards p,
 .dash-hexuple-items .dashboard-cards p {
-  font-size: 26px;
+  font-size: 24px;
+}
+.dash-quadriple-items .dashboard-cards p {
+  font-size: 18px;
+}
+
+.dash-single-items .dashboard-cards p.shirnk-txt,
+.dash-double-items .dashboard-cards p.shirnk-txt,
+.dash-triple-items .dashboard-cards p.shirnk-txt,
+.dash-hexuple-items .dashboard-cards p.shirnk-txt {
+  font-size: 20px;
+}
+.dash-quadriple-items .dashboard-cards p.shirnk-txt {
+  font-size: 16px;
 }
