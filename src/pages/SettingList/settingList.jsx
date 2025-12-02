@@ -494,7 +494,7 @@ export const concernsList = [
   },
 ];
 
-// // ---------------- Needs Board List ----------------
+// ---------------- Needs Board List ----------------
 export const needsBoardList = [
   { key: "Bathroom", label: { en: "Bathroom", es: "Baño" } },
   { key: "Bed", label: { en: "Bed", es: "Cama" } },
@@ -670,24 +670,17 @@ export default function ConcernsSettings() {
   const saveSettings = (checkedItems, uncheckedItems, isSaveClick = "") => {
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
-
     const isNeeds = name === "Needsboard";
     const value = isNeeds ? "need_board" : "concerns";
     const unCheckedKey = isNeeds ? "uncheck_need_board" : "uncheck_concerns";
-
-    // Convert arrays to comma-separated strings for API
     const concernsString = checkedItems.join(",");
     const uncheckedString = uncheckedItems.join(",");
-
     payload.append(value, concernsString);
     payload.append(unCheckedKey, uncheckedString);
-    
-    // Also save the opposite list to prevent clearing it
     const oppositeKey = isNeeds ? "concerns" : "need_board";
     const oppositeUncheckKey = isNeeds ? "uncheck_concerns" : "uncheck_need_board";
     const oppositeData = isNeeds ? concerns : needboard;
     const oppositeUncheckData = isNeeds ? UncheckConcerns : uncheckNeedBoard;
-    
     payload.append(oppositeKey, oppositeData || "");
     payload.append(oppositeUncheckKey, oppositeUncheckData || "");
     
@@ -710,19 +703,13 @@ export default function ConcernsSettings() {
   const handleConcernToggle = (key) => {
     setSelectedConcerns(prev => {
       let updatedConcerns;
-      
       if (prev.includes(key)) {
-        // Unchecking: remove from selected
         updatedConcerns = prev.filter((c) => c !== key);
       } else {
-        // Checking: add to selected
         updatedConcerns = [...prev, key];
       }
-      
-      // Update unchecked values based on new checked values
       const updatedUnchecked = allKeys.filter(item => !updatedConcerns.includes(item));
       setUncheckedValue(updatedUnchecked);
-      
       return updatedConcerns;
     });
   };
@@ -761,42 +748,31 @@ export default function ConcernsSettings() {
 
   // Reset state when page type changes
   useEffect(() => {
-    // Reset to loading state when page changes
     setSelectedConcerns([]);
     setUncheckedValue([]);
   }, [name]);
-
   // Initialize state when API data is loaded and page type is determined
   useEffect(() => {
-    if (loader) return; // Don't initialize while loading
-    
+    if (loader) return;
     const isNeeds = name === "Needsboard";
     const pageKey = isNeeds ? "needsboard" : "concerns";
-    
-    // Only initialize if not already initialized for this page type
     if (!initializedRef.current[pageKey]) {
       const checkedData = isNeeds ? needboard : concerns;
       const uncheckedData = isNeeds ? uncheckNeedBoard : UncheckConcerns;
-      
       let checkedFromAPI = [];
       let uncheckedFromAPI = [];
-      
-      // Case 1: We have unchecked data from API
       if (uncheckedData && uncheckedData.trim() !== "") {
         uncheckedFromAPI = uncheckedData.split(",").filter(Boolean);
         checkedFromAPI = allKeys.filter(key => !uncheckedFromAPI.includes(key));
       }
-      // Case 2: We have checked data from API
       else if (checkedData && checkedData.trim() !== "") {
         checkedFromAPI = checkedData.split(",").filter(Boolean);
         uncheckedFromAPI = allKeys.filter(key => !checkedFromAPI.includes(key));
       }
-      // Case 3: No data in API (first time), default to all checked
       else {
         checkedFromAPI = allKeys;
         uncheckedFromAPI = [];
       }
-      
       setSelectedConcerns(checkedFromAPI);
       setUncheckedValue(uncheckedFromAPI);
       initializedRef.current[pageKey] = true;
@@ -839,7 +815,6 @@ export default function ConcernsSettings() {
             </h2>
             <button></button>
           </div>
-
           <div className="main-wrapper home-wrapper howoften-page">
             <div className="flex items-center justify-center p-4 setting-cards">
               <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
@@ -880,7 +855,6 @@ export default function ConcernsSettings() {
                       })}
                     </div>
                   </div>
-
                   <div className="">
                     <div className="flex justify-center">
                       <button
