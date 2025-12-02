@@ -233,7 +233,8 @@ const BreathingProblem = () => {
                           alt={data?.name}
                         />
                       </div>
-                      <p className="text-[16px] mt-3 mb-2 text-black">
+                      <p className="shirnk-txt
+  text-[16px] mt-3 mb-2 text-black">
                         {selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name}

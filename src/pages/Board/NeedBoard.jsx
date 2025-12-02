@@ -346,7 +346,8 @@ const NeedBoard = () => {
                               />
                             </div>
 
-                            <p className="text-[16px] mt-4 color-black mb-0">
+                            <p className="shirnk-txt
+  text-[16px] mt-4 color-black mb-0">
                               {selectedLanguage === "Spanish"
                                 ? item.nameEs || item.name
                                 : item.name}
