@@ -233,8 +233,11 @@ const BreathingProblem = () => {
                           alt={data?.name}
                         />
                       </div>
-                      <p className="shirnk-txt
-  text-[16px] mt-3 mb-2 text-black">
+                      <p    className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
+                  ? "shirnk-txt"
+                  : ""
+                }`}>
+  
                         {selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name}
