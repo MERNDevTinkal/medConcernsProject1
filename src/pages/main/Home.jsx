@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logoicon from "../../assets/images/logo-icon.svg";
+import logoicon from "../../assets/images/logonew.png";
 import mainimg from "../../assets/images/main-img.png";
 import download from "../../assets/images/download.svg";
 import { Link, useNavigate } from "react-router-dom";

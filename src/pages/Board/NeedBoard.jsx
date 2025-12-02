@@ -51,8 +51,8 @@ const NeedBoard = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setUncheckNeedBoard
     );
 
@@ -218,20 +218,20 @@ const NeedBoard = () => {
       const audioValue = value?.audio
         ? value?.audio
         : selectedLanguage === "" && selectedGender === ""
-        ? value?.maleEnglish
-        : selectedLanguage === "Spanish" && selectedGender === "Male"
-        ? value?.maleSpanish
-        : selectedLanguage === "Spanish" && selectedGender === "Female"
-        ? value?.femaleSpanish
-        : selectedLanguage === "" && selectedGender === "Female"
-        ? value?.femaleEnglish
-        : selectedLanguage === "" && selectedGender === "Male"
-        ? value?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Male"
-        ? value?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Female"
-        ? value?.femaleEnglish
-        : value?.maleEnglish;
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -301,14 +301,14 @@ const NeedBoard = () => {
                             selectedIconCount === 1
                               ? "dash-single-items"
                               : selectedIconCount === 2
-                              ? "dash-double-items"
-                              : selectedIconCount === 3
-                              ? "dash-triple-items"
-                              : selectedIconCount === 4
-                              ? "dash-quadriple-items"
-                              : selectedIconCount === 6
-                              ? "dash-hexuple-items"
-                              : ""
+                                ? "dash-double-items"
+                                : selectedIconCount === 3
+                                  ? "dash-triple-items"
+                                  : selectedIconCount === 4
+                                    ? "dash-quadriple-items"
+                                    : selectedIconCount === 6
+                                      ? "dash-hexuple-items"
+                                      : ""
                           }
                           style={{ cursor: "pointer" }}
                           key={index}
@@ -346,7 +346,11 @@ const NeedBoard = () => {
                               />
                             </div>
 
-                            <p className="text-[16px] mt-4 color-black mb-0">
+                            <p className={`text-[16px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
+                              ? "shirnk-txt"
+                              : ""
+                              }`}>
+
                               {selectedLanguage === "Spanish"
                                 ? item.nameEs || item.name
                                 : item.name}

@@ -1748,7 +1748,7 @@ export const breathingWhenOptions = [
     image: dashimghow02,
     path: "/confrm-step-when",
     name: "Evening / Night",
-    nameEs: "Noche / Temprano",
+    nameEs: "Noche Temprano",
     maleEnglish: EveningNightMale,
     femaleEnglish: EveningNightFemale,
     femaleSpanish: TardeNocheFemaleSpanish,
@@ -1792,7 +1792,7 @@ export const breathingWhenOptions = [
     image: GetsWorseThroughtheDay,
     path: "/confrm-step-when",
     name: "Gets Worse Through the Day",
-    nameEs: "Empeora Durante el Día",
+    nameEs: "Empeora a lo Largo del Día",
     maleEnglish: GetsWorseThroughTheDayMale,
     femaleEnglish: GetsWorseThroughTheDayFemale,
     femaleSpanish: EmpeoraLargoDiaFemaleSpanish,
@@ -1924,7 +1924,7 @@ export const breathingWhenOptions = [
     image: withFoodFrinkWhenEating,
     path: "/confrm-step-when",
     name: "When Eating / Drinking",
-    nameEs: "Con Comida / Bebidas",
+    nameEs: "Al Comer o Beber",
     maleEnglish: WhenEatingDrinkingMale,
     femaleEnglish: WhenEatingDrinkingFemale,
     femaleSpanish: AlComerBeberFemaleSpanish,
@@ -1935,7 +1935,7 @@ export const breathingWhenOptions = [
     image: dashimghow13,
     path: "/confrm-step-when",
     name: "After Meals",
-    nameEs: "Después de las comidas",
+    nameEs: "Después de Comer",
     maleEnglish: AfterMealsMale,
     femaleEnglish: AfterMealsFemale,
     femaleSpanish: DespuesComerFemaleSpanish,
@@ -2057,7 +2057,7 @@ export const breathingWhenOptions = [
     secpath: "/confrm-step-when",
     path: "/Whiteboard",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
@@ -2338,7 +2338,7 @@ export const concerns = [
   {
     id: 21,
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: ConcernImg18,
     path: "/concern/whiteboard-yes-no/21",
     maleEnglish: SomethingElseFemale,
@@ -2349,7 +2349,7 @@ export const concerns = [
   {
     id: 22,
     name: "No Concerns",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: HowAreYouImg1,
     path: "/summary",
     femaleEnglish: NoConcernsFemale,
@@ -2574,7 +2574,7 @@ export const topicBoard = [
   {
     id: 22,
     name: "Something Else",
-    nameEs: "Algo más",
+    nameEs: "Algo Mas",
     path: "/topicboard/something else/22",
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
@@ -2587,7 +2587,7 @@ export const feelingValues = [
   {
     id: 1,
     name: "No Pain",
-    nameEs: "Sin dolor",
+    nameEs: "Sin Dolor",
     maleEnglish: NoPainMale,
     femaleEnglish: noPainFemale,
     femaleSpanish: SinDolorSpanishFemale,
@@ -2784,7 +2784,7 @@ const emotionsData = [
   {
     id: 11,
     name: "Something Else",
-    nameEs: "Algo salió mal",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     image: PainImg15,
     path: "/whiteboard",
@@ -2945,7 +2945,7 @@ const needBoard = [
   {
     id: 10,
     name: "Ice Pack",
-    nameEs: "Bolsa de hielo",
+    nameEs: "Bolsa de Hielo",
     image: Ice_pack,
     secPath: "/board/confrm-step-yesno/10",
     path: "/summary",
@@ -2957,7 +2957,7 @@ const needBoard = [
   {
     id: 11,
     name: "Heating Pad",
-    nameEs: "Almohadilla térmica",
+    nameEs: "Almohadilla Térmica",
     image: heating_padImg,
     secPath: "/board/confrm-step-yesno/11",
     path: "/summary",
@@ -2981,7 +2981,7 @@ const needBoard = [
   {
     id: 13,
     name: "Room Temperature",
-    nameEs: "Temperatura de la habitación",
+    nameEs: "Temperatura de la Habitación",
     image: Room_tem,
     secPath: "/board/confrm-step-yesno/13",
     path: "/summary",
@@ -3041,7 +3041,7 @@ const needBoard = [
   {
     id: 18,
     name: "Need Straw",
-    nameEs: "Necesito una pajita",
+    nameEs: "Necesito una Pajita",
     image: StrawImg,
     secPath: "/board/confrm-step-yesno/18",
     path: "/summary",
@@ -3137,7 +3137,7 @@ const needBoard = [
   {
     id: 26,
     name: "Call Light",
-    nameEs: "Luz de llamada",
+    nameEs: "Luz de Llamada",
     image: Calllight,
     secPath: "/board/confrm-step-yesno/26",
     path: "/summary",
@@ -3269,7 +3269,7 @@ const needBoard = [
   {
     id: 37,
     name: "Ostomy / Colostomy Bag",
-    nameEs: "Bolsa de Ostomía / Colostomía",
+    nameEs: "Bolsa de Colostomía / Ostomía",
     image: Colostomy_OstomyBag,
     secPath: "/board/confrm-step-yesno/37",
     path: "/summary",
@@ -3425,7 +3425,7 @@ const needBoard = [
   {
     id: 50,
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: PainImg15,
     secPath: "/board/confrm-step-yesno/50",
     path: "/whiteboard",
@@ -3502,8 +3502,8 @@ const feelOptions = [
 const painCards = [
   {
     id: "1",
-    name: "Tight / Squeezing",
-    nameEs: "Apretado / Apretado",
+    name: "Squeezing / Tight",
+    nameEs: "Apretando / Apretado",
     image: PainImg1,
     path: "/feeling-list-pain",
     secPath: "/confrm-step-yesno",
@@ -3671,7 +3671,7 @@ const painCards = [
   {
     id: "15",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: PainImg15,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -3734,7 +3734,7 @@ const swallowingDesises = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -3786,7 +3786,7 @@ const heartburnDesises = [
   {
     id: "4",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -3861,7 +3861,7 @@ const heartburnswallowingDesises = [
   {
     id: "6",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -3948,7 +3948,7 @@ const painwithswallowingDesises = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -4036,7 +4036,7 @@ const trachSwallowingFoodStickingDesises = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -4123,7 +4123,7 @@ const fearofswallowingDesises = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/whiteboard",
@@ -4223,7 +4223,7 @@ const drymouthDesises = [
   {
     id: "8",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -4346,7 +4346,7 @@ const trachproblemDesises = [
   {
     id: "10",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -4469,7 +4469,7 @@ const trachDesises = [
   {
     id: "10",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -4532,7 +4532,7 @@ const mucussecretionsDesises = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -4584,7 +4584,7 @@ const feedingtubeDesises = [
   {
     id: "4",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -4720,7 +4720,7 @@ const trachproblemsubDesises = [
   {
     id: "11",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
     image: dashimg11,
@@ -4808,7 +4808,7 @@ const trachmucusSecretionsDesises = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -4896,7 +4896,7 @@ const trachswallowingDesises = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -4983,7 +4983,7 @@ const medicationPainwithSwallowingDesises = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -5217,7 +5217,7 @@ const trachDesies = [
   {
     id: "14",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/Whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -5364,7 +5364,7 @@ const SwallowingTrachDesies = [
   {
     id: "12",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/Whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -5487,7 +5487,7 @@ const MedicationSidEffectsDesies = [
   {
     id: "10",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/Whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -5647,7 +5647,7 @@ const medicationswallowing = [
   {
     id: "13",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     image: dashimg11,
     path: "/Whiteboard",
@@ -5710,7 +5710,7 @@ const medicationnoAppetite = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     image: dashimg11,
     path: "/Whiteboard",
@@ -5773,7 +5773,7 @@ const medicationSidEffectsAppetite = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     image: dashimg11,
     path: "/Whiteboard",
@@ -5872,7 +5872,7 @@ const medicationBowels = [
   {
     id: "8",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     image: dashimg11,
     path: "/Whiteboard",
@@ -5923,7 +5923,7 @@ const medicationUrination = [
   {
     id: "4",
     name: "Very Little / Infrequent",
-    nameEs: "Muy Poco / Poco Frecuente",
+    nameEs: "Muy Poco / Con Poca Frecuencia",
     path: "/howoften",
     image: Very_Little_Infrequent,
     secPath: "/confrm-step-yesno",
@@ -5959,7 +5959,7 @@ const medicationUrination = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     image: dashimg11,
     path: "/Whiteboard",
@@ -6046,7 +6046,7 @@ const nauseaSwallowingDesies = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: nausea05,
     secPath: "/confrm-step-yesno",
     path: "/whiteboard",
@@ -6061,7 +6061,7 @@ const painEmoji = [
   {
     id: "1",
     painFeel: "No Pain",
-    painFeelEs: "Sin dolor",
+    painFeelEs: "Sin Dolor",
     params: "0",
     image: Emo1,
     secPath: "/confrm-step-yesno",
@@ -6178,7 +6178,7 @@ const noappetiteDesies = [
   {
     id: "4",
     name: "Feel Full",
-    nameEs: "Siéntete lleno",
+    nameEs: "Me Siento Lleno/a",
     secPath: "/confrm-step-yesno",
     path: "/howoften",
     image: FeelfullImg,
@@ -6202,7 +6202,7 @@ const noappetiteDesies = [
   {
     id: "6",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
     image: dashimg11,
@@ -6277,7 +6277,7 @@ const swallowingfeedingtube = [
   {
     id: "6",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/Whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -6364,7 +6364,7 @@ const swallowingfeedingtubebowelsDesiese = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/Whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -6427,7 +6427,7 @@ const bowelsfeedingtubeDesiese = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/Whiteboard",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
@@ -6502,7 +6502,7 @@ const fatigueTroubleSleeping = [
   {
     id: "6",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
     image: dashimg11,
     path: "/Whiteboard",
@@ -6553,7 +6553,7 @@ const EatingdrinkingNoAppetite = [
   {
     id: "4",
     name: "Feel Full",
-    nameEs: "Siéntete lleno",
+    nameEs: "Me Siento Lleno/a",
     image: FeelfullImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
@@ -6589,7 +6589,7 @@ const EatingdrinkingNoAppetite = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -6664,7 +6664,7 @@ const eatingdrinkingNoAppetiteNausea = [
   {
     id: "6",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -6740,7 +6740,7 @@ const medicationNausea = [
   {
     id: "6",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -6768,7 +6768,7 @@ const medicationFatigue = [
   {
     id: "2",
     name: "Trouble Sleeping",
-    nameEs: "Dificultad para Dormir",
+    nameEs: "Problemas para Dormir",
     image: Troublesleeping,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
@@ -6829,7 +6829,7 @@ const medicationFatigue = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/whiteboard",
@@ -6894,7 +6894,7 @@ const eatingDonoteatThis = [
   {
     id: "5",
     name: "Something Else?",
-    nameEs: "¿Algo Más?",
+    nameEs: "¿Algo Mas?",
     secPath: "/confrm-step-yesno",
 
     image: dashimg11,
@@ -7027,7 +7027,7 @@ const eatingDonoteatspecialdiet = [
   {
     id: "10",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
 
     image: dashimg11,
@@ -7115,7 +7115,7 @@ const medicationSidEffectsAppetiteNausea = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: nausea05,
     path: "/whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7195,7 +7195,7 @@ const medicationHardtoSwallow = [
   {
     id: "6",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7250,7 +7250,7 @@ const medicationHardtoSwallowwholeliquid = [
   {
     id: "4",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7306,7 +7306,7 @@ const medicationTiming = [
   {
     id: "4",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7361,7 +7361,7 @@ const medicationWholeCrushedLiquid = [
   {
     id: "4",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7427,7 +7427,7 @@ const visionGlasses = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7530,7 +7530,7 @@ const hearingAids = [
   {
     id: "8",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7618,7 +7618,7 @@ const mucusProblemsub = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7682,7 +7682,7 @@ const illnessAppetite = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -7750,7 +7750,7 @@ const somethingHappenedStrokeSymptoms = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     path: "/Whiteboard",
     secPath: "/confrm-step-yesno",
@@ -7838,7 +7838,7 @@ const movementconcerns = [
   {
     id: "7",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -7987,7 +7987,7 @@ const communicationConcerns = [
   {
     id: "12",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -8090,7 +8090,7 @@ const hearingConcers = [
   {
     id: "8",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -8191,7 +8191,7 @@ const visionConcers = [
   {
     id: "8",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
 
@@ -8303,7 +8303,7 @@ const feedingBowels = [
   {
     id: "9",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     path: "/confrm-step-yesno",
 
     image: dashimg11,
@@ -8384,7 +8384,7 @@ const trachSwallowing = [
   {
     id: "4",
     name: "Something Else",
-    nameEs: "Algo Más",
+    nameEs: "Algo Mas",
     image: dashimg11,
     secPath: "/confrm-step-yesno",
     path: "/Whiteboard",
@@ -8521,7 +8521,7 @@ export const diseasesData = {
     {
       id: "11",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
       path: "/Whiteboard",
@@ -8611,7 +8611,7 @@ export const diseasesData = {
     {
       id: "7",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -8764,7 +8764,7 @@ export const diseasesData = {
     {
       id: "7",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -8852,7 +8852,7 @@ export const diseasesData = {
     {
       id: "7",
       name: "Pain with Swallowing",
-      nameEs: "Dolor al tragar",
+      nameEs: "Dolor al Tragar",
       image: Painwithswallowing,
       secPath: "/confrm-step-yesno",
       path: "/swallowingpain-problem",
@@ -8948,7 +8948,7 @@ export const diseasesData = {
     {
       id: "15",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -8999,7 +8999,7 @@ export const diseasesData = {
     {
       id: "4",
       name: "Pain with Swallowing",
-      nameEs: "Dolor al tragar",
+      nameEs: "Dolor al Tragar",
       image: Painwithswallowing,
 
       secPath: "/confrm-step-yesno",
@@ -9076,7 +9076,7 @@ export const diseasesData = {
     {
       id: "10",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
       path: "/Whiteboard",
@@ -9234,7 +9234,7 @@ export const diseasesData = {
     {
       id: "6",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: nausea05,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -9333,7 +9333,7 @@ export const diseasesData = {
     {
       id: "8",
       name: "Colostomy / Ostomy Bag",
-      nameEs: "Colostomía / Bolsa de Ostomía",
+      nameEs: "Bolsa de Colostomía / Ostomía",
       image: Colostomy_OstomyBag,
       secPath: "/confrm-step-yesno",
 
@@ -9372,7 +9372,7 @@ export const diseasesData = {
     {
       id: "11",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -9423,7 +9423,7 @@ export const diseasesData = {
     {
       id: "4",
       name: "Very Little / Infrequent",
-      nameEs: "Muy Poco / Poco Frecuente",
+      nameEs: "Muy Poco / Con Poca Frecuencia",
       image: Very_Little_Infrequent,
       secPath: "/confrm-step-yesno",
       path: "/when",
@@ -9483,7 +9483,7 @@ export const diseasesData = {
     {
       id: "9",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -9511,7 +9511,7 @@ export const diseasesData = {
     {
       id: "2",
       name: "Trouble Sleeping",
-      nameEs: "Dificultad para Dormir",
+      nameEs: "Problemas para Dormir",
       image: Troublesleeping,
       secPath: "/confrm-step-yesno",
       path: "/fatigueTroubleSleeping-problem",
@@ -9535,7 +9535,7 @@ export const diseasesData = {
     {
       id: "4",
       name: "Gets Worse Through the Day",
-      nameEs: "Empeora a lo largo del día",
+      nameEs: "Empeora a lo Largo del Día",
       image: GetsWorseThroughtheDay,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
@@ -9634,7 +9634,7 @@ export const diseasesData = {
     {
       id: "12",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
 
@@ -9764,7 +9764,7 @@ export const diseasesData = {
     {
       id: "10",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -9881,7 +9881,7 @@ export const diseasesData = {
     {
       id: "9",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
 
@@ -10027,7 +10027,7 @@ export const diseasesData = {
     {
       id: "11",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
 
@@ -10080,7 +10080,7 @@ export const diseasesData = {
     {
       id: "4",
       name: "Trouble Sleeping",
-      nameEs: "Dificultad para Dormir",
+      nameEs: "Problemas para Dormir",
       image: Troublesleeping,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
@@ -10164,7 +10164,7 @@ export const diseasesData = {
     {
       id: "11",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
 
@@ -10279,7 +10279,7 @@ export const diseasesData = {
     {
       id: "9",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
 
@@ -10382,7 +10382,7 @@ export const diseasesData = {
     {
       id: "8",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       path: "/Whiteboard",
       secPath: "/confrm-step-yesno",
@@ -10535,7 +10535,7 @@ export const diseasesData = {
     {
       id: "12",
       name: "Something Else",
-      nameEs: "Algo Más",
+      nameEs: "Algo Mas",
       image: dashimg11,
       secPath: "/confrm-step-yesno",
 

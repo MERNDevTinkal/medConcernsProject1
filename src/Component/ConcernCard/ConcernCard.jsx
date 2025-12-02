@@ -100,7 +100,11 @@ const ConcernCard = ({
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className="text-[14px] mt-1 mb-1 text-black">
+              <p className={`text-[14px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
+                  ? "shirnk-txt"
+                  : ""
+                }`}>
+
                 {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
               </p>
             </div>

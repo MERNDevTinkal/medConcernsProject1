@@ -778,7 +778,7 @@ export default function TabsCalendar() {
                       </h3>
                       <div className="grid grid-cols-3 border border-gray-200 rounded-lg overflow-hidden ">
                         {(selectedLanguage === "Spanish"
-                          ? ["MAÑANA", "TARDE", "NOCHE"]
+                          ? ["MAÑANA", "TARDE", "NOCHE TEMPRANO"]
                           : ["MORNING", "AFTERNOON", "EVENING"]
                         ).map((label) => (
                           <div

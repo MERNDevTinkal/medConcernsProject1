@@ -32,18 +32,18 @@ export default function HowAreYou() {
           selectedLanguage === "" && selectedGender === ""
             ? item?.maleEnglish
             : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? item?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-            ? item?.femaleSpanish
-            : selectedLanguage === "" && selectedGender === "Female"
-            ? item?.femaleEnglish
-            : selectedLanguage === "" && selectedGender === "Male"
-            ? item?.maleEnglish
-            : selectedLanguage === "English" && selectedGender === "Male"
-            ? item?.maleEnglish
-            : selectedLanguage === "English" && selectedGender === "Female"
-            ? item?.femaleEnglish
-            : item?.maleEnglish;
+              ? item?.maleSpanish
+              : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? item?.femaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                  ? item?.femaleEnglish
+                  : selectedLanguage === "" && selectedGender === "Male"
+                    ? item?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Male"
+                      ? item?.maleEnglish
+                      : selectedLanguage === "English" && selectedGender === "Female"
+                        ? item?.femaleEnglish
+                        : item?.maleEnglish;
         await getTextToSpeech(
           selectedLanguage === "Spanish" ? item.nameEs : item.name,
           selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -67,10 +67,10 @@ export default function HowAreYou() {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
   return (
@@ -84,7 +84,7 @@ export default function HowAreYou() {
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
             name={
-              selectedLanguage === "Spanish" ? "Cómo estás?" : "How are you?"
+              selectedLanguage === "Spanish" ? "¿Cómo estás?" : "How are you?"
             }
           />
 
@@ -107,14 +107,14 @@ export default function HowAreYou() {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                        ? "dash-double-items"
-                        : selectedIconCount === 3
-                        ? "dash-triple-items"
-                        : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                          ? "dash-double-items"
+                          : selectedIconCount === 3
+                            ? "dash-triple-items"
+                            : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                                ? "dash-hexuple-items"
+                                : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {
@@ -133,7 +133,11 @@ export default function HowAreYou() {
                           alt={item?.name}
                         />
                       </div>
-                      <p className="text-[16px] mt-3 mb-2 text-black">
+                      <p className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
+                        ? "shirnk-txt"
+                        : ""
+                        }`}>
+
                         {selectedLanguage === "Spanish"
                           ? item?.nameEs
                           : item?.name}

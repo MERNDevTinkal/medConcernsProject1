@@ -52,7 +52,7 @@ export const howareyou = [
   {
     id: 1,
     name: "Good",
-    nameEs: "Bien",
+    nameEs: "Bueno",
     image: HowAreYouImg1,
     maleEnglish: GoodMale, // Added
     femaleEnglish: GoodEnglishFemale, // Added
@@ -62,7 +62,7 @@ export const howareyou = [
   {
     id: 2,
     name: "Okay",
-    nameEs: "Más o menos",
+    nameEs: "Estå Bien",
     image: HowAreYouImg2,
     maleEnglish: OkayMale, // Added
     femaleEnglish: OkayEnglishFemale, // Added
@@ -72,7 +72,7 @@ export const howareyou = [
   {
     id: 3,
     name: "Bad",
-    nameEs: "Mal",
+    nameEs: "Malo",
     image: HowAreYouImg3,
     maleEnglish: BadMale, // Added
     femaleEnglish: BadEnglishFemale, // Added
@@ -82,7 +82,7 @@ export const howareyou = [
   {
     id: 4,
     name: "Up and Down",
-    nameEs: "Altibajos",
+    nameEs: "Arriba y Abajo",
     image: HowAreYouImg4,
     maleEnglish: UpAndDownMale, // Added
     femaleEnglish: UpAndDownEnglishFemale, // Added
@@ -112,7 +112,7 @@ export const howareyou = [
   {
     id: 7,
     name: "The Same",
-    nameEs: "Igual",
+    nameEs: "Lo Mismo",
     image: HowAreYouImg9,
     maleEnglish: TheSameMale, // Added
     femaleEnglish: TheSameEnglishFemale, // Added
@@ -122,7 +122,7 @@ export const howareyou = [
   {
     id: 8,
     name: "I Don't Know",
-    nameEs: "No lo sé",
+    nameEs: "No sé",
     image: HowAreYouImg8,
     maleEnglish: IDontKnowMale, // Added
     femaleEnglish: IDontKnowEnglishFemale, // Added
