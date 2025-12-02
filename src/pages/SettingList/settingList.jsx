@@ -660,13 +660,10 @@ export default function ConcernsSettings() {
   const currentList = name === "Needsboard" ? needsBoardList : concernsList;
   const allKeys = currentList.map((c) => c.key);
   const [unCheckedValue, setUncheckedValue] = useState([]);
-
-  // Use a ref to track initialization per page type
   const initializedRef = useRef({
     needsboard: false,
     concerns: false
   });
-
   // const saveSettings = (checkedItems, uncheckedItems, isSaveClick = "") => {
   //   const payload = new FormData();
   //   payload.append("licenses_id", licenses_id);
@@ -700,30 +697,22 @@ export default function ConcernsSettings() {
   // };
 
   // ---------------- Handle toggle ----------------
-
   const saveSettings = (checkedItems, uncheckedItems, isSaveClick = "") => {
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     const isNeeds = name === "Needsboard";
     const value = isNeeds ? "need_board" : "concerns";
     const unCheckedKey = isNeeds ? "uncheck_need_board" : "uncheck_concerns";
-
-    // Fix: Use null when arrays are empty
     const concernsString = checkedItems.length > 0 ? checkedItems.join(",") : null;
     const uncheckedString = uncheckedItems.length > 0 ? uncheckedItems.join(",") : null;
-
     payload.append(value, concernsString);
     payload.append(unCheckedKey, uncheckedString);
-
     const oppositeKey = isNeeds ? "concerns" : "need_board";
     const oppositeUncheckKey = isNeeds ? "uncheck_concerns" : "uncheck_need_board";
     const oppositeData = isNeeds ? concerns : needboard;
     const oppositeUncheckData = isNeeds ? UncheckConcerns : uncheckNeedBoard;
-
-    // Apply same fix to opposite data
     const oppositeDataString = oppositeData && oppositeData.length > 0 ? oppositeData : null;
     const oppositeUncheckDataString = oppositeUncheckData && oppositeUncheckData.length > 0 ? oppositeUncheckData : null;
-
     payload.append(oppositeKey, oppositeDataString || "");
     payload.append(oppositeUncheckKey, oppositeUncheckDataString || "");
 
