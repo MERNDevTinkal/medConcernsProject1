@@ -122,7 +122,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
               );
             }}
           >
-            <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+            <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
               <div className="flex items-center">
                 <p className="text-[40px]  font-medium text-green-600">
                   {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
@@ -143,7 +143,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
               );
             }}
           >
-            <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+            <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
               <div className="flex items-center">
                 <p className="text-[40px] font-medium text-red-600">
                   {selectedLanguage === "Spanish" ? "NO" : "NO"}
@@ -164,7 +164,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                     3
                   );
                 }}
-                className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px]  cursor-pointer hover:border-blue-600 transition-colors duration-300"
               >
                 <div className="flex items-center">
                   <img src={WomenIcon} width="70px" alt="" className="" />

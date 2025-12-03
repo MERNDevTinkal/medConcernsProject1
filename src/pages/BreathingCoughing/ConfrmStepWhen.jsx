@@ -71,7 +71,7 @@ function ConfrmStepWhen() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
             <div
               onClick={() => {
                 navigate(-1);
@@ -80,12 +80,12 @@ function ConfrmStepWhen() {
             >
               <img src={BackArrow} />
             </div>
-            <h2 className="text-[30px] font-normal text-black text-center">
+            <h2 className="text-[30px] font-medium text-black text-center">
               {selectedLanguage === "Spanish"
                 ? confirmData.nameEs
                 : confirmData.name}
             </h2>
-            <button></button>
+            <button className="opacity-0">Medconcern</button>
           </div>
           <div className="main-wrapper home-wrapper ">
             <div className="grid grid-cols-2  md:gap-20 gap-5 my-5 items-center">
@@ -130,7 +130,7 @@ function ConfrmStepWhen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
                         <p className="text-[32px] font-medium text-green-600">
                           {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
@@ -171,7 +171,7 @@ function ConfrmStepWhen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
                         <p className="text-[32px] font-medium text-red-600">
                           NO

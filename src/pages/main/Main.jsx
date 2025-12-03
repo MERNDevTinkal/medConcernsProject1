@@ -45,9 +45,9 @@ const Main = () => {
 
   return (
     <div>
-      <div className="welcome-new bg-[#DCECFC]">
+      <div className="welcome-new min-h-screen flex items-center justify-center">
         <div className=" main-h  flex items-center justify-center">
-          <div className="w-full flex flex-col items-center text-center px-5">
+          <div className="w-full flex flex-col items-center text-center">
             {/* Logo and Title */}
             <div className="mb-8">
               <img
@@ -59,13 +59,13 @@ const Main = () => {
 
             {/* Input Section */}
             <div className="w-full text-left licence-bx relative">
-              <label className="block font-medium text-[#000] text-base mb-3">
+              <label className="block font-medium text-[#000] mb-3">
                 Enter your license key to continue
               </label>
               <input
                 type="text"
                 placeholder="Enter your license key"
-                className="w-full px-4 py-3 rounded border text-[#000] text-base border-[#ABCEFA] focus:outline-none h-[46px] placeholder:text-black"
+                className="w-full px-4 py-3 rounded border  text-[#000]  border-[#ABCEFA] focus:outline-none h-[45px] placeholder:text-black"
                 value={licenseKey}
                 onChange={(e) => setLicenseKey(e.target.value)}
                 onKeyDown={(e) => {

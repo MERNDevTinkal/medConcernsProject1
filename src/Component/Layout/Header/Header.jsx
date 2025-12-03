@@ -319,7 +319,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                 <img src={hamburger} alt="menu" />
               </button>
             </div>
-            <h2 className="Header-text text-[30px] font-normal text-black">
+            <h2 className="Header-text text-[30px] font-medium text-black">
               {location.pathname === "/emotions"
                 ? ""
                 : name ??
@@ -330,12 +330,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                     : "Concerns")}
             </h2>
             <div style={{ cursor: "pointer" }}>
-              {(location.pathname === "/introduction" ||
-                location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" ||
-                location.pathname === "/emotions" ||
-                location.pathname === "/how-are-you" ||
-                location.pathname === "/feeling-body") && (
+              {location.pathname === "/introduction" ||
+              location.pathname === "/howoften" ||
+              location.pathname === "/new-problem" ||
+              location.pathname === "/emotions" ||
+              location.pathname === "/how-are-you" ||
+              location.pathname === "/feeling-body" ? (
                 <div
                   onClick={() => {
                     navigate(
@@ -359,6 +359,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   <h6>Skip</h6>
                   <img src={NextArrow} alt="next" />
                 </div>
+              ) : (
+                <div className="opacity-0">Medconcern</div>
               )}
             </div>
           </div>

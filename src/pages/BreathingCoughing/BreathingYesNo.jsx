@@ -56,12 +56,12 @@ function BreathingYesNo() {
             >
               <img src={BackArrow} />
             </div>
-            <h2 className="text-[30px] font-normal text-black text-center">
+            <h2 className="text-[30px] font-medium text-black text-center">
               {selectedLanguage === "Spanish"
                 ? concernValues.nameEs
                 : concernValues.name || ""}
             </h2>
-            <button></button>
+            <button className="opacity-0">Medconcern</button>
           </div>
           <div className="main-wrapper home-wrapper ">
             <div className="grid grid-cols-2  md:gap-20 gap-5 my-5  items-center">

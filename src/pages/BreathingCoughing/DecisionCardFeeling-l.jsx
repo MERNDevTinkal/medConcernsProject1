@@ -81,7 +81,7 @@ const DecisionCardFeeling = ({
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[40px] font-medium text-green-600">
                 {selectedLanguage === "Spanish" ? "Sí" : "YES"}
@@ -116,7 +116,7 @@ const DecisionCardFeeling = ({
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-3 sm:mb-1.5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[40px] font-medium text-red-600">NO</p>
             </div>
