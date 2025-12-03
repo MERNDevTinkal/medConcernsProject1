@@ -335,7 +335,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                     : "Concerns")}
             </h2>
             <div style={{ cursor: "pointer" }}>
-<<<<<<< HEAD
               {location.pathname === "/introduction" ||
               location.pathname === "/howoften" ||
               location.pathname === "/new-problem" ||
@@ -368,38 +367,6 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               ) : (
                 <div className="opacity-0">Medconcern</div>
               )}
-=======
-              {(location.pathname === "/introduction" ||
-                location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" ||
-                location.pathname === "/emotions" ||
-                location.pathname === "/how-are-you" ||
-                location.pathname === "/feeling-body") && (
-                  <div
-                    onClick={() => {
-                      navigate(
-                        location.pathname === "/feeling-body"
-                          ? "/summary"
-                          : location.pathname === "/emotions"
-                            ? "/feelOptions/1"
-                            : location.pathname === "/howoften"
-                              ? "/new-problem"
-                              : location.pathname === "/new-problem"
-                                ? "/summary"
-                                : introductionOn
-                                  ? "/concern"
-                                  : location.pathname === "/how-are-you"
-                                    ? "/concern"
-                                    : "/how-are-you"
-                      );
-                    }}
-                    className="flex items-center gap-2 justify-end cursor-pointer"
-                  >
-                    <h6>Skip</h6>
-                    <img src={NextArrow} alt="next" />
-                  </div>
-                )}
->>>>>>> 3f1f2c789645724849a355b46ced9e9574714df9
             </div>
           </div>
 
