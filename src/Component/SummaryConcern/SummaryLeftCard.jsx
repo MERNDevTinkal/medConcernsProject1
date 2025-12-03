@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import boardImg from "../../assets/images/sidebar-icon-08.svg";
 import { EmotionsImg2 } from "../../Component/DiseasesData/images";
-const SummaryCards = ({ board, selectedLanguage, SummaryConcernData }) => {
+const SummaryCards = ({ board, selectedLanguage, SummaryConcernData,headerNames }) => {
   const [getData, setData] = useState({});
-  console.log("SummaryConcernData",)
   useEffect(() => {
     if (!SummaryConcernData) {
       return;
@@ -21,7 +20,7 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData }) => {
                 ? boardImg
                 : board === "/emotions"
                 ? EmotionsImg2
-                : getData?.image
+                : getData?.image ?? headerNames?.icon ?? ""
             }
             className="w-full"
           />
@@ -31,10 +30,10 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData }) => {
           className="text-xl md:text-lg sm:text-base font-normal color-black"
         >
           {selectedLanguage === "Spanish"
-            ? getData?.nameEs
+            ? getData?.nameEs ?? headerNames?.es
             : board === "/emotions"
             ? "Emotions / Feelings"
-            : getData?.name || ""}
+            : getData?.name ?? headerNames?.en ?? ""}
         </Link>
       </div>
     </>
