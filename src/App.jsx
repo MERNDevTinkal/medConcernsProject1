@@ -135,6 +135,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/need-license" element={<License />} />
+        <Route path="/license-contact" element={<LicenseContact />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<BreathingWhen />} />
           <Route path="/pain-concern" element={<BackPain />} />
@@ -205,8 +207,7 @@ function App() {
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/feeling-body" element={<EmotionsList />} />
           <Route path="/depression-screener" element={<DepressionScreener />} />
-          <Route path="/need-license" element={<License />} />
-          <Route path="/license-contact" element={<LicenseContact />} />
+
         </Route>
       </Routes>
     </>

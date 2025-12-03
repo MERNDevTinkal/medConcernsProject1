@@ -37,7 +37,7 @@ export default function Contactus() {
           />
           <div className="main-wrapper home-wrapper">
             <div className="contact-us text-center">
-              <img src="/newlogo_4.png" width={400} className="m-auto" />
+              <img src="/newlogo.png" width={400} className="m-auto" />
 
               {/* Patent Pending */}
               <div className="contect-info mt-4">

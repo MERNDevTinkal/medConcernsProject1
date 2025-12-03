@@ -22,7 +22,7 @@ function License() {
               help you with pricing, setup, and onboarding.
             </p>
             <Link
-              to="/license-contact"
+              to="/license-contact?type=hospital"
               className="bg-[#008CFF] text-white py-3 px-8 rounded-lg text-lg mt-5 mb-5 inline-block"
             >
               Request facility access
@@ -35,7 +35,7 @@ function License() {
               simple payment instructions and your access code.
             </p>
             <Link
-              to="/license-contact"
+              to="/license-contact?type=individual"
               className="bg-[#008CFF] text-white py-3 px-8 rounded-lg text-lg mt-5 mb-5 inline-block"
             >
               Request individual access
@@ -48,7 +48,7 @@ function License() {
               your code, we can resend it.
             </p>
             <Link
-              to="/license-contact"
+              to="/license-contact?type=already"
               className="bg-[#008CFF] text-white py-3 px-8 rounded-lg text-lg mt-5 mb-5 inline-block"
             >
               Resend my code

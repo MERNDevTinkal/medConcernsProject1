@@ -512,7 +512,7 @@ import YesFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/si (ye
 import NoFemale from "../../assets/audio/English/newFemaleEnglish/No.mp3";
 import NoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/No_no.mp3";
 import YesMale from "../../assets/audio/English/newFemaleEnglish/Yes.mp3";
-import YesSpanishMale from "../../assets/audio/English/newFemaleEnglish/yes_si-male.wav";
+import YesSpanishMale from "../../assets/audio/English/newFemaleEnglish/yes_si-male.mp3";
 import MaybeFemale from "../../assets/audio/English/newFemaleEnglish/Maybe.mp3";
 
 import MaybeMale from "../../assets/audio/English/newFemaleEnglish/34 Maybe.mp3";
@@ -586,7 +586,7 @@ import whensittingSpanishFemale from "../../assets/audio/spanish/female/al estar
 import whensittingFemale from "../../assets/audio/English/female/when sitting.mp3";
 import withactivityFemale from "../../assets/audio/English/female/with activity.mp3";
 import withactivitySpanishFemale from "../../assets/audio/spanish/female/con actividad (with activity).mp3";
-import withmedicacionSpanishFemale from "../../assets/audio/spanish/female/con medicacion.wav";
+import withmedicacionSpanishFemale from "../../assets/audio/spanish/female/con medicacion (with medication).mp3";
 import WithBloodPressureFemale from "../../assets/audio/English/female/With Blood Pressure.mp3";
 import WithBloodSugarSpanishFemale from "../../assets/audio/spanish/female/Con Azucar en Sangre (female).mp3";
 import WithBloodPressureSpanishFemale from "../../assets/audio/spanish/female/Con Presion Arterial (With Blood Pressure).mp3";
@@ -758,7 +758,7 @@ import HouseholdActivityEnglishFemale from "../../assets/audio/English/female/ho
 import FollowUpAppointmentsEnglishFemale from "../../assets/audio/English/female/follow up appointments.mp3";
 import MoneyEnglishFemale from "../../assets/audio/English/female/money.mp3";
 
-import QueMePasoWhatHappenedToMeSpanishFemale from "../../assets/audio/spanish/female/¿Qué me pasó_ (What happened to me_).wav";
+import QueMePasoWhatHappenedToMeSpanishFemale from "../../assets/audio/spanish/female/¿Qué me pasó_ (What happened to me_).mp3";
 import DarDeAltaDischargeSpanishFemale from "../../assets/audio/spanish/female/dar de alta (discharge.mp3";
 import AlcoholSpanishFemale from "../../assets/audio/spanish/female/alcohol.mp3";
 import ComidaFoodSpanishFemale from "../../assets/audio/spanish/female/comida (food).mp3";
@@ -930,18 +930,18 @@ import GoteandoSpanishFemale from "../../assets/audio/spanish/female/goteando.mp
 import QuitarRemoveSpanishFemale from "../../assets/audio/spanish/female/quitar (remove).mp3";
 
 // English Male
-import FoodStickingMale from "../../assets/audio/English/newFemaleEnglish/Food Sticking.wav";
+import FoodStickingMale from "../../assets/audio/English/newFemaleEnglish/Food Sticking-male.mp3";
 import NoAppetiteMale from "../../assets/audio/English/newFemaleEnglish/No Appetite (male eng).mp3";
 import FearOfSwallowingMale from "../../assets/audio/English/newFemaleEnglish/Fear of Swallowing (male eng).mp3";
 import PainWithSwallowingMale from "../../assets/audio/English/newFemaleEnglish/Pain with Swallowing (male eng).mp3";
-import HeartburnMale from "../../assets/audio/English/newFemaleEnglish/Heartburn_com.wav";
+import HeartburnMale from "../../assets/audio/English/newFemaleEnglish/Heartburn_com.mp3";
 
 // Spanish Male
-import SinApetitoNoAppetiteSpanishMale from "../../assets/audio/English/newFemaleEnglish/Sin Apetito (No Appetite).wav";
-import MiedoDeTragarSpanishMale from "../../assets/audio/English/newFemaleEnglish/Miedo de tragar.wav";
-import DolorAlTragarSpanishMale from "../../assets/audio/English/newFemaleEnglish/Dolor al tragar.wav";
+import SinApetitoNoAppetiteSpanishMale from "../../assets/audio/English/newFemaleEnglish/Sin Apetito (No Appetite)male.mp3";
+import MiedoDeTragarSpanishMale from "../../assets/audio/English/newFemaleEnglish/Miedo de tragar.mp3";
+import DolorAlTragarSpanishMale from "../../assets/audio/English/newFemaleEnglish/Dolor al tragar.mp3";
 import AcidezEstomacalHeartburnSpanishMale from "../../assets/audio/English/newFemaleEnglish/Acidez estomacal_heartburn.mp3";
-import ComidaQueSePegaSpanishMale from "../../assets/audio/English/newFemaleEnglish/comida que se pega.wav";
+import ComidaQueSePegaSpanishMale from "../../assets/audio/English/newFemaleEnglish/comida que se pega.mp3";
 
 // English Female
 import FoodStickingEnglishFemale from "../../assets/audio/English/female/Food Sticking.mp3";
@@ -969,7 +969,7 @@ import NecesitaCambioNeedChangedSpanishFemale from "../../assets/audio/spanish/f
 import TraqueostomiaQuitadoTrachRemovedSpanishFemale from "../../assets/audio/spanish/female/Traqueostomia Quitado (Trach Removed - female).mp3";
 import TuboDeAlimentacionQuitadoPEGRemovedSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentacion Quitado (PEG Removed).mp3";
 import EsperarDemasiadoTiempoWaitedTooLongSpanishFemale from "../../assets/audio/spanish/female/Esperar Demasiado Tiempo (waited too long).mp3";
-import MalToqueBadTouchSpanishFemale from "../../assets/audio/spanish/female/Mal Toque (Bad Touch).wav";
+import MalToqueBadTouchSpanishFemale from "../../assets/audio/spanish/female/Mal Toque (Bad Touch).mp3";
 import AnalisisDeSangreORayosXBloodworkOrXraySpanishFemale from "../../assets/audio/spanish/female/Análisis de Sangre o Rayos X (Bloodwork or Xray).mp3";
 import ArgumentoArgumentSpanishFemale from "../../assets/audio/spanish/female/Argumento (Argument).mp3";
 import CaerseFallSpanishFemale from "../../assets/audio/spanish/female/Caerse (Fall).mp3";
@@ -1239,29 +1239,29 @@ import UpperArmMale from "../../assets/audio/Male-body-audio/English/Upper Arm.m
 import WristMale from "../../assets/audio/Male-body-audio/English/Wrist (male).mp3";
 // spanish
 
-import antebrazoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/antebrazo_forearm.wav";
-import BarbillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Barbilla.wav";
-import bocaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/boca_mouth.wav";
-import brazoSuperiorMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/brazo superior_upper arm.wav";
-import CodoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Codo_Elbow.wav";
-import CuelloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Cuello.wav";
-import dedosMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/dedos_fingers.wav";
-import EspaldaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Espalda_back.wav";
-import caderaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/hip_cadera.wav";
-import nalgasMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Las nalgas.wav";
-import manoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/mano_hand.wav";
-import MejillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Mejilla.wav";
-import munecaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/muneca_wrist.wav";
-import musloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/muslo_thigh.wav";
-import narizMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/nariz_nose.wav";
-import ojoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/ojo_eye.wav";
-import orejaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/oreja_ear.wav";
-import parteInferiorEspaldaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Parte inferior de la espalda_lower back.wav";
-import parteInferiorPiernaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/parte inferior de la pierna_lower leg.wav";
-import pechoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Pecho o mama_chest or breast.wav";
-import pelvisMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Pelvis o genitales_Pelvis or genitals.wav";
-import pieMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/pie o dedos de los pies.wav";
-import RodillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Rodilla.wav";
+import antebrazoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/antebrazo_forearm.mp3";
+import BarbillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Barbilla.mp3";
+import bocaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/boca_mouth.mp3";
+import brazoSuperiorMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/brazo superior_upper arm.mp3";
+import CodoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Codo_Elbow.mp3";
+import CuelloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Cuello.mp3";
+import dedosMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/dedos_fingers.mp3";
+import EspaldaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Espalda_back.mp3";
+import caderaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/hip_cadera.mp3";
+import nalgasMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Las nalgas.mp3";
+import manoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/mano_hand.mp3";
+import MejillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Mejilla.mp3";
+import munecaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/muneca_wrist.mp3";
+import musloMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/muslo_thigh.mp3";
+import narizMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/nariz_nose.mp3";
+import ojoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/ojo_eye.mp3";
+import orejaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/oreja_ear.mp3";
+import parteInferiorEspaldaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Parte inferior de la espalda_lower back.mp3";
+import parteInferiorPiernaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/parte inferior de la pierna_lower leg.mp3";
+import pechoMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Pecho o mama_chest or breast.mp3";
+import pelvisMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Pelvis o genitales_Pelvis or genitals.mp3";
+import pieMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/pie o dedos de los pies.mp3";
+import RodillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Rodilla.mp3";
 // male spanish audio
 import TristeSpanishMale from "../../assets/audio/spanish/male/Triste male.mp3";
 import ConAzucarEnSangreMale from "../../assets/audio/spanish/male/Con Azucar en Sangre Male.mp3";
@@ -1591,7 +1591,7 @@ import UpAndDownMale from "../../assets/audio/Spanish/male/Up and Down.mp3";
 import BadMale from "../../assets/audio/English/male/Bad.mp3";
 import OkayMale from "../../assets/audio/English/male/Okay.mp3";
 import CambioDeVendajeChangeDressingSpanishMale from "../../assets/audio/Spanish/male/Cambio de vendaje (Change Dressing).mp3";
-import HinchazonSwellingSpanishMale from "../../assets/audio/English/male/Hinchazon (Swelling).wav";
+import HinchazonSwellingSpanishMale from "../../assets/audio/English/male/Hinchazon (Swelling).mp3";
 import PuntadasGrapasStitchesStaplesSpanishMale from "../../assets/audio/Spanish/male/Puntadas_Grapas (Stitches_Staples).mp3";
 import InfeccionInfectionSpanishMale from "../../assets/audio/Spanish/male/Infeccion (infection).mp3";
 import ReposicionarSpanishMale from "../../assets/audio/Spanish/male/92 Reposicionar.mp3";
