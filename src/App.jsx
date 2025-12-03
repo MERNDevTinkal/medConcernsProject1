@@ -62,6 +62,8 @@ import Aboutus from "./pages/Aboutus/page";
 import PatientEducation from "./pages/PatientEducation/page";
 import ImagesLibrery from "./pages/ImagesLibrery/page";
 import DepressionScreener from "./pages/feelOptions/DepressionScreener";
+import License from "./pages/NeedLicense/License ";
+import LicenseContact from "./pages/NeedLicense/LicenseContact";
 function App() {
   const location = useLocation();
   useEffect(() => {
@@ -77,8 +79,8 @@ function App() {
         const viewport = document.querySelector('meta[name="viewport"]');
         const isPortrait = window.innerHeight > window.innerWidth;
         if (isPortrait) {
-          document.body.classList.add('portrait-forced-to-landscape');
-          document.body.classList.remove('landscape-natural');
+          document.body.classList.add("portrait-forced-to-landscape");
+          document.body.classList.remove("landscape-natural");
           // Force landscape viewport
           if (viewport) {
             viewport.setAttribute(
@@ -203,6 +205,8 @@ function App() {
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/feeling-body" element={<EmotionsList />} />
           <Route path="/depression-screener" element={<DepressionScreener />} />
+          <Route path="/need-license" element={<License />} />
+          <Route path="/license-contact" element={<LicenseContact />} />
         </Route>
       </Routes>
     </>
