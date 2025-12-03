@@ -57,8 +57,6 @@ const ConcernCard = ({
           ? `${concernKey}${path}`
           : path;
       addOrUpdateSummary(routeKey, [value]);
-
-
       navigate(mainpath, { state: value });
     } catch (error) {
       console.error("Error in handleConcern:", error);

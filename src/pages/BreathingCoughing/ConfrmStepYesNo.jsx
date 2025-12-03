@@ -9,7 +9,6 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import EmotionsImg2 from "../../assets/images/feeling-emotions.png";
 import {
   YesFemale,
   YesFemaleSpanish,
@@ -43,26 +42,21 @@ function ConfrmStepYesNo() {
   }, [name, id]);
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => {},
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
   useEffect(() => {
     let text = "";
-    // if (selectedLanguage === "Spanish" && selectedConcers?.sPrompt) {
-    //   text = selectedConcers.sPrompt;
-    // } else if (selectedConcers?.Prompt) {
-    //   text = selectedConcers.Prompt;
-    // } else
     if (selectedLanguage === "Spanish") {
       text = selectedConcers?.nameEs ?? selectedConcers?.painFeelEs;
     } else {
@@ -112,7 +106,6 @@ function ConfrmStepYesNo() {
       isSpeakingRef.current = false;
     }
   };
-  console.log("pathprimarypathprimarypathprimary", pathprimary);
   return (
     <>
       {loader ? (
@@ -140,13 +133,13 @@ function ConfrmStepYesNo() {
                     <img
                       src={selectedConcers?.image ?? value?.image}
                       alt={selectedConcers?.name || "img"}
-                      className={`rounded-xl w-full h-full ${
-                        pathprimary.includes(
-                          "/feeling-list-pain/confrm-step-yesno"
-                        ) || pathprimary.includes("/feeling/confrm-step-yesno")
+                      className={`rounded-xl w-full h-full ${pathprimary.includes(
+                        "/feeling-list-pain/confrm-step-yesno"
+                      ) || pathprimary.includes("/feeling/confrm-step-yesno")
+                          || pathprimary.includes("/feel/confrm-step-yesno")
                           ? "objct-cls"
                           : "object-cover"
-                      } `}
+                        } `}
                     />
                   </div>
                 </div>
@@ -164,22 +157,22 @@ function ConfrmStepYesNo() {
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                          ? YesSpanishMale
-                          : selectedLanguage === "Spanish" &&
-                            selectedGender === "Female"
-                          ? YesFemaleSpanish
-                          : selectedLanguage === "" &&
-                            selectedGender === "Female"
-                          ? YesFemale
-                          : selectedLanguage === "" && selectedGender === "Male"
-                          ? YesMale
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Male"
-                          ? YesMale
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Female"
-                          ? YesFemale
-                          : YesMale
+                            ? YesSpanishMale
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Female"
+                              ? YesFemaleSpanish
+                              : selectedLanguage === "" &&
+                                selectedGender === "Female"
+                                ? YesFemale
+                                : selectedLanguage === "" && selectedGender === "Male"
+                                  ? YesMale
+                                  : selectedLanguage === "English" &&
+                                    selectedGender === "Male"
+                                    ? YesMale
+                                    : selectedLanguage === "English" &&
+                                      selectedGender === "Female"
+                                      ? YesFemale
+                                      : YesMale
                       )
                     }
                   >
@@ -201,22 +194,22 @@ function ConfrmStepYesNo() {
                           ? No_male
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                          ? No_no_maleSpanish
-                          : selectedLanguage === "Spanish" &&
-                            selectedGender === "Female"
-                          ? NoFemaleSpanish
-                          : selectedLanguage === "" &&
-                            selectedGender === "Female"
-                          ? NoFemale
-                          : selectedLanguage === "" && selectedGender === "Male"
-                          ? No_male
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Male"
-                          ? No_male
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Female"
-                          ? NoFemale
-                          : No_male
+                            ? No_no_maleSpanish
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Female"
+                              ? NoFemaleSpanish
+                              : selectedLanguage === "" &&
+                                selectedGender === "Female"
+                                ? NoFemale
+                                : selectedLanguage === "" && selectedGender === "Male"
+                                  ? No_male
+                                  : selectedLanguage === "English" &&
+                                    selectedGender === "Male"
+                                    ? No_male
+                                    : selectedLanguage === "English" &&
+                                      selectedGender === "Female"
+                                      ? NoFemale
+                                      : No_male
                       )
                     }
                   >

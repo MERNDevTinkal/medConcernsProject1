@@ -25,20 +25,14 @@ export const getTextToSpeech = (text, lang = "en-US", audioFile) => {
       resolve();
       return;
     }
-
-    // Stop any previous audio first
     stopAllAudio();
-
-    // If audio file provided, ONLY play audio file (no TTS fallback)
     if (audioFile) {
       playAudioOnly(audioFile, resolve);
     } else {
-      // If no audio file, ONLY use TTS
       playTTSOnly(text, lang, resolve);
     }
   });
 };
-// ONLY play audio file - no TTS fallback
 const playAudioOnly = (audioFile, resolve) => {
   playAnyAudio(audioFile)
     .then(() => {
@@ -49,7 +43,6 @@ const playAudioOnly = (audioFile, resolve) => {
       resolve();
     });
 };
-// ONLY play TTS - no audio file
 const playTTSOnly = (text, lang, resolve) => {
   if (!("speechSynthesis" in window)) {
     resolve();
@@ -129,7 +122,6 @@ const playAnyAudio = (audioFile) => {
     }, 3000);
   });
 };
-// Quick TTS - ONLY TTS
 export const quickTTS = (text, lang = "en-US") => {
   return new Promise((resolve) => {
     if (!text || !text.trim()) {
@@ -146,7 +138,6 @@ export const quickTTS = (text, lang = "en-US") => {
   });
 };
 
-// Immediate response - ONLY TTS
 export const immediateTTS = (text, lang = "en-US") => {
   if (!text || !text.trim()) return Promise.resolve();
   stopAllAudio();
@@ -156,7 +147,6 @@ export const immediateTTS = (text, lang = "en-US") => {
   return Promise.resolve();
 };
 
-// Force user interaction for iOS
 export const ensureAudioReady = () => {
   return new Promise((resolve) => {
     if (!isIOS || userInteracted) {

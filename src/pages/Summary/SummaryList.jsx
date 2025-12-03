@@ -150,6 +150,7 @@ const SummaryList = () => {
                           board={item?.flow[0]?.route}
                           selectedLanguage={selectedLanguage}
                           SummaryConcernData={item?.concern?.data?.[0]}
+                          headerNames={diseases?.headerNames}
                         />
                       </div>
                       <div className="arrow-right mx-4">
