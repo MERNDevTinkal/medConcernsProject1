@@ -207,6 +207,7 @@ function App() {
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/feeling-body" element={<EmotionsList />} />
           <Route path="/depression-screener" element={<DepressionScreener />} />
+          <Route path="/mood-scale" element={<Feel />} />
 
         </Route>
       </Routes>

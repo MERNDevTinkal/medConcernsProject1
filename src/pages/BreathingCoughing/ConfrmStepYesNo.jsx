@@ -23,7 +23,7 @@ function ConfrmStepYesNo() {
   const { name, id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { value } = location?.state || {};
+  const { value, scalepath } = location?.state || {};
   const pathprimary = location.pathname;
   const isSpeakingRef = useRef(false);
   const { updateDisease } = useContext(GlobalContext);
@@ -74,11 +74,13 @@ function ConfrmStepYesNo() {
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audio
       );
-      console.log("pathpathpath", [valueData, path]);
       if (valueData === "NO") {
         navigate(-1);
       }
       updateDisease(pathprimary.replace("/", ""), valueData);
+      if (scalepath === "/mood-scale") {
+        return navigate("/feeling-body");
+      }
       if (
         !pathprimary.includes("/feel/confrm-step-yesno") &&
         !pathprimary.includes("/feeling-body/confrm-step-yesno") &&
@@ -136,9 +138,9 @@ function ConfrmStepYesNo() {
                       className={`rounded-xl w-full h-full ${pathprimary.includes(
                         "/feeling-list-pain/confrm-step-yesno"
                       ) || pathprimary.includes("/feeling/confrm-step-yesno")
-                          || pathprimary.includes("/feel/confrm-step-yesno")
-                          ? "objct-cls"
-                          : "object-cover"
+                        || pathprimary.includes("/feel/confrm-step-yesno")
+                        ? "objct-cls"
+                        : "object-cover"
                         } `}
                     />
                   </div>

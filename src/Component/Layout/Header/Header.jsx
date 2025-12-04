@@ -43,6 +43,7 @@ import { GlobalContext } from "../../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "../../../assets/images/link-icon-03.svg";
+import feelicon from "../../../assets/images/feel-icon-02.svg";
 import gifLoader from "../../../assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
@@ -200,6 +201,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
       es: "Medicación",
     },
     {
+      icon: feelicon ? feelicon : gifLoader,
+      path: "/mood-scale",
+      en: "Mood Scale",
+      es: "Escala de Humor",
+    },
+    {
       icon: thickmucusImg ? thickmucusImg : gifLoader,
       path: "/illnessMucus-problem",
       en: "Mucus / Secretions",
@@ -327,9 +334,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               </button>
             </div>
             <h2 className="Header-text text-[30px] font-medium text-black">
-              {location.pathname === "/emotions"
-                ? ""
-                : name ??
+              {name ??
                 (selectedLanguage === "Spanish"
                   ? "Preocupaciones"
                   : location.pathname === "/depression-screener"
@@ -340,7 +345,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               {location.pathname === "/introduction" ||
                 location.pathname === "/howoften" ||
                 location.pathname === "/new-problem" ||
-                location.pathname === "/emotions" ||
+                // location.pathname === "/emotions" ||
                 location.pathname === "/how-are-you" ||
                 location.pathname === "/feeling-body" ? (
                 <div
@@ -376,8 +381,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
           <aside
             ref={sidebarRef}
             className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-                ? "translate-x-0"
-                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+              ? "translate-x-0"
+              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
               }`}
           >
             <button
