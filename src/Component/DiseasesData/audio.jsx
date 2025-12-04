@@ -1959,11 +1959,14 @@ import BocaSecaSpanishMale from "../../assets/audio/spanish/male/Boca seca.mp3";
 import DemasiadoTooMuchSpanishMale from "../../assets/audio/spanish/male/Demasiado (Too Much).mp3";
 import GruesaMucosaSpanishMale from "../../assets/audio/spanish/male/Gruesa Mucosa.mp3";
 import ColorSpanishMale from "../../assets/audio/spanish/male/VO - Color.mp3";
-
-
 import ConsalivaMaleSpanish from "../../assets/audio/spanish/male/1 Con saliva.mp3";
+import SemanaMaleSpanish from "../../assets/audio/spanish/male/Semana - week.mp3";
+import AhoraMaleSpanish from "../../assets/audio/spanish/male/Ahora (now - male).mp3";
+
 export {
   // Female English
+  AhoraMaleSpanish,
+  SemanaMaleSpanish,
   Abdomen,
   ankle,
   back,

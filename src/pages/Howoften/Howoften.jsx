@@ -12,6 +12,7 @@ import MenuIcon11 from "../../assets/images/sidebar-icon-11.svg";
 import Cookies from "js-cookie";
 
 import {
+  SemanaMaleSpanish,
   WeekEnglishMale,
   AbrilAprilSpanishMale,
   AgostoAugustSpanishMale,
@@ -119,6 +120,8 @@ import {
   IDontKnowMale,
   NoSeSpanishMale,
   NoSeIDontKnowSpanishFemale,
+  MananaMorningMale,
+  AhoraMaleSpanish
 } from "../../Component/DiseasesData/audio";
 
 function Howoften({ monthName, isSelected }) {
@@ -294,7 +297,7 @@ export default function TabsCalendar() {
       } else {
         switch (item) {
           case "morning":
-            return MorningMale;
+            return MananaMorningMale;
           case "afternoon":
             return TardeAfternoonSpanishMale;
           case "evening":
@@ -474,11 +477,11 @@ export default function TabsCalendar() {
           case "day":
             return HoyTodaySpanishMale;
           case "week":
-            return WeekEnglishMale;
+            return SemanaMaleSpanish;
           case "month":
             return MonthEnglishMale;
           case "now":
-            return NowSpanishMale;
+            return AhoraMaleSpanish;
           default:
             return null;
         }
