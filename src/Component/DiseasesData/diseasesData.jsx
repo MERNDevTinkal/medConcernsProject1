@@ -2745,7 +2745,7 @@ const emotionsData = [
     nameEs: "Duelo",
     secPath: "/confrm-step-yesno",
     image: GriefImg,
-    path: "/whesummaryn",
+    path: "/summary",
     Prompt: "Add another feeling? ",
     sPrompt: "¿Agregar otro sentimiento? ",
     maleEnglish: GriefMale,

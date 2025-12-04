@@ -75,7 +75,7 @@ function ConfrmStepYesNo() {
         audio
       );
       if (valueData === "NO") {
-        navigate(-1);
+       return navigate(-1);
       }
       updateDisease(pathprimary.replace("/", ""), valueData);
       if (scalepath === "/mood-scale") {
@@ -94,16 +94,16 @@ function ConfrmStepYesNo() {
           "/visionGlasses-problem/confrm-step-yesno/1",
           "/visionGlasses-problem/confrm-step-yesno/2",
         ];
-        navigate(
+       return navigate(
           path,
           noNewProblemPaths.includes(pathprimary)
             ? { state: { pathValue: "noNewProblem" } }
             : { state: { name: displayText ?? value?.name } }
         );
       } else if (typeof path === "number") {
-        navigate(path, { state: value });
+       return navigate(path, { state: value });
       } else if (value?.audio) {
-        navigate("/summary");
+        return navigate("/summary");
       }
       isSpeakingRef.current = false;
     }
