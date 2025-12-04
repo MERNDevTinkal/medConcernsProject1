@@ -1127,7 +1127,7 @@ export default function Whiteboard() {
             selectedLanguage={selectedLanguage}
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
-            name={selectedLanguage === "Spanish" ? "Pizarra" : "Whiteboard"}
+            name={selectedLanguage === "Spanish" ? "Pizarron" : "Whiteboard"}
           />
 
           <div className="main-wrapper home-wrapper ">

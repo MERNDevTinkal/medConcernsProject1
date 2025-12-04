@@ -32,7 +32,7 @@ export default function PatientEducation() {
             calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish"
-                ? "Educación del paciente"
+                ? "Educación del Paciente"
                 : "Patient Education"
             }
           />

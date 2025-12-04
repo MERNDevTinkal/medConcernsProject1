@@ -2261,7 +2261,7 @@ export const concerns = [
   {
     id: 14,
     name: "Hearing",
-    nameEs: "Oído",
+    nameEs: "Oido",
     image: ConcernImg11,
     path: "/concern/hearing-yes-no/14",
     maleEnglish: HearingEnglishMale,
@@ -2453,7 +2453,7 @@ export const topicBoard = [
   {
     id: 10,
     name: "Feeding Tube",
-    nameEs: "Tubo de alimentación",
+    nameEs: "Tubo de Alimentación",
     path: "/topicboard/feedingTube/10",
     secPath: "/feel",
     maleEnglish: FeedingTubeMale,
@@ -7724,7 +7724,7 @@ const somethingHappenedStrokeSymptoms = [
   {
     id: "3",
     name: "Hearing",
-    nameEs: "Oído",
+    nameEs: "Oido",
     image: ConcernImg11,
     path: "/somethingHappenedStrokeSymptomsHearing-problem",
     secPath: "/confrm-step-yesno",
@@ -8536,7 +8536,7 @@ export const diseasesData = {
     {
       id: "1",
       name: "Mucus / Secretions",
-      nameEs: "Mucosidad  / Secreciones",
+      nameEs: "Mucosidad / Secreciones",
       image: dashimg05,
 
       secPath: "/confrm-step-yesno",
@@ -10001,7 +10001,7 @@ export const diseasesData = {
     {
       id: "9",
       name: "Mucus / Secretions",
-      nameEs: "Mucosidad  / Secreciones",
+      nameEs: "Mucosidad / Secreciones",
       image: dashimg05,
       path: "/illnessMucus-problem",
       secPath: "/confrm-step-yesno",

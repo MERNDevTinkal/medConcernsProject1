@@ -23,7 +23,6 @@ export default function Settings() {
   const licenses_id = localStorage.getItem("license_key");
   const iconCounts = [1, 2, 3, 4, 6];
 
-  // Fetch settings once on mount
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
@@ -62,12 +61,10 @@ export default function Settings() {
             });
           });
       },
-      500 // 500ms debounce delay
+      500 
     ),
     [licenses_id, token]
   );
-
-  // ---------------- Handlers ----------------
   const handleIconCountChange = (count) => {
     setSelectedIconCount(count);
     saveSettings({
@@ -198,7 +195,7 @@ export default function Settings() {
         concerns: "Concerns Settings",
       },
       es: {
-        settings: "Configuración",
+        settings: "Adjustes",
         selectIcons: "Seleccionar número de íconos",
         selectGender: "Seleccionar género",
         male: "Hombre",
@@ -236,10 +233,6 @@ export default function Settings() {
             <div className="flex items-center justify-center p-4 setting-cards px-0">
               <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
                 <div className="p-3 px-0 sm:p-4 md:p-6">
-                  {/* <h1 className="text-xs text-gray-500 mb-6">
-                    {t("settings")}
-                  </h1> */}
-
                   {/* Number of Icons */}
                   <div className="flex items-center justify-between py-4 border-b border-white">
                     <span className="text-lg text-black-800">

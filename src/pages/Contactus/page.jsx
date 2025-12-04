@@ -33,7 +33,7 @@ export default function Contactus() {
             selectedLanguage={selectedLanguage}
             introductionOn={introductionOn}
             calendarOn={calendarOn}
-            name={selectedLanguage === "Spanish" ? "Contáctanos" : "Contact Us"}
+            name={selectedLanguage === "Spanish" ? "Contacta con Nosotros" : "Contact Us"}
           />
           <div className="main-wrapper home-wrapper">
             <div className="contact-us text-center">

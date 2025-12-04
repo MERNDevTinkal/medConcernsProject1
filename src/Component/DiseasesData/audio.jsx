@@ -9,11 +9,71 @@ import PluggedFemale from "../../assets/audio/English/female/Plugged (female).mp
 import RemoveFemale from "../../assets/audio/English/female/Remove.mp3";
 import RingingFemale from "../../assets/audio/English/female/Ringing.mp3";
 import TightFemale from "../../assets/audio/English/female/tight.mp3";
-// female
 import DoctorFemale from "../../assets/audio/English/female/Doctor.mp3";
 import WeaknessFemale from "../../assets/audio/English/female/Weakness.mp3";
 import PEGRemovedFemale from "../../assets/audio/English/female/PEG removed.mp3";
+import nauseaFemale from "../../assets/audio/English/female/Nausea.mp3";
+import shortnessOfBreathFemale from "../../assets/audio/English/female/Shortness of Breath.mp3";
 // female audio spanish
+import GruesaMucosaThickMucusSpanishFemale from "../../assets/audio/spanish/female/Gruesa Mucosa (thick mucus) 1.mp3";
+import ColorSpanishFemale from "../../assets/audio/spanish/female/Color.mp3";
+import BocaSecaDryMouthSpanishFemale from "../../assets/audio/spanish/female/boca seca (dry mouth).mp3";
+import NarizCongestionadaOQueMoaqueaCongestedOrRunnyNoseSpanishFeMale from "../../assets/audio/spanish/Female/Nariz congestionada o que moquea (Congested or runny nose).mp3";
+import VomitosVomitingSpanishFemale from "../../assets/audio/spanish/female/vomitos (vomiting).mp3";
+import SoloNauseasJustNauseaSpanishFemale from "../../assets/audio/spanish/female/Solo Nauseas (Just Nausea).mp3";
+import GoteandoSpanishFemale from "../../assets/audio/spanish/female/goteando.mp3";
+import QuitarRemoveSpanishFemale from "../../assets/audio/spanish/female/quitar (remove).mp3";
+import DemasiadoTooMuchSpanishFemale from "../../assets/audio/spanish/female/demasiado (too much) [mucus_secretios].mp3";
+import InformacionInformationSpanishFemale from "../../assets/audio/spanish/female/informacion (information).mp3";
+import DificilDeTragarTroubleSwallowingSpanishFemale from "../../assets/audio/spanish/female/dificil de tragar (trouble swallowing).mp3";
+import EfectosSecundariosSideEffectsSpanishFemale from "../../assets/audio/spanish/female/efectos secundarios (side effects).mp3";
+import EnterosAplastadosOLiquidosSpanishFemale from "../../assets/audio/spanish/female/enteros, aplastados, o liquidos.mp3";
+import MuyPocoTooLittleFewSpanishFemale from "../../assets/audio/spanish/female/muy poco (too little_few).mp3";
+import TiempoTimingSpanishFemale from "../../assets/audio/spanish/female/tiempo (timing).mp3";
+
+import DespertarCansadoWakeUpTiredSpanishFemale from "../../assets/audio/spanish/female/despertar cansado (wake up tired).mp3";
+import ProblemasParaDormirTroubleSleepingSpanishFemale from "../../assets/audio/spanish/female/problemas para dormir (trouble sleeping).mp3";
+import SoloFatigaSpanishFemale from "../../assets/audio/spanish/female/Solo Fatiga.mp3";
+import DespuesDeUnProcedimientoAfterProcedureSpanishFemale from "../../assets/audio/spanish/female/Despues de un procedimiento (After Procedure).mp3";
+import ConActividadWithActivitySpanishFemale from "../../assets/audio/spanish/female/con actividad (with activity).mp3";
+import MasDeLoHabitualMoreThanUsualSpanishFemale from "../../assets/audio/spanish/female/mas de lo habitual (more than usual).mp3";
+import CerebroCansadoBrainTiredSpanishFemale from "../../assets/audio/spanish/female/Cerebro Cansado (brain tired).mp3";
+import EmpeoraALoLargoDelDiaGetsWorseThroughTheDaySpanishFemale from "../../assets/audio/spanish/female/Empeora a lo Largo del Día (Gets Worse Through the Day).mp3";
+import TodoElDiaAllDaySpanishFemale from "../../assets/audio/spanish/female/todo el dia (all day).mp3";
+import ApetitoSpanishFeMale from "../../assets/audio/spanish/female/Apetito (Appetite).mp3";
+import AnsiosoAnxiousSpanishFemale from "../../assets/audio/spanish/female/ansioso (anxious).mp3";
+import PreocupadaConCulpaWorriedGuiltySpanishFemale from "../../assets/audio/spanish/female/Preocupada _ Con Culpa (Worried _ Guilty).mp3";
+import SinEsperanzaHopelessSpanishFemale from "../../assets/audio/spanish/female/Sin Esperanza (Hopeless).mp3";
+import PenaGriefSpanishFemale from "../../assets/audio/spanish/female/Pena (Grief) .mp3";
+import TristeSadSpanishFemale from "../../assets/audio/spanish/female/triste (sad).mp3";
+import AgotadoExhaustedSpanishFemale from "../../assets/audio/spanish/female/agotado (exhausted).mp3";
+import FrustradoFrustratedSpanishFemale from "../../assets/audio/spanish/female/frustrado (frustrated).mp3";
+import AsustadoScaredSpanishFemale from "../../assets/audio/spanish/female/asustado (scared).mp3";
+import EnojadoAngrySpanishFemale from "../../assets/audio/spanish/female/enojado (angry).mp3";
+import DeprimidoDepressedSpanishFemale from "../../assets/audio/spanish/female/deprimido (depressed).mp3";
+import AlgoMasSomethingElseSpanishFemale from "../../assets/audio/spanish/female/algo mas (something else).mp3";
+import DolorPainSpanishFemale from "../../assets/audio/spanish/female/Dolor (Pain).mp3";
+import RespirationTosBreathingCoughingSpanishFemale from "../../assets/audio/spanish/female/Respiración_Tos (Breathing_Coughing).mp3";
+import NauseasNauseaSpanishFemale from "../../assets/audio/spanish/female/Nauseas (Nausea).mp3";
+import TragarSwallowSpanishFemale from "../../assets/audio/spanish/female/tragar (swallow).mp3";
+import IntestinosBowelsSpanishFemale from "../../assets/audio/spanish/female/intestinos (bowels).mp3";
+import MiccionUrinationSpanishFemale from "../../assets/audio/spanish/female/miccion (urination).mp3";
+import FatigaFatigueSpanishFemale from "../../assets/audio/spanish/female/fatiga (fatigue).mp3";
+import MedicacionMedicationSpanishFemale from "../../assets/audio/spanish/female/medicacion (medication).mp3";
+import EmocionesSentimientosEmotionsFeelingsSpanishFemale from "../../assets/audio/spanish/female/Emociones_Sentimientos (Emotions_Feelings).mp3";
+import VisionSpanishFemale from "../../assets/audio/spanish/female/Visión (Vision).mp3";
+import EnfermedadIllnessSpanishFemale from "../../assets/audio/spanish/female/Enfermedad (Illness - female).mp3";
+import OidoHearingSpanishFemale from "../../assets/audio/spanish/female/Oido (hearing - Spanish) good one.mp3";
+import AlgoPasoSomethingHappenedSpanishFemale from "../../assets/audio/spanish/female/Algo Pasó (Something Happened- Female).mp3";
+import HeridaIncisionWoundIncisionSpanishFemale from "../../assets/audio/spanish/female/Herida_Incision (Wound_Incision - female).mp3";
+import MucosidadSecrecionesMucusSecretionsSpanishFemale from "../../assets/audio/spanish/female/Mucosidad_Secreciones (Mucus_Secretions).mp3";
+import TuboDeAlimentacionPEGSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentación (PEG).mp3";
+import TraqueotomiaTrachSpanishFemale from "../../assets/audio/spanish/female/traqueotomia (trach).mp3";
+import sinPreocupaciones from "../../assets/audio/Spanish/female/Sin Preocupaciones (No Concerns).mp3";
+import comunicacionOPensamiento from "../../assets/audio/Spanish/female/Comunicacion _ Pensamiento (Communication _ Thinking).mp3";
+import movimiento from "../../assets/audio/Spanish/female/Movimiento (Movement).mp3";
+import Pesado_GruesofeMaleSpanish from "../../assets/audio/Spanish/female/Pesado_Grueso (Heavy_Thick - female).mp3";
+import dressingchangeSpanishfeMale from "../../assets/audio/spanish/female/Cambio de Vendaje (Dressing Change).mp3";
 import InsomnioFemaleSpanish from "../../assets/audio/Spanish/female/Insomnio (Insomnia).mp3";
 import InterrupcionesFemaleSpanish from "../../assets/audio/Spanish/female/Interrupciones (Interruptions).mp3";
 import RevisarMiVisionFemaleSpanish from "../../assets/audio/Spanish/female/Revisar Mi Vision (Check My Vision).mp3";
@@ -24,6 +84,114 @@ import TuboAlimentacionRetiradaFemaleSpanish from "../../assets/audio/Spanish/fe
 import SinFrutosSecosFemaleSpanish from "../../assets/audio/Spanish/female/Sin Fructos Secos (Nut Free).mp3";
 import TuboAlimentacionFemaleSpanish from "../../assets/audio/Spanish/female/Tubo de Alimentación (PEG).mp3";
 import DespuesProcedimientoFemaleSpanish from "../../assets/audio/Spanish/female/Despues de un procedimiento (After Procedure).mp3";
+import withactivitySpanishFemale from "../../assets/audio/spanish/female/con actividad (with activity).mp3";
+import withmedicacionSpanishFemale from "../../assets/audio/spanish/female/con medicacion (with medication).mp3";
+import GraveSpanishFemale from "../../assets/audio/spanish/female/grave (severe)female.mp3";
+import LeveSpanishFemale from "../../assets/audio/spanish/female/leve (mild)female.mp3";
+import ModeradoSpanishFemale from "../../assets/audio/spanish/female/moderado (moderate)female.mp3";
+import MuyGraveSpanishFemale from "../../assets/audio/spanish/female/muy grave (very severe)female.mp3";
+import PeorDolorImaginableSpanishFemale from "../../assets/audio/spanish/female/Peor dolor imaginable (worst pain imaginable)female.mp3";
+import SinDolorSpanishFemale from "../../assets/audio/spanish/female/Sin dolor (No pain)female.mp3";
+import MorningSpanishFemale from "../../assets/audio/spanish/female/manana (morning).mp3";
+import AlldaySpanishFemale from "../../assets/audio/spanish/female/todo el dia (all day).mp3";
+import JustStartedspanishFemale from "../../assets/audio/spanish/female/recien comenzando (just started).mp3";
+import ComesAndGoesSpanishFemale from "../../assets/audio/spanish/female/viene y va (comes and goes).mp3";
+import AfiladoOPunzanteSpanishFemale from "../../assets/audio/Spanish/female/afilado o punzante (sharp or stabbing).mp3";
+import AlgoMasSpanishFemale from "../../assets/audio/Spanish/female/algo mas (something else).mp3";
+import ApretandoOApretadoSpanishFemale from "../../assets/audio/Spanish/female/apretando o apretado (squeezing or tight).mp3";
+import CalambresSpanishFemale from "../../assets/audio/Spanish/female/calambres (cramping).mp3";
+import ComezonSpanishFemale from "../../assets/audio/Spanish/female/Comezón.mp3";
+import DisparandoSpanishFemale from "../../assets/audio/Spanish/female/disparando (shooting).mp3";
+import DoloridoOSorsoSpanishFemale from "../../assets/audio/Spanish/female/dolorido o sorso (aching or dull).mp3";
+import EntumecimientoOHormigueoSpanishFemale from "../../assets/audio/Spanish/female/Entumecimiento u hormigueo (numb or tingling).mp3";
+import EspasmosSpanishFemale from "../../assets/audio/Spanish/female/espasmos (spasming).mp3";
+import HormigueoDolorosoSpanishFemale from "../../assets/audio/Spanish/female/hormigueo doloroso (pins and needles).mp3";
+import PalpitanteSpanishFemale from "../../assets/audio/Spanish/female/palpitante (throbbing).mp3";
+import PesadoSpanishFemale from "../../assets/audio/Spanish/female/pesado (heavy).mp3";
+import QuemaSpanishFemale from "../../assets/audio/Spanish/female/quema (burning).mp3";
+import TraqueotomiaSpanishFemale from "../../assets/audio/Spanish/female/traqueotomia (trach).mp3";
+import TuboDeAlimentacionSpanishFemale from "../../assets/audio/Spanish/female/Tubo de alimentación (feeding tube).mp3";
+import WithBloodSugarSpanishFemale from "../../assets/audio/spanish/female/Con Azucar en Sangre (female).mp3";
+import WithBloodPressureSpanishFemale from "../../assets/audio/spanish/female/Con Presion Arterial (With Blood Pressure).mp3";
+import IdontknowSpanishFemale from "../../assets/audio/spanish/female/No se (I don't know).mp3";
+import whenStandingSpanishFemale from "../../assets/audio/spanish/female/al estar de pie (when standing).mp3";
+import whensittingSpanishFemale from "../../assets/audio/spanish/female/al estar sentado (when sitting).mp3";
+import AudifonosHearingAidesSpanishFemale from "../../assets/audio/spanish/female/Audífonos (hearing aides).mp3";
+import MareadoADizzySpanishFemale from "../../assets/audio/spanish/female/Mareado_a (Dizzy).mp3";
+import DolorDeOidoEarPainSpanishFemale from "../../assets/audio/spanish/female/dolor de oido (ear pain).mp3";
+import SonandoRingingSpanishFemale from "../../assets/audio/spanish/female/Sonando (Ringing).mp3";
+import NoPuedoOirCantHearSpanishFemale from "../../assets/audio/spanish/female/No Puedo Oir (Can't Hear).mp3";
+import AbrilAprilSpanishFemale from "../../assets/audio/spanish/female/Abril (April).mp3";
+import AgostoAugustSpanishFemale from "../../assets/audio/spanish/female/Agosto (august).mp3";
+import AhoraNowSpanishFemale from "../../assets/audio/spanish/female/ahora (now - female).mp3";
+import DiciembreDecemberSpanishFemale from "../../assets/audio/spanish/female/Diciembre (December).mp3";
+import DomingoSundaySpanishFemale from "../../assets/audio/spanish/female/Domingo (Sunday).mp3";
+import EneroJanuarySpanishFemale from "../../assets/audio/spanish/female/Enero (January).mp3";
+import FebreroFebruarySpanishFemale from "../../assets/audio/spanish/female/Febrero (February).mp3";
+import HoyTodaySpanishFemale from "../../assets/audio/spanish/female/hoy (today).mp3";
+import JuevesThursdaySpanishFemale from "../../assets/audio/spanish/female/Jueves (Thursday).mp3";
+import JulioJulySpanishFemale from "../../assets/audio/spanish/female/Julio (July).mp3";
+import JunioJuneSpanishFemale from "../../assets/audio/spanish/female/Junio (June).mp3";
+import LunesMondaySpanishFemale from "../../assets/audio/spanish/female/Lunes (monday).mp3";
+import MananaMorningSpanishFemale from "../../assets/audio/spanish/female/manana (morning).mp3";
+import MartesTuesdaySpanishFemale from "../../assets/audio/spanish/female/Martes (Tuesday).mp3";
+import MarzoMarchSpanishFemale from "../../assets/audio/spanish/female/Marzo (March).mp3";
+import MayoMaySpanishFemale from "../../assets/audio/spanish/female/Mayo (May).mp3";
+import MesMonthSpanishFemale from "../../assets/audio/spanish/female/Mes (month).mp3";
+import MiercolesSpanishFemale from "../../assets/audio/spanish/female/Miercoles.mp3";
+import NocheTempranoEveningSpanishFemale from "../../assets/audio/spanish/female/noche temprano (evening - early evening).mp3";
+import NoviembreSpanishFemale from "../../assets/audio/spanish/female/Noviembre.mp3";
+import OctubreSpanishFemale from "../../assets/audio/spanish/female/Octubre.mp3";
+import SabadoSaturdaySpanishFemale from "../../assets/audio/spanish/female/Sabado (Saturday).mp3";
+import SemanaWeekSpanishFemale from "../../assets/audio/spanish/female/semana (week).mp3";
+import SeptiembreSeptemberSpanishFemale from "../../assets/audio/spanish/female/Septiembre (September).mp3";
+import TardeAfternoonSpanishFemale from "../../assets/audio/spanish/female/tarde (afternoon).mp3";
+import ViernesFridaySpanishFemale from "../../assets/audio/spanish/female/Viernes (Friday).mp3";
+import QueMePasoWhatHappenedToMeSpanishFemale from "../../assets/audio/spanish/female/¿Qué me pasó_ (What happened to me_).mp3";
+import DarDeAltaDischargeSpanishFemale from "../../assets/audio/spanish/female/dar de alta (discharge.mp3";
+import AlcoholSpanishFemale from "../../assets/audio/spanish/female/alcohol.mp3";
+import ComidaFoodSpanishFemale from "../../assets/audio/spanish/female/comida (food).mp3";
+import CriarALosNinosRaisingChildrenSpanishFemale from "../../assets/audio/spanish/female/criar a los niños (raising children).mp3";
+import FamiliaFamilySpanishFemale from "../../assets/audio/spanish/female/familia (family).mp3";
+import TrabajoWork1SpanishFemale from "../../assets/audio/spanish/female/trabajo (work) (1).mp3";
+import TrabajoWorkSpanishFemale from "../../assets/audio/spanish/female/trabajo (work).mp3";
+import ActividadDeLaComunidadCommunityActivitySpanishFemale from "../../assets/audio/spanish/female/Actividad de la comunidad (community activity).mp3";
+import ActividadDelHogarHouseholdActivitySpanishFemale from "../../assets/audio/spanish/female/actividad del hogar (household activity).mp3";
+import CitasDeSeguimientoFollowUpAppointmentsSpanishFemale from "../../assets/audio/spanish/female/Citas de seguimiento (follow up appointments).mp3";
+import DineroSpanishFemale from "../../assets/audio/spanish/female/dinero.mp3";
+
+import ApoyoDeLaFamiliaFamilySupportSpanishFemale from "../../assets/audio/spanish/female/apoyo de la familia (family support).mp3";
+import PrevencionDeAccidentesCerebrovascularesStrokePreventionSpanishFemale from "../../assets/audio/spanish/female/Prevención de accidentes cerebrovasculares (stroke prevention).mp3";
+import ConfiguracionDelHogarHomeSetUpSpanishFemale from "../../assets/audio/spanish/female/Configuración del hogar (home set up).mp3";
+import ConduciendoDrivingSpanishFemale from "../../assets/audio/spanish/female/conduciendo (driving).mp3";
+import ComunicacionCommunicationSpanishFemale from "../../assets/audio/spanish/female/Comunicacion (communiation).mp3";
+import TerapiaTherapySpanishFemale from "../../assets/audio/spanish/female/terapia (therapy).mp3";
+import MejorareWillIGetBetterSpanishFemale from "../../assets/audio/spanish/female/¿mejoraré_(Will I get better).mp3";
+
+import NoQuieroDontWantSpanishFemale from "../../assets/audio/spanish/female/No quiero (don't want).mp3";
+import OlorDeComidaSmellOfFoodSpanishFemale from "../../assets/audio/spanish/female/Olor de Comida (Smell of Food).mp3";
+import MeSientoLlenoAFeelFullSpanishFemale from "../../assets/audio/spanish/female/Me Siento Lleno_a (Feel Full).mp3";
+import CambiosDeSaborTasteChangesSpanishFemale from "../../assets/audio/spanish/female/Cambios de Sabor (Taste Changes).mp3";
+import BolsaDeColostomiaOstomiaColostomyOstomyBagSpanishFemale from "../../assets/audio/spanish/female/Bolsa de Colostomia _ Ostomia (Colostomy _ Ostomy Bag).mp3";
+import EstrenimientoConstipationSpanishFemale from "../../assets/audio/spanish/female/estrenimiento (constipation).mp3";
+import DiarreaDiarrheaSpanishFemale from "../../assets/audio/spanish/female/diarrea (diarrhea).mp3";
+import GasHinchazonGasBloatingSpanishFemale from "../../assets/audio/spanish/female/gas_hinchazon (gas_bloating).mp3";
+import CalambresCrampingSpanishFemale from "../../assets/audio/spanish/female/calambres (cramping).mp3";
+import SangreBloodSpanishFemale from "../../assets/audio/spanish/female/sangre (blood).mp3";
+import BandejaDeCamaBedPanSpanishFemale from "../../assets/audio/spanish/female/bandeja de cama (bed pan).mp3";
+
+import StrokeSymptomsSpanishFemale from "../../assets/audio/spanish/female/Sintomas de un accidente cerebrovascular (Stroke Symptoms).mp3";
+import NecesitaCambioNeedChangedSpanishFemale from "../../assets/audio/spanish/female/Necesita Cambio (Need Changed).mp3";
+import TraqueostomiaQuitadoTrachRemovedSpanishFemale from "../../assets/audio/spanish/female/Traqueostomia Quitado (Trach Removed - female).mp3";
+import TuboDeAlimentacionQuitadoPEGRemovedSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentacion Quitado (PEG Removed).mp3";
+import EsperarDemasiadoTiempoWaitedTooLongSpanishFemale from "../../assets/audio/spanish/female/Esperar Demasiado Tiempo (waited too long).mp3";
+import MalToqueBadTouchSpanishFemale from "../../assets/audio/spanish/female/Mal Toque (Bad Touch).mp3";
+import AnalisisDeSangreORayosXBloodworkOrXraySpanishFemale from "../../assets/audio/spanish/female/Análisis de Sangre o Rayos X (Bloodwork or Xray).mp3";
+import ArgumentoArgumentSpanishFemale from "../../assets/audio/spanish/female/Argumento (Argument).mp3";
+import CaerseFallSpanishFemale from "../../assets/audio/spanish/female/Caerse (Fall).mp3";
+
+
+
 // male spanish
 // new female audio
 import ALittleOffFemale from "../../assets/audio/English/newFemaleEnglish/A little off.mp3";
@@ -294,7 +462,7 @@ import MusicFemale from "../../assets/audio/English/newFemaleEnglish/Music.mp3";
 import MusicaFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Musica (Music).mp3";
 import MuyDeprimidoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Muy Deprimido (Very Down).mp3";
 // N files
-import nauseaFemale from "../../assets/audio/English/female/Nausea.mp3";
+
 import NecesitoAyudaComerFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Necesita Ayuda para Comer (Need Help Eaitng).mp3";
 import NecesitaBateriasFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Necesita Baterias (Need Batteries).mp3";
 import NecesitaCambioFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Necesita Cambio (Need Changed).mp3";
@@ -382,7 +550,7 @@ import septiembreFemale from "../../assets/audio/English/newFemaleEnglish/Septie
 import severeFemale from "../../assets/audio/English/newFemaleEnglish/Severe.mp3";
 import sexFemale from "../../assets/audio/English/newFemaleEnglish/sex.mp3";
 import shootingFemale from "../../assets/audio/English/newFemaleEnglish/Shooting.mp3";
-import shortnessOfBreathFemale from "../../assets/audio/English/female/Shortness of Breath.mp3";
+
 import sideEffectsFemale from "../../assets/audio/English/newFemaleEnglish/Side effects.mp3";
 import SiempreCronicoFemaleSpanish from "../../assets/audio/English/newFemaleEnglish/Siempre _ Cronico .mp3";
 import HopelessFemale from "../../assets/audio/English/newFemaleEnglish/Sin Esperanza (Hopeless).mp3";
@@ -536,33 +704,10 @@ import TraqueotomiaSpanishMale from "../../assets/audio/Spanish/male/Traqueotomi
 import trachMale from "../../assets/audio/English/newFemaleEnglish/trachMale.mp3";
 import AlgomasMale from "../../assets/audio/spanish/male/algo paso.mp3";
 
-import AfiladoOPunzanteSpanishFemale from "../../assets/audio/Spanish/female/afilado o punzante (sharp or stabbing).mp3";
-import AlgoMasSpanishFemale from "../../assets/audio/Spanish/female/algo mas (something else).mp3";
-import ApretandoOApretadoSpanishFemale from "../../assets/audio/Spanish/female/apretando o apretado (squeezing or tight).mp3";
-import CalambresSpanishFemale from "../../assets/audio/Spanish/female/calambres (cramping).mp3";
-import ComezonSpanishFemale from "../../assets/audio/Spanish/female/Comezón.mp3";
-import DisparandoSpanishFemale from "../../assets/audio/Spanish/female/disparando (shooting).mp3";
-import DoloridoOSorsoSpanishFemale from "../../assets/audio/Spanish/female/dolorido o sorso (aching or dull).mp3";
-import EntumecimientoOHormigueoSpanishFemale from "../../assets/audio/Spanish/female/Entumecimiento u hormigueo (numb or tingling).mp3";
-import EspasmosSpanishFemale from "../../assets/audio/Spanish/female/espasmos (spasming).mp3";
-import HormigueoDolorosoSpanishFemale from "../../assets/audio/Spanish/female/hormigueo doloroso (pins and needles).mp3";
-import PalpitanteSpanishFemale from "../../assets/audio/Spanish/female/palpitante (throbbing).mp3";
-import PesadoSpanishFemale from "../../assets/audio/Spanish/female/pesado (heavy).mp3";
-import QuemaSpanishFemale from "../../assets/audio/Spanish/female/quema (burning).mp3";
-import TraqueotomiaSpanishFemale from "../../assets/audio/Spanish/female/traqueotomia (trach).mp3";
-import TuboDeAlimentacionSpanishFemale from "../../assets/audio/Spanish/female/Tubo de alimentación (feeding tube).mp3";
-
 
 import WorstPainImaginableMale from "../../assets/audio/English/male/Worst Pain Imaginable_com Male.mp3";
 
 
-
-import GraveSpanishFemale from "../../assets/audio/spanish/female/grave (severe)female.mp3";
-import LeveSpanishFemale from "../../assets/audio/spanish/female/leve (mild)female.mp3";
-import ModeradoSpanishFemale from "../../assets/audio/spanish/female/moderado (moderate)female.mp3";
-import MuyGraveSpanishFemale from "../../assets/audio/spanish/female/muy grave (very severe)female.mp3";
-import PeorDolorImaginableSpanishFemale from "../../assets/audio/spanish/female/Peor dolor imaginable (worst pain imaginable)female.mp3";
-import SinDolorSpanishFemale from "../../assets/audio/spanish/female/Sin dolor (No pain)female.mp3";
 
 
 import IDontKnowMale from "../../assets/audio/English/male/I Don't Know (male).mp3";
@@ -575,22 +720,13 @@ import WithBloodSugarMale from "../../assets/audio/English/male/With Blood Sugar
 
 
 
-import MorningSpanishFemale from "../../assets/audio/spanish/female/manana (morning).mp3";
-import AlldaySpanishFemale from "../../assets/audio/spanish/female/todo el dia (all day).mp3";
-import JustStartedspanishFemale from "../../assets/audio/spanish/female/recien comenzando (just started).mp3";
-import ComesAndGoesSpanishFemale from "../../assets/audio/spanish/female/viene y va (comes and goes).mp3";
+
 import ComesAndGoesEnglishFemale from "../../assets/audio/English/female/Comes and Goes.mp3";
 import WhenStandingEnglishFemale from "../../assets/audio/English/female/When Standing.mp3";
-import whenStandingSpanishFemale from "../../assets/audio/spanish/female/al estar de pie (when standing).mp3";
-import whensittingSpanishFemale from "../../assets/audio/spanish/female/al estar sentado (when sitting).mp3";
 import whensittingFemale from "../../assets/audio/English/female/when sitting.mp3";
 import withactivityFemale from "../../assets/audio/English/female/with activity.mp3";
-import withactivitySpanishFemale from "../../assets/audio/spanish/female/con actividad (with activity).mp3";
-import withmedicacionSpanishFemale from "../../assets/audio/spanish/female/con medicacion (with medication).mp3";
+
 import WithBloodPressureFemale from "../../assets/audio/English/female/With Blood Pressure.mp3";
-import WithBloodSugarSpanishFemale from "../../assets/audio/spanish/female/Con Azucar en Sangre (female).mp3";
-import WithBloodPressureSpanishFemale from "../../assets/audio/spanish/female/Con Presion Arterial (With Blood Pressure).mp3";
-import IdontknowSpanishFemale from "../../assets/audio/spanish/female/No se (I don't know).mp3";
 
 import MonthEnglishMale from "../../assets/audio/English/male/Month.mp3";
 import TodayEnglishMale from "../../assets/audio/English/male/Today.mp3";
@@ -648,33 +784,6 @@ import TuesdayFemale from "../../assets/audio/English/female/Tuesday.mp3";
 import WednesdayFemale from "../../assets/audio/English/female/Wednesday .mp3";
 import WeekFemale from "../../assets/audio/English/female/Week.mp3";
 
-import AbrilAprilSpanishFemale from "../../assets/audio/spanish/female/Abril (April).mp3";
-import AgostoAugustSpanishFemale from "../../assets/audio/spanish/female/Agosto (august).mp3";
-import AhoraNowSpanishFemale from "../../assets/audio/spanish/female/ahora (now - female).mp3";
-import DiciembreDecemberSpanishFemale from "../../assets/audio/spanish/female/Diciembre (December).mp3";
-import DomingoSundaySpanishFemale from "../../assets/audio/spanish/female/Domingo (Sunday).mp3";
-import EneroJanuarySpanishFemale from "../../assets/audio/spanish/female/Enero (January).mp3";
-import FebreroFebruarySpanishFemale from "../../assets/audio/spanish/female/Febrero (February).mp3";
-import HoyTodaySpanishFemale from "../../assets/audio/spanish/female/hoy (today).mp3";
-import JuevesThursdaySpanishFemale from "../../assets/audio/spanish/female/Jueves (Thursday).mp3";
-import JulioJulySpanishFemale from "../../assets/audio/spanish/female/Julio (July).mp3";
-import JunioJuneSpanishFemale from "../../assets/audio/spanish/female/Junio (June).mp3";
-import LunesMondaySpanishFemale from "../../assets/audio/spanish/female/Lunes (monday).mp3";
-import MananaMorningSpanishFemale from "../../assets/audio/spanish/female/manana (morning).mp3";
-import MartesTuesdaySpanishFemale from "../../assets/audio/spanish/female/Martes (Tuesday).mp3";
-import MarzoMarchSpanishFemale from "../../assets/audio/spanish/female/Marzo (March).mp3";
-import MayoMaySpanishFemale from "../../assets/audio/spanish/female/Mayo (May).mp3";
-import MesMonthSpanishFemale from "../../assets/audio/spanish/female/Mes (month).mp3";
-import MiercolesSpanishFemale from "../../assets/audio/spanish/female/Miercoles.mp3";
-import NocheTempranoEveningSpanishFemale from "../../assets/audio/spanish/female/noche temprano (evening - early evening).mp3";
-import NoviembreSpanishFemale from "../../assets/audio/spanish/female/Noviembre.mp3";
-import OctubreSpanishFemale from "../../assets/audio/spanish/female/Octubre.mp3";
-import SabadoSaturdaySpanishFemale from "../../assets/audio/spanish/female/Sabado (Saturday).mp3";
-import SemanaWeekSpanishFemale from "../../assets/audio/spanish/female/semana (week).mp3";
-import SeptiembreSeptemberSpanishFemale from "../../assets/audio/spanish/female/Septiembre (September).mp3";
-import TardeAfternoonSpanishFemale from "../../assets/audio/spanish/female/tarde (afternoon).mp3";
-import ViernesFridaySpanishFemale from "../../assets/audio/spanish/female/Viernes (Friday).mp3";
-
 import SqueezingorTightfeMale from "../../assets/audio/English/female/Squeezing or Tight.mp3";
 
 import IllnessEnglishFemale from "../../assets/audio/English/female/Illness.mp3";
@@ -695,25 +804,6 @@ import BreathingOrCoughingEnglishFemale from "../../assets/audio/English/female/
 import PainEnglishFemale from "../../assets/audio/English/female/Pain.mp3";
 import EmotionsOrFeelingsEnglishFemale from "../../assets/audio/English/female/Emotions or Feelings.mp3";
 import HearingEnglishFemale from "../../assets/audio/English/female/Hearing.mp3";
-
-import AlgoMasSomethingElseSpanishFemale from "../../assets/audio/spanish/female/algo mas (something else).mp3";
-import DolorPainSpanishFemale from "../../assets/audio/spanish/female/Dolor (Pain).mp3";
-import RespirationTosBreathingCoughingSpanishFemale from "../../assets/audio/spanish/female/Respiración_Tos (Breathing_Coughing).mp3";
-import NauseasNauseaSpanishFemale from "../../assets/audio/spanish/female/Nauseas (Nausea).mp3";
-import TragarSwallowSpanishFemale from "../../assets/audio/spanish/female/tragar (swallow).mp3";
-import IntestinosBowelsSpanishFemale from "../../assets/audio/spanish/female/intestinos (bowels).mp3";
-import MiccionUrinationSpanishFemale from "../../assets/audio/spanish/female/miccion (urination).mp3";
-import FatigaFatigueSpanishFemale from "../../assets/audio/spanish/female/fatiga (fatigue).mp3";
-import MedicacionMedicationSpanishFemale from "../../assets/audio/spanish/female/medicacion (medication).mp3";
-import EmocionesSentimientosEmotionsFeelingsSpanishFemale from "../../assets/audio/spanish/female/Emociones_Sentimientos (Emotions_Feelings).mp3";
-import VisionSpanishFemale from "../../assets/audio/spanish/female/Visión (Vision).mp3";
-import EnfermedadIllnessSpanishFemale from "../../assets/audio/spanish/female/Enfermedad (Illness - female).mp3";
-import OidoHearingSpanishFemale from "../../assets/audio/spanish/female/Oido (hearing - Spanish) good one.mp3";
-import AlgoPasoSomethingHappenedSpanishFemale from "../../assets/audio/spanish/female/Algo Pasó (Something Happened- Female).mp3";
-import HeridaIncisionWoundIncisionSpanishFemale from "../../assets/audio/spanish/female/Herida_Incision (Wound_Incision - female).mp3";
-import MucosidadSecrecionesMucusSecretionsSpanishFemale from "../../assets/audio/spanish/female/Mucosidad_Secreciones (Mucus_Secretions).mp3";
-import TuboDeAlimentacionPEGSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentación (PEG).mp3";
-import TraqueotomiaTrachSpanishFemale from "../../assets/audio/spanish/female/traqueotomia (trach).mp3";
 
 
 import TerapeutaRespiratorioMale from "../../assets/audio/English/newFemaleEnglish/121 Terapeuta respiratorio.mp3";
@@ -758,32 +848,6 @@ import HouseholdActivityEnglishFemale from "../../assets/audio/English/female/ho
 import FollowUpAppointmentsEnglishFemale from "../../assets/audio/English/female/follow up appointments.mp3";
 import MoneyEnglishFemale from "../../assets/audio/English/female/money.mp3";
 
-import QueMePasoWhatHappenedToMeSpanishFemale from "../../assets/audio/spanish/female/¿Qué me pasó_ (What happened to me_).mp3";
-import DarDeAltaDischargeSpanishFemale from "../../assets/audio/spanish/female/dar de alta (discharge.mp3";
-import AlcoholSpanishFemale from "../../assets/audio/spanish/female/alcohol.mp3";
-import ComidaFoodSpanishFemale from "../../assets/audio/spanish/female/comida (food).mp3";
-import CriarALosNinosRaisingChildrenSpanishFemale from "../../assets/audio/spanish/female/criar a los niños (raising children).mp3";
-import FamiliaFamilySpanishFemale from "../../assets/audio/spanish/female/familia (family).mp3";
-import TrabajoWork1SpanishFemale from "../../assets/audio/spanish/female/trabajo (work) (1).mp3";
-import TrabajoWorkSpanishFemale from "../../assets/audio/spanish/female/trabajo (work).mp3";
-import ActividadDeLaComunidadCommunityActivitySpanishFemale from "../../assets/audio/spanish/female/Actividad de la comunidad (community activity).mp3";
-import ActividadDelHogarHouseholdActivitySpanishFemale from "../../assets/audio/spanish/female/actividad del hogar (household activity).mp3";
-import CitasDeSeguimientoFollowUpAppointmentsSpanishFemale from "../../assets/audio/spanish/female/Citas de seguimiento (follow up appointments).mp3";
-import DineroSpanishFemale from "../../assets/audio/spanish/female/dinero.mp3";
-
-import ApoyoDeLaFamiliaFamilySupportSpanishFemale from "../../assets/audio/spanish/female/apoyo de la familia (family support).mp3";
-import PrevencionDeAccidentesCerebrovascularesStrokePreventionSpanishFemale from "../../assets/audio/spanish/female/Prevención de accidentes cerebrovasculares (stroke prevention).mp3";
-import ConfiguracionDelHogarHomeSetUpSpanishFemale from "../../assets/audio/spanish/female/Configuración del hogar (home set up).mp3";
-import ConduciendoDrivingSpanishFemale from "../../assets/audio/spanish/female/conduciendo (driving).mp3";
-import ComunicacionCommunicationSpanishFemale from "../../assets/audio/spanish/female/Comunicacion (communiation).mp3";
-import TerapiaTherapySpanishFemale from "../../assets/audio/spanish/female/terapia (therapy).mp3";
-import MejorareWillIGetBetterSpanishFemale from "../../assets/audio/spanish/female/¿mejoraré_(Will I get better).mp3";
-
-import NoQuieroDontWantSpanishFemale from "../../assets/audio/spanish/female/No quiero (don't want).mp3";
-import OlorDeComidaSmellOfFoodSpanishFemale from "../../assets/audio/spanish/female/Olor de Comida (Smell of Food).mp3";
-import MeSientoLlenoAFeelFullSpanishFemale from "../../assets/audio/spanish/female/Me Siento Lleno_a (Feel Full).mp3";
-import CambiosDeSaborTasteChangesSpanishFemale from "../../assets/audio/spanish/female/Cambios de Sabor (Taste Changes).mp3";
-
 
 import BedPanEnglishFemale from "../../assets/audio/English/female/_Bed pan.mp3";
 import BloodEnglishFemale from "../../assets/audio/English/female/Blood.mp3";
@@ -793,19 +857,8 @@ import ConstipationEnglishFemale from "../../assets/audio/English/female/Constip
 import NeedChangedEnglishFemale from "../../assets/audio/English/female/Need Changed.mp3";
 import ColostomyOstomyBagEnglishFemale from "../../assets/audio/English/female/Colostomy _ Ostomy Bag.mp3";
 
-import BolsaDeColostomiaOstomiaColostomyOstomyBagSpanishFemale from "../../assets/audio/spanish/female/Bolsa de Colostomia _ Ostomia (Colostomy _ Ostomy Bag).mp3";
-import EstrenimientoConstipationSpanishFemale from "../../assets/audio/spanish/female/estrenimiento (constipation).mp3";
-import DiarreaDiarrheaSpanishFemale from "../../assets/audio/spanish/female/diarrea (diarrhea).mp3";
-import GasHinchazonGasBloatingSpanishFemale from "../../assets/audio/spanish/female/gas_hinchazon (gas_bloating).mp3";
-import CalambresCrampingSpanishFemale from "../../assets/audio/spanish/female/calambres (cramping).mp3";
-import SangreBloodSpanishFemale from "../../assets/audio/spanish/female/sangre (blood).mp3";
-import BandejaDeCamaBedPanSpanishFemale from "../../assets/audio/spanish/female/bandeja de cama (bed pan).mp3";
-
-
 
 import CoughingFeMale from "../../assets/audio/English/female/Coughing (female).mp3";
-
-import NarizCongestionadaOQueMoaqueaCongestedOrRunnyNoseSpanishFeMale from "../../assets/audio/spanish/Female/Nariz congestionada o que moquea (Congested or runny nose).mp3";
 
 
 
@@ -819,17 +872,6 @@ import AngryEnglishFemale from "../../assets/audio/English/female/angry.mp3";
 import ScaredEnglishFemale from "../../assets/audio/English/female/scared.mp3";
 import DepressedEnglishFemale from "../../assets/audio/English/female/depressed.mp3";
 import AnxiousEnglishFemale from "../../assets/audio/English/female/anxious.mp3";
-
-import AnsiosoAnxiousSpanishFemale from "../../assets/audio/spanish/female/ansioso (anxious).mp3";
-import PreocupadaConCulpaWorriedGuiltySpanishFemale from "../../assets/audio/spanish/female/Preocupada _ Con Culpa (Worried _ Guilty).mp3";
-import SinEsperanzaHopelessSpanishFemale from "../../assets/audio/spanish/female/Sin Esperanza (Hopeless).mp3";
-import PenaGriefSpanishFemale from "../../assets/audio/spanish/female/Pena (Grief) .mp3";
-import TristeSadSpanishFemale from "../../assets/audio/spanish/female/triste (sad).mp3";
-import AgotadoExhaustedSpanishFemale from "../../assets/audio/spanish/female/agotado (exhausted).mp3";
-import FrustradoFrustratedSpanishFemale from "../../assets/audio/spanish/female/frustrado (frustrated).mp3";
-import AsustadoScaredSpanishFemale from "../../assets/audio/spanish/female/asustado (scared).mp3";
-import EnojadoAngrySpanishFemale from "../../assets/audio/spanish/female/enojado (angry).mp3";
-import DeprimidoDepressedSpanishFemale from "../../assets/audio/spanish/female/deprimido (depressed).mp3";
 
 
 
@@ -845,17 +887,6 @@ import GetsWorseThroughTheDayEnglishFemale from "../../assets/audio/English/fema
 import AllDayEnglishFemale from "../../assets/audio/English/female/All day.mp3";
 import TroubleSleepingEnglishFemale from "../../assets/audio/English/female/trouble sleeping.mp3";
 
-import DespertarCansadoWakeUpTiredSpanishFemale from "../../assets/audio/spanish/female/despertar cansado (wake up tired).mp3";
-import ProblemasParaDormirTroubleSleepingSpanishFemale from "../../assets/audio/spanish/female/problemas para dormir (trouble sleeping).mp3";
-import SoloFatigaSpanishFemale from "../../assets/audio/spanish/female/Solo Fatiga.mp3";
-import DespuesDeUnProcedimientoAfterProcedureSpanishFemale from "../../assets/audio/spanish/female/Despues de un procedimiento (After Procedure).mp3";
-import ConActividadWithActivitySpanishFemale from "../../assets/audio/spanish/female/con actividad (with activity).mp3";
-import MasDeLoHabitualMoreThanUsualSpanishFemale from "../../assets/audio/spanish/female/mas de lo habitual (more than usual).mp3";
-import CerebroCansadoBrainTiredSpanishFemale from "../../assets/audio/spanish/female/Cerebro Cansado (brain tired).mp3";
-import EmpeoraALoLargoDelDiaGetsWorseThroughTheDaySpanishFemale from "../../assets/audio/spanish/female/Empeora a lo Largo del Día (Gets Worse Through the Day).mp3";
-import TodoElDiaAllDaySpanishFemale from "../../assets/audio/spanish/female/todo el dia (all day).mp3";
-
-import ApetitoSpanishFeMale from "../../assets/audio/spanish/female/Apetito (Appetite).mp3";
 
 import FeverEnglishFemale from "../../assets/audio/English/female/Fever.mp3";
 import SoreThroatEnglishFemale from "../../assets/audio/English/female/Sore Throat.mp3";
@@ -879,11 +910,6 @@ import DizzyEnglishFemale from "../../assets/audio/English/female/Dizzy (1).mp3"
 import EarPainEnglishFemale from "../../assets/audio/English/female/Ear Pain.mp3";
 import CantHearEnglishFemale from "../../assets/audio/English/female/can't hear.mp3";
 
-import AudifonosHearingAidesSpanishFemale from "../../assets/audio/spanish/female/Audífonos (hearing aides).mp3";
-import MareadoADizzySpanishFemale from "../../assets/audio/spanish/female/Mareado_a (Dizzy).mp3";
-import DolorDeOidoEarPainSpanishFemale from "../../assets/audio/spanish/female/dolor de oido (ear pain).mp3";
-import SonandoRingingSpanishFemale from "../../assets/audio/spanish/female/Sonando (Ringing).mp3";
-import NoPuedoOirCantHearSpanishFemale from "../../assets/audio/spanish/female/No Puedo Oir (Can't Hear).mp3";
 
 // Spanish Male
 
@@ -899,18 +925,7 @@ import TooLittleEnglishFemale from "../../assets/audio/English/female/Too little
 import TooManyEnglishFemale from "../../assets/audio/English/female/Too many.mp3";
 import InformationEnglishFemale from "../../assets/audio/English/female/information.mp3";
 
-import DemasiadoTooMuchSpanishFemale from "../../assets/audio/spanish/female/demasiado (too much) [mucus_secretios].mp3";
-import InformacionInformationSpanishFemale from "../../assets/audio/spanish/female/informacion (information).mp3";
-import DificilDeTragarTroubleSwallowingSpanishFemale from "../../assets/audio/spanish/female/dificil de tragar (trouble swallowing).mp3";
-import EfectosSecundariosSideEffectsSpanishFemale from "../../assets/audio/spanish/female/efectos secundarios (side effects).mp3";
-import EnterosAplastadosOLiquidosSpanishFemale from "../../assets/audio/spanish/female/enteros, aplastados, o liquidos.mp3";
-import MuyPocoTooLittleFewSpanishFemale from "../../assets/audio/spanish/female/muy poco (too little_few).mp3";
-import TiempoTimingSpanishFemale from "../../assets/audio/spanish/female/tiempo (timing).mp3";
 
-
-import GruesaMucosaThickMucusSpanishFemale from "../../assets/audio/spanish/female/Gruesa Mucosa (thick mucus) 1.mp3";
-import ColorSpanishFemale from "../../assets/audio/spanish/female/Color.mp3";
-import BocaSecaDryMouthSpanishFemale from "../../assets/audio/spanish/female/boca seca (dry mouth).mp3";
 
 // English Male
 
@@ -919,15 +934,6 @@ import BocaSecaDryMouthSpanishFemale from "../../assets/audio/spanish/female/boc
 // English Female
 import VomitingEnglishFemale from "../../assets/audio/English/female/vomiting .mp3";
 import JustNauseaEnglishFemale from "../../assets/audio/English/female/Just Nausea.mp3";
-
-// Spanish Female
-import VomitosVomitingSpanishFemale from "../../assets/audio/spanish/female/vomitos (vomiting).mp3";
-import SoloNauseasJustNauseaSpanishFemale from "../../assets/audio/spanish/female/Solo Nauseas (Just Nausea).mp3";
-
-
-
-import GoteandoSpanishFemale from "../../assets/audio/spanish/female/goteando.mp3";
-import QuitarRemoveSpanishFemale from "../../assets/audio/spanish/female/quitar (remove).mp3";
 
 // English Male
 import FoodStickingMale from "../../assets/audio/English/newFemaleEnglish/Food Sticking-male.mp3";
@@ -963,16 +969,6 @@ import ComidaQueSePegaFoodStickingSpanishFemale from "../../assets/audio/English
 // English Male
 
 
-// Spanish Female
-import StrokeSymptomsSpanishFemale from "../../assets/audio/spanish/female/Sintomas de un accidente cerebrovascular (Stroke Symptoms).mp3";
-import NecesitaCambioNeedChangedSpanishFemale from "../../assets/audio/spanish/female/Necesita Cambio (Need Changed).mp3";
-import TraqueostomiaQuitadoTrachRemovedSpanishFemale from "../../assets/audio/spanish/female/Traqueostomia Quitado (Trach Removed - female).mp3";
-import TuboDeAlimentacionQuitadoPEGRemovedSpanishFemale from "../../assets/audio/spanish/female/Tubo de Alimentacion Quitado (PEG Removed).mp3";
-import EsperarDemasiadoTiempoWaitedTooLongSpanishFemale from "../../assets/audio/spanish/female/Esperar Demasiado Tiempo (waited too long).mp3";
-import MalToqueBadTouchSpanishFemale from "../../assets/audio/spanish/female/Mal Toque (Bad Touch).mp3";
-import AnalisisDeSangreORayosXBloodworkOrXraySpanishFemale from "../../assets/audio/spanish/female/Análisis de Sangre o Rayos X (Bloodwork or Xray).mp3";
-import ArgumentoArgumentSpanishFemale from "../../assets/audio/spanish/female/Argumento (Argument).mp3";
-import CaerseFallSpanishFemale from "../../assets/audio/spanish/female/Caerse (Fall).mp3";
 
 // English Female
 import StrokeSymptomsEnglishFemale from "../../assets/audio/English/female/Stroke Symptoms (female) (1).mp3";
@@ -1027,10 +1023,6 @@ import DoubleEnglishFemale from "../../assets/audio/English/female/Double.mp3";
 // Spanish Female
 import DobleDoubleSpanishFemale from "../../assets/audio/English/female/doble (double).mp3";
 import BorrosoBlurrySpanishFemale from "../../assets/audio/English/female/borroso (blurry).mp3";
-
-// English Male
-
-// Spanish Male
 
 // English Female
 import SwellingEnglishFemale from "../../assets/audio/English/female/Swelling.mp3";
@@ -1129,9 +1121,7 @@ import withMedicationHowOften from "../../assets/audio/English/female/With medic
 import ringing from "../../assets/audio/English/female/Ringing.mp3";
 import eatingDrinking from "../../assets/audio/English/female/Eating _ Drinking.mp3";
 import noConcerns from "../../assets/audio/English/female/No Concerns.mp3";
-import sinPreocupaciones from "../../assets/audio/Spanish/female/Sin Preocupaciones (No Concerns).mp3";
-import comunicacionOPensamiento from "../../assets/audio/Spanish/female/Comunicacion _ Pensamiento (Communication _ Thinking).mp3";
-import movimiento from "../../assets/audio/Spanish/female/Movimiento (Movement).mp3";
+
 import communicationThinking from "../../assets/audio/English/female/Communication _ Thinking.mp3";
 import movement from "../../assets/audio/English/female/Movement.mp3";
 import sexo from "../../assets/audio/English/female/sexo (sex).mp3";
@@ -1266,7 +1256,7 @@ import RodillaMAleSpanish from "../../assets/audio/Male-body-audio/Spanish/Rodil
 import TristeSpanishMale from "../../assets/audio/spanish/male/Triste male.mp3";
 import ConAzucarEnSangreMale from "../../assets/audio/spanish/male/Con Azucar en Sangre Male.mp3";
 import SeptiembreSeptemberSpanishMale from "../../assets/audio/spanish/male/Septiembre (September).mp3";
-import Pesado_GruesofeMaleSpanish from "../../assets/audio/Spanish/female/Pesado_Grueso (Heavy_Thick - female).mp3";
+
 import EnteroAplastadoLiquidoSpanishMale from "../../assets/audio/spanish/male/entero_aplastado_liquido.mp3";
 import ConPrecionArterialMale from "../../assets/audio/spanish/male/Con Precion Arterial (male sp) Male.mp3";
 import ViernesFridaySpanishMale from "../../assets/audio/spanish/male/Viernes (Friday).mp3";
@@ -1970,7 +1960,7 @@ import DemasiadoTooMuchSpanishMale from "../../assets/audio/spanish/male/Demasia
 import GruesaMucosaSpanishMale from "../../assets/audio/spanish/male/Gruesa Mucosa.mp3";
 import ColorSpanishMale from "../../assets/audio/spanish/male/VO - Color.mp3";
 
-import dressingchangeSpanishfeMale from "../../assets/audio/spanish/female/Cambio de Vendaje (Dressing Change).mp3";
+
 import ConsalivaMaleSpanish from "../../assets/audio/spanish/male/1 Con saliva.mp3";
 export {
   // Female English
