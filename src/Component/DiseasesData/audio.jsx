@@ -1962,9 +1962,11 @@ import ColorSpanishMale from "../../assets/audio/spanish/male/VO - Color.mp3";
 import ConsalivaMaleSpanish from "../../assets/audio/spanish/male/1 Con saliva.mp3";
 import SemanaMaleSpanish from "../../assets/audio/spanish/male/Semana - week.mp3";
 import AhoraMaleSpanish from "../../assets/audio/spanish/male/Ahora (now - male).mp3";
+import MesMaleSpanish from "../../assets/audio/spanish/male/Mes - month.mp3";
 
 export {
   // Female English
+  MesMaleSpanish,
   AhoraMaleSpanish,
   SemanaMaleSpanish,
   Abdomen,

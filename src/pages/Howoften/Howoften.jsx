@@ -121,7 +121,8 @@ import {
   NoSeSpanishMale,
   NoSeIDontKnowSpanishFemale,
   MananaMorningMale,
-  AhoraMaleSpanish
+  AhoraMaleSpanish,
+  MesMaleSpanish
 } from "../../Component/DiseasesData/audio";
 
 function Howoften({ monthName, isSelected }) {
@@ -479,7 +480,7 @@ export default function TabsCalendar() {
           case "week":
             return SemanaMaleSpanish;
           case "month":
-            return MonthEnglishMale;
+            return MesMaleSpanish;
           case "now":
             return AhoraMaleSpanish;
           default:

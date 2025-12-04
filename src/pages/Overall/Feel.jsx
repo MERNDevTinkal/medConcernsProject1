@@ -16,7 +16,7 @@ const Feel = () => {
   const location = useLocation();
   const [emotionsicons, setEmotionsicons] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   const [selectedGender, setSelectedGender] = React.useState("");
   const [calendarOn, setCalendarOn] = React.useState("");
   const [introductionOn, setIntroductionOn] = React.useState("");
