@@ -216,7 +216,7 @@ const TopicBoard = ({
                 <div className="text-[20px] mt-3 mb-2 text-black">
 
 
-                  <p className={`text-[20px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
+                  <p className={`text-[20px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
                     ? "shirnk-txt"
                     : ""
                     }`}>

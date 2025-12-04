@@ -4,6 +4,7 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation, useNavigate } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
+import getData from "../../Component/settingApi/topic-board";
 import Loader from "../../Component/webLoader/loader";
 import DeletePopup from "../../Component/TopicBoardPop/TopicBoardPop";
 import { useFormik } from "formik";
@@ -56,31 +57,10 @@ const NeedBoard = () => {
       setUncheckNeedBoard
     );
 
-    getData();
+    getData(setApiData);
   }, [loader]);
 
-  const getData = () => {
-    const formData = new FormData();
-    formData.append("licenses_id", licenses_id);
-    apiCall
-      .post("topic-board/list", formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(({ data }) => {
-        if (data.status) {
-          setApiData(data.data);
-        } else {
-          toast.error(data.msg, { autoClose: 1500 });
-        }
-      })
-      .catch(({ response }) => {
-        toast.error(response.data.message || response.data.msg, {
-          autoClose: 1500,
-        });
-      });
-  };
+
 
   const selectedNeedboard = needboard
     ? needboard.split(",").filter(Boolean)
@@ -346,7 +326,7 @@ const NeedBoard = () => {
                               />
                             </div>
 
-                            <p className={`text-[16px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
+                            <p className={`text-[14px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
                               ? "shirnk-txt"
                               : ""
                               }`}>

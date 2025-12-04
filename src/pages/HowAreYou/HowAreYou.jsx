@@ -133,7 +133,7 @@ export default function HowAreYou() {
                           alt={item?.name}
                         />
                       </div>
-                      <p className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
+                      <p className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
                         ? "shirnk-txt"
                         : ""
                         }`}>

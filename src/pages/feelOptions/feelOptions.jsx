@@ -259,7 +259,7 @@ function EmotionScreen() {
                         style={{ cursor: "pointer" }}
                         className="text-[20px] font-medium text-gray-600 flex items-center gap-2 justify-end"
                       >
-                        Skip Screening Questions <MoveRight />
+                        Skip Questions <MoveRight />
                       </p>
                     </div>
                   </div>

@@ -19,6 +19,7 @@ import TextIcon from "../../assets/images/whiteboard-text.svg";
 import ImgIcon from "../../assets/images/whiteboard-img.svg";
 import EraserIcon from "../../assets/images/whiteboard-eraser.svg";
 import SaveIcon from "../../assets/images/whiteboard-save.svg";
+import DeleteIcon from "../../assets/images/icons8-delete.svg";
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
@@ -324,7 +325,7 @@ export default function Whiteboard() {
     if (ctx) {
       try {
         ctx.closePath();
-      } catch (err) {}
+      } catch (err) { }
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
@@ -931,16 +932,16 @@ export default function Whiteboard() {
   /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -1198,13 +1199,12 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto touch-none pt-5 z-0 mx-auto ${
-                      tool === "text"
+                    className={`w-auto touch-none pt-5 z-0 mx-auto ${tool === "text"
                         ? "cursor-text"
                         : tool === "eraser"
-                        ? "cursor-eraser"
-                        : "cursor-crosshair"
-                    }`}
+                          ? "cursor-eraser"
+                          : "cursor-crosshair"
+                      }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1254,7 +1254,7 @@ export default function Whiteboard() {
                       handleFileUpload(e);
                     }}
 
-                    // document.getElementById("imageUpload").click()
+                  // document.getElementById("imageUpload").click()
                   >
                     {/* <Icon.Image className="icon-size-add" /> */}
                     <img
@@ -1263,7 +1263,7 @@ export default function Whiteboard() {
                       alt="Pencil Icon"
                     />
                   </Button>
-                  {/* <input
+                  <input
                     type="file"
                     id="imageUpload"
                     accept="image/*"
@@ -1273,8 +1273,8 @@ export default function Whiteboard() {
                       setTool("");
                       handleImageUpload(Array.from(e.target.files));
                     }}
-                  /> */}
-                  {/* <Button
+                  />
+                  <Button
                     variant="ghost"
                     size="icon"
                     className={cn(tool === "eraser" && "bg-gray-100")}
@@ -1286,18 +1286,24 @@ export default function Whiteboard() {
                     }}
                     title="Eraser"
                   >
-                    <Icon.Eraser className="icon-size-add" />{" "}
-                  </Button> */}
+                    <img
+                      src={EraserIcon}
+                      className="icon-size-add"
+                      alt="Pencil Icon"
+                    />
+                    {/* <Icon.Eraser className="icon-size-add" />{" "} */}
+                  </Button>
 
                   <Button
                     variant="ghost"
                     size="icon"
+                    className="bg-gray-100"
                     onClick={handleClear}
                     title="Clear"
                   >
                     {/* <Icon.Trash className="icon-size-add" /> */}
                     <img
-                      src={EraserIcon}
+                      src={DeleteIcon}
                       className="icon-size-add"
                       alt="Pencil Icon"
                     />
@@ -1325,7 +1331,7 @@ export default function Whiteboard() {
                       className="h-9 w-10 rounded border border-gray-200"
                     />
                   </div> */}
-                  {/* <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2">
                     <label className="text-sm text-gray-600">
                       {selectedLanguage === "Spanish" ? "Ancho" : "Width"}
                     </label>
@@ -1340,7 +1346,7 @@ export default function Whiteboard() {
                     <span className="text-sm text-gray-700 w-6 text-center">
                       {drawingWidth}
                     </span>
-                  </div> */}
+                  </div>
                 </CardContent>
               </Card>
               {showKeyboard && (

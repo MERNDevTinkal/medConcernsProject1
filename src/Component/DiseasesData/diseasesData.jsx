@@ -2483,7 +2483,7 @@ export const topicBoard = [
   },
   {
     id: 13,
-    name: "Follow up appointments",
+    name: "Follow-Up Appointments",
     nameEs: "Citas de seguimiento",
     path: "/topicboard/followUpappointment/13",
     maleEnglish: FollowUpAppointmentsMale,
