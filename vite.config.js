@@ -8,6 +8,27 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
+      includeAssets: [
+        "assets/images/*",
+        "assets/audio/*",
+        "assets/icons/*"
+      ],
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,svg,png,jpg,jpeg,mp3,mp4}"],
+        runtimeCaching: [
+          {
+            urlPattern: /^\/assets\/images\/.*\.(svg|png|jpg|jpeg)$/i,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "image-cache",
+              expiration: {
+                maxEntries: 200,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+              },
+            },
+          },
+        ],
+      },
       manifest: {
         name: "MedConcerns App",
         short_name: "MedConcerns",
