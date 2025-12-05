@@ -13,14 +13,16 @@ import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
 import ImageUpload from "./imageUpload.jsx";
-import {  PencilIcon,
-TextIcon,
-ImgIcon,
-EraserIcon,
-SaveIcon,
-DeleteIcon,
-KeyBoardIcon,
-imageUploadIcon} from "../../Component/DiseasesData/images.jsx"
+import {
+  PencilIcon,
+  TextIcon,
+  ImgIcon,
+  EraserIcon,
+  SaveIcon,
+  DeleteIcon,
+  KeyBoardIcon,
+  imageUploadIcon
+} from "../../Component/DiseasesData/images.jsx"
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
@@ -150,7 +152,7 @@ const Icon = {
 export default function Whiteboard() {
   const location = useLocation();
   const pathname = location?.pathname ?? "";
-  const { selectedImages } = location?.state ?? [];
+  // const { selectedImages } = location?.state ?? [];
   const navigate = useNavigate();
   const { id } = useParams();
   const canvasRef = useRef(null);
@@ -190,6 +192,14 @@ export default function Whiteboard() {
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
+
+  useEffect(() => {
+    console.log("dddddddddlocation?.state", location?.state)
+    if (location?.state?.selectedImages) {
+      setSelectedImages(location?.state?.selectedImages);
+    }
+  }, [location]);
+
 
   const pointerPos = (e, rect) => {
     let clientX, clientY;
@@ -537,13 +547,21 @@ export default function Whiteboard() {
         if (data.status) {
           const savedObj = data?.data || {};
           const imagesUrl = savedObj?.images_url;
-          setSelectedImages(
-            imagesUrl &&
-              typeof imagesUrl === "string" &&
-              imagesUrl.trim() &&
-              imagesUrl.trim() !== "undefined"
-              ? imagesUrl.split(",")
-              : null
+          // setSelectedImages(
+          //   imagesUrl &&
+          //     typeof imagesUrl === "string" &&
+          //     imagesUrl.trim() &&
+          //     imagesUrl.trim() !== "undefined"
+          //     ? imagesUrl.split(",")
+          //     : null
+          // );
+
+          setSelectedImages(prev =>
+            prev?.length > 0
+              ? prev          
+              : savedObj?.images_url
+                ? savedObj.images_url.split(",")
+                : []
           );
           setDrawingName(savedObj?.name_key || "");
           if (Array.isArray(savedObj.imageFiles)) {
@@ -617,7 +635,6 @@ export default function Whiteboard() {
       alert("Please enter a drawing name");
       return;
     }
-
     let committedTexts = [...textBlocks];
     if (activeTextBlock) {
       const textContent = textLines.join("\n");
@@ -628,7 +645,6 @@ export default function Whiteboard() {
         ];
       }
     }
-
     const state = {
       name: drawingName.trim(),
       paths,
@@ -639,19 +655,18 @@ export default function Whiteboard() {
       },
     };
     if (
-      paths.length === 0 &&
+      !id && paths.length === 0 &&
       committedTexts.length === 0 &&
-      selectedImages == undefined &&
-      imageFiles.length === 0
+      SelectedImages == undefined &&
+      imageFiles?.length === 0
     ) {
       alert("Please Fill Something");
       return;
     }
-
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
-    payload.append("images_url", selectedImages);
+    payload.append("images_url", SelectedImages);
     payload.append("data", JSON.stringify(state));
     if (imageFiles && imageFiles.length > 0) {
       Array.from(imageFiles).forEach((file) => {
@@ -924,10 +939,10 @@ export default function Whiteboard() {
         }
         setUploadedImages((prev) => [
           ...prev,
-          { src, x: 50, y: 50, width, height },
+           { src, x: 50, y: 50, width, height },
         ]);
       };
-      img.src = src;
+      // img.src = src;
     });
   };
   /* -------------------- Misc: settings loader -------------------- */
@@ -1074,8 +1089,8 @@ export default function Whiteboard() {
     setTextToolActive(false);
     setShowKeyboard(false);
     setPaths([]);
-    setUploadedImages([]);
-    setImageFiles([]);
+    // setUploadedImages([]);
+    // setImageFiles([]);
     setTextBlocks([]);
   };
 
@@ -1109,6 +1124,13 @@ export default function Whiteboard() {
     e.preventDefault();
     setFileUpload(true);
   };
+  const handleDeleteImage = (index) => {
+    setUploadedImages((prev) => prev.filter((_, i) => i !== index));
+    // setImageFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+  const handleDeleteSelectedImage = (index) => {
+    setSelectedImages(prev => prev.filter((_, i) => i !== index));
+  }
   return (
     <>
       {FileUpload && (
@@ -1160,36 +1182,67 @@ export default function Whiteboard() {
                       className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
                     >
                       {uploadedImages.map((img, idx) => (
-                        <img
+                        <div
                           key={idx}
-                          src={img.src}
-                          alt={`upload-${idx}`}
-                          className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
-                          draggable={false}
-                        />
+                          className="relative w-[100px] h-[100px] flex-shrink-0"
+                        >
+                          <img
+                            src={img.src}
+                            alt={`upload-${idx}`}
+                            className="w-full h-full object-cover rounded border"
+                            draggable={false}
+                          />
+                          <button
+                            onClick={() => handleDeleteImage(idx)}
+                            className="absolute -top-1 -right-1 bg-white/80 hover:bg-white 
+                      text-red-600 rounded-full p-1 shadow w-6 h-6 flex 
+                      items-center justify-center text-xs"
+                          >
+                            ✕
+                          </button>
+                        </div>
                       ))}
                     </div>
                   </CardHeader>
                 )}
-                {(SelectedImages || selectedImages) &&
-                  (SelectedImages?.length > 0 ||
-                    selectedImages?.length > 0) && (
+                {(SelectedImages
+                  // || selectedImages
+                ) &&
+                  (SelectedImages?.length > 0
+                    // ||
+                    // selectedImages?.length > 0
+                  ) && (
                     <CardHeader className="p-0">
                       <div
                         ref={stripRef}
                         className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
                       >
-                        {(selectedImages?.length > 0
-                          ? selectedImages
-                          : SelectedImages || []
+                        {(
+                          // selectedImages?.length > 0
+                          // ? selectedImages
+                          // :
+                          SelectedImages || []
                         )?.map((img, idx) => (
-                          <img
+                          <div
                             key={idx}
-                            src={img}
-                            alt={`upload-${idx}`}
-                            className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
-                            draggable={false}
-                          />
+                            className="relative w-[100px] h-[100px] flex-shrink-0"
+                          >
+                            <img
+                              key={idx}
+                              src={img}
+                              alt={`upload-${idx}`}
+                              className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
+                              draggable={false}
+                            />
+                            <button
+                              onClick={() => handleDeleteSelectedImage(idx)}
+                              className="absolute -top-1 -right-1 bg-white/80 hover:bg-white 
+                      text-red-600 rounded-full p-1 shadow w-6 h-6 flex 
+                      items-center justify-center text-xs"
+                            >
+                              ✕
+                            </button>
+                          </div>
                         ))}
                       </div>
                     </CardHeader>
@@ -1201,10 +1254,10 @@ export default function Whiteboard() {
                   <canvas
                     ref={setCanvasSize}
                     className={`w-auto touch-none pt-5 z-0 mx-auto ${tool === "text"
-                        ? "cursor-text"
-                        : tool === "eraser"
-                          ? "cursor-eraser"
-                          : "cursor-crosshair"
+                      ? "cursor-text"
+                      : tool === "eraser"
+                        ? "cursor-eraser"
+                        : "cursor-crosshair"
                       }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}

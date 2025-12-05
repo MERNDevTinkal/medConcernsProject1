@@ -6,7 +6,7 @@ import Loader from "../../Component/webLoader/loader";
 
 export default function ImagesLibrery() {
   const Images = import.meta.glob(
-    "../../assets/images/ImagesLibrery/*.{png,jpg,jpeg,svg}",
+    "../../assets/ImagesLibrery/*.{png,jpg,jpeg,svg}",
     { eager: true }
   );
   const navigate = useNavigate();
