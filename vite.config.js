@@ -14,6 +14,7 @@ export default defineConfig({
         "assets/icons/*"
       ],
       workbox: {
+         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
         globPatterns: ["**/*.{js,css,html,svg,png,jpg,jpeg,mp3,mp4}"],
         runtimeCaching: [
           {
