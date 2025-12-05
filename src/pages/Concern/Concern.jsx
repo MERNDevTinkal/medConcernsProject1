@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import ConcernCard from "../../Component/ConcernCard/ConcernCard";
 import TopicBoard from "../../Component/TopicBoard/TopicBoard";
 import Header from "../../Component/Layout/Header/Header";
-import Cards from "../../Component/Homecards/Cards";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import gifLoader from "../../assets/loaderGif/Spinner.gif";
+import {gifLoader} from "../../Component/DiseasesData/images";
 import { useNavigate } from "react-router-dom";
 const Concern = () => {
   const navigate = useNavigate();

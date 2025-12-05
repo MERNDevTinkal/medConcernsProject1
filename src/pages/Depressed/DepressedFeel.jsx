@@ -1,8 +1,7 @@
 import React from "react";
 import Footer from "../../Component/Layout/Footer/Footer";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
-import DepressedImg from "../../assets/images/depressed.png";
-import BackArrow from "../../assets/images/back-arrow.svg";
+import {DepressedImg,BackArrow} from "../../Component/DiseasesData/images";
 import { Link } from "react-router-dom";
 import { MoveRight } from "lucide-react";
 

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import DigramFront from "../../assets/images/digram-front.svg";
+import {DigramFront} from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useNavigate } from "react-router-dom";
 const PainDiagram = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import SummaryLeftCard from "../../Component/SummaryConcern/SummaryLeftCard";
-import Arrow from "../../assets/images/arrow.svg";
+import {Arrow} from "../../Component/DiseasesData/images";
 import Footer from "../../Component/Layout/Footer/Footer";
 import SummaryRightCard from "../../Component/SummaryConcern/SummaryRightCard";
 import { GlobalContext } from "../../context/DiseaseContext";

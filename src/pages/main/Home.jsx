@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/images/logo.png";
-import mainimg from "../../assets/images/main-img.png";
-import download from "../../assets/images/download.svg";
+import { logo } from "../../Component/DiseasesData/images";
+import { download } from "../../Component/DiseasesData/images";
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {

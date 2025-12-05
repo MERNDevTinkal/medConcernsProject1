@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import icon01 from "../../../assets/images/link-icon-01.svg";
-import icon02 from "../../../assets/images/link-icon-02.svg";
-import icon03 from "../../../assets/images/link-icon-03.svg";
-import icon04 from "../../../assets/images/link-icon-04.svg";
-import icon05 from "../../../assets/images/link-icon-05.svg";
+import {
+  icon01,
+  icon02,
+  icon03,
+  icon04,
+  icon05,
+} from "../../../Component/DiseasesData/images"
 
 const Footer = () => {
   return (

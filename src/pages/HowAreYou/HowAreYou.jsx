@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { howareyou } from "../../assets/ImagesImports";
+import { howareyou } from "../../../public/assets/ImagesImports";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import gifLoader from "../../assets/loaderGif/Spinner.gif";
+import {gifLoader} from "../../Component/DiseasesData/images";
 export default function HowAreYou() {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");

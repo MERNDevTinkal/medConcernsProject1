@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import Arrow from "../../assets/images/double-arrow.svg";
+import {doublearrow} from "../../Component/DiseasesData/images";
 import { guideInfo } from "../../Component/DiseasesData/diseasesData";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
@@ -53,7 +53,7 @@ const GuideInfo = () => {
                     key={`${index}_p`}
                     className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5"
                   >
-                    <img src={Arrow} />
+                    <img src={doublearrow} />
                     {selectedLanguage === "Spanish" ? item.nameEs : item.name}
                   </p>
                 )

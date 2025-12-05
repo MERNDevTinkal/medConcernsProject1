@@ -1,9 +1,7 @@
 import React, { useEffect, useContext, useState, useRef } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg";
-import Checked from "../../assets/images/checked.svg";
-import Close from "../../assets/images/close.svg";
+import {Checked,Close,BackArrow} from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
@@ -27,14 +25,12 @@ function ConfrmStepYesNo() {
   const pathprimary = location.pathname;
   const isSpeakingRef = useRef(false);
   const { updateDisease } = useContext(GlobalContext);
-
   const [selectedConcers, setSelectedConcers] = useState({});
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
   const [calendarOn, setCalendarOn] = useState("");
   const [loader, setLoader] = useState(true);
   const [displayText, setDisplayText] = useState("");
-
   useEffect(() => {
     const selectedDiseasesArray = diseasesData[`/${name}`] ?? [];
     const selectedFields = selectedDiseasesArray.find((item) => item.id == id);
@@ -75,7 +71,7 @@ function ConfrmStepYesNo() {
         audio
       );
       if (valueData === "NO") {
-       return navigate(-1);
+        return navigate(-1);
       }
       updateDisease(pathprimary.replace("/", ""), valueData);
       if (scalepath === "/mood-scale") {
@@ -94,14 +90,14 @@ function ConfrmStepYesNo() {
           "/visionGlasses-problem/confrm-step-yesno/1",
           "/visionGlasses-problem/confrm-step-yesno/2",
         ];
-       return navigate(
+        return navigate(
           path,
           noNewProblemPaths.includes(pathprimary)
             ? { state: { pathValue: "noNewProblem" } }
             : { state: { name: displayText ?? value?.name } }
         );
       } else if (typeof path === "number") {
-       return navigate(path, { state: value });
+        return navigate(path, { state: value });
       } else if (value?.audio) {
         return navigate("/summary");
       }

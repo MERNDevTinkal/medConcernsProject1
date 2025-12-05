@@ -2,10 +2,8 @@ import React from "react";
  
 import { Link } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg"; 
-import ConcernImg3 from "../../assets/images/concern-img-03.png"; 
 import DecisionSwallowing from "./DecisionSwallowing";
-
+import {BackArrow,ConcernImg3} from "../../Component/DiseasesData/images";
 function SwallowingYesNo() {
   return (
     <>

@@ -7,7 +7,7 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import gifLoader from "../../assets/loaderGif/Spinner.gif";
+import {gifLoader} from "../../Component/DiseasesData/images";
 import Cookies from "js-cookie";
 
 const BreathingProblem = () => {

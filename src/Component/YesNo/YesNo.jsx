@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Checked from "../../assets/images/checked.svg";
-import Close from "../../assets/images/close.svg";
+import {Checked,Close} from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import {

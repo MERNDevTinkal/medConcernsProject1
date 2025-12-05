@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import dashimg02 from "../../assets/images/with-food.png";
-import dashimg04 from "../../assets/images/concern-img-08.png";
-import dashimg05 from "../../assets/images/with-saliva.png";
-import dashimg06 from "../../assets/images/swallowing.png";
-import dashimg09 from "../../assets/images/dry_mouth.png";
-import dashimg14 from "../../assets/images/something-else.png";
+import dashimg02 from "/assets/images/with-food.png";
+import dashimg04 from "/assets/images/concern-img-08.png";
+import dashimg05 from "/assets/images/with-saliva.png";
+import dashimg06 from "/assets/images/swallowing.png";
+import dashimg09 from "/assets/images/dry_mouth.png";
+import dashimg14 from "/assets/images/something-else.png";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";

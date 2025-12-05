@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BackArrow from "../../assets/images/back-arrow.svg";
-import NextArrow from "../../assets/images/next-arrow.svg";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -55,6 +53,7 @@ const NewProblem = () => {
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
             name={
+              location.pathname === "/yes-no-concerns"?"":
               location.pathname === "/new-problem"
                 ? !selectedLanguage
                   ? translations["English"]?.newProblem

@@ -1,10 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
-import Header from "../../Component/Layout/Header/Header";
-import ConcernImg1 from "../../assets/images/pain-img.png";
+import {ConcernImg1,BackArrow} from "../../Component/DiseasesData/images";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";

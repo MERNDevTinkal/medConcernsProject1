@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { ArrowLeft, Check } from "lucide-react";
+import {  Check } from "lucide-react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -7,8 +7,7 @@ import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import { IdontknowImg } from "../../Component/DiseasesData/images";
-import MenuIcon11 from "../../assets/images/sidebar-icon-11.svg";
+import { IdontknowImg, MenuIcon11} from "../../Component/DiseasesData/images";
 import Cookies from "js-cookie";
 
 import {

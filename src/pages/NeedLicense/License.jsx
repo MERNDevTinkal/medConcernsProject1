@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/images/logo.png";
+import {logo} from "../../Component/DiseasesData/images";
 import { Link } from "react-router-dom";
 
 function License() {

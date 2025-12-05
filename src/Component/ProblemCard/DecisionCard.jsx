@@ -1,14 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useContext, useRef } from "react";
-import Checked from "../../assets/images/checked.svg";
-import Close from "../../assets/images/close.svg";
-import Question from "../../assets/images/question.svg";
-import WomenIcon from "../../assets/images/women.png";
+import { WomenIcon, Question, Checked, Close } from "../../Component/DiseasesData/images"
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-import NoImg from "../../../src/assets/images/concern-img-08.png";
-import yesImage from "../../../src/assets/images/summary-img-06.png";
-import dontknowImg from "../../../src/assets/images/something-else.png";
+import {dashimghow27} from "../../Component/DiseasesData/images";
 import Cookies from "js-cookie";
 
 import {
@@ -60,7 +55,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
     },
     {
       id: 3,
-      image: dontknowImg,
+      image: dashimghow27,
       name: "I Don't Know",
       nameEs: "No sé",
       newProblem: "I Don't Know",
@@ -82,18 +77,18 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
         selectedLanguage === "" && selectedGender === ""
           ? arrayFilter?.[0]?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? arrayFilter?.[0]?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? arrayFilter?.[0]?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? arrayFilter?.[0]?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? arrayFilter?.[0]?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? arrayFilter?.[0]?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? arrayFilter?.[0]?.femaleEnglish
-          : arrayFilter?.[0]?.maleEnglish
+            ? arrayFilter?.[0]?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? arrayFilter?.[0]?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? arrayFilter?.[0]?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? arrayFilter?.[0]?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? arrayFilter?.[0]?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? arrayFilter?.[0]?.femaleEnglish
+                      : arrayFilter?.[0]?.maleEnglish
       );
       if (path === "/new-problem") {
         const isConcern = Cookies.get("is_concern");

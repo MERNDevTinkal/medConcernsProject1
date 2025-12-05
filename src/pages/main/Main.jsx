@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "../../assets/images/logo.png";
-import close from "../../assets/images/close.svg";
-import CloseIcon from "../../assets/images/close2.svg";
+import {logo,CloseIcon} from "../../Component/DiseasesData/images";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
@@ -82,7 +80,7 @@ const Main = () => {
                   onClick={() => setLicenseKey("")}
                   aria-label="Clear input"
                 >
-                  <img src={close} className="w-6.5" alt="Clear" />
+                  {/* <img src={close} className="w-6.5" alt="Clear" /> */}
                 </button>
               )}
             </div>

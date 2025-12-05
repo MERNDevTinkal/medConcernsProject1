@@ -1,9 +1,8 @@
 import React from "react";
- 
+
 import { Link } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg"; 
-import Emo1 from "../../assets/images/emo-01.svg";
+import { BackArrow, Emo1 } from "../../Component/DiseasesData/images";
 import DecisionCardFeeling from "./DecisionCardFeeling";
 
 function FeelingYesNo() {
@@ -24,7 +23,7 @@ function FeelingYesNo() {
             </div>
           </div>
           <div>
-            <DecisionCardFeeling/>
+            <DecisionCardFeeling />
           </div>
         </div>
         <Footer />

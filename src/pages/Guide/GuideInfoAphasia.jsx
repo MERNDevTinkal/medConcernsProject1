@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import Arrow from "../../assets/images/double-arrow.svg";
+import {doublearrow} from "../../Component/DiseasesData/images";
 
 const GuideInfoAphasia = () => {
   return (
@@ -27,7 +27,7 @@ const GuideInfoAphasia = () => {
             et al., 2021).
           </h5>
           <p className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5">
-            <img src={Arrow} />
+            <img src={doublearrow} />
             PWA participate more effectively in conversations with a trained
             communication partner (Karan et al, 2001).
           </p>

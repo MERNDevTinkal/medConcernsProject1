@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BackArrow from "../../assets/images/back-arrow.svg";
+import {BackArrow} from "../../Component/DiseasesData/images";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";

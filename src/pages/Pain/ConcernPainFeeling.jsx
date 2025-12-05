@@ -1,9 +1,8 @@
-import React from "react"; 
-import ConcernImg1 from "../../assets/images/pain-img.png";
+import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg";
-import Emo1 from "../../assets/images/emo-01.svg";
+import { Emo1, BackArrow } from "../../Component/DiseasesData/images";;
+
 import DecisionCardFeeling from "./DecisionCardFeeling";
 
 function ConcernPainFeeling() {

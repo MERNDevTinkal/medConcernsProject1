@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import HowAreYou1 from "../../assets/images/bad.png";
+import {HowAreYou1,BackArrow} from "../../Component/DiseasesData/images";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg";
 import YesNo from "../../Component/YesNo/YesNo";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import { howareyou } from "../../assets/ImagesImports";
+import { howareyou } from "../../../public/assets/ImagesImports";
 
 function YesAndNo() {
   const navigate = useNavigate();

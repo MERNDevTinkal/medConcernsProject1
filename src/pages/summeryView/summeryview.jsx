@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SummaryLeftCard from "../../Component/SummaryConcern/SummaryLeftCard";
-import Arrow from "../../assets/images/arrow.svg";
 import Footer from "../../Component/Layout/Footer/Footer";
 import SummaryRightCard from "../../Component/SummaryConcern/SummaryRightCard";
 import api from "../../Component/apiCall/apiCall";
@@ -8,7 +7,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import { useParams } from "react-router-dom";
-import BackArrow from "../../assets/images/back-arrow.svg";
+import {Arrow} from "../../Component/DiseasesData/images";
 import getSetting from "../../Component/settingApi/settings";
 
 const SummaryList = () => {

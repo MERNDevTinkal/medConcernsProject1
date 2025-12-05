@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg";
-import Checked from "../../assets/images/checked.svg";
-import Close from "../../assets/images/close.svg";
+import {Checked,Close,BackArrow} from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";

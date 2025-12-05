@@ -1,29 +1,29 @@
 // concernData.js
-import ConcernImg1 from "../../assets/images/concern-img-01.png";
-import ConcernImg2 from "../../assets/images/concern-img-02.png";
-import ConcernImg3 from "../../assets/images/concern-img-03.png";
-import ConcernImg4 from "../../assets/images/concern-img-04.png";
-import ConcernImg5 from "../../assets/images/concern-img-05.png";
-import ConcernImg6 from "../../assets/images/concern-img-06.png";
-import ConcernImg7 from "../../assets/images/concern-img-07.png";
-import ConcernImg8 from "../../assets/images/concern-img-08.png";
-import ConcernImg9 from "../../assets/images/pain-medication.png";
-import ConcernImg10 from "../../assets/images/glasses.png";
-import ConcernImg11 from "../../assets/images/HearingConcernNew.png";
-import ConcernImg12 from "../../assets/images/Illness.png";
-import ConcernImg13 from "../../assets/images/something-happened.png";
-import ConcernImg14 from "../../assets/images/wound.png";
-import ConcernImg17 from "../../assets/images/trach_img.png";
-import ConcernImg18 from "../../assets/images/something-else.png";
-import ConcernImg19 from "../../assets/images/When-Eating-Drinking.png";
-import WithTubeFeed from "../../assets/images/Tube Feed (Feeding Tube).png";
-import thickmucusImg from "../../assets/images/thick-mucus.png";
-import HowAreYouImg1 from "../../assets/images/good.png";
-import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
-import MovementImg from "../../assets/images/Movement.png";
-import Communication_ThinkingImg from "../../assets/images/Communication _ Thinking.png";
-import BoardImg6 from "../../assets/images/medicationConcern.png";
-import withFoodFrinkWhenEating from "../../assets/images/With food_drink & when eating_drinking.png";
+import ConcernImg1 from "/assets/images/concern-img-01.png";
+import ConcernImg2 from "/assets/images/concern-img-02.png";
+import ConcernImg3 from "/assets/images/concern-img-03.png";
+import ConcernImg4 from "/assets/images/concern-img-04.png";
+import ConcernImg5 from "/assets/images/concern-img-05.png";
+import ConcernImg6 from "/assets/images/concern-img-06.png";
+import ConcernImg7 from "/assets/images/concern-img-07.png";
+import ConcernImg8 from "/assets/images/concern-img-08.png";
+import ConcernImg9 from "/assets/images/pain-medication.png";
+import ConcernImg10 from "/assets/images/glasses.png";
+import ConcernImg11 from "/assets/images/HearingConcernNew.png";
+import ConcernImg12 from "/assets/images/Illness.png";
+import ConcernImg13 from "/assets/images/something-happened.png";
+import ConcernImg14 from "/assets/images/wound.png";
+import ConcernImg17 from "/assets/images/trach_img.png";
+import ConcernImg18 from "/assets/images/something-else.png";
+import ConcernImg19 from "/assets/images/When-Eating-Drinking.png";
+import WithTubeFeed from "/assets/images/Tube Feed (Feeding Tube).png";
+import thickmucusImg from "/assets/images/thick-mucus.png";
+import HowAreYouImg1 from "/assets/images/good.png";
+import EmotionsImg2 from "/assets/images/emotion-img-02.png";
+import MovementImg from "/assets/images/Movement.png";
+import Communication_ThinkingImg from "/assets/images/Communication _ Thinking.png";
+import BoardImg6 from "/assets/images/medicationConcern.png";
+import withFoodFrinkWhenEating from "/assets/images/With food_drink & when eating_drinking.png";
 
 export const concerns = [
   {

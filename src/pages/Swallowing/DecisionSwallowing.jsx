@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Checked from "../../assets/images/checked.svg";
-import Close from "../../assets/images/close.svg";
 import { GlobalContext } from "../../context/DiseaseContext";
+import {Checked,Close} from "../../Component/DiseasesData/images";
 const DecisionSwallowing = () => {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);

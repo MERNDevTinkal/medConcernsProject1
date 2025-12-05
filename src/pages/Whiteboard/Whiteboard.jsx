@@ -8,18 +8,19 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import KeyBoardIcon from "../../assets/images/whiteboardIcon/Keyboard-Icon.svg";
-import imageUploadIcon from "../../assets/images/whiteboardIcon/imageUpload.svg";
+
 import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
 import ImageUpload from "./imageUpload.jsx";
-import PencilIcon from "../../assets/images/whiteboard-pencil.svg";
-import TextIcon from "../../assets/images/whiteboard-text.svg";
-import ImgIcon from "../../assets/images/whiteboard-img.svg";
-import EraserIcon from "../../assets/images/whiteboard-eraser.svg";
-import SaveIcon from "../../assets/images/whiteboard-save.svg";
-import DeleteIcon from "../../assets/images/icons8-delete.svg";
+import {  PencilIcon,
+TextIcon,
+ImgIcon,
+EraserIcon,
+SaveIcon,
+DeleteIcon,
+KeyBoardIcon,
+imageUploadIcon} from "../../Component/DiseasesData/images.jsx"
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");

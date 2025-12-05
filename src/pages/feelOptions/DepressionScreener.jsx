@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import emotionsImg from "../../assets/images/emotion-img-02.png";
-import skipArrow from "../../assets/images/skip-arrow.svg";
+import {emotionsImg,skipArrow} from "../../Component/DiseasesData/images"
 import { useNavigate } from "react-router-dom";
 function DepressionScreener() {
   const navigate = useNavigate();

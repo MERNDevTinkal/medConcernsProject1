@@ -1,4 +1,4 @@
-import HowAreYouImg1 from "../assets/images/good.png";
+import HowAreYouImg1 from "/assets/images/good.png";
 import HowAreYouImg2 from "../assets/images/okay.png";
 import HowAreYouImg3 from "../assets/images/bad.png";
 import HowAreYouImg4 from "../assets/images/up-and-down.png";
@@ -47,7 +47,7 @@ import {
   LoMismoTheSameSpanishFemale,
   EmpeorandoGettingWorseSpanishFemale,
   MejorandoGettingBetterSpanishFemale,
-} from "../Component/DiseasesData/audio";
+} from "../../src/Component/DiseasesData/audio";
 export const howareyou = [
   {
     id: 1,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg";
+
 import DecisionCardFeeling from "./DecisionCardFeeling-l";
 import TopicBoard from "../Topicboard/topicBoard";
 import { concerns } from "../../Component/DiseasesData/diseasesData";
@@ -9,7 +9,8 @@ import { topicBoard } from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import gifLoader from "../../assets/loaderGif/Spinner.gif";
+
+import {gifLoader,BackArrow} from "../../Component/DiseasesData/images";
 function BreathingYesNo() {
   const navigate = useNavigate();
   const location = useLocation();

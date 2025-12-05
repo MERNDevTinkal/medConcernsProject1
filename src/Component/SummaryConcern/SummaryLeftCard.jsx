@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import boardImg from "../../assets/images/sidebar-icon-08.svg";
-import { EmotionsImg2 } from "../../Component/DiseasesData/images";
+import {boardImg,EmotionsImg2} from "../../Component/DiseasesData/images";
+
 const SummaryCards = ({ board, selectedLanguage, SummaryConcernData,headerNames }) => {
   const [getData, setData] = useState({});
   useEffect(() => {

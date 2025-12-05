@@ -45,12 +45,12 @@ import BreathingWhen from "./pages/BreathingCoughing/BreathingWhen";
 import ConfrmStepWhen from "./pages/BreathingCoughing/ConfrmStepWhen";
 import SwallowingYesNo from "./pages/Swallowing/SwallowingYesNo";
 import DecisionSwallowing from "./pages/Swallowing/DecisionSwallowing";
-import Heartburn from "./pages/Swallowing/Heartburn";
-import HeartburnStepYesNo from "./pages/Swallowing/HeartburnStepYesNo";
-import NauseaStep from "./pages/Nausea/NauseaStep";
-import ProblemYesNo from "./pages/Nausea/ProblemYesNo";
-import NauseaWhen from "./pages/Nausea/NauseaWhen";
-import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
+// import Heartburn from "./pages/Swallowing/Heartburn";
+// import HeartburnStepYesNo from "./pages/Swallowing/HeartburnStepYesNo";
+// import NauseaStep from "./pages/Nausea/NauseaStep";
+// import ProblemYesNo from "./pages/Nausea/ProblemYesNo";
+// import NauseaWhen from "./pages/Nausea/NauseaWhen";
+// import WheanStepYesNo from "./pages/Nausea/WheanStepYesNo";
 import FeelOptions from "./pages/feelOptions/feelOptions";
 import PrivateRoute from "./Component/PrivateRoute/privateRoute";
 import SettingList from "./pages/SettingList/settingList";
@@ -62,7 +62,7 @@ import Aboutus from "./pages/Aboutus/page";
 import PatientEducation from "./pages/PatientEducation/page";
 import ImagesLibrery from "./pages/ImagesLibrery/page";
 import DepressionScreener from "./pages/feelOptions/DepressionScreener";
-import License from "./pages/NeedLicense/License ";
+import License from "./pages/NeedLicense/License";
 import LicenseContact from "./pages/NeedLicense/LicenseContact";
 function App() {
   const location = useLocation();
@@ -188,17 +188,17 @@ function App() {
           <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
           <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
           <Route path="/decision-swallowing" element={<DecisionSwallowing />} />
-          <Route path="/heartburn" element={<Heartburn />} />
-          <Route
+          {/* <Route path="/heartburn" element={<Heartburn />} /> */}
+          {/* <Route
             path="/heartburn-step-yesno"
             element={<HeartburnStepYesNo />}
-          />
-          <Route path="/nausea-step-yesno" element={<NauseaStep />} />
-          <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} />
-          <Route path="/nausea-when" element={<NauseaWhen />} />
+          /> */}
+          {/* <Route path="/nausea-step-yesno" element={<NauseaStep />} /> */}
+          {/* <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} /> */}
+          {/* <Route path="/nausea-when" element={<NauseaWhen />} /> */}
           <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
           <Route path="/topicboard/:name/:id" element={<BreathingYesNo />} />
-          <Route path="/when-step-yesno" element={<WheanStepYesNo />} />
+          {/* <Route path="/when-step-yesno" element={<WheanStepYesNo />} /> */}
           <Route path="/feelOptions/:id" element={<FeelOptions />} />
           <Route path="/settingList/:name" element={<SettingList />} />
           <Route path="/introduction" element={<Introduction />} />

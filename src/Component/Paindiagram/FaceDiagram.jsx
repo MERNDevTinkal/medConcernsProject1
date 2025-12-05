@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FaceDigram from "../../assets/images/face-digram.svg";
+import {FaceDigram} from "../../Component/DiseasesData/images";
 
 const EarDiagram = () => {
   const [painPoints, setPainPoints] = useState([]);

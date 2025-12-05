@@ -1,18 +1,14 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import BackArrow from "../../assets/images/back-arrow.svg";
 import { useNavigate, useLocation } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import Checked from "../../assets/images/checked.svg";
-import Close from "../../assets/images/close.svg";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
-import EmotionsImg from "../../assets/images/I-dont-know.png";
 import Cookies from "js-cookie";
-
+import {dashimghow25,Checked,Close,BackArrow} from "../../Component/DiseasesData/images";
 import {
   YesFemale,
   YesFemaleSpanish,
@@ -246,7 +242,7 @@ function EmotionScreen() {
                         </p>
                       </div>
                       <div>
-                        <img width="40" height="40" src={EmotionsImg} />
+                        <img width="40" height="40" src={dashimghow25} />
                       </div>
                     </div>
                     <div

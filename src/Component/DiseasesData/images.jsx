@@ -1,315 +1,398 @@
-import dashimg01 from "../../assets/images/Shortness-of-Breath.png";
-import dashimg03 from "../../assets/images/chest-pain.png";
-import dashimg04 from "../../assets/images/concern-img-08.png";
-import dashimg05 from "../../assets/images/thick-mucus.png";
-import dashimg06 from "../../assets/images/Congested-or-Runny-Nose.png";
-import dashimg07 from "../../assets/images/heavy-pain.png";
-import dashimg08 from "../../assets/images/CPAP-BiPAP.png";
-import dashimg10 from "../../assets/images/trach.png";
-import dashimg11 from "../../assets/images/something-else.png";
+import dashimg01 from "/assets/images/Shortness-of-Breath.png?url";
+import dashimg03 from "/assets/images/chest-pain.png?url";
+import dashimg04 from "/assets/images/concern-img-08.png?url";
+import dashimg05 from "/assets/images/thick-mucus.png?url";
+import dashimg06 from "/assets/images/Congested-or-Runny-Nose.png?url";
+import dashimg07 from "/assets/images/heavy-pain.png?url";
+import dashimg08 from "/assets/images/CPAP-BiPAP.png?url";
+import dashimg10 from "/assets/images/trach.png?url";
+import dashimg11 from "/assets/images/something-else.png?url";
 
-import swallowingimg02 from "../../assets/images/coughing.png";
-import swallowingimg04 from "../../assets/images/concern-img-08.png";
-import swallowingimg07 from "../../assets/images/Nausea.png";
-import swallowingimg11 from "../../assets/images/too_much.png";
-import swallowingimg13 from "../../assets/images/trach.png";
-import nausea03 from "../../assets/images/pain-stomach.jpeg";
-import nausea04 from "../../assets/images/nausea.png";
-import nausea05 from "../../assets/images/something-else.png";
+import swallowingimg02 from "/assets/images/coughing.png?url";
+import swallowingimg04 from "/assets/images/concern-img-08.png?url";
+import swallowingimg07 from "/assets/images/nausea.png?url";
+import swallowingimg11 from "/assets/images/too_much.png?url";
+import swallowingimg13 from "/assets/images/trach.png?url";
+import nausea03 from "/assets/images/pain-stomach.jpeg";
+import nausea04 from "/assets/images/nausea.png?url";
+import nausea05 from "/assets/images/something-else.png?url";
 
-import Emo1 from "../../assets/images/emo-01.svg";
-import Emo2 from "../../assets/images/emo-02.svg";
-import Emo3 from "../../assets/images/emo-03.svg";
-import Emo4 from "../../assets/images/emo-04.svg";
-import Emo5 from "../../assets/images/emo-05.svg";
-import Emo6 from "../../assets/images/emo-06.svg";
+import Emo2 from "/assets/images/emo-02.svg?url";
+import Emo3 from "/assets/images/emo-03.svg?url";
+import Emo4 from "/assets/images/emo-04.svg?url";
+import Emo5 from "/assets/images/emo-05.svg?url";
+import Emo6 from "/assets/images/emo-06.svg?url";
 
-import PainImg1 from "../../assets/images/squeezing.png";
-import PainImg2 from "../../assets/images/Burning.png";
-import PainImg3 from "../../assets/images/dullpain.png";
-import PainImg4 from "../../assets/images/stabbingpain.jpg";
-import PainImg5 from "../../assets/images/numbness-tingling-rev.jpeg";
-import PainImg6 from "../../assets/images/spasming.png";
-import PainImg7 from "../../assets/images/pins-and-needles.png";
-import PainImg9 from "../../assets/images/heavy-pain.png";
-import PainImg10 from "../../assets/images/shooting-pain.png";
-import PainImg11 from "../../assets/images/headache.png";
-import PainImg12 from "../../assets/images/itching.png";
-import PainImg13 from "../../assets/images/PEG-pain.png";
-import PainImg14 from "../../assets/images/trach-pain.png";
-import PainImg15 from "../../assets/images/something-else.png";
+import PainImg1 from "/assets/images/squeezing.png?url";
+import PainImg2 from "/assets/images/Burning.png?url";
+import PainImg3 from "/assets/images/dullpain.png?url";
+import PainImg4 from "/assets/images/stabbingpain.jpg";
+import PainImg5 from "/assets/images/numbness-tingling-rev.jpeg";
+import PainImg6 from "/assets/images/spasming.png?url";
+import PainImg7 from "/assets/images/pins-and-needles.png?url";
+import PainImg9 from "/assets/images/heavy-pain.png?url";
+import PainImg10 from "/assets/images/shooting-pain.png?url";
+import PainImg11 from "/assets/images/headache.png?url";
+import PainImg12 from "/assets/images/itching.png?url";
+import PainImg13 from "/assets/images/PEG-pain.png?url";
+import PainImg14 from "/assets/images/trach-pain.png?url";
+import PainImg15 from "/assets/images/something-else.png?url";
 
-import feel01 from "../../assets/images/feel-icon-01.svg";
-import feel02 from "../../assets/images/feel-icon-02.svg";
-import feel03 from "../../assets/images/feel-icon-03.svg";
-import feel04 from "../../assets/images/feel-icon-04.svg";
-import feel05 from "../../assets/images/feel-icon-05.svg";
+import feel01 from "/assets/images/feel-icon-01.svg?url";
+import feel02 from "/assets/images/feel-icon-02.svg?url";
+import feel03 from "/assets/images/feel-icon-03.svg?url";
+import feel04 from "/assets/images/feel-icon-04.svg?url";
+import feel05 from "/assets/images/feel-icon-05.svg?url";
 
-import EmotionsImg1 from "../../assets/images/emotion-img-01.png";
-import EmotionsImg3 from "../../assets/images/emotion-img-03.png";
-import EmotionsImg4 from "../../assets/images/emotion-img-04.png";
-import EmotionsImg5 from "../../assets/images/emotion-img-05.png";
-import EmotionsImg6 from "../../assets/images/emotion-img-06.png";
-import EmotionsImg7 from "../../assets/images/emotion-img-07.png";
+import EmotionsImg1 from "/assets/images/emotion-img-01.png?url";
+import EmotionsImg3 from "/assets/images/emotion-img-03.png?url";
+import EmotionsImg4 from "/assets/images/emotion-img-04.png?url";
+import EmotionsImg5 from "/assets/images/emotion-img-05.png?url";
+import EmotionsImg6 from "/assets/images/emotion-img-06.png?url";
+import EmotionsImg7 from "/assets/images/emotion-img-07.png?url";
 
-import BoardImg1 from "../../assets/images/board-img-01.png";
-import BoardImg2 from "../../assets/images/board-img-02.png";
-import BoardImg3 from "../../assets/images/board-img-03.png";
-import BoardImg4 from "../../assets/images/board-img-04.png";
+import BoardImg1 from "/assets/images/board-img-01.png?url";
+import BoardImg2 from "/assets/images/board-img-02.png?url";
+import BoardImg3 from "/assets/images/board-img-03.png?url";
+import BoardImg4 from "/assets/images/board-img-04.png?url";
 
-import ChangeClothes from "../../assets/images/change_clothes.png";
-import ChangeUnderWear from "../../assets/images/change_underwear.png";
+import ChangeClothes from "/assets/images/change_clothes.png?url";
+import ChangeUnderWear from "/assets/images/change_underwear.png?url";
 
-import Callfamily from "../../assets/images/call_family.png";
-import Calllight from "../../assets/images/call_light.png";
-import Hearingaid from "../../assets/images/ic_hearing_aid.png";
+import Callfamily from "/assets/images/call_family.png?url";
+import Calllight from "/assets/images/call_light.png?url";
+import Hearingaid from "/assets/images/ic_hearing_aid.png?url";
 
-import Dentures from "../../assets/images/dentures.png";
-import TissueImg from "../../assets/images/tissue.png";
-import Pillow_blanketImg from "../../assets/images/pillow_blanket.png";
-import Room_tem from "../../assets/images/room_tem.png";
-import Blood from "../../assets/images/blood.png";
-import Openfoeme from "../../assets/images/openfoeme.png";
-import Tvimg from "../../assets/images/tv.png";
-import Musicimg from "../../assets/images/ic_music.png";
-import Needsock from "../../assets/images/needsock.png";
-import Cervical_collar from "../../assets/images/cervical_collar.png";
-import HelmetImag from "../../assets/images/helmet.png";
-import Adjust_clothes from "../../assets/images/adjust_clothes.png";
-import LightImg from "../../assets/images/light.png";
-import Please_leave from "../../assets/images/please_leave.png";
-import RepositionImg from "../../assets/images/reposition.png";
-import Catheter from "../../assets/images/catheter.png";
-import SoiledImg from "../../assets/images/soiled.png";
-import Painmedication from "../../assets/images/pain-medication.png";
-import Ice from "../../assets/images/ice.png";
-import Ice_pack from "../../assets/images/ice_pack.png";
-import heating_padImg from "../../assets/images/heating_pad.png";
-import Phonetablet from "../../assets/images/phonetablet.png";
-import Plug_phone_tablet from "../../assets/images/plug_phone_tablet.png";
-import Inhaler from "../../assets/images/inhaler.png";
-import Respiratory_therapist from "../../assets/images/respiratory_therapist.png";
-import DoctorImg from "../../assets/images/doctor_1.png";
-import NurseImg from "../../assets/images/nurse_1.png";
-import Nursing_aide from "../../assets/images/Nursing-Aide.png";
-import occupational from "../../assets/images/Physical_Occupational Therapist [Needs Board].png";
-import speech_thrapistImg from "../../assets/images/speech_thrapist_1.png";
-import chokingImg from "../../assets/images/choking.png";
-import SwallowingImg from "../../assets/images/swallowing.png";
-import WithActivityImg from "../../assets/images/With-Activity.jpeg";
-import DrymouthImg from "../../assets/images/dry_mouth.png";
-import ColorImage from "../../assets/images/mucus-color.png";
-import GreenColorImg from "../../assets/images/green.png";
-import YellowColorImg from "../../assets/images/yellow.jpg";
-import BrownImg from "../../assets/images/brown.png";
-import whiteImg from "../../assets/images/white.png";
-import WithMedicationImg from "../../assets/images/With-Medication.png";
-import WithFoodImg from "../../assets/images/with-food.png";
-import WithDrinks from "../../assets/images/With-Drinks.png";
-import With_food_and_drinks from "../../assets/images/with_food_and_drinks.jpeg";
-import withsalivaImg from "../../assets/images/with-saliva.png";
-import BreathingTreatment from "../../assets/images/Breathing-Treatment.png";
-import CapImg from "../../assets/images/Cap.png";
-import SpeakingValve from "../../assets/images/SpeakingValve.png";
-import RemoveImg from "../../assets/images/Remove.png";
-import Painimg from "../../assets/images/achy.png";
-import TightImg from "../../assets/images/tight.png";
-import LeakingImg from "../../assets/images/ic_leaking.png";
-import Foodsticking from "../../assets/images/food_sticking.png";
-import HeartburnImg from "../../assets/images/heartburn.png";
-import dontwantImg from "../../assets/images/dontwant.png";
-import tasteChangeImg from "../../assets/images/taste_change.png";
-import FeelfullImg from "../../assets/images/feel_full.png";
-import smellfoodImg from "../../assets/images/smell_food.png";
-import diarrhaImg from "../../assets/images/diarrha.png";
-import Gas_BloatingImg from "../../assets/images/Gas_Bloating.png";
-import vomitingImg from "../../assets/images/vomiting.jpeg";
-import bedpanImg from "../../assets/images/bedpan.png";
-import ToiletImg from "../../assets/images/toilet.png";
-import FrequentImg from "../../assets/images/frequent.png";
-import UrgencyImg from "../../assets/images/urination.png";
-import Very_Little_Infrequent from "../../assets/images/Very_Little_Infrequent.png";
-import wakeuptiredImg from "../../assets/images/wakeuptired.png";
-import Troublesleeping from "../../assets/images/Trouble Sleeping.png";
-import morethanusualImg from "../../assets/images/morethanusual.png";
-import AllDayImg from "../../assets/images/All-Day.png";
-import AfterProcedure from "../../assets/images/After-Procedure.png";
-import ConcernImg5 from "../../assets/images/concern-img-05.png";
-import Noappetite from "../../assets/images/no_appetite.png";
-import SideEffectsImg from "../../assets/images/side-effects.png";
-import toolittleImg from "../../assets/images/toolittle.png";
-import timingImg from "../../assets/images/timing.png";
-import Whole_crushed_liquid from "../../assets/images/whole_crushed_liquid.png";
-import WholeImg from "../../assets/images/whole.png";
-import fatigueImg from "../../assets/images/concerns_fatigue.jpg";
-import Painwithswallowing from "../../assets/images/Pain-with-swallowing.png";
-import Fearwithswallowing from "../../assets/images/fear-of-swallowing.png";
-import crushedImg from "../../assets/images/crushed.png";
-import liquiedImg from "../../assets/images/liquied.png";
-import toobigImg from "../../assets/images/toobig.png";
-import numbnessTingling from "../../assets/images/numbness-tingling-rev.jpeg";
-import DizzyImg from "../../assets/images/ic_dizzy.png";
-import doubleVisionImg from "../../assets/images/double-vision.jpeg";
-import leftInvisible from "../../assets/images/left_vision.png";
-import right_vision from "../../assets/images/ic_right_vision.png";
-import glassesImg from "../../assets/images/glasses.png";
-import headacheImg from "../../assets/images/headache.png";
-import RingingImg from "../../assets/images/ic_ringing.png";
-import ear_painImg from "../../assets/images/ic_ear_pain.png";
-import pluggedImg from "../../assets/images/ic_plugged.png";
-import feverImg from "../../assets/images/fever.png";
-import chillsImg from "../../assets/images/chills.png";
-import sorethroatImg from "../../assets/images/sorethroat.png";
-import argumentImg from "../../assets/images/argument.jpg";
-import x_rayImg from "../../assets/images/x_ray.jpg";
-import bad_touchImg from "../../assets/images/bad_touch.jpg";
-import waited_too_longImg from "../../assets/images/waited_too_long.png";
-import WithMovementImg from "../../assets/images/With-Movement.png";
-import InfectionImg from "../../assets/images/infection.png";
-import ic_stitches_staplesImg from "../../assets/images/ic_stitches_staples.png";
-import dressing_changeImg from "../../assets/images/dressing_change.png";
-import refluxImg from "../../assets/images/Reflux.png";
-import infoImg from "../../assets/images/Information.png";
-import NeedChanged_formerly_Soiled_urine from "../../assets/images/NeedChanged_formerly_Soiled_urine .png";
-import Colostomy_OstomyBag from "../../assets/images/Colostomy_ OstomyBag.png";
-import BloodPressure from "../../assets/images/BloodPressure.png";
-import BloodSugar from "../../assets/images/Blood Sugar.png";
-import Constipation from "../../assets/images/Constipation.png";
-import GriefImg from "../../assets/images/Grief.png";
-import Worried_Guilty from "../../assets/images/Worried_Guilty.png";
-import HopelessImg from "../../assets/images/Hopeless.png";
-import Can_thearImg from "../../assets/images/Can_t-hear.png";
-import WriteitDown from "../../assets/images/Write-it-Down.png";
-import TooMuchTooMany from "../../assets/images/TooMuch-TooMany.png";
-import colorImage from "../../assets/images/COLOR.png";
-import trachleakingImg from "../../assets/images/trachleaking.png";
-import Remove_peg from "../../assets/images/Remove(PEG).png";
-import LostWeightWithoutTrying from "../../assets/images/LostWeightWithoutTrying.png";
-import StrokeSymptoms from "../../assets/images/Stroke-Symptoms.png";
-import FallImg from "../../assets/images/Fall.png";
-import MucusSecretionsTrach from "../../assets/images/Mucus.png";
-import FeedingTubeRemoved from "../../assets/images/Remove(Tube Feed or _feeding tube_).png";
-import SuctiontrachImg from "../../assets/images/Suction-(trach).png";
-import TrachpainImg from "../../assets/images/Trachpain.png";
-import ItchyImg from "../../assets/images/Itchy.png";
-import WoundPain from "../../assets/images/WoundPain.png";
-import Leakingwound from "../../assets/images/Leaking (wound).png";
-import DoubleVision from "../../assets/images/Blurry.png";
-import TickleInMyThroat from "../../assets/images/tickle in my throat.png";
-import MedicationAllergy from "../../assets/images/MedicationAllergy.png";
-import SpreadOutImg from "../../assets/images/Spread Out.png";
-import NeedMyGlassesImg from "../../assets/images/Need My Glasses.png";
-import CheckMyvisionImg from "../../assets/images/Check My vision.png";
+import Dentures from "/assets/images/dentures.png?url";
+import TissueImg from "/assets/images/tissue.png?url";
+import Pillow_blanketImg from "/assets/images/pillow_blanket.png?url";
+import Room_tem from "/assets/images/room_tem.png?url";
+import Blood from "/assets/images/blood.png?url";
+import Openfoeme from "/assets/images/openfoeme.png?url";
+import Tvimg from "/assets/images/tv.png?url";
+import Musicimg from "/assets/images/ic_music.png?url";
+import Needsock from "/assets/images/needsock.png?url";
+import Cervical_collar from "/assets/images/cervical_collar.png?url";
+import HelmetImag from "/assets/images/helmet.png?url";
+import Adjust_clothes from "/assets/images/adjust_clothes.png?url";
+import LightImg from "/assets/images/light.png?url";
+import Please_leave from "/assets/images/please_leave.png?url";
+import RepositionImg from "/assets/images/reposition.png?url";
+import Catheter from "/assets/images/catheter.png?url";
+import SoiledImg from "/assets/images/soiled.png?url";
+import Painmedication from "/assets/images/pain-medication.png?url";
+import Ice from "/assets/images/ice.png?url";
+import Ice_pack from "/assets/images/ice_pack.png?url";
+import heating_padImg from "/assets/images/heating_pad.png?url";
+import Phonetablet from "/assets/images/phonetablet.png?url";
+import Plug_phone_tablet from "/assets/images/plug_phone_tablet.png?url";
+import Inhaler from "/assets/images/inhaler.png?url";
+import Respiratory_therapist from "/assets/images/respiratory_therapist.png?url";
+import DoctorImg from "/assets/images/doctor_1.png?url";
+import NurseImg from "/assets/images/nurse_1.png?url";
+import Nursing_aide from "/assets/images/Nursing-Aide.png?url";
+import occupational from "/assets/images/Physical_Occupational Therapist [Needs Board].png?url";
+import speech_thrapistImg from "/assets/images/speech_thrapist_1.png?url";
+import chokingImg from "/assets/images/choking.png?url";
+import SwallowingImg from "/assets/images/swallowing.png?url";
+import WithActivityImg from "/assets/images/With-Activity.jpeg";
+import DrymouthImg from "/assets/images/dry_mouth.png?url";
+import ColorImage from "/assets/images/mucus-color.png?url";
+import GreenColorImg from "/assets/images/green.png?url";
+import YellowColorImg from "/assets/images/yellow.jpg";
+import BrownImg from "/assets/images/brown.png?url";
+import whiteImg from "/assets/images/white.png?url";
+import WithMedicationImg from "/assets/images/With-Medication.png?url";
+import WithFoodImg from "/assets/images/with-food.png?url";
+import WithDrinks from "/assets/images/With-Drinks.png?url";
+import With_food_and_drinks from "/assets/images/with_food_and_drinks.jpeg";
+import withsalivaImg from "/assets/images/with-saliva.png?url";
+import BreathingTreatment from "/assets/images/Breathing-Treatment.png?url";
+import CapImg from "/assets/images/Cap.png?url";
+import SpeakingValve from "/assets/images/SpeakingValve.png?url";
+import RemoveImg from "/assets/images/Remove.png?url";
+import Painimg from "/assets/images/achy.png?url";
+import TightImg from "/assets/images/tight.png?url";
+import LeakingImg from "/assets/images/ic_leaking.png?url";
+import Foodsticking from "/assets/images/food_sticking.png?url";
+import HeartburnImg from "/assets/images/heartburn.png?url";
+import dontwantImg from "/assets/images/dontwant.png?url";
+import tasteChangeImg from "/assets/images/taste_change.png?url";
+import FeelfullImg from "/assets/images/feel_full.png?url";
+import smellfoodImg from "/assets/images/smell_food.png?url";
+import diarrhaImg from "/assets/images/diarrha.png?url";
+import Gas_BloatingImg from "/assets/images/Gas_Bloating.png?url";
+import vomitingImg from "/assets/images/vomiting.jpeg";
+import bedpanImg from "/assets/images/bedpan.png?url";
+import ToiletImg from "/assets/images/toilet.png?url";
+import FrequentImg from "/assets/images/frequent.png?url";
+import UrgencyImg from "/assets/images/urination.png?url";
+import Very_Little_Infrequent from "/assets/images/Very_Little_Infrequent.png?url";
+import wakeuptiredImg from "/assets/images/wakeuptired.png?url";
+import Troublesleeping from "/assets/images/Trouble Sleeping.png?url";
+import morethanusualImg from "/assets/images/morethanusual.png?url";
+import AllDayImg from "/assets/images/All-Day.png?url";
+import AfterProcedure from "/assets/images/After-Procedure.png?url";
+import ConcernImg5 from "/assets/images/concern-img-05.png?url";
+import Noappetite from "/assets/images/no_appetite.png?url";
+import SideEffectsImg from "/assets/images/side-effects.png?url";
+import toolittleImg from "/assets/images/toolittle.png?url";
+import timingImg from "/assets/images/timing.png?url";
+import Whole_crushed_liquid from "/assets/images/whole_crushed_liquid.png?url";
+import WholeImg from "/assets/images/whole.png?url";
+import fatigueImg from "/assets/images/concerns_fatigue.jpg";
+import Painwithswallowing from "/assets/images/Pain-with-swallowing.png?url";
+import Fearwithswallowing from "/assets/images/fear-of-swallowing.png?url";
+import crushedImg from "/assets/images/crushed.png?url";
+import liquiedImg from "/assets/images/liquied.png?url";
+import toobigImg from "/assets/images/toobig.png?url";
+import numbnessTingling from "/assets/images/numbness-tingling-rev.jpeg";
+import DizzyImg from "/assets/images/ic_dizzy.png?url";
+import doubleVisionImg from "/assets/images/double-vision.jpeg";
+import leftInvisible from "/assets/images/left_vision.png?url";
+import right_vision from "/assets/images/ic_right_vision.png?url";
+import glassesImg from "/assets/images/glasses.png?url";
+import headacheImg from "/assets/images/headache.png?url";
+import RingingImg from "/assets/images/ic_ringing.png?url";
+import ear_painImg from "/assets/images/ic_ear_pain.png?url";
+import pluggedImg from "/assets/images/ic_plugged.png?url";
+import feverImg from "/assets/images/fever.png?url";
+import chillsImg from "/assets/images/chills.png?url";
+import sorethroatImg from "/assets/images/sorethroat.png?url";
+import argumentImg from "/assets/images/argument.jpg";
+import x_rayImg from "/assets/images/x_ray.jpg";
+import bad_touchImg from "/assets/images/bad_touch.jpg";
+import waited_too_longImg from "/assets/images/waited_too_long.png?url";
+import WithMovementImg from "/assets/images/With-Movement.png?url";
+import InfectionImg from "/assets/images/infection.png?url";
+import ic_stitches_staplesImg from "/assets/images/ic_stitches_staples.png?url";
+import dressing_changeImg from "/assets/images/dressing_change.png?url";
+import refluxImg from "/assets/images/reflux.png?url";
+import infoImg from "/assets/images/Information.png?url";
+import NeedChanged_formerly_Soiled_urine from "/assets/images/NeedChanged_formerly_Soiled_urine .png?url";
+import Colostomy_OstomyBag from "/assets/images/Colostomy_ OstomyBag.png?url";
+import BloodPressure from "/assets/images/BloodPressure.png?url";
+import BloodSugar from "/assets/images/Blood Sugar.png?url";
+import Constipation from "/assets/images/Constipation.png?url";
+import GriefImg from "/assets/images/Grief.png?url";
+import Worried_Guilty from "/assets/images/Worried_Guilty.png?url";
+import HopelessImg from "/assets/images/Hopeless.png?url";
+import Can_thearImg from "/assets/images/Can_t-hear.png?url";
+import WriteitDown from "/assets/images/Write-it-Down.png?url";
+import TooMuchTooMany from "/assets/images/TooMuch-TooMany.png?url";
+import colorImage from "/assets/images/COLOR.png?url";
+import trachleakingImg from "/assets/images/trachleaking.png?url";
+import Remove_peg from "/assets/images/Remove(PEG).png?url";
+import LostWeightWithoutTrying from "/assets/images/LostWeightWithoutTrying.png?url";
+import StrokeSymptoms from "/assets/images/Stroke-Symptoms.png?url";
+import FallImg from "/assets/images/Fall.png?url";
+import MucusSecretionsTrach from "/assets/images/Mucus.png?url";
+import FeedingTubeRemoved from "/assets/images/Remove(Tube Feed or _feeding tube_).png?url";
+import SuctiontrachImg from "/assets/images/Suction-(trach).png?url";
+import TrachpainImg from "/assets/images/Trachpain.png?url";
+import ItchyImg from "/assets/images/Itchy.png?url";
+import WoundPain from "/assets/images/WoundPain.png?url";
+import Leakingwound from "/assets/images/Leaking (wound).png?url";
+import DoubleVision from "/assets/images/Blurry.png?url";
+import TickleInMyThroat from "/assets/images/tickle in my throat.png?url";
+import MedicationAllergy from "/assets/images/MedicationAllergy.png?url";
+import SpreadOutImg from "/assets/images/Spread Out.png?url";
+import NeedMyGlassesImg from "/assets/images/Need My Glasses.png?url";
+import CheckMyvisionImg from "/assets/images/Check My vision.png?url";
 
 // concernData.js
-import ConcernImg1 from "../../assets/images/concern-img-01.png";
-import ConcernImg2 from "../../assets/images/concern-img-02.png";
-import ConcernImg3 from "../../assets/images/concern-img-03.png";
-import ConcernImg4 from "../../assets/images/concern-img-04.png";
-import ConcernImg6 from "../../assets/images/concern-img-06.png";
-import ConcernImg7 from "../../assets/images/concern-img-07.png";
-import ConcernImg10 from "../../assets/images/glasses.png";
-import ConcernImg11 from "../../assets/images/HearingConcernNew.png";
-import ConcernImg12 from "../../assets/images/Illness.png";
-import ConcernImg13 from "../../assets/images/something-happened.png";
-import ConcernImg14 from "../../assets/images/wound.png";
-import ConcernImg17 from "../../assets/images/trach_img.png";
-import ConcernImg18 from "../../assets/images/something-else.png";
-import WithTubeFeed from "../../assets/images/Tube Feed (Feeding Tube).png";
-import thickmucusImg from "../../assets/images/thick-mucus.png";
-import HowAreYouImg1 from "../../assets/images/good.png";
-import EmotionsImg2 from "../../assets/images/emotion-img-02.png";
-import MovementImg from "../../assets/images/Movement.png";
-import Communication_ThinkingImg from "../../assets/images/Communication _ Thinking.png";
-import BoardImg6 from "../../assets/images/medicationConcern.png";
-import WeaknessImg6 from "../../assets/images/Weakness.png";
-import withFoodFrinkWhenEating from "../../assets/images/With food_drink & when eating_drinking.png";
+import ConcernImg1 from "/assets/images/concern-img-01.png?url";
+import ConcernImg2 from "/assets/images/concern-img-02.png?url";
+import ConcernImg3 from "/assets/images/concern-img-03.png?url";
+import ConcernImg4 from "/assets/images/concern-img-04.png?url";
+import ConcernImg6 from "/assets/images/concern-img-06.png?url";
+import ConcernImg7 from "/assets/images/concern-img-07.png?url";
+import ConcernImg10 from "/assets/images/glasses.png?url";
+import ConcernImg11 from "/assets/images/HearingConcernNew.png?url";
+import ConcernImg12 from "/assets/images/Illness.png?url";
+import ConcernImg13 from "/assets/images/something-happened.png?url";
+import ConcernImg14 from "/assets/images/wound.png?url";
+import ConcernImg17 from "/assets/images/trach_img.png?url";
+import ConcernImg18 from "/assets/images/something-else.png?url";
+import WithTubeFeed from "/assets/images/Tube Feed (Feeding Tube).png?url";
+import thickmucusImg from "/assets/images/thick-mucus.png?url";
+import HowAreYouImg1 from "/assets/images/good.png?url";
+import EmotionsImg2 from "/assets/images/emotion-img-02.png?url";
+import MovementImg from "/assets/images/Movement.png?url";
+import Communication_ThinkingImg from "/assets/images/Communication _ Thinking.png?url";
+import BoardImg6 from "/assets/images/medicationConcern.png?url";
+import WeaknessImg6 from "/assets/images/Weakness.png?url";
+import withFoodFrinkWhenEating from "/assets/images/With food_drink & when eating_drinking.png?url";
 
 // how are u scree
-import dashimghow01 from "../../assets/images/All-Day.png";
-import dashimghow02 from "../../assets/images/Evening-Night.png";
-import dashimghow03 from "../../assets/images/Morning.png";
-import dashimghow04 from "../../assets/images/After Procedure (transparent).png";
-import dashimghow06 from "../../assets/images/Up and Down (Comes and Goes).png";
-import dashimghow07 from "../../assets/images/Just started.png";
-import dashimghow08 from "../../assets/images/With food_drink & when eating_drinking.png";
-import dashimghow13 from "../../assets/images/After Meals.png";
-import dashimghow18 from "../../assets/images/medicationConcern.png";
-import dashimghow19 from "../../assets/images/Movement.png";
-import dashimghow22 from "../../assets/images/SinceMyStroke.jpg";
-import dashimghow23 from "../../assets/images/Illness.png";
-import dashimghow24 from "../../assets/images/Fall.png";
-import dashimghow25 from "../../assets/images/I-dont-know.png";
-import dashimghow26 from "../../assets/images/concern-img-03.png";
-import dashimghow27 from "../../assets/images/something-else.png";
-import dashimghow28 from "../../assets/images/Always_Chronic.png";
-import dashimghow29 from "../../assets/images/With Mental Activity.png";
-import dashimghow30 from "../../assets/images/toilet.png";
-import dashimghow31 from "../../assets/images/When Lying Down.png";
-import dashimghow32 from "../../assets/images/When Sleeping.png";
-import dashimghow33 from "../../assets/images/When Walking.png";
-import dashimghow34 from "../../assets/images/With Transfer _ Repositioning.png";
-import dashimghow35 from "../../assets/images/Blood Pressure.png";
-import dashimghow36 from "../../assets/images/Blood Sugar.png";
-import dashimghow17 from "../../assets/images/With Stress _ Emotion.png";
-import GetsWorseThroughtheDay from "../../assets/images/Gets Worse Through the Day.png";
-import WhenStanding from "../../assets/images/When Standing.png";
-import WhenSitting from "../../assets/images/When Sitting.png";
-import WithActivity from "../../assets/images/With Activity.png";
-import FoodAllergyImg from "../../assets/images/Food Allergy.png";
-import Hungry_Thirsty from "../../assets/images/Hungry _ Thirsty.png";
-import Don_tEatThis from "../../assets/images/Don_t Eat This.png";
-import NeedHelpEating from "../../assets/images/Need Help Eating.png";
-import NotAllowedtoEat_Drink from "../../assets/images/NPO  Not Allowed to EatDrink .png";
-import TooMuchLightImg from "../../assets/images/Too Much Light.png";
-import InterruptionsImg from "../../assets/images/Interruptions.png";
-import TooNoisyImg from "../../assets/images/Too Noisy - transparent.png";
-import WrongTrayImg from "../../assets/images/Wrong Tray.png";
-import SpecialDietImg from "../../assets/images/Special Diet.png";
-import Vegetarian_VeganImg from "../../assets/images/Vegetarian _ Vegan.png";
-import KosherImg from "../../assets/images/Kosher.png";
-import HalalImg from "../../assets/images/Halal .png";
-import NoDairyImg from "../../assets/images/No Dairy.png";
-import GlutenFreeImg from "../../assets/images/Gluten Free .png";
-import NutFreeImg from "../../assets/images/NutFree.png";
-import LowSodiumImg from "../../assets/images/LowSodium.png";
-import Diabetic_CarbControlledImg from "../../assets/images/Diabetic _ Carb-Controlled.png";
-import TextureModifiedImg from "../../assets/images/Texture Modified.png";
-import DifferentTimeImg from "../../assets/images/Different Time.png";
-import LostGlassesImg from "../../assets/images/Lost Glasses.png";
-import NotWorkingBrokenImg from "../../assets/images/Not Working _ Broken .png";
-import NeedBatteriesImg from "../../assets/images/Need Batteries .png";
-import ScheduledImg from "../../assets/images/Scheduled.png";
-import NotWorking_BrokenImg from "../../assets/images/Not Working _ Broken .png";
-import CheckMyHearingImg from "../../assets/images/Check My Hearing.png";
-import WeakonOneSideImg from "../../assets/images/Weak on One Side.png";
-import Clumsy_OffBalanceImg from "../../assets/images/Clumsy _ Off Balance.png";
-import TroubleWalkingImg from "../../assets/images/Trouble Walking.png";
-import HardtoUnderstandYouImg from "../../assets/images/Hard to Understand You.png";
-import Can_tFindMyWordsImg from "../../assets/images/Can_t Find My Words.png";
-import HardtoTalkImg from "../../assets/images/Hard to Talk.png";
-import NoVoiceImg from "../../assets/images/No Voice.png";
-import ImConfusedImg from "../../assets/images/I’m Confused.png";
-import WrongWordsComeOutImg from "../../assets/images/Wrong Words Come Out.png";
-import DontknowwhereIamImg from "../../assets/images/Don’t know where I am.png";
-import MemoryTroubleImg from "../../assets/images/Memory Trouble.png";
-import achyImg from "../../assets/images/achy.png";
-import NeedsChargingImg from "../../assets/images/Needs Charging.png";
-import NeedChangedformerlySoiledbowelsImg from "../../assets/images/NeedChangedformerlySoiledbowels.png";
-import BrainFogImg from "../../assets/images/Brain Fog.png";
-import TroubleReadingImg from "../../assets/images/Trouble Reading.png";
-import TroubleWritingImg from "../../assets/images/Trouble Writing.png";
-import LostHearingAidsImg from "../../assets/images/Lost Hearing Aids.png";
-import BrainTiredImg from "../../assets/images/Brain Tired.png";
-import SwellingImg from "../../assets/images/Swollen.png";
-import IdontknowImg from "../../assets/images/i dont know.png";
-import PEG_FeedingPainImg from "../../assets/images/PEG _Feeding Tube_ Pain.png";
-import doorImg from "../../assets/images/door.png";
-import StrawImg from "../../assets/images/Straw.png";
-import feelingemotionsImg from "../../assets/images/feeling-emotions.png";
-import Toilet_UrinalImg from "../../assets/images/Toilet _ Urinal .png";
+import dashimghow01 from "/assets/images/All-Day.png?url";
+import dashimghow02 from "/assets/images/Evening-Night.png?url";
+import dashimghow03 from "/assets/images/Morning.png?url";
+import dashimghow04 from "/assets/images/After Procedure (transparent).png?url";
+import dashimghow06 from "/assets/images/Up and Down (Comes and Goes).png?url";
+import dashimghow07 from "/assets/images/Just started.png?url";
+import dashimghow08 from "/assets/images/With food_drink & when eating_drinking.png?url";
+import dashimghow13 from "/assets/images/After Meals.png?url";
+import dashimghow18 from "/assets/images/medicationConcern.png?url";
+import dashimghow19 from "/assets/images/Movement.png?url";
+import dashimghow22 from "/assets/images/SinceMyStroke.jpg";
+import dashimghow23 from "/assets/images/Illness.png?url";
+import dashimghow24 from "/assets/images/Fall.png?url";
+import dashimghow25 from "/assets/images/I-dont-know.png?url";
+import dashimghow26 from "/assets/images/concern-img-03.png?url";
+import dashimghow27 from "/assets/images/something-else.png?url";
+import dashimghow28 from "/assets/images/Always_Chronic.png?url";
+import dashimghow29 from "/assets/images/With Mental Activity.png?url";
+import dashimghow30 from "/assets/images/toilet.png?url";
+import dashimghow31 from "/assets/images/When Lying Down.png?url";
+import dashimghow32 from "/assets/images/When Sleeping.png?url";
+import dashimghow33 from "/assets/images/When Walking.png?url";
+import dashimghow34 from "/assets/images/With Transfer _ Repositioning.png?url";
+import dashimghow35 from "/assets/images/Blood Pressure.png?url";
+import dashimghow36 from "/assets/images/Blood Sugar.png?url";
+import dashimghow17 from "/assets/images/With Stress _ Emotion.png?url";
+import GetsWorseThroughtheDay from "/assets/images/Gets Worse Through the Day.png?url";
+import WhenStanding from "/assets/images/When Standing.png?url";
+import WhenSitting from "/assets/images/When Sitting.png?url";
+import WithActivity from "/assets/images/With Activity.png?url";
+import FoodAllergyImg from "/assets/images/Food Allergy.png?url";
+import Hungry_Thirsty from "/assets/images/Hungry _ Thirsty.png?url";
+import Don_tEatThis from "/assets/images/Don_t Eat This.png?url";
+import NeedHelpEating from "/assets/images/Need Help Eating.png?url";
+import NotAllowedtoEat_Drink from "/assets/images/NPO  Not Allowed to EatDrink .png?url";
+import TooMuchLightImg from "/assets/images/Too Much Light.png?url";
+import InterruptionsImg from "/assets/images/Interruptions.png?url";
+import TooNoisyImg from "/assets/images/Too Noisy - transparent.png?url";
+import WrongTrayImg from "/assets/images/Wrong Tray.png?url";
+import SpecialDietImg from "/assets/images/Special Diet.png?url";
+import Vegetarian_VeganImg from "/assets/images/Vegetarian _ Vegan.png?url";
+import KosherImg from "/assets/images/Kosher.png?url";
+import HalalImg from "/assets/images/Halal .png?url";
+import NoDairyImg from "/assets/images/No Dairy.png?url";
+import GlutenFreeImg from "/assets/images/Gluten Free .png?url";
+import NutFreeImg from "/assets/images/NutFree.png?url";
+import LowSodiumImg from "/assets/images/LowSodium.png?url";
+import Diabetic_CarbControlledImg from "/assets/images/Diabetic _ Carb-Controlled.png?url";
+import TextureModifiedImg from "/assets/images/Texture Modified.png?url";
+import DifferentTimeImg from "/assets/images/Different Time.png?url";
+import LostGlassesImg from "/assets/images/Lost Glasses.png?url";
+import NotWorkingBrokenImg from "/assets/images/Not Working _ Broken .png?url";
+import NeedBatteriesImg from "/assets/images/Need Batteries .png?url";
+import ScheduledImg from "/assets/images/Scheduled.png?url";
+import NotWorking_BrokenImg from "/assets/images/Not Working _ Broken .png?url";
+import CheckMyHearingImg from "/assets/images/Check My Hearing.png?url";
+import WeakonOneSideImg from "/assets/images/Weak on One Side.png?url";
+import Clumsy_OffBalanceImg from "/assets/images/Clumsy _ Off Balance.png?url";
+import TroubleWalkingImg from "/assets/images/Trouble Walking.png?url";
+import HardtoUnderstandYouImg from "/assets/images/Hard to Understand You.png?url";
+import Can_tFindMyWordsImg from "/assets/images/Can_t Find My Words.png?url";
+import HardtoTalkImg from "/assets/images/Hard to Talk.png?url";
+import NoVoiceImg from "/assets/images/No Voice.png?url";
+import ImConfusedImg from "/assets/images/I’m Confused.png?url";
+import WrongWordsComeOutImg from "/assets/images/Wrong Words Come Out.png?url";
+import DontknowwhereIamImg from "/assets/images/Don’t know where I am.png?url";
+import MemoryTroubleImg from "/assets/images/Memory Trouble.png?url";
+import achyImg from "/assets/images/achy.png?url";
+import NeedsChargingImg from "/assets/images/Needs Charging.png?url";
+import NeedChangedformerlySoiledbowelsImg from "/assets/images/NeedChangedformerlySoiledbowels.png?url";
+import BrainFogImg from "/assets/images/Brain Fog.png?url";
+import TroubleReadingImg from "/assets/images/Trouble Reading.png?url";
+import TroubleWritingImg from "/assets/images/Trouble Writing.png?url";
+import LostHearingAidsImg from "/assets/images/Lost Hearing Aids.png?url";
+import BrainTiredImg from "/assets/images/Brain Tired.png?url";
+import SwellingImg from "/assets/images/Swollen.png?url";
+import IdontknowImg from "/assets/images/i dont know.png?url";
+import PEG_FeedingPainImg from "/assets/images/PEG _Feeding Tube_ Pain.png?url";
+import doorImg from "/assets/images/door.png?url";
+import StrawImg from "/assets/images/straw.png?url";
+import feelingemotionsImg from "/assets/images/feeling-emotions.png?url";
+import Toilet_UrinalImg from "/assets/images/Toilet _ Urinal .png?url";
+import logo from "/assets/images/logo.png?url";
+import Arrow from "/assets/images/arrow.svg?url";
+import download from "/assets/images/download.svg?url";
+import CloseIcon from "/assets/images/close2.svg?url";
+import MenuIcon11 from "/assets/images/sidebar-icon-11.svg?url";
+import BackArrow from "/assets/images/back-arrow.svg?url";
+
+import Emo1 from "/assets/images/emo-01.svg?url";
+import Checked from "/assets/images/checked.svg?url";
+import Close from "/assets/images/close.svg?url";
+
+import icon01 from "/assets/images/link-icon-01.svg?url";
+import icon02 from "/assets/images/link-icon-02.svg?url";
+import icon03 from "/assets/images/link-icon-03.svg?url";
+import icon04 from "/assets/images/link-icon-04.svg?url";
+import icon05 from "/assets/images/link-icon-05.svg?url";
+
+import Question from "/assets/images/question.svg?url";
+import WomenIcon from "/assets/images/women.png?url";
+import boardImg from "/assets/images/sidebar-icon-08.svg?url";
+import emotionsImg from "/assets/images/emotion-img-02.png?url";
+import skipArrow from "/assets/images/skip-arrow.svg?url";
+
+import Femalebodyback from "/assets/images/female_bodyback.png?url";
+import Frontfemale from "/assets/images/front_female.png?url";
+import DigramBack from "/assets/images/digram-back.png?url";
+import DigramFront from "/assets/images/digram-front.svg?url";
+import Refresh from "/assets/images/refresh_17981405.png?url";
+import gifLoader from "/assets/loaderGif/Spinner.gif";
+import FaceDigram from "/assets/images/face-digram.svg?url";
+import UploadIcon from "/assets/images/upload.svg?url";
+import VoiceIcon from "/assets/images/voice.svg?url";
+
+import PencilIcon from "/assets/images/whiteboard-pencil.svg?url";
+import TextIcon from "/assets/images/whiteboard-text.svg?url";
+import ImgIcon from "/assets/images/whiteboard-img.svg?url";
+import EraserIcon from "/assets/images/whiteboard-eraser.svg?url";
+import SaveIcon from "/assets/images/whiteboard-save.svg?url";
+import DeleteIcon from "/assets/images/icons8-delete.svg?url";
+import KeyBoardIcon from "/assets/images/whiteboardIcon/Keyboard-Icon.svg?url";
+import imageUploadIcon from "/assets/images/whiteboardIcon/imageUpload.svg?url";
+import DepressedImg from "/assets/images/depressed.png?url";
+import doublearrow from "/assets/images/double-arrow.svg?url";
+import HowAreYou1 from "/assets/images/bad.png?url";
 
 export {
+HowAreYou1,
+  doublearrow,
+  DepressedImg,
+  PencilIcon,
+TextIcon,
+ImgIcon,
+EraserIcon,
+SaveIcon,
+DeleteIcon,
+KeyBoardIcon,
+imageUploadIcon,
+
+  UploadIcon,
+  VoiceIcon,
+  FaceDigram,
+  gifLoader,
+  Femalebodyback,
+  Frontfemale,
+  DigramBack,
+  DigramFront,
+  Refresh,
+  skipArrow,
+  emotionsImg,
+  boardImg,
+  Question,
+  WomenIcon,
+  icon01,
+  icon02,
+  icon03,
+  icon04,
+  icon05,
+  Checked,
+  Close,
+  Emo1,
+  BackArrow,
+  MenuIcon11,
+  CloseIcon,
+  download,
+  Arrow,
+  logo,
   Toilet_UrinalImg,
   feelingemotionsImg,
   StrawImg,
@@ -338,7 +421,6 @@ export {
   nausea03,
   nausea04,
   nausea05,
-  Emo1,
   Emo2,
   Emo3,
   Emo4,

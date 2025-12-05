@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import DigramBack from "../../assets/images/digram-back.png";
-import DigramFront from "../../assets/images/digram-front.svg";
-import Refresh from "../../assets/images/refresh_17981405.png";
+
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
-import Femalebodyback from "../../assets/images/female_bodyback.png";
-import Frontfemale from "../../assets/images/front_female.png";
+
 import { bodyImages } from "./bodyPartsImages.jsx";
 import Cookies from "js-cookie";
-
+import {  Femalebodyback,
+  Frontfemale,
+  DigramBack,
+  DigramFront,
+  Refresh,} from "../../Component/DiseasesData/images.jsx"
 import {
   // Female English
   Abdomen,
