@@ -8,7 +8,6 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-
 import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
@@ -187,14 +186,13 @@ export default function Whiteboard() {
   const [textBlocks, setTextBlocks] = useState([]);
   const [activeTextBlock, setActiveTextBlock] = useState(null);
   const [SelectedImages, setSelectedImages] = useState([]);
+  const [updateImage, setUpdateImage] = useState([]);
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
-
   useEffect(() => {
-    console.log("dddddddddlocation?.state", location?.state)
     if (location?.state?.selectedImages) {
       setSelectedImages(location?.state?.selectedImages);
     }
@@ -546,19 +544,9 @@ export default function Whiteboard() {
         });
         if (data.status) {
           const savedObj = data?.data || {};
-          const imagesUrl = savedObj?.images_url;
-          // setSelectedImages(
-          //   imagesUrl &&
-          //     typeof imagesUrl === "string" &&
-          //     imagesUrl.trim() &&
-          //     imagesUrl.trim() !== "undefined"
-          //     ? imagesUrl.split(",")
-          //     : null
-          // );
-
           setSelectedImages(prev =>
             prev?.length > 0
-              ? prev          
+              ? prev
               : savedObj?.images_url
                 ? savedObj.images_url.split(",")
                 : []
@@ -667,17 +655,16 @@ export default function Whiteboard() {
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
     payload.append("images_url", SelectedImages);
+    if (id) { payload.append("imageFileRemove", updateImage); }
     payload.append("data", JSON.stringify(state));
     if (imageFiles && imageFiles.length > 0) {
       Array.from(imageFiles).forEach((file) => {
         payload.append("imageFiles[]", file);
       });
     }
-
     if (id && id !== "null") {
       payload.append("white_id", id);
     }
-
     try {
       const urlPath = id ? "whiteBoardUpdate" : "whiteBoardCreate";
       const { data } = await api.post(urlPath, payload, {
@@ -686,9 +673,9 @@ export default function Whiteboard() {
           "Content-Type": "multipart/form-data",
         },
       });
-
       if (data.status) {
         toast.success(data.msg, {
+          replace: true, state: {},
           autoClose: 1500,
           onclose: navigate("/white-board-list"),
         });
@@ -939,10 +926,10 @@ export default function Whiteboard() {
         }
         setUploadedImages((prev) => [
           ...prev,
-           { src, x: 50, y: 50, width, height },
+          { src, x: 50, y: 50, width, height },
         ]);
       };
-      // img.src = src;
+      img.src = src;
     });
   };
   /* -------------------- Misc: settings loader -------------------- */
@@ -1125,9 +1112,12 @@ export default function Whiteboard() {
     setFileUpload(true);
   };
   const handleDeleteImage = (index) => {
+    const removedImage = uploadedImages[index]?.src;
+    setUpdateImage((prev) => [...prev, removedImage]);
     setUploadedImages((prev) => prev.filter((_, i) => i !== index));
-    // setImageFiles((prev) => prev.filter((_, i) => i !== index));
+    setImageFiles((prev) => prev.filter((_, i) => i !== index));
   };
+
   const handleDeleteSelectedImage = (index) => {
     setSelectedImages(prev => prev.filter((_, i) => i !== index));
   }
@@ -1345,7 +1335,6 @@ export default function Whiteboard() {
                       className="icon-size-add"
                       alt="Pencil Icon"
                     />
-                    {/* <Icon.Eraser className="icon-size-add" />{" "} */}
                   </Button>
 
                   <Button
@@ -1355,7 +1344,6 @@ export default function Whiteboard() {
                     onClick={handleClear}
                     title="Clear"
                   >
-                    {/* <Icon.Trash className="icon-size-add" /> */}
                     <img
                       src={DeleteIcon}
                       className="icon-size-add"
@@ -1368,23 +1356,12 @@ export default function Whiteboard() {
                     onClick={() => setShowSaveModal(true)}
                     title="File Save"
                   >
-                    {/* <Icon.FileSave className="icon-size-add" /> */}
                     <img
                       src={SaveIcon}
                       className="icon-size-add"
                       alt="Pencil Icon"
                     />
                   </Button>
-
-                  {/* <div className="flex items-center gap-2 ml-2">
-                    <label className="text-sm text-gray-600">Color</label>
-                    <input
-                      type="color"
-                      value={drawingColor}
-                      onChange={(e) => setDrawingColor(e.target.value)}
-                      className="h-9 w-10 rounded border border-gray-200"
-                    />
-                  </div> */}
                   <div className="flex items-center gap-2">
                     <label className="text-sm text-gray-600">
                       {selectedLanguage === "Spanish" ? "Ancho" : "Width"}
@@ -1425,28 +1402,7 @@ export default function Whiteboard() {
                   />
                 </div>
               )}
-
-              {/* <div className="w-full flex justify-between items-center mt-6"> */}
-              {/* <Button
-                  className="thm-btn"
-                  onClick={() => setShowSaveModal(true)}
-                >
-                  {selectedLanguage === "Spanish"
-                    ? id
-                      ? "Actualizar pizarra"
-                      : "Guardar pizarra"
-                    : id
-                    ? "Update Whiteboard"
-                    : "Save Whiteboard"}
-                </Button> */}
-              {/* <Button
-                  className="thm-btn"
-                  onClick={() => navigate("/white-board-list")}
-                >
-                  {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
-                </Button> */}
-              {/* </div> */}
-
+           
               {showSaveModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
                   <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">

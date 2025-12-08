@@ -1,47 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.png" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
 
-  <title>Medconcerns</title>
+  <title>MedConcerns</title>
+
+  <!-- Web Manifest -->
   <link rel="manifest" href="/manifest.json" />
 
-  <!-- Apple PWA Support -->
-  <link rel="apple-touch-icon" href="/180.png" />
+  <!-- iOS PWA Support -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-orientations" content="landscape" />
-  <meta name="apple-mobile-web-app-title" content="MedConcerns App" />
+  <meta name="apple-mobile-web-app-title" content="MedConcerns" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="screen-orientation" content="landscape">
-  <meta name="full-screen" content="yes">
-  <meta name="browsermode" content="application">
-  <style>
-    /* Only apply when in portrait mode on iOS */
-    /* @media (orientation: portrait) and (-webkit-touch-callout: none) {
-      body {
-        transform: rotate(90deg);
-        transform-origin: 0 0;
-        width: 100vh;
-        height: 100vw;
-        position: fixed;
-        top: 0;
-        left: 100vw;
-        overflow: auto !important;
-      }
+  <meta name="apple-mobile-web-app-orientations" content="landscape" />
 
-      #root {
-        width: 100vh;
-        min-height: 100vw;
-        overflow: visible !important;
-      }
-    } */
-  </style>
+  <!-- iOS Icons -->
+  <link rel="apple-touch-icon" href="/180.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/512.png" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#ffffff" />
 </head>
+
 
 <body>
   <div id="root"></div>

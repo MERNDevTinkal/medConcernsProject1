@@ -66,7 +66,6 @@
 //     host: true,
 //   },
 // });
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -79,54 +78,51 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       workbox: {
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+
         globPatterns: [
-          "assets/icons/*.{png,svg,jpg,jpeg}",
-          "assets/basic/*.{png,svg,jpg,jpeg}"
+          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}",
+          "images/*.{png,svg,jpg,jpeg,webp}",
+          "assets/images/*.{png,svg,jpg,jpeg,webp}",
         ],
+
         runtimeCaching: [
           {
-            urlPattern: ({ url }) =>
-              url.pathname.startsWith("/images/") ||
-              url.pathname.startsWith("/assets/images/"),
-
+            urlPattern: ({ request }) => request.destination === "image",
             handler: "CacheFirst",
             options: {
-              cacheName: "dynamic-images-cache",
+              cacheName: "images-cache",
               expiration: {
-                maxEntries: 60,          
-                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+                maxEntries: 2000, 
+                maxAgeSeconds: 365 * 24 * 60 * 60, 
               },
             },
           },
-
           {
-            urlPattern: ({ url }) =>
-              url.pathname.startsWith("/audio/") ||
-              url.pathname.startsWith("/assets/audio/"),
-
+            urlPattern: ({ request }) => request.destination === "audio",
             handler: "CacheFirst",
             options: {
-              cacheName: "dynamic-audio-cache",
+              cacheName: "audio-cache",
               expiration: {
-                maxEntries: 20,          
-                maxAgeSeconds: 30 * 24 * 60 * 60,
+                maxEntries: 100,
+                maxAgeSeconds: 365 * 24 * 60 * 60,
               },
             },
           },
         ],
       },
 
+      // PWA MANIFEST
       manifest: {
         name: "MedConcerns App",
         short_name: "MedConcerns",
         description: "MedConcerns App",
-        theme_color: "#ffffff",
-        background_color: "#ffffff",
-        display: "standalone",
-        scope: "/",
         start_url: "/",
+        scope: "/",
+        display: "standalone",
         orientation: "landscape",
+        background_color: "#ffffff",
+        theme_color: "#ffffff",
 
         icons: [
           {
@@ -143,14 +139,14 @@ export default defineConfig({
             src: "/180.png",
             sizes: "180x180",
             type: "image/png",
-          },
-        ],
-      },
-    }),
+          }
+        ]
+      }
+    })
   ],
 
   server: {
-    hmr: { overlay: false },
     host: true,
+    hmr: { overlay: false },
   },
 });
