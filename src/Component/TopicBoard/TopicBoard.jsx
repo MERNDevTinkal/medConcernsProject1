@@ -31,6 +31,7 @@ const TopicBoard = ({
   const [isDelete, setIsDelete] = useState(false);
   const [topicId, setTopicId] = useState("");
   const [editData, setEditData] = useState(null);
+  const [apiItems, setApiItems] = useState([]);
   useEffect(() => {
     const getData = () => {
       const formData = new FormData();
@@ -43,21 +44,25 @@ const TopicBoard = ({
         })
         .then(({ data }) => {
           if (data.status) {
-            const apiItems = Array.isArray(data.data) ? data.data : [data.data];
-            const merged = [...topicBoard, ...apiItems];
-            setMargedData(merged);
+            const apiItems = Array.isArray(data?.data) ? data?.data : [data?.data] || [];
+            setApiItems(apiItems)
           } else {
-            toast.error(data.msg, { autoClose: 1500 });
+            toast.error(data?.msg, { autoClose: 1500 });
           }
         })
         .catch(({ response }) => {
-          toast.error(response.data.message || response.data.msg, {
+          toast.error(response?.data?.message || response?.data?.msg, {
             autoClose: 1500,
           });
         });
     };
     getData();
   }, []);
+
+  useEffect(() => {
+    const merged = [...topicBoard, ...apiItems];
+    setMargedData(merged);
+  }, [topicBoard,apiItems])
   const validationSchema = Yup.object({
     firstname: Yup.string().required("Name is required"),
   });
