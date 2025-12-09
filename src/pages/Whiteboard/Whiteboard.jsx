@@ -74,84 +74,19 @@ const CardContent = ({ className = "", ...props }) => (
 const Icon = {
   Pencil: (p) => (
     <SlPencil {...p} />
-    // <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-    //   <path
-    //     strokeWidth="2"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L7.5 19.313 3 21l1.688-4.5L16.862 3.487z"
-    //   />
-    // </svg>
   ),
   Image: (p) => (
     <img src={imageUploadIcon} alt="img upload" {...p} />
-    // <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-    //   <rect x="3" y="5" width="18" height="14" rx="2" ry="2" strokeWidth="2" />
-    //   <path
-    //     d="M10 13l2-2 4 4"
-    //     strokeWidth="2"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //   />
-    //   <circle cx="8" cy="9" r="1.5" />
-    // </svg>
   ),
-
-  // Eraser: (p) => (
-  //   <RiEraserFill />
-  //   // <svg
-  //   //   stroke="currentColor"
-  //   //   {...p}
-  //   //   width="800px"
-  //   //   height="800px"
-  //   //   viewBox="0 0 24 24"
-  //   //   fill="none"
-  //   //   xmlns="http://www.w3.org/2000/svg"
-  //   // >
-  //   //   <path
-  //   //     d="M5.50506 11.4096L6.03539 11.9399L5.50506 11.4096ZM3 14.9522H2.25H3ZM12.5904 18.4949L12.0601 17.9646L12.5904 18.4949ZM9.04776 21V21.75V21ZM11.4096 5.50506L10.8792 4.97473L11.4096 5.50506ZM13.241 17.8444C13.5339 18.1373 14.0088 18.1373 14.3017 17.8444C14.5946 17.5515 14.5946 17.0766 14.3017 16.7837L13.241 17.8444ZM7.21629 9.69832C6.9234 9.40543 6.44852 9.40543 6.15563 9.69832C5.86274 9.99122 5.86274 10.4661 6.15563 10.759L7.21629 9.69832ZM16.073 16.073C16.3659 15.7801 16.3659 15.3053 16.073 15.0124C15.7801 14.7195 15.3053 14.7195 15.0124 15.0124L16.073 16.073ZM18.4676 11.5559C18.1759 11.8499 18.1777 12.3248 18.4718 12.6165C18.7658 12.9083 19.2407 12.9064 19.5324 12.6124L18.4676 11.5559ZM6.03539 11.9399L11.9399 6.03539L10.8792 4.97473L4.97473 10.8792L6.03539 11.9399ZM6.03539 17.9646C5.18538 17.1146 4.60235 16.5293 4.22253 16.0315C3.85592 15.551 3.75 15.2411 3.75 14.9522H2.25C2.25 15.701 2.56159 16.3274 3.03 16.9414C3.48521 17.538 4.1547 18.2052 4.97473 19.0253L6.03539 17.9646ZM4.97473 10.8792C4.1547 11.6993 3.48521 12.3665 3.03 12.9631C2.56159 13.577 2.25 14.2035 2.25 14.9522H3.75C3.75 14.6633 3.85592 14.3535 4.22253 13.873C4.60235 13.3752 5.18538 12.7899 6.03539 11.9399L4.97473 10.8792ZM12.0601 17.9646C11.2101 18.8146 10.6248 19.3977 10.127 19.7775C9.64651 20.1441 9.33665 20.25 9.04776 20.25V21.75C9.79649 21.75 10.423 21.4384 11.0369 20.97C11.6335 20.5148 12.3008 19.8453 13.1208 19.0253L12.0601 17.9646ZM4.97473 19.0253C5.79476 19.8453 6.46201 20.5148 7.05863 20.97C7.67256 21.4384 8.29902 21.75 9.04776 21.75V20.25C8.75886 20.25 8.449 20.1441 7.9685 19.7775C7.47069 19.3977 6.88541 18.8146 6.03539 17.9646L4.97473 19.0253ZM17.9646 6.03539C18.8146 6.88541 19.3977 7.47069 19.7775 7.9685C20.1441 8.449 20.25 8.75886 20.25 9.04776H21.75C21.75 8.29902 21.4384 7.67256 20.97 7.05863C20.5148 6.46201 19.8453 5.79476 19.0253 4.97473L17.9646 6.03539ZM19.0253 4.97473C18.2052 4.1547 17.538 3.48521 16.9414 3.03C16.3274 2.56159 15.701 2.25 14.9522 2.25V3.75C15.2411 3.75 15.551 3.85592 16.0315 4.22253C16.5293 4.60235 17.1146 5.18538 17.9646 6.03539L19.0253 4.97473ZM11.9399 6.03539C12.7899 5.18538 13.3752 4.60235 13.873 4.22253C14.3535 3.85592 14.6633 3.75 14.9522 3.75V2.25C14.2035 2.25 13.577 2.56159 12.9631 3.03C12.3665 3.48521 11.6993 4.1547 10.8792 4.97473L11.9399 6.03539ZM14.3017 16.7837L7.21629 9.69832L6.15563 10.759L13.241 17.8444L14.3017 16.7837ZM15.0124 15.0124L12.0601 17.9646L13.1208 19.0253L16.073 16.073L15.0124 15.0124ZM19.5324 12.6124C20.1932 11.9464 20.7384 11.3759 21.114 10.8404C21.5023 10.2869 21.75 9.71511 21.75 9.04776H20.25C20.25 9.30755 20.1644 9.58207 19.886 9.979C19.5949 10.394 19.1401 10.8781 18.4676 11.5559L19.5324 12.6124Z"
-  //   //     fill="#1C274C"
-  //   //   />
-  //   //   <path
-  //   //     d="M9 21H21"
-  //   //     stroke="#1C274C"
-  //   //     strokeWidth="1.5"
-  //   //     strokeLinecap="round"
-  //   //   />
-  //   // </svg>
-  // ),
   Trash: (p) => (
     <RiEraserFill {...p} />
-    // <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-    //   <path
-    //     strokeWidth="2"
-    //     strokeLinecap="round"
-    //     strokeLinejoin="round"
-    //     d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"
-    //   />
-    // </svg>
   ),
   Keyword: (p) => <img src={KeyBoardIcon} alt="keyboard icon" {...p} />,
   FileSave: (p) => <FaSave {...p} />,
-  // <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...p}>
-  //   <path
-  //     strokeWidth="2"
-  //     strokeLinecap="round"
-  //     strokeLinejoin="round"
-  //     d="M4 4h16v16H4z"
-  //   />
-  //   <path
-  //     strokeWidth="2"
-  //     strokeLinecap="round"
-  //     strokeLinejoin="round"
-  //     d="M8 12h8M8 8h8M8 16h5"
-  //   />
-  // </svg>
 };
 export default function Whiteboard() {
   const location = useLocation();
   const pathname = location?.pathname ?? "";
-  // const { selectedImages } = location?.state ?? [];
   const navigate = useNavigate();
   const { id } = useParams();
   const canvasRef = useRef(null);
@@ -187,16 +122,33 @@ export default function Whiteboard() {
   const [activeTextBlock, setActiveTextBlock] = useState(null);
   const [SelectedImages, setSelectedImages] = useState([]);
   const [updateImage, setUpdateImage] = useState([]);
+
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
   useEffect(() => {
-    if (location?.state?.selectedImages) {
-      setSelectedImages(location?.state?.selectedImages);
-    }
-  }, [location]);
+    if (!location?.state?.selectedImages) return;
+    const incoming = location.state.selectedImages;
+    setUploadedImages(prev => {
+      const newItems = [];
+      incoming.forEach((src, index) => {
+        if (!prev.some(img => img.src === src)) {
+          const pos = findNonOverlappingImagePosition(200, 200);
+          newItems.push({
+            src,
+            x: pos.x + index * 15,
+            y: pos.y,
+            width: 200,
+            height: 200,
+          });
+        }
+      });
+      return uniqueImages([...prev, ...newItems]);
+    });
+
+  }, [location.state?.selectedImages]);
 
 
   const pointerPos = (e, rect) => {
@@ -215,7 +167,6 @@ export default function Whiteboard() {
     (clickX, clickY) => {
       const canvas = canvasRef.current;
       if (!canvas) return { x: clickX, y: clickY };
-
       const rect = canvas.getBoundingClientRect();
       const padding = 10;
       const lineHeight = 24;
@@ -273,6 +224,19 @@ export default function Whiteboard() {
   const startDrawing = (e) => {
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
+    for (let i = uploadedImages.length - 1; i >= 0; i--) {
+      const img = uploadedImages[i];
+      if (
+        pos.x >= img.x &&
+        pos.x <= img.x + img.width &&
+        pos.y >= img.y &&
+        pos.y <= img.y + img.height
+      ) {
+        setDraggingImage(i);
+        setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
+        return;
+      }
+    }
     if (tool !== "pencil" && tool !== "eraser") return;
     setIsDrawing(true);
     setPaths((prev) => [
@@ -290,14 +254,35 @@ export default function Whiteboard() {
     }
   };
 
+  const findNonOverlappingImagePosition = useCallback((width, height, currentImages = uploadedImages) => {
+    const margin = 20;
+    let y = 20;
+
+    if (currentImages.length > 0) {
+      const lastImage = currentImages[currentImages.length - 1];
+      y = lastImage.y + lastImage.height + margin;
+    }
+
+    // Also consider existing text blocks
+    if (textBlocks.length > 0) {
+      const lastTextBlock = textBlocks[textBlocks.length - 1];
+      y = Math.max(y, lastTextBlock.y + 60);
+    }
+
+    return {
+      x: 20,
+      y,
+    };
+  }, [uploadedImages, textBlocks]);
+
   const draw = useCallback(
     (e) => {
       const rect = canvasRef.current.getBoundingClientRect();
       const pos = pointerPos(e, rect);
-      if (draggingImage) {
+      if (draggingImage !== null) {
         setUploadedImages((prev) =>
-          prev.map((img) =>
-            img === draggingImage
+          prev.map((img, i) =>
+            i === draggingImage
               ? { ...img, x: pos.x - dragOffset.x, y: pos.y - dragOffset.y }
               : img
           )
@@ -327,6 +312,7 @@ export default function Whiteboard() {
     ]
   );
 
+
   const stopDrawing = useCallback(() => {
     setIsDrawing(false);
     setDraggingImage(null);
@@ -346,6 +332,11 @@ export default function Whiteboard() {
     const canvasWidth = 680;
     const canvasHeight = 600;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    uploadedImages.forEach((imgObj) => {
+      const img = new Image();
+      img.src = imgObj.src;
+      ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
+    });
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -380,7 +371,6 @@ export default function Whiteboard() {
         }
         const words = paragraph.split(" ");
         let currentLine = "";
-
         for (let i = 0; i < words.length; i++) {
           const word = words[i];
           const testLine = currentLine ? currentLine + " " + word : word;
@@ -518,15 +508,8 @@ export default function Whiteboard() {
       setCaretY(cursorY + lineHeight);
     }
   }, [
-    paths,
-    textBlocks,
-    activeTextBlock,
-    textLines,
-    textToolActive,
-    drawingColor,
-    cursorPosition,
-    showCursor,
-    getCanvasContext,
+    paths, textBlocks, activeTextBlock, textLines, textToolActive,
+    drawingColor, cursorPosition, showCursor, getCanvasContext, uploadedImages
   ]);
   /* -------------------- Fetch board -------------------- */
   useEffect(() => {
@@ -534,34 +517,22 @@ export default function Whiteboard() {
       setLoader(false);
       return;
     }
+
     const fetchBoard = async () => {
       const payload = new FormData();
       payload.append("white_id", id);
       payload.append("licenses_id", licenses_id);
+
       try {
         const { data } = await api.post("whiteBoardEdit", payload, {
           headers: { Authorization: `Bearer ${token}` },
         });
+
         if (data.status) {
           const savedObj = data?.data || {};
-          setSelectedImages(prev =>
-            prev?.length > 0
-              ? prev
-              : savedObj?.images_url
-                ? savedObj.images_url.split(",")
-                : []
-          );
+          console.log("Ddddddd", savedObj)
           setDrawingName(savedObj?.name_key || "");
-          if (Array.isArray(savedObj.imageFiles)) {
-            const apiImages = savedObj.imageFiles.map((url) => ({
-              src: url,
-              x: 50,
-              y: 50,
-              width: 200,
-              height: 200,
-            }));
-            setUploadedImages(apiImages);
-          }
+
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
           if (savedState.paths) {
             setPaths(savedState.paths);
@@ -573,6 +544,22 @@ export default function Whiteboard() {
             setDrawingColor(savedState.toolSettings.color || "#000000");
             setDrawingWidth(savedState.toolSettings.width || 2);
           }
+          const imagesArray = savedState?.images ?? [];
+
+          setUploadedImages(prev => {
+            const newItems = [];
+            imagesArray.forEach((src, index) => {
+                newItems.push({
+                  src:src?.src,
+                  x: src.x ,
+                  y: src.y,
+                  width: src.width,
+                  height: src.height,
+                });
+              
+            });
+            return uniqueImages([...prev, ...newItems]);
+          });
         }
       } catch (err) {
         console.error("Failed to fetch whiteboard:", err);
@@ -580,11 +567,32 @@ export default function Whiteboard() {
         setLoader(false);
       }
     };
+
     fetchBoard();
   }, [id, licenses_id, token]);
 
-  /* -------------------- Save Drawing -------------------- */
+  // Helper function to calculate image position without using state
+  const calculateImagePosition = (currentImages, width, height) => {
+    const margin = 20;
+    let y = 20;
 
+    if (currentImages.length > 0) {
+      const lastImage = currentImages[currentImages.length - 1];
+      y = lastImage.y + lastImage.height + margin;
+    }
+
+    // Also consider existing text blocks
+    if (textBlocks.length > 0) {
+      const lastTextBlock = textBlocks[textBlocks.length - 1];
+      y = Math.max(y, lastTextBlock.y + 60);
+    }
+
+    return {
+      x: 20,
+      y,
+    };
+  };
+  /* -------------------- Save Drawing -------------------- */
   const commitTypedText = useCallback(() => {
     if (!activeTextBlock) return;
     const textContent = textLines.join("\n");
@@ -623,6 +631,7 @@ export default function Whiteboard() {
       alert("Please enter a drawing name");
       return;
     }
+
     let committedTexts = [...textBlocks];
     if (activeTextBlock) {
       const textContent = textLines.join("\n");
@@ -637,31 +646,35 @@ export default function Whiteboard() {
       name: drawingName.trim(),
       paths,
       texts: committedTexts,
+      images: uploadedImages.map(img => ({
+        src: img.src,
+        x: img.x,
+        y: img.y,
+        width: img.width,
+        height: img.height
+      })),
       toolSettings: {
         color: drawingColor,
         width: drawingWidth,
       },
     };
-    if (
-      !id && paths.length === 0 &&
-      committedTexts.length === 0 &&
-      SelectedImages == undefined &&
-      imageFiles?.length === 0
-    ) {
-      alert("Please Fill Something");
-      return;
-    }
+
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
     payload.append("images_url", SelectedImages);
-    if (id) { payload.append("imageFileRemove", updateImage); }
     payload.append("data", JSON.stringify(state));
+
+    if (id) {
+      payload.append("imageFileRemove", updateImage);
+    }
+
     if (imageFiles && imageFiles.length > 0) {
       Array.from(imageFiles).forEach((file) => {
         payload.append("imageFiles[]", file);
       });
     }
+
     if (id && id !== "null") {
       payload.append("white_id", id);
     }
@@ -683,8 +696,7 @@ export default function Whiteboard() {
         toast.error(data.msg, { autoClose: 1500 });
       }
     } catch (err) {
-      console.error("Save error:", err.message);
-      toast.error(err.message, { autoClose: 1500 });
+      toast.error(err?.response?.data?.msg, { autoClose: 1500 });
     }
   };
   const handleKeyboardChange = (input) => {
@@ -692,7 +704,6 @@ export default function Whiteboard() {
   };
   const handleKeyboardKeyPress = (button) => {
     if (!button) return;
-
     switch (button) {
       case "{enter}":
       case "{return}":
@@ -709,7 +720,6 @@ export default function Whiteboard() {
           const currentLine = newLines[cursorPosition.line];
           const beforeCursor = currentLine.slice(0, cursorPosition.column);
           const afterCursor = currentLine.slice(cursorPosition.column);
-
           newLines[cursorPosition.line] = beforeCursor;
           newLines.splice(cursorPosition.line + 1, 0, afterCursor);
 
@@ -910,25 +920,50 @@ export default function Whiteboard() {
     }
   };
   /* -------------------- Image Upload -------------------- */
+
   const handleImageUpload = (files) => {
     if (!files || files.length === 0) return;
+
     Array.from(files).forEach((file) => {
       setImageFiles((prev) => [...prev, file]);
+
       const src = URL.createObjectURL(file);
       const img = new Image();
+
       img.onload = () => {
         let { width, height } = img;
         const maxSize = 200;
+
         if (width > maxSize || height > maxSize) {
           const scale = Math.min(maxSize / width, maxSize / height);
           width *= scale;
           height *= scale;
         }
+
+        // Pass current uploadedImages for calculation
+        const pos = findNonOverlappingImagePosition(width, height, uploadedImages);
+
         setUploadedImages((prev) => [
           ...prev,
-          { src, x: 50, y: 50, width, height },
+          {
+            src,
+            x: pos.x,
+            y: pos.y,
+            width,
+            height,
+          },
         ]);
+
+        if (src.startsWith('blob:')) {
+          return;
+        }
+
+        setSelectedImages(prev => {
+          if (prev.includes(src)) return prev;
+          return [...prev, src];
+        });
       };
+
       img.src = src;
     });
   };
@@ -1118,9 +1153,16 @@ export default function Whiteboard() {
     setImageFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleDeleteSelectedImage = (index) => {
-    setSelectedImages(prev => prev.filter((_, i) => i !== index));
-  }
+
+  const uniqueImages = (images) => {
+    const seen = new Set();
+    return images.filter(img => {
+      if (seen.has(img.src)) return false;
+      seen.add(img.src);
+      return true;
+    });
+  };
+
   return (
     <>
       {FileUpload && (
@@ -1165,15 +1207,17 @@ export default function Whiteboard() {
                     {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
                   </Button>
                 </div>
-                {uploadedImages && uploadedImages.length > 0 && (
+                {/* Replace both separate image strips with one combined strip */}
+                {(uploadedImages.length > 0 || SelectedImages.length > 0) && (
                   <CardHeader className="p-0">
                     <div
                       ref={stripRef}
                       className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
                     >
-                      {uploadedImages.map((img, idx) => (
+                      {/* Show all uploaded images */}
+                      {uploadedImages?.map((img, idx) => (
                         <div
-                          key={idx}
+                          key={`uploaded-${idx}`}
                           className="relative w-[100px] h-[100px] flex-shrink-0"
                         >
                           <img
@@ -1183,7 +1227,16 @@ export default function Whiteboard() {
                             draggable={false}
                           />
                           <button
-                            onClick={() => handleDeleteImage(idx)}
+                            onClick={() => {
+                              // Check if it's in SelectedImages to remove from there too
+                              const isInSelected = SelectedImages.includes(img.src);
+                              if (isInSelected) {
+                                setSelectedImages(prev =>
+                                  prev.filter(url => url !== img.src)
+                                );
+                              }
+                              handleDeleteImage(idx);
+                            }}
                             className="absolute -top-1 -right-1 bg-white/80 hover:bg-white 
                       text-red-600 rounded-full p-1 shadow w-6 h-6 flex 
                       items-center justify-center text-xs"
@@ -1195,48 +1248,7 @@ export default function Whiteboard() {
                     </div>
                   </CardHeader>
                 )}
-                {(SelectedImages
-                  // || selectedImages
-                ) &&
-                  (SelectedImages?.length > 0
-                    // ||
-                    // selectedImages?.length > 0
-                  ) && (
-                    <CardHeader className="p-0">
-                      <div
-                        ref={stripRef}
-                        className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
-                      >
-                        {(
-                          // selectedImages?.length > 0
-                          // ? selectedImages
-                          // :
-                          SelectedImages || []
-                        )?.map((img, idx) => (
-                          <div
-                            key={idx}
-                            className="relative w-[100px] h-[100px] flex-shrink-0"
-                          >
-                            <img
-                              key={idx}
-                              src={img}
-                              alt={`upload-${idx}`}
-                              className="w-[100px] h-[100px] object-cover flex-shrink-0 rounded border"
-                              draggable={false}
-                            />
-                            <button
-                              onClick={() => handleDeleteSelectedImage(idx)}
-                              className="absolute -top-1 -right-1 bg-white/80 hover:bg-white 
-                      text-red-600 rounded-full p-1 shadow w-6 h-6 flex 
-                      items-center justify-center text-xs"
-                            >
-                              ✕
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    </CardHeader>
-                  )}
+
                 <div
                   ref={wrapperRef}
                   className="relative w-auto  overflow-y-auto overflow-x-hidden mx-auto"
@@ -1402,7 +1414,7 @@ export default function Whiteboard() {
                   />
                 </div>
               )}
-           
+
               {showSaveModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
                   <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
