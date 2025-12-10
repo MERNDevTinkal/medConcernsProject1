@@ -32,7 +32,7 @@ import CloseIcon from "/assets/images/close2.svg";
 import BackArrow from "/assets/images/back-arrow.svg";
 import appetite from "/assets/images/no_appetite.png";
 import IllnessImg from "/assets/images/Illness.png";
-import hearingImg from "/assets/images/hearing.png";
+import hearingImg from "/assets/images/HearingConcernNew.png";
 import thickmucusImg from "/assets/images/thick-mucus.png";
 import PEGImg from "/assets/images/PEG-pain.png";
 import somethinghappenedImg from "/assets/images/something-happened.png";

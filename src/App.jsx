@@ -188,17 +188,8 @@ function App() {
           <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
           <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
           <Route path="/decision-swallowing" element={<DecisionSwallowing />} />
-          {/* <Route path="/heartburn" element={<Heartburn />} /> */}
-          {/* <Route
-            path="/heartburn-step-yesno"
-            element={<HeartburnStepYesNo />}
-          /> */}
-          {/* <Route path="/nausea-step-yesno" element={<NauseaStep />} /> */}
-          {/* <Route path="/nausea-problem-yesno" element={<ProblemYesNo />} /> */}
-          {/* <Route path="/nausea-when" element={<NauseaWhen />} /> */}
           <Route path="/concern/:name/:id" element={<BreathingYesNo />} />
           <Route path="/topicboard/:name/:id" element={<BreathingYesNo />} />
-          {/* <Route path="/when-step-yesno" element={<WheanStepYesNo />} /> */}
           <Route path="/feelOptions/:id" element={<FeelOptions />} />
           <Route path="/settingList/:name" element={<SettingList />} />
           <Route path="/introduction" element={<Introduction />} />

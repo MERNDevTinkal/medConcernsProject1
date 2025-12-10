@@ -159,7 +159,7 @@ function Howoften({ monthName, isSelected }) {
 }
 
 export default function TabsCalendar() {
-  const [activeTab, setActiveTab] = useState("day"); // 'day', 'week', 'month'
+  const [activeTab, setActiveTab] = useState("day"); 
   const [selectedDayItem, setSelectedDayItem] = useState("");
   const [selectedWeekDay, setSelectedWeekDay] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);
@@ -271,7 +271,7 @@ export default function TabsCalendar() {
     );
   }, []);
 
-  // ✅ Language aware mappings
+  // Language aware mappings
   const currentDaysOfWeek =
     selectedLanguage === "Spanish" ? daysOfWeekSpanish : daysOfWeek;
   const currentWeekDays =
@@ -748,7 +748,7 @@ export default function TabsCalendar() {
                       role="tab"
                       aria-selected={activeTab === "week"}
                     >
-                      {selectedLanguage === "Spanish" ? "SEMANA" : "Week"}
+                      {selectedLanguage === "Spanish" ? "Semana" : "Week"}
                     </button>
                     <button
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
@@ -766,7 +766,7 @@ export default function TabsCalendar() {
                       role="tab"
                       aria-selected={activeTab === "month"}
                     >
-                      {selectedLanguage === "Spanish" ? "MES" : "Month"}
+                      {selectedLanguage === "Spanish" ? "Mes" : "Month"}
                     </button>
                   </div>
                 </div>
@@ -777,7 +777,7 @@ export default function TabsCalendar() {
                   {activeTab === "day" && (
                     <div className="grid gap-4 sm:gap-0">
                       <h3 className="text-2xl sm:mb-0 font-bold text-gray-800 mb-2 text-center">
-                        {selectedLanguage === "Spanish" ? "HOY" : "TODAY"}
+                        {selectedLanguage === "Spanish" ? "Hoy" : "TODAY"}
                       </h3>
                       <div className="grid grid-cols-3 border border-gray-200 rounded-lg overflow-hidden ">
                         {(selectedLanguage === "Spanish"

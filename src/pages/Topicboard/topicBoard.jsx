@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-import {Checked,Close} from "../../Component/DiseasesData/images";
+import { Checked, Close } from "../../Component/DiseasesData/images";
 import {
   YesFemale,
   YesFemaleSpanish,

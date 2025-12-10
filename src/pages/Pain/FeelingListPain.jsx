@@ -63,9 +63,6 @@ const FeelingListPain = () => {
   useEffect(() => {
     setPainFeelParams(diseasesData[path]);
   }, [path]);
-  const handleBackRoute = () => {
-    navigate(-1);
-  };
   useEffect(() => {
     getSetting(
       () => {},

@@ -8589,7 +8589,7 @@ export const diseasesData = {
       nameEs: "Con Actividad",
       image: WithActivity,
       secPath: "/confrm-step-yesno",
-      path: "/when",
+      path: "/howoften",
       maleEnglish: WithActivityMale,
 
       femaleEnglish: withactivityFemale,

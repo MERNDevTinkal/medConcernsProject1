@@ -62,7 +62,7 @@ const TopicBoard = ({
   useEffect(() => {
     const merged = [...topicBoard, ...apiItems];
     setMargedData(merged);
-  }, [topicBoard,apiItems])
+  }, [topicBoard, apiItems])
   const validationSchema = Yup.object({
     firstname: Yup.string().required("Name is required"),
   });

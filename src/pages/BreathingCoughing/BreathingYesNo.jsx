@@ -30,16 +30,16 @@ function BreathingYesNo() {
 
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
   return (
@@ -67,18 +67,23 @@ function BreathingYesNo() {
           <div className="main-wrapper home-wrapper justify-center flex flex-col">
             <div className="grid grid-cols-2  md:gap-20 gap-5 my-5  items-center">
               <div
-                className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 ${
-                  location.pathname.includes("/topicboard/")
-                    ? "h-[200px] flex justify-center items-center"
-                    : ""
-                } `}
+                className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3
+    ${location.pathname.includes("/topicboard/")
+      ? "h-[300px] flex justify-center items-center relative"
+      : ""
+    }`}
               >
                 {location.pathname.includes("/topicboard/") ? (
-                  <p className="text-xl">
-                    {selectedLanguage === "Spanish"
-                      ? concernValues?.nameEs
-                      : concernValues?.name}
-                  </p>
+                  <>
+                    <p className="text-xl">
+                      {selectedLanguage === "Spanish"
+                        ? concernValues?.nameEs
+                        : concernValues?.name}
+                    </p>
+                    {selectedLanguage === "Spanish" && (
+                      <p className="absolute bottom-0 left-0 right-0 break-words">{concernValues?.name}</p>
+                    )}
+                  </>
                 ) : (
                   <div className="dashboard-img rounded-2xl w-full h-full">
                     <div className="h-full w-full">
