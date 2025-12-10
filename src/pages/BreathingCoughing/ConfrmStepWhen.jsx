@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
-import {Checked,Close,BackArrow} from "../../Component/DiseasesData/images";
+import { Checked, Close, BackArrow } from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";
@@ -85,7 +85,7 @@ function ConfrmStepWhen() {
             </h2>
             <button className="opacity-0">Medconcern</button>
           </div>
-          <div className="main-wrapper home-wrapper ">
+          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
             <div className="grid grid-cols-2  md:gap-20 gap-5 my-5 items-center">
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">

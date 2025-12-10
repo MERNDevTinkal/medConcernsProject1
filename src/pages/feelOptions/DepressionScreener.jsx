@@ -1,7 +1,7 @@
-import React, { useEffect, useState,useContext  } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { Checked, Close } from "../../Component/DiseasesData/images"
+import { Checked, Close } from "../../Component/DiseasesData/images";
 import { useNavigate } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
@@ -25,16 +25,16 @@ function DepressionScreener() {
   const { updateDisease } = useContext(GlobalContext);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -51,54 +51,59 @@ function DepressionScreener() {
   };
   return (
     <>
-      {loader ? <Loader /> : (
+      {loader ? (
+        <Loader />
+      ) : (
         <>
           <Header />
           <div className="main-wrapper home-wrapper ">
-            <div className="depression-cards">
+            <div className="feel-overall-card questions-cards">
               <h3 className="text-center">
                 Answer more questions about how you feel?
               </h3>
-              <ul className="depression-list">
-                <li
-                  className="depression-item"
-                  onClick={() => {
-                    handleConfrmStepWhen(
-                      selectedLanguage === "Spanish" ? "SÍ" : "YES",
-                      "/feelOptions/1",
-                      selectedLanguage === "" && selectedGender === ""
-                        ? YesMale
-                        : selectedLanguage === "Spanish" &&
-                          selectedGender === "Male"
-                          ? YesSpanishMale
-                          : selectedLanguage === "Spanish" &&
-                            selectedGender === "Female"
-                            ? YesFemaleSpanish
-                            : selectedLanguage === "" &&
-                              selectedGender === "Female"
-                              ? YesFemale
-                              : selectedLanguage === "" && selectedGender === "Male"
-                                ? YesMale
-                                : selectedLanguage === "English" &&
-                                  selectedGender === "Male"
-                                  ? YesMale
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Female"
-                                    ? YesFemale
-                                    : YesMale
-                    );
-                  }}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-[32px] font-medium text-green-600">
-                      {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
-                    </p>
-                    <img src={Checked} alt="" className="w-8 h-8" />
-                    <span className="text-lg">Continue</span>
-                  </div>
-                </li>
-
-                <li className="depression-item" onClick={() => {
+              <div
+                className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                onClick={() => {
+                  handleConfrmStepWhen(
+                    selectedLanguage === "Spanish" ? "SÍ" : "YES",
+                    "/feelOptions/1",
+                    selectedLanguage === "" && selectedGender === ""
+                      ? YesMale
+                      : selectedLanguage === "Spanish" &&
+                        selectedGender === "Male"
+                      ? YesSpanishMale
+                      : selectedLanguage === "Spanish" &&
+                        selectedGender === "Female"
+                      ? YesFemaleSpanish
+                      : selectedLanguage === "" && selectedGender === "Female"
+                      ? YesFemale
+                      : selectedLanguage === "" && selectedGender === "Male"
+                      ? YesMale
+                      : selectedLanguage === "English" &&
+                        selectedGender === "Male"
+                      ? YesMale
+                      : selectedLanguage === "English" &&
+                        selectedGender === "Female"
+                      ? YesFemale
+                      : YesMale
+                  );
+                }}
+              >
+                <div>
+                  <p className="text-[40px]  font-medium text-green-600">
+                    {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
+                  </p>
+                </div>
+                <div>
+                  <img src={Checked} alt="" className="w-8 h-8" />
+                </div>
+                <div>
+                  <span className="text-xl font-bold">Continue</span>
+                </div>
+              </div>
+              <div
+                className="flex items-center justify-between p-4 px-16 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                onClick={() => {
                   handleConfrmStepWhen(
                     "NO",
                     "/feeling-body",
@@ -106,34 +111,36 @@ function DepressionScreener() {
                       ? No_male
                       : selectedLanguage === "Spanish" &&
                         selectedGender === "Male"
-                        ? No_no_maleSpanish
-                        : selectedLanguage === "Spanish" &&
-                          selectedGender === "Female"
-                          ? NoFemaleSpanish
-                          : selectedLanguage === "" &&
-                            selectedGender === "Female"
-                            ? NoFemale
-                            : selectedLanguage === "" && selectedGender === "Male"
-                              ? No_male
-                              : selectedLanguage === "English" &&
-                                selectedGender === "Male"
-                                ? No_male
-                                : selectedLanguage === "English" &&
-                                  selectedGender === "Female"
-                                  ? NoFemale
-                                  : No_male
+                      ? No_no_maleSpanish
+                      : selectedLanguage === "Spanish" &&
+                        selectedGender === "Female"
+                      ? NoFemaleSpanish
+                      : selectedLanguage === "" && selectedGender === "Female"
+                      ? NoFemale
+                      : selectedLanguage === "" && selectedGender === "Male"
+                      ? No_male
+                      : selectedLanguage === "English" &&
+                        selectedGender === "Male"
+                      ? No_male
+                      : selectedLanguage === "English" &&
+                        selectedGender === "Female"
+                      ? NoFemale
+                      : No_male
                   );
                 }}
-                >
-                  <div className="flex items-center justify-between ">
-                    <p className="text-[32px] font-medium text-red-600">
-                      {selectedLanguage === "Spanish" ? "NO" : "NO"}
-                    </p>
-                    <img src={Close} alt="" className="w-8 h-8" />
-                    <span className="text-lg">Skip</span>
-                  </div>
-                </li>
-              </ul>
+              >
+                <div>
+                  <p className="text-[40px] font-medium text-red-600">
+                    {selectedLanguage === "Spanish" ? "NO" : "NO"}
+                  </p>
+                </div>
+                <div>
+                  <img src={Close} alt="" className="w-8 h-8" />
+                </div>
+                <div>
+                  <span className="text-xl font-bold">Skip</span>
+                </div>
+              </div>
             </div>
           </div>
           <Footer />

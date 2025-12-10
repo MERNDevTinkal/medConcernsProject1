@@ -53,8 +53,9 @@ const NewProblem = () => {
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
             name={
-              location.pathname === "/yes-no-concerns"?"":
-              location.pathname === "/new-problem"
+              location.pathname === "/yes-no-concerns"
+                ? ""
+                : location.pathname === "/new-problem"
                 ? !selectedLanguage
                   ? translations["English"]?.newProblem
                   : translations[selectedLanguage]?.newProblem ||

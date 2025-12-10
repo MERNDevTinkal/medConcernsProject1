@@ -75,7 +75,7 @@ const Home = () => {
             {/* Main Image */}
 
             {isIOS && (
-              <div className="install-hint bg-[#CCE5FF] text-[#004C99] py-2 px-4 rounded mt-3 text-center border border-[#0077CC]">
+              <div className="install-hint bg-[#CCE5FF] text-[#004C99] py-2 px-4 rounded mt-3 mb-3 text-center border border-[#0077CC]">
                 Tap <strong>Share → Add to Home Screen</strong> to install this
                 app on your iPhone.
               </div>

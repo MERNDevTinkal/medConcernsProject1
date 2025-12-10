@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 
-import {gifLoader,BackArrow} from "../../Component/DiseasesData/images";
+import { gifLoader, BackArrow } from "../../Component/DiseasesData/images";
 function BreathingYesNo() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -64,10 +64,10 @@ function BreathingYesNo() {
             </h2>
             <button className="opacity-0">Medconcern</button>
           </div>
-          <div className="main-wrapper home-wrapper ">
+          <div className="main-wrapper home-wrapper justify-center flex flex-col">
             <div className="grid grid-cols-2  md:gap-20 gap-5 my-5  items-center">
               <div
-                className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3 ${
+                className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 ${
                   location.pathname.includes("/topicboard/")
                     ? "h-[200px] flex justify-center items-center"
                     : ""
