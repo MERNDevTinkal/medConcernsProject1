@@ -179,15 +179,15 @@ const TopicBoard = ({
               key={item.id + "-" + index}
               className={
                 selectedIconCount === 1
-                  ? "dash-single-items"
+                  ? "topicSetting-single-items"
                   : selectedIconCount === 2
-                    ? "dash-double-items"
+                    ? "topicSetting-double-items"
                     : selectedIconCount === 3
-                      ? "dash-triple-items"
+                      ? "topicSetting-triple-items"
                       : selectedIconCount === 4
-                        ? "dash-quadriple-items"
+                        ? "topicSetting-quadriple-items"
                         : selectedIconCount === 6
-                          ? "dash-hexuple-items"
+                          ? "topicSetting-hexuple-items"
                           : ""
               }
               style={{ cursor: "pointer" }}
