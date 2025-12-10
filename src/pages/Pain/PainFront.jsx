@@ -13,9 +13,7 @@ const PainFront = () => {
           <div className="w-full p-5 bg-white shadow-sm rounded-md">
              <Link  to="/concern-pain">
               <PainDiagramFront />
-             </Link>
-            {/* <PainDiagramBack /> */}
-           
+             </Link>         
           </div>
         </div>
       </div>

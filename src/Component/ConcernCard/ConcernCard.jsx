@@ -14,13 +14,12 @@ const ConcernCard = ({
   const location = useLocation();
   const path = location.pathname;
   const navigate = useNavigate();
-  const { updateDisease, resetDiseases, addOrUpdateSummary } = useContext(GlobalContext);
+  const { resetDiseases, addOrUpdateSummary } = useContext(GlobalContext);
   const isSpeakingRef = useRef(false);
 
   const handleConcern = async (value, mainpath) => {
     if (!value || !mainpath) return;
     if (isSpeakingRef.current) return;
-
     try {
       isSpeakingRef.current = true;
       if (!Cookies.get("is_concern") || Cookies.get("is_concern") === undefined) {
@@ -99,8 +98,8 @@ const ConcernCard = ({
                 />
               </div>
               <p className={`text-[14px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
-                  ? "shirnk-txt"
-                  : ""
+                ? "shirnk-txt"
+                : ""
                 }`}>
 
                 {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
