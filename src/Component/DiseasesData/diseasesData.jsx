@@ -7458,7 +7458,7 @@ const hearingAids = [
     name: "Need Batteries ",
     nameEs: "Necesita Baterías",
     image: NeedBatteriesImg,
-    Path: "/summary",
+    path: "/summary",
     secPath: "/confrm-step-yesno",
     maleEnglish: NeedBatteriesMale,
     femaleEnglish: NeedBatteriesFemale,
