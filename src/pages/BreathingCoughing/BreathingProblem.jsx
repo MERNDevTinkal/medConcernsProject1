@@ -7,7 +7,7 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import {gifLoader} from "../../Component/DiseasesData/images";
+import { gifLoader } from "../../Component/DiseasesData/images";
 import Cookies from "js-cookie";
 
 const BreathingProblem = () => {
@@ -53,6 +53,11 @@ const BreathingProblem = () => {
           ? isConcern + "/" + Mainpath
           : Mainpath;
       addOrUpdateSummary(prefix, [value]);
+      if (Mainpath === "/swallowingpain-problem") {
+        Cookies.set("is_calendra", "yes")
+      } else {
+        Cookies.set("is_calendra", "no")
+      }
       navigate(path, {
         state: { headerName: value },
       });
