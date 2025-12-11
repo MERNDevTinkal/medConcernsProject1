@@ -25,16 +25,16 @@ function DepressionScreener() {
   const { updateDisease } = useContext(GlobalContext);
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -59,7 +59,7 @@ function DepressionScreener() {
           <div className="main-wrapper home-wrapper ">
             <div className="feel-overall-card questions-cards">
               <h3 className="text-center">
-                Answer more questions about how you feel?
+                {selectedLanguage === "Spanish" ? '¿Responde más preguntas sobre cómo te sientes?' : 'Answer more questions about how you feel?'}
               </h3>
               <div
                 className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
@@ -71,21 +71,21 @@ function DepressionScreener() {
                       ? YesMale
                       : selectedLanguage === "Spanish" &&
                         selectedGender === "Male"
-                      ? YesSpanishMale
-                      : selectedLanguage === "Spanish" &&
-                        selectedGender === "Female"
-                      ? YesFemaleSpanish
-                      : selectedLanguage === "" && selectedGender === "Female"
-                      ? YesFemale
-                      : selectedLanguage === "" && selectedGender === "Male"
-                      ? YesMale
-                      : selectedLanguage === "English" &&
-                        selectedGender === "Male"
-                      ? YesMale
-                      : selectedLanguage === "English" &&
-                        selectedGender === "Female"
-                      ? YesFemale
-                      : YesMale
+                        ? YesSpanishMale
+                        : selectedLanguage === "Spanish" &&
+                          selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" && selectedGender === "Female"
+                            ? YesFemale
+                            : selectedLanguage === "" && selectedGender === "Male"
+                              ? YesMale
+                              : selectedLanguage === "English" &&
+                                selectedGender === "Male"
+                                ? YesMale
+                                : selectedLanguage === "English" &&
+                                  selectedGender === "Female"
+                                  ? YesFemale
+                                  : YesMale
                   );
                 }}
               >
@@ -98,7 +98,7 @@ function DepressionScreener() {
                   <img src={Checked} alt="" className="w-8 h-8" />
                 </div>
                 <div>
-                  <span className="text-xl font-bold">Continue</span>
+                  <span className="text-xl font-bold">{selectedLanguage === "Spanish" ? 'Continuar' : 'Continue'}</span>
                 </div>
               </div>
               <div
@@ -111,21 +111,21 @@ function DepressionScreener() {
                       ? No_male
                       : selectedLanguage === "Spanish" &&
                         selectedGender === "Male"
-                      ? No_no_maleSpanish
-                      : selectedLanguage === "Spanish" &&
-                        selectedGender === "Female"
-                      ? NoFemaleSpanish
-                      : selectedLanguage === "" && selectedGender === "Female"
-                      ? NoFemale
-                      : selectedLanguage === "" && selectedGender === "Male"
-                      ? No_male
-                      : selectedLanguage === "English" &&
-                        selectedGender === "Male"
-                      ? No_male
-                      : selectedLanguage === "English" &&
-                        selectedGender === "Female"
-                      ? NoFemale
-                      : No_male
+                        ? No_no_maleSpanish
+                        : selectedLanguage === "Spanish" &&
+                          selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" && selectedGender === "Female"
+                            ? NoFemale
+                            : selectedLanguage === "" && selectedGender === "Male"
+                              ? No_male
+                              : selectedLanguage === "English" &&
+                                selectedGender === "Male"
+                                ? No_male
+                                : selectedLanguage === "English" &&
+                                  selectedGender === "Female"
+                                  ? NoFemale
+                                  : No_male
                   );
                 }}
               >
@@ -138,7 +138,7 @@ function DepressionScreener() {
                   <img src={Close} alt="" className="w-8 h-8" />
                 </div>
                 <div>
-                  <span className="text-xl font-bold">Skip</span>
+                  <span className="text-xl font-bold">{selectedLanguage === "Spanish" ? 'Saltar' : 'Skip'}</span>
                 </div>
               </div>
             </div>

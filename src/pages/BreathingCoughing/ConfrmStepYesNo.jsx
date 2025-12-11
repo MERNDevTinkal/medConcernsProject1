@@ -139,10 +139,10 @@ function ConfrmStepYesNo() {
                       className={`rounded-xl w-full h-full ${pathprimary.includes(
                         "/feeling-list-pain/confrm-step-yesno"
                       ) ||
-                          pathprimary.includes("/feeling/confrm-step-yesno") ||
-                          pathprimary.includes("/feel/confrm-step-yesno")
-                          ? "objct-cls"
-                          : "object-cover"
+                        pathprimary.includes("/feeling/confrm-step-yesno") ||
+                        pathprimary.includes("/feel/confrm-step-yesno")
+                        ? "objct-cls"
+                        : "object-cover"
                         } `}
                     />
                   </div>

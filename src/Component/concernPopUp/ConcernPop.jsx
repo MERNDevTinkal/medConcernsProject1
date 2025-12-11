@@ -1,17 +1,27 @@
 import React from "react";
-export default function Popup({ confirmFun }) {
+export default function Popup({ selectedLanguage, confirmFun }) {
     return (
         <>
             <div className="overlay">
                 <div className="popup">
                     <h2 className="title">
-                        Do you have any<br />other concerns today?
+                        {selectedLanguage === "Spanish" ? (
+                            <>
+                                ¿Tienes alguna <br /> otra inquietud hoy?
+                            </>
+                        ) : (
+                            <>
+                                Do you have any <br /> other concerns today?
+                            </>
+                        )}
+
+
                     </h2>
-                    <button className="option yes" onClick={()=>{confirmFun("Yes")}}>
+                    <button className="option yes" onClick={() => { confirmFun("Yes") }}>
                         <span className="icon">✔️</span>
                         Yes
                     </button>
-                    <button className="option no" onClick={()=>{confirmFun("No")}}>
+                    <button className="option no" onClick={() => { confirmFun("No") }}>
                         <span className="icon">❌</span>
                         No
                     </button>

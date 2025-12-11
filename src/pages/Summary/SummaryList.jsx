@@ -196,7 +196,7 @@ const SummaryList = () => {
               setShowSaveModal={setShowSaveModal}
             />
           )}
-          {showDonePopUp && <ConcernPopUp confirmFun={confirmFun} />}
+          {showDonePopUp && <ConcernPopUp selectedLanguage={selectedLanguage} confirmFun={confirmFun} />}
           {isPopupOpen && (
             <SaveWarningPopup
               open={isPopupOpen}
