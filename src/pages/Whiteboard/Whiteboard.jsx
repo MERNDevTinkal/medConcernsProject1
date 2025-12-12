@@ -150,7 +150,6 @@ export default function Whiteboard() {
 
   }, [location.state?.selectedImages]);
 
-
   const pointerPos = (e, rect) => {
     let clientX, clientY;
     if (e.touches && e.touches[0]) {
@@ -549,22 +548,20 @@ export default function Whiteboard() {
           setUploadedImages(prev => {
             const newItems = [];
             imagesArray.forEach((src, index) => {
-                newItems.push({
-                  src:src?.src,
-                  x: src.x ,
-                  y: src.y,
-                  width: src.width,
-                  height: src.height,
-                });
-              
+              newItems.push({
+                src: src?.src,
+                x: src.x,
+                y: src.y,
+                width: src.width,
+                height: src.height,
+              });
+
             });
             return uniqueImages([...prev, ...newItems]);
           });
         }
       } catch (err) {
         console.error("Failed to fetch whiteboard:", err);
-      } finally {
-        setLoader(false);
       }
     };
 
@@ -1162,7 +1159,22 @@ export default function Whiteboard() {
       return true;
     });
   };
-
+  const t = (params) => {
+    const transtext = selectedLanguage === "Spanish" ? "sp" : "en";
+    const trans = {
+      en: {
+        name: "Whiteboard",
+        title: "Saved White Boards",
+        text: "View List"
+      },
+      sp: {
+        name: "Pizarron",
+        title: "Pizarras blancas guardadas",
+        text: "Ver Lista"
+      }
+    }
+    return trans[transtext][params];
+  }
   return (
     <>
       {FileUpload && (
@@ -1174,7 +1186,6 @@ export default function Whiteboard() {
           open={FileUpload}
         />
       )}
-
       {loader ? (
         <Loader />
       ) : (
@@ -1183,18 +1194,16 @@ export default function Whiteboard() {
             selectedLanguage={selectedLanguage}
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
-            name={selectedLanguage === "Spanish" ? "Pizarron" : "Whiteboard"}
+            name={t('name')}
           />
 
-          <div className="main-wrapper home-wrapper ">
+          <div className="main-wrapper home-wrapper">
             <div className="flex justify-end mb-2">
               <Button
                 className="thm-btn"
                 onClick={() => navigate("/white-board-list")}
               >
-                {selectedLanguage === "Spanish"
-                  ? "Pizarras blancas guardadas"
-                  : "Saved White Boards"}
+                {t('title')}
               </Button>
             </div>
             <div className="flex flex-col items-center whiteboard-card">
@@ -1204,7 +1213,7 @@ export default function Whiteboard() {
                     className="thm-btn"
                     onClick={() => navigate("/white-board-list")}
                   >
-                    {selectedLanguage === "Spanish" ? "Ver lista" : "View List"}
+                    {t('text')}
                   </Button>
                 </div>
                 {/* Replace both separate image strips with one combined strip */}

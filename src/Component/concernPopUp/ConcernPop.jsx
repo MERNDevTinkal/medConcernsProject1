@@ -19,7 +19,7 @@ export default function Popup({ selectedLanguage, confirmFun }) {
                     </h2>
                     <button className="option yes" onClick={() => { confirmFun("Yes") }}>
                         <span className="icon">✔️</span>
-                        Yes
+                        {selectedLanguage === "Spanish" ? 'Sí' : 'Yes'}
                     </button>
                     <button className="option no" onClick={() => { confirmFun("No") }}>
                         <span className="icon">❌</span>

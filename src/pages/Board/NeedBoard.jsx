@@ -20,7 +20,6 @@ import Cookies from "js-cookie";
 const NeedBoard = () => {
   const location = useLocation();
   const [selectedGender, setSelectedGender] = React.useState("");
-
   const [getAllDiseases, setDiseases] = useState([]);
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");

@@ -368,7 +368,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
                   }}
                   className="flex items-center gap-2 justify-end cursor-pointer"
                 >
-                  <h6>Skip</h6>
+                  <h6>{selectedLanguage === "Spanish" ? 'Saltar' : 'Skip'}</h6>
                   <img src={NextArrow} alt="next" />
                 </div>
               ) : (
