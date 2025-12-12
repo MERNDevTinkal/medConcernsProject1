@@ -16,7 +16,6 @@ const FeelingListPain = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [loader, setLoader] = useState(true);
   const isSpeakingRef = useRef(false);
-
   const location = useLocation();
   const pathprimary = location.pathname;
   const path = location.pathname;

@@ -256,18 +256,15 @@ export default function Whiteboard() {
   const findNonOverlappingImagePosition = useCallback((width, height, currentImages = uploadedImages) => {
     const margin = 20;
     let y = 20;
-
     if (currentImages.length > 0) {
       const lastImage = currentImages[currentImages.length - 1];
       y = lastImage.y + lastImage.height + margin;
     }
-
     // Also consider existing text blocks
     if (textBlocks.length > 0) {
       const lastTextBlock = textBlocks[textBlocks.length - 1];
       y = Math.max(y, lastTextBlock.y + 60);
     }
-
     return {
       x: 20,
       y,
@@ -388,7 +385,6 @@ export default function Whiteboard() {
         }
       });
     });
-
     if (textToolActive && activeTextBlock) {
       const font = "20px Arial";
       const lineHeight = 24;
@@ -396,7 +392,6 @@ export default function Whiteboard() {
       ctx.font = font;
       ctx.fillStyle = drawingColor;
       ctx.textBaseline = "top";
-
       let currentY = activeTextBlock.y;
       let cursorX = activeTextBlock.x;
       let cursorY = activeTextBlock.y;
@@ -415,11 +410,9 @@ export default function Whiteboard() {
           currentY += lineHeight;
           return;
         }
-
         const words = manualLine.split(" ");
         let currentLine = "";
         let charCount = 0;
-
         for (let i = 0; i < words.length; i++) {
           const word = words[i];
           const testLine = currentLine ? currentLine + " " + word : word;
@@ -433,7 +426,6 @@ export default function Whiteboard() {
               startCharIndex: charCount - currentLine.length,
               endCharIndex: charCount,
             });
-
             currentLine = word;
             charCount += word.length;
             currentY += lineHeight;
@@ -475,7 +467,6 @@ export default function Whiteboard() {
           }
         }
       }
-
       if (!foundCursor) {
         const targetManualLine = cursorPosition.line;
         let lastLineForManualLine = null;
@@ -771,7 +762,6 @@ export default function Whiteboard() {
       newLines[cursorPosition.line] =
         currentLine.slice(0, cursorPosition.column - 1) +
         currentLine.slice(cursorPosition.column);
-
       setTextLines(newLines);
       setCursorPosition((prev) => ({
         ...prev,
@@ -1196,7 +1186,6 @@ export default function Whiteboard() {
             calendarOn={CalendarOn}
             name={t('name')}
           />
-
           <div className="main-wrapper home-wrapper">
             <div className="flex justify-end mb-2">
               <Button
@@ -1216,14 +1205,12 @@ export default function Whiteboard() {
                     {t('text')}
                   </Button>
                 </div>
-                {/* Replace both separate image strips with one combined strip */}
                 {(uploadedImages.length > 0 || SelectedImages.length > 0) && (
                   <CardHeader className="p-0">
                     <div
                       ref={stripRef}
                       className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
                     >
-                      {/* Show all uploaded images */}
                       {uploadedImages?.map((img, idx) => (
                         <div
                           key={`uploaded-${idx}`}
@@ -1237,7 +1224,6 @@ export default function Whiteboard() {
                           />
                           <button
                             onClick={() => {
-                              // Check if it's in SelectedImages to remove from there too
                               const isInSelected = SelectedImages.includes(img.src);
                               if (isInSelected) {
                                 setSelectedImages(prev =>
@@ -1318,10 +1304,7 @@ export default function Whiteboard() {
                     onClick={(e) => {
                       handleFileUpload(e);
                     }}
-
-                  // document.getElementById("imageUpload").click()
                   >
-                    {/* <Icon.Image className="icon-size-add" /> */}
                     <img
                       src={ImgIcon}
                       className="icon-size-add"
