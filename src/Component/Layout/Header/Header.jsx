@@ -46,7 +46,7 @@ import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
-const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
+const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary = false, setIsPopupOpen=()=>{} }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { updateDisease, resetDiseases } = useContext(GlobalContext);
   const location = useLocation();
@@ -323,7 +323,11 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name }) => {
               {location.pathname !== "/introduction" && (
                 <img
                   onClick={() => {
-                    navigate(-1);
+                    if (isSummary === true) {
+                      setIsPopupOpen(true)
+                    } else {
+                      navigate(-1);
+                    }
                   }}
                   src={BackArrow}
                   alt="back"

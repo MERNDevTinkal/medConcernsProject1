@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import SummaryLeftCard from "../../Component/SummaryConcern/SummaryLeftCard";
-import {Arrow} from "../../Component/DiseasesData/images";
+import { Arrow } from "../../Component/DiseasesData/images";
 import Footer from "../../Component/Layout/Footer/Footer";
 import SummaryRightCard from "../../Component/SummaryConcern/SummaryRightCard";
 import { GlobalContext } from "../../context/DiseaseContext";
@@ -19,7 +19,7 @@ const SummaryList = () => {
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [loader, setLoader] = useState(true);
-  const { diseases } = useContext(GlobalContext);
+  const { diseases, clearAllDiseases } = useContext(GlobalContext);
   const [ShowSaveModal, setShowSaveModal] = useState(false);
   const [showDonePopUp, setshowDonePopUp] = useState(false);
   const [calendarOn, setCalendarOn] = useState(false);
@@ -53,21 +53,22 @@ const SummaryList = () => {
         });
       });
   };
+  console.log("diseasesdiseasesdiseases", diseases)
   const handleSummaryListRoute = () => {
     navigate("/summary-list");
   };
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
   const confirmFun = (value) => {
@@ -83,6 +84,7 @@ const SummaryList = () => {
     } else {
       setIsPopupOpen(true);
       Cookies.remove("is_concern");
+      clearAllDiseases()
     }
   };
 
@@ -92,6 +94,7 @@ const SummaryList = () => {
 
   const discardChanges = () => {
     setIsPopupOpen(false);
+    clearAllDiseases()
     navigate("/concern");
   };
 
@@ -106,12 +109,14 @@ const SummaryList = () => {
       ) : (
         <>
           <Header
+            isSummary={diseases?.summaryList?.length > 0 ? true : false}
+            setIsPopupOpen={setIsPopupOpen}
             selectedLanguage={selectedLanguage}
             calendarOn={calendarOn}
             introductionOn={introductionOn}
             name={selectedLanguage === "Spanish" ? "Resumen" : "Summary"}
           />
-          {diseases?.summaryList.length > 0 ? (
+          {diseases?.summaryList?.length > 0 ? (
             <div className="main-wrapper home-wrapper">
               <div className="flex justify-end space-x-2">
                 <button

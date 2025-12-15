@@ -124,6 +124,10 @@ export const GlobalProvider = ({ children }) => {
       return updated;
     });
   };
+  const clearAllDiseases = () => {
+    localStorage.removeItem("diseases");
+    setDiseases({});
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -132,6 +136,7 @@ export const GlobalProvider = ({ children }) => {
         resetDiseases,
         deleteLastSummaryItem,
         addOrUpdateSummary,
+        clearAllDiseases
       }}
     >
       {children}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {boardImg,EmotionsImg2} from "../../Component/DiseasesData/images";
+import { boardImg, EmotionsImg2 } from "../../Component/DiseasesData/images";
 
-const SummaryCards = ({ board, selectedLanguage, SummaryConcernData,headerNames }) => {
+const SummaryCards = ({ board, selectedLanguage, SummaryConcernData, headerNames }) => {
   const [getData, setData] = useState({});
   useEffect(() => {
     if (!SummaryConcernData) {
@@ -10,20 +10,25 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData,headerNames 
     }
     setData(SummaryConcernData);
   }, [SummaryConcernData]);
+  const imageSrc =
+    board === "board"
+      ? boardImg
+      : board === "/emotions"
+        ? EmotionsImg2
+        : getData?.image || headerNames?.icon;
   return (
     <>
       <div className="dashboard-cards rounded-2xl bg-white text-center py-4 px-3 shadow-sm cursor-pointer summary-left-cards">
         <div className="dashboard-img ">
-          <img
-            src={
-              board === "board"
-                ? boardImg
-                : board === "/emotions"
-                ? EmotionsImg2
-                : getData?.image ?? headerNames?.icon ?? ""
-            }
-            className="w-full"
-          />
+
+          {imageSrc && (
+            <img
+              src={imageSrc}
+              className="w-full"
+              alt=""
+            />
+          )}
+
         </div>
         <Link
           to=""
@@ -32,8 +37,8 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData,headerNames 
           {selectedLanguage === "Spanish"
             ? getData?.nameEs ?? headerNames?.es
             : board === "/emotions"
-            ? "Emotions / Feelings"
-            : getData?.name ?? headerNames?.en ?? ""}
+              ? "Emotions / Feelings"
+              : getData?.name ?? headerNames?.en ?? ""}
         </Link>
       </div>
     </>
