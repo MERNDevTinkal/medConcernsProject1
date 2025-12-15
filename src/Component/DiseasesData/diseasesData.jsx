@@ -5417,7 +5417,7 @@ const MedicationSidEffectsDesies = [
     name: "Urination",
     nameEs: "Micción",
     path: "/medicationUrination-problem",
-    image: UrgencyImg,
+    image: ConcernImg6,
     secPath: "/confrm-step-yesno",
     maleEnglish: UrinationEnglishMale,
     femaleEnglish: urinationFemale,
@@ -6893,8 +6893,8 @@ const eatingDonoteatThis = [
   },
   {
     id: "5",
-    name: "Something Else?",
-    nameEs: "¿Algo Mas?",
+    name: "Something Else",
+    nameEs: "¿Algo Mas",
     secPath: "/confrm-step-yesno",
 
     image: dashimg11,
@@ -7265,7 +7265,7 @@ const medicationHardtoSwallowwholeliquid = [
 const medicationTiming = [
   {
     id: "1",
-    name: "Schedule Pain Meds",
+    name: "Scheduled Pain Meds",
     nameEs: "Medicamentos para el Dolor Programados",
     image: ScheduledImg,
     path: "/summary",
