@@ -140,7 +140,7 @@ export const concerns = [
   },
   {
     id: 17,
-    name: "Wound/Incision",
+    name: "Wound / Incision",
     nameEs: "Herida / Incisión",
     image: ConcernImg14,
     path: "/concern/wound-incision-yes-no/17",
@@ -213,13 +213,13 @@ export const topicBoard = [
   {
     id: 8,
     name: "Stroke Prevention",
-    nameEs: "Prevención de Accidente Cerebrovascular",
+    nameEs: "Prevención de Accidentes Cerebrovasculares",
     path: "/topicboard/strokePrevention/8",
   },
   {
     id: 9,
     name: "Family Support",
-    nameEs: "Apoyo Familiar",
+    nameEs: " Apoyo de la Familia",
     path: "/topicboard/familySupport/9",
   },
   {
@@ -239,19 +239,19 @@ export const topicBoard = [
   {
     id: 13,
     name: "Follow Up Appointment",
-    nameEs: "Cita de Seguimiento",
+    nameEs: "Citas de Seguimiento",
     path: "/topicboard/followUpappointment/13",
   },
   {
     id: 14,
     name: "Household Activity",
-    nameEs: "Actividades del Hogar",
+    nameEs: "Actividad del Hogar",
     path: "/topicboard/householdActivity/14",
   },
   {
     id: 15,
     name: "Community Activity",
-    nameEs: "Actividades Comunitarias",
+    nameEs: "Actividad de la Comunidad",
     path: "/topicboard/Communityactivity/15",
   },
   { id: 16, name: "Work", nameEs: "Trabajo", path: "/topicboard/Work/16" },
@@ -260,7 +260,7 @@ export const topicBoard = [
   {
     id: 19,
     name: "Raising Children",
-    nameEs: "Criar Niños",
+    nameEs: "Criar a los Niños",
     path: "/topicboard/raisingChildren/19",
   },
   { id: 20, name: "Food", nameEs: "Comida", path: "/topicboard/food/20" },

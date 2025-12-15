@@ -1646,6 +1646,7 @@ import {
   MedicamentosParaElDolorProgramadosScheduledPainMedsSpanishMale,
   LiquidoSpanishMale,
   AplastadoSpanishMale,
+  NocheTempranoEveningSpanishFemale,
   EnteroSpanishMale,
   DemasiadoGrandesSpanishMale,
   BlancoSpanishMale,
@@ -1751,8 +1752,8 @@ export const breathingWhenOptions = [
     nameEs: "Noche Temprano",
     maleEnglish: EveningNightMale,
     femaleEnglish: EveningNightFemale,
-    femaleSpanish: TardeNocheFemaleSpanish,
-    maleSpanish: TardeNocheMaleSpanish,
+    femaleSpanish: NocheTempranoEveningSpanishFemale,
+    maleSpanish: NocheTempranoEveningMale,  
   },
   {
     id: 4,
@@ -1959,7 +1960,7 @@ export const breathingWhenOptions = [
     name: "With Blood Pressure",
     nameEs: "Con Presión Arterial",
     femaleEnglish: withBloodPressureFemale,
-    maleSpanish: WithBloodPressureFemale,
+    maleSpanish: ConPrecionArterialMale,
     femaleSpanish: WithBloodPressureSpanishFemale,
     maleEnglish: WithBloodPressureMale,
   },
@@ -2294,7 +2295,7 @@ export const concerns = [
   {
     id: 17,
     name: "Wound / Incision",
-    nameEs: "Herida/Incisión",
+    nameEs: "Herida / Incisión",
     image: ConcernImg14,
     path: "/concern/wound-incision-yes-no/17",
     maleEnglish: WoundIncisionEnglishMale,
@@ -2349,7 +2350,7 @@ export const concerns = [
   {
     id: 22,
     name: "No Concerns",
-    nameEs: "Algo Mas",
+    nameEs: "Sin Preocupaciones",
     image: HowAreYouImg1,
     path: "/summary",
     femaleEnglish: NoConcernsFemale,
@@ -2433,7 +2434,7 @@ export const topicBoard = [
   {
     id: 8,
     name: "Stroke Prevention",
-    nameEs: "Prevención de accidentes cerebrovasculares",
+    nameEs: "Prevención de Accidentes Cerebrovasculares ",
     path: "/topicboard/strokePrevention/8",
     maleEnglish: StrokePreventionMale,
     femaleEnglish: strokePreventionFemale,
@@ -2443,7 +2444,7 @@ export const topicBoard = [
   {
     id: 9,
     name: "Family Support",
-    nameEs: "Apoyo de la familia",
+    nameEs: "Apoyo de la Familia",
     path: "/topicboard/familySupport/9",
     maleEnglish: FamilySupportMale,
     femaleEnglish: familySupportFemale,
@@ -2484,7 +2485,7 @@ export const topicBoard = [
   {
     id: 13,
     name: "Follow-Up Appointments",
-    nameEs: "Citas de seguimiento",
+    nameEs: "Citas de Seguimiento",
     path: "/topicboard/followUpappointment/13",
     maleEnglish: FollowUpAppointmentsMale,
     femaleEnglish: followUpAppointmentsFemale,
@@ -2494,7 +2495,7 @@ export const topicBoard = [
   {
     id: 14,
     name: "Household Activity",
-    nameEs: "Actividad del hogar",
+    nameEs: "Actividad del Hogar",
     path: "/topicboard/householdActivity/14",
     maleEnglish: HouseholdActivityMale,
     femaleEnglish: householdActivityFemale,
@@ -2504,7 +2505,7 @@ export const topicBoard = [
   {
     id: 15,
     name: "Community Activity",
-    nameEs: "Actividad de la comunidad",
+    nameEs: " Actividad de la Comunidad",
     path: "/topicboard/Communityactivity/15",
     maleEnglish: CommunityActivityMale,
     femaleEnglish: CommunityActivityFemale,
@@ -2544,7 +2545,7 @@ export const topicBoard = [
   {
     id: 19,
     name: "Raising Children",
-    nameEs: "Criar a los niños",
+    nameEs: "Criar a los Niños",
     path: "/topicboard/raisingChildren/19",
     maleEnglish: RaisingChildrenMale,
     femaleEnglish: raisingChildrenFemale,
@@ -2742,7 +2743,7 @@ const emotionsData = [
   {
     id: 8,
     name: "Grief",
-    nameEs: "Duelo",
+    nameEs: "Pena",
     secPath: "/confrm-step-yesno",
     image: GriefImg,
     path: "/summary",
@@ -2756,7 +2757,7 @@ const emotionsData = [
   {
     id: 9,
     name: "Worried / Guilty",
-    nameEs: "Culpable o Preocupado",
+    nameEs: " Preocupada / con Culpa",
     secPath: "/confrm-step-yesno",
     image: Worried_Guilty,
     path: "/summary",
@@ -2770,7 +2771,7 @@ const emotionsData = [
   {
     id: 10,
     name: "Hopeless",
-    nameEs: "sin esperanza",
+    nameEs: "Sin Esperanza",
     secPath: "/confrm-step-yesno",
     image: HopelessImg,
     path: "/summary",
@@ -2885,7 +2886,7 @@ const needBoard = [
   {
     id: 5,
     name: "Pain Meds",
-    nameEs: "Medicamentos para el Dolor",
+    nameEs: "Medicamentos Para el Dolor",
     image: Painmedication,
     secPath: "/board/confrm-step-yesno/5",
     path: "/summary",
@@ -3173,7 +3174,7 @@ const needBoard = [
   {
     id: 29,
     name: "Please Leave",
-    nameEs: "Salga, por favor",
+    nameEs: "Salga, por Favor",
     image: Please_leave,
     secPath: "/board/confrm-step-yesno/29",
     path: "/summary",
@@ -3185,7 +3186,7 @@ const needBoard = [
   {
     id: 30,
     name: "Open for Me",
-    nameEs: "Ábrelo por mí",
+    nameEs: "Ábrelo por Mí",
     image: Openfoeme,
     secPath: "/board/confrm-step-yesno/30",
     path: "/summary",
@@ -5427,7 +5428,7 @@ const MedicationSidEffectsDesies = [
   {
     id: "5",
     name: "Medication Allergy",
-    nameEs: "Alergia a medicamentos",
+    nameEs: "Alergia a Medicamentos",
     path: "/howoften",
     image: MedicationAllergy,
     secPath: "/confrm-step-yesno",
@@ -5622,7 +5623,7 @@ const medicationswallowing = [
   {
     id: "11",
     name: "Lost Weight Without Trying",
-    nameEs: "Bajé de peso sin intentarlo",
+    nameEs: "Bajé de Peso sin Intentarlo",
     path: "/howoften",
     image: LostWeightWithoutTrying,
     secPath: "/confrm-step-yesno",
@@ -5761,7 +5762,7 @@ const medicationSidEffectsAppetite = [
   {
     id: "4",
     name: "Lost Weight Without Trying",
-    nameEs: "Bajé de peso sin intentarlo",
+    nameEs: "Bajé de Peso sin Intentarlo",
     path: "/howoften",
     image: LostWeightWithoutTrying,
     secPath: "/confrm-step-yesno",
@@ -6652,7 +6653,7 @@ const eatingdrinkingNoAppetiteNausea = [
   {
     id: "5",
     name: "Just Nausea",
-    nameEs: "Solo náuseas",
+    nameEs: "Solo Náuseas",
     image: swallowingimg07,
     secPath: "/confrm-step-yesno",
     path: "/when",
@@ -6728,7 +6729,7 @@ const medicationNausea = [
   {
     id: "5",
     name: "Just Nausea",
-    nameEs: "Solo náuseas",
+    nameEs: "Solo Náuseas",
     image: swallowingimg07,
     secPath: "/confrm-step-yesno",
     path: "/when",
@@ -6805,7 +6806,7 @@ const medicationFatigue = [
   {
     id: "5",
     name: "All Day",
-    nameEs: "Todo el día",
+    nameEs: "Todo el Día",
     image: AllDayImg,
     secPath: "/confrm-step-yesno",
     path: "/howoften",
@@ -6894,7 +6895,7 @@ const eatingDonoteatThis = [
   {
     id: "5",
     name: "Something Else",
-    nameEs: "¿Algo Mas",
+    nameEs: "Algo Mas",
     secPath: "/confrm-step-yesno",
 
     image: dashimg11,
@@ -7144,7 +7145,7 @@ const medicationHardtoSwallow = [
   {
     id: "2",
     name: "Too Big",
-    nameEs: "Demasiado grande",
+    nameEs: "Demasiado Grande",
     image: toobigImg,
     path: "/new-problem",
     secPath: "/confrm-step-yesno",
@@ -7284,8 +7285,7 @@ const medicationTiming = [
     image: DifferentTimeImg,
     path: "/summary",
     secPath: "/confrm-step-yesno",
-
-    maleEnglish: DifferentTimesEnglishFemale,
+    maleEnglish: DifferentTimesMale,
     femaleEnglish: differentTimesFemale,
     femaleSpanish: TiemposDiferentesDifferentTimesSpanishFemale,
     maleSpanish: TiemposDiferentesDifferentTimesSpanishMale,
@@ -7401,7 +7401,7 @@ const visionGlasses = [
   {
     id: "3",
     name: "Need My Glasses",
-    nameEs: "Necesito mis Gafas",
+    nameEs: "Necesito Mis Gafas",
     image: NeedMyGlassesImg,
     path: "/summary",
     secPath: "/confrm-step-yesno",
@@ -7414,7 +7414,7 @@ const visionGlasses = [
   {
     id: "4",
     name: "Check My Vision",
-    nameEs: "Revisar mi Visión",
+    nameEs: "Revisar Mi Visión",
     image: CheckMyvisionImg,
     path: "/summary",
     secPath: "/confrm-step-yesno",
@@ -7443,7 +7443,7 @@ const hearingAids = [
   {
     id: "1",
     name: "Need My Hearing Aids",
-    nameEs: "Necesito mis Audífonos",
+    nameEs: "Necesito Mis Audífonos",
     image: Hearingaid,
     path: "/summary",
     secPath: "/confrm-step-yesno",
@@ -7492,7 +7492,7 @@ const hearingAids = [
   {
     id: "5",
     name: "Lost Hearing Aids",
-    nameEs: "Perdí mis Audífonos",
+    nameEs: "Perdí Mis Audífonos",
     image: LostHearingAidsImg,
     secPath: "/confrm-step-yesno",
     path: "/summary",
@@ -7517,7 +7517,7 @@ const hearingAids = [
   {
     id: "7",
     name: "Check My Hearing",
-    nameEs: "Revisar mi Audición",
+    nameEs: "Revisar Mi Audición",
     image: CheckMyHearingImg,
     path: "/summary",
     secPath: "/confrm-step-yesno",
@@ -7853,7 +7853,7 @@ const movementconcerns = [
 const communicationConcerns = [
   {
     id: "1",
-    name: "Hard to understand you",
+    name: "Hard to Understand You",
     nameEs: "Diicil de Entender",
     image: HardtoUnderstandYouImg,
     path: "/howoften",
@@ -7865,7 +7865,7 @@ const communicationConcerns = [
   },
   {
     id: "2",
-    name: "Can’t find my words",
+    name: "Can’t Find My Words",
     nameEs: "No Encuentro las Palabras",
     image: Can_tFindMyWordsImg,
     path: "/howoften",
@@ -7877,7 +7877,7 @@ const communicationConcerns = [
   },
   {
     id: "3",
-    name: "Hard to talk",
+    name: "Hard to Talk",
     nameEs: "Difícil Hablar",
     image: HardtoTalkImg,
     path: "/howoften",
@@ -7901,7 +7901,7 @@ const communicationConcerns = [
   },
   {
     id: "5",
-    name: "I’m confused",
+    name: "I’m Confused",
     nameEs: "Estoy Confundida",
     image: ImConfusedImg,
     path: "/howoften",
@@ -7925,7 +7925,7 @@ const communicationConcerns = [
   },
   {
     id: "7",
-    name: "Wrong words come out",
+    name: "Wrong Words Come Out",
     nameEs: "Salen Palabras Equivocadas",
     image: WrongWordsComeOutImg,
     path: "/howoften",
@@ -7937,8 +7937,8 @@ const communicationConcerns = [
   },
   {
     id: "8",
-    name: "Don’t know where I am",
-    nameEs: "No sé dónde estoy",
+    name: "Don’t Know Where I Am",
+    nameEs: "No Sé Dónde Estoy",
     image: DontknowwhereIamImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
@@ -7949,8 +7949,8 @@ const communicationConcerns = [
   },
   {
     id: "9",
-    name: "Memory trouble",
-    nameEs: "Problemas de memoria",
+    name: "Memory Trouble",
+    nameEs: "Problemas de Memoria",
     image: MemoryTroubleImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
@@ -7963,7 +7963,7 @@ const communicationConcerns = [
   {
     id: "10",
     name: "Trouble Reading",
-    nameEs: "Dificultad para Leer",
+    nameEs: "Dificultad Para Leer",
     image: TroubleReadingImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
@@ -7975,7 +7975,7 @@ const communicationConcerns = [
   {
     id: "11",
     name: "Trouble Writing",
-    nameEs: "Dificultad para Escribir",
+    nameEs: "Dificultad Para Escribir",
     image: TroubleWritingImg,
     path: "/howoften",
     secPath: "/confrm-step-yesno",
@@ -8130,7 +8130,7 @@ const visionConcers = [
   {
     id: "3",
     name: "Can’t See Left",
-    nameEs: "No puedo ver a la izquierda",
+    nameEs: "No Puedo ver a la Izquierda",
     image: leftInvisible,
     path: "/when",
     secPath: "/confrm-step-yesno",
@@ -8142,7 +8142,7 @@ const visionConcers = [
   {
     id: "4",
     name: "Can’t See Right",
-    nameEs: "No puedo ver a la derecha",
+    nameEs: "No Puedo ver a la Derecha",
     image: right_vision,
     path: "/when",
     secPath: "/confrm-step-yesno",
@@ -8460,7 +8460,7 @@ export const diseasesData = {
     {
       id: "6",
       name: "Congested / Runny Nose",
-      nameEs: "Nariz Congestionada / que Moquea",
+      nameEs: "Nariz Congestionada / Que Moquea",
       image: dashimg06,
       secPath: "/confrm-step-yesno",
       path: "/howoften",
@@ -8491,7 +8491,7 @@ export const diseasesData = {
       path: "/howoften",
       femaleEnglish: CPAPBiPAPFemale,
       maleEnglish: CPAPBiPAPmale,
-      maleSpanish: CPAPBiPAPmale,
+      maleSpanish: CPAPBiPAPSpanishMale,
       femaleSpanish: CPAPBiPAPFemale,
     },
     {
@@ -8876,7 +8876,7 @@ export const diseasesData = {
     {
       id: "9",
       name: "Lost Weight Without Trying",
-      nameEs: "Bajé de peso sin intentarlo",
+      nameEs: "Bajé de Peso Sin Intentarlo",
       image: LostWeightWithoutTrying,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
@@ -9715,7 +9715,7 @@ export const diseasesData = {
     {
       id: "6",
       name: "Lost Weight Without Trying",
-      nameEs: "Bajé de peso sin intentarlo",
+      nameEs: "Bajé de Peso sin Intentarlo",
       image: LostWeightWithoutTrying,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
@@ -10043,7 +10043,7 @@ export const diseasesData = {
     {
       id: "1",
       name: "Stroke Symptoms",
-      nameEs: "Síntomas de Derrame Cerebral",
+      nameEs: "Síntomas de un Accidente Cerebrovascular",
       image: StrokeSymptoms,
       secPath: "/confrm-step-yesno",
 

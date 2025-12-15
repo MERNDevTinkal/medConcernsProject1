@@ -336,6 +336,7 @@ export default function TabsCalendar() {
   const getWeekAudio = (index) => {
     if (selectedLanguage === "Spanish") {
       if (selectedGender === "Female") {
+        console.log("Ddd",selectedGender)
         const spanishWeekAudiosFemale = [
           DomingoSundaySpanishFemale,
           LunesMondaySpanishFemale,
