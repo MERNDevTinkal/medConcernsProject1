@@ -4,9 +4,12 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import apiCall from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 export default function Introduction() {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [loader, setLoader] = useState(true);
+  const navigate = useNavigate();
   const [IntroductionOn, setIntroductionOn] = useState("");
   const [CalendarOn, setCalendarOn] = useState("");
   const [name, setName] = useState("");
@@ -59,17 +62,22 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {}
+      () => { },
+      () => { }
     );
   }, [loader]);
-
+  useEffect(() => {
+    if (Cookies.get("is_introduction") == "true" && IntroductionOn) {
+      Cookies.remove("is_introduction")
+      return navigate("/concern")
+    }
+  }, [IntroductionOn])
   useEffect(() => {
     apiCall
       .post(

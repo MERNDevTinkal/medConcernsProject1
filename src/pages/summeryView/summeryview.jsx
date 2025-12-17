@@ -91,7 +91,6 @@ const SummaryList = () => {
                 >
                   {selectedLanguage === "Spanish" ? "Lista" : "List"}
                 </button>
-
               </div>
               {summaryData?.summaryList?.length > 0 &&
                 summaryData?.summaryList.map((item, index) => {
