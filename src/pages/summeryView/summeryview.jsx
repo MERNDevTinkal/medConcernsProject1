@@ -7,9 +7,9 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import { useParams } from "react-router-dom";
-import {Arrow} from "../../Component/DiseasesData/images";
+import { Arrow } from "../../Component/DiseasesData/images";
 import getSetting from "../../Component/settingApi/settings";
-import {BackArrow} from "../../Component/DiseasesData/images";
+import { BackArrow } from "../../Component/DiseasesData/images";
 import Header from "../../Component/Layout/Header/Header";
 const SummaryList = () => {
   const navigate = useNavigate();
@@ -52,15 +52,17 @@ const SummaryList = () => {
   }, [id]);
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader
     );
   }, []);
-  console.log("summaryData")
+  const handleSummaryListRoute = () => {
+    navigate("/summary-list");
+  };
   return (
     <>
       {loader ? (
@@ -74,7 +76,23 @@ const SummaryList = () => {
           />
           {summaryData?.summaryList?.length > 0 ? (
             <div className="main-wrapper home-wrapper">
-     
+              <div className="flex justify-end space-x-2">
+                <button
+                  onClick={() => window.print()}
+                  style={{ border: "2px solid black" }}
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {selectedLanguage === "Spanish" ? "Imprimir" : "Print"}
+                </button>
+                <button
+                  onClick={handleSummaryListRoute}
+                  style={{ border: "2px solid black" }}
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {selectedLanguage === "Spanish" ? "Lista" : "List"}
+                </button>
+
+              </div>
               {summaryData?.summaryList?.length > 0 &&
                 summaryData?.summaryList.map((item, index) => {
                   return (
@@ -124,9 +142,6 @@ const SummaryList = () => {
               </h1>
             </div>
           )}
-
-
-   
           <Footer />
         </>
       )}
