@@ -193,7 +193,6 @@ export default function Whiteboard() {
   );
 
   useEffect(() => {
-    console.log("dddd22222")
     if (!textToolActive) return;
     const blink = setInterval(() => setShowCursor((c) => !c), 500);
     return () => clearInterval(blink);
@@ -313,7 +312,7 @@ export default function Whiteboard() {
     if (ctx) {
       try {
         ctx.closePath();
-      } catch (err) {}
+      } catch (err) { }
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
@@ -506,6 +505,7 @@ export default function Whiteboard() {
     showCursor,
     getCanvasContext,
     uploadedImages,
+    id
   ]);
   /* -------------------- Fetch board -------------------- */
   useEffect(() => {
@@ -526,11 +526,7 @@ export default function Whiteboard() {
 
         if (data.status) {
           const savedObj = data?.data || {};
-<<<<<<< HEAD
           console.log("Ddddddd", savedObj);
-=======
-          console.log("Ddddddd55555", savedObj)
->>>>>>> 4950ebb2f937ae4d47a9e33d13a1d54d2eb18a8d
           setDrawingName(savedObj?.name_key || "");
 
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
@@ -971,16 +967,16 @@ export default function Whiteboard() {
   /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -1167,17 +1163,6 @@ export default function Whiteboard() {
     const trans = {
       en: {
         name: "Whiteboard",
-<<<<<<< HEAD
-        title: "Saved White Boards",
-        text: "View List",
-      },
-      sp: {
-        name: "Pizarron",
-        title: "Pizarras blancas guardadas",
-        text: "Ver Lista",
-      },
-    };
-=======
         title: "Saved WhiteBoards List",
         text: "View List"
       },
@@ -1187,7 +1172,6 @@ export default function Whiteboard() {
         text: "Ver Lista"
       }
     }
->>>>>>> 4950ebb2f937ae4d47a9e33d13a1d54d2eb18a8d
     return trans[transtext][params];
   };
   return (
@@ -1277,13 +1261,12 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${
-                      tool === "text"
+                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
                         ? "cursor-text"
                         : tool === "eraser"
-                        ? "cursor-eraser"
-                        : "cursor-crosshair"
-                    }`}
+                          ? "cursor-eraser"
+                          : "cursor-crosshair"
+                      }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
