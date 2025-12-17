@@ -20,8 +20,8 @@ import {
   SaveIcon,
   DeleteIcon,
   KeyBoardIcon,
-  imageUploadIcon
-} from "../../Component/DiseasesData/images.jsx"
+  imageUploadIcon,
+} from "../../Component/DiseasesData/images.jsx";
 /* -------------------- Minimal helpers & UI -------------------- */
 function cn(...a) {
   return a.filter(Boolean).join(" ");
@@ -72,15 +72,9 @@ const CardContent = ({ className = "", ...props }) => (
 );
 
 const Icon = {
-  Pencil: (p) => (
-    <SlPencil {...p} />
-  ),
-  Image: (p) => (
-    <img src={imageUploadIcon} alt="img upload" {...p} />
-  ),
-  Trash: (p) => (
-    <RiEraserFill {...p} />
-  ),
+  Pencil: (p) => <SlPencil {...p} />,
+  Image: (p) => <img src={imageUploadIcon} alt="img upload" {...p} />,
+  Trash: (p) => <RiEraserFill {...p} />,
   Keyword: (p) => <img src={KeyBoardIcon} alt="keyboard icon" {...p} />,
   FileSave: (p) => <FaSave {...p} />,
 };
@@ -131,10 +125,10 @@ export default function Whiteboard() {
   useEffect(() => {
     if (!location?.state?.selectedImages) return;
     const incoming = location.state.selectedImages;
-    setUploadedImages(prev => {
+    setUploadedImages((prev) => {
       const newItems = [];
       incoming.forEach((src, index) => {
-        if (!prev.some(img => img.src === src)) {
+        if (!prev.some((img) => img.src === src)) {
           const pos = findNonOverlappingImagePosition(200, 200);
           newItems.push({
             src,
@@ -147,7 +141,6 @@ export default function Whiteboard() {
       });
       return uniqueImages([...prev, ...newItems]);
     });
-
   }, [location.state?.selectedImages]);
 
   const pointerPos = (e, rect) => {
@@ -253,23 +246,26 @@ export default function Whiteboard() {
     }
   };
 
-  const findNonOverlappingImagePosition = useCallback((width, height, currentImages = uploadedImages) => {
-    const margin = 20;
-    let y = 20;
-    if (currentImages.length > 0) {
-      const lastImage = currentImages[currentImages.length - 1];
-      y = lastImage.y + lastImage.height + margin;
-    }
-    // Also consider existing text blocks
-    if (textBlocks.length > 0) {
-      const lastTextBlock = textBlocks[textBlocks.length - 1];
-      y = Math.max(y, lastTextBlock.y + 60);
-    }
-    return {
-      x: 20,
-      y,
-    };
-  }, [uploadedImages, textBlocks]);
+  const findNonOverlappingImagePosition = useCallback(
+    (width, height, currentImages = uploadedImages) => {
+      const margin = 20;
+      let y = 20;
+      if (currentImages.length > 0) {
+        const lastImage = currentImages[currentImages.length - 1];
+        y = lastImage.y + lastImage.height + margin;
+      }
+      // Also consider existing text blocks
+      if (textBlocks.length > 0) {
+        const lastTextBlock = textBlocks[textBlocks.length - 1];
+        y = Math.max(y, lastTextBlock.y + 60);
+      }
+      return {
+        x: 20,
+        y,
+      };
+    },
+    [uploadedImages, textBlocks]
+  );
 
   const draw = useCallback(
     (e) => {
@@ -308,7 +304,6 @@ export default function Whiteboard() {
     ]
   );
 
-
   const stopDrawing = useCallback(() => {
     setIsDrawing(false);
     setDraggingImage(null);
@@ -316,7 +311,7 @@ export default function Whiteboard() {
     if (ctx) {
       try {
         ctx.closePath();
-      } catch (err) { }
+      } catch (err) {}
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
@@ -498,8 +493,16 @@ export default function Whiteboard() {
       setCaretY(cursorY + lineHeight);
     }
   }, [
-    paths, textBlocks, activeTextBlock, textLines, textToolActive,
-    drawingColor, cursorPosition, showCursor, getCanvasContext, uploadedImages
+    paths,
+    textBlocks,
+    activeTextBlock,
+    textLines,
+    textToolActive,
+    drawingColor,
+    cursorPosition,
+    showCursor,
+    getCanvasContext,
+    uploadedImages,
   ]);
   /* -------------------- Fetch board -------------------- */
   useEffect(() => {
@@ -520,7 +523,7 @@ export default function Whiteboard() {
 
         if (data.status) {
           const savedObj = data?.data || {};
-          console.log("Ddddddd", savedObj)
+          console.log("Ddddddd", savedObj);
           setDrawingName(savedObj?.name_key || "");
 
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
@@ -536,7 +539,7 @@ export default function Whiteboard() {
           }
           const imagesArray = savedState?.images ?? [];
 
-          setUploadedImages(prev => {
+          setUploadedImages((prev) => {
             const newItems = [];
             imagesArray.forEach((src, index) => {
               newItems.push({
@@ -546,7 +549,6 @@ export default function Whiteboard() {
                 width: src.width,
                 height: src.height,
               });
-
             });
             return uniqueImages([...prev, ...newItems]);
           });
@@ -634,12 +636,12 @@ export default function Whiteboard() {
       name: drawingName.trim(),
       paths,
       texts: committedTexts,
-      images: uploadedImages.map(img => ({
+      images: uploadedImages.map((img) => ({
         src: img.src,
         x: img.x,
         y: img.y,
         width: img.width,
-        height: img.height
+        height: img.height,
       })),
       toolSettings: {
         color: drawingColor,
@@ -676,7 +678,8 @@ export default function Whiteboard() {
       });
       if (data.status) {
         toast.success(data.msg, {
-          replace: true, state: {},
+          replace: true,
+          state: {},
           autoClose: 1500,
           onclose: navigate("/white-board-list"),
         });
@@ -928,7 +931,11 @@ export default function Whiteboard() {
         }
 
         // Pass current uploadedImages for calculation
-        const pos = findNonOverlappingImagePosition(width, height, uploadedImages);
+        const pos = findNonOverlappingImagePosition(
+          width,
+          height,
+          uploadedImages
+        );
 
         setUploadedImages((prev) => [
           ...prev,
@@ -941,11 +948,11 @@ export default function Whiteboard() {
           },
         ]);
 
-        if (src.startsWith('blob:')) {
+        if (src.startsWith("blob:")) {
           return;
         }
 
-        setSelectedImages(prev => {
+        setSelectedImages((prev) => {
           if (prev.includes(src)) return prev;
           return [...prev, src];
         });
@@ -957,16 +964,16 @@ export default function Whiteboard() {
   /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -1140,10 +1147,9 @@ export default function Whiteboard() {
     setImageFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
-
   const uniqueImages = (images) => {
     const seen = new Set();
-    return images.filter(img => {
+    return images.filter((img) => {
       if (seen.has(img.src)) return false;
       seen.add(img.src);
       return true;
@@ -1155,16 +1161,16 @@ export default function Whiteboard() {
       en: {
         name: "Whiteboard",
         title: "Saved White Boards",
-        text: "View List"
+        text: "View List",
       },
       sp: {
         name: "Pizarron",
         title: "Pizarras blancas guardadas",
-        text: "Ver Lista"
-      }
-    }
+        text: "Ver Lista",
+      },
+    };
     return trans[transtext][params];
-  }
+  };
   return (
     <>
       {FileUpload && (
@@ -1184,25 +1190,25 @@ export default function Whiteboard() {
             selectedLanguage={selectedLanguage}
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
-            name={t('name')}
+            name={t("name")}
           />
-          <div className="main-wrapper home-wrapper">
+          <div className="main-wrapper home-wrapper whiteboard-wrapper">
             <div className="flex justify-end mb-2">
               <Button
                 className="thm-btn"
                 onClick={() => navigate("/white-board-list")}
               >
-                {t('title')}
+                {t("title")}
               </Button>
             </div>
-            <div className="flex flex-col items-center whiteboard-card">
-              <Card className="w-full flex flex-col ">
+            <div className="flex flex-col items-center whiteboard-card ">
+              <Card className="w-full flex flex-col relative">
                 <div className="absolute top-3 right-3">
                   <Button
                     className="thm-btn"
                     onClick={() => navigate("/white-board-list")}
                   >
-                    {t('text')}
+                    {t("text")}
                   </Button>
                 </div>
                 {(uploadedImages.length > 0 || SelectedImages.length > 0) && (
@@ -1224,10 +1230,12 @@ export default function Whiteboard() {
                           />
                           <button
                             onClick={() => {
-                              const isInSelected = SelectedImages.includes(img.src);
+                              const isInSelected = SelectedImages.includes(
+                                img.src
+                              );
                               if (isInSelected) {
-                                setSelectedImages(prev =>
-                                  prev.filter(url => url !== img.src)
+                                setSelectedImages((prev) =>
+                                  prev.filter((url) => url !== img.src)
                                 );
                               }
                               handleDeleteImage(idx);
@@ -1250,12 +1258,13 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto touch-none pt-5 z-0 mx-auto ${tool === "text"
-                      ? "cursor-text"
-                      : tool === "eraser"
+                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${
+                      tool === "text"
+                        ? "cursor-text"
+                        : tool === "eraser"
                         ? "cursor-eraser"
                         : "cursor-crosshair"
-                      }`}
+                    }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1266,7 +1275,7 @@ export default function Whiteboard() {
                     onClick={handleClick}
                   />
                 </div>
-                <CardContent className="relative flex flex-wrap items-center justify-center gap-5 whiteboard-toolbar p-0 bg-white">
+                <CardContent className=" flex flex-wrap items-center justify-center gap-5 whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1">
                   <Button
                     variant="ghost"
                     size="icon"

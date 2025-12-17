@@ -6,11 +6,13 @@ import { GlobalContext } from "../../context/DiseaseContext";
 
 import { bodyImages } from "./bodyPartsImages.jsx";
 import Cookies from "js-cookie";
-import {  Femalebodyback,
+import {
+  Femalebodyback,
   Frontfemale,
   DigramBack,
   DigramFront,
-  Refresh,} from "../../Component/DiseasesData/images.jsx"
+  Refresh,
+} from "../../Component/DiseasesData/images.jsx";
 import {
   // Female English
   Abdomen,
@@ -570,15 +572,15 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           ? femaleBackImageSpanish
           : backRegionsSpanish
         : selectedGender === "Female"
-          ? femaleBackImage
-          : backRegions
+        ? femaleBackImage
+        : backRegions
       : selectedLanguage === "Spanish"
-        ? selectedGender === "Female"
-          ? femalefrontRegionsSpanish
-          : frontRegionsSpanish
-        : selectedGender === "Female"
-          ? femalefrontRegions
-          : frontRegions;
+      ? selectedGender === "Female"
+        ? femalefrontRegionsSpanish
+        : frontRegionsSpanish
+      : selectedGender === "Female"
+      ? femalefrontRegions
+      : frontRegions;
     let clickedRegion =
       activeRegions.find(
         (r) =>
@@ -641,14 +643,15 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       setCroppedPart(croppedData);
       const value = clickedRegion?.name;
       const isConcern = Cookies.get("is_concern");
-      const prefix = isConcern && isConcern?.includes("true_")
-        ? isConcern + "/" + mainpath
-        : mainpath;
+      const prefix =
+        isConcern && isConcern?.includes("true_")
+          ? isConcern + "/" + mainpath
+          : mainpath;
       addOrUpdateSummary(prefix, [
         {
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-            value
+              value
             ],
           name: replaceString(clickedRegion?.name),
         },
@@ -658,7 +661,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           partName: replaceString(clickedRegion?.name),
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-            value
+              value
             ],
         },
       });
@@ -683,7 +686,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   }, [selectedGender, isfront]);
   return (
     <>
-      <div className="flex justify-end mt-4">
+      <div className="flex justify-end mt-0">
         <button
           onClick={handleRefresh}
           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
@@ -693,7 +696,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       </div>
 
       <div className="flex flex-col items-center">
-        <div className="relative w-[350px] md:w-[500px]">
+        <div className="relative w-full">
           {bodyImage && (
             <img
               src={bodyImage}
