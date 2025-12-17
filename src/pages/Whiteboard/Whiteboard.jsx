@@ -170,7 +170,7 @@ export default function Whiteboard() {
       const rect = canvas.getBoundingClientRect();
       const padding = 10;
       const lineHeight = 24;
-      const canvasWidth = rect.width || 680;
+      const canvasWidth = rect.width || 985;
       const canvasHeight = rect.height;
       let bestX = Math.max(
         padding,
@@ -210,7 +210,7 @@ export default function Whiteboard() {
   const setCanvasSize = useCallback((node) => {
     if (!node) return;
     const dpr = window.devicePixelRatio || 1;
-    const width = 680;
+    const width = 985;
     const height = 600;
     node.width = Math.round(width * dpr);
     node.height = Math.round(height * dpr);
@@ -327,7 +327,7 @@ export default function Whiteboard() {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
-    const canvasWidth = 680;
+    const canvasWidth = 985;
     const canvasHeight = 600;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     uploadedImages.forEach((imgObj) => {
@@ -1157,12 +1157,12 @@ export default function Whiteboard() {
     const trans = {
       en: {
         name: "Whiteboard",
-        title: "Saved White Boards",
+        title: "Saved WhiteBoards List",
         text: "View List"
       },
       sp: {
         name: "Pizarron",
-        title: "Pizarras blancas guardadas",
+        title: "Lista de Pizarras Guardadas",
         text: "Ver Lista"
       }
     }
