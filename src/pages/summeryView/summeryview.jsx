@@ -70,7 +70,7 @@ const SummaryList = () => {
       ) : (
         <>
           <Header
-            isSummary={summaryData?.summaryList?.length > 0 ? true : false}
+            isSummary={false}
             selectedLanguage={selectedLanguage}
             name={selectedLanguage === "Spanish" ? "Resumen" : "Summary"}
           />

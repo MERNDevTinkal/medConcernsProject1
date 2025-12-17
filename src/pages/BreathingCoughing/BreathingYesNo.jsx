@@ -69,9 +69,9 @@ function BreathingYesNo() {
               <div
                 className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3
     ${location.pathname.includes("/topicboard/")
-      ? "h-[300px] flex justify-center items-center relative"
-      : ""
-    }`}
+                    ? "h-[300px] flex justify-center items-center relative"
+                    : ""
+                  }`}
               >
                 {location.pathname.includes("/topicboard/") ? (
                   <>

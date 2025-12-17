@@ -46,7 +46,7 @@ import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
-const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary = false, setIsPopupOpen=()=>{} }) => {
+const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary = false, setIsPopupOpen = () => { } }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { updateDisease, resetDiseases } = useContext(GlobalContext);
   const location = useLocation();
@@ -319,7 +319,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
       <div className="main-header-top bg-[#dceaf7] sticky left-0 right-0 top-0 z-10">
         <header className=" py-3  main-header">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3" style={{ cursor: "pointer" }}>
               {location.pathname !== "/introduction" && (
                 <img
                   onClick={() => {
