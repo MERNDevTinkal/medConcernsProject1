@@ -129,6 +129,7 @@ export default function Whiteboard() {
     return canvas.getContext("2d");
   }, []);
   useEffect(() => {
+    console.log("dddd11111")
     if (!location?.state?.selectedImages) return;
     const incoming = location.state.selectedImages;
     setUploadedImages(prev => {
@@ -199,6 +200,7 @@ export default function Whiteboard() {
   );
 
   useEffect(() => {
+    console.log("dddd22222")
     if (!textToolActive) return;
     const blink = setInterval(() => setShowCursor((c) => !c), 500);
     return () => clearInterval(blink);
@@ -333,6 +335,7 @@ export default function Whiteboard() {
       img.src = imgObj.src;
       ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
     });
+    console.log("dddd3333")
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -507,7 +510,7 @@ export default function Whiteboard() {
       setLoader(false);
       return;
     }
-
+    console.log("dddd44444")
     const fetchBoard = async () => {
       const payload = new FormData();
       payload.append("white_id", id);
@@ -520,7 +523,7 @@ export default function Whiteboard() {
 
         if (data.status) {
           const savedObj = data?.data || {};
-          console.log("Ddddddd", savedObj)
+          console.log("Ddddddd55555", savedObj)
           setDrawingName(savedObj?.name_key || "");
 
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
@@ -779,7 +782,7 @@ export default function Whiteboard() {
   };
   useEffect(() => {
     if (!textToolActive) return;
-
+    console.log("dddd66666")
     const onKeyDown = (e) => {
       if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
       e.preventDefault();
@@ -977,7 +980,7 @@ export default function Whiteboard() {
     if (caretY > scrollTop + clientHeight - 30) {
       wrapperRef.current.scrollTop = caretY - clientHeight + 30;
     }
-
+    console.log("dddd777777")
     if (caretY < scrollTop) {
       wrapperRef.current.scrollTop = caretY - 10;
     }
