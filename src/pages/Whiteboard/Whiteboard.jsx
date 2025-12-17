@@ -948,10 +948,10 @@ export default function Whiteboard() {
           return;
         }
 
-        setSelectedImages((prev) => {
-          if (prev.includes(src)) return prev;
-          return [...prev, src];
-        });
+        // setSelectedImages((prev) => {
+        //   if (prev.includes(src)) return prev;
+        //   return [...prev, src];
+        // });
       };
 
       img.src = src;
