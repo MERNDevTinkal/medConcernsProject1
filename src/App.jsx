@@ -75,7 +75,6 @@ function App() {
         if (isPortrait) {
           document.body.classList.add("portrait-forced-to-landscape");
           document.body.classList.remove("landscape-natural");
-          // Force landscape viewport
           if (viewport) {
             viewport.setAttribute(
               "content",
@@ -87,13 +86,8 @@ function App() {
           document.body.classList.remove("portrait-forced-to-landscape");
         }
       };
-
-      // Apply immediately
       applyInstantLandscape();
-
-      // Listen for resize (faster than orientationchange)
       window.addEventListener("resize", applyInstantLandscape);
-
       return () => {
         window.removeEventListener("resize", applyInstantLandscape);
         document.body.classList.remove(
@@ -166,18 +160,12 @@ function App() {
           <Route path="/pain-feel" element={<PainFeel />} />
           <Route path="/feel-pain" element={<FeelPainYesNo />} />
           <Route path="/images-library" element={<ImagesLibrery />} />
-          <Route
-            path="/concern-pain-feeling"
-            element={<ConcernPainFeeling />}
-          />
+          <Route path="/concern-pain-feeling" element={<ConcernPainFeeling />} />
           <Route path="/feeling-list-pain" element={<FeelingListPain />} />
           <Route path="/feeling-yes-no" element={<FeelingYesNo />} />
           <Route path="/pain-when" element={<PainWhen />} />
           <Route path="/:name-problem" element={<BreathingProblem />} />
-          <Route
-            path="/:name/confrm-step-yesno/:id"
-            element={<ConfrmStepYesNo />}
-          />
+          <Route path="/:name/confrm-step-yesno/:id" element={<ConfrmStepYesNo />} />
           <Route path="/when" element={<BreathingWhen />} />
           <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
           <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />
@@ -193,7 +181,6 @@ function App() {
           <Route path="/feeling-body" element={<EmotionsList />} />
           <Route path="/depression-screener" element={<DepressionScreener />} />
           <Route path="/mood-scale" element={<Feel />} />
-
         </Route>
       </Routes>
     </>

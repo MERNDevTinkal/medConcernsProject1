@@ -102,6 +102,7 @@ const SummaryList = () => {
     setIsPopupOpen(false);
     setShowSaveModal(true);
   };
+  console.log("Dddddd",diseases)
   return (
     <>
       {loader ? (

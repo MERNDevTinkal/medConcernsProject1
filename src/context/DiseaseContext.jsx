@@ -58,20 +58,17 @@ export const GlobalProvider = ({ children }) => {
         : [];
       const isConcern = routeKey.includes("/concern");
       let updatedList = [...currentList];
-      // Case 1: Concern Page
       if (isConcern) {
         const existingIndex = updatedList.findIndex(
           group => group.concern?.route === routeKey
         );
         if (existingIndex !== -1) {
-          // Override concern, reset flow
           updatedList[existingIndex].concern = {
             route: routeKey,
             data: newDataArray,
           };
           updatedList[existingIndex].flow = [];
         } else {
-          // Create new concern group
           updatedList.push({
             concern: {
               route: routeKey,
@@ -81,7 +78,6 @@ export const GlobalProvider = ({ children }) => {
           });
         }
       }
-      // Case 2: Flow Page
       else {
         let replaced = false;
 
@@ -97,11 +93,8 @@ export const GlobalProvider = ({ children }) => {
           }
           return group;
         });
-
-        // If not replaced → append to latest group or create fallback
         if (!replaced) {
           if (updatedList.length === 0) {
-            // fallback: user never visited concern
             updatedList.push({
               concern: null,
               flow: [],

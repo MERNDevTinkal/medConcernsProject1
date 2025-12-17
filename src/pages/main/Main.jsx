@@ -47,7 +47,6 @@ const Main = () => {
       <div className="welcome-new min-h-screen flex items-center justify-center">
         <div className=" main-h  flex items-center justify-center">
           <div className="w-full flex flex-col items-center text-center">
-            {/* Logo and Title */}
             <div className="mb-8">
               <img
                 src={logo}
@@ -55,8 +54,6 @@ const Main = () => {
                 className="w-100 mx-auto mb-2"
               />
             </div>
-
-            {/* Input Section */}
             <div className="w-full text-left licence-bx relative">
               <label className="block font-medium text-[#000] mb-3">
                 Enter your license key to continue
@@ -85,8 +82,6 @@ const Main = () => {
                 </button>
               )}
             </div>
-
-            {/* Button */}
             <button
               type="button"
               onClick={loginUser}
@@ -94,27 +89,20 @@ const Main = () => {
             >
               Continue
             </button>
-
-            {/* modal */}
             {isOpen && (
               <div className="fixed z-10 inset-0 overflow-y-auto custom-modal">
                 <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-                  {/* Background Overlay */}
                   <div
                     className="fixed inset-0 bg-black opacity-60 transition-opacity modal-overlay"
                     aria-hidden="true"
                     onClick={toggleModal}
                   ></div>
-
-                  {/* For vertical alignment */}
                   <span
                     className="hidden sm:inline-block sm:align-middle sm:h-screen"
                     aria-hidden="true"
                   >
                     &#8203;
                   </span>
-
-                  {/* Modal Content */}
                   <div
                     className="inline-block align-middle bg-white rounded-[20px] text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
                     role="dialog"

@@ -123,6 +123,7 @@ export default function Whiteboard() {
     return canvas.getContext("2d");
   }, []);
   useEffect(() => {
+    console.log("dddd11111")
     if (!location?.state?.selectedImages) return;
     const incoming = location.state.selectedImages;
     setUploadedImages((prev) => {
@@ -162,7 +163,7 @@ export default function Whiteboard() {
       const rect = canvas.getBoundingClientRect();
       const padding = 10;
       const lineHeight = 24;
-      const canvasWidth = rect.width || 680;
+      const canvasWidth = rect.width || 985;
       const canvasHeight = rect.height;
       let bestX = Math.max(
         padding,
@@ -192,6 +193,7 @@ export default function Whiteboard() {
   );
 
   useEffect(() => {
+    console.log("dddd22222")
     if (!textToolActive) return;
     const blink = setInterval(() => setShowCursor((c) => !c), 500);
     return () => clearInterval(blink);
@@ -201,7 +203,7 @@ export default function Whiteboard() {
   const setCanvasSize = useCallback((node) => {
     if (!node) return;
     const dpr = window.devicePixelRatio || 1;
-    const width = 680;
+    const width = 985;
     const height = 600;
     node.width = Math.round(width * dpr);
     node.height = Math.round(height * dpr);
@@ -320,7 +322,7 @@ export default function Whiteboard() {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
-    const canvasWidth = 680;
+    const canvasWidth = 985;
     const canvasHeight = 600;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     uploadedImages.forEach((imgObj) => {
@@ -328,6 +330,7 @@ export default function Whiteboard() {
       img.src = imgObj.src;
       ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
     });
+    console.log("dddd3333")
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -510,7 +513,7 @@ export default function Whiteboard() {
       setLoader(false);
       return;
     }
-
+    console.log("dddd44444")
     const fetchBoard = async () => {
       const payload = new FormData();
       payload.append("white_id", id);
@@ -523,7 +526,11 @@ export default function Whiteboard() {
 
         if (data.status) {
           const savedObj = data?.data || {};
+<<<<<<< HEAD
           console.log("Ddddddd", savedObj);
+=======
+          console.log("Ddddddd55555", savedObj)
+>>>>>>> 4950ebb2f937ae4d47a9e33d13a1d54d2eb18a8d
           setDrawingName(savedObj?.name_key || "");
 
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
@@ -782,7 +789,7 @@ export default function Whiteboard() {
   };
   useEffect(() => {
     if (!textToolActive) return;
-
+    console.log("dddd66666")
     const onKeyDown = (e) => {
       if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
       e.preventDefault();
@@ -984,7 +991,7 @@ export default function Whiteboard() {
     if (caretY > scrollTop + clientHeight - 30) {
       wrapperRef.current.scrollTop = caretY - clientHeight + 30;
     }
-
+    console.log("dddd777777")
     if (caretY < scrollTop) {
       wrapperRef.current.scrollTop = caretY - 10;
     }
@@ -1160,6 +1167,7 @@ export default function Whiteboard() {
     const trans = {
       en: {
         name: "Whiteboard",
+<<<<<<< HEAD
         title: "Saved White Boards",
         text: "View List",
       },
@@ -1169,6 +1177,17 @@ export default function Whiteboard() {
         text: "Ver Lista",
       },
     };
+=======
+        title: "Saved WhiteBoards List",
+        text: "View List"
+      },
+      sp: {
+        name: "Pizarron",
+        title: "Lista de Pizarras Guardadas",
+        text: "Ver Lista"
+      }
+    }
+>>>>>>> 4950ebb2f937ae4d47a9e33d13a1d54d2eb18a8d
     return trans[transtext][params];
   };
   return (

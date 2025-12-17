@@ -159,7 +159,7 @@ function Howoften({ monthName, isSelected }) {
 }
 
 export default function TabsCalendar() {
-  const [activeTab, setActiveTab] = useState("day"); 
+  const [activeTab, setActiveTab] = useState("week"); 
   const [selectedDayItem, setSelectedDayItem] = useState("");
   const [selectedWeekDay, setSelectedWeekDay] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(null);

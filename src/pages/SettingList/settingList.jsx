@@ -8,7 +8,7 @@ import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import getSetting from "../../Component/settingApi/settings";
 import Topicboard from "../../Component/settingApi/topic-board.js"
-import {BackArrow} from "../../Component/DiseasesData/images";
+import { BackArrow } from "../../Component/DiseasesData/images";
 export const concernsList = [
   { name: "Pain", label: { en: "Pain", es: "Dolor" } },
   {

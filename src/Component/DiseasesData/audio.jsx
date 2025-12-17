@@ -910,12 +910,7 @@ import DizzyEnglishFemale from "/assets/audio/English/female/Dizzy (1).mp3";
 import EarPainEnglishFemale from "/assets/audio/English/female/Ear Pain.mp3";
 import CantHearEnglishFemale from "/assets/audio/English/female/can't hear.mp3";
 
-
-// Spanish Male
-
 // English Male
-
-
 import HardToSwallowEnglishFemale from "/assets/audio/English/female/hard to swallow.mp3";
 import SideEffectsEnglishFemale from "/assets/audio/English/female/Side effects.mp3";
 import DontWantEnglishFemale from "/assets/audio/English/female/Don't want.mp3";
@@ -924,12 +919,6 @@ import TimingEnglishFemale from "/assets/audio/English/female/timing.mp3";
 import TooLittleEnglishFemale from "/assets/audio/English/female/Too little.mp3";
 import TooManyEnglishFemale from "/assets/audio/English/female/Too many.mp3";
 import InformationEnglishFemale from "/assets/audio/English/female/information.mp3";
-
-
-
-// English Male
-
-// Spanish Male
 
 // English Female
 import VomitingEnglishFemale from "/assets/audio/English/female/vomiting .mp3";
@@ -963,13 +952,6 @@ import DolorAlTragarPainWithSwallowingSpanishFemale from "/assets/audio/English/
 import AcidezEstomacalHeartburnSpanishFemale from "/assets/audio/English/female/Acidez estomacal (heartburn).mp3";
 import ComidaQueSePegaFoodStickingSpanishFemale from "/assets/audio/English/female/Comida que se Pega (food sticking).mp3";
 
-// Spanish Male
-
-
-// English Male
-
-
-
 // English Female
 import StrokeSymptomsEnglishFemale from "/assets/audio/English/female/Stroke Symptoms (female) (1).mp3";
 import TrachRemovedEnglishFemale from "/assets/audio/English/female/Trach Removed.mp3";
@@ -994,28 +976,16 @@ import SpeakingValveEnglishFemale from "/assets/audio/English/newFemaleEnglish/s
 // cap
 import CapEnglishFemale from "/assets/audio/English/newFemaleEnglish/cap.mp3";
 
-//
-
 // English Female
 import FrequentEnglishFemale from "/assets/audio/English/newFemaleEnglish/frequent.mp3";
 import CatheterEnglishFemale from "/assets/audio/English/newFemaleEnglish/Catheter.mp3";
 import VeryLittleOrInfrequentEnglishFemale from "/assets/audio/English/newFemaleEnglish/Very Little or Infrequent.mp3";
 import UrgencyEnglishFemale from "/assets/audio/English/newFemaleEnglish/Urgency.mp3";
-
 // Spanish Female
 import CatererCatheterSpanishFemale from "/assets/audio/English/newFemaleEnglish/Catéter (Catheter - increased volume).mp3";
 import MuyPocoOPocaFrequenciaSpanishFemale from "/assets/audio/English/newFemaleEnglish/muy poco o poca frequencia.mp3";
 import UrgenciaUrgencySpanishFemale from "/assets/audio/English/newFemaleEnglish/Urgencia (urgency).mp3";
 import FrequenteFrequentSpanishFemale from "/assets/audio/English/newFemaleEnglish/frequente (frequent).mp3";
-
-// English Male
-
-// Spanish Male
-
-// English Male
-
-// Spanish Male
-
 // English Female
 import BlurryEnglishFemale from "/assets/audio/English/female/Blurry.mp3";
 import DoubleEnglishFemale from "/assets/audio/English/female/Double.mp3";
@@ -1057,13 +1027,6 @@ import NoSeIDontKnowSpanishFemale from "/assets/audio/English/female/No se (I do
 import LoMismoTheSameSpanishFemale from "/assets/audio/English/female/lo mismo (the same).mp3";
 import EmpeorandoGettingWorseSpanishFemale from "/assets/audio/English/female/empeorando (getting worse).mp3";
 import MejorandoGettingBetterSpanishFemale from "/assets/audio/English/female/mejorando (getting better).mp3";
-
-// English Male
-
-// Spanish Male
-
-// English Male
-
 
 // Spanish Male
 

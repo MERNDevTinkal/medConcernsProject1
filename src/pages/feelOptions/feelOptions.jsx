@@ -80,7 +80,7 @@ function EmotionScreen() {
       addOrUpdateSummary(prefix, [item]);
       navigate(
         parseInt(id) === 5
-          ? "/feeling-body"
+          ? "/summary"
           : `/feelOptions/${parseInt(id) + 1}`
       );
       isSpeakingRef.current = false;
@@ -88,7 +88,7 @@ function EmotionScreen() {
   };
 
   const handleSkip = () => {
-    navigate("/feeling-body");
+    navigate("/summary");
   };
 
   return (
