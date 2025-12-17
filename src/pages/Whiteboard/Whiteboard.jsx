@@ -140,7 +140,6 @@ export default function Whiteboard() {
           });
         }
       });
-        console.log("first checking")
       return uniqueImages([...prev, ...newItems]);
     });
   }, [location.state?.selectedImages]);
@@ -195,7 +194,6 @@ export default function Whiteboard() {
 
   useEffect(() => {
     if (!textToolActive) return;
-      console.log("first2222222222")
     const blink = setInterval(() => setShowCursor((c) => !c), 500);
     return () => clearInterval(blink);
   }, [textToolActive]);
@@ -331,7 +329,6 @@ export default function Whiteboard() {
       img.src = imgObj.src;
       ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
     });
-     console.log("first333333333333")
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -518,7 +515,6 @@ export default function Whiteboard() {
       const payload = new FormData();
       payload.append("white_id", id);
       payload.append("licenses_id", licenses_id);
-  console.log("first checking555555555555")
       try {
         const { data } = await api.post("whiteBoardEdit", payload, {
           headers: { Authorization: `Bearer ${token}` },
@@ -526,7 +522,6 @@ export default function Whiteboard() {
 
         if (data.status) {
           const savedObj = data?.data || {};
-          console.log("Ddddddd", savedObj);
           setDrawingName(savedObj?.name_key || "");
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
           if (savedState.paths) {
@@ -561,7 +556,7 @@ export default function Whiteboard() {
     };
 
     fetchBoard();
-  }, [id, licenses_id, token]);
+  }, [id, licenses_id, token,loader]);
 
   // Helper function to calculate image position without using state
   const calculateImagePosition = (currentImages, width, height) => {
@@ -788,7 +783,6 @@ export default function Whiteboard() {
     const onKeyDown = (e) => {
       if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
       e.preventDefault();
-  console.log("first666666666666")
       switch (e.key) {
         case "Backspace":
           handleBackspace();
@@ -977,7 +971,6 @@ export default function Whiteboard() {
       () => { },
       () => { }
     );
-      console.log("first88888888888888")
   }, []);
 
   useEffect(() => {
@@ -991,7 +984,6 @@ export default function Whiteboard() {
     if (caretY < scrollTop) {
       wrapperRef.current.scrollTop = caretY - 10;
     }
-     console.log("888888888888888")
   }, [caretY]);
 
   const handleClick = (e) => {

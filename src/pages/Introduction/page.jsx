@@ -47,7 +47,6 @@ export default function Introduction() {
     }
   };
 
-  // ✅ Save only onBlur & only if changed
   const handleNameBlur = () => {
     if (name !== prevName) {
       saveIntroduction("name", name);
