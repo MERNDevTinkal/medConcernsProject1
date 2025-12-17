@@ -86,7 +86,7 @@ const BreathingWhen = () => {
               style={{
                 gridTemplateColumns:
                   selectedIconCount === 6
-                    ? "repeat(3, 1fr)" // 3 per row
+                    ? "repeat(3, 1fr)" 
                     : `repeat(${selectedIconCount || 2}, 1fr)`,
                 gridTemplateRows:
                   selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",

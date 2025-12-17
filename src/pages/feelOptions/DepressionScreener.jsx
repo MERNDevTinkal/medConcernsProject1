@@ -106,7 +106,7 @@ function DepressionScreener() {
                 onClick={() => {
                   handleConfrmStepWhen(
                     "NO",
-                    "/feeling-body",
+                    "/summary",
                     selectedLanguage === "" && selectedGender === ""
                       ? No_male
                       : selectedLanguage === "Spanish" &&

@@ -53,7 +53,6 @@ const Home = () => {
       <div className="welcome-new min-h-screen flex items-center justify-center ">
         <div className="main-h flex items-center justify-center">
           <div className="text-center">
-            {/* Logo */}
             <div className="mb-2 ">
               <img
                 src={logo}
@@ -61,18 +60,6 @@ const Home = () => {
                 className="mx-auto mb-2 w-80"
               />
             </div>
-
-            {/* Title */}
-            {/* <div>
-              <h1 className="text-[24px] text-black font-medium">
-                Welcome to MedConcerns
-              </h1>
-              <h5 className="text-[16px] font-normal">
-                Download the app to get started
-              </h5>
-            </div> */}
-
-            {/* Main Image */}
 
             {isIOS && (
               <div className="install-hint bg-[#CCE5FF] text-[#004C99] py-2 px-4 rounded mt-3 mb-3 text-center border border-[#0077CC]">
