@@ -1157,12 +1157,12 @@ export default function Whiteboard() {
       en: {
         name: "Whiteboard",
         title: "Saved WhiteBoards List",
-        text: "View List"
+        // text: "View List"
       },
       sp: {
         name: "Pizarron",
         title: "Lista de Pizarras Guardadas",
-        text: "Ver Lista"
+        // text: "Ver Lista"
       }
     }
     return trans[transtext][params];
@@ -1199,14 +1199,14 @@ export default function Whiteboard() {
             </div>
             <div className="flex flex-col items-center whiteboard-card ">
               <Card className="w-full flex flex-col relative">
-                <div className="absolute top-3 right-3">
+                {/* <div className="absolute top-3 right-3">
                   <Button
                     className="thm-btn"
                     onClick={() => navigate("/white-board-list")}
                   >
                     {t("text")}
                   </Button>
-                </div>
+                </div> */}
                 {(uploadedImages.length > 0 || SelectedImages.length > 0) && (
                   <CardHeader className="p-0">
                     <div
