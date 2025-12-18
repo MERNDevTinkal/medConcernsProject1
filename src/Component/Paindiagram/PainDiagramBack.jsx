@@ -246,11 +246,11 @@ const frontRegions = [
   makeRegion(`Left Shoulder`, 180, 160, 117, 175, ShoulderMale),
   makeRegion(`Left Arm`, 143, 155, 209, 182, UpperArmMale),
   makeRegion(`Left Hand`, 298, 178, 321, 200, HandMale),
-  makeRegion(`Finger`, 330, 178, 340, 200, FingersMale),
+  makeRegion(`Left Finger`, 330, 178, 340, 200, FingersMale),
   makeRegion(`Right Shoulder`, 97, 19, 131, 41, ShoulderMale),
   makeRegion(`Right Arm`, 150, 10, 221, 49, UpperArmMale),
   makeRegion(`Right Hand`, 300, 8, 330, 20, HandMale),
-  makeRegion(`Finger`, 330, 12, 340, 30, FingersMale),
+  makeRegion(`Right Finger`, 330, 12, 340, 30, FingersMale),
   makeRegion(`Left Forearm`, 221, 162, 279, 191, Forearm_comMale),
   makeRegion(`Right Forearm`, 230, 7, 288, 39, Forearm_comMale),
   makeRegion(`Left Cheek`, 59, 111, 70, 124, Cheeks_comMale),
@@ -572,15 +572,15 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           ? femaleBackImageSpanish
           : backRegionsSpanish
         : selectedGender === "Female"
-        ? femaleBackImage
-        : backRegions
+          ? femaleBackImage
+          : backRegions
       : selectedLanguage === "Spanish"
-      ? selectedGender === "Female"
-        ? femalefrontRegionsSpanish
-        : frontRegionsSpanish
-      : selectedGender === "Female"
-      ? femalefrontRegions
-      : frontRegions;
+        ? selectedGender === "Female"
+          ? femalefrontRegionsSpanish
+          : frontRegionsSpanish
+        : selectedGender === "Female"
+          ? femalefrontRegions
+          : frontRegions;
     let clickedRegion =
       activeRegions.find(
         (r) =>
@@ -651,7 +651,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
         {
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-              value
+            value
             ],
           name: replaceString(clickedRegion?.name),
         },
@@ -661,7 +661,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           partName: replaceString(clickedRegion?.name),
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-              value
+            value
             ],
         },
       });

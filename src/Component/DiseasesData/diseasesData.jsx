@@ -8334,7 +8334,6 @@ const trachSwallowing = [
     name: "Food Sticking",
     nameEs: "Comida que se Pega",
     secPath: "/confrm-step-yesno",
-
     image: Foodsticking,
     path: "/trachSwallowingFoodSticking-problem",
     maleEnglish: FoodStickingMale,

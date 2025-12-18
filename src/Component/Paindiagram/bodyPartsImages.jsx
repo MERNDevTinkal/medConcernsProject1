@@ -283,7 +283,7 @@ export const bodyImages = {
     Shoulder: rightShoulderMan,
     Arm: armMan,
     Hand: fingerRightMan,
-    Finger: fingerRightMan,
+    // Finger: fingerRightMan,
     Elbow: elbowRightMan,
     Butt: rightButtMan,
     "Lower Arm": lowerArmMan,
