@@ -36,6 +36,7 @@ import hearingImg from "/assets/images/HearingConcernNew.png";
 import thickmucusImg from "/assets/images/thick-mucus.png";
 import PEGImg from "/assets/images/PEG-pain.png";
 import somethinghappenedImg from "/assets/images/something-happened.png";
+import with_food_and_drinksImg from "/assets/images/With food_drink & when eating_drinking.png";
 import woundImg from "/assets/images/wound.png";
 import logoutImg from "/assets/images/logout.png";
 import EmotionsImg2 from "/assets/images/emotion-img-02.png";
@@ -145,12 +146,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
       es: "Calendario",
       // hide: calendarOn,
     },
-    {
-      icon: appetite ? appetite : gifLoader,
-      path: "/noappetite-problem",
-      en: "Appetite",
-      es: "Apetito",
-    },
+    // {
+    //   icon: appetite ? appetite : gifLoader,
+    //   path: "/noappetite-problem",
+    //   en: "Appetite",
+    //   es: "Apetito",
+    // },
     {
       icon: MenuIcon13 ? MenuIcon13 : gifLoader,
       path: "/bowels-problem",
@@ -162,6 +163,12 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
       path: "/breathing-problem",
       en: "Breathing / Coughing",
       es: "Respiración / Tos",
+    },
+    {
+      icon: with_food_and_drinksImg ? with_food_and_drinksImg : gifLoader,
+      path: "/eating-problem",
+      en: "Eating / Drinking",
+      es: "Comer / Beber",
     },
     {
       icon: EmotionsImg2 ? EmotionsImg2 : gifLoader,
