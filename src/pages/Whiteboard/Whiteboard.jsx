@@ -122,27 +122,48 @@ export default function Whiteboard() {
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
-  useEffect(() => {
-  
-    if (!location?.state?.selectedImages) return;
-    const incoming = location.state.selectedImages;
-    setUploadedImages((prev) => {
-      const newItems = [];
-      incoming.forEach((src, index) => {
-        if (!prev.some((img) => img.src === src)) {
-          const pos = findNonOverlappingImagePosition(200, 200);
-          newItems.push({
-            src,
-            x: pos.x + index * 15,
-            y: pos.y,
-            width: 200,
-            height: 200,
-          });
-        }
-      });
-      return uniqueImages([...prev, ...newItems]);
+useEffect(() => {
+  if (!location?.state?.selectedImages) return;
+
+  const incoming = location.state.selectedImages;
+
+  setUploadedImages((prev) => {
+    const updated = [...prev];
+
+    incoming.forEach((item, index) => {
+      // Normalize item
+      const isObject = typeof item === "object";
+      const src = isObject ? item.src : item;
+
+      // Skip if already exists
+      if (updated.some((img) => img.src === src)) return;
+
+      // If position already exists → use it
+      if (isObject && item.x !== undefined && item.y !== undefined) {
+        updated.push({
+          src: item.src,
+          x: item.x,
+          y: item.y,
+          width: item.width || 200,
+          height: item.height || 200,
+        });
+      } else {
+        // Otherwise auto-place
+        const pos = findNonOverlappingImagePosition(200, 200);
+
+        updated.push({
+          src,
+          x: pos.x + index * 15,
+          y: pos.y + index * 15,
+          width: 200,
+          height: 200,
+        });
+      }
     });
-  }, [location.state?.selectedImages]);
+
+    return uniqueImages(updated);
+  });
+}, [location.state?.selectedImages]);
 
   const pointerPos = (e, rect) => {
     let clientX, clientY;
@@ -556,7 +577,7 @@ export default function Whiteboard() {
     };
 
     fetchBoard();
-  }, [id, licenses_id, token,loader]);
+  }, [id, licenses_id, token, loader]);
 
   // Helper function to calculate image position without using state
   const calculateImagePosition = (currentImages, width, height) => {
@@ -779,7 +800,7 @@ export default function Whiteboard() {
   };
   useEffect(() => {
     if (!textToolActive) return;
-  
+
     const onKeyDown = (e) => {
       if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
       e.preventDefault();
@@ -980,7 +1001,7 @@ export default function Whiteboard() {
     if (caretY > scrollTop + clientHeight - 30) {
       wrapperRef.current.scrollTop = caretY - clientHeight + 30;
     }
-   
+
     if (caretY < scrollTop) {
       wrapperRef.current.scrollTop = caretY - 10;
     }
@@ -1171,6 +1192,7 @@ export default function Whiteboard() {
     <>
       {FileUpload && (
         <ImageUpload
+          oldImages={uploadedImages}
           pathname={pathname}
           uploadedImages={SelectedImages}
           handleImageUpload={handleImageUpload}
@@ -1255,10 +1277,10 @@ export default function Whiteboard() {
                   <canvas
                     ref={setCanvasSize}
                     className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
-                        ? "cursor-text"
-                        : tool === "eraser"
-                          ? "cursor-eraser"
-                          : "cursor-crosshair"
+                      ? "cursor-text"
+                      : tool === "eraser"
+                        ? "cursor-eraser"
+                        : "cursor-crosshair"
                       }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}

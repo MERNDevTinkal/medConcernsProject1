@@ -9,7 +9,6 @@ import Loader from "../../Component/webLoader/loader";
 import { useParams } from "react-router-dom";
 import { Arrow } from "../../Component/DiseasesData/images";
 import getSetting from "../../Component/settingApi/settings";
-import { BackArrow } from "../../Component/DiseasesData/images";
 import Header from "../../Component/Layout/Header/Header";
 const SummaryList = () => {
   const navigate = useNavigate();

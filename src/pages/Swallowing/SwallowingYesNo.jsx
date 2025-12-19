@@ -1,9 +1,9 @@
 import React from "react";
- 
+
 import { Link } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import DecisionSwallowing from "./DecisionSwallowing";
-import {BackArrow,ConcernImg3} from "../../Component/DiseasesData/images";
+import { BackArrow, ConcernImg3 } from "../../Component/DiseasesData/images";
 function SwallowingYesNo() {
   return (
     <>
@@ -22,7 +22,7 @@ function SwallowingYesNo() {
             </div>
           </div>
           <div>
-            <DecisionSwallowing/>
+            <DecisionSwallowing />
           </div>
         </div>
         <Footer />
