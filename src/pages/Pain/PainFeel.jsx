@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import PainCardsList from "./PainCardsList";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
+import { GlobalContext } from "../../context/DiseaseContext";
+
 const PainFeel = () => {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -19,12 +21,13 @@ const PainFeel = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
+
   return (
     <>
       {loader ? (

@@ -78,7 +78,7 @@ function ConfrmStepYesNo() {
         return navigate(-1);
       }
 
-      updateDisease(pathprimary.replace("/", ""), valueData);
+      updateDisease(pathprimary, valueData);
       if (scalepath === "/mood-scale") {
         return navigate("/feeling-body");
       }

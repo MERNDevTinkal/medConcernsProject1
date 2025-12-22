@@ -121,10 +121,37 @@ export const GlobalProvider = ({ children }) => {
     localStorage.removeItem("diseases");
     setDiseases({});
   };
+  const deleteLastFlowItem = (currentRoute) => {
+    setDiseases((prev) => {
+      const flow = prev.summaryList?.[0]?.flow;
+
+      if (!Array.isArray(flow)) return prev;
+
+      const updatedFlow = flow.filter(
+        (item) => item.route !== currentRoute
+      );
+      const updatedSummaryList = [...prev.summaryList];
+      updatedSummaryList[0] = {
+        ...updatedSummaryList[0],
+        flow: updatedFlow,
+      };
+      const updated = {
+        ...prev,
+        summaryList: updatedSummaryList,
+      };
+      localStorage.setItem("diseases", JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+
+
+
   return (
     <GlobalContext.Provider
       value={{
         diseases,
+        deleteLastFlowItem,
         updateDisease,
         resetDiseases,
         deleteLastSummaryItem,

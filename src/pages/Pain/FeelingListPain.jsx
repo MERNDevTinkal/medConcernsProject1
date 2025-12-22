@@ -36,18 +36,18 @@ const FeelingListPain = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -64,7 +64,7 @@ const FeelingListPain = () => {
   }, [path]);
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
@@ -101,18 +101,18 @@ const FeelingListPain = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -123,6 +123,7 @@ const FeelingListPain = () => {
       navigate(valuepath);
     }
   };
+
   return (
     <>
       {loader ? (

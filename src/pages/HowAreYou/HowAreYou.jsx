@@ -49,7 +49,7 @@ export default function HowAreYou() {
           selectedLanguage === "Spanish" ? "es-ES" : "",
           audioDefault
         );
-        updateDisease(mainpath.replace("/", ""), item);
+        updateDisease(mainpath, item);
         navigate(path);
         isSpeakingRef.current = false;
       } catch (error) {

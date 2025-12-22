@@ -219,8 +219,8 @@ const NeedBoard = () => {
       const isConcern = Cookies.get("is_concern");
       const prefix =
         isConcern && isConcern?.includes("true_")
-          ? isConcern + "/" + path.replace("/", "")
-          : path.replace("/", "");
+          ? isConcern + "/" + path
+          : path;
       addOrUpdateSummary(prefix, [value]);
       navigate(
         `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,

@@ -36,7 +36,7 @@ function ConfrmStepWhen() {
         selectedLanguage === "Spanish" ? "es-ES" : "",
         audio
       );
-      updateDisease(pathprimary.replace("/", ""), value);
+      updateDisease(pathprimary, value);
       if (calendarOn && path === "/howoften") {
         return navigate("/new-problem");
       }

@@ -133,32 +133,37 @@ const BreathingProblem = () => {
     "/swallowing-problem": {
       English: "Swallowing",
       Spanish: "Deglución",
-      default: "Appetite",
+      default: "Swallowing",
     },
     "/something-problem": {
       English: "Something Happened",
       Spanish: "Algo Pasó",
-      default: "Appetite",
+      default: "Something Happened",
     },
     "/trach-problem": {
       English: "Trach",
       Spanish: "Traqueo",
-      default: "Appetite",
+      default: "Trach",
     },
     "/urination-problem": {
       English: "Urination",
       Spanish: "Orinación",
-      default: "Appetite",
+      default: "Urination",
     },
     "/vision-problem": {
       English: "Vision",
       Spanish: "Visión",
-      default: "Appetite",
+      default: "Vision",
     },
     "/wound-problem": {
       English: "Wound/Incision",
       Spanish: "Herida/Incisión",
-      default: "Appetite",
+      default: "Wound/Incision",
+    },
+    "/eating-problem": {
+      English: "Eating / Drinking",
+      Spanish: "Comer / Beber",
+      default: "Eating / Drinking",
     },
     default: {
       English: "Which Feeling are You experiencing",
@@ -171,6 +176,7 @@ const BreathingProblem = () => {
     ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
     translations?.default[selectedLanguage];
+
   return (
     <>
       {loader ? (

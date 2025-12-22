@@ -98,7 +98,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
             : path;
         addOrUpdateSummary(prefix, arrayFilter);
       } else {
-        updateDisease(path.replace("/", ""), value);
+        updateDisease(path, value);
       }
       navigate(mainpath);
       isSpeakingRef.current = false;

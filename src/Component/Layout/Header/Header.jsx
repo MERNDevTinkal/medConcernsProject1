@@ -47,9 +47,10 @@ import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
+
 const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary = false, setIsPopupOpen = () => { } }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { updateDisease, resetDiseases } = useContext(GlobalContext);
+  const { updateDisease, deleteLastFlowItem, resetDiseases } = useContext(GlobalContext);
   const location = useLocation();
   const sidebarRef = useRef(null);
   const [openPopup, setOpenPopup] = useState(false);
@@ -312,6 +313,11 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
     },
   ];
 
+  const handlelastObj = () => {
+   const getdata = deleteLastFlowItem(location.pathname);
+     navigate(-1);
+  }
+
   const handleRoutes = (name, item) => {
     updateDisease("headerNames", item);
     navigate(item.path);
@@ -333,7 +339,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
                     if (isSummary === true) {
                       setIsPopupOpen(true)
                     } else {
-                      navigate(-1);
+                      handlelastObj()
                     }
                   }}
                   src={BackArrow}

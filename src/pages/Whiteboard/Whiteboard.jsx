@@ -122,48 +122,40 @@ export default function Whiteboard() {
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
-useEffect(() => {
-  if (!location?.state?.selectedImages) return;
+  useEffect(() => {
+    if (!location?.state?.selectedImages) return;
 
-  const incoming = location.state.selectedImages;
+    const incoming = location.state.selectedImages;
 
-  setUploadedImages((prev) => {
-    const updated = [...prev];
+    setUploadedImages((prev) => {
+      const updated = [...prev];
 
-    incoming.forEach((item, index) => {
-      // Normalize item
-      const isObject = typeof item === "object";
-      const src = isObject ? item.src : item;
-
-      // Skip if already exists
-      if (updated.some((img) => img.src === src)) return;
-
-      // If position already exists → use it
-      if (isObject && item.x !== undefined && item.y !== undefined) {
-        updated.push({
-          src: item.src,
-          x: item.x,
-          y: item.y,
-          width: item.width || 200,
-          height: item.height || 200,
-        });
-      } else {
-        // Otherwise auto-place
-        const pos = findNonOverlappingImagePosition(200, 200);
-
-        updated.push({
-          src,
-          x: pos.x + index * 15,
-          y: pos.y + index * 15,
-          width: 200,
-          height: 200,
-        });
-      }
+      incoming.forEach((item, index) => {
+        const isObject = typeof item === "object";
+        const src = isObject ? item.src : item;
+        if (updated.some((img) => img.src === src)) return;
+        if (isObject && item.x !== undefined && item.y !== undefined) {
+          updated.push({
+            src: item.src,
+            x: item.x,
+            y: item.y,
+            width: item.width || 200,
+            height: item.height || 200,
+          });
+        } else {
+          const pos = findNonOverlappingImagePosition(200, 200);
+          updated.push({
+            src,
+            x: pos.x + index * 15,
+            y: pos.y + index * 15,
+            width: 200,
+            height: 200,
+          });
+        }
+      });
+      return uniqueImages(updated);
     });
-
-    return uniqueImages(updated);
-  });
-}, [location.state?.selectedImages]);
+  }, [location.state?.selectedImages]);
 
   const pointerPos = (e, rect) => {
     let clientX, clientY;
@@ -1122,8 +1114,8 @@ useEffect(() => {
     setTextToolActive(false);
     setShowKeyboard(false);
     setPaths([]);
-    // setUploadedImages([]);
-    // setImageFiles([]);
+    setUploadedImages([]);
+    setImageFiles([]);
     setTextBlocks([]);
   };
 
@@ -1229,7 +1221,7 @@ useEffect(() => {
                     {t("text")}
                   </Button>
                 </div> */}
-                {(uploadedImages.length > 0 || SelectedImages.length > 0) && (
+                {/* {(uploadedImages.length > 0 || SelectedImages.length > 0) && (
                   <CardHeader className="p-0">
                     <div
                       ref={stripRef}
@@ -1268,7 +1260,7 @@ useEffect(() => {
                       ))}
                     </div>
                   </CardHeader>
-                )}
+                )} */}
 
                 <div
                   ref={wrapperRef}
