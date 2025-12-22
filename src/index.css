@@ -988,24 +988,24 @@ font-size: 22px;
   /* .main-wrapper {
     padding-top: 60px;
   } */
-  .whiteboard-wrapper .whiteboard-card {
+  /* .whiteboard-wrapper .whiteboard-card {
     height: auto;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     overflow-x: hidden !important;
-  }
-  .whiteboard-canvas {
+  } */
+  /* .whiteboard-canvas {
     height: 200px !important;
-  }
+  } */
   .icon-size-add {
     width: 20px !important;
     height: 20px !important;
     min-width: 20px !important;
   }
-  .whiteboard-wrapper .whiteboard-toolbar {
+  /* .whiteboard-wrapper .whiteboard-toolbar {
     gap: 6px;
-  }
+  } */
 
   .dash-hexuple-items .dashboard-cards {
     height: calc(78vh - 140px);

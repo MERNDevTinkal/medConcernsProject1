@@ -177,7 +177,7 @@ export default function Whiteboard() {
       const padding = 10;
       const lineHeight = 24;
       const canvasWidth = rect.width || 985;
-      const canvasHeight = rect.height;
+      const canvasHeight = rect.height ?? 600;
       let bestX = Math.max(
         padding,
         Math.min(clickX, canvasWidth - padding - 100)
@@ -215,8 +215,9 @@ export default function Whiteboard() {
   const setCanvasSize = useCallback((node) => {
     if (!node) return;
     const dpr = window.devicePixelRatio || 1;
-    const width = 985;
-    const height = 600;
+    const viewport = window.visualViewport || window;
+    const width = viewport.width - 100 || 985;
+    const height = viewport.height - 100 || 600;
     node.width = Math.round(width * dpr);
     node.height = Math.round(height * dpr);
     node.style.width = `${width}px`;
@@ -334,8 +335,9 @@ export default function Whiteboard() {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
-    const canvasWidth = 985;
-    const canvasHeight = 600;
+    const viewport = window.visualViewport || window;
+    const canvasWidth = viewport.width - 100 || 985;
+    const canvasHeight = viewport.height - 100 || 600;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     uploadedImages.forEach((imgObj) => {
       const img = new Image();
