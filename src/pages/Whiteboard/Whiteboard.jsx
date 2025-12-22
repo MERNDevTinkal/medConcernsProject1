@@ -216,8 +216,8 @@ export default function Whiteboard() {
     if (!node) return;
     const dpr = window.devicePixelRatio || 1;
     const viewport = window.visualViewport || window;
-    const width = viewport.width - 100 || 985;
-    const height = viewport.height - 100 || 600;
+    const width = viewport.width - 120 || 985;
+    const height = viewport.height - 150 || 600;
     node.width = Math.round(width * dpr);
     node.height = Math.round(height * dpr);
     node.style.width = `${width}px`;
@@ -336,8 +336,8 @@ export default function Whiteboard() {
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
     const viewport = window.visualViewport || window;
-    const canvasWidth = viewport.width - 100 || 985;
-    const canvasHeight = viewport.height - 100 || 600;
+    const canvasWidth = viewport.width - 120 || 985;
+    const canvasHeight = viewport.height - 150 || 600;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     uploadedImages.forEach((imgObj) => {
       const img = new Image();
