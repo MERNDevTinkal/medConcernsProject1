@@ -14,6 +14,7 @@ import { gifLoader, BackArrow } from "../../Component/DiseasesData/images";
 function BreathingYesNo() {
   const navigate = useNavigate();
   const location = useLocation();
+  const getneedboard = location.state.value || {}
   const { id } = useParams();
   const [concernValues, setConcernValues] = useState({});
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -22,7 +23,7 @@ function BreathingYesNo() {
   useEffect(() => {
     if (concerns?.length > 0) {
       const concern = location.pathname.includes("/topicboard/")
-        ? topicBoard.find((c) => c.id == id)
+        ? id == "_id" ? getneedboard : topicBoard.find((c) => c.id == id)
         : concerns.find((c) => c.id == id);
       setConcernValues(concern);
     }

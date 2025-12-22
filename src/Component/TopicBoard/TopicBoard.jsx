@@ -85,37 +85,42 @@ const TopicBoard = ({
   });
   const handleConcern = async (value, mainpath) => {
     try {
-      if (!value || !mainpath) return;
       if (isSpeakingRef.current) return;
-      isSpeakingRef.current = true;
-      const voiceFile =
-        selectedLanguage === "" && selectedGender === ""
-          ? value?.maleEnglish
-          : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? value?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-              ? value?.femaleSpanish
-              : selectedLanguage === "" && selectedGender === "Female"
-                ? value?.femaleEnglish
-                : selectedLanguage === "" && selectedGender === "Male"
-                  ? value?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Male"
+      if (value && (value?.audio || mainpath)) {
+        isSpeakingRef.current = true;
+        const voiceFile =
+          selectedLanguage === "" && selectedGender === ""
+            ? value?.maleEnglish
+            : selectedLanguage === "Spanish" && selectedGender === "Male"
+              ? value?.maleSpanish
+              : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? value?.femaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                  ? value?.femaleEnglish
+                  : selectedLanguage === "" && selectedGender === "Male"
                     ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
-                      ? value?.femaleEnglish
-                      : value?.maleEnglish;
-      await getTextToSpeech(
-        selectedLanguage === "Spanish" ? value.nameEs : value.name,
-        selectedLanguage === "Spanish" ? "es-ES" : "",
-        voiceFile
-      );
-      const isConcern = Cookies.get("is_concern");
-      const prefix = isConcern && isConcern?.includes("true_")
-        ? isConcern + "/" + path
-        : path;
-      addOrUpdateSummary(prefix, [value]);
-      navigate(mainpath);
-      isSpeakingRef.current = false;
+                    : selectedLanguage === "English" && selectedGender === "Male"
+                      ? value?.maleEnglish
+                      : selectedLanguage === "English" && selectedGender === "Female"
+                        ? value?.femaleEnglish
+                        : value?.maleEnglish;
+        await getTextToSpeech(
+          selectedLanguage === "Spanish" ? value.nameEs : value.name,
+          selectedLanguage === "Spanish" ? "es-ES" : "",
+          voiceFile
+        );
+        const isConcern = Cookies.get("is_concern");
+        const prefix = isConcern && isConcern?.includes("true_")
+          ? isConcern + "/" + path
+          : path;
+        addOrUpdateSummary(prefix, [value]);
+        // navigate(mainpath);
+        navigate(
+          `${value?.audio ? "/topicboard/custom/_id" : mainpath}`,
+          { state: { value } }
+        );
+        isSpeakingRef.current = false;
+      }
     } catch (error) {
       console.error("Error in handleConcern:", error);
     }

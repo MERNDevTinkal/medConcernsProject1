@@ -53,7 +53,6 @@ const SummaryList = () => {
         });
       });
   };
-  console.log("diseasesdiseasesdiseases", diseases)
   const handleSummaryListRoute = () => {
     navigate("/summary-list");
   };
@@ -102,7 +101,7 @@ const SummaryList = () => {
     setIsPopupOpen(false);
     setShowSaveModal(true);
   };
-  console.log("Dddddd",diseases)
+
   return (
     <>
       {loader ? (
