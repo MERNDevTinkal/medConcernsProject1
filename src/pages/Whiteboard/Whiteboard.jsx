@@ -1274,7 +1274,7 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
+                    className={`whiteboard-canvas touch-none pt-0 z-0  ${tool === "text"
                       ? "cursor-text"
                       : tool === "eraser"
                         ? "cursor-eraser"
