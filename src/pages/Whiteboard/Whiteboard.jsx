@@ -129,43 +129,80 @@ export default function Whiteboard() {
 
     setUploadedImages((prev) => {
       const updated = [...prev];
-
+      const viewport = window.visualViewport || window;
+      const isMobile = viewport.width < 768;
+      const maxSize = isMobile ? 120 : 200; 
+      const mobileMaxSize = viewport.width < 480 ? 80 : 120;
       incoming.forEach((item, index) => {
         const isObject = typeof item === "object";
         const src = isObject ? item.src : item;
         if (updated.some((img) => img.src === src)) return;
-
-
-        const viewport = window.visualViewport || window;
-        const isMobile = viewport.width < 768;
-        const maxSize = isMobile ? 100 : 200;
-
-        if (item.width > maxSize || item.height > maxSize) {
-          const scale = Math.min(maxSize / item.width, maxSize / item.height);
-          item.width *= scale;
-          item.height *= scale;
-        }
-        if (viewport.width < 480) {
-          const mobileScale = Math.min(80 / width, 80 / height);
-          item.width *= mobileScale;
-          item.height *= mobileScale;
-        }
         if (isObject && item.x !== undefined && item.y !== undefined) {
+          let width = item.width || maxSize;
+          let height = item.height || maxSize;
+          if (isMobile && (width > maxSize || height > maxSize)) {
+            const scale = Math.min(maxSize / width, maxSize / height);
+            width *= scale;
+            height *= scale;
+          }
+          if (viewport.width < 480 && (width > mobileMaxSize || height > mobileMaxSize)) {
+            const scale = Math.min(mobileMaxSize / width, mobileMaxSize / height);
+            width *= scale;
+            height *= scale;
+          }
           updated.push({
             src: item.src,
             x: item.x,
             y: item.y,
-            width: item.width || 200,
-            height: item.height || 200,
+            width,
+            height,
+            originalWidth: item.originalWidth || width,
+            originalHeight: item.originalHeight || height,
           });
         } else {
-          const pos = findNonOverlappingImagePosition(200, 200);
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            let width = img.width;
+            let height = img.height;
+            if (isMobile) {
+              const targetMaxSize = viewport.width < 480 ? mobileMaxSize : maxSize;
+              if (width > targetMaxSize || height > targetMaxSize) {
+                const scale = Math.min(targetMaxSize / width, targetMaxSize / height);
+                width *= scale;
+                height *= scale;
+              }
+            } else {
+              if (width > maxSize || height > maxSize) {
+                const scale = Math.min(maxSize / width, maxSize / height);
+                width *= scale;
+                height *= scale;
+              }
+            }
+            const pos = findNonOverlappingImagePosition(width, height);
+            setUploadedImages(current => {
+              const existingIndex = current.findIndex(img => img.src === src);
+              if (existingIndex >= 0) return current;
+              return [...current, {
+                src,
+                x: pos.x + index * (isMobile ? 5 : 15), 
+                y: pos.y + index * (isMobile ? 5 : 15),
+                width,
+                height,
+                originalWidth: img.width,
+                originalHeight: img.height,
+              }];
+            });
+          };
+          const placeholderSize = isMobile ? (viewport.width < 480 ? 80 : 120) : 200;
+          const pos = findNonOverlappingImagePosition(placeholderSize, placeholderSize);
           updated.push({
             src,
-            x: pos.x + index * 15,
-            y: pos.y + index * 15,
-            width: item.width || 200,
-            height: item.height || 200,
+            x: pos.x + index * (isMobile ? 5 : 15),
+            y: pos.y + index * (isMobile ? 5 : 15),
+            width: placeholderSize,
+            height: placeholderSize,
+            placeholder: true,
           });
         }
       });
