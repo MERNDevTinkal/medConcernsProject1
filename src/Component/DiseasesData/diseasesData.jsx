@@ -2062,7 +2062,7 @@ export const breathingWhenOptions = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -2345,7 +2345,7 @@ export const concerns = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
   {
     id: 22,
@@ -2580,7 +2580,7 @@ export const topicBoard = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -2792,7 +2792,7 @@ const emotionsData = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -3433,7 +3433,7 @@ const needBoard = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -3679,7 +3679,7 @@ const painCards = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -3743,7 +3743,7 @@ const swallowingDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -3794,7 +3794,7 @@ const heartburnDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -3869,7 +3869,7 @@ const heartburnswallowingDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -3956,7 +3956,7 @@ const painwithswallowingDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4044,7 +4044,7 @@ const trachSwallowingFoodStickingDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4131,7 +4131,7 @@ const fearofswallowingDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4231,7 +4231,7 @@ const drymouthDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4354,7 +4354,7 @@ const trachproblemDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4477,7 +4477,7 @@ const trachDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4540,7 +4540,7 @@ const mucussecretionsDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4593,7 +4593,7 @@ const feedingtubeDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4729,7 +4729,7 @@ const trachproblemsubDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4817,7 +4817,7 @@ const trachmucusSecretionsDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4904,7 +4904,7 @@ const trachswallowingDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -4991,7 +4991,7 @@ const medicationPainwithSwallowingDesises = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5225,7 +5225,7 @@ const trachDesies = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5372,7 +5372,7 @@ const SwallowingTrachDesies = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5495,7 +5495,7 @@ const MedicationSidEffectsDesies = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5655,7 +5655,7 @@ const medicationswallowing = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5718,7 +5718,7 @@ const medicationnoAppetite = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5781,7 +5781,7 @@ const medicationSidEffectsAppetite = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5880,7 +5880,7 @@ const medicationBowels = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -5967,7 +5967,7 @@ const medicationUrination = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6054,7 +6054,7 @@ const nauseaSwallowingDesies = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6210,7 +6210,7 @@ const noappetiteDesies = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6285,7 +6285,7 @@ const swallowingfeedingtube = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6372,7 +6372,7 @@ const swallowingfeedingtubebowelsDesiese = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6435,7 +6435,7 @@ const bowelsfeedingtubeDesiese = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6510,7 +6510,7 @@ const fatigueTroubleSleeping = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6597,7 +6597,7 @@ const EatingdrinkingNoAppetite = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6673,7 +6673,7 @@ const eatingdrinkingNoAppetiteNausea = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6749,7 +6749,7 @@ const medicationNausea = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     ffemaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6837,7 +6837,7 @@ const medicationFatigue = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -6903,7 +6903,7 @@ const eatingDonoteatThis = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7036,7 +7036,7 @@ const eatingDonoteatspecialdiet = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7123,7 +7123,7 @@ const medicationSidEffectsAppetiteNausea = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 // latest update till here
@@ -7204,7 +7204,7 @@ const medicationHardtoSwallow = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7259,7 +7259,7 @@ const medicationHardtoSwallowwholeliquid = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7314,7 +7314,7 @@ const medicationTiming = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7369,7 +7369,7 @@ const medicationWholeCrushedLiquid = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7435,7 +7435,7 @@ const visionGlasses = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7538,7 +7538,7 @@ const hearingAids = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 const mucusProblemsub = [
@@ -7626,7 +7626,7 @@ const mucusProblemsub = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7690,7 +7690,7 @@ const illnessAppetite = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7758,7 +7758,7 @@ const somethingHappenedStrokeSymptoms = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7846,7 +7846,7 @@ const movementconcerns = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -7995,7 +7995,7 @@ const communicationConcerns = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -8098,7 +8098,7 @@ const hearingConcers = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -8199,7 +8199,7 @@ const visionConcers = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -8311,7 +8311,7 @@ const feedingBowels = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -8390,7 +8390,7 @@ const trachSwallowing = [
     maleEnglish: SomethingElseFemale,
     femaleEnglish: somethingElseFemale,
     femaleSpanish: AlgoMasSpanishFemale,
-    maleSpanish: AlgomasMale,
+    maleSpanish: AlgoMasSpanishMale,
   },
 ];
 
@@ -8527,7 +8527,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -8617,7 +8617,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -8771,7 +8771,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -8875,7 +8875,7 @@ export const diseasesData = {
     {
       id: "9",
       name: "Lost Weight Without Trying",
-      nameEs: "Bajé de Peso Sin Intentarlo",
+      nameEs: "Bajé de Peso sin Intentarlo",
       image: LostWeightWithoutTrying,
       path: "/howoften",
       secPath: "/confrm-step-yesno",
@@ -8955,7 +8955,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
   "/swallowing-problem-sub": [
@@ -9082,7 +9082,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -9241,7 +9241,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -9322,8 +9322,8 @@ export const diseasesData = {
     },
     {
       id: "7",
-      name: "Toilet",
-      nameEs: "Inodoro",
+      name: "Bathroom",
+      nameEs: "Baño",
       image: ToiletImg,
       secPath: "/confrm-step-yesno",
 
@@ -9378,7 +9378,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -9490,7 +9490,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -9641,7 +9641,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -9771,7 +9771,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -9888,7 +9888,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
   "/movement-problem": movementconcerns,
@@ -10034,7 +10034,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -10171,7 +10171,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -10286,7 +10286,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -10389,7 +10389,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 
@@ -10542,7 +10542,7 @@ export const diseasesData = {
       maleEnglish: SomethingElseFemale,
       femaleEnglish: somethingElseFemale,
       femaleSpanish: AlgoMasSpanishFemale,
-      maleSpanish: AlgomasMale,
+      maleSpanish: AlgoMasSpanishMale,
     },
   ],
 };

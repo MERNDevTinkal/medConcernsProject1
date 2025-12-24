@@ -88,7 +88,7 @@ const TopicBoard = ({
       if (isSpeakingRef.current) return;
       if (value && (value?.audio || mainpath)) {
         isSpeakingRef.current = true;
-        const voiceFile =
+        const voiceFile = value?.audio ? value?.audio :
           selectedLanguage === "" && selectedGender === ""
             ? value?.maleEnglish
             : selectedLanguage === "Spanish" && selectedGender === "Male"
