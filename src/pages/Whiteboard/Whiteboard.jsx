@@ -979,46 +979,6 @@ export default function Whiteboard() {
   };
   /* -------------------- Image Upload -------------------- */
 
-  // const handleImageUpload = (files) => {
-  //   if (!files || files.length === 0) return;
-
-  //   Array.from(files).forEach((file) => {
-  //     setImageFiles((prev) => [...prev, file]);
-
-  //     const src = URL.createObjectURL(file);
-  //     const img = new Image();
-
-  //     img.onload = () => {
-  //       let { width, height } = img;
-  //       const maxSize = 200;
-
-  //       if (width > maxSize || height > maxSize) {
-  //         const scale = Math.min(maxSize / width, maxSize / height);
-  //         width *= scale;
-  //         height *= scale;
-  //       }
-  //       const pos = findNonOverlappingImagePosition(
-  //         width,
-  //         height,
-  //         uploadedImages
-  //       );
-  //       setUploadedImages((prev) => [
-  //         ...prev,
-  //         {
-  //           src,
-  //           x: pos.x,
-  //           y: pos.y,
-  //           width,
-  //           height,
-  //         },
-  //       ]);
-  //       if (src.startsWith("blob:")) {
-  //         return;
-  //       }
-  //     };
-  //     img.src = src;
-  //   });
-  // };
   const handleImageUpload = (files) => {
     if (!files || files.length === 0) return;
 
@@ -1264,12 +1224,12 @@ export default function Whiteboard() {
     const trans = {
       en: {
         name: "Whiteboard",
-        title: "Saved WhiteBoards List",
+        title: "Saved Whiteboards",
         // text: "View List"
       },
       sp: {
         name: "Pizarron",
-        title: "Lista de Pizarras Guardadas",
+        title: "Pizarras guardadas",
         // text: "Ver Lista"
       }
     }
