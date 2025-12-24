@@ -4009,7 +4009,6 @@ const trachSwallowingFoodStickingDesises = [
     femaleSpanish: withmedicacionSpanishFemale,
     maleSpanish: ConMedicacionMale,
   },
-
   {
     id: "5",
     name: "With Saliva",
@@ -4421,7 +4420,7 @@ const trachDesises = [
   },
   {
     id: "6",
-    name: "Breathing / Coughing ",
+    name: "Breathing / Coughing",
     nameEs: "Respiración / Tos",
     image: ConcernImg2,
     secPath: "/confrm-step-yesno",

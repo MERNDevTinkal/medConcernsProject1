@@ -169,7 +169,7 @@ export default function TabsCalendar() {
   const location = useLocation();
   const { pathValue } = location.state ?? {};
   const pathprimary = location.pathname;
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const isSpeakingRef = useRef(false);
   const { updateDisease, addOrUpdateSummary } = useContext(GlobalContext);
   // Week abbreviations
@@ -541,7 +541,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Ahora" : "Now"}`,
       },
     ]);
-    // navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
     isSpeakingRef.current = false;
   };
 
@@ -600,7 +600,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Día" : "Day"}: ${text}`,
       },
     ]);
-    // navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
     isSpeakingRef.current = false;
   };
 
@@ -628,7 +628,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Semana" : "Week"}: ${text}`,
       },
     ]);
-    // navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
     isSpeakingRef.current = false;
   };
 
@@ -656,7 +656,7 @@ export default function TabsCalendar() {
         name: `${selectedLanguage === "Spanish" ? "Mes" : "Month"}: ${text}`,
       },
     ]);
-    // navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
     isSpeakingRef.current = false;
   };
 
@@ -681,7 +681,7 @@ export default function TabsCalendar() {
                     : IDontKnowMale
     );
 
-    // navigate("/new-problem");
+    navigate("/new-problem");
   };
 
   return (

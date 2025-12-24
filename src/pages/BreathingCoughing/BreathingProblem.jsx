@@ -53,11 +53,11 @@ const BreathingProblem = () => {
           ? isConcern + "/" + Mainpath
           : Mainpath;
       addOrUpdateSummary(prefix, [value]);
-      if (Mainpath === "/swallowingpain-problem") {
-        Cookies.set("is_calendra", "yes")
-      } else {
-        Cookies.set("is_calendra", "no")
-      }
+      // if (Mainpath === "/swallowingpain-problem") {
+      //   Cookies.set("is_calendra", "yes")
+      // } else {
+      //   Cookies.set("is_calendra", "no")
+      // }
       navigate(path, {
         state: { headerName: value },
       });
