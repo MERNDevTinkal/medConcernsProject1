@@ -694,7 +694,7 @@ export default function TabsCalendar() {
             selectedLanguage={selectedLanguage}
             name={
               selectedLanguage === "Spanish"
-                ? "¿Cómo empezó?"
+                ? "¿Cuándo empezó?"
                 : "When did it start?"
             }
           />
