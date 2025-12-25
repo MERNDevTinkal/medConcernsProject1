@@ -235,8 +235,6 @@ const TopicBoard = ({
                         : item?.nameEs
                       : item?.name}
                   </p>
-
-
                 </div>
 
                 {/* English text positioned near bottom */}
