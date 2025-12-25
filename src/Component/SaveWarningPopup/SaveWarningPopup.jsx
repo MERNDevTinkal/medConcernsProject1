@@ -16,14 +16,14 @@ const SaveWarningPopup = ({ open, onConfirm, onCancel }) => {
 
         <div className="flex justify-center gap-4">
           <button
-            onClick={onConfirm}
+            onClick={() => { onConfirm() }}
             className="px-5 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition"
           >
             Discard
           </button>
 
           <button
-            onClick={onCancel}
+            onClick={() => { onCancel() }}
             className="px-5 py-2 rounded-lg bg-gray-300 text-black font-semibold hover:bg-gray-400 transition"
           >
             Save First

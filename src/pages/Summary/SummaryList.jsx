@@ -80,10 +80,9 @@ const SummaryList = () => {
       }
       Cookies.set("is_concern", `true_${count}`);
       navigate("/concern");
-    } else {
+    } else if (value === "No") {
       setIsPopupOpen(true);
       Cookies.remove("is_concern");
-      clearAllDiseases()
     }
   };
 
