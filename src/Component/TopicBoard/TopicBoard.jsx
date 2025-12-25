@@ -196,7 +196,7 @@ const TopicBoard = ({
                           : ""
               }
               style={{ cursor: "pointer" }}
-              onClick={() => handleConcern(item, item.path)}
+
             >
               <div
                 key={index}
@@ -223,9 +223,7 @@ const TopicBoard = ({
                     </span>
                   </div>
                 )}
-                <div className="text-[20px] mt-3 mb-2 text-black">
-
-
+                <div className="text-[20px] mt-3 mb-2 text-black" onClick={() => handleConcern(item, item.path)}>
                   <p className={`text-[20px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
                     ? "shirnk-txt"
                     : ""
