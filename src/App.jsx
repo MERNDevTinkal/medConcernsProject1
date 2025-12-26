@@ -135,6 +135,7 @@ function App() {
           <Route path="/concern-pain" element={<ConcernPain />} />
           <Route path="/new-problem" element={<NewProblem />} />
           <Route path="/yes-no-concerns" element={<NewProblem />} />
+          <Route path="/yes-no" element={<NewProblem />} />
           <Route path="/full-body" element={<FullBody />} />
           <Route path="/pain-front" element={<PainFront />} />
           <Route path="/back-pain" element={<BackPain />} />

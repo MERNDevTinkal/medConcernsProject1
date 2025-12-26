@@ -117,7 +117,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
     },
     {
       icon: MenuIcon7 ? MenuIcon7 : gifLoader,
-      path: "/yes-no-concerns",
+      path: "/yes-no",
       en: "Yes / No / ? Board",
       es: "Sí / No / ? Tablero",
     },

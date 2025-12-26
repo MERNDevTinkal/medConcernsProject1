@@ -3,7 +3,7 @@ import React, { useContext, useRef } from "react";
 import { WomenIcon, Question, Checked, Close } from "../../Component/DiseasesData/images"
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
-import {dashimghow27} from "../../Component/DiseasesData/images";
+import { dashimghow27 } from "../../Component/DiseasesData/images";
 import Cookies from "js-cookie";
 
 import {
@@ -100,7 +100,9 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
       } else {
         updateDisease(path, value);
       }
-      navigate(mainpath);
+      if (path !== "/yes-no") {
+        navigate(mainpath);
+      }
       isSpeakingRef.current = false;
     }
   };
