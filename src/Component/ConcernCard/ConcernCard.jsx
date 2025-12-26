@@ -21,7 +21,7 @@ const ConcernCard = ({
     if (!value || !mainpath) return;
     if (isSpeakingRef.current) return;
     try {
-      Cookies.remove("is_concern");
+      Cookies.remove("is_pain_flow");
       isSpeakingRef.current = true;
       if (!Cookies.get("is_concern") || Cookies.get("is_concern") === undefined) {
         resetDiseases();
