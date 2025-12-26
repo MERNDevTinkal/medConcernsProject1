@@ -74,6 +74,9 @@ function ConfrmStepYesNo() {
       if (Cookies.get("is_calendra") === "yes") {
         return navigate("/howoften");
       }
+      if (Cookies.get("is_pain_flow") === "Yes") {
+        return navigate("/when");
+      }
       if (valueData === "NO") {
         return navigate(-1);
       }

@@ -92,7 +92,7 @@ import wristRightMan from "/assets/images/men/wristright.png";
 // EXPORT ALL
 export const bodyImages = {
   women: {
-    Forhead: foreheadWoman,
+    Forehead: foreheadWoman,
     Eye: eyeWoman,
     Nose: noseWoman,
     Mouth: mouthWoman,
@@ -123,7 +123,7 @@ export const bodyImages = {
     "Left Thigh": thighWoman,
     "Left Knee": kneeWoman,
     "Left Lower Leg": lowerLegWoman,
-    "Left Foot & Toe": footToeWoman,
+    "Left Foot / Toe": footToeWoman,
     "Left Butt": buttWoman,
 
     "Right Eye": eyeWoman,
@@ -142,14 +142,14 @@ export const bodyImages = {
     "Right Thigh": rightThighWoman,
     "Right Knee": kneeRightWoman,
     "Right Lower Leg": rightLowerLegWoman,
-    "Right Foot & Toe": footToeRightWoman,
+    "Right Foot / Toe": footToeRightWoman,
     "Right Butt": rightButtWoman,
 
     Hip: rightHipWoman,
     Thigh: thighWoman,
     Knee: kneeWoman,
     "Lower Leg": lowerLegWoman,
-    "Foot & Toe": footToeWoman,
+    "Foot / Toe": footToeWoman,
     Shoulder: rightShoulderWoman,
     Arm: upperArmWoman,
     Hand: fingerWoman,
@@ -225,7 +225,7 @@ export const bodyImages = {
     "Pierna Inferior": lowerLegWoman,
   },
   men: {
-    Forhead: foreheadMan,
+    Forehead: foreheadMan,
     Eye: eyeMan,
     Nose: noseMan,
     Mouth: mouthMan,
@@ -252,7 +252,7 @@ export const bodyImages = {
     "Left Thigh": leftThighMan,
     "Left Knee": kneeLeftMan,
     "Left Lower Leg": lowerLegMan,
-    "Left Foot & Toe": footToeLeftMan,
+    "Left Foot / Toe": footToeLeftMan,
     "Left Butt": leftButtMan,
 
     "Right Eye": eyeMan,
@@ -271,7 +271,7 @@ export const bodyImages = {
     "Right Thigh": rightThighMan,
     "Right Knee": kneeMan,
     "Right Lower Leg": lowerLegRightMan,
-    "Right Foot & Toe": footToeMan,
+    "Right Foot / Toe": footToeMan,
     "Right Butt": rightButtMan,
 
     Ear: leftEarMan,
@@ -279,7 +279,7 @@ export const bodyImages = {
     Thigh: rightThighMan,
     Knee: kneeMan,
     "Lower Leg": lowerLegMan,
-    "Foot & Toe": footToeMan,
+    "Foot / Toe": footToeMan,
     Shoulder: rightShoulderMan,
     Arm: armMan,
     Hand: fingerRightMan,

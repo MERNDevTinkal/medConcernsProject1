@@ -28,6 +28,7 @@ const SummaryList = () => {
   const saveData = () => {
     const licenses_id = localStorage.getItem("license_key");
     const token = localStorage.getItem("token");
+    Cookies.remove("is_pain_flow");
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", saveAs);
@@ -72,6 +73,7 @@ const SummaryList = () => {
   }, []);
   const confirmFun = (value) => {
     setshowDonePopUp(false);
+    Cookies.remove("is_pain_flow");
     if (value === "Yes") {
       const lastValue = Cookies.get("is_concern");
       let count = 1;
@@ -83,6 +85,7 @@ const SummaryList = () => {
     } else if (value === "No") {
       setIsPopupOpen(true);
       Cookies.remove("is_concern");
+
     }
   };
 
