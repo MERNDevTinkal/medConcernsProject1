@@ -681,7 +681,7 @@ export default function TabsCalendar() {
                     : IDontKnowMale
     );
 
-    navigate("/new-problem");
+    navigate(pathValue === "noNewProblem" ? "/summary" : "/new-problem");
   };
 
   return (
