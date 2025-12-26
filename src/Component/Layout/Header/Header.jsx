@@ -314,8 +314,8 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
   ];
 
   const handlelastObj = () => {
-   const getdata = deleteLastFlowItem(location.pathname);
-     navigate(-1);
+    const getdata = deleteLastFlowItem(location.pathname);
+    navigate(-1);
   }
 
   const handleRoutes = (name, item) => {
@@ -415,6 +415,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
                     <li
                       onClick={() => {
                         Cookies.remove("is_concern");
+                        Cookies.remove("is_pain_flow");
                         handleSummary();
                         if (item.fun) item.fun();
                         handleRoutes(
