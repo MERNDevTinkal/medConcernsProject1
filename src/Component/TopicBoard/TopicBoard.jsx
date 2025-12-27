@@ -196,7 +196,7 @@ const TopicBoard = ({
                           : ""
               }
               style={{ cursor: "pointer" }}
-
+              onClick={() => handleConcern(item, item.path)}
             >
               <div
                 key={index}
@@ -207,7 +207,8 @@ const TopicBoard = ({
                   <div className="flex justify-end absolute top-4 right-4">
                     <span style={{ color: "blue" }}>
                       <MdEdit
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           navigate(`/icon-upload`, {
                             state: { item, hideImage: "boardside" },
                           });
@@ -216,14 +217,15 @@ const TopicBoard = ({
                     </span>
                     <span style={{ color: "red" }}>
                       <MdOutlineDelete
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           handleDelete(item.id);
                         }}
                       />
                     </span>
                   </div>
                 )}
-                <div className="text-[20px] mt-3 mb-2 text-black" onClick={() => handleConcern(item, item.path)}>
+                <div className="text-[20px] mt-3 mb-2 text-black" >
                   <p className={`text-[20px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
                     ? "shirnk-txt"
                     : ""
