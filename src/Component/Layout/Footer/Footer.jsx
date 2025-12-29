@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="py-2 px-5 mx-auto thm-footer-innr">
           <ul className="flex md:gap-30 sm:gap-5 justify-around">
             <li>
-              <Link to="/yes-no-concerns">
+              <Link to="/yes-no">
                 <img src={icon01} />
               </Link>
             </li>

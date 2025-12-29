@@ -6,7 +6,6 @@ import MenuIcon4 from "/assets/images/good.png";
 import MenuIcon1 from "/assets/images/sidebar-icon-01.svg";
 import MenuIcon2 from "/assets/images/sidebar-icon-02.svg";
 import MenuIcon3 from "/assets/images/sidebar-icon-03.svg";
-// import MenuIcon4 from "/assets/images/sidebar-icon-04.svg";
 import MenuIcon5 from "/assets/images/concern-img-02.png";
 import MenuIcon6 from "/assets/images/sidebar-icon-06.svg";
 import MenuIcon7 from "/assets/images/sidebar-icon-07.svg";
