@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import Header from "../../Component/Layout/Header/Header";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import {  useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";

@@ -12,7 +12,6 @@ export default function ImagesLibrery() {
   const navigate = useNavigate();
   const location = useLocation();
   const uploadedImages = location.state?.uploadedImages ?? [];
-  console.log("dddd", location.state)
   const oldImages = location.state?.oldImages ?? [];
   const pathname = location.state?.pathname ?? [];
   const imageList = Object.values(Images).map((img) => img.default);
@@ -22,7 +21,6 @@ export default function ImagesLibrery() {
   const [IntroductionOn, setIntroductionOn] = useState("");
   const [loader, setLoader] = useState(true);
   const [selectedImages, setSelectedImages] = useState([]);
-  console.log("Ffffff", oldImages)
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
@@ -53,7 +51,6 @@ export default function ImagesLibrery() {
     );
   };
   const handleDone = () => {
-    console.log("===>selectedImages", selectedImages)
     navigate(pathname, { state: { selectedImages } });
   };
 

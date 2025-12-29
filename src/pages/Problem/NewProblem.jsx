@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Header from "../../Component/Layout/Header/Header";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-import { GlobalContext } from "../../context/DiseaseContext";
 const NewProblem = () => {
   const location = useLocation();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");

@@ -1,8 +1,6 @@
-import React from "react"; 
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import FaceDiagram from "../../Component/Paindiagram/FaceDiagram";
-import { Link } from "react-router-dom";
 import DecisionCardSed from "../../Component/ProblemCard/DecisionCardSed";
 
 const EarPain = () => {

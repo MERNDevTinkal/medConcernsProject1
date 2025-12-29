@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import apiCall from "../../Component/apiCall/apiCall";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useNavigate,  useLocation } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 

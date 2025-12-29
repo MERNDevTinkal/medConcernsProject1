@@ -1,4 +1,3 @@
-import React from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import ConcernImg1 from "../../assets/images/pain-img.png";
 import { Link } from "react-router-dom";

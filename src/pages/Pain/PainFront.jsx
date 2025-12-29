@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../../Component/Layout/Header/Header";
 import PainDiagramFront from "../../Component/Paindiagram/PainDiagramFront";
 import Footer from "../../Component/Layout/Footer/Footer";

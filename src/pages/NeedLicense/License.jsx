@@ -1,4 +1,3 @@
-import React from "react";
 import {logo} from "../../Component/DiseasesData/images";
 import { Link } from "react-router-dom";
 

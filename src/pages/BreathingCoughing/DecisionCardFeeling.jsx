@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Checked from "../../assets/images/checked.svg";
 import Close from "../../assets/images/close.svg"; 
 

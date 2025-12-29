@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import  { useContext, useEffect, useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
@@ -23,7 +23,7 @@ const DecisionCardFeeling = ({
   const { name } = useParams();
   const navigate = useNavigate();
   const [pathUrl, setPathUrl] = useState("");
-  const { updateDisease, diseases } = useContext(GlobalContext);
+  const { updateDisease } = useContext(GlobalContext);
   const handleBreathingYesNo = async (value, path, audio) => {
     if (value && path) {
       await getTextToSpeech(

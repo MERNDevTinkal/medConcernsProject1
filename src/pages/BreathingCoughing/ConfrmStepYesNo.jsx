@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, useRef } from "react";
+import  { useEffect, useContext, useState, useRef } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { Checked, Close, BackArrow } from "../../Component/DiseasesData/images";
