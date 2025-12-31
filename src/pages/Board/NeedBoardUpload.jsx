@@ -119,7 +119,7 @@ const NeedBoardUpload = () => {
     try {
       // For iOS Safari, we need to handle permissions differently
       if (isIos && isSafari) {
-        requestIOSPermission();
+        // requestIOSPermission();
 
         // Create a temporary audio element to trigger permission on iOS
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
