@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import {
@@ -10,7 +9,7 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import apiCall from "../../Component/apiCall/apiCall";
-import { useNavigate,  useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 
@@ -26,6 +25,9 @@ const NeedBoardUpload = () => {
   const [isAudioError, setAudioError] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [permissionGranted, setPermissionGranted] = useState(false);
+  const [isIos, setIsIos] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
 
   const [calendarOn, setCalendarOn] = useState(false);
   const [introductionOn, setIntroductionOn] = useState(false);
@@ -43,12 +45,34 @@ const NeedBoardUpload = () => {
   const licenses_id = localStorage.getItem("license_key");
 
   useEffect(() => {
+    // Detect iOS and Safari
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(userAgent);
+
+    setIsIos(isIOS);
+    setIsSafari(isSafariBrowser);
+
     if (item) {
       setExistingData(item);
       setAudioPreview(item.audio || null);
       setImagePreview(item.image || null);
     }
+
+    // Cleanup on unmount
+    return () => {
+      stopMediaTracks();
+    };
   }, [item]);
+
+  const stopMediaTracks = () => {
+    if (mediaStreamRef.current) {
+      mediaStreamRef.current.getTracks().forEach(track => {
+        track.stop();
+      });
+      mediaStreamRef.current = null;
+    }
+  };
 
   const handleAudioUpload = (e) => {
     const file = e.target.files[0];
@@ -72,11 +96,66 @@ const NeedBoardUpload = () => {
     }
   };
 
+  // iOS-specific permission request
+  const requestIOSPermission = () => {
+    if (isIos) {
+      toast.info(
+        <div>
+          <p>On iOS Safari:</p>
+          <p>1. Allow microphone access when prompted</p>
+          <p>2. If denied, go to:</p>
+          <p>Settings &gt; Safari &gt; Microphone</p>
+          <p>3. Enable microphone for this site</p>
+        </div>,
+        { autoClose: 5000, closeButton: true }
+      );
+    }
+  };
+
   const startRecording = async () => {
+    // Stop any existing tracks first
+    stopMediaTracks();
+
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      // For iOS Safari, we need to handle permissions differently
+      if (isIos && isSafari) {
+        requestIOSPermission();
+
+        // Create a temporary audio element to trigger permission on iOS
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        await audioContext.resume();
+        audioContext.close();
+      }
+
+      // iOS requires specific constraints
+      const constraints = isIos ? {
+        audio: {
+          echoCancellation: false,
+          noiseSuppression: false,
+          autoGainControl: false,
+          sampleRate: 44100
+        }
+      } : { audio: true };
+
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
       mediaStreamRef.current = stream;
-      const recorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
+
+      // iOS Safari compatibility - use supported MIME types
+      let mimeType = "audio/webm";
+      if (isIos) {
+        // iOS prefers these formats
+        if (MediaRecorder.isTypeSupported('audio/mp4')) {
+          mimeType = 'audio/mp4';
+        } else if (MediaRecorder.isTypeSupported('audio/aac')) {
+          mimeType = 'audio/aac';
+        }
+      }
+
+      const recorder = new MediaRecorder(stream, {
+        mimeType,
+        audioBitsPerSecond: 128000
+      });
+
       const chunks = [];
 
       recorder.ondataavailable = (e) => {
@@ -84,28 +163,100 @@ const NeedBoardUpload = () => {
       };
 
       recorder.onstop = () => {
-        const blob = new Blob(chunks, { type: "audio/wav" });
+        // Use appropriate blob type for iOS
+        const blobType = isIos ? 'audio/mp4' : 'audio/wav';
+        const blob = new Blob(chunks, { type: blobType });
         const audioURL = URL.createObjectURL(blob);
         setAudio(blob);
         setAudioPreview(audioURL);
         setRecordedChunks([]);
         setIsRecording(false);
-        stream.getTracks().forEach((t) => t.stop());
+        setPermissionGranted(true);
+
+        // Don't stop tracks immediately on iOS (can cause issues)
+        if (!isIos) {
+          stopMediaTracks();
+        }
       };
 
-      recorder.start();
+      recorder.onerror = (event) => {
+        console.error("Recorder error:", event.error);
+        toast.error("Recording error occurred. Please try again.", { autoClose: 1500 });
+        setIsRecording(false);
+        stopMediaTracks();
+      };
+
+      // For iOS, use shorter timeslice
+      const timeslice = isIos ? 250 : 1000;
+      recorder.start(timeslice);
       setMediaRecorder(recorder);
       setRecordedChunks(chunks);
       setIsRecording(true);
-    } catch {
-      toast.error("Microphone access denied.", { autoClose: 1500 });
+
+      // Auto-stop after 3 minutes for iOS (conservative)
+      const maxDuration = isIos ? 180000 : 300000; // 3 min for iOS, 5 min for others
+      setTimeout(() => {
+        if (recorder.state === 'recording') {
+          stopRecording();
+          toast.info("Recording stopped automatically", { autoClose: 2000 });
+        }
+      }, maxDuration);
+
+    } catch (error) {
+      console.error("Recording error:", error);
+
+      let errorMessage = "Failed to access microphone. ";
+
+      if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+        errorMessage += "Permission denied. ";
+        if (isIos) {
+          errorMessage += "On iOS, go to Settings > Safari > Microphone and allow access.";
+        } else {
+          errorMessage += "Please allow microphone access in your browser settings.";
+        }
+      } else if (error.name === 'NotFoundError') {
+        errorMessage += "No microphone found.";
+      } else if (error.name === 'NotReadableError') {
+        errorMessage += "Microphone is already in use by another application.";
+      } else if (error.name === 'SecurityError') {
+        errorMessage += "Microphone access requires a secure connection (HTTPS).";
+      }
+
+      toast.error(errorMessage, { autoClose: 4000 });
+      setIsRecording(false);
+      stopMediaTracks();
+
+      // Show iOS-specific guidance
+      if (isIos && (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError')) {
+        setTimeout(() => {
+          toast.info(
+            <div>
+              <strong>iOS Safari Microphone Fix:</strong>
+              <ol style={{ marginLeft: '20px', textAlign: 'left' }}>
+                <li>Tap AA in address bar</li>
+                <li>Select "Website Settings"</li>
+                <li>Enable "Microphone"</li>
+                <li>Refresh the page</li>
+              </ol>
+            </div>,
+            { autoClose: 6000, closeButton: true }
+          );
+        }, 1000);
+      }
     }
   };
 
   const stopRecording = () => {
-    if (mediaRecorder && mediaRecorder.state !== "inactive") {
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
       mediaRecorder.stop();
+    } else {
+      setIsRecording(false);
     }
+
+    // Stop tracks after a delay for iOS
+    setTimeout(() => {
+      stopMediaTracks();
+    }, isIos ? 1000 : 0);
   };
 
   useEffect(() => {
@@ -140,7 +291,11 @@ const NeedBoardUpload = () => {
     const formData = new FormData();
     formData.append("licenses_id", licenses_id);
     formData.append("name", values.firstname);
-    if (audio) formData.append("audio", audio, "recorded_audio.wav");
+    if (audio) {
+      // Ensure proper file naming for iOS
+      const fileName = isIos ? "recorded_audio.m4a" : "recorded_audio.wav";
+      formData.append("audio", audio, fileName);
+    }
     if (hideImage !== "boardside" && image) formData.append("image", image);
     if (id) formData.append("topic_id", id);
     const endpoint = id ? "topic-board" : "topic-boardCreate";
@@ -225,19 +380,31 @@ const NeedBoardUpload = () => {
                           className="hidden"
                           onChange={handleAudioUpload}
                           accept="audio/*"
+                          capture={isIos ? "microphone" : undefined} // iOS-specific attribute
                         />
                         <label
                           htmlFor="audio-upload"
                           className="cursor-pointer flex justify-center items-center mb-3"
                         >
                           <img src={VoiceIcon} alt="Voice Icon" />
+                          <span className="ml-2">Upload Audio File</span>
                         </label>
+
+                        {/* iOS-specific note */}
+                        {isIos && !permissionGranted && (
+                          <div className="mb-3 p-2 bg-yellow-50 border border-yellow-200 rounded text-sm">
+                            <p className="text-yellow-700">
+                              <strong>iOS Note:</strong> First recording attempt will ask for microphone permission.
+                            </p>
+                          </div>
+                        )}
 
                         {!isRecording ? (
                           <button
                             type="button"
                             onClick={startRecording}
-                            className="bg-green-500 text-white px-3 py-1 rounded-lg"
+                            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                            disabled={loader}
                           >
                             🎙 Start Recording
                           </button>
@@ -245,15 +412,40 @@ const NeedBoardUpload = () => {
                           <button
                             type="button"
                             onClick={stopRecording}
-                            className="bg-red-500 text-white px-3 py-1 rounded-lg"
+                            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
                           >
                             ⏹ Stop Recording
                           </button>
                         )}
+
+                        {isRecording && (
+                          <div className="mt-2 flex items-center">
+                            <div className="h-2 w-2 bg-red-500 rounded-full animate-pulse mr-2"></div>
+                            <span className="text-sm text-gray-600">Recording...</span>
+                          </div>
+                        )}
                       </div>
 
                       {audioPreview && (
-                        <audio controls src={audioPreview} className="mt-3 w-[250px] mx-auto" />
+                        <div className="mt-4">
+                          <audio
+                            controls
+                            src={audioPreview}
+                            className="mt-3 w-full max-w-[300px] mx-auto"
+                            controlsList={isIos ? "nodownload" : ""}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setAudio(null);
+                              setAudioPreview(null);
+                              URL.revokeObjectURL(audioPreview); // Clean up memory
+                            }}
+                            className="text-sm text-red-500 mt-2 hover:text-red-700"
+                          >
+                            Remove Audio
+                          </button>
+                        </div>
                       )}
 
                       {isSubmitted && isAudioError && (
@@ -270,7 +462,7 @@ const NeedBoardUpload = () => {
 
                         <label
                           htmlFor="file-upload"
-                          className="cursor-pointer px-3 bg-white flex items-center justify-between rounded-xl border border-dashed border-[#D6D6D6] w-full h-[54px]"
+                          className="cursor-pointer px-3 bg-white flex items-center justify-between rounded-xl border border-dashed border-[#D6D6D6] w-full h-[54px] hover:bg-gray-50 transition-colors"
                         >
                           <input
                             id="file-upload"
@@ -278,6 +470,7 @@ const NeedBoardUpload = () => {
                             className="hidden"
                             onChange={handleImageUpload}
                             accept="image/png, image/jpeg"
+                            capture={isIos ? "environment" : undefined} // iOS camera access
                           />
                           <p className="text-sm text-[#0009]">Choose File</p>
                           <img src={UploadIcon} alt="Upload Icon" />
@@ -290,6 +483,17 @@ const NeedBoardUpload = () => {
                               alt="Preview"
                               className="w-[120px] h-[120px] object-cover rounded-lg border"
                             />
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setImage(null);
+                                setImagePreview(null);
+                                URL.revokeObjectURL(imagePreview); // Clean up memory
+                              }}
+                              className="text-sm text-red-500 mt-1 hover:text-red-700"
+                            >
+                              Remove Image
+                            </button>
                           </div>
                         )}
 
@@ -300,8 +504,17 @@ const NeedBoardUpload = () => {
                     )}
                   </div>
 
-                  <button type="submit" className="thm-btn w-32 flex justify-center" disabled={loader}>
-                    {loader ? "Submitting..." : id ? "Update" : "Save"}
+                  <button
+                    type="submit"
+                    className="thm-btn w-32 flex justify-center items-center h-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={loader}
+                  >
+                    {loader ? (
+                      <>
+                        <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+                        Submitting...
+                      </>
+                    ) : id ? "Update" : "Save"}
                   </button>
                 </form>
               </div>
