@@ -1372,3 +1372,7 @@ p.shirnk-txt {
   color: #000;
   margin-bottom: 10px;
 }
+
+.active_now {
+  border: 3px solid #2563eb; /* Tailwind blue-600 */
+}

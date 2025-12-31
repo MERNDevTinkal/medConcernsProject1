@@ -1,4 +1,4 @@
-import  { useEffect, useContext, useState, useRef } from "react";
+import { useEffect, useContext, useState, useRef } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { Checked, Close, BackArrow } from "../../Component/DiseasesData/images";
@@ -74,7 +74,7 @@ function ConfrmStepYesNo() {
       if (Cookies.get("is_calendra") === "yes") {
         return navigate("/howoften");
       }
-      if (valueData !== "NO" && Cookies.get("is_pain_flow") === "Yes") {
+      if (valueData !== "NO" && Cookies.get("is_pain_flow") === "Yes" && pathprimary.includes("/feeling-list-pain/confrm-step-yesno")) {
         return navigate("/when");
       }
       if (valueData === "NO") {
