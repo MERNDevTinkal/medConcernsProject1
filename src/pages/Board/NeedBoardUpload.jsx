@@ -113,21 +113,14 @@ const NeedBoardUpload = () => {
   };
 
   const startRecording = async () => {
-    // Stop any existing tracks first
     stopMediaTracks();
-
     try {
-      // For iOS Safari, we need to handle permissions differently
       if (isIos && isSafari) {
         // requestIOSPermission();
-
-        // Create a temporary audio element to trigger permission on iOS
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         await audioContext.resume();
         audioContext.close();
       }
-
-      // iOS requires specific constraints
       const constraints = isIos ? {
         audio: {
           echoCancellation: false,
@@ -136,34 +129,25 @@ const NeedBoardUpload = () => {
           sampleRate: 44100
         }
       } : { audio: true };
-
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
       mediaStreamRef.current = stream;
-
-      // iOS Safari compatibility - use supported MIME types
       let mimeType = "audio/webm";
       if (isIos) {
-        // iOS prefers these formats
         if (MediaRecorder.isTypeSupported('audio/mp4')) {
           mimeType = 'audio/mp4';
         } else if (MediaRecorder.isTypeSupported('audio/aac')) {
           mimeType = 'audio/aac';
         }
       }
-
       const recorder = new MediaRecorder(stream, {
         mimeType,
         audioBitsPerSecond: 128000
       });
-
       const chunks = [];
-
       recorder.ondataavailable = (e) => {
         if (e.data.size > 0) chunks.push(e.data);
       };
-
       recorder.onstop = () => {
-        // Use appropriate blob type for iOS
         const blobType = isIos ? 'audio/mp4' : 'audio/wav';
         const blob = new Blob(chunks, { type: blobType });
         const audioURL = URL.createObjectURL(blob);
@@ -172,29 +156,22 @@ const NeedBoardUpload = () => {
         setRecordedChunks([]);
         setIsRecording(false);
         setPermissionGranted(true);
-
-        // Don't stop tracks immediately on iOS (can cause issues)
         if (!isIos) {
           stopMediaTracks();
         }
       };
-
       recorder.onerror = (event) => {
         console.error("Recorder error:", event.error);
         toast.error("Recording error occurred. Please try again.", { autoClose: 1500 });
         setIsRecording(false);
         stopMediaTracks();
       };
-
-      // For iOS, use shorter timeslice
       const timeslice = isIos ? 250 : 1000;
       recorder.start(timeslice);
       setMediaRecorder(recorder);
       setRecordedChunks(chunks);
       setIsRecording(true);
-
-      // Auto-stop after 3 minutes for iOS (conservative)
-      const maxDuration = isIos ? 180000 : 300000; // 3 min for iOS, 5 min for others
+      const maxDuration = isIos ? 180000 : 300000; 
       setTimeout(() => {
         if (recorder.state === 'recording') {
           stopRecording();
@@ -204,9 +181,7 @@ const NeedBoardUpload = () => {
 
     } catch (error) {
       console.error("Recording error:", error);
-
       let errorMessage = "Failed to access microphone. ";
-
       if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
         errorMessage += "Permission denied. ";
         if (isIos) {
@@ -221,12 +196,9 @@ const NeedBoardUpload = () => {
       } else if (error.name === 'SecurityError') {
         errorMessage += "Microphone access requires a secure connection (HTTPS).";
       }
-
       toast.error(errorMessage, { autoClose: 4000 });
       setIsRecording(false);
       stopMediaTracks();
-
-      // Show iOS-specific guidance
       if (isIos && (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError')) {
         setTimeout(() => {
           toast.info(
@@ -252,8 +224,6 @@ const NeedBoardUpload = () => {
     } else {
       setIsRecording(false);
     }
-
-    // Stop tracks after a delay for iOS
     setTimeout(() => {
       stopMediaTracks();
     }, isIos ? 1000 : 0);
@@ -292,7 +262,6 @@ const NeedBoardUpload = () => {
     formData.append("licenses_id", licenses_id);
     formData.append("name", values.firstname);
     if (audio) {
-      // Ensure proper file naming for iOS
       const fileName = isIos ? "recorded_audio.m4a" : "recorded_audio.wav";
       formData.append("audio", audio, fileName);
     }
