@@ -1261,7 +1261,7 @@ body,
   padding: 15px;
   border-radius: 10px;
   height: 100%;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 .questions-cards-innr .feel-overall-card h3,
 .depression-cards h3,
@@ -1273,6 +1273,7 @@ body,
 }
 .question-title {
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 .feel-overall-card h3 {
   font-size: 30px;
@@ -1366,19 +1367,6 @@ body,
   font-size: 18px;
 }
 
-/* .dash-single-items .dashboard-cards p.shirnk-txt,
-.dash-double-items .dashboard-cards p.shirnk-txt,
-.dash-triple-items .dashboard-cards p.shirnk-txt,
-.dash-hexuple-items .dashboard-cards p.shirnk-txt {
-  font-size: 20px;
-} */
-p.shirnk-txt {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .licence-cards h2 {
   font-size: 26px;
   font-weight: 500;
@@ -1454,4 +1442,12 @@ p.shirnk-txt {
   .topicSetting-hexuple-items {
     height: 33.33vh;
   }
+}
+
+.dashboard-cards.shirnk-card .dashboard-img img {
+  height: calc(50vh - 100px);
+}
+
+.custom-wdth {
+  width: 85%;
 }

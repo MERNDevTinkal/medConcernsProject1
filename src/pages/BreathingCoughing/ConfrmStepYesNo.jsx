@@ -39,16 +39,16 @@ function ConfrmStepYesNo() {
   }, [name, id]);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => { },
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -74,7 +74,11 @@ function ConfrmStepYesNo() {
       if (Cookies.get("is_calendra") === "yes") {
         return navigate("/howoften");
       }
-      if (valueData !== "NO" && Cookies.get("is_pain_flow") === "Yes" && pathprimary.includes("/feeling-list-pain/confrm-step-yesno")) {
+      if (
+        valueData !== "NO" &&
+        Cookies.get("is_pain_flow") === "Yes" &&
+        pathprimary.includes("/feeling-list-pain/confrm-step-yesno")
+      ) {
         return navigate("/when");
       }
       if (valueData === "NO") {
@@ -139,14 +143,15 @@ function ConfrmStepYesNo() {
                     <img
                       src={selectedConcers?.image ?? value?.image}
                       alt={selectedConcers?.name || "img"}
-                      className={`rounded-xl w-full h-full ${pathprimary.includes(
-                        "/feeling-list-pain/confrm-step-yesno"
-                      ) ||
+                      className={`rounded-xl w-full h-full ${
+                        pathprimary.includes(
+                          "/feeling-list-pain/confrm-step-yesno"
+                        ) ||
                         pathprimary.includes("/feeling/confrm-step-yesno") ||
                         pathprimary.includes("/feel/confrm-step-yesno")
-                        ? "objct-cls"
-                        : "object-cover"
-                        } `}
+                          ? "objct-cls"
+                          : "object-cover"
+                      } `}
                     />
                   </div>
                 </div>
@@ -164,26 +169,26 @@ function ConfrmStepYesNo() {
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? YesSpanishMale
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? YesFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? YesMale
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? YesMale
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? YesFemale
-                                      : YesMale
+                          ? YesSpanishMale
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? YesFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? YesMale
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? YesFemale
+                          : YesMale
                       )
                     }
                   >
-                    <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <p className="text-[40px] font-medium text-green-600">
                         {selectedLanguage === "Spanish" ? "Sí" : "YES"}
                       </p>
@@ -201,26 +206,26 @@ function ConfrmStepYesNo() {
                           ? No_male
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                            ? No_no_maleSpanish
-                            : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
-                              ? NoFemaleSpanish
-                              : selectedLanguage === "" &&
-                                selectedGender === "Female"
-                                ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
-                                  ? No_male
-                                  : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
-                                    ? No_male
-                                    : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
-                                      ? NoFemale
-                                      : No_male
+                          ? No_no_maleSpanish
+                          : selectedLanguage === "Spanish" &&
+                            selectedGender === "Female"
+                          ? NoFemaleSpanish
+                          : selectedLanguage === "" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : selectedLanguage === "" && selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Male"
+                          ? No_male
+                          : selectedLanguage === "English" &&
+                            selectedGender === "Female"
+                          ? NoFemale
+                          : No_male
                       )
                     }
                   >
-                    <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <p className="text-[40px] font-medium text-red-600">NO</p>
                       <img src={Close} width="50px" alt="no" />
                     </div>

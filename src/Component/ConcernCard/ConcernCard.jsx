@@ -23,7 +23,10 @@ const ConcernCard = ({
     try {
       Cookies.remove("is_pain_flow");
       isSpeakingRef.current = true;
-      if (!Cookies.get("is_concern") || Cookies.get("is_concern") === undefined) {
+      if (
+        !Cookies.get("is_concern") ||
+        Cookies.get("is_concern") === undefined
+      ) {
         resetDiseases();
       }
       const voiceText =
@@ -33,18 +36,18 @@ const ConcernCard = ({
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? value?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-              ? value?.femaleSpanish
-              : selectedLanguage === "" && selectedGender === "Female"
-                ? value?.femaleEnglish
-                : selectedLanguage === "" && selectedGender === "Male"
-                  ? value?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Male"
-                    ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
-                      ? value?.femaleEnglish
-                      : value?.maleEnglish;
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish;
 
       await getTextToSpeech(
         voiceText,
@@ -74,14 +77,14 @@ const ConcernCard = ({
               selectedIconCount === 1
                 ? "dash-single-items"
                 : selectedIconCount === 2
-                  ? "dash-double-items"
-                  : selectedIconCount === 3
-                    ? "dash-triple-items"
-                    : selectedIconCount === 4
-                      ? "dash-quadriple-items"
-                      : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                ? "dash-double-items"
+                : selectedIconCount === 3
+                ? "dash-triple-items"
+                : selectedIconCount === 4
+                ? "dash-quadriple-items"
+                : selectedIconCount === 6
+                ? "dash-hexuple-items"
+                : ""
             }
             key={item.id}
             style={{
@@ -89,7 +92,16 @@ const ConcernCard = ({
             }}
             onClick={() => handleConcern(item, item.path)}
           >
-            <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2">
+            <div
+              className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2 ${
+                (selectedLanguage === "Spanish"
+                  ? item?.nameEs
+                  : item?.name
+                )?.split(" ").length > 18
+                  ? "shirnk-card"
+                  : ""
+              }`}
+            >
               <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
                 <img
                   style={{ height: selectedIconCount === 6 ? "" : "" }}
@@ -98,11 +110,7 @@ const ConcernCard = ({
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className={`text-[14px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
-                ? "shirnk-txt"
-                : ""
-                }`}>
-
+              <p className="text-[14px] mt-1 mb-1 text-black">
                 {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
               </p>
             </div>

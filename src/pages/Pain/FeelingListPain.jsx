@@ -360,7 +360,7 @@ const FeelingListPain = () => {
                         className="flex flex-col items-center space-y-2 mb-3"
                       >
                         <img src={data.image} alt="" />
-                        <span className="pt-1.5 px-5 bg-white rounded-xl shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                        <span className="pt-1.5 px-5 bg-white rounded shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
                           {data.params ?? "0"}
                         </span>
                       </div>

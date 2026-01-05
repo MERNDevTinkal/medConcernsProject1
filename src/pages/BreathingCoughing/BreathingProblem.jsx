@@ -34,18 +34,18 @@ const BreathingProblem = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? value?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-              ? value?.femaleSpanish
-              : selectedLanguage === "" && selectedGender === "Female"
-                ? value?.femaleEnglish
-                : selectedLanguage === "" && selectedGender === "Male"
-                  ? value?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Male"
-                    ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
-                      ? value?.femaleEnglish
-                      : value?.maleEnglish
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -175,7 +175,7 @@ const BreathingProblem = () => {
   const name = !selectedLanguage
     ? translations[Mainpath]?.default
     : translations[Mainpath]?.[selectedLanguage] ??
-    translations?.default[selectedLanguage];
+      translations?.default[selectedLanguage];
 
   return (
     <>
@@ -212,14 +212,14 @@ const BreathingProblem = () => {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                          ? "dash-double-items"
-                          : selectedIconCount === 3
-                            ? "dash-triple-items"
-                            : selectedIconCount === 4
-                              ? "dash-quadriple-items"
-                              : selectedIconCount === 6
-                                ? "dash-hexuple-items"
-                                : ""
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {
@@ -232,7 +232,16 @@ const BreathingProblem = () => {
                     }}
                     key={data?.id + "-" + index}
                   >
-                    <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                    <div
+                      className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${
+                        (selectedLanguage === "Spanish"
+                          ? data?.nameEs
+                          : data?.name
+                        )?.length > 18
+                          ? "shirnk-card"
+                          : ""
+                      }`}
+                    >
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{
@@ -243,11 +252,7 @@ const BreathingProblem = () => {
                           alt={data?.name}
                         />
                       </div>
-                      <p className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? data?.nameEs : data?.name)?.length > 12)
-                        ? "shirnk-txt"
-                        : ""
-                        }`}>
-
+                      <p className={`text-[16px] mt-3 mb-2 text-black `}>
                         {selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name}

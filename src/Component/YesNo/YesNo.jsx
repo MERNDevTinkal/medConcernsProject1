@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {Checked,Close} from "../../Component/DiseasesData/images";
+import { Checked, Close } from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import {
@@ -28,7 +28,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
     }
   };
   return (
-    <>
+    <div>
       <div className="w-full overflow-hidden decision-cards">
         <div
           onClick={() => {
@@ -52,8 +52,9 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
                 : YesMale
             );
           }}
+          className=""
         >
-          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="custom-wdth flex items-center justify-between p-4 px-16 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[40px] font-medium text-green-600">
                 {selectedLanguage === "Spanish" ? "Sí" : "YES"}
@@ -87,7 +88,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="custom-wdth flex items-center justify-between p-4 px-16 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[40px] font-medium text-red-600">NO</p>
             </div>
@@ -97,7 +98,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

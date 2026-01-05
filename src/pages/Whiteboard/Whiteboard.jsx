@@ -12,6 +12,7 @@ import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
 import ImageUpload from "./imageUpload.jsx";
+import SaveWarningPopup from "../../Component/SaveWarningPopup/SaveWarningPopup";
 import {
   PencilIcon,
   TextIcon,
@@ -116,7 +117,8 @@ export default function Whiteboard() {
   const [activeTextBlock, setActiveTextBlock] = useState(null);
   const [SelectedImages, setSelectedImages] = useState([]);
   const [updateImage, setUpdateImage] = useState([]);
-
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
@@ -705,6 +707,44 @@ export default function Whiteboard() {
     setShowKeyboard(false);
   }, [activeTextBlock, textLines]);
 
+  const checkDataExits = () => {
+    let committedTexts = [...textBlocks];
+    if (activeTextBlock) {
+      const textContent = textLines.join("\n");
+      if (textContent.trim()) {
+        committedTexts = [
+          ...committedTexts.filter((b) => b.id !== activeTextBlock.id),
+          { ...activeTextBlock, text: textContent, timestamp: Date.now() },
+        ];
+      }
+    }
+    const state = {
+      name: drawingName.trim(),
+      paths,
+      texts: committedTexts,
+      images: uploadedImages.map((img) => ({
+        src: img.src,
+        x: img.x,
+        y: img.y,
+        width: img.width,
+        height: img.height,
+      })),
+      toolSettings: {
+        color: drawingColor,
+        width: drawingWidth,
+      },
+    };
+    let isEmptyDrawing = false;
+    if (
+      (!state.paths || state.paths.length === 0) &&
+      (!state.texts || state.texts.length === 0) &&
+      (!state.images || state.images.length === 0)
+    ) {
+      isEmptyDrawing = true;
+    }
+    return isEmptyDrawing;
+  };
+
   const handleSaveDrawing = async () => {
     if (!drawingName.trim()) {
       alert("Please enter a drawing name");
@@ -737,6 +777,12 @@ export default function Whiteboard() {
         width: drawingWidth,
       },
     };
+    const isEmptyDrawing = checkDataExits();
+
+    if (isEmptyDrawing) {
+      alert("Cannot save empty drawing. Please add content before saving.");
+      return;
+    }
 
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
@@ -1255,6 +1301,16 @@ export default function Whiteboard() {
     };
     return trans[transtext][params];
   };
+
+  const discardChanges = () => {
+    setIsPopupOpen(false);
+    navigate(-1);
+  };
+
+  const saveFunction = () => {
+    setIsPopupOpen(false);
+    setShowSaveModal(true);
+  };
   return (
     <>
       {FileUpload && (
@@ -1267,11 +1323,20 @@ export default function Whiteboard() {
           open={FileUpload}
         />
       )}
+      {isPopupOpen && (
+        <SaveWarningPopup
+          open={isPopupOpen}
+          onConfirm={discardChanges}
+          onCancel={saveFunction}
+        />
+      )}
       {loader ? (
         <Loader />
       ) : (
         <>
           <Header
+            isSummary={!checkDataExits() ? true : false}
+            setIsPopupOpen={setIsPopupOpen}
             selectedLanguage={selectedLanguage}
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}

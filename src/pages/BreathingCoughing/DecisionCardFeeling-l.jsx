@@ -1,5 +1,5 @@
-import  { useContext, useEffect, useState } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useParams } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
@@ -68,22 +68,22 @@ const DecisionCardFeeling = ({
               selectedLanguage === "" && selectedGender === ""
                 ? YesMale
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
-                  ? YesSpanishMale
-                  : selectedLanguage === "Spanish" && selectedGender === "Female"
-                    ? YesFemaleSpanish
-                    : selectedLanguage === "" && selectedGender === "Female"
-                      ? YesFemale
-                      : selectedLanguage === "" && selectedGender === "Male"
-                        ? YesMale
-                        : selectedLanguage === "English" && selectedGender === "Male"
-                          ? YesMale
-                          : selectedLanguage === "English" && selectedGender === "Female"
-                            ? YesFemale
-                            : YesMale
+                ? YesSpanishMale
+                : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? YesFemaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                ? YesFemale
+                : selectedLanguage === "" && selectedGender === "Male"
+                ? YesMale
+                : selectedLanguage === "English" && selectedGender === "Male"
+                ? YesMale
+                : selectedLanguage === "English" && selectedGender === "Female"
+                ? YesFemale
+                : YesMale
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[40px] font-medium text-green-600">
                 {selectedLanguage === "Spanish" ? "Sí" : "YES"}
@@ -103,22 +103,22 @@ const DecisionCardFeeling = ({
               selectedLanguage === "" && selectedGender === ""
                 ? No_male
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
-                  ? No_no_maleSpanish
-                  : selectedLanguage === "Spanish" && selectedGender === "Female"
-                    ? NoFemaleSpanish
-                    : selectedLanguage === "" && selectedGender === "Female"
-                      ? NoFemale
-                      : selectedLanguage === "" && selectedGender === "Male"
-                        ? No_male
-                        : selectedLanguage === "English" && selectedGender === "Male"
-                          ? No_male
-                          : selectedLanguage === "English" && selectedGender === "Female"
-                            ? NoFemale
-                            : No_male
+                ? No_no_maleSpanish
+                : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? NoFemaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                ? NoFemale
+                : selectedLanguage === "" && selectedGender === "Male"
+                ? No_male
+                : selectedLanguage === "English" && selectedGender === "Male"
+                ? No_male
+                : selectedLanguage === "English" && selectedGender === "Female"
+                ? NoFemale
+                : No_male
             );
           }}
         >
-          <div className="flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
               <p className="text-[40px] font-medium text-red-600">NO</p>
             </div>

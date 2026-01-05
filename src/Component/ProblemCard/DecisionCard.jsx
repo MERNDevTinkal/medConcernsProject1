@@ -1,6 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useContext, useRef, useState } from "react";
-import { WomenIcon, Question, Checked, Close } from "../../Component/DiseasesData/images"
+import {
+  WomenIcon,
+  Question,
+  Checked,
+  Close,
+} from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { dashimghow27 } from "../../Component/DiseasesData/images";
@@ -68,7 +73,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
     },
   ];
   const handleDecision = async (value, mainpath, id) => {
-    setActive(id)
+    setActive(id);
     if (isSpeakingRef.current) return;
     isSpeakingRef.current = true;
     if (value && mainpath) {
@@ -79,18 +84,18 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
         selectedLanguage === "" && selectedGender === ""
           ? arrayFilter?.[0]?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? arrayFilter?.[0]?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-              ? arrayFilter?.[0]?.femaleSpanish
-              : selectedLanguage === "" && selectedGender === "Female"
-                ? arrayFilter?.[0]?.femaleEnglish
-                : selectedLanguage === "" && selectedGender === "Male"
-                  ? arrayFilter?.[0]?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Male"
-                    ? arrayFilter?.[0]?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
-                      ? arrayFilter?.[0]?.femaleEnglish
-                      : arrayFilter?.[0]?.maleEnglish
+          ? arrayFilter?.[0]?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? arrayFilter?.[0]?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? arrayFilter?.[0]?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? arrayFilter?.[0]?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? arrayFilter?.[0]?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? arrayFilter?.[0]?.femaleEnglish
+          : arrayFilter?.[0]?.maleEnglish
       );
       if (path === "/new-problem") {
         const isConcern = Cookies.get("is_concern");
@@ -121,7 +126,11 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
               );
             }}
           >
-            <div className={`flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer  transition-colors duration-300 ${active === 1 ? 'active_now' : ""}`}>
+            <div
+              className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer  transition-colors duration-300 ${
+                active === 1 ? "active_now" : ""
+              }`}
+            >
               <div className="flex items-center">
                 <p className="text-[40px]  font-medium text-green-600">
                   {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
@@ -142,7 +151,11 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
               );
             }}
           >
-            <div className={`flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer   transition-colors duration-300 ${active === 2 ? 'active_now' : ''}`}>
+            <div
+              className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer   transition-colors duration-300 ${
+                active === 2 ? "active_now" : ""
+              }`}
+            >
               <div className="flex items-center">
                 <p className="text-[40px] font-medium text-red-600">
                   {selectedLanguage === "Spanish" ? "NO" : "NO"}
@@ -163,7 +176,9 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                     3
                   );
                 }}
-                className={`flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px]  cursor-pointer  transition-colors duration-300 ${active === 3 ? 'active_now' : ''}`}
+                className={`flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px]  cursor-pointer  transition-colors duration-300 ${
+                  active === 3 ? "active_now" : ""
+                }`}
               >
                 <div className="flex items-center">
                   <img src={WomenIcon} width="70px" alt="" className="" />

@@ -44,8 +44,10 @@ const TopicBoard = ({
         })
         .then(({ data }) => {
           if (data.status) {
-            const apiItems = Array.isArray(data?.data) ? data?.data : [data?.data] || [];
-            setApiItems(apiItems)
+            const apiItems = Array.isArray(data?.data)
+              ? data?.data
+              : [data?.data] || [];
+            setApiItems(apiItems);
           } else {
             toast.error(data?.msg, { autoClose: 1500 });
           }
@@ -62,7 +64,7 @@ const TopicBoard = ({
   useEffect(() => {
     const merged = [...topicBoard, ...apiItems];
     setMargedData(merged);
-  }, [topicBoard, apiItems])
+  }, [topicBoard, apiItems]);
   const validationSchema = Yup.object({
     firstname: Yup.string().required("Name is required"),
   });
@@ -88,37 +90,38 @@ const TopicBoard = ({
       if (isSpeakingRef.current) return;
       if (value && (value?.audio || mainpath)) {
         isSpeakingRef.current = true;
-        const voiceFile = value?.audio ? value?.audio :
-          selectedLanguage === "" && selectedGender === ""
-            ? value?.maleEnglish
-            : selectedLanguage === "Spanish" && selectedGender === "Male"
-              ? value?.maleSpanish
-              : selectedLanguage === "Spanish" && selectedGender === "Female"
-                ? value?.femaleSpanish
-                : selectedLanguage === "" && selectedGender === "Female"
-                  ? value?.femaleEnglish
-                  : selectedLanguage === "" && selectedGender === "Male"
-                    ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Male"
-                      ? value?.maleEnglish
-                      : selectedLanguage === "English" && selectedGender === "Female"
-                        ? value?.femaleEnglish
-                        : value?.maleEnglish;
+        const voiceFile = value?.audio
+          ? value?.audio
+          : selectedLanguage === "" && selectedGender === ""
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+          ? value?.maleSpanish
+          : selectedLanguage === "Spanish" && selectedGender === "Female"
+          ? value?.femaleSpanish
+          : selectedLanguage === "" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : selectedLanguage === "" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Male"
+          ? value?.maleEnglish
+          : selectedLanguage === "English" && selectedGender === "Female"
+          ? value?.femaleEnglish
+          : value?.maleEnglish;
         await getTextToSpeech(
           selectedLanguage === "Spanish" ? value.nameEs : value.name,
           selectedLanguage === "Spanish" ? "es-ES" : "",
           voiceFile
         );
         const isConcern = Cookies.get("is_concern");
-        const prefix = isConcern && isConcern?.includes("true_")
-          ? isConcern + "/" + path
-          : path;
+        const prefix =
+          isConcern && isConcern?.includes("true_")
+            ? isConcern + "/" + path
+            : path;
         addOrUpdateSummary(prefix, [value]);
         // navigate(mainpath);
-        navigate(
-          `${value?.audio ? "/topicboard/custom/_id" : mainpath}`,
-          { state: { value } }
-        );
+        navigate(`${value?.audio ? "/topicboard/custom/_id" : mainpath}`, {
+          state: { value },
+        });
         isSpeakingRef.current = false;
       }
     } catch (error) {
@@ -178,59 +181,61 @@ const TopicBoard = ({
       )}
       {mergedData?.map(
         (item, index) =>
-          (!item?.image
-          ) && (
+          !item?.image && (
             <div
               key={item.id + "-" + index}
               className={
                 selectedIconCount === 1
                   ? "topicSetting-single-items"
                   : selectedIconCount === 2
-                    ? "topicSetting-double-items"
-                    : selectedIconCount === 3
-                      ? "topicSetting-triple-items"
-                      : selectedIconCount === 4
-                        ? "topicSetting-quadriple-items"
-                        : selectedIconCount === 6
-                          ? "topicSetting-hexuple-items"
-                          : ""
+                  ? "topicSetting-double-items"
+                  : selectedIconCount === 3
+                  ? "topicSetting-triple-items"
+                  : selectedIconCount === 4
+                  ? "topicSetting-quadriple-items"
+                  : selectedIconCount === 6
+                  ? "topicSetting-hexuple-items"
+                  : ""
               }
               style={{ cursor: "pointer" }}
               onClick={() => handleConcern(item, item.path)}
             >
               <div
                 key={index}
-                className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3"
+                className={`dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3 ${
+                  (selectedLanguage === "Spanish" ? item?.nameEs : item?.name)
+                    ?.length > 18
+                    ? "shirnk-card"
+                    : ""
+                }`}
               >
                 {/* Spanish text stays centered */}
-                {item?.audio !== undefined && item?.audio && item?.audio.trim() !== "" && (
-                  <div className="flex justify-end absolute top-4 right-4">
-                    <span style={{ color: "blue" }}>
-                      <MdEdit
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate(`/icon-upload`, {
-                            state: { item, hideImage: "boardside" },
-                          });
-                        }}
-                      />
-                    </span>
-                    <span style={{ color: "red" }}>
-                      <MdOutlineDelete
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDelete(item.id);
-                        }}
-                      />
-                    </span>
-                  </div>
-                )}
-                <div className="text-[20px] mt-3 mb-2 text-black" >
-                  <p className={`text-[20px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
-                    ? "shirnk-txt"
-                    : ""
-                    }`}>
-
+                {item?.audio !== undefined &&
+                  item?.audio &&
+                  item?.audio.trim() !== "" && (
+                    <div className="flex justify-end absolute top-4 right-4">
+                      <span style={{ color: "blue" }}>
+                        <MdEdit
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/icon-upload`, {
+                              state: { item, hideImage: "boardside" },
+                            });
+                          }}
+                        />
+                      </span>
+                      <span style={{ color: "red" }}>
+                        <MdOutlineDelete
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDelete(item.id);
+                          }}
+                        />
+                      </span>
+                    </div>
+                  )}
+                <div className="text-[20px] mt-3 mb-2 text-black">
+                  <p className={`text-[20px] mt-1 mb-1 text-black `}>
                     {selectedLanguage === "Spanish"
                       ? item?.audio
                         ? item?.name
