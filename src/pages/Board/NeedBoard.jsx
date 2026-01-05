@@ -292,7 +292,10 @@ const NeedBoard = () => {
                           style={{ cursor: "pointer" }}
                           key={index}
                         >
-                          <div className="dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                          <div className={`dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 9)
+                            ? "shirnk-txt"
+                            : ""
+                            }`}>
                             {item?.audio && item.audio.trim() !== "" && (
                               <div className="flex justify-end absolute top-4 right-4">
                                 <span style={{ color: "blue" }}>
@@ -325,10 +328,7 @@ const NeedBoard = () => {
                               />
                             </div>
 
-                            <p className={`text-[14px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
-                              ? "shirnk-txt"
-                              : ""
-                              }`}>
+                            <p className={`text-[14px] mt-1 mb-1 text-black `}>
 
                               {selectedLanguage === "Spanish"
                                 ? item.nameEs || item.name

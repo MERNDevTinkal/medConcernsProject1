@@ -232,7 +232,10 @@ const BreathingProblem = () => {
                     }}
                     key={data?.id + "-" + index}
                   >
-                    <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                    <div className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${((selectedLanguage === "Spanish" ? data?.nameEs : data?.name)?.length > 10)
+                        ? "shirnk-txt"
+                        : ""
+                        }`}>
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{
@@ -243,10 +246,7 @@ const BreathingProblem = () => {
                           alt={data?.name}
                         />
                       </div>
-                      <p className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? data?.nameEs : data?.name)?.length > 12)
-                        ? "shirnk-txt"
-                        : ""
-                        }`}>
+                      <p className={`text-[16px] mt-3 mb-2 text-black `}>
 
                         {selectedLanguage === "Spanish"
                           ? data?.nameEs

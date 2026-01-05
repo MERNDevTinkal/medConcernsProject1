@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import {gifLoader} from "../../Component/DiseasesData/images";
+import { gifLoader } from "../../Component/DiseasesData/images";
 export default function HowAreYou() {
   const [selectedIconCount, setSelectedIconCount] = React.useState(0);
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -122,7 +122,10 @@ export default function HowAreYou() {
                     }}
                     key={item?.id}
                   >
-                    <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300">
+                    <div className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 10)
+                      ? "shirnk-txt"
+                      : ""
+                      }`}>
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{
@@ -133,10 +136,7 @@ export default function HowAreYou() {
                           alt={item?.name}
                         />
                       </div>
-                      <p className={`text-[16px] mt-3 mb-2 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
-                        ? "shirnk-txt"
-                        : ""
-                        }`}>
+                      <p className={`text-[16px] mt-3 mb-2 text-black `}>
 
                         {selectedLanguage === "Spanish"
                           ? item?.nameEs

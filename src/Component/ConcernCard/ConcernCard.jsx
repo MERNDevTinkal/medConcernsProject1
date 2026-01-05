@@ -89,7 +89,10 @@ const ConcernCard = ({
             }}
             onClick={() => handleConcern(item, item.path)}
           >
-            <div className="dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2">
+            <div className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2 ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 10)
+              ? "shirnk-txt"
+              : ""
+              }`}>
               <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
                 <img
                   style={{ height: selectedIconCount === 6 ? "" : "" }}
@@ -98,10 +101,7 @@ const ConcernCard = ({
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className={`text-[14px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.split(" ").length > 12)
-                ? "shirnk-txt"
-                : ""
-                }`}>
+              <p className='text-[14px] mt-1 mb-1 text-black' >
 
                 {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
               </p>

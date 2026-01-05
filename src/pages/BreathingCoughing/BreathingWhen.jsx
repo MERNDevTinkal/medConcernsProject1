@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import Header from "../../Component/Layout/Header/Header";
-import {  useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";
@@ -86,7 +86,7 @@ const BreathingWhen = () => {
               style={{
                 gridTemplateColumns:
                   selectedIconCount === 6
-                    ? "repeat(3, 1fr)" 
+                    ? "repeat(3, 1fr)"
                     : `repeat(${selectedIconCount || 2}, 1fr)`,
                 gridTemplateRows:
                   selectedIconCount === 6 ? "repeat(2, 1fr)" : "auto",
@@ -117,7 +117,10 @@ const BreathingWhen = () => {
                       );
                     }}
                   >
-                    <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
+                    <div className={`dashboard-cards rounded-2xl bg-white text-center pb-0.5 ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 10)
+                      ? "shirnk-txt"
+                      : ""
+                      }`}>
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{
@@ -128,10 +131,7 @@ const BreathingWhen = () => {
                         />
                       </div>
 
-                      <p className={`text-[16px] mt-3 mb-2 color-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
-                        ? "shirnk-txt"
-                        : ""
-                        }`}>
+                      <p className={`text-[16px] mt-3 mb-2 color-black `}>
                         {selectedLanguage === "Spanish"
                           ? item.nameEs
                           : item.name}

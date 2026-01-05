@@ -200,7 +200,10 @@ const TopicBoard = ({
             >
               <div
                 key={index}
-                className="dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3"
+                className={`dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3 ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 9)
+                  ? "shirnk-txt"
+                  : ""
+                  }`}
               >
                 {/* Spanish text stays centered */}
                 {item?.audio !== undefined && item?.audio && item?.audio.trim() !== "" && (
@@ -226,10 +229,7 @@ const TopicBoard = ({
                   </div>
                 )}
                 <div className="text-[20px] mt-3 mb-2 text-black" >
-                  <p className={`text-[20px] mt-1 mb-1 text-black ${((selectedLanguage === "Spanish" ? item?.nameEs : item?.name)?.length > 12)
-                    ? "shirnk-txt"
-                    : ""
-                    }`}>
+                  <p className={`text-[20px] mt-1 mb-1 text-black `}>
 
                     {selectedLanguage === "Spanish"
                       ? item?.audio
