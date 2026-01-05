@@ -209,7 +209,7 @@ function ConfrmStepYesNo() {
                           ? No_no_maleSpanish
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Female"
-                          ? NoFemaleSpanish
+                          ? NoFemale
                           : selectedLanguage === "" &&
                             selectedGender === "Female"
                           ? NoFemale

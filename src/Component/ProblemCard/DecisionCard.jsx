@@ -86,7 +86,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
           : selectedLanguage === "Spanish" && selectedGender === "Male"
           ? arrayFilter?.[0]?.maleSpanish
           : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? arrayFilter?.[0]?.femaleSpanish
+          ? arrayFilter?.[0]?.femaleEnglish
           : selectedLanguage === "" && selectedGender === "Female"
           ? arrayFilter?.[0]?.femaleEnglish
           : selectedLanguage === "" && selectedGender === "Male"

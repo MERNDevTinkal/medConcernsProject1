@@ -1341,6 +1341,7 @@ export default function Whiteboard() {
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
             name={t("name")}
+            whiteboardname={t("title")}
           />
           <div className="main-wrapper home-wrapper whiteboard-wrapper">
             {/* <div className="flex justify-end mb-2">

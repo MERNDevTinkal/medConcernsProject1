@@ -101,7 +101,7 @@ const DecisionCardFeeling = ({
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
                 ? No_no_maleSpanish
                 : selectedLanguage === "Spanish" && selectedGender === "Female"
-                ? NoFemaleSpanish
+                ? NoFemale
                 : selectedLanguage === "" && selectedGender === "Female"
                 ? NoFemale
                 : selectedLanguage === "" && selectedGender === "Male"
