@@ -308,6 +308,7 @@ export default function TabsCalendar() {
       }
     } else {
       if (selectedGender === "Female") {
+
         switch (item) {
           case "morning":
             return MorningFemale;
@@ -568,7 +569,8 @@ export default function TabsCalendar() {
     );
   };
 
-  const handleDaySelect = async (item) => {
+  const handleDaySelect = async (itemName) => {
+    let item = itemName.toLowerCase()
     setSelectedDayItem(item);
     if (isSpeakingRef.current) return;
     isSpeakingRef.current = true;
@@ -822,6 +824,7 @@ export default function TabsCalendar() {
                       <div className="grid grid-cols-7 border-t border-l border-gray-200 rounded-lg overflow-hidden">
                         {currentDaysOfWeek.map((dayName, index) => (
                           <div
+                            onClick={() => handleWeekSelect(index)}
                             key={dayName + index}
                             className="flex items-center justify-center p-3 sm:p-2 border-b border-r border-gray-200 bg-white"
                           >
