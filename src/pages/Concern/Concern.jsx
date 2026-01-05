@@ -6,7 +6,7 @@ import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
-import {gifLoader} from "../../Component/DiseasesData/images";
+import { gifLoader } from "../../Component/DiseasesData/images";
 import { useNavigate } from "react-router-dom";
 const Concern = () => {
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ const Concern = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper pt-20">
+          <div className="main-wrapper home-wrapper pt-20 topic-board-page">
             <div
               className="dashboard-h grid gap-3 p-3 px-0"
               style={{

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 
 import DecisionCardFeeling from "./DecisionCardFeeling-l";
@@ -14,7 +14,7 @@ import { gifLoader, BackArrow } from "../../Component/DiseasesData/images";
 function BreathingYesNo() {
   const navigate = useNavigate();
   const location = useLocation();
-  const getneedboard = location.state.value || {}
+  const getneedboard = location.state.value || {};
   const { id } = useParams();
   const [concernValues, setConcernValues] = useState({});
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -23,7 +23,9 @@ function BreathingYesNo() {
   useEffect(() => {
     if (concerns?.length > 0) {
       const concern = location.pathname.includes("/topicboard/")
-        ? id == "_id" ? getneedboard : topicBoard.find((c) => c.id == id)
+        ? id == "_id"
+          ? getneedboard
+          : topicBoard.find((c) => c.id == id)
         : concerns.find((c) => c.id == id);
       setConcernValues(concern);
     }
@@ -31,16 +33,16 @@ function BreathingYesNo() {
 
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
   return (
@@ -68,11 +70,12 @@ function BreathingYesNo() {
           <div className="main-wrapper home-wrapper justify-center flex flex-col">
             <div className="grid grid-cols-2  md:gap-20 gap-5 my-5  items-center">
               <div
-                className={`dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3
-    ${location.pathname.includes("/topicboard/")
-                    ? "h-[300px] flex justify-center items-center relative"
-                    : ""
-                  }`}
+                className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3
+    ${
+      location.pathname.includes("/topicboard/")
+        ? "h-[300px] flex justify-center items-center relative"
+        : ""
+    }`}
               >
                 {location.pathname.includes("/topicboard/") ? (
                   <>
@@ -82,7 +85,9 @@ function BreathingYesNo() {
                         : concernValues?.name}
                     </p>
                     {selectedLanguage === "Spanish" && (
-                      <p className="absolute bottom-0 left-0 right-0 break-words">{concernValues?.name}</p>
+                      <p className="absolute bottom-0 left-0 right-0 break-words">
+                        {concernValues?.name}
+                      </p>
                     )}
                   </>
                 ) : (

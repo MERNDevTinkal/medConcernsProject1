@@ -47,9 +47,17 @@ import feelicon from "/assets/images/feel-icon-02.svg";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
 
-const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary = false, setIsPopupOpen = () => { } }) => {
+const Header = ({
+  selectedLanguage,
+  introductionOn,
+  calendarOn,
+  name,
+  isSummary = false,
+  setIsPopupOpen = () => {},
+}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { updateDisease, deleteLastFlowItem, resetDiseases } = useContext(GlobalContext);
+  const { updateDisease, deleteLastFlowItem, resetDiseases } =
+    useContext(GlobalContext);
   const location = useLocation();
   const sidebarRef = useRef(null);
   const [openPopup, setOpenPopup] = useState(false);
@@ -315,7 +323,7 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
   const handlelastObj = () => {
     const getdata = deleteLastFlowItem(location.pathname);
     navigate(-1);
-  }
+  };
 
   const handleRoutes = (name, item) => {
     updateDisease("headerNames", item);
@@ -331,14 +339,17 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
       <div className="main-header-top bg-[#dceaf7] sticky left-0 right-0 top-0 z-10">
         <header className=" py-3  main-header">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3" style={{ cursor: "pointer" }}>
+            <div
+              className="flex items-center space-x-3"
+              style={{ cursor: "pointer" }}
+            >
               {location.pathname !== "/introduction" && (
                 <img
                   onClick={() => {
                     if (isSummary === true) {
-                      setIsPopupOpen(true)
+                      setIsPopupOpen(true);
                     } else {
-                      handlelastObj()
+                      handlelastObj();
                     }
                   }}
                   src={BackArrow}
@@ -354,41 +365,42 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
                 (selectedLanguage === "Spanish"
                   ? "Preocupaciones"
                   : location.pathname === "/depression-screener"
-                    ? ""
-                    : "Concerns")}
+                  ? ""
+                  : "Concerns")}
             </h2>
             <div style={{ cursor: "pointer" }}>
               {location.pathname === "/introduction" ||
-                location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" ||
-                // location.pathname === "/emotions" ||
-                location.pathname === "/how-are-you" ||
-                location.pathname === "/feeling-body" ? (
+              location.pathname === "/howoften" ||
+              location.pathname === "/new-problem" ||
+              // location.pathname === "/emotions" ||
+              location.pathname === "/how-are-you" ||
+              location.pathname === "/feeling-body" ? (
                 <div
                   onClick={() => {
                     navigate(
                       location.pathname === "/feeling-body"
                         ? "/summary"
                         : location.pathname === "/emotions"
-                          ? "/feelOptions/1"
-                          : location.pathname === "/howoften"
-                            ? "/new-problem"
-                            : location.pathname === "/new-problem"
-                              ? "/summary"
-                              : introductionOn
-                                ? "/concern"
-                                : location.pathname === "/how-are-you"
-                                  ? "/concern"
-                                  : "/how-are-you"
+                        ? "/feelOptions/1"
+                        : location.pathname === "/howoften"
+                        ? "/new-problem"
+                        : location.pathname === "/new-problem"
+                        ? "/summary"
+                        : introductionOn
+                        ? "/concern"
+                        : location.pathname === "/how-are-you"
+                        ? "/concern"
+                        : "/how-are-you"
                     );
                   }}
                   className="flex items-center gap-2 justify-end cursor-pointer"
                 >
-                  <h6>{selectedLanguage === "Spanish" ? 'Saltar' : 'Skip'}</h6>
+                  <h6>{selectedLanguage === "Spanish" ? "Saltar" : "Skip"}</h6>
                   <img src={NextArrow} alt="next" />
                 </div>
               ) : (
-                <div className="opacity-0">Medconcern</div>
+                // <div className="opacity-0">Medconcern</div>
+                <button className="thm-btn">Save whiteboard</button>
               )}
             </div>
           </div>
@@ -396,10 +408,11 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
           {/* Sidebar */}
           <aside
             ref={sidebarRef}
-            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-              }`}
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
+              isSidebarOpen
+                ? "translate-x-0"
+                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+            }`}
           >
             <button
               className="close-btn absolute top-5 right-5"
@@ -425,10 +438,11 @@ const Header = ({ selectedLanguage, introductionOn, calendarOn, name, isSummary 
                       }}
                       key={index}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
-                     ${location.pathname === item.path
-                          ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
-                          : "text-black hover:bg-gray-100"
-                        }`}
+                     ${
+                       location.pathname === item.path
+                         ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                         : "text-black hover:bg-gray-100"
+                     }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path} onClick={item.fun}>

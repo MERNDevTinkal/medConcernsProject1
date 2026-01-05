@@ -237,7 +237,7 @@ const FeelingListPain = () => {
                 </div>
 
                 {/* <!-- Color Gradient Bar --> */}
-                <div className="relative h-4 gradient-bar mt-3 mb-8">
+                <div className="relative h-4 gradient-bar mt-0 mb-8">
                   {/* <!-- Scale markers --> */}
                   <div className="absolute inset-0 top-7.5 flex justify-between items-center px-1 left-0 line-bar">
                     <div
@@ -317,7 +317,7 @@ const FeelingListPain = () => {
                         handleBynumber(`feeling_${index}`);
                       }}
                       key={item.id}
-                      className="text-[16px] font-medium text-center"
+                      className="text-[16px] font-medium "
                     >
                       {item.id === 6 ? (
                         <>
@@ -341,7 +341,7 @@ const FeelingListPain = () => {
                 </div>
 
                 {/* <!-- Emoji Faces --> */}
-                <div className="flex justify-between items-center emoji-bar overflow-x-auto whitespace-nowrap space-x-6 pb-3">
+                <div className="flex justify-between items-center emoji-bar overflow-x-auto whitespace-nowrap space-x-4 pb-3">
                   {painFeelParams.map((data) => (
                     <div key={data.id}>
                       <div
@@ -360,7 +360,7 @@ const FeelingListPain = () => {
                         className="flex flex-col items-center space-y-2 mb-3"
                       >
                         <img src={data.image} alt="" />
-                        <span className="pt-1.5 px-5 bg-white rounded-full shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                        <span className="pt-1.5 px-5 bg-white rounded-xl shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
                           {data.params ?? "0"}
                         </span>
                       </div>

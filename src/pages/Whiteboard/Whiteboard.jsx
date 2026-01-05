@@ -131,7 +131,7 @@ export default function Whiteboard() {
       const updated = [...prev];
       const viewport = window.visualViewport || window;
       const isMobile = viewport.width < 768;
-      const maxSize = isMobile ? 120 : 200; 
+      const maxSize = isMobile ? 120 : 200;
       const mobileMaxSize = viewport.width < 480 ? 80 : 120;
       incoming.forEach((item, index) => {
         const isObject = typeof item === "object";
@@ -145,8 +145,14 @@ export default function Whiteboard() {
             width *= scale;
             height *= scale;
           }
-          if (viewport.width < 480 && (width > mobileMaxSize || height > mobileMaxSize)) {
-            const scale = Math.min(mobileMaxSize / width, mobileMaxSize / height);
+          if (
+            viewport.width < 480 &&
+            (width > mobileMaxSize || height > mobileMaxSize)
+          ) {
+            const scale = Math.min(
+              mobileMaxSize / width,
+              mobileMaxSize / height
+            );
             width *= scale;
             height *= scale;
           }
@@ -166,9 +172,13 @@ export default function Whiteboard() {
             let width = img.width;
             let height = img.height;
             if (isMobile) {
-              const targetMaxSize = viewport.width < 480 ? mobileMaxSize : maxSize;
+              const targetMaxSize =
+                viewport.width < 480 ? mobileMaxSize : maxSize;
               if (width > targetMaxSize || height > targetMaxSize) {
-                const scale = Math.min(targetMaxSize / width, targetMaxSize / height);
+                const scale = Math.min(
+                  targetMaxSize / width,
+                  targetMaxSize / height
+                );
                 width *= scale;
                 height *= scale;
               }
@@ -180,22 +190,32 @@ export default function Whiteboard() {
               }
             }
             const pos = findNonOverlappingImagePosition(width, height);
-            setUploadedImages(current => {
-              const existingIndex = current.findIndex(img => img.src === src);
+            setUploadedImages((current) => {
+              const existingIndex = current.findIndex((img) => img.src === src);
               if (existingIndex >= 0) return current;
-              return [...current, {
-                src,
-                x: pos.x + index * (isMobile ? 5 : 15), 
-                y: pos.y + index * (isMobile ? 5 : 15),
-                width,
-                height,
-                originalWidth: img.width,
-                originalHeight: img.height,
-              }];
+              return [
+                ...current,
+                {
+                  src,
+                  x: pos.x + index * (isMobile ? 5 : 15),
+                  y: pos.y + index * (isMobile ? 5 : 15),
+                  width,
+                  height,
+                  originalWidth: img.width,
+                  originalHeight: img.height,
+                },
+              ];
             });
           };
-          const placeholderSize = isMobile ? (viewport.width < 480 ? 80 : 120) : 200;
-          const pos = findNonOverlappingImagePosition(placeholderSize, placeholderSize);
+          const placeholderSize = isMobile
+            ? viewport.width < 480
+              ? 80
+              : 120
+            : 200;
+          const pos = findNonOverlappingImagePosition(
+            placeholderSize,
+            placeholderSize
+          );
           updated.push({
             src,
             x: pos.x + index * (isMobile ? 5 : 15),
@@ -381,7 +401,7 @@ export default function Whiteboard() {
     if (ctx) {
       try {
         ctx.closePath();
-      } catch (err) { }
+      } catch (err) {}
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
@@ -575,7 +595,7 @@ export default function Whiteboard() {
     cursorPosition,
     showCursor,
     getCanvasContext,
-    uploadedImages
+    uploadedImages,
   ]);
   /* -------------------- Fetch board -------------------- */
   useEffect(() => {
@@ -1028,16 +1048,16 @@ export default function Whiteboard() {
   /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -1231,8 +1251,8 @@ export default function Whiteboard() {
         name: "Pizarron",
         title: "Pizarras guardadas",
         // text: "Ver Lista"
-      }
-    }
+      },
+    };
     return trans[transtext][params];
   };
   return (
@@ -1258,14 +1278,14 @@ export default function Whiteboard() {
             name={t("name")}
           />
           <div className="main-wrapper home-wrapper whiteboard-wrapper">
-            <div className="flex justify-end mb-2">
+            {/* <div className="flex justify-end mb-2">
               <Button
                 className="thm-btn"
                 onClick={() => navigate("/white-board-list")}
               >
                 {t("title")}
               </Button>
-            </div>
+            </div> */}
             <div className="flex flex-col items-center whiteboard-card ">
               <Card className="w-full flex flex-col relative">
                 {/* <div className="absolute top-3 right-3">
@@ -1323,12 +1343,13 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
-                      ? "cursor-text"
-                      : tool === "eraser"
+                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${
+                      tool === "text"
+                        ? "cursor-text"
+                        : tool === "eraser"
                         ? "cursor-eraser"
                         : "cursor-crosshair"
-                      }`}
+                    }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}

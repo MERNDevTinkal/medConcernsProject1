@@ -57,12 +57,12 @@ function DepressionScreener() {
         <>
           <Header />
           <div className="main-wrapper home-wrapper depression-screener-wrapper">
+            <h3 className="text-center question-title">
+              {selectedLanguage === "Spanish"
+                ? "¿Responde más preguntas sobre cómo te sientes?"
+                : "Answer more questions about how you feel?"}
+            </h3>
             <div className="feel-overall-card questions-cards">
-              <h3 className="text-center">
-                {selectedLanguage === "Spanish"
-                  ? "¿Responde más preguntas sobre cómo te sientes?"
-                  : "Answer more questions about how you feel?"}
-              </h3>
               <div
                 className="flex items-center p-4 px-10 border-3 border-white bg-white rounded-[20px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300"
                 onClick={() => {

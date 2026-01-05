@@ -61,22 +61,22 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { }
+      () => {},
+      () => {}
     );
   }, [loader]);
   useEffect(() => {
     if (Cookies.get("is_introduction") == "true" && IntroductionOn) {
-      Cookies.remove("is_introduction")
-      return navigate("/concern")
+      Cookies.remove("is_introduction");
+      return navigate("/concern");
     }
-  }, [IntroductionOn])
+  }, [IntroductionOn]);
   useEffect(() => {
     apiCall
       .post(

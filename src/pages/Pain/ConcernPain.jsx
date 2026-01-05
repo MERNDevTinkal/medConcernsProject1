@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
-import {ConcernImg1,BackArrow} from "../../Component/DiseasesData/images";
+import { ConcernImg1, BackArrow } from "../../Component/DiseasesData/images";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { GlobalContext } from "../../context/DiseaseContext";
@@ -51,11 +51,13 @@ function ConcernPain() {
             </h2>
             <button></button>
           </div>
-          <div className="main-wrapper home-wrapper ">
-            <div className="grid grid-cols-2 md:gap-20 gap-5 my-5 items-center">
-              <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
-                <div className="dashboard-img rounded-2xl">
-                  <img src={image || ConcernImg1} className="w-full" />
+          <div className="main-wrapper home-wrapper  items-center justify-center flex flex-col">
+            <div className="grid grid-cols-2 md:gap-20 gap-5 items-center">
+              <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
+                <div className="dashboard-img rounded-2xl h-full w-full">
+                  <div className="h-full w-full">
+                    <img src={image || ConcernImg1} className="w-full" />
+                  </div>
                 </div>
               </div>
               <div>
