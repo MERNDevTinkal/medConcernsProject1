@@ -8038,6 +8038,19 @@ const hearingConcers = [
   },
   {
     id: "4",
+    name: "Check My Hearing",
+    nameEs: "Revisar Mi Audición",
+    image: CheckMyHearingImg,
+    path: "/summary",
+    secPath: "/confrm-step-yesno",
+
+    maleEnglish: CheckMyHearingMale,
+    femaleEnglish: CheckMyHearingFemale,
+    femaleSpanish: RevisarMiAudicionFemaleSpanish,
+    maleSpanish: RevisarMiAudicionMaleSpanish,
+  },
+  {
+    id: "5",
     name: "Ear Pain",
     nameEs: "Dolor de Oído",
     image: ear_painImg,
@@ -8050,7 +8063,7 @@ const hearingConcers = [
     maleSpanish: DolorDeOidoEarPainSpanishMale,
   },
   {
-    id: "5",
+    id: "6",
     name: "Plugged",
     nameEs: "Tapados",
     image: pluggedImg,
@@ -8062,7 +8075,7 @@ const hearingConcers = [
     maleSpanish: TapadosPluggedSpanishMale,
   },
   {
-    id: "6",
+    id: "7",
     name: "Dizzy",
     nameEs: "Mareado/a",
     image: DizzyImg,
@@ -8074,7 +8087,7 @@ const hearingConcers = [
     maleSpanish: MareadoADizzySpanishMale,
   },
   {
-    id: "7",
+    id: "8",
     name: "Write it Down",
     nameEs: "Escríbelo",
     image: WriteitDown,
@@ -8087,7 +8100,7 @@ const hearingConcers = [
     maleSpanish: EscribeloMaleSpanish,
   },
   {
-    id: "8",
+    id: "9",
     name: "Something Else",
     nameEs: "Algo Mas",
     image: dashimg11,
