@@ -176,7 +176,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                     3
                   );
                 }}
-                className={`flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px]  cursor-pointer  transition-colors duration-300 ${
+                className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px]  cursor-pointer  transition-colors duration-300 ${
                   active === 3 ? "active_now" : ""
                 }`}
               >
