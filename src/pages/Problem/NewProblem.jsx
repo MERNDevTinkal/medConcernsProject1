@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import DecisionCard from "../../Component/ProblemCard/DecisionCard";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useLocation } from "react-router-dom";
@@ -14,16 +14,16 @@ const NewProblem = () => {
   const [CalendarOn, setCalendarOn] = React.useState("");
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
   }, []);
 
@@ -52,14 +52,15 @@ const NewProblem = () => {
             introductionOn={IntroductionOn}
             calendarOn={CalendarOn}
             name={
-              location.pathname === "/yes-no-concerns" || location.pathname === "/yes-no"
+              location.pathname === "/yes-no-concerns" ||
+              location.pathname === "/yes-no"
                 ? ""
                 : location.pathname === "/new-problem"
-                  ? !selectedLanguage
-                    ? translations["English"]?.newProblem
-                    : translations[selectedLanguage]?.newProblem ||
+                ? !selectedLanguage
+                  ? translations["English"]?.newProblem
+                  : translations[selectedLanguage]?.newProblem ||
                     translations["English"]?.newProblem
-                  : translations[selectedLanguage]?.overall ||
+                : translations[selectedLanguage]?.overall ||
                   translations["English"]?.overall
             }
           />

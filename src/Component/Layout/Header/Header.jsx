@@ -53,8 +53,8 @@ const Header = ({
   calendarOn,
   name,
   isSummary = false,
-  setIsPopupOpen = () => { },
-  whiteboardname
+  setIsPopupOpen = () => {},
+  whiteboardname,
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { updateDisease, deleteLastFlowItem, resetDiseases } =
@@ -338,9 +338,11 @@ const Header = ({
         onConfirm={handleLogout}
       />
       {/* <div className="main-header-top bg-[#dceaf7] sticky left-0 right-0 top-0 z-10"> */}
-      <div className="main-header-top sticky top-0 z-40
+      <div
+        className="main-header-top sticky top-0 z-40
          bg-[#dceaf7]
-         transform-gpu">
+         transform-gpu"
+      >
         <header className=" py-3  main-header">
           <div className="flex items-center justify-between">
             <div
@@ -369,32 +371,32 @@ const Header = ({
                 (selectedLanguage === "Spanish"
                   ? "Preocupaciones"
                   : location.pathname === "/depression-screener"
-                    ? ""
-                    : "Concerns")}
+                  ? ""
+                  : "Concerns")}
             </h2>
             <div style={{ cursor: "pointer" }}>
               {location.pathname === "/introduction" ||
-                location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" ||
-                // location.pathname === "/emotions" ||
-                location.pathname === "/how-are-you" ||
-                location.pathname === "/feeling-body" ? (
+              location.pathname === "/howoften" ||
+              location.pathname === "/new-problem" ||
+              // location.pathname === "/emotions" ||
+              location.pathname === "/how-are-you" ||
+              location.pathname === "/feeling-body" ? (
                 <div
                   onClick={() => {
                     navigate(
                       location.pathname === "/feeling-body"
                         ? "/summary"
                         : location.pathname === "/emotions"
-                          ? "/feelOptions/1"
-                          : location.pathname === "/howoften"
-                            ? "/new-problem"
-                            : location.pathname === "/new-problem"
-                              ? "/summary"
-                              : introductionOn
-                                ? "/concern"
-                                : location.pathname === "/how-are-you"
-                                  ? "/concern"
-                                  : "/how-are-you"
+                        ? "/feelOptions/1"
+                        : location.pathname === "/howoften"
+                        ? "/new-problem"
+                        : location.pathname === "/new-problem"
+                        ? "/summary"
+                        : introductionOn
+                        ? "/concern"
+                        : location.pathname === "/how-are-you"
+                        ? "/concern"
+                        : "/how-are-you"
                     );
                   }}
                   className="flex items-center gap-2 justify-end cursor-pointer"
@@ -405,11 +407,14 @@ const Header = ({
               ) : (
                 // <div className="opacity-0">Medconcern</div>
 
-
                 location.pathname === "/whiteboard" && (
-                  <button className="thm-btn" onClick={() => navigate("/white-board-list")}>{whiteboardname}</button>
+                  <button
+                    className="thm-btn"
+                    onClick={() => navigate("/white-board-list")}
+                  >
+                    {whiteboardname}
+                  </button>
                 )
-
               )}
             </div>
           </div>
@@ -417,10 +422,11 @@ const Header = ({
           {/* Sidebar */}
           <aside
             ref={sidebarRef}
-            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-              }`}
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
+              isSidebarOpen
+                ? "translate-x-0"
+                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+            }`}
           >
             <button
               className="close-btn absolute top-5 right-5"
@@ -446,10 +452,11 @@ const Header = ({
                       }}
                       key={index}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
-                     ${location.pathname === item.path
-                          ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
-                          : "text-black hover:bg-gray-100"
-                        }`}
+                     ${
+                       location.pathname === item.path
+                         ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                         : "text-black hover:bg-gray-100"
+                     }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path} onClick={item.fun}>
