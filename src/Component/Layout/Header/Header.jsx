@@ -288,12 +288,12 @@ const Header = ({
       en: "Wound / Incision",
       es: "Herida / Incisión",
     },
-    {
-      icon: MenuIcon25 ? MenuIcon25 : gifLoader,
-      path: "/contact-us",
-      en: "Contact Us",
-      es: "Contacta con Nosotros",
-    },
+    // {
+    //   icon: MenuIcon25 ? MenuIcon25 : gifLoader,
+    //   path: "/contact-us",
+    //   en: "Contact Us",
+    //   es: "Contacta con Nosotros",
+    // },
     {
       icon: MenuIcon6 ? MenuIcon6 : gifLoader,
       path: "/white-board-list",
@@ -380,10 +380,12 @@ const Header = ({
               location.pathname === "/new-problem" ||
               // location.pathname === "/emotions" ||
               location.pathname === "/how-are-you" ||
+              location.pathname === "/when" ||
               location.pathname === "/feeling-body" ? (
                 <div
                   onClick={() => {
                     navigate(
+                        location.pathname === "/when"?"/howoften":
                       location.pathname === "/feeling-body"
                         ? "/summary"
                         : location.pathname === "/emotions"

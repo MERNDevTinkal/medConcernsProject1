@@ -61,14 +61,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {}
+      () => { },
+      () => { }
     );
   }, [loader]);
   useEffect(() => {
@@ -104,6 +104,10 @@ export default function Introduction() {
         });
       });
   }, []);
+  const NaviagtionButton = () => {
+    console.log("dddd=>",)
+    navigate("/concern");
+  }
   return (
     <>
       {loader ? (
@@ -121,7 +125,7 @@ export default function Introduction() {
           <div className="main-wrapper home-wrapper introduction_page">
             <div className="Intro_box max-w-2xl mx-auto">
               <div className="py-4">
-                <img src={"/introduction.png"} className="m-auto w-full mb-5" />
+                <img src={"/newlogo.png"} className="m-auto w-full mb-5" />
                 <div className="w-full m-auto mt-3 ">
                   {/* Name */}
                   <label className="block text-2xl font-bold mb-2">
@@ -158,6 +162,29 @@ export default function Introduction() {
                         : "Enter your role"
                     }
                   />
+                  <button
+                    onClick={() => { NaviagtionButton() }}
+                    className="
+    w-full
+    h-[64px]
+    flex
+    items-center
+    justify-center
+    text-xl
+    font-semibold
+    leading-none
+    rounded-lg
+    bg-blue-600
+    text-white
+    mt-6
+    hover:bg-blue-700
+    transition
+  "
+                  >
+                    Continue
+                  </button>
+
+
                 </div>
               </div>
             </div>

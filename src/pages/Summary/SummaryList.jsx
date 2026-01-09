@@ -129,13 +129,6 @@ const SummaryList = () => {
                   {selectedLanguage === "Spanish" ? "Imprimir" : "Print"}
                 </button>
                 <button
-                  onClick={handleSummaryListRoute}
-                  style={{ border: "2px solid black" }}
-                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
-                >
-                  {selectedLanguage === "Spanish" ? "Lista" : "List"}
-                </button>
-                <button
                   onClick={() => {
                     setShowSaveModal(true);
                   }}
@@ -144,6 +137,14 @@ const SummaryList = () => {
                 >
                   {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
                 </button>
+                <button
+                  onClick={handleSummaryListRoute}
+                  style={{ border: "2px solid black" }}
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {selectedLanguage === "Spanish" ? "Lista" : "List"}
+                </button>
+
               </div>
               {diseases?.summaryList?.length > 0 &&
                 diseases?.summaryList.map((item, index) => {

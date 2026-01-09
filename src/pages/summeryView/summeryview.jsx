@@ -62,6 +62,7 @@ const SummaryList = () => {
   const handleSummaryListRoute = () => {
     navigate("/summary-list");
   };
+  console.log("ddddddsummaryData",summaryData)
   return (
     <>
       {loader ? (
@@ -100,7 +101,7 @@ const SummaryList = () => {
                     >
                       <div className="md:w-1/4 sm:w-1/2 w-full">
                         <SummaryLeftCard
-                          board={item?.flow[0]?.route}
+                          board={item?.flow?.[0]?.route}
                           selectedLanguage={selectedLanguage}
                           SummaryConcernData={item?.concern?.data?.[0]}
                           headerNames={summaryData?.headerNames}

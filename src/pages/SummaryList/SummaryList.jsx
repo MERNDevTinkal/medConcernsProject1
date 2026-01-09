@@ -1,4 +1,4 @@
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../Component/Layout/Header/Header";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 import Loader from "../../Component/webLoader/loader";
 import Pagination from "../../Component/pagination/pagination";
 import getSetting from "../../Component/settingApi/settings";
+import { FiEye, FiTrash2 } from "react-icons/fi";
+import DeletePopUp from "../../Component/DeleteSummaryPopup/DeletePop";
 const SummaryList = () => {
   const [summaryList, setSummaryList] = useState([]);
   const [loader, setLoader] = useState(true);
@@ -16,8 +18,10 @@ const SummaryList = () => {
   const [lastPage, setLastPage] = useState(1); // From API
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
   const navigate = useNavigate();
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
-  useEffect(() => {
+  const fetchApi = () => {
     const token = localStorage.getItem("token");
     const license_key = localStorage.getItem("license_key");
     const payload = new FormData();
@@ -44,6 +48,9 @@ const SummaryList = () => {
         });
         setLoader(false);
       });
+  }
+  useEffect(() => {
+    fetchApi();
   }, [currentPage]);
 
   const handleRoute = (name) => {
@@ -51,18 +58,50 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
+  const confirmDelete = (Summary_id) => {
+    const token = localStorage.getItem("token");
+    const license_key = localStorage.getItem("license_key");
+    const payload = new FormData();
+    payload.append("licenses_id", license_key);
+    payload.append("Summary_id", Summary_id);
+    setLoader(true);
+    api
+      .post("summariDelete", payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data?.status) {
+          toast.success(data.msg, { autoClose: 1500 });
+
+          setShowDeleteModal(false);
+          fetchApi(); // refresh list only on success
+        } else {
+          toast.error(data.msg || "Delete failed", { autoClose: 1500 });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Something went wrong", { autoClose: 1500 });
+      })
+      .finally(() => {
+        setLoader(false);
+      });
+
+  }
   return (
     <>
       <Header
@@ -73,6 +112,7 @@ const SummaryList = () => {
           selectedLanguage === "Spanish" ? "Lista resumida" : "Summary List"
         }
       />
+      <DeletePopUp deleteId={deleteId} setShowDeleteModal={setShowDeleteModal} confirmDelete={confirmDelete} showDeleteModal={showDeleteModal} />
       {loader ? (
         <Loader />
       ) : (
@@ -84,11 +124,24 @@ const SummaryList = () => {
                   <li
                     key={index}
                     onClick={() => handleRoute(item.name_key)}
-                
+
                     className="flex justify-between items-center bg-[#ffff] hover:bg-[#ffff] px-4 py-3 rounded-full font-medium text-sm sm:text-base cursor-pointer transition-all duration-200"
                   >
                     <span>{item.name_key}</span>
-                    <span className="text-xl text-[#008CFF]">→</span>
+                    <div className="flex items-center gap-4">
+                      <FiEye
+                        className="text-[#008CFF] text-lg cursor-pointer"
+                        onClick={(e) => { e.stopPropagation(); handleRoute(item.name_key); }}
+                      />
+                      <FiTrash2
+                        className="text-red-500 text-lg cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setDeleteId(item.id);
+                          setShowDeleteModal(true);
+                        }}
+                      />
+                    </div>
                   </li>
                 ))}
               </ul>

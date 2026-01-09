@@ -34,7 +34,7 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   };
   return (
     <>
-      {SummaryDetail.flat().map((item, index) => {
+      {SummaryDetail?.flat()?.map((item, index) => {
         return (
           <div key={index}>
             <div
