@@ -3549,8 +3549,20 @@ const painCards = [
     femaleSpanish: AfiladoOPunzanteSpanishFemale,
     maleSpanish: sharporstabbing_afiladoopunzanteSpanishFemale,
   },
+        {
+      id: "5",
+      name: "Chest Pain",
+      nameEs: "Dolor de Pecho",
+      image: dashimg03,
+      secPath: "/confrm-step-yesno",
+      path: "/feeling-list-pain",
+      maleEnglish: ChestPainMale,
+      femaleEnglish: chestPainFemale,
+      femaleSpanish: DolorDePechoChestPainSpanishMale,
+      maleSpanish: DolorDePechoChestPainSpanishMale,
+    },
   {
-    id: "5",
+    id: "6",
     name: "Numb / Tingling",
     nameEs: "Entumecimiento / Hormigueo",
     image: PainImg5,
@@ -3562,7 +3574,7 @@ const painCards = [
     maleSpanish: numbortinglingSpanishFemale,
   },
   {
-    id: "6",
+    id: "7",
     name: "Spasming",
     nameEs: "Espasmos",
     image: PainImg6,
@@ -3574,7 +3586,7 @@ const painCards = [
     maleSpanish: SpasmingEspasmosSpanishMale,
   },
   {
-    id: "7",
+    id: "8",
     name: "Pins and Needles",
     nameEs: "Hormigueo Doloroso",
     image: PainImg7,
@@ -3586,7 +3598,7 @@ const painCards = [
     maleSpanish: HormigueodolorosoSpanishFemale,
   },
   {
-    id: "8",
+    id: "9",
     name: "Cramping",
     nameEs: "Calambres",
     image: nausea03,
@@ -3598,7 +3610,7 @@ const painCards = [
     maleSpanish: CrampingCalambresSpanishMale,
   },
   {
-    id: "9",
+    id: "10",
     name: "Heavy",
     nameEs: "Pesado",
     image: PainImg9,
@@ -3610,7 +3622,7 @@ const painCards = [
     maleSpanish: HeavyPesadoSpanishMale,
   },
   {
-    id: "10",
+    id: "11",
     name: "Shooting",
     nameEs: "Disparando",
     image: PainImg10,
@@ -3622,7 +3634,7 @@ const painCards = [
     maleSpanish: DisparandoSpanishMale,
   },
   {
-    id: "11",
+    id: "12",
     name: "Throbbing",
     nameEs: "Palpitante",
     image: PainImg11,
@@ -3634,7 +3646,7 @@ const painCards = [
     maleSpanish: ThrobbingPalpitanteSpanishMale,
   },
   {
-    id: "12",
+    id: "13",
     name: "Itching",
     nameEs: "Comezón ",
     image: PainImg12,
@@ -3646,7 +3658,7 @@ const painCards = [
     maleSpanish: ComezonSpanishMale,
   },
   {
-    id: "13",
+    id: "14",
     name: "Feeding Tube",
     nameEs: "Tubo de Alimentación",
     image: PEG_FeedingPainImg,
@@ -3658,7 +3670,7 @@ const painCards = [
     maleSpanish: TuboAlimentacionMaleSpanish,
   },
   {
-    id: "14",
+    id: "15",
     name: "Trach",
     nameEs: "Traqueotomía",
     image: TrachpainImg,
@@ -3669,8 +3681,9 @@ const painCards = [
     femaleSpanish: traqueotomiaTrachFemale,
     maleSpanish: TraqueotomiaSpanishMale,
   },
+
   {
-    id: "15",
+    id: "16",
     name: "Something Else",
     nameEs: "Algo Mas",
     image: PainImg15,

@@ -39,11 +39,10 @@ const EmotionsList = () => {
             introductionOn={introductionOn}
             name={
               selectedLanguage === "Spanish"
-                ? "¿Cómo te sientes?"
-                : "How do you feel?"
+                ? "Emociones / Sentimientos"
+                : "Emotions / Feelings"
             }
           />
-
           <div className="main-wrapper home-wrapper ">
             <div className="dashboard-wrapper px-4 py-1.5">
               <div

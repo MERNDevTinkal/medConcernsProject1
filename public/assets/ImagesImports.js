@@ -62,7 +62,7 @@ export const howareyou = [
   {
     id: 2,
     name: "Okay",
-    nameEs: "Estå Bien",
+    nameEs: "Está bien",
     image: HowAreYouImg2,
     maleEnglish: OkayMale, // Added
     femaleEnglish: OkayEnglishFemale, // Added

@@ -1,4 +1,4 @@
-import  { useEffect, useState, useRef, useContext } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
@@ -173,6 +173,8 @@ const backRegions = [
   makeRegion(`Forehead`, 16, 91, 75, 127, Forehead_comMale),
   makeRegion(`Right Ear`, 44, 76, 69, 88, EarMale),
   makeRegion(`Left Ear`, 47, 135, 69, 141, EarMale),
+  makeRegion(`Right Ankle`, 575, 95, 600, 115, AnkleMale),
+  makeRegion(`Left Ankle`, 575, 115, 600, 135, AnkleMale),
 ];
 
 const backRegionsSpanish = [
@@ -219,6 +221,8 @@ const backRegionsSpanish = [
   makeRegion(`Frente`, 16, 91, 75, 127, EspaldaMAleSpanish),
   makeRegion(`Oreja Derecha`, 44, 76, 69, 88, orejaMAleSpanish),
   makeRegion(`Oreja Izquierda`, 47, 135, 69, 141, orejaMAleSpanish),
+  makeRegion(`Tobillo Derecho`, 560, 95, 585, 110, AnkleMale),
+  makeRegion(`Tobillo Izquierdo`, 560, 115, 585, 135, AnkleMale),
 ];
 
 const frontRegions = [
@@ -258,6 +262,9 @@ const frontRegions = [
   makeRegion(`Chin`, 85, 94, 88, 112, ChinMale),
   makeRegion(`Left Wrist`, 282, 179, 295, 195, WristMale),
   makeRegion(`Right Wrist`, 289, 9, 303, 27, WristMale),
+  makeRegion(`Right Ankle`, 560, 95, 585, 110, AnkleMale),
+  makeRegion(`Left Ankle`, 560, 115, 585, 135, AnkleMale),
+
 ];
 
 const frontRegionsSpanish = [
@@ -311,7 +318,13 @@ const frontRegionsSpanish = [
   makeRegion(`Barbilla`, 85, 94, 88, 112, BarbillaMAleSpanish),
   makeRegion(`Muñeca Izquierda`, 282, 179, 295, 195, munecaMAleSpanish), // Left Wrist
   makeRegion(`Muñeca Derecha`, 289, 9, 303, 27, munecaMAleSpanish), // Right Wrist
+  makeRegion(`Tobillo Derecho`, 560, 95, 585, 110, AnkleMale),
+  makeRegion(`Tobillo Izquierdo`, 560, 115, 585, 135, AnkleMale),
+
+
 ];
+
+// female
 
 const femalefrontRegions = [
   makeRegion(`Chest & Breast`, 385, 192, 602, 444, ChestOrBreasts),
@@ -328,12 +341,12 @@ const femalefrontRegions = [
   makeRegion(`Right Hip`, 830, 147, 946, 220, hip),
   makeRegion(`Right Thigh`, 946, 150, 1174, 287, thigh),
   makeRegion(`Right Knee`, 1139, 189, 1254, 287, knee),
-  makeRegion(`Right Lower Leg`, 1261, 171, 1573, 255, lowerLeg),
+  makeRegion(`Right Lower Leg`, 1294, 182, 1501, 273, lowerLeg),
   makeRegion(`Right Foot / Toe`, 1566, 199, 1672, 255, footOrToes),
   makeRegion(`Left Hip`, 802, 406, 939, 483, hip),
   makeRegion(`Left Thigh`, 939, 315, 1170, 441, thigh),
   makeRegion(`Left Knee`, 1167, 322, 1251, 423, knee),
-  makeRegion(`Left Lower Leg`, 1268, 329, 1556, 406, lowerLeg),
+  makeRegion(`Left Lower Leg`, 1276, 336, 1497, 427, lowerLeg),
   makeRegion(`Left Foot / Toe`, 1559, 325, 1672, 413, footOrToes),
   makeRegion(`Forehead`, 133, 238, 171, 367, forehead),
   makeRegion(`Eye`, 185, 252, 217, 297, eye),
@@ -350,6 +363,8 @@ const femalefrontRegions = [
   makeRegion(`Left Wrist`, 858, 532, 883, 584, wrist),
   makeRegion(`Right Wrist`, 851, 42, 886, 91, wrist),
   makeRegion(`Chin`, 290, 290, 297, 329, chin),
+  makeRegion(`Right Ankle`, 1508, 206, 1543, 269, ankle),
+  makeRegion(`Left Ankle`, 1518, 339, 1553, 388, ankle),
 ];
 
 const femaleBackImage = [
@@ -366,11 +381,11 @@ const femaleBackImage = [
   makeRegion(`Right Finger`, 949, 10, 1013, 73, fingers),
   makeRegion(`Right Thigh`, 942, 147, 1177, 273, thigh),
   makeRegion(`Right Knee`, 1184, 178, 1247, 287, knee),
-  makeRegion(`Right Lower Leg`, 1251, 168, 1595, 262, lowerLeg),
+  makeRegion(`Right Lower Leg`, 1290, 182, 1574, 259, lowerLeg),
   makeRegion(`Right Foot / Toe`, 1609, 157, 1682, 269, footOrToes),
   makeRegion(`Left Thigh`, 914, 325, 1181, 437, thigh),
   makeRegion(`Left Knee`, 1191, 325, 1293, 434, knee),
-  makeRegion(`Left Lower Leg`, 1297, 329, 1605, 402, lowerLeg),
+  makeRegion(`Left Lower Leg`, 1297, 343, 1585, 399, lowerLeg),
   makeRegion(`Left Foot / Toe`, 1602, 325, 1676, 406, footOrToes),
   makeRegion(`Forehead`, 76, 269, 234, 346, forehead),
   makeRegion(`Right Ear`, 181, 220, 223, 255, ear),
@@ -381,6 +396,8 @@ const femaleBackImage = [
   makeRegion(`Left Butt`, 746, 318, 907, 458, butt),
   makeRegion(`Right Wrist`, 851, 542, 883, 588, wrist),
   makeRegion(`Left Wrist`, 833, 544, 862, 582, wrist),
+  makeRegion(`Right Ankle`, 1627, 210, 1651, 273, ankle),
+  makeRegion(`Left Ankle`, 1599, 329, 1669, 371, ankle),
 ];
 
 const femalefrontRegionsSpanish = [
@@ -400,10 +417,7 @@ const femalefrontRegionsSpanish = [
   makeRegion(`Rodilla Derecha`, 1139, 189, 1254, 287, rodillaFemaleSpanish), // Right Knee
   makeRegion(
     `Pierna Inferior Derecha`,
-    1261,
-    171,
-    1573,
-    255,
+    1294, 182, 1501, 273,
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Right Lower Leg
   makeRegion(
@@ -419,10 +433,7 @@ const femalefrontRegionsSpanish = [
   makeRegion(`Rodilla Izquierda`, 1167, 322, 1251, 423, rodillaFemaleSpanish), // Left Knee
   makeRegion(
     `Pierna Inferior Izquierda`,
-    1268,
-    329,
-    1556,
-    406,
+    1276, 336, 1497, 427,
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Left Lower Leg
   makeRegion(
@@ -455,6 +466,10 @@ const femalefrontRegionsSpanish = [
   makeRegion(`Muñeca Izquierda`, 858, 532, 883, 584, munecaFemaleSpanish), // Left Wrist
   makeRegion(`Muñeca Derecha`, 851, 42, 886, 91, munecaFemaleSpanish), // Right Wrist
   makeRegion(`Barbilla`, 290, 290, 297, 329, barbillaFemaleSpanish), // Chin
+
+  makeRegion(`Tobillo Derecho`, 1508, 206, 1543, 269, tobilloFemaleSpanish),
+  makeRegion(`Tobillo Izquierdo`, 1518, 339, 1553, 388, tobilloFemaleSpanish),
+
 ];
 
 const femaleBackImageSpanish = [
@@ -480,10 +495,7 @@ const femaleBackImageSpanish = [
   makeRegion(`Rodilla Derecha`, 1184, 178, 1247, 287, rodillaFemaleSpanish), // Right Knee
   makeRegion(
     `Pierna Inferior Derecha`,
-    1251,
-    168,
-    1595,
-    262,
+    1290, 182, 1574, 259,
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Right Lower Leg
   makeRegion(
@@ -498,10 +510,7 @@ const femaleBackImageSpanish = [
   makeRegion(`Rodilla Izquierda`, 1191, 325, 1293, 434, rodillaFemaleSpanish), // Left Knee
   makeRegion(
     `Pierna Inferior Izquierda`,
-    1297,
-    329,
-    1605,
-    402,
+    1297, 343, 1585, 399,
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Left Lower Leg
   makeRegion(
@@ -521,6 +530,8 @@ const femaleBackImageSpanish = [
   makeRegion(`Glúteo Izquierdo`, 746, 318, 907, 458, Las_nalgasFemaleSpanish), // Left Butt
   makeRegion(`Muñeca Derecha`, 851, 542, 883, 588, munecaFemaleSpanish), // Right Wrist
   makeRegion(`Muñeca Izquierda`, 833, 544, 862, 582, munecaFemaleSpanish), // Left Wrist
+  makeRegion(`Tobillo Derecho`, 1627, 210, 1651, 273, tobilloFemaleSpanish),
+  makeRegion(`Tobillo Izquierdo`, 1599, 329, 1669, 371, tobilloFemaleSpanish),
 ];
 
 const PADDING = 0;
@@ -656,7 +667,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           name: replaceString(clickedRegion?.name),
         },
       ]);
-      Cookies.set("is_pain_flow","Yes");
+      Cookies.set("is_pain_flow", "Yes");
       navigate("/concern-pain", {
         state: {
           partName: replaceString(clickedRegion?.name),
@@ -732,3 +743,5 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
 };
 
 export default PainDiagram;
+
+

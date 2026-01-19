@@ -411,20 +411,20 @@ export default function ConcernsSettings() {
                       {name === "Needsboard" && (
                         <Link to={"/icon-upload"}>
                           <button
-                            className="bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
+                            className="thm-btn bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
                           >
                             {t("icon")}
                           </button>
                         </Link>
                       )}
                       <button
-                        className="bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
+                        className="thm-btn bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
                         onClick={handleSelectAll}
                       >
                         {t("selectAll")}
                       </button>
                       <button
-                        className="bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
+                        className="thm-btn bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
                         onClick={handleDeselectAll}
                       >
                         {t("deselectAll")}
@@ -451,7 +451,7 @@ export default function ConcernsSettings() {
                   <div className="">
                     <div className="flex justify-center">
                       <button
-                        className="bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
+                        className="thm-btn bg-[#00acdcc4] text-white px-4 py-2 rounded-md text-sm transition-colors border-b-2"
                         onClick={handleSaveSettings}
                       >
                         {t("save")}

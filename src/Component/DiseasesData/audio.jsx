@@ -553,7 +553,7 @@ import shootingFemale from "/assets/audio/English/newFemaleEnglish/Shooting.mp3"
 
 import sideEffectsFemale from "/assets/audio/English/newFemaleEnglish/Side effects.mp3";
 import SiempreCronicoFemaleSpanish from "/assets/audio/English/newFemaleEnglish/Siempre _ Cronico .mp3";
-import HopelessFemale from "/assets/audio/English/newFemaleEnglish/Sin Esperanza (Hopeless).mp3";
+import HopelessFemale from "/assets/audio/English/female/Hopeless.mp3";
 import SinFructosSecosFemaleSpanish from "/assets/audio/English/newFemaleEnglish/Sin Fructos Secos (Nut Free).mp3";
 import SinGlutenFemaleSpanish from "/assets/audio/English/newFemaleEnglish/Sin Gluten (Gluten-free).mp3";
 import SinLacteosFemaleSpanish from "/assets/audio/English/newFemaleEnglish/Sin Lacteos (No Dairy).mp3";

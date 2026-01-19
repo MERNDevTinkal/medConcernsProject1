@@ -130,7 +130,7 @@ function EmotionScreen() {
                     onClick={() => {
                       handleRoutes(
                         getQuestions,
-                        selectedLanguage === "Spanish" ? "Sí" : "YES",
+                        selectedLanguage === "Spanish" ? "SÍ" : "YES",
                         selectedLanguage === "" && selectedGender === ""
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
@@ -157,7 +157,7 @@ function EmotionScreen() {
                     <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
                         <p className="text-[32px] font-medium text-green-600">
-                          {selectedLanguage === "Spanish" ? "Sí" : "YES"}
+                          {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
                         </p>
                       </div>
                       <div>

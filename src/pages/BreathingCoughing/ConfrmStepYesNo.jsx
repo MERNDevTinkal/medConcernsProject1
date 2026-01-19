@@ -39,16 +39,16 @@ function ConfrmStepYesNo() {
   }, [name, id]);
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => {},
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -88,6 +88,9 @@ function ConfrmStepYesNo() {
       updateDisease(pathprimary, valueData);
       if (scalepath === "/mood-scale") {
         return navigate("/feeling-body");
+      }
+      if (pathprimary.includes("medicationHardtoSwallow-problem")) {
+        return navigate("/howoften");
       }
       if (
         !pathprimary.includes("/feel/confrm-step-yesno") &&
@@ -143,15 +146,14 @@ function ConfrmStepYesNo() {
                     <img
                       src={selectedConcers?.image ?? value?.image}
                       alt={selectedConcers?.name || "img"}
-                      className={`rounded-xl w-full h-full ${
-                        pathprimary.includes(
-                          "/feeling-list-pain/confrm-step-yesno"
-                        ) ||
-                        pathprimary.includes("/feeling/confrm-step-yesno") ||
-                        pathprimary.includes("/feel/confrm-step-yesno")
+                      className={`rounded-xl w-full h-full ${pathprimary.includes(
+                        "/feeling-list-pain/confrm-step-yesno"
+                      ) ||
+                          pathprimary.includes("/feeling/confrm-step-yesno") ||
+                          pathprimary.includes("/feel/confrm-step-yesno")
                           ? "objct-cls"
                           : "object-cover"
-                      } `}
+                        } `}
                     />
                   </div>
                 </div>
@@ -161,7 +163,7 @@ function ConfrmStepYesNo() {
                   <div
                     onClick={() =>
                       handleConfrmStepYesNo(
-                        selectedLanguage === "Spanish" ? "Sí" : "YES",
+                        selectedLanguage === "Spanish" ? "SÍ" : "YES",
                         selectedConcers?.Prompt
                           ? selectedConcers?.path
                           : selectedConcers?.path,
@@ -169,28 +171,28 @@ function ConfrmStepYesNo() {
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                          ? YesSpanishMale
-                          : selectedLanguage === "Spanish" &&
-                            selectedGender === "Female"
-                          ? YesFemaleSpanish
-                          : selectedLanguage === "" &&
-                            selectedGender === "Female"
-                          ? YesFemale
-                          : selectedLanguage === "" && selectedGender === "Male"
-                          ? YesMale
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Male"
-                          ? YesMale
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Female"
-                          ? YesFemale
-                          : YesMale
+                            ? YesSpanishMale
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Female"
+                              ? YesFemaleSpanish
+                              : selectedLanguage === "" &&
+                                selectedGender === "Female"
+                                ? YesFemale
+                                : selectedLanguage === "" && selectedGender === "Male"
+                                  ? YesMale
+                                  : selectedLanguage === "English" &&
+                                    selectedGender === "Male"
+                                    ? YesMale
+                                    : selectedLanguage === "English" &&
+                                      selectedGender === "Female"
+                                      ? YesFemale
+                                      : YesMale
                       )
                     }
                   >
                     <div className="custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <p className="text-[40px] font-medium text-green-600">
-                        {selectedLanguage === "Spanish" ? "Sí" : "YES"}
+                        {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
                       </p>
                       <img src={Checked} width="50px" alt="yes" />
                     </div>
@@ -206,22 +208,22 @@ function ConfrmStepYesNo() {
                           ? No_male
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Male"
-                          ? No_no_maleSpanish
-                          : selectedLanguage === "Spanish" &&
-                            selectedGender === "Female"
-                          ? NoFemale
-                          : selectedLanguage === "" &&
-                            selectedGender === "Female"
-                          ? NoFemale
-                          : selectedLanguage === "" && selectedGender === "Male"
-                          ? No_male
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Male"
-                          ? No_male
-                          : selectedLanguage === "English" &&
-                            selectedGender === "Female"
-                          ? NoFemale
-                          : No_male
+                            ? No_no_maleSpanish
+                            : selectedLanguage === "Spanish" &&
+                              selectedGender === "Female"
+                              ? NoFemale
+                              : selectedLanguage === "" &&
+                                selectedGender === "Female"
+                                ? NoFemale
+                                : selectedLanguage === "" && selectedGender === "Male"
+                                  ? No_male
+                                  : selectedLanguage === "English" &&
+                                    selectedGender === "Male"
+                                    ? No_male
+                                    : selectedLanguage === "English" &&
+                                      selectedGender === "Female"
+                                      ? NoFemale
+                                      : No_male
                       )
                     }
                   >

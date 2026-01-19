@@ -51,8 +51,8 @@ const NeedBoard = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setUncheckNeedBoard
     );
 
@@ -195,20 +195,20 @@ const NeedBoard = () => {
       const audioValue = value?.audio
         ? value?.audio
         : selectedLanguage === "" && selectedGender === ""
-        ? value?.maleEnglish
-        : selectedLanguage === "Spanish" && selectedGender === "Male"
-        ? value?.maleSpanish
-        : selectedLanguage === "Spanish" && selectedGender === "Female"
-        ? value?.femaleSpanish
-        : selectedLanguage === "" && selectedGender === "Female"
-        ? value?.femaleEnglish
-        : selectedLanguage === "" && selectedGender === "Male"
-        ? value?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Male"
-        ? value?.maleEnglish
-        : selectedLanguage === "English" && selectedGender === "Female"
-        ? value?.femaleEnglish
-        : value?.maleEnglish;
+          ? value?.maleEnglish
+          : selectedLanguage === "Spanish" && selectedGender === "Male"
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" && selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
@@ -255,7 +255,17 @@ const NeedBoard = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper pt-20">
+          <div className="main-wrapper home-wrapper pt-20 relative">
+            <div className="m-5">
+            <button
+              onClick={() => navigate("/icon-upload")}
+              className="thm-btn absolute top-4 right-4 z-10"
+            >
+              {selectedLanguage === "Spanish"
+                ? "+ Agregar icono"
+                : "+ Add Icon"}
+            </button>
+            </div>
             <div className="dashboard-wrapper px-0 py-1.5">
               <div
                 className="dashboard-h grid gap-3 p-3 px-0"
@@ -278,27 +288,26 @@ const NeedBoard = () => {
                             selectedIconCount === 1
                               ? "dash-single-items"
                               : selectedIconCount === 2
-                              ? "dash-double-items"
-                              : selectedIconCount === 3
-                              ? "dash-triple-items"
-                              : selectedIconCount === 4
-                              ? "dash-quadriple-items"
-                              : selectedIconCount === 6
-                              ? "dash-hexuple-items"
-                              : ""
+                                ? "dash-double-items"
+                                : selectedIconCount === 3
+                                  ? "dash-triple-items"
+                                  : selectedIconCount === 4
+                                    ? "dash-quadriple-items"
+                                    : selectedIconCount === 6
+                                      ? "dash-hexuple-items"
+                                      : ""
                           }
                           style={{ cursor: "pointer" }}
                           key={index}
                         >
                           <div
-                            className={`dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${
-                              (selectedLanguage === "Spanish"
+                            className={`dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${(selectedLanguage === "Spanish"
                                 ? item?.nameEs
                                 : item?.name
                               )?.length > 18
                                 ? "shirnk-card"
                                 : ""
-                            }`}
+                              }`}
                           >
                             {item?.audio && item.audio.trim() !== "" && (
                               <div className="flex justify-end absolute top-4 right-4">
@@ -344,7 +353,7 @@ const NeedBoard = () => {
               </div>
             </div>
             {/* Add Button at bottom */}
-            <div className="flex justify-center my-6">
+            {/* <div className="flex justify-center my-6">
               <button
                 onClick={() => {
                   navigate("/icon-upload");
@@ -355,7 +364,7 @@ const NeedBoard = () => {
                   ? "+ Agregar icono"
                   : "+ Add Icon"}
               </button>
-            </div>
+            </div> */}
           </div>
         </>
       )}
