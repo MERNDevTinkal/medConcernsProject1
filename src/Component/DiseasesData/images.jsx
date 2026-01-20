@@ -336,7 +336,7 @@ import DigramBack from "/assets/images/digram-back.png?url";
 import DigramFront from "/assets/images/digram-front.svg?url";
 import Refresh from "/assets/images/refresh_17981405.png?url";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
-import FaceDigram from "/assets/images/face-digram.svg?url";
+import FaceDigram from "/assets/images/face-digram.png?url";
 import UploadIcon from "/assets/images/upload.svg?url";
 import VoiceIcon from "/assets/images/voice.svg?url";
 
@@ -353,18 +353,17 @@ import doublearrow from "/assets/images/double-arrow.svg?url";
 import HowAreYou1 from "/assets/images/bad.png?url";
 
 export {
-HowAreYou1,
+  HowAreYou1,
   doublearrow,
   DepressedImg,
   PencilIcon,
-TextIcon,
-ImgIcon,
-EraserIcon,
-SaveIcon,
-DeleteIcon,
-KeyBoardIcon,
-imageUploadIcon,
-
+  TextIcon,
+  ImgIcon,
+  EraserIcon,
+  SaveIcon,
+  DeleteIcon,
+  KeyBoardIcon,
+  imageUploadIcon,
   UploadIcon,
   VoiceIcon,
   FaceDigram,
