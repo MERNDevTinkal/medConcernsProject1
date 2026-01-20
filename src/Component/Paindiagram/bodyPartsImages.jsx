@@ -228,6 +228,9 @@ export const bodyImages = {
     Codo: elbowWoman,
     Antebrazo: lowerRightArmWoman,
     "Pierna Inferior": lowerLegWoman,
+    "Left Ankle": femaleRightAnkle,
+    "Right Ankle": femaleLeftAnkle,
+
   },
   men: {
     Forehead: foreheadMan,
@@ -240,7 +243,8 @@ export const bodyImages = {
     "Pelvis / Genitals": pelvisGenitalsMan,
     Back: backMan,
     Chin: chinMan,
-
+    "Left Ankle": maleRightAnkle,
+    "Right Ankle": maleLeftAnkle,
     "Left Eye": eyeMan,
     "Left Ear": leftEarMan,
     "Left Cheek": cheekLeftMan,

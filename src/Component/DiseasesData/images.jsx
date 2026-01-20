@@ -352,7 +352,24 @@ import DepressedImg from "/assets/images/depressed.png?url";
 import doublearrow from "/assets/images/double-arrow.svg?url";
 import HowAreYou1 from "/assets/images/bad.png?url";
 
+import femaleFace from "/assets/images/women/female-face.png?url";
+import femalerightankle from "/assets/images/women/female-right-ankle.png?url";
+import leftfemaleankle from "/assets/images/women/left-female-ankle.png?url";
+
+import Rightmaleankle from "/assets/images/men/right-male-ankle.png?url";
+import leftMaleankle from "/assets/images/men/left-male-ankle.png?url";
+import maleface from "/assets/images/men/male-face.png?url";
+
+
 export {
+  femaleFace,
+  femalerightankle,
+  leftfemaleankle,
+
+  Rightmaleankle,
+  leftMaleankle,
+  maleface,
+
   HowAreYou1,
   doublearrow,
   DepressedImg,

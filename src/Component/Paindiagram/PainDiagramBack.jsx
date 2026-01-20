@@ -616,6 +616,16 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
       .replace(/^(Right|Left)\s+/i, "") // English
       .replace(/^(Derecho|Izquierdo|Derecha|Izquierda)\s+/i, ""); // Spanish
 
+    if (["forehead", "eye", "nose", "mouth", "ear", "chin", "frente",
+      "ojo",
+      "nariz",
+      "boca",
+      "oreja",
+      "mentón"].includes(cleanedName.toLowerCase())) {
+
+      navigate("/faceDigram")
+      return;
+    }
     // Speak the selected name
     getTextToSpeech(
       cleanedName,
