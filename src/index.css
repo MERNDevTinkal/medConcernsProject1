@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("../fonts/Navigo-Black.woff2") format("woff2"),
+  src:
+    url("../fonts/Navigo-Black.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
@@ -13,7 +14,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Black.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Black.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
@@ -22,7 +24,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Black.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Black.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
@@ -31,7 +34,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
@@ -40,7 +44,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -49,7 +54,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -58,7 +64,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
@@ -67,7 +74,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
@@ -76,7 +84,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -85,7 +94,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
@@ -94,7 +104,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
     url("./assets/fonts/Navigo-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
@@ -103,7 +114,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Regular.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -112,7 +124,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Bold.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
@@ -121,7 +134,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
     url("./assets/fonts/Navigo-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
@@ -130,7 +144,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -139,7 +154,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
@@ -148,7 +164,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-ExtraLight.woff2") format("woff2"),
     url("./assets/fonts/Navigo-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
@@ -157,7 +174,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Light.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
@@ -166,7 +184,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Medium.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -175,7 +194,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
@@ -184,7 +204,8 @@
 
 @font-face {
   font-family: "Navigo";
-  src: url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
+  src:
+    url("./assets/fonts/Navigo-Thin.woff2") format("woff2"),
     url("./assets/fonts/Navigo-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
@@ -210,7 +231,8 @@ body {
 
 /* Add eraser cursor */
 .cursor-eraser {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.5 19.5L20.5 11.5C21.328 10.672 21.328 9.328 20.5 8.5L15.5 3.5C14.672 2.672 13.328 2.672 12.5 3.5L4.5 11.5C3.672 12.328 3.672 13.672 4.5 14.5L9.5 19.5C10.328 20.328 11.672 20.328 12.5 19.5Z'/%3E%3Cpath d='M18 12L21 15'/%3E%3Cpath d='M3 21L12 12'/%3E%3C/svg%3E")
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.5 19.5L20.5 11.5C21.328 10.672 21.328 9.328 20.5 8.5L15.5 3.5C14.672 2.672 13.328 2.672 12.5 3.5L4.5 11.5C3.672 12.328 3.672 13.672 4.5 14.5L9.5 19.5C10.328 20.328 11.672 20.328 12.5 19.5Z'/%3E%3Cpath d='M18 12L21 15'/%3E%3Cpath d='M3 21L12 12'/%3E%3C/svg%3E")
       12 12,
     auto;
 }
@@ -1513,4 +1535,14 @@ body,
 }
 .custom-wdth {
   width: 85%;
+}
+.digram-cards {
+  height: 400px;
+}
+.digram-cards .digram-cards-img {
+  height: 100%;
+}
+.digram-cards img {
+  height: 100%;
+  width: 100%;
 }

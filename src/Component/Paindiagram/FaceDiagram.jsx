@@ -14,12 +14,14 @@ const EarDiagram = () => {
   };
 
   useEffect(() => {
-    setLoader(false)
-  }, [])
+    setLoader(false);
+  }, []);
 
   return (
     <>
-      {loader ? <Loader /> : (
+      {loader ? (
+        <Loader />
+      ) : (
         <>
           <Header
           // selectedLanguage={selectedLanguage}
@@ -31,11 +33,11 @@ const EarDiagram = () => {
           //     : "How do you feel overall?"
           // }
           />
-          <div className="max-w-4xl mx-auto px-4 md:px-8 mt-6 bg-white rounded-xl shadow-md relative">
-            {/* Rectangle Card */}
+          {/* <div className="max-w-4xl mx-auto px-4 md:px-8 mt-6 bg-white rounded-xl shadow-md relative">
+            
             <div className="">
 
-              {/* Image Wrapper */}
+              
               <div
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[100%] pt-6"
               >
@@ -60,6 +62,32 @@ const EarDiagram = () => {
                 )}
               </div>
 
+            </div>
+          </div> */}
+          <div className="main-wrapper home-wrapper pt-20 relative">
+            <div className="my-5 flex justify-center items-center">
+              <div className="w-full max-w-4xl  bg-white shadow-sm rounded-xl digram-cards relative">
+                <div className="flex justify-center items-center digram-cards-img">
+                  <img
+                    ref={imageRef}
+                    src={FaceDigram}
+                    alt="Face Diagram"
+                    onClick={handleClick}
+                    className=""
+                    draggable={false}
+                  />
+                </div>
+                {point && (
+                  <div
+                    className="absolute w-10 h-10 rounded-full bg-red-500/40 border-2 border-red-600 pointer-events-none"
+                    style={{
+                      left: `${point.x}%`,
+                      top: `${point.y}%`,
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </>
