@@ -42,9 +42,11 @@ import upperArmWoman from "/assets/images/women/upper-arm.png";
 import upperArmRightWoman from "/assets/images/women/right-lower-arm.png";
 import wristLeftWoman from "/assets/images/women/wrist-left.png";
 import wristRightWoman from "/assets/images/women/wrist-right.png";
-
+import femaleRightAnkle from "/assets/images/women/female-right-ankle.png";
+import femaleLeftAnkle from "/assets/images/women/left-female-ankle.png";
+import femaleFace from "/assets/images/women/female-face.png";
 // ==========================
-// MEN IMAGES (from men directory)
+// MEN IMAGES (from men directory) /////////////////////////
 // ==========================
 import adomenMan from "/assets/images/men/adomen.png";
 import armMan from "/assets/images/men/arm.png";
@@ -88,6 +90,9 @@ import upperArmRightMan from "/assets/images/men/upper-arm-right.png";
 import wristLeftMan from "/assets/images/men/wristleft.png";
 import wristRightMan from "/assets/images/men/wristright.png";
 
+import maleRightAnkle from "/assets/images/men/right-male-ankle.png";
+import maleLeftAnkle from "/assets/images/men/left-male-ankle.png";
+import maleFace from "/assets/images/men/male-face.png";
 // ==========================
 // EXPORT ALL
 export const bodyImages = {

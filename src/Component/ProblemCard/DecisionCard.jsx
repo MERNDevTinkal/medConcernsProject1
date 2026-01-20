@@ -47,7 +47,6 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
       maleSpanish: YesSpanishMale,
       femaleSpanish: YesFemaleSpanish,
     },
-
     {
       id: 2,
       image: Close,

@@ -58,6 +58,7 @@ import ImagesLibrery from "./pages/ImagesLibrery/page";
 import DepressionScreener from "./pages/feelOptions/DepressionScreener";
 import License from "./pages/NeedLicense/License";
 import LicenseContact from "./pages/NeedLicense/LicenseContact";
+import FaceDiagram from "./Component/Paindiagram/FaceDiagram";
 function App() {
   const location = useLocation();
   useEffect(() => {
@@ -182,6 +183,7 @@ function App() {
           <Route path="/feeling-body" element={<EmotionsList />} />
           <Route path="/depression-screener" element={<DepressionScreener />} />
           <Route path="/mood-scale" element={<Feel />} />
+          <Route path="/faceDigram" element={<FaceDiagram />} />
         </Route>
       </Routes>
     </>
