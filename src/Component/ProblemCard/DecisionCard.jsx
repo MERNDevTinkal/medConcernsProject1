@@ -24,6 +24,7 @@ import {
   IDontKnowMale,
   IdontknowSpanishFemale,
   NoSeMale,
+  femaleNoSpanish
 } from "../../../src/Component/DiseasesData/audio";
 const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
       maleEnglish: No_male,
       femaleEnglish: NoFemale,
       maleSpanish: No_no_maleSpanish,
-      femaleSpanish: NoFemale,
+      femaleSpanish: femaleNoSpanish,
     },
     {
       id: 3,

@@ -10,6 +10,7 @@ import getSetting from "../../Component/settingApi/settings";
 import Cookies from "js-cookie";
 import {
   YesFemale,
+  femaleNoSpanish,
   YesFemaleSpanish,
   NoFemale,
   NoFemaleSpanish,
@@ -211,7 +212,7 @@ function ConfrmStepYesNo() {
                             ? No_no_maleSpanish
                             : selectedLanguage === "Spanish" &&
                               selectedGender === "Female"
-                              ? NoFemale
+                              ? femaleNoSpanish
                               : selectedLanguage === "" &&
                                 selectedGender === "Female"
                                 ? NoFemale

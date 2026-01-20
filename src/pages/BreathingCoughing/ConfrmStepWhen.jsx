@@ -10,6 +10,7 @@ import getSetting from "../../Component/settingApi/settings";
 import Loader from "../../Component/webLoader/loader";
 import {
   YesFemale,
+  femaleNoSpanish,
   YesFemaleSpanish,
   NoFemale,
   NoFemaleSpanish,
@@ -153,7 +154,7 @@ function ConfrmStepWhen() {
                           ? No_no_maleSpanish
                           : selectedLanguage === "Spanish" &&
                             selectedGender === "Female"
-                          ? NoFemaleSpanish
+                          ? femaleNoSpanish
                           : selectedLanguage === "" &&
                             selectedGender === "Female"
                           ? NoFemale

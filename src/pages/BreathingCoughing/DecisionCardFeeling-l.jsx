@@ -8,7 +8,7 @@ import {
   YesFemale,
   YesFemaleSpanish,
   NoFemale,
-  NoFemaleSpanish,
+  femaleNoSpanish,
   YesSpanishMale,
   YesMale,
   No_male,
@@ -105,7 +105,7 @@ const DecisionCardFeeling = ({
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
                 ? No_no_maleSpanish
                 : selectedLanguage === "Spanish" && selectedGender === "Female"
-                ? NoFemale
+                ? femaleNoSpanish
                 : selectedLanguage === "" && selectedGender === "Female"
                 ? NoFemale
                 : selectedLanguage === "" && selectedGender === "Male"

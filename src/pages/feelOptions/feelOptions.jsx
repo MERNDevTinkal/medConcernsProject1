@@ -13,7 +13,7 @@ import {
   YesFemale,
   YesFemaleSpanish,
   NoFemale,
-  NoFemaleSpanish,
+  femaleNoSpanish,
   YesSpanishMale,
   YesMale,
   No_male,
@@ -177,7 +177,7 @@ function EmotionScreen() {
                             ? No_no_maleSpanish
                             : selectedLanguage === "Spanish" &&
                               selectedGender === "Female"
-                              ? NoFemaleSpanish
+                              ? femaleNoSpanish
                               : selectedLanguage === "" &&
                                 selectedGender === "Female"
                                 ? NoFemale

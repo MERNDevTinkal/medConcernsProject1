@@ -1926,9 +1926,10 @@ import ConsalivaMaleSpanish from "/assets/audio/spanish/male/1 Con saliva.mp3";
 import SemanaMaleSpanish from "/assets/audio/spanish/male/Semana - week.mp3";
 import AhoraMaleSpanish from "/assets/audio/spanish/male/Ahora (now - male).mp3";
 import MesMaleSpanish from "/assets/audio/spanish/male/Mes - month.mp3";
-import femaleNoSpanish from "../../../public/assets/audio/spanish/female/No (no)femaleSpanish.mp3"
+import femaleNoSpanish from "/assets/audio/spanish/female/No (no)femaleSpanish.mp3"
 export {
   // Female English
+  femaleNoSpanish,
   MesMaleSpanish,
   AhoraMaleSpanish,
   SemanaMaleSpanish,

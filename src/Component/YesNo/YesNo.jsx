@@ -12,6 +12,7 @@ import {
   YesMale,
   No_male,
   No_no_maleSpanish,
+  femaleNoSpanish,
 } from "../../../src/Component/DiseasesData/audio";
 const YesNo = ({ selectedGender, selectedLanguage }) => {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
                   ? No_no_maleSpanish
                   : selectedLanguage === "Spanish" && selectedGender === "Female"
-                    ? NoFemale
+                    ? femaleNoSpanish
                     : selectedLanguage === "" && selectedGender === "Female"
                       ? NoFemale
                       : selectedLanguage === "" && selectedGender === "Male"
