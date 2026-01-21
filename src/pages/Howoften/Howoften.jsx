@@ -284,12 +284,16 @@ export default function TabsCalendar() {
   const getDayAudio = (item) => {
     if (selectedLanguage === "Spanish") {
       if (selectedGender === "Female") {
+        console.log("item", item)
         switch (item) {
           case "morning":
+          case "mañana":
             return MananaMorningSpanishFemale;
           case "afternoon":
+          case "tarde":
             return TardeAfternoonSpanishFemale;
           case "evening":
+          case "noche temprano":
             return NocheTempranoEveningSpanishFemale;
           default:
             return null;
@@ -297,10 +301,13 @@ export default function TabsCalendar() {
       } else {
         switch (item) {
           case "morning":
+          case "mañana":
             return MananaMorningMale;
           case "afternoon":
+          case "tarde":
             return TardeAfternoonSpanishMale;
           case "evening":
+          case "noche temprano":
             return NocheTempranoEveningMale;
           default:
             return null;
@@ -308,7 +315,6 @@ export default function TabsCalendar() {
       }
     } else {
       if (selectedGender === "Female") {
-
         switch (item) {
           case "morning":
             return MorningFemale;

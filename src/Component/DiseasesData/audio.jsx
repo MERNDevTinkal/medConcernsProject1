@@ -1094,7 +1094,7 @@ import frustrated from "/assets/audio/English/female/frustrated.mp3";
 import diarrheaUpdated from "/assets/audio/English/female/Diarrhea updated.mp3";
 import infection from "/assets/audio/English/female/Infection.mp3";
 import plugged from "/assets/audio/English/female/plugged.mp3";
-import tapadosPlugged from "/assets/audio/English/female/Tapados (Plugged).mp3";
+import tapadosPlugged from "/assets/audio/spanish/female/Tapados (Plugged).mp3";
 
 import WithPillsFeMale from "/assets/audio/English/female/With Pills.mp3";
 
@@ -1725,6 +1725,8 @@ import EstrenimientoSpanishMale from "/assets/audio/spanish/male/Estreñimiento
 
 import TratamientoDeRespiracionBreathingTreatmentSpanishMale from "/assets/audio/spanish/male/Tratamiento de Respiracion (Breathing Treatment).mp3";
 import FaltaDeAlientoShortnessOfBreathSpanishMale from "/assets/audio/spanish/male/falta de aliento_shortness of breath.mp3";
+import FaltaDeAlientoShortnessOfBreathSpanishFeMale from "/assets/audio/spanish/female/falta de aliento (shortness of breath).mp3";
+
 import TosCoughingSpanishMale from "/assets/audio/spanish/male/tos_coughing.mp3";
 import DolorDePechoChestPainSpanishMale from "/assets/audio/spanish/male/dolor de pecho_chest pain.mp3";
 import AsfixiaChokingSpanishMale from "/assets/audio/spanish/male/asfixia_choking.mp3";
@@ -1927,9 +1929,23 @@ import SemanaMaleSpanish from "/assets/audio/spanish/male/Semana - week.mp3";
 import AhoraMaleSpanish from "/assets/audio/spanish/male/Ahora (now - male).mp3";
 import MesMaleSpanish from "/assets/audio/spanish/male/Mes - month.mp3";
 import femaleNoSpanish from "/assets/audio/spanish/female/No (no)femaleSpanish.mp3"
+import femaleTosCoughingSpanish from "/assets/audio/spanish/female/tos (coughing).mp3"
+import femaleAsfixiaSpanish from "/assets/audio/spanish/female/asfixia (choking).mp3"
+import femalechestpainSpanish from "/assets/audio/spanish/female/dolor de pecho (chest pain).mp3"
+import femaleBathroomEngish from "/assets/audio/English/female/87 Bathroom.mp3";
+import femaleBanoSpanish from "/assets/audio/spanish/female/87 Baño.mp3";
+import femaleTapadosSpanish from "/assets/audio/spanish/female/Tapados (Plugged).mp3";
+
 export {
   // Female English
+  femaleTapadosSpanish,
+  femaleBathroomEngish,
+  femaleBanoSpanish,
+  femalechestpainSpanish,
+  femaleAsfixiaSpanish,
+  femaleTosCoughingSpanish,
   femaleNoSpanish,
+  FaltaDeAlientoShortnessOfBreathSpanishFeMale,
   MesMaleSpanish,
   AhoraMaleSpanish,
   SemanaMaleSpanish,
