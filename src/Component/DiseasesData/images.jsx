@@ -203,7 +203,7 @@ import CheckMyvisionImg from "/assets/images/Check My vision.png?url";
 // concernData.js
 import ConcernImg1 from "/assets/images/concern-img-01.png?url";
 import ConcernImg2 from "/assets/images/concern-img-02.png?url";
-import ConcernImg3 from "/assets/images/concern-img-03.png?url";
+import ConcernImg3 from "/assets/images/swallowing.png?url";
 import ConcernImg4 from "/assets/images/concern-img-04.png?url";
 import ConcernImg6 from "/assets/images/concern-img-06.png?url";
 import ConcernImg7 from "/assets/images/concern-img-07.png?url";
