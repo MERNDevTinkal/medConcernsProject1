@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
 export default function AddImagePopup({
+  textBlocks,
+  paths,
   oldImages,
   pathname,
   uploadedImages,
@@ -23,7 +25,7 @@ export default function AddImagePopup({
 
   const handleChooseFromLibrary = (e) => {
     e.preventDefault();
-    navigate("/images-library", { state: { oldImages, uploadedImages, pathname } });
+    navigate("/images-library", { state: { oldImages, uploadedImages, pathname,textBlocks,paths } });
   };
   return (
     <div className="flex justify-center">

@@ -150,8 +150,8 @@ const backRegions = [
   makeRegion(`Right Arm`, 153, 28, 225, 49, UpperArmMale),
   makeRegion(`Right Hand`, 310, 12, 330, 35, HandMale),
   makeRegion(`Right Finger`, 335, 12, 360, 35, FingersMale),
-  makeRegion(`Right Lower Leg`, 458, 60, 580, 100, lowerLegMale),
-  makeRegion(`Left Lower Leg`, 458, 120, 580, 150, lowerLegMale),
+  makeRegion(`Right Lower Leg`, 474, 118, 572, 151, lowerLegMale),
+  makeRegion(`Left Lower Leg`, 477, 62, 573, 100, lowerLegMale),
   makeRegion(`Right Foot / Toe`, 590, 120, 630, 150, FootOrToes_comMale),
   makeRegion(`Left Foot / Toe`, 590, 60, 630, 100, FootOrToes_comMale),
   makeRegion(`Right Knee`, 430, 60, 460, 100, KneeMale),
@@ -173,8 +173,8 @@ const backRegions = [
   makeRegion(`Forehead`, 16, 91, 75, 127, Forehead_comMale),
   makeRegion(`Right Ear`, 44, 76, 69, 88, EarMale),
   makeRegion(`Left Ear`, 47, 135, 69, 141, EarMale),
-  makeRegion(`Right Ankle`, 575, 95, 600, 115, AnkleMale),
-  makeRegion(`Left Ankle`, 575, 115, 600, 135, AnkleMale),
+  makeRegion(`Right Ankle`, 580, 71, 602, 101, AnkleMale),
+  makeRegion(`Left Ankle`, 576, 118, 598, 144, AnkleMale),
 ];
 
 const backRegionsSpanish = [
@@ -186,18 +186,12 @@ const backRegionsSpanish = [
   makeRegion(`Dedo Derecho`, 335, 12, 360, 35, dedosMAleSpanish),
   makeRegion(
     `Pierna Inferior Derecha`,
-    458,
-    60,
-    580,
-    100,
+    474, 118, 572, 151,
     parteInferiorPiernaMAleSpanish
   ),
   makeRegion(
     `Pierna Inferior Izquierda`,
-    458,
-    120,
-    580,
-    150,
+    477, 62, 573, 100,
     parteInferiorPiernaMAleSpanish
   ),
   makeRegion(`Pie y Dedos Izquierdos`, 590, 120, 630, 150, pieMAleSpanish),
@@ -221,8 +215,8 @@ const backRegionsSpanish = [
   makeRegion(`Frente`, 16, 91, 75, 127, EspaldaMAleSpanish),
   makeRegion(`Oreja Derecha`, 44, 76, 69, 88, orejaMAleSpanish),
   makeRegion(`Oreja Izquierda`, 47, 135, 69, 141, orejaMAleSpanish),
-  makeRegion(`Tobillo Derecho`, 560, 95, 585, 110, AnkleMale),
-  makeRegion(`Tobillo Izquierdo`, 560, 115, 585, 135, AnkleMale),
+  makeRegion(`Tobillo Derecho`,580, 71, 602, 101 , AnkleMale),
+  makeRegion(`Tobillo Izquierdo`,576, 118, 598, 144 , AnkleMale),
 ];
 
 const frontRegions = [
@@ -243,8 +237,8 @@ const frontRegions = [
   makeRegion(`Right Thigh`, 320, 45, 385, 90, Thigh_comMale),
   makeRegion(`Right Knee`, 400, 90, 440, 55, KneeMale),
   makeRegion(`Left Knee`, 400, 110, 440, 145, KneeMale),
-  makeRegion(`Right Lower Leg`, 450, 58, 560, 90, lowerLegMale),
-  makeRegion(`Left Lower Leg`, 450, 107, 560, 140, lowerLegMale),
+  makeRegion(`Right Lower Leg`, 461, 107, 553, 143, lowerLegMale),
+  makeRegion(`Left Lower Leg`, 471, 52, 553, 92, lowerLegMale),
   makeRegion(`Right Foot / Toe`, 570, 110, 610, 134, FootOrToes_comMale),
   makeRegion(`Left Foot / Toe`, 570, 65, 610, 90, FootOrToes_comMale),
   makeRegion(`Left Shoulder`, 180, 160, 117, 175, ShoulderMale),
@@ -262,8 +256,8 @@ const frontRegions = [
   makeRegion(`Chin`, 85, 94, 88, 112, ChinMale),
   makeRegion(`Left Wrist`, 282, 179, 295, 195, WristMale),
   makeRegion(`Right Wrist`, 289, 9, 303, 27, WristMale),
-  makeRegion(`Right Ankle`, 560, 95, 585, 110, AnkleMale),
-  makeRegion(`Left Ankle`, 560, 115, 585, 135, AnkleMale),
+  makeRegion(`Right Ankle`, 557, 69, 574, 92, AnkleMale),
+  makeRegion(`Left Ankle`, 554, 114, 572, 133, AnkleMale),
 
 ];
 
@@ -287,18 +281,12 @@ const frontRegionsSpanish = [
   makeRegion(`Rodilla Izquierda`, 400, 110, 440, 145, RodillaMAleSpanish),
   makeRegion(
     `Pierna Inferior Derecha`,
-    450,
-    58,
-    560,
-    90,
+    461, 107, 553, 143,
     parteInferiorPiernaMAleSpanish
   ),
   makeRegion(
     `Pierna Inferior Izquierda`,
-    450,
-    107,
-    560,
-    140,
+    471, 52, 553, 92,
     parteInferiorPiernaMAleSpanish
   ),
   makeRegion(`Pie y Dedos Izquierdos`, 570, 110, 610, 134, pieMAleSpanish),
@@ -318,8 +306,8 @@ const frontRegionsSpanish = [
   makeRegion(`Barbilla`, 85, 94, 88, 112, BarbillaMAleSpanish),
   makeRegion(`Muñeca Izquierda`, 282, 179, 295, 195, munecaMAleSpanish), // Left Wrist
   makeRegion(`Muñeca Derecha`, 289, 9, 303, 27, munecaMAleSpanish), // Right Wrist
-  makeRegion(`Tobillo Derecho`, 560, 95, 585, 110, AnkleMale),
-  makeRegion(`Tobillo Izquierdo`, 560, 115, 585, 135, AnkleMale),
+  makeRegion(`Tobillo Derecho`, 557, 69, 574, 92, AnkleMale),
+  makeRegion(`Tobillo Izquierdo`, 554, 114, 572, 133, AnkleMale),
 
 
 ];
@@ -370,7 +358,8 @@ const femalefrontRegions = [
 const femaleBackImage = [
   makeRegion(`Back`, 364, 168, 679, 430, back),
   makeRegion(`Lower Back`, 679, 196, 777, 444, lowerBack),
-  makeRegion(`Elbow`, 588, 476, 651, 539, Elbow),
+  makeRegion(`Left Elbow`, 588, 476, 651, 539, Elbow),
+  makeRegion(`Right Elbow`, 589, 91, 649, 143, Elbow),
   makeRegion(`Left Arm`, 367, 473, 578, 501, UpperArm),
   makeRegion(`Left Forearm`, 637, 536, 851, 571, forearm),
   makeRegion(`Left Hand`, 890, 532, 960, 599, hand),
@@ -755,3 +744,139 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
 export default PainDiagram;
 
 
+
+
+
+
+// import React, { useState, useRef } from "react";
+// import {
+//   Femalebodyback,
+//   Frontfemale,
+//   DigramBack,
+//   DigramFront,
+//   Refresh,
+// } from "../../Component/DiseasesData/images.jsx";
+// function makeRegion(name, x1, y1, x2, y2) {
+//   return {
+//     name,
+//     x1: Math.min(x1, x2),
+//     y1: Math.min(y1, y2),
+//     x2: Math.max(x1, x2),
+//     y2: Math.max(y1, y2),
+//   };
+// }
+
+// const PainDiagram = () => {
+//   const [region, setRegion] = useState(null);
+//   const [drawing, setDrawing] = useState(false);
+//   const [start, setStart] = useState(null);
+//   const svgRef = useRef(null);
+//   const imgRef = useRef(null);
+
+//   const handleMouseDown = (e) => {
+//     const rect = svgRef.current.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+//     setStart({ x, y });
+//     setDrawing(true);
+//     setRegion(null);
+//   };
+
+//   const handleMouseMove = (e) => {
+//     if (!drawing || !start) return;
+//     const rect = svgRef.current.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+
+//     setRegion({
+//       x1: Math.min(start.x, x),
+//       y1: Math.min(start.y, y),
+//       x2: Math.max(start.x, x),
+//       y2: Math.max(start.y, y),
+//       name: "",
+//     });
+//   };
+
+//   const handleMouseUp = () => {
+//     setDrawing(false);
+//     setStart(null);
+
+//     if (region && imgRef.current) {
+//       // === Scale according to natural image size ===
+//       const img = imgRef.current;
+//       const scaleX = img.naturalWidth / img.width;
+//       const scaleY = img.naturalHeight / img.height;
+
+//       const realRegion = makeRegion(
+//         "Selected Area",
+//         Math.round(region.x1 * scaleX),
+//         Math.round(region.y1 * scaleY),
+//         Math.round(region.x2 * scaleX),
+//         Math.round(region.y2 * scaleY)
+//       );
+
+//       console.log(
+//         `makeRegion(\`${realRegion.name}\`, ${realRegion.x1}, ${realRegion.y1}, ${realRegion.x2}, ${realRegion.y2}),`
+//       );
+//     }
+//   };
+
+//   const handleDoubleClick = () => {
+//     setRegion(null);
+//   };
+
+//   return (
+//     <div className="flex flex-col items-center">
+//       <div className="relative w-[350px] md:w-[500px]">
+//         <img
+//           ref={imgRef}
+//           src={Femalebodyback}
+//           alt="body diagram"
+//           className="w-full h-auto"
+//         />
+
+//         {/* Drawing Layer */}
+//         <svg
+//           ref={svgRef}
+//           className="absolute top-0 left-0 w-full h-full"
+//           onMouseDown={handleMouseDown}
+//           onMouseMove={handleMouseMove}
+//           onMouseUp={handleMouseUp}
+//         >
+//           {region && (
+//             <g onDoubleClick={handleDoubleClick} style={{ cursor: "pointer" }}>
+//               <rect
+//                 x={region.x1}
+//                 y={region.y1}
+//                 width={region.x2 - region.x1}
+//                 height={region.y2 - region.y1}
+//                 fill="rgba(255,0,0,0.2)"
+//                 stroke="red"
+//                 strokeWidth={2}
+//               />
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 15}
+//                 fontSize="12"
+//                 fill="black"
+//               >
+//                 {region.name}
+//               </text>
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 30}
+//                 fontSize="10"
+//                 fill="gray"
+//               >
+//                 ({Math.round(region.x1)}, {Math.round(region.y1)}) - (
+//                 {Math.round(region.x2)}, {Math.round(region.y2)})
+//               </text>
+//             </g>
+//           )}
+//         </svg>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default PainDiagram;

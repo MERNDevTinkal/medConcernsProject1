@@ -14,6 +14,10 @@ export default function ImagesLibrery() {
   const uploadedImages = location.state?.uploadedImages ?? [];
   const oldImages = location.state?.oldImages ?? [];
   const pathname = location.state?.pathname ?? [];
+
+  const textBlocks = location.state?.textBlocks ?? [];
+  const paths = location.state?.paths ?? [];
+
   const imageList = Object.values(Images).map((img) => img.default);
   const [selectedIconCount, setSelectedIconCount] = useState(0);
   const [selectedLanguage, setSelectedLanguage] = useState("");
@@ -34,10 +38,7 @@ export default function ImagesLibrery() {
       () => { },
       () => { }
     );
-    // setSelectedImages((oldImages) => [
-    //   ...oldImages,
-    //   ...uploadedImages,
-    // ]);
+
   }, []);
   useEffect(() => {
     const mergedImages = [...new Set([...oldImages, ...uploadedImages])];
@@ -51,7 +52,7 @@ export default function ImagesLibrery() {
     );
   };
   const handleDone = () => {
-    navigate(pathname, { state: { selectedImages } });
+    navigate(pathname, { state: { selectedImages, textBlocks, paths } });
   };
 
   return (

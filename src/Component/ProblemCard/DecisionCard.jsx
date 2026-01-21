@@ -81,15 +81,12 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
 
   const handleDecision = async (value, mainpath, id) => {
     if (isSpeakingRef.current) return;
-
     setActive(id);
     isSpeakingRef.current = true;
-
-    const selectedItem = newData.find((data) => data.id === id);
+    const selectedItem = newData.filter((data) => data.id === id);
     if (!selectedItem) return;
-
     const audio = getAudioByLanguageAndGender(
-      selectedItem,
+      selectedItem[0],
       selectedLanguage,
       selectedGender
     );
@@ -105,10 +102,11 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
         isConcern && isConcern?.includes("true_")
           ? isConcern + "/" + path
           : path;
-      addOrUpdateSummary(prefix, arrayFilter);
+      addOrUpdateSummary(prefix, selectedItem);
     } else {
       updateDisease(path, value);
     }
+    console.log("sdffdfmainpath", mainpath)
     if (path !== "/yes-no") {
       navigate(mainpath);
     }

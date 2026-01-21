@@ -230,7 +230,8 @@ export const bodyImages = {
     "Pierna Inferior": lowerLegWoman,
     "Left Ankle": femaleRightAnkle,
     "Right Ankle": femaleLeftAnkle,
-
+    "Tobillo Derecho": femaleLeftAnkle,
+    "Tobillo Izquierdo": femaleRightAnkle
   },
   men: {
     Forehead: foreheadMan,
@@ -362,6 +363,8 @@ export const bodyImages = {
     Glúteos: rightButtMan,
     Antebrazo: lowerArmMan,
     "Pierna Inferior": lowerLegMan,
+    "Tobillo Derecho": maleLeftAnkle,
+    "Tobillo Izquierdo": maleRightAnkle
   },
 };
 

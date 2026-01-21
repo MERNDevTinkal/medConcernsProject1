@@ -256,16 +256,17 @@ const NeedBoard = () => {
           />
 
           <div className="main-wrapper home-wrapper pt-20 relative">
-            <div className="m-5">
-            <button
-              onClick={() => navigate("/icon-upload")}
-              className="thm-btn absolute top-4 right-4 z-10"
-            >
-              {selectedLanguage === "Spanish"
-                ? "+ Agregar icono"
-                : "+ Add Icon"}
-            </button>
+            <div className="m-6 my-6 mb-12">
+              <button
+                onClick={() => navigate("/icon-upload")}
+                className="thm-btn absolute top-4 right-4 z-10"
+              >
+                {selectedLanguage === "Spanish"
+                  ? "+ Agregar icono"
+                  : "+ Add Icon"}
+              </button>
             </div>
+
             <div className="dashboard-wrapper px-0 py-1.5">
               <div
                 className="dashboard-h grid gap-3 p-3 px-0"
@@ -302,11 +303,11 @@ const NeedBoard = () => {
                         >
                           <div
                             className={`dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${(selectedLanguage === "Spanish"
-                                ? item?.nameEs
-                                : item?.name
-                              )?.length > 18
-                                ? "shirnk-card"
-                                : ""
+                              ? item?.nameEs
+                              : item?.name
+                            )?.length > 18
+                              ? "shirnk-card"
+                              : ""
                               }`}
                           >
                             {item?.audio && item.audio.trim() !== "" && (
@@ -353,18 +354,6 @@ const NeedBoard = () => {
               </div>
             </div>
             {/* Add Button at bottom */}
-            {/* <div className="flex justify-center my-6">
-              <button
-                onClick={() => {
-                  navigate("/icon-upload");
-                }}
-                className="thm-btn"
-              >
-                {selectedLanguage === "Spanish"
-                  ? "+ Agregar icono"
-                  : "+ Add Icon"}
-              </button>
-            </div> */}
           </div>
         </>
       )}

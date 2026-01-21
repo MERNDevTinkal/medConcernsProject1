@@ -118,27 +118,37 @@ export default function Whiteboard() {
   const [SelectedImages, setSelectedImages] = useState([]);
   const [updateImage, setUpdateImage] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [loadedImages, setLoadedImages] = useState(new Map());
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
+
   useEffect(() => {
     if (!location?.state?.selectedImages) return;
-
+    if (activeTextBlock && typedText.trim()) {
+      commitTypedText();
+    }
+    if (location.state.textBlocks) {
+      setTextBlocks(location.state.textBlocks);
+    }
+    if (location.state.paths) {
+      setPaths(location.state.paths)
+    }
     const incoming = location.state.selectedImages;
-
     setUploadedImages((prev) => {
       const updated = [...prev];
       const viewport = window.visualViewport || window;
       const isMobile = viewport.width < 768;
       const maxSize = isMobile ? 120 : 200;
       const mobileMaxSize = viewport.width < 480 ? 80 : 120;
+
       incoming.forEach((item, index) => {
         const isObject = typeof item === "object";
         const src = isObject ? item.src : item;
         if (updated.some((img) => img.src === src)) return;
+
         if (isObject && item.x !== undefined && item.y !== undefined) {
           let width = item.width || maxSize;
           let height = item.height || maxSize;
@@ -209,6 +219,8 @@ export default function Whiteboard() {
               ];
             });
           };
+
+          // Add placeholder
           const placeholderSize = isMobile
             ? viewport.width < 480
               ? 80
@@ -230,6 +242,11 @@ export default function Whiteboard() {
       });
       return uniqueImages(updated);
     });
+
+    if (location.state) {
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+
   }, [location.state?.selectedImages]);
 
   const pointerPos = (e, rect) => {
@@ -403,26 +420,41 @@ export default function Whiteboard() {
     if (ctx) {
       try {
         ctx.closePath();
-      } catch (err) {}
+      } catch (err) { }
       ctx.globalCompositeOperation = "source-over";
     }
   }, [getCanvasContext]);
   /* -------------------- Text helpers -------------------- */
   useEffect(() => {
-    const ctx = getCanvasContext();
     const canvas = canvasRef.current;
-    if (!ctx || !canvas) return;
-    const viewport = window.visualViewport || window;
-    // const canvasWidth = viewport.width - 120 || 985;
-    // const canvasHeight = viewport.height - 150 || 600;
-    const canvasWidth = Math.max(0, Math.floor(viewport.width - 120));
-    const canvasHeight = Math.max(0, Math.floor(viewport.height - 150));
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Clear canvas first with white background
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw uploaded images from cache
     uploadedImages.forEach((imgObj) => {
-      const img = new Image();
-      img.src = imgObj.src;
-      ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
+      const cachedImg = loadedImages.get(imgObj.src);
+      if (cachedImg && cachedImg.complete) {
+        ctx.drawImage(cachedImg, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
+      } else {
+        // If not cached, load and cache it
+        const img = new Image();
+        img.onload = () => {
+          // Update the cache
+          setLoadedImages(prev => new Map(prev).set(imgObj.src, img));
+          // Draw immediately
+          ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
+        };
+        img.src = imgObj.src;
+      }
     });
+
+    // Draw paths
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -432,6 +464,7 @@ export default function Whiteboard() {
       ctx.strokeStyle = path.tool === "pencil" ? path.color : "#ffffff";
       ctx.globalCompositeOperation =
         path.tool === "pencil" ? "source-over" : "destination-out";
+
       ctx.moveTo(path.points[0].x, path.points[0].y);
       for (let i = 1; i < path.points.length; i++) {
         ctx.lineTo(path.points[i].x, path.points[i].y);
@@ -440,27 +473,36 @@ export default function Whiteboard() {
       ctx.closePath();
       ctx.globalCompositeOperation = "source-over";
     });
+
+    // Draw text blocks
     textBlocks.forEach((block) => {
       if (activeTextBlock && block.id === activeTextBlock.id) return;
+
       const font = block.font || "20px Arial";
       const lineHeight = 24;
-      const maxWidth = canvasWidth - block.x - 20;
+      const maxWidth = canvas.width - block.x - 20;
+
       ctx.font = font;
       ctx.fillStyle = block.color || "#000";
       ctx.textBaseline = "top";
+
       let currentY = block.y;
       const paragraphs = block.text.split("\n");
+
       paragraphs.forEach((paragraph) => {
         if (paragraph === "") {
           currentY += lineHeight;
           return;
         }
+
         const words = paragraph.split(" ");
         let currentLine = "";
+
         for (let i = 0; i < words.length; i++) {
           const word = words[i];
           const testLine = currentLine ? currentLine + " " + word : word;
           const testWidth = ctx.measureText(testLine).width;
+
           if (testWidth > maxWidth && currentLine) {
             ctx.fillText(currentLine, block.x, currentY);
             currentY += lineHeight;
@@ -469,16 +511,20 @@ export default function Whiteboard() {
             currentLine = testLine;
           }
         }
+
         if (currentLine) {
           ctx.fillText(currentLine, block.x, currentY);
           currentY += lineHeight;
         }
       });
     });
+
+    // Draw active text block with cursor (keep your existing code)
     if (textToolActive && activeTextBlock) {
+      // ... [Keep all your existing active text block drawing code] ...
       const font = "20px Arial";
       const lineHeight = 24;
-      const maxWidth = canvasWidth - activeTextBlock.x - 20;
+      const maxWidth = canvas.width - activeTextBlock.x - 20;
       ctx.font = font;
       ctx.fillStyle = drawingColor;
       ctx.textBaseline = "top";
@@ -596,8 +642,8 @@ export default function Whiteboard() {
     drawingColor,
     cursorPosition,
     showCursor,
-    getCanvasContext,
     uploadedImages,
+    loadedImages, // Add this to dependencies
   ]);
   /* -------------------- Fetch board -------------------- */
   useEffect(() => {
@@ -618,40 +664,62 @@ export default function Whiteboard() {
           const savedObj = data?.data || {};
           setDrawingName(savedObj?.name_key || "");
           const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
+
+          // Preserve existing paths while adding saved ones
           if (savedState.paths) {
             setPaths(savedState.paths);
           }
+
+          // Preserve existing text blocks while adding saved ones
           if (Array.isArray(savedState.texts)) {
             setTextBlocks(savedState.texts);
           }
+
           if (savedState.toolSettings) {
             setDrawingColor(savedState.toolSettings.color || "#000000");
             setDrawingWidth(savedState.toolSettings.width || 2);
           }
+
           const imagesArray = savedState?.images ?? [];
 
-          setUploadedImages((prev) => {
-            const newItems = [];
-            imagesArray.forEach((src, index) => {
-              newItems.push({
-                src: src?.src,
-                x: src.x,
-                y: src.y,
-                width: src.width,
-                height: src.height,
-              });
+          // Preload images before setting state
+          const loadedImagesMap = new Map();
+          const imagesToAdd = [];
+
+          for (const imgData of imagesArray) {
+            if (!imgData?.src) continue;
+
+            const img = new Image();
+            img.onload = () => {
+              loadedImagesMap.set(imgData.src, img);
+              // Update the cache
+              setLoadedImages(prev => new Map([...prev, ...loadedImagesMap]));
+            };
+            img.src = imgData.src;
+
+            imagesToAdd.push({
+              src: imgData.src,
+              x: imgData.x || 20,
+              y: imgData.y || 20,
+              width: imgData.width || 200,
+              height: imgData.height || 200,
+              originalWidth: imgData.width || 200,
+              originalHeight: imgData.height || 200,
             });
-            return uniqueImages([...prev, ...newItems]);
-          });
+          }
+
+          // Set uploaded images after preloading
+          setUploadedImages(prev => uniqueImages([...prev, ...imagesToAdd]));
         }
+        setLoader(false);
       } catch (err) {
         console.error("Failed to fetch whiteboard:", err);
+        setLoader(false);
       }
     };
 
     fetchBoard();
-  }, [id, licenses_id, token, loader]);
-
+  }, [id, licenses_id, token]);
   // Helper function to calculate image position without using state
   const calculateImagePosition = (currentImages, width, height) => {
     const margin = 20;
@@ -674,15 +742,19 @@ export default function Whiteboard() {
     };
   };
   /* -------------------- Save Drawing -------------------- */
-  const commitTypedText = useCallback(() => {
+  const commitTypedText = useCallback((shouldReset = true) => {
     if (!activeTextBlock) return;
+
     const textContent = textLines.join("\n");
-    if (textContent !== activeTextBlock.text || textContent.trim() !== "") {
+
+    // Only commit if there's actual content or the block has changed
+    if (textContent.trim() !== "" || textContent !== activeTextBlock.text) {
       const committedBlock = {
         ...activeTextBlock,
         text: textContent,
         timestamp: Date.now(),
       };
+
       setTextBlocks((prev) => {
         const existingIndex = prev.findIndex(
           (block) => block.id === activeTextBlock.id
@@ -699,14 +771,46 @@ export default function Whiteboard() {
         }
       });
     }
-    setActiveTextBlock(null);
-    setTextLines([""]);
-    setTypedText("");
-    setCursorPosition({ line: 0, column: 0 });
-    setTextToolActive(false);
-    setShowKeyboard(false);
+
+    // Only reset if explicitly told to
+    if (shouldReset) {
+      setActiveTextBlock(null);
+      setTextLines([""]);
+      setTypedText("");
+      setCursorPosition({ line: 0, column: 0 });
+      setTextToolActive(false);
+      setShowKeyboard(false);
+    }
   }, [activeTextBlock, textLines]);
 
+
+  useEffect(() => {
+    return () => {
+      // Save any active text when component unmounts
+      if (activeTextBlock && typedText.trim()) {
+        const textContent = textLines.join("\n");
+        const committedBlock = {
+          ...activeTextBlock,
+          text: textContent,
+          timestamp: Date.now(),
+        };
+
+        // Update textBlocks in localStorage or state management
+        setTextBlocks((prev) => {
+          const existingIndex = prev.findIndex(
+            (block) => block.id === activeTextBlock.id
+          );
+          if (existingIndex >= 0) {
+            const updated = [...prev];
+            updated[existingIndex] = committedBlock;
+            return updated;
+          } else {
+            return [...prev, committedBlock];
+          }
+        });
+      }
+    };
+  }, [activeTextBlock, textLines, typedText]);
   const checkDataExits = () => {
     let committedTexts = [...textBlocks];
     if (activeTextBlock) {
@@ -1044,7 +1148,6 @@ export default function Whiteboard() {
     }
   };
   /* -------------------- Image Upload -------------------- */
-
   const handleImageUpload = (files) => {
     if (!files || files.length === 0) return;
 
@@ -1059,21 +1162,22 @@ export default function Whiteboard() {
         const isMobile = viewport.width < 768;
         const maxSize = isMobile ? 100 : 200;
         let { width, height } = img;
+
         if (width > maxSize || height > maxSize) {
           const scale = Math.min(maxSize / width, maxSize / height);
           width *= scale;
           height *= scale;
         }
+
         if (viewport.width < 480) {
           const mobileScale = Math.min(80 / width, 80 / height);
           width *= mobileScale;
           height *= mobileScale;
         }
-        const pos = findNonOverlappingImagePosition(
-          width,
-          height,
-          uploadedImages
-        );
+
+        const pos = findNonOverlappingImagePosition(width, height);
+
+        // DON'T reset any text states here
         setUploadedImages((prev) => [
           ...prev,
           {
@@ -1082,28 +1186,73 @@ export default function Whiteboard() {
             y: pos.y,
             width,
             height,
+            originalWidth: img.width,
+            originalHeight: img.height,
           },
         ]);
-        if (src.startsWith("blob:")) {
-          return;
-        }
       };
       img.src = src;
     });
   };
+  // const handleImageUpload = (files) => {
+  //   if (!files || files.length === 0) return;
+
+  //   Array.from(files).forEach((file) => {
+  //     setImageFiles((prev) => [...prev, file]);
+
+  //     const src = URL.createObjectURL(file);
+  //     const img = new Image();
+
+  //     img.onload = () => {
+  //       const viewport = window.visualViewport || window;
+  //       const isMobile = viewport.width < 768;
+  //       const maxSize = isMobile ? 100 : 200;
+  //       let { width, height } = img;
+  //       if (width > maxSize || height > maxSize) {
+  //         const scale = Math.min(maxSize / width, maxSize / height);
+  //         width *= scale;
+  //         height *= scale;
+  //       }
+  //       if (viewport.width < 480) {
+  //         const mobileScale = Math.min(80 / width, 80 / height);
+  //         width *= mobileScale;
+  //         height *= mobileScale;
+  //       }
+  //       const pos = findNonOverlappingImagePosition(
+  //         width,
+  //         height,
+  //         uploadedImages
+  //       );
+  //       setUploadedImages((prev) => [
+  //         ...prev,
+  //         {
+  //           src,
+  //           x: pos.x,
+  //           y: pos.y,
+  //           width,
+  //           height,
+  //         },
+  //       ]);
+  //       if (src.startsWith("blob:")) {
+  //         return;
+  //       }
+  //     };
+  //     img.src = src;
+  //   });
+  // };
   /* -------------------- Misc: settings loader -------------------- */
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -1120,33 +1269,53 @@ export default function Whiteboard() {
     }
   }, [caretY]);
 
+
   const handleClick = (e) => {
     if (tool !== "text") return;
+
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
+
     let clickedOnExisting = false;
+
+    // Check if clicked on existing text block
     for (const block of textBlocks) {
       const blockRight = block.x + 300;
       const blockBottom = block.y + 100;
+
       if (
         pos.x >= block.x - 10 &&
         pos.x <= blockRight + 10 &&
         pos.y >= block.y - 5 &&
         pos.y <= blockBottom + 5
       ) {
+        // If clicking on the same active block, just update cursor
         if (activeTextBlock && activeTextBlock.id === block.id) {
           updateCursorPosition(pos, block);
           clickedOnExisting = true;
           break;
         }
 
+        // If there's an active text block with content, commit it
         if (activeTextBlock && typedText.trim()) {
-          commitTypedText();
+          commitTypedText(true); // Reset after commit
+        } else if (activeTextBlock && !typedText.trim()) {
+          // Empty text block, just remove it
+          setActiveTextBlock(null);
+          setTextLines([""]);
+          setTypedText("");
+          setCursorPosition({ line: 0, column: 0 });
+          setTextToolActive(false);
+          setShowKeyboard(false);
         }
+
+        // Activate the clicked text block
         setActiveTextBlock(block);
         const lines = block.text.split("\n");
         setTextLines(lines);
         setTypedText(block.text);
+
+        // Calculate cursor position
         const lineHeight = 24;
         const relativeY = pos.y - block.y;
         const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
@@ -1175,37 +1344,59 @@ export default function Whiteboard() {
       }
     }
 
+    // If clicked outside of existing text blocks
     if (!clickedOnExisting) {
       if (activeTextBlock && typedText.trim()) {
-        commitTypedText();
-      } else if (activeTextBlock && !typedText.trim()) {
-        setActiveTextBlock(null);
+        commitTypedText(false); // Commit but don't reset
+        const newPosition = findNonOverlappingPosition(pos.x, pos.y);
+        const newTextBlock = {
+          id: Date.now(),
+          x: newPosition.x,
+          y: newPosition.y,
+          text: "",
+          color: drawingColor,
+          font: "20px Arial",
+        };
+
+        setActiveTextBlock(newTextBlock);
         setTextLines([""]);
         setTypedText("");
         setCursorPosition({ line: 0, column: 0 });
-        setTextToolActive(false);
-        setShowKeyboard(false);
-        return;
+        setTextToolActive(true);
+        setShowKeyboard(true);
+      } else if (activeTextBlock && !typedText.trim()) {
+        // Empty text block, just move it
+        const newPosition = findNonOverlappingPosition(pos.x, pos.y);
+        setActiveTextBlock({
+          ...activeTextBlock,
+          x: newPosition.x,
+          y: newPosition.y,
+        });
+        setTextToolActive(true);
+        setShowKeyboard(true);
+      } else {
+        // No active text block, create new one
+        const newPosition = findNonOverlappingPosition(pos.x, pos.y);
+        const newTextBlock = {
+          id: Date.now(),
+          x: newPosition.x,
+          y: newPosition.y,
+          text: "",
+          color: drawingColor,
+          font: "20px Arial",
+        };
+
+        setActiveTextBlock(newTextBlock);
+        setTextLines([""]);
+        setTypedText("");
+        setCursorPosition({ line: 0, column: 0 });
+        setTextToolActive(true);
+        setShowKeyboard(true);
       }
-
-      const newPosition = findNonOverlappingPosition(pos.x, pos.y);
-      const newTextBlock = {
-        id: Date.now(),
-        x: newPosition.x,
-        y: newPosition.y,
-        text: "",
-        color: drawingColor,
-        font: "20px Arial",
-      };
-
-      setActiveTextBlock(newTextBlock);
-      setTextLines([""]);
-      setTypedText("");
-      setCursorPosition({ line: 0, column: 0 });
-      setTextToolActive(true);
-      setShowKeyboard(true);
     }
   };
+
+
   const activateTextTool = () => {
     setTool("text");
     setTextToolActive(true);
@@ -1238,6 +1429,7 @@ export default function Whiteboard() {
     setUploadedImages([]);
     setImageFiles([]);
     setTextBlocks([]);
+    setLoadedImages(new Map()); // Clear cached images
   };
 
   const updateCursorPosition = (pos, block) => {
@@ -1268,15 +1460,30 @@ export default function Whiteboard() {
 
   const handleFileUpload = (e) => {
     e.preventDefault();
+    e.stopPropagation();
+
+    // Don't commit text here - let the ImageUpload component handle it
     setFileUpload(true);
   };
   const handleDeleteImage = (index) => {
     const removedImage = uploadedImages[index]?.src;
     setUpdateImage((prev) => [...prev, removedImage]);
-    setUploadedImages((prev) => prev.filter((_, i) => i !== index));
-    setImageFiles((prev) => prev.filter((_, i) => i !== index));
-  };
 
+    // Remove from uploaded images
+    setUploadedImages((prev) => prev.filter((_, i) => i !== index));
+
+    // Remove from image files
+    setImageFiles((prev) => prev.filter((_, i) => i !== index));
+
+    // Remove from cache
+    if (removedImage) {
+      setLoadedImages(prev => {
+        const newMap = new Map(prev);
+        newMap.delete(removedImage);
+        return newMap;
+      });
+    }
+  };
   const uniqueImages = (images) => {
     const seen = new Set();
     return images.filter((img) => {
@@ -1313,14 +1520,18 @@ export default function Whiteboard() {
   };
   return (
     <>
+
       {FileUpload && (
         <ImageUpload
+          textBlocks={textBlocks}
+          paths={paths}
           oldImages={uploadedImages}
           pathname={pathname}
           uploadedImages={SelectedImages}
           handleImageUpload={handleImageUpload}
           setOpen={setFileUpload}
           open={FileUpload}
+
         />
       )}
       {isPopupOpen && (
@@ -1344,64 +1555,10 @@ export default function Whiteboard() {
             whiteboardname={t("title")}
           />
           <div className="main-wrapper home-wrapper whiteboard-wrapper">
-            {/* <div className="flex justify-end mb-2">
-              <Button
-                className="thm-btn"
-                onClick={() => navigate("/white-board-list")}
-              >
-                {t("title")}
-              </Button>
-            </div> */}
+
             <div className="flex flex-col items-center whiteboard-card ">
               <Card className="w-full flex flex-col relative">
-                {/* <div className="absolute top-3 right-3">
-                  <Button
-                    className="thm-btn"
-                    onClick={() => navigate("/white-board-list")}
-                  >
-                    {t("text")}
-                  </Button>
-                </div> */}
-                {/* {(uploadedImages.length > 0 || SelectedImages.length > 0) && (
-                  <CardHeader className="p-0">
-                    <div
-                      ref={stripRef}
-                      className="strip w-full overflow-x-auto no-scrollbar flex gap-2 p-2 bg-gray-50"
-                    >
-                      {uploadedImages?.map((img, idx) => (
-                        <div
-                          key={`uploaded-${idx}`}
-                          className="relative w-[100px] h-[100px] flex-shrink-0"
-                        >
-                          <img
-                            src={img.src}
-                            alt={`upload-${idx}`}
-                            className="w-full h-full object-cover rounded border"
-                            draggable={false}
-                          />
-                          <button
-                            onClick={() => {
-                              const isInSelected = SelectedImages.includes(
-                                img.src
-                              );
-                              if (isInSelected) {
-                                setSelectedImages((prev) =>
-                                  prev.filter((url) => url !== img.src)
-                                );
-                              }
-                              handleDeleteImage(idx);
-                            }}
-                            className="absolute -top-1 -right-1 bg-white/80 hover:bg-white 
-                      text-red-600 rounded-full p-1 shadow w-6 h-6 flex 
-                      items-center justify-center text-xs"
-                          >
-                            ✕
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </CardHeader>
-                )} */}
+
 
                 <div
                   ref={wrapperRef}
@@ -1409,13 +1566,12 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${
-                      tool === "text"
-                        ? "cursor-text"
-                        : tool === "eraser"
+                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
+                      ? "cursor-text"
+                      : tool === "eraser"
                         ? "cursor-eraser"
                         : "cursor-crosshair"
-                    }`}
+                      }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1432,17 +1588,16 @@ export default function Whiteboard() {
                     size="icon"
                     className={cn(tool === "pencil" && "bg-gray-100")}
                     onClick={() => {
+                      // Commit text before switching to pencil
+                      if (activeTextBlock && typedText.trim()) {
+                        commitTypedText(true);
+                      }
                       setTool("pencil");
                       setShowKeyboard(false);
                     }}
                     title="Pencil"
                   >
-                    {/* <Icon.Pencil className="icon-size-add" /> */}
-                    <img
-                      src={PencilIcon}
-                      className="icon-size-add"
-                      alt="Pencil Icon"
-                    />
+                    <img src={PencilIcon} className="icon-size-add" alt="Pencil Icon" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -1457,20 +1612,35 @@ export default function Whiteboard() {
                       alt="Pencil Icon"
                     />
                   </Button>
-                  <Button
+                  {/* <Button
                     variant="ghost"
                     size="icon"
                     title="Upload image"
                     onClick={(e) => {
                       handleFileUpload(e);
                     }}
+                  >       <img
+                    src={ImgIcon}
+                    className="icon-size-add"
+                    alt="Pencil Icon"
+                  />
+                </Button>*/}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    title="Upload image"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setFileUpload(true);
+                    }}
                   >
                     <img
                       src={ImgIcon}
                       className="icon-size-add"
-                      alt="Pencil Icon"
+                      alt="Upload Image"
                     />
                   </Button>
+
                   <input
                     type="file"
                     id="imageUpload"
@@ -1487,18 +1657,17 @@ export default function Whiteboard() {
                     size="icon"
                     className={cn(tool === "eraser" && "bg-gray-100")}
                     onClick={() => {
+                      // Commit text before switching to eraser
+                      if (activeTextBlock && typedText.trim()) {
+                        commitTypedText(true);
+                      }
                       setTool("eraser");
-                      // setTextToolActive(false);
                       setShowKeyboard(false);
                       setDrawingWidth(20);
                     }}
                     title="Eraser"
                   >
-                    <img
-                      src={EraserIcon}
-                      className="icon-size-add"
-                      alt="Pencil Icon"
-                    />
+                    <img src={EraserIcon} className="icon-size-add" alt="Pencil Icon" />
                   </Button>
 
                   <Button
@@ -1623,7 +1792,8 @@ export default function Whiteboard() {
             </div>
           </div>
         </>
-      )}
+      )
+      }
       <Footer />
     </>
   );

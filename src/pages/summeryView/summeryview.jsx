@@ -62,7 +62,7 @@ const SummaryList = () => {
   const handleSummaryListRoute = () => {
     navigate("/summary-list");
   };
-  console.log("ddddddsummaryData",summaryData)
+  console.log("ddddddsummaryData", summaryData)
   return (
     <>
       {loader ? (
@@ -122,7 +122,7 @@ const SummaryList = () => {
               {summaryData?.summaryList[0]?.concern && (
                 <div
                   onClick={() => {
-                    ConcernPopUpFun();
+                    navigate("/summary-list");
                   }}
                   className="flex justify-center mt-10 mb-6"
                 >
