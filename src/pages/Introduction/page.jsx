@@ -105,7 +105,6 @@ export default function Introduction() {
       });
   }, []);
   const NaviagtionButton = () => {
-    console.log("dddd=>",)
     navigate("/concern");
   }
   return (
@@ -174,7 +173,7 @@ export default function Introduction() {
     font-semibold
     leading-none
     rounded-lg
-    bg-blue-600
+ bg-[#4073BB]
     text-white
     mt-6
     hover:bg-blue-700

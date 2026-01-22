@@ -143,10 +143,6 @@ export const GlobalProvider = ({ children }) => {
       return updated;
     });
   };
-
-
-
-
   return (
     <GlobalContext.Provider
       value={{
