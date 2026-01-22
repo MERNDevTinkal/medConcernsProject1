@@ -1723,9 +1723,9 @@ import {
   femaleTosCoughingSpanish,
   femaleAsfixiaSpanish,
   femalechestpainSpanish,
-    femaleBathroomEngish,
-    femaleBanoSpanish,
-    femaleTapadosSpanish,
+  femaleBathroomEngish,
+  femaleBanoSpanish,
+  femaleTapadosSpanish,
 } from "./audio.jsx";
 
 export const breathingWhenOptions = [
@@ -2441,7 +2441,7 @@ export const topicBoard = [
   {
     id: 8,
     name: "Stroke Prevention",
-    nameEs: "Prevención de Accidentes Cerebrovasculares ",
+    nameEs: "Prevención de Accidentes Cerebrovasculares",
     path: "/topicboard/strokePrevention/8",
     maleEnglish: StrokePreventionMale,
     femaleEnglish: strokePreventionFemale,
@@ -2502,7 +2502,7 @@ export const topicBoard = [
   {
     id: 14,
     name: "Household Activity",
-    nameEs: "Actividad del Hogar",
+    nameEs: "Actividad de la Comunidad",
     path: "/topicboard/householdActivity/14",
     maleEnglish: HouseholdActivityMale,
     femaleEnglish: householdActivityFemale,
@@ -2647,7 +2647,92 @@ export const feelingValues = [
     maleSpanish: WorstPainImaginablePeorDolorImaginableSpanishMale,
   },
 ];
-
+const TrachPainwithSwallowing = [
+  {
+    id: "1",
+    name: "With Food",
+    nameEs: "Con Comida",
+    image: BoardImg3,
+    secPath: "/confrm-step-yesno",
+    path: "/howoften",
+    maleEnglish: withfoodEnglishhmale,
+    femaleEnglish: WithFoodFemale,
+    femaleSpanish: ConComidaWithFoodSpanishFemale,
+    maleSpanish: withfoodSpanishmale,
+  },
+  {
+    id: "2",
+    name: "With Drinks",
+    nameEs: "Con Bebidas",
+    image: WithDrinks,
+    secPath: "/confrm-step-yesno",
+    path: "/howoften",
+    maleEnglish: WithDrinksMale,
+    femaleEnglish: withDrinksFemale,
+    femaleSpanish: ConBebidasWithDrinksSpanishFemale,
+    maleSpanish: ConBebidasWithDrinksSpanishFemale,
+  },
+  {
+    id: "3",
+    name: "With Food / Drinks",
+    nameEs: "Con Comida / Bebidas",
+    image: withFoodFrinkWhenEating,
+    secPath: "/confrm-step-yesno",
+    path: "/howoften",
+    maleEnglish: WithFoodAndDrinksMale,
+    femaleEnglish: withFoodndDrinkFemale,
+    femaleSpanish: ConComidaYBebidaWithFoodAndDrink1SpanishFemale,
+    maleSpanish: WithFoodAndDrinkConComidaYBebidaSpanishMale,
+  },
+  {
+    id: "4",
+    name: "With Medication",
+    nameEs: "Con Medicación",
+    image: BoardImg6,
+    secPath: "/confrm-step-yesno",
+    path: "/howoften",
+    maleEnglish: WithMedicationMale,
+    femaleEnglish: withMedicationFemale,
+    femaleSpanish: withmedicacionSpanishFemale,
+    maleSpanish: ConMedicacionMale,
+  },
+  {
+    id: "5",
+    name: "With Saliva",
+    nameEs: "Con Saliva",
+    image: withsalivaImg,
+    secPath: "/confrm-step-yesno",
+    path: "/howoften",
+    maleEnglish: WithSalivaMale,
+    femaleEnglish: WithSalivaFemale,
+    femaleSpanish: ConSalivaFemaleSpanish,
+    maleSpanish: ConsalivaMaleSpanish,
+  },
+  {
+    id: "6",
+    name: "Just Swallowing",
+    nameEs: "Solo al Tragar",
+    image: SwallowingImg,
+    secPath: "/confrm-step-yesno",
+    path: "/howoften",
+    maleEnglish: JustSwallowingMale,
+    femaleEnglish: JustSwallowingFemale,
+    femaleSpanish: SoloAlTragarFemaleSpanish,
+    maleSpanish: SoloAlTragarMaleSpanish,
+  },
+  {
+    id: "7",
+    name: "Something Else",
+    nameEs: "Algo Mas",
+    image: dashimg11,
+    secPath: "/confrm-step-yesno",
+    path: "/Whiteboard",
+    maleEnglish: SomethingElseFemale,
+    femaleEnglish: somethingElseFemale,
+    femaleSpanish: AlgoMasSpanishFemale,
+    maleSpanish: AlgoMasSpanishMale,
+  },
+];
 const emotionsData = [
   {
     id: 1,
@@ -5111,7 +5196,7 @@ const trachDesies = [
     secPath: "/confrm-step-yesno",
     maleEnglish: CoughingMale,
     femaleEnglish: CoughingFeMale,
-    femaleSpanish: femaleTosCoughingSpanish ,
+    femaleSpanish: femaleTosCoughingSpanish,
     maleSpanish: TosCoughingSpanishMale,
   },
   {
@@ -5576,7 +5661,7 @@ const medicationswallowing = [
     secPath: "/confrm-step-yesno",
     maleEnglish: CoughingMale,
     femaleEnglish: CoughingFeMale,
-    femaleSpanish: femaleTosCoughingSpanish ,
+    femaleSpanish: femaleTosCoughingSpanish,
     maleSpanish: TosCoughingSpanishMale,
   },
   {
@@ -8387,10 +8472,10 @@ const feedingBowels = [
   {
     id: "7",
     name: "Colostomy / Ostomy",
-    nameEs: "Colostomía / Ostomía",
-    path: "/when",
+    nameEs: "Bolsa de Colostomía / Ostomía",
     image: Colostomy_OstomyBag,
-    secPath: "/summary",
+    path: "/summary",
+    secPath: "/confrm-step-yesno",
     maleEnglish: ColostomyOstomyBagMale,
     femaleEnglish: ColostomyOstomyBagFemale,
     femaleSpanish: BolsaDeColostomiaOstomiaColostomyOstomyBagSpanishFemale,
@@ -8463,6 +8548,18 @@ const trachSwallowing = [
   //   maleSpanish: AcidezEstomacalHeartburnSpanishMale, 
   // },
   {
+    id: "5",
+    name: "Reflux",
+    nameEs: "Reflujo",
+    image: refluxImg,
+    path: "/howoften",
+    secPath: "/confrm-step-yesno",
+    maleEnglish: RefluxMale,
+    femaleEnglish: RefluxFemale,
+    femaleSpanish: ReflujoFemaleSpanish,
+    maleSpanish: ReflujoMaleSpanish,
+  },
+  {
     id: "3",
     name: "Coughing",
     nameEs: "Tos",
@@ -8472,8 +8569,32 @@ const trachSwallowing = [
     path: "/trachSwallowingCoughing-problem",
     maleEnglish: CoughingMale,
     femaleEnglish: CoughingFeMale,
-    femaleSpanish: femaleTosCoughingSpanish ,
+    femaleSpanish: femaleTosCoughingSpanish,
     maleSpanish: TosCoughingSpanishMale,
+  },
+  {
+    id: "4",
+    name: "Pain with Swallowing",
+    nameEs: "Dolor al Tragar",
+    secPath: "/confrm-step-yesno",
+    image: Painwithswallowing,
+    path: "/trachPainwithSwallowing-problem",
+    maleEnglish: PainWithSwallowingMale,
+    femaleEnglish: PainWithSwallowingFemale,
+    femaleSpanish: DolorAlTragarPainWithSwallowingSpanishFemale,
+    maleSpanish: DolorAlTragarSpanishMale,
+  },
+  {
+    id: "7",
+    name: "Fear of Swallowing",
+    nameEs: "Miedo a Tragar",
+    secPath: "/confrm-step-yesno",
+    image: Fearwithswallowing,
+    path: "/trachFearofSwallowing-problem",
+    maleEnglish: FearOfSwallowingMale,
+    femaleEnglish: fearOfSwallowingFemale,
+    femaleSpanish: MiedoDeTragarFearOfSwallowingSpanishFemale,
+    maleSpanish: MiedoDeTragarSpanishMale,
   },
   // {
   //   id: "5",
@@ -8502,6 +8623,8 @@ const trachSwallowing = [
   },
 ];
 
+
+
 export const diseasesData = {
   "/breathing-problem": [
     {
@@ -8525,7 +8648,7 @@ export const diseasesData = {
       path: "/coughing-problem",
       maleEnglish: CoughingMale,
       femaleEnglish: CoughingFeMale,
-      femaleSpanish: femaleTosCoughingSpanish ,
+      femaleSpanish: femaleTosCoughingSpanish,
       maleSpanish: TosCoughingSpanishMale,
     },
     {
@@ -8535,7 +8658,7 @@ export const diseasesData = {
       image: dashimg03,
       secPath: "/confrm-step-yesno",
       path: "/when",
-      maleEnglish: ChestPainMale,
+      maleEnglish: ChestPainMale,    
       femaleEnglish: chestPainFemale,
       femaleSpanish: femalechestpainSpanish,
       maleSpanish: DolorDePechoChestPainSpanishMale,
@@ -8941,7 +9064,7 @@ export const diseasesData = {
       path: "/swallowingwith-problem",
       maleEnglish: CoughingMale,
       femaleEnglish: CoughingFeMale,
-      femaleSpanish: femaleTosCoughingSpanish ,
+      femaleSpanish: femaleTosCoughingSpanish,
       maleSpanish: TosCoughingSpanishMale,
     },
     {
@@ -9206,6 +9329,8 @@ export const diseasesData = {
     },
   ],
 
+
+
   "/choking-problem-sub": swallowingDesises,
   "/foodsticking-problem": swallowingDesises,
   "/heartburn-problem": heartburnDesises,
@@ -9252,6 +9377,7 @@ export const diseasesData = {
   "/medicationswallowingChoking-problem": swallowingDesises,
   "/medicationPainwithSwallowing-problem": medicationPainwithSwallowingDesises,
   "/medicationFearofSwallowing-problem": heartburnswallowingDesises,
+  "/trachFearofSwallowing-problem": heartburnswallowingDesises,
   "/medicationswallowingdryMouth-problem": drymouthDesises,
   "/medicationnoAppetite-problem": medicationnoAppetite,
   "/medicationSidEffectsAppetite-problem": medicationSidEffectsAppetite,
@@ -9290,6 +9416,7 @@ export const diseasesData = {
   "/board": needBoard,
   "/feelOptions": getEmotionQuestion,
   "/withTransfer-problem": withTransfer,
+  "/trachPainwithSwallowing-problem": TrachPainwithSwallowing,
   "/nausea-problem": [
     {
       id: "1",
@@ -9342,7 +9469,7 @@ export const diseasesData = {
     {
       id: "5",
       name: "Just Nausea",
-      nameEs: "Solo Náusea",
+      nameEs: "Solo Náuseas",
       image: swallowingimg07,
       secPath: "/confrm-step-yesno",
       path: "/when",
@@ -9448,10 +9575,10 @@ export const diseasesData = {
       image: ToiletImg,
       secPath: "/confrm-step-yesno",
       path: "/summary",
-    maleEnglish: BathroomMale,
-    femaleEnglish: femaleBathroomEngish,
-    femaleSpanish: femaleBanoSpanish,
-    maleSpanish: BanoMaleSpanish,
+      maleEnglish: BathroomMale,
+      femaleEnglish: femaleBathroomEngish,
+      femaleSpanish: femaleBanoSpanish,
+      maleSpanish: BanoMaleSpanish,
     },
     {
       id: "8",
@@ -10081,7 +10208,7 @@ export const diseasesData = {
       secPath: "/confrm-step-yesno",
       maleEnglish: CoughingMale,
       femaleEnglish: CoughingFeMale,
-      femaleSpanish: femaleTosCoughingSpanish ,
+      femaleSpanish: femaleTosCoughingSpanish,
       maleSpanish: TosCoughingSpanishMale,
     },
     {

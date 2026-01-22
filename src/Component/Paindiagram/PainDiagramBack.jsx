@@ -147,7 +147,7 @@ const backRegions = [
   makeRegion(`Back`, 124, 54, 244, 156, BackMale),
   makeRegion(`Right Elbow`, 220, 12, 250, 50, Elbow_comMale),
   makeRegion(`Right Forearm`, 248, 13, 294, 35, Forearm_comMale),
-  makeRegion(`Right Arm`, 153, 28, 225, 49, UpperArmMale),
+  makeRegion(`Right Upper Arm`, 153, 28, 225, 49, UpperArmMale),
   makeRegion(`Right Hand`, 310, 12, 330, 35, HandMale),
   makeRegion(`Right Fingers`, 335, 12, 360, 35, FingersMale),
   makeRegion(`Right Lower Leg`, 474, 118, 572, 151, lowerLegMale),
@@ -157,7 +157,7 @@ const backRegions = [
   makeRegion(`Right Knee`, 430, 60, 460, 100, KneeMale),
   makeRegion(`Left Knee`, 430, 120, 460, 150, KneeMale),
   makeRegion(`Left Forearm`, 247, 177, 293, 205, Forearm_comMale),
-  makeRegion(`Left Arm`, 149, 171, 220, 199, UpperArmMale),
+  makeRegion(`Left Upper Arm`, 149, 171, 220, 199, UpperArmMale),
   makeRegion(`Left Elbow`, 225, 170, 250, 211, Elbow_comMale),
   makeRegion(`Left Hand`, 310, 210, 330, 190, HandMale),
   makeRegion(`Left Fingers`, 335, 210, 350, 190, FingersMale),
@@ -181,7 +181,7 @@ const backRegionsSpanish = [
   makeRegion(`Espalda`, 124, 54, 244, 156, EspaldaMAleSpanish),
   makeRegion(`Codo Derecho`, 220, 12, 250, 50, CodoMAleSpanish),
   makeRegion(`Antebrazo Derecho`, 248, 13, 294, 35, antebrazoMAleSpanish),
-  makeRegion(`Brazo Derecho`, 153, 28, 225, 49, brazoSuperiorMAleSpanish),
+  makeRegion(`Brazo Superior Derecho`, 153, 28, 225, 49, brazoSuperiorMAleSpanish),
   makeRegion(`Mano Derecho`, 310, 12, 330, 35, manoMAleSpanish),
   makeRegion(`Dedos Derecho`, 335, 12, 360, 35, dedosMAleSpanish),
   makeRegion(
@@ -194,17 +194,17 @@ const backRegionsSpanish = [
     477, 62, 573, 100,
     parteInferiorPiernaMAleSpanish
   ),
-  makeRegion(`Pie o dedos de los pies Izquierdo`, 590, 120, 630, 150, pieMAleSpanish),
-  makeRegion(`Pie o dedos de los pies Derecho`, 590, 60, 630, 100, pieMAleSpanish),
+  makeRegion(`Pie / Dedos de los Pies Izquierdo`, 590, 120, 630, 150, pieMAleSpanish),
+  makeRegion(`Pie / Dedos de los Pies Derecho`, 590, 60, 630, 100, pieMAleSpanish),
   makeRegion(`Rodilla Derecho`, 430, 60, 460, 100, RodillaMAleSpanish),
   makeRegion(`Rodilla Izquierdo`, 430, 120, 460, 150, RodillaMAleSpanish),
   makeRegion(`Antebrazo Izquierdo`, 247, 177, 293, 205, antebrazoMAleSpanish),
-  makeRegion(`Brazo Izquierdo`, 149, 171, 220, 199, brazoSuperiorMAleSpanish),
+  makeRegion(`Brazo Superior Izquierdo`, 149, 171, 220, 199, brazoSuperiorMAleSpanish),
   makeRegion(`Codo Izquierdo`, 225, 170, 250, 211, CodoMAleSpanish),
   makeRegion(`Mano Izquierdo`, 310, 210, 330, 190, manoMAleSpanish),
   makeRegion(`Dedos Izquierdo`, 335, 210, 350, 190, dedosMAleSpanish),
-  makeRegion(`Hombro Izquierdo`, 108, 162, 149, 190, EspaldaMAleSpanish),
-  makeRegion(`Hombro Derecho`, 114, 28, 151, 65, EspaldaMAleSpanish),
+  makeRegion(`Hombro Izquierdo`, 108, 162, 149, 190, Hombro_shoulderMale),
+  makeRegion(`Hombro Derecho`, 114, 28, 151, 65, Hombro_shoulderMale),
   makeRegion(`Muñeca Derecho`, 297, 14, 306, 31, munecaMAleSpanish),
   makeRegion(`Muñeca Izquierdo`, 294, 190, 303, 206, munecaMAleSpanish),
   makeRegion(`Zona Lumbar`, 245, 67, 271, 155, parteInferiorEspaldaMAleSpanish),
@@ -242,11 +242,11 @@ const frontRegions = [
   makeRegion(`Right Foot / Toes`, 570, 110, 610, 134, FootOrToes_comMale),
   makeRegion(`Left Foot / Toes`, 570, 65, 610, 90, FootOrToes_comMale),
   makeRegion(`Left Shoulder`, 180, 160, 117, 175, ShoulderMale),
-  makeRegion(`Left Arm`, 143, 155, 209, 182, UpperArmMale),
+  makeRegion(`Left Upper Arm`, 143, 155, 209, 182, UpperArmMale),
   makeRegion(`Left Hand`, 298, 178, 321, 200, HandMale),
   makeRegion(`Left Fingers`, 330, 178, 340, 200, FingersMale),
   makeRegion(`Right Shoulder`, 97, 19, 131, 41, ShoulderMale),
-  makeRegion(`Right Arm`, 150, 10, 221, 49, UpperArmMale),
+  makeRegion(`Right Upper Arm`, 150, 10, 221, 49, UpperArmMale),
   makeRegion(`Right Hand`, 300, 8, 330, 20, HandMale),
   makeRegion(`Right Fingers`, 330, 12, 340, 30, FingersMale),
   makeRegion(`Left Forearm`, 221, 162, 279, 191, Forearm_comMale),
@@ -270,8 +270,8 @@ const frontRegionsSpanish = [
   makeRegion(`Oreja Derecho`, 50, 70, 70, 80, orejaMAleSpanish),
   makeRegion(`Oreja Izquierdo`, 50, 125, 70, 135, orejaMAleSpanish),
   makeRegion(`Cuello`, 90, 80, 110, 120, CuelloMAleSpanish),
-  makeRegion(`Pecho y Senos`, 120, 50, 185, 150, pechoMAleSpanish),
-  makeRegion(`Abdomen`, 220, 145, 265, 60, EspaldaMAleSpanish),
+  makeRegion(`Pecho / Mama`, 120, 50, 185, 150, pechoMAleSpanish),
+  makeRegion(`Abdomen`, 220, 145, 265, 60, Abdomen_comMale),
   makeRegion(`Pelvis / Genitales`, 290, 88, 330, 110, pelvisMAleSpanish),
   makeRegion(`Cadera Derecho`, 280, 45, 320, 70, caderaMAleSpanish),
   makeRegion(`Cadera Izquierdo`, 280, 160, 320, 135, caderaMAleSpanish),
@@ -289,14 +289,14 @@ const frontRegionsSpanish = [
     471, 52, 553, 92,
     parteInferiorPiernaMAleSpanish
   ),
-  makeRegion(`Pie o dedos de los pies Izquierdo`, 570, 110, 610, 134, pieMAleSpanish),
-  makeRegion(`Pie o dedos de los pies Derecho`, 570, 65, 610, 90, pieMAleSpanish),
-  makeRegion(`Hombro Izquierdo`, 180, 160, 117, 175, EspaldaMAleSpanish),
-  makeRegion(`Brazo Izquierdo`, 143, 155, 209, 182, brazoSuperiorMAleSpanish),
+  makeRegion(`Pie / Dedos de los Pies Izquierdo`, 570, 110, 610, 134, pieMAleSpanish),
+  makeRegion(`Pie / Dedos de los Pies Derecho`, 570, 65, 610, 90, pieMAleSpanish),
+  makeRegion(`Hombro Izquierdo`, 180, 160, 117, 175, Hombro_shoulderMale),
+  makeRegion(`Brazo Superior Izquierdo`, 143, 155, 209, 182, brazoSuperiorMAleSpanish),
   makeRegion(`Mano Izquierdo`, 298, 178, 321, 200, manoMAleSpanish),
   makeRegion(`Dedos Izquierdo`, 330, 178, 340, 200, dedosMAleSpanish),
-  makeRegion(`Hombro Derecho`, 97, 19, 131, 41, EspaldaMAleSpanish),
-  makeRegion(`Brazo Derecho`, 150, 10, 221, 49, brazoSuperiorMAleSpanish),
+  makeRegion(`Hombro Derecho`, 97, 19, 131, 41, Hombro_shoulderMale),
+  makeRegion(`Brazo Superior Derecho`, 150, 10, 221, 49, brazoSuperiorMAleSpanish),
   makeRegion(`Mano Derecho`, 300, 8, 330, 20, manoMAleSpanish),
   makeRegion(`Dedos Derecho`, 330, 12, 340, 30, dedosMAleSpanish),
   makeRegion(`Antebrazo Izquierdo`, 221, 162, 279, 191, antebrazoMAleSpanish),
@@ -318,12 +318,12 @@ const femalefrontRegions = [
   makeRegion(`Chest & Breast`, 385, 192, 602, 444, ChestOrBreasts),
   makeRegion(`Abdomen`, 623, 211, 844, 413, Abdomen),
   makeRegion(`Left Shoulder`, 353, 441, 518, 494, Shoulder),
-  makeRegion(`Left Arm`, 497, 441, 644, 514, UpperArm),
+  makeRegion(`Left Upper Arm`, 497, 441, 644, 514, UpperArm),
   makeRegion(`Left Hand`, 883, 522, 942, 599, hand),
   makeRegion(`Left Fingers`, 953, 536, 1016, 613, fingers),
   makeRegion(`Neck`, 304, 266, 364, 340, Neck),
   makeRegion(`Right Shoulder`, 364, 119, 494, 185, Shoulder),
-  makeRegion(`Right Arm`, 448, 122, 644, 161, UpperArm),
+  makeRegion(`Right Upper Arm`, 448, 122, 644, 161, UpperArm),
   makeRegion(`Right Hand`, 886, 28, 953, 98, hand),
   makeRegion(`Right Fingers`, 932, 17, 1034, 59, fingers),
   makeRegion(`Right Hip`, 830, 147, 946, 220, hip),
@@ -360,11 +360,11 @@ const femaleBackImage = [
   makeRegion(`Lower Back`, 679, 196, 777, 444, lowerBack),
   makeRegion(`Left Elbow`, 588, 476, 651, 539, Elbow),
   makeRegion(`Right Elbow`, 589, 91, 649, 143, Elbow),
-  makeRegion(`Left Arm`, 367, 473, 578, 501, UpperArm),
+  makeRegion(`Left Upper Arm`, 367, 473, 578, 501, UpperArm),
   makeRegion(`Left Forearm`, 637, 536, 851, 571, forearm),
   makeRegion(`Left Hand`, 890, 532, 960, 599, hand),
   makeRegion(`Left Fingers`, 974, 532, 1013, 606, fingers),
-  makeRegion(`Right Arm`, 381, 122, 595, 164, UpperArm),
+  makeRegion(`Right Upper Arm`, 381, 122, 595, 164, UpperArm),
   makeRegion(`Right Forearm`, 648, 59, 862, 105, forearm),
   makeRegion(`Right Hand`, 872, 38, 956, 80, hand),
   makeRegion(`Right Fingers`, 949, 10, 1013, 73, fingers),
@@ -390,15 +390,15 @@ const femaleBackImage = [
 ];
 
 const femalefrontRegionsSpanish = [
-  makeRegion(`Pecho y Senos`, 385, 192, 602, 444, pechoOMamaFemaleSpanish), // Chest & Breast
+  makeRegion(`Pecho / Mama`, 385, 192, 602, 444, pechoOMamaFemaleSpanish), // Chest & Breast
   makeRegion(`Abdomen`, 623, 211, 844, 413, abdomenFemaleSpanish), // Abdomen
   makeRegion(`Hombro Izquierdo`, 353, 441, 518, 494, hombroFemaleSpanish), // Left Shoulder
-  makeRegion(`Brazo Izquierdo`, 497, 441, 644, 514, brazoSuperiorFemaleSpanish), // Left Arm
+  makeRegion(`Brazo Superior Izquierdo`, 497, 441, 644, 514, brazoSuperiorFemaleSpanish), // Left Arm
   makeRegion(`Mano Izquierdo`, 883, 522, 942, 599, manoFemaleSpanish), // Left Hand
   makeRegion(`Dedos Izquierdo`, 953, 536, 1016, 613, dedosFemaleSpanish), // Left Finger
   makeRegion(`Cuello`, 304, 266, 364, 340, cuelloFemaleSpanish), // Neck
   makeRegion(`Hombro Derecho`, 364, 119, 494, 185, hombroFemaleSpanish), // Right Shoulder
-  makeRegion(`Brazo Derecho`, 448, 122, 644, 161, brazoSuperiorFemaleSpanish), // Right Arm
+  makeRegion(`Brazo Superior Derecho`, 448, 122, 644, 161, brazoSuperiorFemaleSpanish), // Right Arm
   makeRegion(`Mano Derecho`, 886, 28, 953, 98, manoFemaleSpanish), // Right Hand
   makeRegion(`Dedos Derecho`, 932, 17, 1034, 59, dedosFemaleSpanish), // Right Finger
   makeRegion(`Cadera Derecho`, 830, 147, 946, 220, caderaFemaleSpanish), // Right Hip
@@ -410,7 +410,7 @@ const femalefrontRegionsSpanish = [
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Right Lower Leg
   makeRegion(
-    `Pie o dedos de los pies Derecho`,
+    `Pie / Dedos de los Pies Derecho`,
     1566,
     199,
     1672,
@@ -426,7 +426,7 @@ const femalefrontRegionsSpanish = [
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Left Lower Leg
   makeRegion(
-    `Pie o dedos de los pies Izquierdo`,
+    `Pie / Dedos de los Pies Izquierdo`,
     1559,
     325,
     1672,
@@ -464,7 +464,7 @@ const femalefrontRegionsSpanish = [
 const femaleBackImageSpanish = [
   makeRegion(`Espalda`, 364, 168, 679, 430, espaldaFemaleSpanish), // Back
   makeRegion(
-    `Zona Lumbar`,
+    `Parte Inferior de la Espalda`,
     679,
     196,
     777,
@@ -472,11 +472,11 @@ const femaleBackImageSpanish = [
     parteInferiorDeLaEspaldaFemaleSpanish
   ), // Lower Back
   makeRegion(`Codo`, 588, 476, 651, 539, codoFemaleSpanish), // Elbow
-  makeRegion(`Brazo Izquierdo`, 367, 473, 578, 501, brazoSuperiorFemaleSpanish), // Left Arm
+  makeRegion(`Brazo Superior Izquierdo`, 367, 473, 578, 501, brazoSuperiorFemaleSpanish), // Left Arm
   makeRegion(`Antebrazo Izquierdo`, 637, 536, 851, 571, antebrazoFemaleSpanish), // Left Forearm
   makeRegion(`Mano Izquierdo`, 890, 532, 960, 599, manoFemaleSpanish), // Left Hand
   makeRegion(`Dedos Izquierdo`, 974, 532, 1013, 606, dedosFemaleSpanish), // Left Finger
-  makeRegion(`Brazo Derecho`, 381, 122, 595, 164, brazoSuperiorFemaleSpanish), // Right Arm
+  makeRegion(`Brazo Superior Derecho`, 381, 122, 595, 164, brazoSuperiorFemaleSpanish), // Right Arm
   makeRegion(`Antebrazo Derecho`, 648, 59, 862, 105, antebrazoFemaleSpanish), // Right Forearm
   makeRegion(`Mano Derecho`, 872, 38, 956, 80, manoFemaleSpanish), // Right Hand
   makeRegion(`Dedos Derecho`, 949, 10, 1013, 73, dedosFemaleSpanish), // Right Finger
@@ -488,7 +488,7 @@ const femaleBackImageSpanish = [
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Right Lower Leg
   makeRegion(
-    `Pie o dedos de los pies Derecho`,
+    `Pie / Dedos de los Pies Derecho`,
     1609,
     157,
     1682,
@@ -503,7 +503,7 @@ const femaleBackImageSpanish = [
     parteInferiorDeLaPiernaFemaleSpanish
   ), // Left Lower Leg
   makeRegion(
-    `Pie o dedos de los pies Izquierdo`,
+    `Pie / Dedos de los Pies Izquierdo`,
     1602,
     325,
     1676,

@@ -1178,7 +1178,7 @@ import Forehead_comMale from "/assets/audio/Male-body-audio/English/Forehead_com
 import HandMale from "/assets/audio/Male-body-audio/English/Hand.mp3";
 import HeadMale from "/assets/audio/Male-body-audio/English/Head.mp3";
 import HipMale from "/assets/audio/Male-body-audio/English/Hip.mp3";
-import Hombro_shoulderMale from "/assets/audio/Male-body-audio/English/Hombro_shoulder.mp3";
+import Hombro_shoulderMale from "/assets/audio/Male-body-audio/spanish/Hombro_shoulder.mp3";
 import KneeMale from "/assets/audio/Male-body-audio/English/Knee.mp3";
 import LowerBackMale from "/assets/audio/Male-body-audio/English/Lower Back.mp3";
 import lowerLegMale from "/assets/audio/Male-body-audio/English/lower leg.mp3";
