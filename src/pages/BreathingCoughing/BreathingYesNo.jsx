@@ -4,8 +4,7 @@ import Footer from "../../Component/Layout/Footer/Footer";
 
 import DecisionCardFeeling from "./DecisionCardFeeling-l";
 import TopicBoard from "../Topicboard/topicBoard";
-import { concerns } from "../../Component/DiseasesData/diseasesData";
-import { topicBoard } from "../../Component/DiseasesData/diseasesData";
+import { concerns, topicBoard } from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";

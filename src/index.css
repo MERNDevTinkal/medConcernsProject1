@@ -1609,7 +1609,7 @@ body,
 .custom-wdth {
   width: 85%;
 }
-
+/* 
 .digram-cards {
   height: 400px;
 }
@@ -1621,4 +1621,27 @@ body,
 .digram-cards img {
   height: 100%;
   width: 100%;
+} */
+
+.digram-cards {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digram-cards-img {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digram-cards img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }

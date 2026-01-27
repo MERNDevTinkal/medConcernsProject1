@@ -360,8 +360,12 @@ import Rightmaleankle from "/assets/images/men/right-male-ankle.png?url";
 import leftMaleankle from "/assets/images/men/left-male-ankle.png?url";
 import maleface from "/assets/images/men/male-face.png?url";
 
+import maleCompleteFace from "/assets/images/Male Head.png";
+import femaleCompleteFace from "/assets/images/Female Head.png";
 
 export {
+  femaleCompleteFace,
+  maleCompleteFace,
   femaleFace,
   femalerightankle,
   leftfemaleankle,

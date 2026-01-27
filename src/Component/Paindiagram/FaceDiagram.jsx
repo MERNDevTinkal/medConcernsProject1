@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
-  femaleFace,
-  maleface,
+  maleCompleteFace,
+  femaleCompleteFace,
 } from "../../Component/DiseasesData/images";
 import Loader from "../../Component/webLoader/loader";
 import Header from "../../Component/Layout/Header/Header";
@@ -58,7 +58,7 @@ const EarDiagram = () => {
                 <div className="flex justify-center items-center digram-cards-img">
                   <img
                     ref={imageRef}
-                    src={selectedGender === "Female" ? femaleFace : maleface}
+                    src={selectedGender === "Female" ? femaleCompleteFace : maleCompleteFace}
                     alt="Face Diagram"
                     onClick={handleClick}
                     className=""

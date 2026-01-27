@@ -308,8 +308,6 @@ export default function Whiteboard() {
     if (!node) return;
     const dpr = window.devicePixelRatio || 1;
     const viewport = window.visualViewport || window;
-    // const width = viewport.width - 120 || 985;
-    // const height = viewport.height - 150 || 600;
     const width = Math.max(0, Math.floor(viewport.width - 120));
     const height = Math.max(0, Math.floor(viewport.height - 150));
     node.width = Math.round(width * dpr);

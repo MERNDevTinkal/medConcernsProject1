@@ -149,7 +149,7 @@ import TardeAfternoonSpanishFemale from "/assets/audio/spanish/female/tarde (aft
 import ViernesFridaySpanishFemale from "/assets/audio/spanish/female/Viernes (Friday).mp3";
 import QueMePasoWhatHappenedToMeSpanishFemale from "/assets/audio/spanish/female/¿Qué me pasó_ (What happened to me_).mp3";
 import DarDeAltaDischargeSpanishFemale from "/assets/audio/spanish/female/dar de alta (discharge.mp3";
-import AlcoholSpanishFemale from "/assets/audio/spanish/female/alcohol.mp3";
+import AlcoholSpanishFemale from "/assets/audio/spanish/female/alcohol (alcohol).mp3";
 import ComidaFoodSpanishFemale from "/assets/audio/spanish/female/comida (food).mp3";
 import CriarALosNinosRaisingChildrenSpanishFemale from "/assets/audio/spanish/female/criar a los niños (raising children).mp3";
 import FamiliaFamilySpanishFemale from "/assets/audio/spanish/female/familia (family).mp3";
