@@ -353,7 +353,8 @@ const Header = ({
                 <img
                   onClick={() => {
                     if (isSummary === true) {
-                      setIsPopupOpen(true);
+                      navigate(-1)
+                      // setIsPopupOpen(true);
                     } else {
                       handlelastObj();
                     }
@@ -387,7 +388,7 @@ const Header = ({
                     navigate(
                       location.pathname === "/when" ? "/howoften" :
                         location.pathname === "/feeling-body"
-                          ? "/summary"
+                          ? "/depression-screener"
                           : location.pathname === "/emotions"
                             ? "/feeling-body"
                             : location.pathname === "/howoften"

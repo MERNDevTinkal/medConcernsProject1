@@ -6,6 +6,7 @@ import apiCall from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Component/Layout/Footer/Footer";
 export default function Introduction() {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [loader, setLoader] = useState(true);
@@ -188,6 +189,7 @@ export default function Introduction() {
               </div>
             </div>
           </div>
+                <Footer />
         </>
       )}
     </>

@@ -112,7 +112,7 @@ const SummaryList = () => {
         <>
           <Header
             isSummary={diseases?.summaryList?.length > 0 ? true : false}
-            setIsPopupOpen={setIsPopupOpen}
+            // setIsPopupOpen={setIsPopupOpen}
             selectedLanguage={selectedLanguage}
             calendarOn={calendarOn}
             introductionOn={introductionOn}
