@@ -106,7 +106,6 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
     } else {
       updateDisease(path, value);
     }
-    console.log("sdffdfmainpath", mainpath)
     if (path !== "/yes-no") {
       navigate(mainpath);
     }

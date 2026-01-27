@@ -308,8 +308,6 @@ const frontRegionsSpanish = [
   makeRegion(`Muñeca Derecho`, 289, 9, 303, 27, munecaMAleSpanish), // Right Wrist
   makeRegion(`Tobillo Derecho`, 557, 69, 574, 92, AnkleMale),
   makeRegion(`Tobillo Izquierdo`, 554, 114, 572, 133, AnkleMale),
-
-
 ];
 
 // female
