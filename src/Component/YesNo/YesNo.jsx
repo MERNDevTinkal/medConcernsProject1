@@ -22,7 +22,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
       await getTextToSpeech(
         value,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        audio
+        audio,
       );
       updateDisease("yesno", value);
       navigate(path);
@@ -40,17 +40,20 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
                 ? YesMale
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
                   ? YesSpanishMale
-                  : selectedLanguage === "Spanish" && selectedGender === "Female"
+                  : selectedLanguage === "Spanish" &&
+                      selectedGender === "Female"
                     ? YesFemaleSpanish
                     : selectedLanguage === "" && selectedGender === "Female"
                       ? YesFemale
                       : selectedLanguage === "" && selectedGender === "Male"
                         ? YesMale
-                        : selectedLanguage === "English" && selectedGender === "Male"
+                        : selectedLanguage === "English" &&
+                            selectedGender === "Male"
                           ? YesMale
-                          : selectedLanguage === "English" && selectedGender === "Female"
+                          : selectedLanguage === "English" &&
+                              selectedGender === "Female"
                             ? YesFemale
-                            : YesMale
+                            : YesMale,
             );
           }}
           className=""
@@ -75,17 +78,20 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
                 ? No_male
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
                   ? No_no_maleSpanish
-                  : selectedLanguage === "Spanish" && selectedGender === "Female"
+                  : selectedLanguage === "Spanish" &&
+                      selectedGender === "Female"
                     ? femaleNoSpanish
                     : selectedLanguage === "" && selectedGender === "Female"
                       ? NoFemale
                       : selectedLanguage === "" && selectedGender === "Male"
                         ? No_male
-                        : selectedLanguage === "English" && selectedGender === "Male"
+                        : selectedLanguage === "English" &&
+                            selectedGender === "Male"
                           ? No_male
-                          : selectedLanguage === "English" && selectedGender === "Female"
+                          : selectedLanguage === "English" &&
+                              selectedGender === "Female"
                             ? NoFemale
-                            : No_male
+                            : No_male,
             );
           }}
         >

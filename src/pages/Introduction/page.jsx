@@ -33,7 +33,7 @@ export default function Introduction() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (data?.status) {
@@ -62,14 +62,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { }
+      () => {},
+      () => {},
     );
   }, [loader]);
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function Introduction() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       )
       .then(({ data }) => {
         if (data.status) {
@@ -107,7 +107,7 @@ export default function Introduction() {
   }, []);
   const NaviagtionButton = () => {
     navigate("/concern");
-  }
+  };
   return (
     <>
       {loader ? (
@@ -163,7 +163,9 @@ export default function Introduction() {
                     }
                   />
                   <button
-                    onClick={() => { NaviagtionButton() }}
+                    onClick={() => {
+                      NaviagtionButton();
+                    }}
                     className="
     w-full
     h-[64px]
@@ -183,13 +185,11 @@ export default function Introduction() {
                   >
                     Continue
                   </button>
-
-
                 </div>
               </div>
             </div>
           </div>
-                <Footer />
+          <Footer />
         </>
       )}
     </>

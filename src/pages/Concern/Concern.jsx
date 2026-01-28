@@ -26,10 +26,10 @@ const Concern = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      setUncheckConcerns
+      () => {},
+      () => {},
+      () => {},
+      setUncheckConcerns,
     );
   }, []);
 
@@ -55,9 +55,11 @@ const Concern = () => {
             }
           />
 
-          <div className={`main-wrapper home-wrapper pt-20 topic-board-page ${location.pathname === "/topic-board" ? "relative" : ""} `}>
+          <div
+            className={`main-wrapper home-wrapper pt-20 topic-board-page ${location.pathname === "/topic-board" ? "relative" : ""} `}
+          >
             {location.pathname === "/topic-board" && (
-             <div className="absolute top-5 right-5 z-10">
+              <div className="flex justify-end">
                 <button
                   onClick={() => {
                     navigate("/icon-upload", {

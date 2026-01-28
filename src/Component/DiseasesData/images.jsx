@@ -369,11 +369,9 @@ export {
   femaleFace,
   femalerightankle,
   leftfemaleankle,
-
   Rightmaleankle,
   leftMaleankle,
   maleface,
-
   HowAreYou1,
   doublearrow,
   DepressedImg,
