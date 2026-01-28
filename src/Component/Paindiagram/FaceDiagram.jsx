@@ -105,10 +105,10 @@ const femaleFaceRegions = [
   makeRegion("Left Eye", 355, 505, 483, 575, eye),
   makeRegion("Right Eye", 535, 509, 633, 565, eye),
   makeRegion("Nose", 473, 563, 539, 657, nose),
-  makeRegion("Mouth", 447, 683, 543, 727, mouth),
+  makeRegion("Mouth", 427, 674, 587, 757, mouth),
   makeRegion("Right Cheek", 549, 599, 615, 719, cheek),
   makeRegion("Left Cheek", 287, 539, 379, 657, cheek),
-  makeRegion("Chin", 445, 729, 545, 775, chin),
+  makeRegion("Chin", 447, 774, 578, 820, chin),
   makeRegion("Neck", 359, 787, 619, 943, Neck),
 ];
 
@@ -120,10 +120,10 @@ const femaleFaceRegionsSpanish = [
   makeRegion("Ojo Izquierdo", 355, 505, 483, 575, ojoFemaleSpanish),
   makeRegion("Ojo Derecho", 535, 509, 633, 565, ojoFemaleSpanish),
   makeRegion("Nariz", 473, 563, 539, 657, narizFemaleSpanish),
-  makeRegion("Boca", 447, 683, 543, 727, bocaFemaleSpanish),
+  makeRegion("Boca", 427, 674, 587, 757, bocaFemaleSpanish),
   makeRegion("Mejilla Derecho", 549, 599, 615, 719, mejillaFemaleSpanish),
   makeRegion("Mejilla Izquierdo", 287, 539, 379, 657, mejillaFemaleSpanish),
-  makeRegion("Barbilla", 445, 729, 545, 775, barbillaFemaleSpanish),
+  makeRegion("Barbilla", 447, 774, 578, 820, barbillaFemaleSpanish),
   makeRegion("Cuello", 359, 787, 619, 943, cuelloFemaleSpanish),
 ];
 
@@ -249,8 +249,6 @@ const EarDiagram = () => {
       },
     });
     // isSpeakingRef.current = false;
-
-
   };
 
   return (
@@ -274,20 +272,15 @@ const EarDiagram = () => {
             <div className="flex justify-center">
               <div className="relative bg-white shadow rounded-xl p-4 max-w-4xl w-full">
                 <div className="flex justify-center">
-                  <div className="relative">
+                  <div className="digram-cards relative">
                     <img
                       ref={imageRef}
-                      src={
-                        selectedGender === "Female"
-                          ? femaleCompleteFace
-                          : maleCompleteFace
-                      }
+                      src={selectedGender === "Female" ? femaleCompleteFace : maleCompleteFace}
                       alt="Face Diagram"
                       onClick={handleClick}
                       draggable={false}
-                      className="max-h-[420px] w-auto object-contain cursor-pointer"
+                      className="digram-cards-img cursor-pointer"
                     />
-
                     {marker && (
                       <div
                         className="absolute w-8 h-8 rounded-full bg-red-500/40 border-2 border-red-600 pointer-events-none"
@@ -299,6 +292,7 @@ const EarDiagram = () => {
                       />
                     )}
                   </div>
+
                 </div>
 
               </div>
@@ -312,3 +306,136 @@ const EarDiagram = () => {
 
 export default EarDiagram;
 
+
+
+
+
+// import React, { useState, useRef } from "react";
+// import {
+//   maleCompleteFace,
+//   femaleCompleteFace,
+// } from "../../Component/DiseasesData/images";
+// function makeRegion(name, x1, y1, x2, y2) {
+//   return {
+//     name,
+//     x1: Math.min(x1, x2),
+//     y1: Math.min(y1, y2),
+//     x2: Math.max(x1, x2),
+//     y2: Math.max(y1, y2),
+//   };
+// }
+
+// const PainDiagram = () => {
+//   const [region, setRegion] = useState(null);
+//   const [drawing, setDrawing] = useState(false);
+//   const [start, setStart] = useState(null);
+//   const svgRef = useRef(null);
+//   const imgRef = useRef(null);
+
+//   const handleMouseDown = (e) => {
+//     const rect = svgRef.current.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+//     setStart({ x, y });
+//     setDrawing(true);
+//     setRegion(null);
+//   };
+
+//   const handleMouseMove = (e) => {
+//     if (!drawing || !start) return;
+//     const rect = svgRef.current.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+
+//     setRegion({
+//       x1: Math.min(start.x, x),
+//       y1: Math.min(start.y, y),
+//       x2: Math.max(start.x, x),
+//       y2: Math.max(start.y, y),
+//       name: "",
+//     });
+//   };
+
+//   const handleMouseUp = () => {
+//     setDrawing(false);
+//     setStart(null);
+
+//     if (region && imgRef.current) {
+//       // === Scale according to natural image size ===
+//       const img = imgRef.current;
+//       const scaleX = img.naturalWidth / img.width;
+//       const scaleY = img.naturalHeight / img.height;
+
+//       const realRegion = makeRegion(
+//         "Selected Area",
+//         Math.round(region.x1 * scaleX),
+//         Math.round(region.y1 * scaleY),
+//         Math.round(region.x2 * scaleX),
+//         Math.round(region.y2 * scaleY)
+//       );
+
+//       console.log(
+//         `makeRegion(\`${realRegion.name}\`, ${realRegion.x1}, ${realRegion.y1}, ${realRegion.x2}, ${realRegion.y2}),`
+//       );
+//     }
+//   };
+
+//   const handleDoubleClick = () => {
+//     setRegion(null);
+//   };
+
+//   return (
+//     <div className="flex flex-col items-center">
+//       <div className="relative w-[350px] md:w-[500px]">
+//         <img
+//           ref={imgRef}
+//           src={femaleCompleteFace}
+//           alt="body diagram"
+//           className="w-full h-auto"
+//         />
+
+//         {/* Drawing Layer */}
+//         <svg
+//           ref={svgRef}
+//           className="absolute top-0 left-0 w-full h-full"
+//           onMouseDown={handleMouseDown}
+//           onMouseMove={handleMouseMove}
+//           onMouseUp={handleMouseUp}
+//         >
+//           {region && (
+//             <g onDoubleClick={handleDoubleClick} style={{ cursor: "pointer" }}>
+//               <rect
+//                 x={region.x1}
+//                 y={region.y1}
+//                 width={region.x2 - region.x1}
+//                 height={region.y2 - region.y1}
+//                 fill="rgba(255,0,0,0.2)"
+//                 stroke="red"
+//                 strokeWidth={2}
+//               />
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 15}
+//                 fontSize="12"
+//                 fill="black"
+//               >
+//                 {region.name}
+//               </text>
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 30}
+//                 fontSize="10"
+//                 fill="gray"
+//               >
+//                 ({Math.round(region.x1)}, {Math.round(region.y1)}) - (
+//                 {Math.round(region.x2)}, {Math.round(region.y2)})
+//               </text>
+//             </g>
+//           )}
+//         </svg>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default PainDiagram;
