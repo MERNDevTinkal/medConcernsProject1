@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { Checked, Close, BackArrow } from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { diseasesData } from "../../Component/DiseasesData/diseasesData";
+import { diseasesData, breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
@@ -34,7 +34,7 @@ function ConfrmStepYesNo() {
   const [loader, setLoader] = useState(true);
   const [displayText, setDisplayText] = useState("");
   useEffect(() => {
-    const selectedDiseasesArray = diseasesData[`/${name}`] ?? [];
+    const selectedDiseasesArray = pathprimary?.includes("/when/confrm-step-yesno") ? breathingWhenOptions : diseasesData[`/${name}`] ?? [];
     const selectedFields = selectedDiseasesArray.find((item) => item.id == id);
     setSelectedConcers(selectedFields ?? {});
   }, [name, id]);
@@ -150,10 +150,10 @@ function ConfrmStepYesNo() {
                       className={`rounded-xl w-full h-full ${pathprimary.includes(
                         "/feeling-list-pain/confrm-step-yesno"
                       ) ||
-                          pathprimary.includes("/feeling/confrm-step-yesno") ||
-                          pathprimary.includes("/feel/confrm-step-yesno")
-                          ? "objct-cls"
-                          : "object-cover"
+                        pathprimary.includes("/feeling/confrm-step-yesno") ||
+                        pathprimary.includes("/feel/confrm-step-yesno")
+                        ? "objct-cls"
+                        : "object-cover"
                         } `}
                     />
                   </div>
