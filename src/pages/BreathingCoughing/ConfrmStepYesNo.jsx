@@ -82,6 +82,7 @@ function ConfrmStepYesNo() {
       ) {
         return navigate("/when");
       }
+
       if (valueData === "NO") {
         return navigate(-1);
       }
@@ -90,7 +91,7 @@ function ConfrmStepYesNo() {
       if (scalepath === "/mood-scale") {
         return navigate("/feeling-body");
       }
-      if (pathprimary.includes("medicationHardtoSwallow-problem")) {
+      if (pathprimary.includes("medicationHardtoSwallow-problem") || pathprimary.includes("when/confrm-step-yesno")) {
         return navigate("/howoften");
       }
       if (
