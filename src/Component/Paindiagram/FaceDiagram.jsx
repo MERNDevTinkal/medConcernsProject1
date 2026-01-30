@@ -105,10 +105,10 @@ const femaleFaceRegions = [
   makeRegion("Left Eye", 355, 505, 483, 575, eye),
   makeRegion("Right Eye", 535, 509, 633, 565, eye),
   makeRegion("Nose", 473, 563, 539, 657, nose),
-  makeRegion("Mouth", 447, 683, 543, 727, mouth),
+  makeRegion("Mouth", 427, 674, 587, 757, mouth),
   makeRegion("Right Cheek", 549, 599, 615, 719, cheek),
   makeRegion("Left Cheek", 287, 539, 379, 657, cheek),
-  makeRegion("Chin", 445, 729, 545, 775, chin),
+  makeRegion("Chin", 447, 774, 578, 820, chin),
   makeRegion("Neck", 359, 787, 619, 943, Neck),
 ];
 
@@ -120,10 +120,10 @@ const femaleFaceRegionsSpanish = [
   makeRegion("Ojo Izquierdo", 355, 505, 483, 575, ojoFemaleSpanish),
   makeRegion("Ojo Derecho", 535, 509, 633, 565, ojoFemaleSpanish),
   makeRegion("Nariz", 473, 563, 539, 657, narizFemaleSpanish),
-  makeRegion("Boca", 447, 683, 543, 727, bocaFemaleSpanish),
+  makeRegion("Boca", 427, 674, 587, 757, bocaFemaleSpanish),
   makeRegion("Mejilla Derecho", 549, 599, 615, 719, mejillaFemaleSpanish),
   makeRegion("Mejilla Izquierdo", 287, 539, 379, 657, mejillaFemaleSpanish),
-  makeRegion("Barbilla", 445, 729, 545, 775, barbillaFemaleSpanish),
+  makeRegion("Barbilla", 447, 774, 578, 820, barbillaFemaleSpanish),
   makeRegion("Cuello", 359, 787, 619, 943, cuelloFemaleSpanish),
 ];
 
@@ -249,8 +249,6 @@ const EarDiagram = () => {
       },
     });
     // isSpeakingRef.current = false;
-
-
   };
 
   return (
@@ -274,20 +272,15 @@ const EarDiagram = () => {
             <div className="flex justify-center">
               <div className="relative bg-white shadow rounded-xl p-4 max-w-4xl w-full">
                 <div className="flex justify-center">
-                  <div className="relative">
+                  <div className="digram-cards relative">
                     <img
                       ref={imageRef}
-                      src={
-                        selectedGender === "Female"
-                          ? femaleCompleteFace
-                          : maleCompleteFace
-                      }
+                      src={selectedGender === "Female" ? femaleCompleteFace : maleCompleteFace}
                       alt="Face Diagram"
                       onClick={handleClick}
                       draggable={false}
-                      className="max-h-[420px] w-auto object-contain cursor-pointer"
+                      className="digram-cards-img cursor-pointer"
                     />
-
                     {marker && (
                       <div
                         className="absolute w-8 h-8 rounded-full bg-red-500/40 border-2 border-red-600 pointer-events-none"
@@ -299,6 +292,7 @@ const EarDiagram = () => {
                       />
                     )}
                   </div>
+
                 </div>
 
               </div>
@@ -311,4 +305,5 @@ const EarDiagram = () => {
 };
 
 export default EarDiagram;
+
 

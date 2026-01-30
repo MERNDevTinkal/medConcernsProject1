@@ -1732,7 +1732,7 @@ export const breathingWhenOptions = [
   {
     id: 1,
     image: dashimghow03,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Morning",
     nameEs: "Mañana",
     maleEnglish: MorningMale,
@@ -1743,7 +1743,7 @@ export const breathingWhenOptions = [
   {
     id: 2,
     image: dashimghow01,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "All Day",
     nameEs: "Todo el Día",
     maleEnglish: AllDayMale,
@@ -1754,7 +1754,7 @@ export const breathingWhenOptions = [
   {
     id: 3,
     image: dashimghow02,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Evening / Night",
     nameEs: "Noche Temprano",
     maleEnglish: EveningNightMale,
@@ -1765,7 +1765,7 @@ export const breathingWhenOptions = [
   {
     id: 4,
     image: dashimghow28,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Always / Chronic",
     nameEs: "Siempre / Crónico",
     maleEnglish: AlwaysChronicMale,
@@ -1776,7 +1776,7 @@ export const breathingWhenOptions = [
   {
     id: 5,
     image: dashimghow07,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Just Started",
     nameEs: "Recién Comenzado",
     maleEnglish: juststartedMale,
@@ -1787,7 +1787,7 @@ export const breathingWhenOptions = [
   {
     id: 6,
     image: dashimghow06,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Comes and Goes",
     nameEs: "Viene y Va",
     maleEnglish: ComesAndGoesMale,
@@ -1798,7 +1798,7 @@ export const breathingWhenOptions = [
   {
     id: 7,
     image: GetsWorseThroughtheDay,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Gets Worse Through the Day",
     nameEs: "Empeora a lo Largo del Día",
     maleEnglish: GetsWorseThroughTheDayMale,
@@ -1809,7 +1809,7 @@ export const breathingWhenOptions = [
   {
     id: 8,
     image: WhenStanding,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Standing",
     nameEs: "Al Estar de Pie",
     maleEnglish: WhenStandingMale,
@@ -1820,7 +1820,7 @@ export const breathingWhenOptions = [
   {
     id: 9,
     image: WhenSitting,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Sitting",
     nameEs: "Al Estar Sentado",
     maleEnglish: WhenSittingMale,
@@ -1831,7 +1831,7 @@ export const breathingWhenOptions = [
   {
     id: 10,
     image: dashimghow31,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Lying Down",
     nameEs: "Al Acostarse",
     maleEnglish: WhenLyingDownMale,
@@ -1842,7 +1842,7 @@ export const breathingWhenOptions = [
   {
     id: 11,
     image: dashimghow32,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Sleeping",
     nameEs: "Al Dormir",
     maleEnglish: WhenSleepingMale,
@@ -1853,7 +1853,7 @@ export const breathingWhenOptions = [
   {
     id: 12,
     image: dashimghow33,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Walking",
     nameEs: "Al Caminar",
     maleEnglish: WhenWalkingMale,
@@ -1864,7 +1864,7 @@ export const breathingWhenOptions = [
   {
     id: 13,
     image: WithActivity,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Activity",
     nameEs: "Con Actividad",
     maleEnglish: WithActivityMale,
@@ -1875,7 +1875,7 @@ export const breathingWhenOptions = [
   {
     id: 14,
     image: dashimghow29,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Mental Activity",
     nameEs: "Con Actividad Mental",
     maleEnglish: WithMentalActivityMale,
@@ -1886,7 +1886,7 @@ export const breathingWhenOptions = [
   {
     id: 15,
     image: dashimghow34,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Transfer / Repositioning",
     nameEs: "Al Transferir / Reposicionar",
     maleEnglish: WithTransferRepositioningMale,
@@ -1897,7 +1897,7 @@ export const breathingWhenOptions = [
   {
     id: 16,
     image: dashimghow19,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Movement",
     nameEs: "Con Movimiento",
     maleEnglish: WithMovementMale,
@@ -1908,7 +1908,7 @@ export const breathingWhenOptions = [
   {
     id: 17,
     image: dashimghow26,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Swallowing",
     nameEs: "Al Tragar",
     maleEnglish: WhenSwallowingMale,
@@ -1919,7 +1919,7 @@ export const breathingWhenOptions = [
   {
     id: 18,
     image: BoardImg6,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Medication",
     nameEs: "Con Medicación",
     maleEnglish: WithMedicationMale,
@@ -1930,7 +1930,7 @@ export const breathingWhenOptions = [
   {
     id: 19,
     image: withFoodFrinkWhenEating,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Eating / Drinking",
     nameEs: "Al Comer o Beber",
     maleEnglish: WhenEatingDrinkingMale,
@@ -1941,7 +1941,7 @@ export const breathingWhenOptions = [
   {
     id: 20,
     image: dashimghow13,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "After Meals",
     nameEs: "Después de Comer",
     maleEnglish: AfterMealsMale,
@@ -1952,7 +1952,7 @@ export const breathingWhenOptions = [
   {
     id: 21,
     image: dashimghow30,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "When Toileting",
     nameEs: "Al Usar el Baño",
     maleEnglish: WhenToiletingMale,
@@ -1963,7 +1963,7 @@ export const breathingWhenOptions = [
   {
     id: 22,
     image: dashimghow35,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Blood Pressure",
     nameEs: "Con Presión Arterial",
     femaleEnglish: withBloodPressureFemale,
@@ -1974,7 +1974,7 @@ export const breathingWhenOptions = [
   {
     id: 23,
     image: dashimghow36,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Blood Sugar",
     nameEs: "Con Azúcar en Sangre",
     maleEnglish: WithBloodSugarMale,
@@ -1985,7 +1985,7 @@ export const breathingWhenOptions = [
   {
     id: 24,
     image: dashimghow17,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Stress / Emotion",
     nameEs: "Con Estrés / Emoción",
     maleEnglish: WithStressEmotionMale,
@@ -1996,7 +1996,7 @@ export const breathingWhenOptions = [
   {
     id: 25,
     image: dashimghow04,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "After Procedure",
     nameEs: "Después de un Procedimiento",
     maleEnglish: AfterProcedureMale,
@@ -2007,7 +2007,7 @@ export const breathingWhenOptions = [
   {
     id: 26,
     image: WithTubeFeed,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "With Tube Feed",
     nameEs: "Con Alimentación por Tubo",
     maleEnglish: WithTubeFeedMale,
@@ -2018,7 +2018,7 @@ export const breathingWhenOptions = [
   {
     id: 27,
     image: dashimghow22,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Since Stroke / Injury",
     nameEs: "Desde mi Derrame Cerebral / Lesión",
     maleEnglish: SinceMyStrokeInjuryMale,
@@ -2029,7 +2029,7 @@ export const breathingWhenOptions = [
   {
     id: 28,
     image: dashimghow23,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Since Illness",
     nameEs: "Desde la Enfermedad",
     maleEnglish: SinceIllnessMale,
@@ -2040,7 +2040,7 @@ export const breathingWhenOptions = [
   {
     id: 29,
     image: dashimghow24,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "Since Fall / Injury",
     nameEs: "Desde la Caerse / Lesión",
     maleEnglish: SinceFallInjuryMale,
@@ -2051,7 +2051,7 @@ export const breathingWhenOptions = [
   {
     id: 30,
     image: dashimghow25,
-    path: "/confrm-step-when",
+    path: "/confrm-step-yesno",
     name: "I don’t know",
     nameEs: "No Sé",
     maleEnglish: IDontKnowMale,
