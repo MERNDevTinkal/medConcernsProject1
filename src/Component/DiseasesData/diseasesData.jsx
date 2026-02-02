@@ -5423,7 +5423,7 @@ const SwallowingTrachDesies = [
     name: "Pain",
     nameEs: "Dolor",
     secPath: "/confrm-step-yesno",
-    image: Painimg,
+    image: TrachpainImg,
     path: "/pain-feel",
     maleEnglish: PainUrinationEnglishMale,
     femaleEnglish: PainEnglishFemale,

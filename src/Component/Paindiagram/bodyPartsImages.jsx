@@ -178,7 +178,7 @@ export const bodyImages = {
     Barbilla: chinWoman,
     "Zona Lumbar": lowerBackWoman,
     Mejilla: cheekWoman,
-
+    "Parte Inferior de la Espalda": lowerBackWoman,
     "Ojo Izquierdo": eyeWoman,
     "Oreja Izquierdo": earWoman,
     "Mejilla Izquierdo": cheekWoman,
