@@ -36,18 +36,19 @@ const FeelingListPain = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" &&
+                        selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish,
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -69,7 +70,7 @@ const FeelingListPain = () => {
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
-      setLoader
+      setLoader,
     );
   }, []);
   const handleBynumber = async (id) => {
@@ -101,18 +102,19 @@ const FeelingListPain = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" &&
+                        selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish,
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -142,10 +144,10 @@ const FeelingListPain = () => {
           />
 
           <div className="main-wrapper home-wrapper">
-            <div className="w-full max-w-3xl mx-auto p-6 px-0">
+            <div className="w-full max-w-3xl mx-auto p-6 px-0 common-scale">
               <div className="space-y-0">
                 {/* <!-- Scale Numbers --> */}
-                <div className="flex justify-between items-center text-bar">
+                <div className="flex justify-between items-center text-bar ">
                   <div
                     onClick={() => {
                       handleBynumber(0);
@@ -354,7 +356,7 @@ const FeelingListPain = () => {
                               : `${data?.secPath}`,
                             selectedLanguage === "Spanish"
                               ? data.painFeelEs
-                              : data.painFeel
+                              : data.painFeel,
                           );
                         }}
                         className="flex flex-col items-center space-y-2 mb-3"

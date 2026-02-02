@@ -70,7 +70,7 @@ function BreathingYesNo() {
             <button className="opacity-0">Medconcern</button>
           </div>
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
-            <div className="grid grid-cols-2 md:gap-20 gap-5 my-5 items-center">
+            <div className="grid grid-cols-2 gap-5 my-5 items-center common-scale">
               <div
                 className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3
   `}
@@ -99,7 +99,7 @@ function BreathingYesNo() {
                     <div className="h-full w-full">
                       <img
                         src={concernValues?.image ?? gifLoader}
-                        className="mx-auto rounded-xl w-full content-cls"
+                        className="mx-auto rounded-xl w-full "
                       />
                     </div>
                   )}

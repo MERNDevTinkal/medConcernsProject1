@@ -24,7 +24,7 @@ import {
   IDontKnowMale,
   IdontknowSpanishFemale,
   NoSeMale,
-  femaleNoSpanish
+  femaleNoSpanish,
 } from "../../../src/Component/DiseasesData/audio";
 const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   const navigate = useNavigate();
@@ -88,12 +88,12 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
     const audio = getAudioByLanguageAndGender(
       selectedItem[0],
       selectedLanguage,
-      selectedGender
+      selectedGender,
     );
     await getTextToSpeech(
       value,
       selectedLanguage === "Spanish" ? "es-ES" : "en-US",
-      audio
+      audio,
     );
 
     if (path === "/new-problem") {
@@ -116,19 +116,20 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        <div className="decision-cards-innr">
+        <div className="decision-cards-innr common-scale">
           <div
             onClick={() => {
               handleDecision(
                 selectedLanguage === "Spanish" ? "SÍ" : "Yes",
                 path === "/new-problem" ? "/summary" : "/pain-feel",
-                1
+                1,
               );
             }}
           >
             <div
-              className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer  transition-colors duration-300 ${active === 1 ? "active_now" : ""
-                }`}
+              className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer  transition-colors duration-300 ${
+                active === 1 ? "active_now" : ""
+              }`}
             >
               <div className="flex items-center">
                 <p className="text-[40px]  font-medium text-green-600">
@@ -146,13 +147,14 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
               handleDecision(
                 "No",
                 path === "/new-problem" ? "/summary" : -1,
-                2
+                2,
               );
             }}
           >
             <div
-              className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer   transition-colors duration-300 ${active === 2 ? "active_now" : ""
-                }`}
+              className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mb-5 cursor-pointer   transition-colors duration-300 ${
+                active === 2 ? "active_now" : ""
+              }`}
             >
               <div className="flex items-center">
                 <p className="text-[40px] font-medium text-red-600">
@@ -171,11 +173,12 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                   handleDecision(
                     selectedLanguage === "Spanish" ? "no lo sé" : "Don't Know",
                     "/summary",
-                    3
+                    3,
                   );
                 }}
-                className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px]  cursor-pointer  transition-colors duration-300 ${active === 3 ? "active_now" : ""
-                  }`}
+                className={`custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px]  cursor-pointer  transition-colors duration-300 ${
+                  active === 3 ? "active_now" : ""
+                }`}
               >
                 <div className="flex items-center">
                   <img src={WomenIcon} width="70px" alt="" className="" />

@@ -59,16 +59,16 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
   const confirmFun = (value) => {
@@ -85,7 +85,6 @@ const SummaryList = () => {
     } else if (value === "No") {
       setIsPopupOpen(true);
       Cookies.remove("is_concern");
-
     }
   };
 
@@ -95,7 +94,7 @@ const SummaryList = () => {
 
   const discardChanges = () => {
     setIsPopupOpen(false);
-    clearAllDiseases()
+    clearAllDiseases();
     navigate("/concern");
   };
 
@@ -120,7 +119,7 @@ const SummaryList = () => {
           />
           {diseases?.summaryList?.length > 0 ? (
             <div className="main-wrapper home-wrapper">
-              <div className="flex justify-end space-x-2">
+              <div className="flex justify-end space-x-2 ">
                 <button
                   onClick={() => window.print()}
                   style={{ border: "2px solid black" }}
@@ -144,14 +143,13 @@ const SummaryList = () => {
                 >
                   {selectedLanguage === "Spanish" ? "Lista" : "List"}
                 </button>
-
               </div>
               {diseases?.summaryList?.length > 0 &&
                 diseases?.summaryList.map((item, index) => {
                   return (
                     <div
                       key={index}
-                      className="flex flex-row items-center w-full my-5 summary-main"
+                      className="flex flex-row items-center w-full my-5 summary-main common-scale justify-between"
                     >
                       <div className="md:w-1/4 sm:w-1/2 w-full">
                         <SummaryLeftCard
@@ -204,7 +202,12 @@ const SummaryList = () => {
               setShowSaveModal={setShowSaveModal}
             />
           )}
-          {showDonePopUp && <ConcernPopUp selectedLanguage={selectedLanguage} confirmFun={confirmFun} />}
+          {showDonePopUp && (
+            <ConcernPopUp
+              selectedLanguage={selectedLanguage}
+              confirmFun={confirmFun}
+            />
+          )}
           {isPopupOpen && (
             <SaveWarningPopup
               open={isPopupOpen}

@@ -23,7 +23,7 @@ const NewProblem = () => {
       () => {},
       () => {},
       () => {},
-      () => {}
+      () => {},
     );
   }, []);
 
@@ -56,17 +56,17 @@ const NewProblem = () => {
               location.pathname === "/yes-no"
                 ? ""
                 : location.pathname === "/new-problem"
-                ? !selectedLanguage
-                  ? translations["English"]?.newProblem
-                  : translations[selectedLanguage]?.newProblem ||
-                    translations["English"]?.newProblem
-                : translations[selectedLanguage]?.overall ||
-                  translations["English"]?.overall
+                  ? !selectedLanguage
+                    ? translations["English"]?.newProblem
+                    : translations[selectedLanguage]?.newProblem ||
+                      translations["English"]?.newProblem
+                  : translations[selectedLanguage]?.overall ||
+                    translations["English"]?.overall
             }
           />
 
           <div className="main-wrapper home-wrapper ">
-            <div className="px-10 my-10 sm:px-5 ">
+            <div className="px-10 sm:px-5 ">
               <DecisionCard
                 selectedGender={selectedGender}
                 selectedLanguage={selectedLanguage}
