@@ -9328,9 +9328,6 @@ export const diseasesData = {
       maleSpanish: AlgoMasSpanishMale,
     },
   ],
-
-
-
   "/choking-problem-sub": swallowingDesises,
   "/foodsticking-problem": swallowingDesises,
   "/heartburn-problem": heartburnDesises,
