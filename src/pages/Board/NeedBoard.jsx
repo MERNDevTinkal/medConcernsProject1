@@ -51,9 +51,9 @@ const NeedBoard = () => {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      setUncheckNeedBoard
+      () => {},
+      () => {},
+      setUncheckNeedBoard,
     );
 
     getData(setApiData);
@@ -90,7 +90,7 @@ const NeedBoard = () => {
             editData?.id
               ? "Icon updated successfully"
               : "Icon added successfully",
-            { autoClose: 1500 }
+            { autoClose: 1500 },
           );
         } else {
           toast.error(data.msg, { autoClose: 1500 });
@@ -162,7 +162,7 @@ const NeedBoard = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       )
       .then(({ data }) => {
         if (data.status) {
@@ -206,13 +206,14 @@ const NeedBoard = () => {
                   ? value?.maleEnglish
                   : selectedLanguage === "English" && selectedGender === "Male"
                     ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
+                    : selectedLanguage === "English" &&
+                        selectedGender === "Female"
                       ? value?.femaleEnglish
                       : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        audioValue
+        audioValue,
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -222,7 +223,7 @@ const NeedBoard = () => {
       addOrUpdateSummary(prefix, [value]);
       navigate(
         `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,
-        { state: { value } }
+        { state: { value } },
       );
       isSpeakingRef.current = false;
     }
@@ -256,10 +257,10 @@ const NeedBoard = () => {
           />
 
           <div className="main-wrapper home-wrapper pt-20 relative">
-            <div className="m-6 my-6 mb-12">
+            <div className="flex justify-end">
               <button
                 onClick={() => navigate("/icon-upload")}
-                className="thm-btn absolute top-4 right-4 z-10"
+                className="thm-btn z-10"
               >
                 {selectedLanguage === "Spanish"
                   ? "+ Agregar icono"
@@ -302,13 +303,14 @@ const NeedBoard = () => {
                           key={index}
                         >
                           <div
-                            className={`dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${(selectedLanguage === "Spanish"
-                              ? item?.nameEs
-                              : item?.name
-                            )?.length > 18
-                              ? "shirnk-card"
-                              : ""
-                              }`}
+                            className={`dashboard-cards rounded-2xl bg-white text-center relative border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${
+                              (selectedLanguage === "Spanish"
+                                ? item?.nameEs
+                                : item?.name
+                              )?.length > 18
+                                ? "shirnk-card"
+                                : ""
+                            }`}
                           >
                             {item?.audio && item.audio.trim() !== "" && (
                               <div className="flex justify-end absolute top-4 right-4">
@@ -349,7 +351,7 @@ const NeedBoard = () => {
                             </p>
                           </div>
                         </div>
-                      )
+                      ),
                   )}
               </div>
             </div>

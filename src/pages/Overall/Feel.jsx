@@ -48,9 +48,10 @@ const Feel = () => {
                 ? item?.maleEnglish
                 : selectedLanguage === "English" && selectedGender === "Male"
                   ? item?.maleEnglish
-                  : selectedLanguage === "English" && selectedGender === "Female"
+                  : selectedLanguage === "English" &&
+                      selectedGender === "Female"
                     ? item?.femaleEnglish
-                    : item?.maleEnglish
+                    : item?.maleEnglish,
     );
     const isConcern = Cookies.get("is_concern");
     const prefix =
@@ -58,21 +59,23 @@ const Feel = () => {
         ? isConcern + "/" + mainpath
         : mainpath;
     addOrUpdateSummary(prefix, [item]);
-    navigate(mainpath === "/emotions" ? path : path, { state: { scalepath:location?.pathname } });
+    navigate(mainpath === "/emotions" ? path : path, {
+      state: { scalepath: location?.pathname },
+    });
     isSpeakingRef.current = false;
   };
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
   return (
@@ -113,7 +116,7 @@ const Feel = () => {
                   </li>
                 ))}
               </ul> */}
-              <div className="feel-overall-card">
+              <div className="feel-overall-card common-scale">
                 {/* <h3 className="text-center">How do you feel overall?</h3> */}
                 <ul className="feel-overall-list">
                   {emotionsicons.map((item) => (

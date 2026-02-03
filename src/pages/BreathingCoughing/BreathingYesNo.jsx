@@ -4,7 +4,10 @@ import Footer from "../../Component/Layout/Footer/Footer";
 
 import DecisionCardFeeling from "./DecisionCardFeeling-l";
 import TopicBoard from "../Topicboard/topicBoard";
-import { concerns, topicBoard } from "../../Component/DiseasesData/diseasesData";
+import {
+  concerns,
+  topicBoard,
+} from "../../Component/DiseasesData/diseasesData";
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
@@ -32,16 +35,16 @@ function BreathingYesNo() {
 
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
   return (
@@ -66,38 +69,41 @@ function BreathingYesNo() {
             </h2>
             <button className="opacity-0">Medconcern</button>
           </div>
-          <div className="main-wrapper home-wrapper justify-center flex flex-col">
-            <div className="grid grid-cols-2  md:gap-20 gap-5 my-5  items-center">
+          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
+            <div className="grid grid-cols-2 gap-5 my-5 items-center common-scale">
               <div
                 className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3
-    ${location.pathname.includes("/topicboard/")
-                    ? "h-[300px] flex justify-center items-center relative"
-                    : ""
-                  }`}
+  `}
               >
-                {location.pathname.includes("/topicboard/") ? (
-                  <>
-                    <p className="text-xl">
-                      {selectedLanguage === "Spanish"
-                        ? concernValues?.nameEs
-                        : concernValues?.name}
-                    </p>
-                    {selectedLanguage === "Spanish" && (
-                      <p className="absolute bottom-0 left-0 right-0 break-words">
-                        {concernValues?.name}
+                <div
+                  className={`  ${
+                    location.pathname.includes("/topicboard/")
+                      ? "h-[300px] flex justify-center items-center relative"
+                      : ""
+                  } dashboard-img rounded-2xl w-full h-full`}
+                >
+                  {location.pathname.includes("/topicboard/") ? (
+                    <>
+                      <p className="text-xl">
+                        {selectedLanguage === "Spanish"
+                          ? concernValues?.nameEs
+                          : concernValues?.name}
                       </p>
-                    )}
-                  </>
-                ) : (
-                  <div className="dashboard-img rounded-2xl w-full h-full">
+                      {selectedLanguage === "Spanish" && (
+                        <p className="absolute bottom-0 left-0 right-0 break-words">
+                          {concernValues?.name}
+                        </p>
+                      )}
+                    </>
+                  ) : (
                     <div className="h-full w-full">
                       <img
                         src={concernValues?.image ?? gifLoader}
-                        className="mx-auto rounded-xl w-full"
+                        className="mx-auto rounded-xl w-full "
                       />
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
               <div>
                 {location.pathname.includes("/topicboard/") ? (

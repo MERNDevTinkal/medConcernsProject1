@@ -21,7 +21,7 @@ const BackPain = () => {
       () => {},
       () => {},
       () => {},
-      () => {}
+      () => {},
     );
   }, []);
   return (
@@ -43,7 +43,7 @@ const BackPain = () => {
 
           <div className="main-wrapper home-wrapper pain-wrapper">
             <div className="my-5 flex justify-center items-center">
-              <div className="w-full max-w-4xl p-0 bg-white shadow-sm rounded-xl pain-digram-box">
+              <div className="w-full max-w-4xl p-0 bg-white shadow-sm rounded-xl pain-digram-box ">
                 <PainDiagramBack
                   selectedGender={selectedGender}
                   selectedLanguage={selectedLanguage}

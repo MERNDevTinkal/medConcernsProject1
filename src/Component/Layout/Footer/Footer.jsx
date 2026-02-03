@@ -18,7 +18,7 @@ const Footer = () => {
          transform-gpu"
       >
         <div className="py-2 px-5 mx-auto thm-footer-innr">
-          <ul className="flex md:gap-30 sm:gap-5 justify-around">
+          <ul className="flex md:gap-30 sm:gap-5 justify-between">
             <li>
               <Link to="/yes-no">
                 <img src={icon01} />

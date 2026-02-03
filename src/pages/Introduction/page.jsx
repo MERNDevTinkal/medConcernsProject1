@@ -33,7 +33,7 @@ export default function Introduction() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (data?.status) {
@@ -62,14 +62,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { }
+      () => {},
+      () => {},
     );
   }, [loader]);
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function Introduction() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       )
       .then(({ data }) => {
         if (data.status) {
@@ -107,7 +107,7 @@ export default function Introduction() {
   }, []);
   const NaviagtionButton = () => {
     navigate("/concern");
-  }
+  };
   return (
     <>
       {loader ? (
@@ -135,7 +135,7 @@ export default function Introduction() {
                   </label>
                   <input
                     type="text"
-                    className="w-full p-4 text-xl rounded-lg border border-gray-300 mb-6 bg-white"
+                    className="w-full p-3 text-xl rounded-lg border border-gray-300 mb-4 bg-white"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     onBlur={handleNameBlur}
@@ -152,7 +152,7 @@ export default function Introduction() {
                   </label>
                   <input
                     type="text"
-                    className="w-full p-4 text-xl rounded-lg border border-gray-300 bg-white"
+                    className="w-full p-3 text-xl rounded-lg border border-gray-300 bg-white"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     onBlur={handleRoleBlur}
@@ -163,10 +163,12 @@ export default function Introduction() {
                     }
                   />
                   <button
-                    onClick={() => { NaviagtionButton() }}
+                    onClick={() => {
+                      NaviagtionButton();
+                    }}
                     className="
     w-full
-    h-[64px]
+    py-4
     flex
     items-center
     justify-center
@@ -176,20 +178,18 @@ export default function Introduction() {
     rounded-lg
  bg-[#4073BB]
     text-white
-    mt-6
+    mt-4
     hover:bg-blue-700
     transition
   "
                   >
                     Continue
                   </button>
-
-
                 </div>
               </div>
             </div>
           </div>
-                <Footer />
+          <Footer />
         </>
       )}
     </>

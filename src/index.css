@@ -218,7 +218,7 @@ body {
   background-color: #dceaf7;
   color: #000;
   font-size: 16px;
-  font-family: "Navigo" ;
+  font-family: "Navigo";
   scroll-behavior: smooth;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -228,10 +228,11 @@ html,
 body {
   touch-action: manipulation;
 
-  font-family: 'Navigo',
+  font-family:
+    "Navigo",
     -apple-system,
     BlinkMacSystemFont,
-    'Segoe UI',
+    "Segoe UI",
     Roboto,
     system-ui,
     sans-serif;
@@ -240,7 +241,8 @@ body {
 /* Add eraser cursor */
 .cursor-eraser {
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.5 19.5L20.5 11.5C21.328 10.672 21.328 9.328 20.5 8.5L15.5 3.5C14.672 2.672 13.328 2.672 12.5 3.5L4.5 11.5C3.672 12.328 3.672 13.672 4.5 14.5L9.5 19.5C10.328 20.328 11.672 20.328 12.5 19.5Z'/%3E%3Cpath d='M18 12L21 15'/%3E%3Cpath d='M3 21L12 12'/%3E%3C/svg%3E") 12 12,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.5 19.5L20.5 11.5C21.328 10.672 21.328 9.328 20.5 8.5L15.5 3.5C14.672 2.672 13.328 2.672 12.5 3.5L4.5 11.5C3.672 12.328 3.672 13.672 4.5 14.5L9.5 19.5C10.328 20.328 11.672 20.328 12.5 19.5Z'/%3E%3Cpath d='M18 12L21 15'/%3E%3Cpath d='M3 21L12 12'/%3E%3C/svg%3E")
+      12 12,
     auto;
 }
 
@@ -451,7 +453,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-right: auto;
 }
 
-.main-header>div {
+.main-header > div {
   position: relative;
   z-index: 9;
 }
@@ -463,6 +465,7 @@ input[type="number"]::-webkit-outer-spin-button {
   text-align: center;
   z-index: -1;
   transform: translateX(-50%);
+  white-space: pre;
 }
 
 .innr-header {
@@ -626,6 +629,7 @@ input[type="number"]::-webkit-outer-spin-button {
   justify-content: center;
   /* height: 200px; */
   cursor: pointer;
+  overflow: hidden;
 }
 
 .summary-list-right .dashboard-cards .dashboard-img {
@@ -648,6 +652,7 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
 
 .brthng-card .dashboard-img img {
@@ -710,10 +715,10 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 20px;
   }
 
-  .innr-header h2,
+  /* .innr-header h2,
   .innr-header h1 {
     font-size: 20px;
-  }
+  } */
 
   .calendar-main button.flex.items-center.justify-center .check-mark {
     height: 20px;
@@ -799,7 +804,8 @@ input[type="number"]::-webkit-outer-spin-button {
     font-weight: 600;
   }
 
-  .setting-cards div.flex.items-center.justify-between.py-4.border-b.border-white {
+  .setting-cards
+    div.flex.items-center.justify-between.py-4.border-b.border-white {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -956,6 +962,12 @@ font-size: 22px;
   height: calc(50vh - 130px);
   object-fit: contain;
 }
+.decision-cards .custom-wdth {
+  border-radius: 10px;
+}
+.dashboard-cards {
+  padding: 0;
+}
 
 @media only screen and (max-height: 852px) and (orientation: landscape) {
   .dash-single-items .dashboard-cards .dashboard-img img {
@@ -1061,7 +1073,6 @@ font-size: 22px;
 }
 
 @media only screen and (max-height: 736px) and (orientation: landscape) {
-
   /* .main-wrapper {
     padding-top: 60px;
   } */
@@ -1320,7 +1331,9 @@ body,
   padding: 0;
   background-color: transparent;
 }
-
+.depression-screener-wrapper .feel-overall-card {
+  max-width: 400px;
+}
 .feel-overall-card {
   max-width: 500px;
   margin-left: auto;
@@ -1521,6 +1534,9 @@ body,
   height: 41vh;
   width: 100%;
 }
+.custom-wdth {
+  width: 85%;
+}
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .topicSetting-single-items {
@@ -1538,8 +1554,10 @@ body,
   }
 
   .brthng-card {
-    height: 280px;
-    width: 280px;
+    height: 230px;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .innr-header {
@@ -1547,22 +1565,24 @@ body,
     padding-bottom: 5px;
   }
 
-  .innr-header h2,
+  /* .innr-header h2,
   .innr-header .Header-text {
     font-size: 22px;
-  }
+  } */
 
   .thm-footer-innr {
     padding-bottom: 0px;
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   .thm-footer li a img {
-    height: 22px;
-    width: 22px;
+    height: 28px;
+    width: 28px;
   }
 
   .Intro_box img {
-    max-width: 50%;
+    max-width: 35%;
+    width: 35%;
   }
 
   .pain-digram-box {
@@ -1571,6 +1591,7 @@ body,
 
   .thm-footer {
     z-index: 9;
+    padding-bottom: 25px;
   }
 
   aside.sidebar {
@@ -1595,6 +1616,79 @@ body,
   .summary-list-right .dashboard-cards .dashboard-img {
     height: 100px;
   }
+  .custom-wdth {
+    width: 100%;
+    padding: 5px 20px;
+  }
+  .custom-wdth img {
+    width: 40px;
+  }
+  .main-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .main-header {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .dash-single-items {
+    /* height: calc(90vh - 100px); */
+    width: 300px;
+  }
+  .dash-double-items {
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dash-double-items .dashboard-cards {
+    height: 100%;
+  }
+  .dash-triple-items {
+    height: 100%;
+    width: 230px;
+    margin-bottom: 15px;
+  }
+  .dash-quadriple-items {
+    height: 100%;
+    width: 160px;
+  }
+  .dash-hexuple-items {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main-wrapper {
+    padding-top: 0px;
+  }
+  .common-scale {
+    transform: scale(0.8);
+  }
+  .brthng-card .dashboard-img img {
+    object-fit: cover;
+  }
+  .innr-header {
+    padding-left: 15px;
+  }
+  .depression-screener-wrapper
+    .feel-overall-card
+    .flex.items-center.justify-between {
+    padding: 10px 20px;
+    border-radius: 12px;
+  }
+  .depression-screener-wrapper
+    .feel-overall-card
+    .flex.items-center.justify-between
+    p {
+    font-size: 25px;
+  }
+  .depression-screener-wrapper .question-title {
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+  .depression-screener-wrapper .feel-overall-card {
+    max-width: 300px;
+  }
 }
 
 .dashboard-cards.shirnk-card .dashboard-img img {
@@ -1604,10 +1698,6 @@ body,
 .decision-cards-innr .custom-wdth {
   margin-left: auto;
   margin-right: auto;
-}
-
-.custom-wdth {
-  width: 85%;
 }
 
 .digram-cards {

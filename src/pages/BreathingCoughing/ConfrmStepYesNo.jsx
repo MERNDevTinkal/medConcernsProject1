@@ -3,7 +3,10 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Footer from "../../Component/Layout/Footer/Footer";
 import { Checked, Close, BackArrow } from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
-import { diseasesData, breathingWhenOptions } from "../../Component/DiseasesData/diseasesData";
+import {
+  diseasesData,
+  breathingWhenOptions,
+} from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
@@ -34,22 +37,26 @@ function ConfrmStepYesNo() {
   const [loader, setLoader] = useState(true);
   const [displayText, setDisplayText] = useState("");
   useEffect(() => {
-    const selectedDiseasesArray = pathprimary?.includes("/when/confrm-step-yesno") ? breathingWhenOptions : diseasesData[`/${name}`] ?? [];
+    const selectedDiseasesArray = pathprimary?.includes(
+      "/when/confrm-step-yesno",
+    )
+      ? breathingWhenOptions
+      : (diseasesData[`/${name}`] ?? []);
     const selectedFields = selectedDiseasesArray.find((item) => item.id == id);
     setSelectedConcers(selectedFields ?? {});
   }, [name, id]);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => { },
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
 
@@ -70,7 +77,7 @@ function ConfrmStepYesNo() {
       await getTextToSpeech(
         valueData,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        audio
+        audio,
       );
       if (Cookies.get("is_calendra") === "yes") {
         return navigate("/howoften");
@@ -91,7 +98,10 @@ function ConfrmStepYesNo() {
       if (scalepath === "/mood-scale") {
         return navigate("/feeling-body");
       }
-      if (pathprimary.includes("medicationHardtoSwallow-problem") || pathprimary.includes("when/confrm-step-yesno")) {
+      if (
+        pathprimary.includes("medicationHardtoSwallow-problem") ||
+        pathprimary.includes("when/confrm-step-yesno")
+      ) {
         return navigate("/howoften");
       }
       if (
@@ -111,7 +121,7 @@ function ConfrmStepYesNo() {
           path,
           noNewProblemPaths.includes(pathprimary)
             ? { state: { pathValue: "noNewProblem" } }
-            : { state: { name: displayText ?? value?.name } }
+            : { state: { name: displayText ?? value?.name } },
         );
       } else if (typeof path === "number") {
         return navigate(path, { state: value });
@@ -138,9 +148,7 @@ function ConfrmStepYesNo() {
           </div>
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
             <div
-              className={`grid grid-cols-2
-
-               md:gap-20 gap-5 my-5 items-center`}
+              className={`grid grid-cols-2  gap-5 my-5 items-center common-scale`}
             >
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">
@@ -148,14 +156,15 @@ function ConfrmStepYesNo() {
                     <img
                       src={selectedConcers?.image ?? value?.image}
                       alt={selectedConcers?.name || "img"}
-                      className={`rounded-xl w-full h-full ${pathprimary.includes(
-                        "/feeling-list-pain/confrm-step-yesno"
-                      ) ||
+                      className={`rounded-xl w-full h-full ${
+                        pathprimary.includes(
+                          "/feeling-list-pain/confrm-step-yesno",
+                        ) ||
                         pathprimary.includes("/feeling/confrm-step-yesno") ||
                         pathprimary.includes("/feel/confrm-step-yesno")
-                        ? "objct-cls"
-                        : "object-cover"
-                        } `}
+                          ? "objct-cls"
+                          : "object-cover"
+                      } `}
                     />
                   </div>
                 </div>
@@ -172,23 +181,24 @@ function ConfrmStepYesNo() {
                         selectedLanguage === "" && selectedGender === ""
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
+                              selectedGender === "Male"
                             ? YesSpanishMale
                             : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
+                                selectedGender === "Female"
                               ? YesFemaleSpanish
                               : selectedLanguage === "" &&
-                                selectedGender === "Female"
+                                  selectedGender === "Female"
                                 ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
+                                : selectedLanguage === "" &&
+                                    selectedGender === "Male"
                                   ? YesMale
                                   : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
+                                      selectedGender === "Male"
                                     ? YesMale
                                     : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
+                                        selectedGender === "Female"
                                       ? YesFemale
-                                      : YesMale
+                                      : YesMale,
                       )
                     }
                   >
@@ -209,23 +219,24 @@ function ConfrmStepYesNo() {
                         selectedLanguage === "" && selectedGender === ""
                           ? No_male
                           : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
+                              selectedGender === "Male"
                             ? No_no_maleSpanish
                             : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
+                                selectedGender === "Female"
                               ? femaleNoSpanish
                               : selectedLanguage === "" &&
-                                selectedGender === "Female"
+                                  selectedGender === "Female"
                                 ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
+                                : selectedLanguage === "" &&
+                                    selectedGender === "Male"
                                   ? No_male
                                   : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
+                                      selectedGender === "Male"
                                     ? No_male
                                     : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
+                                        selectedGender === "Female"
                                       ? NoFemale
-                                      : No_male
+                                      : No_male,
                       )
                     }
                   >
