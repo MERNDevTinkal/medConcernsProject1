@@ -1651,10 +1651,10 @@ body,
   }
   .dash-quadriple-items {
     height: 100%;
-    width: 160px;
+    width: 169px;
   }
   .dash-hexuple-items {
-    width: 200px;
+    width: 180px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1688,6 +1688,13 @@ body,
   }
   .depression-screener-wrapper .feel-overall-card {
     max-width: 300px;
+  }
+  .dash-hexuple-items .dashboard-cards {
+    height: calc(70vh - 148px);
+  }
+  .dash-hexuple-items .dashboard-cards .dashboard-img img {
+    height: calc(50vh - 120px);
+    object-fit: contain;
   }
 }
 
