@@ -131,6 +131,7 @@ import {
   pelvisMAleSpanish,
   pieMAleSpanish,
   RodillaMAleSpanish,
+  AbdomenSpanishMale
 } from "../../Component/DiseasesData/audio.jsx";
 function makeRegion(name, x1, y1, x2, y2, audio) {
   return {
@@ -207,7 +208,7 @@ const backRegionsSpanish = [
   makeRegion(`Hombro Derecho`, 114, 28, 151, 65, Hombro_shoulderMale),
   makeRegion(`Muñeca Derecho`, 297, 14, 306, 31, munecaMAleSpanish),
   makeRegion(`Muñeca Izquierdo`, 294, 190, 303, 206, munecaMAleSpanish),
-  makeRegion(`Zona Lumbar`, 245, 67, 271, 155, parteInferiorEspaldaMAleSpanish),
+  makeRegion(`Parte Inferior de la Espalda`, 245, 67, 271, 155, parteInferiorEspaldaMAleSpanish),
   makeRegion(`Glúteo Derecho`, 277, 56, 344, 112, nalgasMAleSpanish),
   makeRegion(`Glúteo Izquierdo`, 261, 121, 344, 168, nalgasMAleSpanish),
   makeRegion(`Muslo Derecho`, 347, 56, 425, 101, musloMAleSpanish),
@@ -271,7 +272,7 @@ const frontRegionsSpanish = [
   makeRegion(`Oreja Izquierdo`, 50, 125, 70, 135, orejaMAleSpanish),
   makeRegion(`Cuello`, 90, 80, 110, 120, CuelloMAleSpanish),
   makeRegion(`Pecho / Mama`, 120, 50, 185, 150, pechoMAleSpanish),
-  makeRegion(`Abdomen`, 220, 145, 265, 60, Abdomen_comMale),
+  makeRegion(`Abdomen`, 220, 145, 265, 60, AbdomenSpanishMale),
   makeRegion(`Pelvis / Genitales`, 290, 88, 330, 110, pelvisMAleSpanish),
   makeRegion(`Cadera Derecho`, 280, 45, 320, 70, caderaMAleSpanish),
   makeRegion(`Cadera Izquierdo`, 280, 160, 320, 135, caderaMAleSpanish),

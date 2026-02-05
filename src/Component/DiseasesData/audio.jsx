@@ -1162,6 +1162,7 @@ import tobilloFemaleSpanish from "/assets/audio/Female-body-audio/spanish/tobill
 
 // male english body parts
 import Abdomen_comMale from "/assets/audio/Male-body-audio/English/Abdomen_com.mp3";
+import AbdomenSpanishMale from "/assets/audio/Male-body-audio/spanish/Abdomen_abdomen.mp3";
 import AnkleMale from "/assets/audio/Male-body-audio/English/Ankle.mp3";
 import BackMale from "/assets/audio/Male-body-audio/English/Back.mp3";
 import buttMale from "/assets/audio/Male-body-audio/English/butt.mp3";
@@ -1938,6 +1939,7 @@ import femaleTapadosSpanish from "/assets/audio/spanish/female/Tapados (Plugged)
 
 export {
   // Female English
+  AbdomenSpanishMale,
   femaleTapadosSpanish,
   femaleBathroomEngish,
   femaleBanoSpanish,

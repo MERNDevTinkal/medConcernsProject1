@@ -176,7 +176,7 @@ export const bodyImages = {
     Glúteo: buttWoman,
     Glúteos: buttWoman,
     Barbilla: chinWoman,
-    "Zona Lumbar": lowerBackWoman,
+    // "Zona Lumbar": lowerBackWoman,
     Mejilla: cheekWoman,
     "Parte Inferior de la Espalda": lowerBackWoman,
     "Ojo Izquierdo": eyeWoman,
@@ -309,7 +309,8 @@ export const bodyImages = {
     "Pelvis / Genitales": pelvisGenitalsMan,
     Espalda: backMan,
     Barbilla: chinMan,
-    "Zona Lumbar": lowerBackMan,
+    // "Zona Lumbar": lowerBackMan,
+    "Parte Inferior de la Espalda": lowerBackMan,
 
     "Ojo Izquierdo": eyeMan,
     "Oreja Izquierdo": leftEarMan,

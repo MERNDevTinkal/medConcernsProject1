@@ -2502,7 +2502,7 @@ export const topicBoard = [
   {
     id: 14,
     name: "Household Activity",
-    nameEs: "Actividad de la Comunidad",
+    nameEs: "Actividad del Hogar",
     path: "/topicboard/householdActivity/14",
     maleEnglish: HouseholdActivityMale,
     femaleEnglish: householdActivityFemale,

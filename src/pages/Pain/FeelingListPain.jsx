@@ -325,7 +325,7 @@ const FeelingListPain = () => {
                         <>
                           {selectedLanguage === "Spanish" ? (
                             <>
-                              Peor dolor <br /> imaginable
+                              Peor Dolor <br /> Imaginable
                             </>
                           ) : (
                             <>
