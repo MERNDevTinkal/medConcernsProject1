@@ -2104,25 +2104,6 @@ export default function Whiteboard() {
   }, [textToolActive]);
 
   /* -------------------- Canvas setup -------------------- */
-  // const setCanvasSize = useCallback((node) => {
-  //   if (!node) return;
-  //   const dpr = window.devicePixelRatio || 1;
-  //   const viewport = window.visualViewport || window;
-  //   const width = Math.max(0, Math.floor(viewport.width - 120));
-  //   const height = Math.max(0, Math.floor(viewport.height - 150));
-  //   node.width = Math.round(width * dpr);
-  //   node.height = Math.round(height * dpr);
-  //   node.style.width = `${width}px`;
-  //   node.style.height = `${height}px`;
-  //   const ctx = node.getContext("2d");
-  //   if (ctx) {
-  //     ctx.setTransform(1, 0, 0, 1, 0, 0); // 🔴 RESET FIRST
-  //     ctx.scale(dpr, dpr);               // ✅ THEN scale
-  //   }
-
-  //   canvasRef.current = node;
-  // }, []);
-
   const setCanvasSize = useCallback((node) => {
     if (!node) return;
 

@@ -14,7 +14,8 @@ export default function AddImagePopup({
   const handleUploadClick = () => {
     const input = document.createElement("input");
     input.type = "file";
-    input.accept = "image/*";
+    input.accept =
+      "image/*,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp";
     input.multiple = true;
     input.onchange = (e) => {
       handleImageUpload(Array.from(e.target.files));
@@ -25,7 +26,7 @@ export default function AddImagePopup({
 
   const handleChooseFromLibrary = (e) => {
     e.preventDefault();
-    navigate("/images-library", { state: { oldImages, uploadedImages, pathname,textBlocks,paths } });
+    navigate("/images-library", { state: { oldImages, uploadedImages, pathname, textBlocks, paths } });
   };
   return (
     <div className="flex justify-center">
