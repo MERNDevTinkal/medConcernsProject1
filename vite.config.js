@@ -136,21 +136,22 @@ export default defineConfig({
           },
           {
             urlPattern: ({ url }) =>
-              url.pathname.startsWith("/api") ||
-              url.hostname.includes("your-api-domain"),
+              url.hostname === "v1.checkprojectstatus.com" &&
+              url.pathname.startsWith("/medConcerns/api/v1"),
             handler: "NetworkFirst",
             options: {
               cacheName: "api-cache",
               networkTimeoutSeconds: 3,
               expiration: {
                 maxEntries: 500,
-                maxAgeSeconds: 30 * 24 * 60 * 60,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
               },
               cacheableResponse: {
                 statuses: [0, 200],
               },
             },
           },
+
         ],
       },
 
