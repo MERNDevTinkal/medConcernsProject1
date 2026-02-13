@@ -261,13 +261,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #fff;
+  background-color: #999;
   border-radius: 50px;
   width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #00a8e9;
+  background-color: #289ae2;
   border-radius: 25px;
 }
 
@@ -417,7 +417,7 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding-bottom: 50px;
   padding-top: 80px;
   overflow-x: hidden;
@@ -1396,6 +1396,7 @@ body,
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
+  margin-top: 55px;
 }
 
 .depressed-cards .dashboard-img {
@@ -1537,6 +1538,12 @@ body,
 .custom-wdth {
   width: 85%;
 }
+.depression-screener-wrapper {
+  min-height: auto;
+}
+.feel-options-page-wrapper {
+  min-height: auto;
+}
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .topicSetting-single-items {
@@ -1583,6 +1590,16 @@ body,
   .Intro_box img {
     max-width: 35%;
     width: 35%;
+    display: none;
+  }
+  .Intro_box.max-w-2xl.mx-auto {
+    max-width: 30rem;
+  }
+  .Intro_box.max-w-2xl.mx-auto .w-full.p-4.text-xl {
+    padding: 10px;
+  }
+  .Intro_box.max-w-2xl.mx-auto button.py-4 {
+    padding: 10px;
   }
 
   .pain-digram-box {
@@ -1695,6 +1712,31 @@ body,
   .dash-hexuple-items .dashboard-cards .dashboard-img img {
     height: calc(50vh - 120px);
     object-fit: contain;
+  }
+  .pain-wrapper {
+    padding-bottom: 0;
+    min-height: auto;
+  }
+  .pain-scale-page-wrapper {
+    padding-bottom: 0;
+    min-height: auto;
+  }
+  .howoften-page {
+    min-height: auto;
+    margin-top: 0;
+  }
+  .howoften-page .calendar-main {
+    max-width: 45rem;
+    margin: 0 auto;
+  }
+  .whiteboard-wrapper {
+    min-height: auto;
+  }
+  .whiteboard-wrapper .whiteboard-card {
+    height: 300px;
+  }
+  .summary-main.my-5 {
+    margin: 0;
   }
 }
 

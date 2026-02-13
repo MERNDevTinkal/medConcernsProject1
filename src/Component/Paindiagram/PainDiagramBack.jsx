@@ -131,7 +131,7 @@ import {
   pelvisMAleSpanish,
   pieMAleSpanish,
   RodillaMAleSpanish,
-  AbdomenSpanishMale
+  AbdomenSpanishMale,
 } from "../../Component/DiseasesData/audio.jsx";
 function makeRegion(name, x1, y1, x2, y2, audio) {
   return {
@@ -182,25 +182,59 @@ const backRegionsSpanish = [
   makeRegion(`Espalda`, 124, 54, 244, 156, EspaldaMAleSpanish),
   makeRegion(`Codo Derecho`, 220, 12, 250, 50, CodoMAleSpanish),
   makeRegion(`Antebrazo Derecho`, 248, 13, 294, 35, antebrazoMAleSpanish),
-  makeRegion(`Brazo Superior Derecho`, 153, 28, 225, 49, brazoSuperiorMAleSpanish),
+  makeRegion(
+    `Brazo Superior Derecho`,
+    153,
+    28,
+    225,
+    49,
+    brazoSuperiorMAleSpanish,
+  ),
   makeRegion(`Mano Derecho`, 310, 12, 330, 35, manoMAleSpanish),
   makeRegion(`Dedos Derecho`, 335, 12, 360, 35, dedosMAleSpanish),
   makeRegion(
     `Parte Inferior de la Pierna Derecho`,
-    474, 118, 572, 151,
-    parteInferiorPiernaMAleSpanish
+    474,
+    118,
+    572,
+    151,
+    parteInferiorPiernaMAleSpanish,
   ),
   makeRegion(
     `Parte Inferior de la Pierna Izquierdo`,
-    477, 62, 573, 100,
-    parteInferiorPiernaMAleSpanish
+    477,
+    62,
+    573,
+    100,
+    parteInferiorPiernaMAleSpanish,
   ),
-  makeRegion(`Pie / Dedos de los Pies Izquierdo`, 590, 120, 630, 150, pieMAleSpanish),
-  makeRegion(`Pie / Dedos de los Pies Derecho`, 590, 60, 630, 100, pieMAleSpanish),
+  makeRegion(
+    `Pie / Dedos de los Pies Izquierdo`,
+    590,
+    120,
+    630,
+    150,
+    pieMAleSpanish,
+  ),
+  makeRegion(
+    `Pie / Dedos de los Pies Derecho`,
+    590,
+    60,
+    630,
+    100,
+    pieMAleSpanish,
+  ),
   makeRegion(`Rodilla Derecho`, 430, 60, 460, 100, RodillaMAleSpanish),
   makeRegion(`Rodilla Izquierdo`, 430, 120, 460, 150, RodillaMAleSpanish),
   makeRegion(`Antebrazo Izquierdo`, 247, 177, 293, 205, antebrazoMAleSpanish),
-  makeRegion(`Brazo Superior Izquierdo`, 149, 171, 220, 199, brazoSuperiorMAleSpanish),
+  makeRegion(
+    `Brazo Superior Izquierdo`,
+    149,
+    171,
+    220,
+    199,
+    brazoSuperiorMAleSpanish,
+  ),
   makeRegion(`Codo Izquierdo`, 225, 170, 250, 211, CodoMAleSpanish),
   makeRegion(`Mano Izquierdo`, 310, 210, 330, 190, manoMAleSpanish),
   makeRegion(`Dedos Izquierdo`, 335, 210, 350, 190, dedosMAleSpanish),
@@ -208,7 +242,14 @@ const backRegionsSpanish = [
   makeRegion(`Hombro Derecho`, 114, 28, 151, 65, Hombro_shoulderMale),
   makeRegion(`Muñeca Derecho`, 297, 14, 306, 31, munecaMAleSpanish),
   makeRegion(`Muñeca Izquierdo`, 294, 190, 303, 206, munecaMAleSpanish),
-  makeRegion(`Parte Inferior de la Espalda`, 245, 67, 271, 155, parteInferiorEspaldaMAleSpanish),
+  makeRegion(
+    `Parte Inferior de la Espalda`,
+    245,
+    67,
+    271,
+    155,
+    parteInferiorEspaldaMAleSpanish,
+  ),
   makeRegion(`Glúteo Derecho`, 277, 56, 344, 112, nalgasMAleSpanish),
   makeRegion(`Glúteo Izquierdo`, 261, 121, 344, 168, nalgasMAleSpanish),
   makeRegion(`Muslo Derecho`, 347, 56, 425, 101, musloMAleSpanish),
@@ -259,7 +300,6 @@ const frontRegions = [
   makeRegion(`Right Wrist`, 289, 9, 303, 27, WristMale),
   makeRegion(`Right Ankle`, 557, 69, 574, 92, AnkleMale),
   makeRegion(`Left Ankle`, 554, 114, 572, 133, AnkleMale),
-
 ];
 
 const frontRegionsSpanish = [
@@ -282,22 +322,56 @@ const frontRegionsSpanish = [
   makeRegion(`Rodilla Izquierdo`, 400, 110, 440, 145, RodillaMAleSpanish),
   makeRegion(
     `Parte Inferior de la Pierna Derecho`,
-    461, 107, 553, 143,
-    parteInferiorPiernaMAleSpanish
+    461,
+    107,
+    553,
+    143,
+    parteInferiorPiernaMAleSpanish,
   ),
   makeRegion(
     `Parte Inferior de la Pierna Izquierdo`,
-    471, 52, 553, 92,
-    parteInferiorPiernaMAleSpanish
+    471,
+    52,
+    553,
+    92,
+    parteInferiorPiernaMAleSpanish,
   ),
-  makeRegion(`Pie / Dedos de los Pies Izquierdo`, 570, 110, 610, 134, pieMAleSpanish),
-  makeRegion(`Pie / Dedos de los Pies Derecho`, 570, 65, 610, 90, pieMAleSpanish),
+  makeRegion(
+    `Pie / Dedos de los Pies Izquierdo`,
+    570,
+    110,
+    610,
+    134,
+    pieMAleSpanish,
+  ),
+  makeRegion(
+    `Pie / Dedos de los Pies Derecho`,
+    570,
+    65,
+    610,
+    90,
+    pieMAleSpanish,
+  ),
   makeRegion(`Hombro Izquierdo`, 180, 160, 117, 175, Hombro_shoulderMale),
-  makeRegion(`Brazo Superior Izquierdo`, 143, 155, 209, 182, brazoSuperiorMAleSpanish),
+  makeRegion(
+    `Brazo Superior Izquierdo`,
+    143,
+    155,
+    209,
+    182,
+    brazoSuperiorMAleSpanish,
+  ),
   makeRegion(`Mano Izquierdo`, 298, 178, 321, 200, manoMAleSpanish),
   makeRegion(`Dedos Izquierdo`, 330, 178, 340, 200, dedosMAleSpanish),
   makeRegion(`Hombro Derecho`, 97, 19, 131, 41, Hombro_shoulderMale),
-  makeRegion(`Brazo Superior Derecho`, 150, 10, 221, 49, brazoSuperiorMAleSpanish),
+  makeRegion(
+    `Brazo Superior Derecho`,
+    150,
+    10,
+    221,
+    49,
+    brazoSuperiorMAleSpanish,
+  ),
   makeRegion(`Mano Derecho`, 300, 8, 330, 20, manoMAleSpanish),
   makeRegion(`Dedos Derecho`, 330, 12, 340, 30, dedosMAleSpanish),
   makeRegion(`Antebrazo Izquierdo`, 221, 162, 279, 191, antebrazoMAleSpanish),
@@ -391,7 +465,6 @@ const femaleBackImage = [
   makeRegion(`Left Ankle`, 1586, 325, 1638, 385, ankle),
 ];
 
-
 const femaleBackImageSpanish = [
   makeRegion(`Espalda`, 364, 168, 679, 430, espaldaFemaleSpanish), // Back
   makeRegion(
@@ -400,14 +473,28 @@ const femaleBackImageSpanish = [
     196,
     777,
     444,
-    parteInferiorDeLaEspaldaFemaleSpanish
+    parteInferiorDeLaEspaldaFemaleSpanish,
   ), // Lower Back
   makeRegion(`Codo`, 588, 476, 651, 539, codoFemaleSpanish), // Elbow
-  makeRegion(`Brazo Superior Izquierdo`, 367, 473, 578, 501, brazoSuperiorFemaleSpanish), // Left Arm
+  makeRegion(
+    `Brazo Superior Izquierdo`,
+    367,
+    473,
+    578,
+    501,
+    brazoSuperiorFemaleSpanish,
+  ), // Left Arm
   makeRegion(`Antebrazo Izquierdo`, 637, 536, 851, 571, antebrazoFemaleSpanish), // Left Forearm
   makeRegion(`Mano Izquierdo`, 890, 532, 960, 599, manoFemaleSpanish), // Left Hand
   makeRegion(`Dedos Izquierdo`, 974, 532, 1013, 606, dedosFemaleSpanish), // Left Finger
-  makeRegion(`Brazo Superior Derecho`, 381, 122, 595, 164, brazoSuperiorFemaleSpanish), // Right Arm
+  makeRegion(
+    `Brazo Superior Derecho`,
+    381,
+    122,
+    595,
+    164,
+    brazoSuperiorFemaleSpanish,
+  ), // Right Arm
   makeRegion(`Antebrazo Derecho`, 648, 59, 862, 105, antebrazoFemaleSpanish), // Right Forearm
   makeRegion(`Mano Derecho`, 872, 38, 956, 80, manoFemaleSpanish), // Right Hand
   makeRegion(`Dedos Derecho`, 949, 10, 1013, 73, dedosFemaleSpanish), // Right Finger
@@ -415,8 +502,11 @@ const femaleBackImageSpanish = [
   makeRegion(`Rodilla Derecho`, 1184, 178, 1247, 287, rodillaFemaleSpanish), // Right Knee
   makeRegion(
     `Parte Inferior de la Pierna Derecho`,
-    1290, 182, 1574, 259,
-    parteInferiorDeLaPiernaFemaleSpanish
+    1290,
+    182,
+    1574,
+    259,
+    parteInferiorDeLaPiernaFemaleSpanish,
   ), // Right Lower Leg
   makeRegion(
     `Pie / Dedos de los Pies Derecho`,
@@ -424,7 +514,7 @@ const femaleBackImageSpanish = [
     157,
     1682,
     269,
-    pieODedosDeLosPiesFemaleSpanish
+    pieODedosDeLosPiesFemaleSpanish,
   ), // Right Foot & Toe
   makeRegion(`Muslo Izquierdo`, 914, 325, 1181, 437, musloFemaleSpanish), // Left Thigh
   makeRegion(`Rodilla Izquierdo`, 1191, 325, 1293, 434, rodillaFemaleSpanish), // Left Knee
@@ -435,13 +525,19 @@ const femaleBackImageSpanish = [
   // ), // Left Lower Leg
   makeRegion(
     `Parte Inferior de la Pierna Izquierdo`,
-    1295, 336, 1565, 392,
-    parteInferiorDeLaPiernaFemaleSpanish
+    1295,
+    336,
+    1565,
+    392,
+    parteInferiorDeLaPiernaFemaleSpanish,
   ), // Left Lower Leg
   makeRegion(
     `Pie / Dedos de los Pies Izquierdo`,
-    1645, 315, 1687, 402,
-    pieODedosDeLosPiesFemaleSpanish
+    1645,
+    315,
+    1687,
+    402,
+    pieODedosDeLosPiesFemaleSpanish,
   ), // Left Foot & Toe
   // makeRegion(
   //   `Pie / Dedos de los Pies Izquierdo`,
@@ -469,12 +565,26 @@ const femalefrontRegionsSpanish = [
   makeRegion(`Pecho / Mama`, 385, 192, 602, 444, pechoOMamaFemaleSpanish), // Chest & Breast
   makeRegion(`Abdomen`, 623, 211, 844, 413, abdomenFemaleSpanish), // Abdomen
   makeRegion(`Hombro Izquierdo`, 353, 441, 518, 494, hombroFemaleSpanish), // Left Shoulder
-  makeRegion(`Brazo Superior Izquierdo`, 497, 441, 644, 514, brazoSuperiorFemaleSpanish), // Left Arm
+  makeRegion(
+    `Brazo Superior Izquierdo`,
+    497,
+    441,
+    644,
+    514,
+    brazoSuperiorFemaleSpanish,
+  ), // Left Arm
   makeRegion(`Mano Izquierdo`, 883, 522, 942, 599, manoFemaleSpanish), // Left Hand
   makeRegion(`Dedos Izquierdo`, 953, 536, 1016, 613, dedosFemaleSpanish), // Left Finger
   makeRegion(`Cuello`, 304, 266, 364, 340, cuelloFemaleSpanish), // Neck
   makeRegion(`Hombro Derecho`, 364, 119, 494, 185, hombroFemaleSpanish), // Right Shoulder
-  makeRegion(`Brazo Superior Derecho`, 448, 122, 644, 161, brazoSuperiorFemaleSpanish), // Right Arm
+  makeRegion(
+    `Brazo Superior Derecho`,
+    448,
+    122,
+    644,
+    161,
+    brazoSuperiorFemaleSpanish,
+  ), // Right Arm
   makeRegion(`Mano Derecho`, 886, 28, 953, 98, manoFemaleSpanish), // Right Hand
   makeRegion(`Dedos Derecho`, 932, 17, 1034, 59, dedosFemaleSpanish), // Right Finger
   makeRegion(`Cadera Derecho`, 830, 147, 946, 220, caderaFemaleSpanish), // Right Hip
@@ -482,8 +592,11 @@ const femalefrontRegionsSpanish = [
   makeRegion(`Rodilla Derecho`, 1139, 189, 1254, 287, rodillaFemaleSpanish), // Right Knee
   makeRegion(
     `Parte Inferior de la Pierna Derecho`,
-    1294, 182, 1501, 273,
-    parteInferiorDeLaPiernaFemaleSpanish
+    1294,
+    182,
+    1501,
+    273,
+    parteInferiorDeLaPiernaFemaleSpanish,
   ), // Right Lower Leg
   makeRegion(
     `Pie / Dedos de los Pies Derecho`,
@@ -491,15 +604,18 @@ const femalefrontRegionsSpanish = [
     199,
     1672,
     255,
-    pieODedosDeLosPiesFemaleSpanish
+    pieODedosDeLosPiesFemaleSpanish,
   ), // Foot & Toe
   makeRegion(`Cadera Izquierdo`, 802, 406, 939, 483, caderaFemaleSpanish), // Left Hip
   makeRegion(`Muslo Izquierdo`, 939, 315, 1170, 441, musloFemaleSpanish), // Left Thigh
   makeRegion(`Rodilla Izquierdo`, 1167, 322, 1251, 423, rodillaFemaleSpanish), // Left Knee
   makeRegion(
     `Parte Inferior de la Pierna Izquierdo`,
-    1276, 336, 1497, 427,
-    parteInferiorDeLaPiernaFemaleSpanish
+    1276,
+    336,
+    1497,
+    427,
+    parteInferiorDeLaPiernaFemaleSpanish,
   ), // Left Lower Leg
   makeRegion(
     `Pie / Dedos de los Pies Izquierdo`,
@@ -507,7 +623,7 @@ const femalefrontRegionsSpanish = [
     325,
     1672,
     413,
-    pieODedosDeLosPiesFemaleSpanish
+    pieODedosDeLosPiesFemaleSpanish,
   ), // Foot & Toe
   makeRegion(`Frente`, 133, 238, 171, 367, frenteFemaleSpanish), // Forhead
   makeRegion(`Ojo`, 185, 252, 217, 297, ojoFemaleSpanish), // Eye
@@ -522,7 +638,7 @@ const femalefrontRegionsSpanish = [
     241,
     912,
     367,
-    pelvisOGenitalesFemaleSpanish
+    pelvisOGenitalesFemaleSpanish,
   ), // Pelvis / Genitals
   makeRegion(`Mejilla Izquierdo`, 220, 329, 265, 353, mejillaFemaleSpanish), // Left Cheek
   makeRegion(`Mejilla Derecho`, 223, 252, 262, 287, mejillaFemaleSpanish), // Right Cheek
@@ -534,10 +650,7 @@ const femalefrontRegionsSpanish = [
 
   makeRegion(`Tobillo Derecho`, 1508, 206, 1543, 269, tobilloFemaleSpanish),
   makeRegion(`Tobillo Izquierdo`, 1518, 339, 1553, 388, tobilloFemaleSpanish),
-
 ];
-
-
 
 const PADDING = 0;
 
@@ -603,7 +716,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           realX >= r.x1 - PADDING &&
           realX <= r.x2 + PADDING &&
           realY >= r.y1 - PADDING &&
-          realY <= r.y2 + PADDING
+          realY <= r.y2 + PADDING,
       ) || null;
     if (!clickedRegion) {
       let minDist = Infinity;
@@ -617,26 +730,38 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
         }
       });
     }
-    console.log("asdasdasd", clickedRegion.name)
+    console.log("asdasdasd", clickedRegion.name);
     const cleanedName = clickedRegion.name
       .replace(/^(Right|Left)\s+/i, "") // English
-      .replace(/^(Derecho|Izquierdo|Derecho|Izquierdo|Izquierdo|derecho)\s+/i, ""); // Spanish
+      .replace(
+        /^(Derecho|Izquierdo|Derecho|Izquierdo|Izquierdo|derecho)\s+/i,
+        "",
+      ); // Spanish
 
-    if (["forehead", "eye", "nose", "mouth", "ear", "chin", "frente",
-      "ojo",
-      "nariz",
-      "boca",
-      "oreja",
-      "mentón"].includes(cleanedName.toLowerCase())) {
-
-      navigate("/faceDigram")
+    if (
+      [
+        "forehead",
+        "eye",
+        "nose",
+        "mouth",
+        "ear",
+        "chin",
+        "frente",
+        "ojo",
+        "nariz",
+        "boca",
+        "oreja",
+        "mentón",
+      ].includes(cleanedName.toLowerCase())
+    ) {
+      navigate("/faceDigram");
       return;
     }
     // Speak the selected name
     getTextToSpeech(
       cleanedName,
       selectedLanguage === "Spanish" ? "es-ES" : "",
-      clickedRegion?.audio
+      clickedRegion?.audio,
     );
     const imageObj = new Image();
     imageObj.src = bodyImage;
@@ -663,7 +788,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
         0,
         0,
         cropSize,
-        cropSize
+        cropSize,
       );
       const croppedData = canvas.toDataURL("image/png");
       setMarker({ x: clickX, y: clickY });
@@ -678,7 +803,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
         {
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-            value
+              value
             ],
           name: replaceString(clickedRegion?.name),
         },
@@ -689,7 +814,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           partName: replaceString(clickedRegion?.name),
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-            value
+              value
             ],
         },
       });
@@ -714,7 +839,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
   }, [selectedGender, isfront]);
   return (
     <>
-      <div className="flex justify-end mt-0">
+      <div className="flex justify-end mt-0 absolute right-0 top-0 z-10">
         <button
           onClick={handleRefresh}
           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
@@ -759,11 +884,6 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
 };
 
 export default PainDiagram;
-
-
-
-
-
 
 // import React, { useState, useRef } from "react";
 // import {

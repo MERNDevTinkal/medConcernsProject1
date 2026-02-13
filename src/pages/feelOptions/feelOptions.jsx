@@ -8,7 +8,12 @@ import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
 import Cookies from "js-cookie";
-import { dashimghow25, Checked, Close, BackArrow } from "../../Component/DiseasesData/images";
+import {
+  dashimghow25,
+  Checked,
+  Close,
+  BackArrow,
+} from "../../Component/DiseasesData/images";
 import {
   YesFemale,
   YesFemaleSpanish,
@@ -37,16 +42,16 @@ function EmotionScreen() {
   const { addOrUpdateSummary } = useContext(GlobalContext);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []); // runs once
 
@@ -68,7 +73,7 @@ function EmotionScreen() {
       await getTextToSpeech(
         value,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        audio
+        audio,
       );
       item.decision = value;
       setLoader(true);
@@ -79,9 +84,7 @@ function EmotionScreen() {
           : mainPath;
       addOrUpdateSummary(prefix, [item]);
       navigate(
-        parseInt(id) === 5
-          ? "/summary"
-          : `/feelOptions/${parseInt(id) + 1}`
+        parseInt(id) === 5 ? "/summary" : `/feelOptions/${parseInt(id) + 1}`,
       );
       isSpeakingRef.current = false;
     }
@@ -113,7 +116,7 @@ function EmotionScreen() {
             </h2>
             <button></button>
           </div>
-          <div className="main-wrapper home-wrapper ">
+          <div className="main-wrapper home-wrapper feel-options-page-wrapper">
             <div className="">
               <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 depressed-cards">
                 <div className="dashboard-img rounded-2xl">
@@ -125,7 +128,7 @@ function EmotionScreen() {
                 </div>
               </div>
               <div>
-                <div className="grid grid-cols-3 gap-8">
+                <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
                   <div
                     onClick={() => {
                       handleRoutes(
@@ -134,29 +137,30 @@ function EmotionScreen() {
                         selectedLanguage === "" && selectedGender === ""
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
+                              selectedGender === "Male"
                             ? YesSpanishMale
                             : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
+                                selectedGender === "Female"
                               ? YesFemaleSpanish
                               : selectedLanguage === "" &&
-                                selectedGender === "Female"
+                                  selectedGender === "Female"
                                 ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
+                                : selectedLanguage === "" &&
+                                    selectedGender === "Male"
                                   ? YesMale
                                   : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
+                                      selectedGender === "Male"
                                     ? YesMale
                                     : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
+                                        selectedGender === "Female"
                                       ? YesFemale
-                                      : YesMale
+                                      : YesMale,
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-2 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
-                        <p className="text-[32px] font-medium text-green-600">
+                        <p className="text-[28px] font-medium text-green-600 leading-none">
                           {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
                         </p>
                       </div>
@@ -173,29 +177,30 @@ function EmotionScreen() {
                         selectedLanguage === "" && selectedGender === ""
                           ? No_male
                           : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
+                              selectedGender === "Male"
                             ? No_no_maleSpanish
                             : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
+                                selectedGender === "Female"
                               ? femaleNoSpanish
                               : selectedLanguage === "" &&
-                                selectedGender === "Female"
+                                  selectedGender === "Female"
                                 ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
+                                : selectedLanguage === "" &&
+                                    selectedGender === "Male"
                                   ? No_male
                                   : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
+                                      selectedGender === "Male"
                                     ? No_male
                                     : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
+                                        selectedGender === "Female"
                                       ? NoFemale
-                                      : No_male
+                                      : No_male,
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-2 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
-                        <p className="text-[32px] font-medium text-red-600">
+                        <p className="text-[28px] font-medium text-red-600 leading-none">
                           NO
                         </p>
                       </div>
@@ -214,31 +219,31 @@ function EmotionScreen() {
                           selectedLanguage === "" && selectedGender === ""
                             ? MaybeMale
                             : selectedLanguage === "Spanish" &&
-                              selectedGender === "Male"
+                                selectedGender === "Male"
                               ? TalVezMaleSpanish
                               : selectedLanguage === "Spanish" &&
-                                selectedGender === "Female"
+                                  selectedGender === "Female"
                                 ? TalVezFemaleSpanish
                                 : selectedLanguage === "" &&
-                                  selectedGender === "Female"
+                                    selectedGender === "Female"
                                   ? MaybeFemale
                                   : selectedLanguage === "" &&
-                                    selectedGender === "Male"
+                                      selectedGender === "Male"
                                     ? MaybeMale
                                     : selectedLanguage === "English" &&
-                                      selectedGender === "Male"
+                                        selectedGender === "Male"
                                       ? MaybeMale
                                       : selectedLanguage === "English" &&
-                                        selectedGender === "Female"
+                                          selectedGender === "Female"
                                         ? MaybeFemale
-                                        : MaybeMale
+                                        : MaybeMale,
                         );
                       }}
-                      className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                      className="flex items-center justify-between p-2 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
                     >
                       <div className="flex items-center">
-                        <p className="maybe-text text-[32px] font-medium ">
-                          {selectedLanguage === "Spanish" ? 'TAL VEZ' : 'MAYBE'}
+                        <p className="maybe-text text-[28px] font-medium leading-none">
+                          {selectedLanguage === "Spanish" ? "TAL VEZ" : "MAYBE"}
                         </p>
                       </div>
                       <div>
@@ -255,7 +260,10 @@ function EmotionScreen() {
                         style={{ cursor: "pointer" }}
                         className="text-[20px] font-medium text-gray-600 flex items-center gap-2 justify-end"
                       >
-                        {selectedLanguage === "Spanish" ? 'Saltar Preguntas' : 'Skip Questions'} <MoveRight />
+                        {selectedLanguage === "Spanish"
+                          ? "Saltar Preguntas"
+                          : "Skip Questions"}{" "}
+                        <MoveRight />
                       </p>
                     </div>
                   </div>

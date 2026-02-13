@@ -149,7 +149,7 @@ const SummaryList = () => {
                   return (
                     <div
                       key={index}
-                      className="flex flex-row items-center w-full my-5 summary-main common-scale justify-between"
+                      className="flex flex-row items-start w-full my-5 summary-main common-scale justify-between"
                     >
                       <div className="md:w-1/4 sm:w-1/2 w-full">
                         <SummaryLeftCard
@@ -159,7 +159,7 @@ const SummaryList = () => {
                           headerNames={diseases?.headerNames}
                         />
                       </div>
-                      <div className="arrow-right mx-4">
+                      <div className="arrow-right mx-4 self-center">
                         <img src={Arrow} alt="arrow" />
                       </div>
                       <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
@@ -176,7 +176,7 @@ const SummaryList = () => {
                   onClick={() => {
                     ConcernPopUpFun();
                   }}
-                  className="flex justify-center mt-10 mb-6"
+                  className="flex justify-center mb-2"
                 >
                   <button className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
                     {selectedLanguage === "Spanish" ? "Hecho" : "Done"}
