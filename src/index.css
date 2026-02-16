@@ -968,6 +968,13 @@ font-size: 22px;
 .dashboard-cards {
   padding: 0;
 }
+.down-arrow {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 50px;
+  transform: rotate(270deg);
+}
 
 @media only screen and (max-height: 852px) and (orientation: landscape) {
   .dash-single-items .dashboard-cards .dashboard-img img {
@@ -1752,6 +1759,14 @@ body,
     overflow: hidden;
     width: 100%;
   }
+  .down-arrow {
+    right: 20px;
+    bottom: 70px;
+  }
+}
+.down-arrow.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* .dashboard-cards.shirnk-card .dashboard-img img {

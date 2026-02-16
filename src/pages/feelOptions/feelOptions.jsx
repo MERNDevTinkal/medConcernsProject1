@@ -158,7 +158,7 @@ function EmotionScreen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-2 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
                         <p className="text-[28px] font-medium text-green-600 leading-none">
                           {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
@@ -198,14 +198,14 @@ function EmotionScreen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-2 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
                         <p className="text-[28px] font-medium text-red-600 leading-none">
                           NO
                         </p>
                       </div>
                       <div>
-                        <img src={Close} />
+                        <img src={Close} className="w-6" />
                       </div>
                     </div>
                   </div>
@@ -239,7 +239,7 @@ function EmotionScreen() {
                                         : MaybeMale,
                         );
                       }}
-                      className="flex items-center justify-between p-2 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                      className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
                     >
                       <div className="flex items-center">
                         <p className="maybe-text text-[28px] font-medium leading-none">
