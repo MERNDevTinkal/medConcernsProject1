@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   icon01,
@@ -8,7 +7,27 @@ import {
   icon05,
 } from "../../../Component/DiseasesData/images";
 
+import React, { useEffect, useState } from "react";
+import downarrow from "/assets/loaderGif/down-arrow.gif";
+
 const Footer = () => {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       {/* <div className="thm-footer fixed bottom-0 left-0 right-0 z-5"> */}
@@ -45,6 +64,9 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
+          <div className={`down-arrow ${visible ? "" : "hide"}`}>
+            <img src={downarrow} alt="Down Arrow" />
+          </div>
         </div>
       </div>
     </>

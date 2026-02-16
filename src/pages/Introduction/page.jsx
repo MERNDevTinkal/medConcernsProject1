@@ -124,8 +124,8 @@ export default function Introduction() {
           />
           <div className="main-wrapper home-wrapper introduction_page">
             <div className="Intro_box max-w-2xl mx-auto">
-              <div className="py-4">
-                <img src={"/newlogo.png"} className="m-auto w-full mb-5" />
+              <div className="py-2">
+                <img src={"/newlogo.png"} className="m-auto w-full mb-2" />
                 <div className="w-full m-auto mt-3 ">
                   {/* Name */}
                   <label className="block text-2xl font-bold mb-2">
@@ -135,7 +135,7 @@ export default function Introduction() {
                   </label>
                   <input
                     type="text"
-                    className="w-full p-3 text-xl rounded-lg border border-gray-300 mb-4 bg-white"
+                    className="w-full p-4  text-xl rounded-lg border border-gray-300 mb-2 bg-white"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     onBlur={handleNameBlur}
@@ -152,7 +152,7 @@ export default function Introduction() {
                   </label>
                   <input
                     type="text"
-                    className="w-full p-3 text-xl rounded-lg border border-gray-300 bg-white"
+                    className="w-full p-4 text-xl rounded-lg border border-gray-300 bg-white"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     onBlur={handleRoleBlur}
@@ -178,7 +178,7 @@ export default function Introduction() {
     rounded-lg
  bg-[#4073BB]
     text-white
-    mt-4
+    mt-2
     hover:bg-blue-700
     transition
   "

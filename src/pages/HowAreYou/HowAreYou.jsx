@@ -32,22 +32,24 @@ export default function HowAreYou() {
           selectedLanguage === "" && selectedGender === ""
             ? item?.maleEnglish
             : selectedLanguage === "Spanish" && selectedGender === "Male"
-            ? item?.maleSpanish
-            : selectedLanguage === "Spanish" && selectedGender === "Female"
-            ? item?.femaleSpanish
-            : selectedLanguage === "" && selectedGender === "Female"
-            ? item?.femaleEnglish
-            : selectedLanguage === "" && selectedGender === "Male"
-            ? item?.maleEnglish
-            : selectedLanguage === "English" && selectedGender === "Male"
-            ? item?.maleEnglish
-            : selectedLanguage === "English" && selectedGender === "Female"
-            ? item?.femaleEnglish
-            : item?.maleEnglish;
+              ? item?.maleSpanish
+              : selectedLanguage === "Spanish" && selectedGender === "Female"
+                ? item?.femaleSpanish
+                : selectedLanguage === "" && selectedGender === "Female"
+                  ? item?.femaleEnglish
+                  : selectedLanguage === "" && selectedGender === "Male"
+                    ? item?.maleEnglish
+                    : selectedLanguage === "English" &&
+                        selectedGender === "Male"
+                      ? item?.maleEnglish
+                      : selectedLanguage === "English" &&
+                          selectedGender === "Female"
+                        ? item?.femaleEnglish
+                        : item?.maleEnglish;
         await getTextToSpeech(
           selectedLanguage === "Spanish" ? item.nameEs : item.name,
           selectedLanguage === "Spanish" ? "es-ES" : "",
-          audioDefault
+          audioDefault,
         );
         updateDisease(mainpath, item);
         navigate(path);
@@ -70,7 +72,7 @@ export default function HowAreYou() {
       () => {},
       () => {},
       () => {},
-      () => {}
+      () => {},
     );
   }, []);
   return (
@@ -107,14 +109,14 @@ export default function HowAreYou() {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                        ? "dash-double-items"
-                        : selectedIconCount === 3
-                        ? "dash-triple-items"
-                        : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                          ? "dash-double-items"
+                          : selectedIconCount === 3
+                            ? "dash-triple-items"
+                            : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                                ? "dash-hexuple-items"
+                                : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {

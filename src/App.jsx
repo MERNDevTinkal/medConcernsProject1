@@ -59,6 +59,8 @@ import DepressionScreener from "./pages/feelOptions/DepressionScreener";
 import License from "./pages/NeedLicense/License";
 import LicenseContact from "./pages/NeedLicense/LicenseContact";
 import FaceDiagram from "./Component/Paindiagram/FaceDiagram";
+import Openingpage from "./pages/Openingpage/page";
+
 function App() {
   const location = useLocation();
   useEffect(() => {
@@ -79,7 +81,7 @@ function App() {
           if (viewport) {
             viewport.setAttribute(
               "content",
-              "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+              "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
             );
           }
         } else {
@@ -94,7 +96,7 @@ function App() {
         document.body.classList.remove(
           "force-landscape",
           "portrait-forced-to-landscape",
-          "landscape-natural"
+          "landscape-natural",
         );
         document.body.classList.add("no-landscape");
       };
@@ -103,7 +105,7 @@ function App() {
       document.body.classList.remove(
         "force-landscape",
         "portrait-forced-to-landscape",
-        "landscape-natural"
+        "landscape-natural",
       );
     }
   }, [location.pathname]);
@@ -122,7 +124,8 @@ function App() {
         toastClassName="z-[9999]"
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Openingpage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/main" element={<Main />} />
         <Route path="/need-license" element={<License />} />
         <Route path="/license-contact" element={<LicenseContact />} />
@@ -162,12 +165,18 @@ function App() {
           <Route path="/pain-feel" element={<PainFeel />} />
           <Route path="/feel-pain" element={<FeelPainYesNo />} />
           <Route path="/images-library" element={<ImagesLibrery />} />
-          <Route path="/concern-pain-feeling" element={<ConcernPainFeeling />} />
+          <Route
+            path="/concern-pain-feeling"
+            element={<ConcernPainFeeling />}
+          />
           <Route path="/feeling-list-pain" element={<FeelingListPain />} />
           <Route path="/feeling-yes-no" element={<FeelingYesNo />} />
           <Route path="/pain-when" element={<PainWhen />} />
           <Route path="/:name-problem" element={<BreathingProblem />} />
-          <Route path="/:name/confrm-step-yesno/:id" element={<ConfrmStepYesNo />} />
+          <Route
+            path="/:name/confrm-step-yesno/:id"
+            element={<ConfrmStepYesNo />}
+          />
           <Route path="/when" element={<BreathingWhen />} />
           <Route path="/confrm-step-when/:id" element={<ConfrmStepWhen />} />
           <Route path="/swallowing-yes-no" element={<SwallowingYesNo />} />

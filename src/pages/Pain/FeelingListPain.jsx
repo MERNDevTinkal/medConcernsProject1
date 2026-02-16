@@ -143,8 +143,8 @@ const FeelingListPain = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper">
-            <div className="w-full max-w-3xl mx-auto p-6 px-0 common-scale">
+          <div className="main-wrapper home-wrapper pain-scale-page-wrapper">
+            <div className="w-full max-w-3xl mx-auto pb-6 pt-0 px-0 common-scale">
               <div className="space-y-0">
                 {/* <!-- Scale Numbers --> */}
                 <div className="flex justify-between items-center text-bar ">
@@ -312,7 +312,7 @@ const FeelingListPain = () => {
                 </div>
 
                 {/* <!-- Pain Level Labels --> */}
-                <div className="flex justify-between items-center text-sm font-normal text-gray-700 mb-8 bttm-txt-bar flex-wrap">
+                <div className="flex justify-between items-center text-sm font-normal text-gray-700 bttm-txt-bar flex-wrap">
                   {feelingValues.map((item, index) => (
                     <span
                       onClick={() => {
@@ -359,7 +359,7 @@ const FeelingListPain = () => {
                               : data.painFeel,
                           );
                         }}
-                        className="flex flex-col items-center space-y-2 mb-3"
+                        className="flex flex-col items-center "
                       >
                         <img src={data.image} alt="" />
                         <span className="pt-1.5 px-5 bg-white rounded shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
