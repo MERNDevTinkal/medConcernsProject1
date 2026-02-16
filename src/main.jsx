@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import { GlobalProvider } from "./context/DiseaseContext.jsx";
 import { registerSW } from "virtual:pwa-register";
 import { BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./Component/ScrollToTop/ScrollToTop";
 
 const updateSW = registerSW({
   immediate: true,
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <GlobalProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </GlobalProvider>
