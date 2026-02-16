@@ -36,23 +36,24 @@ const ConcernCard = ({
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish;
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" &&
+                        selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish;
 
       await getTextToSpeech(
         voiceText,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        voiceFile
+        voiceFile,
       );
       const concernKey = Cookies.get("is_concern");
       const routeKey =
@@ -77,14 +78,14 @@ const ConcernCard = ({
               selectedIconCount === 1
                 ? "dash-single-items"
                 : selectedIconCount === 2
-                ? "dash-double-items"
-                : selectedIconCount === 3
-                ? "dash-triple-items"
-                : selectedIconCount === 4
-                ? "dash-quadriple-items"
-                : selectedIconCount === 6
-                ? "dash-hexuple-items"
-                : ""
+                  ? "dash-double-items"
+                  : selectedIconCount === 3
+                    ? "dash-triple-items"
+                    : selectedIconCount === 4
+                      ? "dash-quadriple-items"
+                      : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
             }
             key={item.id}
             style={{
@@ -110,7 +111,7 @@ const ConcernCard = ({
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className="text-[14px] mt-1 mb-1 text-black">
+              <p className="text-[16px] mt-1 mb-1 text-black">
                 {selectedLanguage === "Spanish" ? item?.nameEs : item?.name}
               </p>
             </div>

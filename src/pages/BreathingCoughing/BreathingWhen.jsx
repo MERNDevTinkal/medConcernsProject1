@@ -39,13 +39,14 @@ const BreathingWhen = () => {
                   ? value?.maleEnglish
                   : selectedLanguage === "English" && selectedGender === "Male"
                     ? value?.maleEnglish
-                    : selectedLanguage === "English" && selectedGender === "Female"
+                    : selectedLanguage === "English" &&
+                        selectedGender === "Female"
                       ? value?.femaleEnglish
                       : value?.maleEnglish;
       await getTextToSpeech(
         selectedLanguage === "Spanish" ? value.nameEs : value.name,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        audioDefault
+        audioDefault,
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -64,7 +65,7 @@ const BreathingWhen = () => {
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
-      setLoader
+      setLoader,
     );
   }, []);
   return (
@@ -113,18 +114,19 @@ const BreathingWhen = () => {
                     onClick={() => {
                       handleBreathingWhen(
                         item,
-                        `/when/confrm-step-yesno/${item?.id}`
+                        `/when/confrm-step-yesno/${item?.id}`,
                       );
                     }}
                   >
                     <div
-                      className={`dashboard-cards rounded-2xl bg-white text-center pb-0.5 ${(selectedLanguage === "Spanish"
+                      className={`dashboard-cards rounded-2xl bg-white text-center pb-0.5 ${
+                        (selectedLanguage === "Spanish"
                           ? item?.nameEs
                           : item?.name
                         )?.length > 18
                           ? "shirnk-card"
                           : ""
-                        }`}
+                      }`}
                     >
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img

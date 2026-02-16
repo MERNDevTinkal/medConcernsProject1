@@ -417,9 +417,9 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  min-height: 100dvh;
+  min-height: calc(100dvh - 120px);
   padding-bottom: 50px;
-  padding-top: 80px;
+  /* padding-top: 80px; */
   overflow-x: hidden;
 }
 
@@ -1109,13 +1109,13 @@ font-size: 22px;
     font-size: 14px;
     margin: 0;
   } */
-  .dash-single-items .dashboard-cards p,
+  /* .dash-single-items .dashboard-cards p,
   .dash-double-items .dashboard-cards p,
   .dash-triple-items .dashboard-cards p,
   .dash-quadriple-items .dashboard-cards p,
   .dash-hexuple-items .dashboard-cards p {
     font-size: 20px !important;
-  }
+  } */
 
   .brthng-card {
     height: 300px;
@@ -1456,16 +1456,16 @@ body,
   margin-right: auto;
 }
 
-.dash-single-items .dashboard-cards p,
+/* .dash-single-items .dashboard-cards p,
 .dash-double-items .dashboard-cards p,
 .dash-triple-items .dashboard-cards p,
 .dash-hexuple-items .dashboard-cards p {
   font-size: 24px;
-}
+} */
 
-.dash-quadriple-items .dashboard-cards p {
+/* .dash-quadriple-items .dashboard-cards p {
   font-size: 18px;
-}
+} */
 
 .licence-cards h2 {
   font-size: 26px;
@@ -1710,7 +1710,7 @@ body,
     height: calc(70vh - 148px);
   }
   .dash-hexuple-items .dashboard-cards .dashboard-img img {
-    height: calc(50vh - 120px);
+    height: calc(50vh - 110px);
     object-fit: contain;
   }
   .pain-wrapper {
@@ -1738,11 +1738,25 @@ body,
   .summary-main.my-5 {
     margin: 0;
   }
+  /* .dash-hexuple-items p {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  } */
+  .dash-single-items .dashboard-cards p,
+  .dash-double-items .dashboard-cards p,
+  .dash-triple-items .dashboard-cards p,
+  .dash-hexuple-items .dashboard-cards p {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
 }
 
-.dashboard-cards.shirnk-card .dashboard-img img {
-  height: calc(50vh - 120px);
-}
+/* .dashboard-cards.shirnk-card .dashboard-img img {
+  height: calc(50vh - 110px);
+} */
 
 .decision-cards-innr .custom-wdth {
   margin-left: auto;
