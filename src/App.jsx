@@ -124,8 +124,8 @@ function App() {
         toastClassName="z-[9999]"
       />
       <Routes>
-        <Route path="/" element={<Openingpage />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/start-disclaimer" element={<Openingpage />} />
         <Route path="/main" element={<Main />} />
         <Route path="/need-license" element={<License />} />
         <Route path="/license-contact" element={<LicenseContact />} />

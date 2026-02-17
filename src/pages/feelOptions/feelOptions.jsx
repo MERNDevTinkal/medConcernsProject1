@@ -128,7 +128,7 @@ function EmotionScreen() {
                 </div>
               </div>
               <div>
-                <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                <div className="grid grid-cols-3 gap-8 max-w-xl mx-auto">
                   <div
                     onClick={() => {
                       handleRoutes(
@@ -158,14 +158,14 @@ function EmotionScreen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
-                        <p className="text-[28px] font-medium text-green-600 leading-none">
+                        <p className="text-[26px] font-medium text-green-600 leading-none">
                           {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
                         </p>
                       </div>
                       <div>
-                        <img src={Checked} alt="" />
+                        <img src={Checked} alt="" className="w-6" />
                       </div>
                     </div>
                   </div>
@@ -198,9 +198,9 @@ function EmotionScreen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <div className="flex items-center">
-                        <p className="text-[28px] font-medium text-red-600 leading-none">
+                        <p className="text-[26px] font-medium text-red-600 leading-none">
                           NO
                         </p>
                       </div>
@@ -239,10 +239,10 @@ function EmotionScreen() {
                                         : MaybeMale,
                         );
                       }}
-                      className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                      className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300"
                     >
                       <div className="flex items-center">
-                        <p className="maybe-text text-[28px] font-medium leading-none">
+                        <p className="maybe-text text-[26px] font-medium leading-none">
                           {selectedLanguage === "Spanish" ? "TAL VEZ" : "MAYBE"}
                         </p>
                       </div>
@@ -254,11 +254,11 @@ function EmotionScreen() {
                       onClick={() => {
                         handleSkip();
                       }}
-                      className="mt-6 text-end"
+                      className=" text-end"
                     >
                       <p
                         style={{ cursor: "pointer" }}
-                        className="text-[20px] font-medium text-gray-600 flex items-center gap-2 justify-end"
+                        className="text-[16px] font-medium text-gray-600 flex items-center gap-2 justify-end"
                       >
                         {selectedLanguage === "Spanish"
                           ? "Saltar Preguntas"

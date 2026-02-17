@@ -53,7 +53,7 @@ const Header = ({
   calendarOn,
   name,
   isSummary = false,
-  setIsPopupOpen = () => { },
+  setIsPopupOpen = () => {},
   whiteboardname,
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -353,7 +353,7 @@ const Header = ({
                 <img
                   onClick={() => {
                     if (isSummary === true) {
-                      navigate(-1)
+                      navigate(-1);
                       // setIsPopupOpen(true);
                     } else {
                       handlelastObj();
@@ -367,7 +367,12 @@ const Header = ({
                 <img src={hamburger} alt="menu" />
               </button>
             </div>
-            <h2 className="Header-text text-[30px] font-medium text-black">
+            <h2
+              className={`Header-text text-[30px] font-medium text-black ${location.pathname === "/introduction" ? "intro-text" : ""}`}
+            >
+              {location.pathname === "/introduction" && (
+                <img src={"/favicon.png"} className="w-6" />
+              )}
               {name ??
                 (selectedLanguage === "Spanish"
                   ? "Preocupaciones"
@@ -377,17 +382,21 @@ const Header = ({
             </h2>
             <div style={{ cursor: "pointer" }}>
               {location.pathname === "/introduction" ||
-                location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" ||
-                // location.pathname === "/emotions" ||
-                location.pathname === "/how-are-you" ||
-                location.pathname === "/when" ||
-                location.pathname === "/feeling-body" || location.pathname === "/emotions" || location.pathname === "/mood-scale" || location.pathname === "/pain-concern" ? (
+              location.pathname === "/howoften" ||
+              location.pathname === "/new-problem" ||
+              // location.pathname === "/emotions" ||
+              location.pathname === "/how-are-you" ||
+              location.pathname === "/when" ||
+              location.pathname === "/feeling-body" ||
+              location.pathname === "/emotions" ||
+              location.pathname === "/mood-scale" ||
+              location.pathname === "/pain-concern" ? (
                 <div
                   onClick={() => {
                     navigate(
-                      location.pathname === "/when" ? "/howoften" :
-                        location.pathname === "/feeling-body"
+                      location.pathname === "/when"
+                        ? "/howoften"
+                        : location.pathname === "/feeling-body"
                           ? "/depression-screener"
                           : location.pathname === "/emotions"
                             ? "/feeling-body"
@@ -399,7 +408,11 @@ const Header = ({
                                   ? "/concern"
                                   : location.pathname === "/how-are-you"
                                     ? "/concern"
-                                    : location.pathname === "/mood-scale" ? "/feeling-body" : location.pathname === "/pain-concern" ? "/pain-feel" : "/how-are-you"
+                                    : location.pathname === "/mood-scale"
+                                      ? "/feeling-body"
+                                      : location.pathname === "/pain-concern"
+                                        ? "/pain-feel"
+                                        : "/how-are-you",
                     );
                   }}
                   className="flex items-center gap-2 justify-end cursor-pointer"
@@ -424,10 +437,11 @@ const Header = ({
           {/* Sidebar */}
           <aside
             ref={sidebarRef}
-            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-              }`}
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
+              isSidebarOpen
+                ? "translate-x-0"
+                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+            }`}
           >
             <button
               className="close-btn absolute top-5 right-5"
@@ -447,23 +461,24 @@ const Header = ({
                         if (item.fun) item.fun();
                         handleRoutes(
                           selectedLanguage === "Spanish" ? item.es : item.en,
-                          item
+                          item,
                         );
                         // navigate(item.path);
                       }}
                       key={index}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
-                     ${location.pathname === item.path
-                          ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
-                          : "text-black hover:bg-gray-100"
-                        }`}
+                     ${
+                       location.pathname === item.path
+                         ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                         : "text-black hover:bg-gray-100"
+                     }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path} onClick={item.fun}>
                         {selectedLanguage === "Spanish" ? item.es : item.en}
                       </Link>
                     </li>
-                  )
+                  ),
               )}
             </ul>
           </aside>
