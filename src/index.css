@@ -504,7 +504,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .gradient-bar {
   background: linear-gradient(to right, green, yellow, orange, red);
-  width: 46rem;
+  /* width: 46rem; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -666,6 +666,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .content-cls {
   object-fit: contain !important;
+}
+.text-bar .text-4xl.font-bold.text-gray-800 {
+  width: 18px;
 }
 
 @media (max-width: 799px) {
@@ -1694,7 +1697,7 @@ body,
     padding-top: 0px;
   }
   .common-scale {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   .brthng-card .dashboard-img img {
     object-fit: cover;
@@ -1763,9 +1766,13 @@ body,
   .dash-triple-items .dashboard-cards p,
   .dash-hexuple-items .dashboard-cards p {
     font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
+    /* white-space: nowrap;
+    overflow: hidden; */
     width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .down-arrow {
     right: 20px;
