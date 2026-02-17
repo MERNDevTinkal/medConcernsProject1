@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 function page() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className="welcome-new min-h-screen flex items-center justify-center ">
@@ -26,7 +27,8 @@ function page() {
           {/* Button */}
 
           <button
-            onClick={() => (window.location.href = "/home")}
+            use
+            onClick={() => navigate("/introduction")}
             className="w-full max-w-xs bg-[#289ae2] text-white font-semibold text-base h-[44px] rounded-lg hover:bg-blue-700 inline-block mx-auto"
           >
             Start

@@ -53,7 +53,7 @@ function YesAndNo() {
             <button className="opacity-0">Medconcern</button>
           </div>
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col ">
-            <div className="grid grid-cols-2 md:gap-18 gap-5 my-5 items-center common-scale mt-12">
+            <div className="grid grid-cols-2 gap-18  my-5 items-center common-scale mt-12">
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl w-full h-full">
                   {/* <img src={HowAreYou1} className="w-full" /> */}

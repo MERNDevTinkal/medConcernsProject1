@@ -1551,6 +1551,14 @@ body,
 .feel-options-page-wrapper {
   min-height: auto;
 }
+.intro-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.intro-text img {
+  width: 35px;
+}
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .topicSetting-single-items {

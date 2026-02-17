@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { logo, CloseIcon } from "../../Component/DiseasesData/images";
-import close from "/assets/images/close.svg?url"
+import close from "/assets/images/close.svg?url";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
@@ -24,8 +24,13 @@ const Main = () => {
       if (data?.status) {
         localStorage.setItem("token", data?.data?.token);
         localStorage.setItem("license_key", data?.data?.license_key);
-        toast.success(data?.msg, { autoClose: 1500 });
-        setIsOpen(true);
+        toast.success(data?.msg, {
+          autoClose: 1500,
+          onClose: () => {
+            setIsOpen(false);
+            navigate("/start-disclaimer");
+          },
+        });
       } else {
         toast.error(data?.msg, { autoClose: 1500 });
       }
@@ -124,7 +129,11 @@ const Main = () => {
                       <p className="text-[18px] font-normal mb-3">
                         Your license key has been successfully verified.
                       </p>
-                      <Link to="/introduction" onClick={() => Cookies.set("is_introduction", "true")} className="thm-btn">
+                      <Link
+                        to="/introduction"
+                        onClick={() => Cookies.set("is_introduction", "true")}
+                        className="thm-btn"
+                      >
                         Ok
                       </Link>
                     </div>
