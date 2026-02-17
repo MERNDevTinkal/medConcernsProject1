@@ -144,7 +144,7 @@ const FeelingListPain = () => {
           />
 
           <div className="main-wrapper home-wrapper pain-scale-page-wrapper">
-            <div className="w-full max-w-3xl mx-auto pb-6 pt-0 px-0 common-scale">
+            <div className="w-full max-w-4xl mx-auto pb-6 pt-0 px-0 common-scale">
               <div className="space-y-0">
                 {/* <!-- Scale Numbers --> */}
                 <div className="flex justify-between items-center text-bar ">
@@ -152,7 +152,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(0);
                     }}
-                    className="text-4xl font-bold text-gray-800"
+                    className="text-4xl font-bold text-gray-800 "
                   >
                     0
                   </div>
@@ -232,7 +232,7 @@ const FeelingListPain = () => {
                     onClick={() => {
                       handleBynumber(10);
                     }}
-                    className="text-4xl font-bold text-gray-800"
+                    className="text-4xl font-bold text-gray-800 last-bar"
                   >
                     10
                   </div>
