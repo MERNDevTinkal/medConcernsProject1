@@ -306,12 +306,12 @@ const Header = ({
       en: "Saved Summary",
       es: "Resumen Guardado",
     },
-    {
-      icon: MenuIcon27 ? MenuIcon27 : gifLoader,
-      path: "/about-us",
-      en: "About Us",
-      es: "Sobre Nosotros",
-    },
+    // {
+    //   icon: MenuIcon27 ? MenuIcon27 : gifLoader,
+    //   path: "/about-us",
+    //   en: "About Us",
+    //   es: "Sobre Nosotros",
+    // },
     {
       icon: logoutImg ? logoutImg : gifLoader,
       path: "#",

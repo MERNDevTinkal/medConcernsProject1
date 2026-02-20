@@ -188,7 +188,7 @@ function App() {
           <Route path="/introduction" element={<Introduction />} />
           <Route path="/patient-education" element={<PatientEducation />} />
           <Route path="/contact-us" element={<Contactus />} />
-          <Route path="/about-us" element={<Aboutus />} />
+          {/* <Route path="/about-us" element={<Aboutus />} /> */}
           <Route path="/feeling-body" element={<EmotionsList />} />
           <Route path="/depression-screener" element={<DepressionScreener />} />
           <Route path="/mood-scale" element={<Feel />} />
