@@ -1934,7 +1934,7 @@ import femaleTosCoughingSpanish from "/assets/audio/spanish/female/tos (coughing
 import femaleAsfixiaSpanish from "/assets/audio/spanish/female/asfixia (choking).mp3"
 import femalechestpainSpanish from "/assets/audio/spanish/female/dolor de pecho (chest pain).mp3"
 import femaleBathroomEngish from "/assets/audio/English/female/87 Bathroom.mp3";
-import BreathingorCoughingnewEngish from "../../../public/assets/audio/English/female/Breathing or Coughingnew.mp3";
+import BreathingorCoughingnewEngish from "/assets/audio/English/female/Breathing or Coughingnew.mp3";
 import femaleBanoSpanish from "/assets/audio/spanish/female/87 Baño.mp3";
 import femaleTapadosSpanish from "/assets/audio/spanish/female/Tapados (Plugged).mp3";
 
