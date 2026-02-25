@@ -24,17 +24,11 @@ import {
   Cheeks_comMale,
   // spanish
   orejaMAleSpanish,
-
   ojoMAleSpanish,
-
   narizMAleSpanish,
-
   bocaMAleSpanish,
-
   MejillaMAleSpanish,
-
   BarbillaMAleSpanish,
-
   CuelloMAleSpanish,
   EspaldaMAleSpanish,
   // female
@@ -43,7 +37,10 @@ import {
   ear,
   nose,
   mouth,
-  cheek, chin, Neck, forehead,
+  cheek,
+  chin,
+  Neck,
+  forehead,
   // spanish
   orejaFemaleSpanish,
   frenteFemaleSpanish,
@@ -158,16 +155,16 @@ const EarDiagram = () => {
   };
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
 
@@ -187,22 +184,26 @@ const EarDiagram = () => {
     const realY = clickY * scaleY;
 
     const activeRegions =
-      (selectedGender === "Female" && selectedLanguage === "Spanish") ?
-        femaleFaceRegionsSpanish : (selectedGender === "Female" && selectedLanguage === "English") ? femaleFaceRegions : (selectedGender === "Female" && selectedLanguage === "") ? femaleFaceRegions :
-          (selectedGender === "Male" && selectedLanguage === "") ? earFaceRegions : (selectedGender === "Male" && selectedLanguage === "Spanish") ? earFaceRegionsSpanish : earFaceRegions;
+      selectedGender === "Female" && selectedLanguage === "Spanish"
+        ? femaleFaceRegionsSpanish
+        : selectedGender === "Female" && selectedLanguage === "English"
+          ? femaleFaceRegions
+          : selectedGender === "Female" && selectedLanguage === ""
+            ? femaleFaceRegions
+            : selectedGender === "Male" && selectedLanguage === ""
+              ? earFaceRegions
+              : selectedGender === "Male" && selectedLanguage === "Spanish"
+                ? earFaceRegionsSpanish
+                : earFaceRegions;
     // Find region
     let clickedRegion =
-      (activeRegions).find(
-        (r) =>
-          realX >= r.x1 &&
-          realX <= r.x2 &&
-          realY >= r.y1 &&
-          realY <= r.y2
+      activeRegions.find(
+        (r) => realX >= r.x1 && realX <= r.x2 && realY >= r.y1 && realY <= r.y2,
       ) || null;
 
     if (!clickedRegion) {
       let minDist = Infinity;
-      (activeRegions).forEach((r) => {
+      activeRegions.forEach((r) => {
         const cx = (r.x1 + r.x2) / 2;
         const cy = (r.y1 + r.y2) / 2;
         const d = Math.hypot(realX - cx, realY - cy);
@@ -215,11 +216,14 @@ const EarDiagram = () => {
     setMarker({ x: clickX, y: clickY });
     const cleanedName = clickedRegion.name
       .replace(/^(Right|Left)\s+/i, "") // English
-      .replace(/^(Derecho|Izquierdo|Derecho|Izquierdo|Izquierdo|derecho)\s+/i, "");
+      .replace(
+        /^(Derecho|Izquierdo|Derecho|Izquierdo|Izquierdo|derecho)\s+/i,
+        "",
+      );
     getTextToSpeech(
       cleanedName,
       selectedLanguage === "Spanish" ? "es-ES" : "",
-      clickedRegion?.audio
+      clickedRegion?.audio,
     );
 
     setMarker({ x: clickX, y: clickY });
@@ -232,9 +236,7 @@ const EarDiagram = () => {
     addOrUpdateSummary(prefix, [
       {
         image:
-          bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-          value
-          ],
+          bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[value],
         name: replaceString(clickedRegion?.name),
       },
     ]);
@@ -243,9 +245,7 @@ const EarDiagram = () => {
       state: {
         partName: replaceString(clickedRegion?.name),
         image:
-          bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-          value
-          ],
+          bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[value],
       },
     });
     // isSpeakingRef.current = false;
@@ -270,16 +270,20 @@ const EarDiagram = () => {
 
           <div className="main-wrapper pt-20">
             <div className="flex justify-center">
-              <div className="relative bg-white shadow rounded-xl p-4 max-w-4xl w-full">
-                <div className="flex justify-center">
-                  <div className="digram-cards relative">
+              <div className="relative bg-white shadow rounded-xl max-w-2xl w-full">
+                <div className="flex justify-center relative  h-[220px] rounded-2xl shadow-md">
+                  <div className="digram-cards ">
                     <img
                       ref={imageRef}
-                      src={selectedGender === "Female" ? femaleCompleteFace : maleCompleteFace}
+                      src={
+                        selectedGender === "Female"
+                          ? femaleCompleteFace
+                          : maleCompleteFace
+                      }
                       alt="Face Diagram"
                       onClick={handleClick}
                       draggable={false}
-                      className="digram-cards-img cursor-pointer"
+                      className="digram-cards-img cursor-pointer absolute left-1/2 bottom-0 transform -translate-x-1/2"
                     />
                     {marker && (
                       <div
@@ -292,9 +296,7 @@ const EarDiagram = () => {
                       />
                     )}
                   </div>
-
                 </div>
-
               </div>
             </div>
           </div>
@@ -305,5 +307,3 @@ const EarDiagram = () => {
 };
 
 export default EarDiagram;
-
-

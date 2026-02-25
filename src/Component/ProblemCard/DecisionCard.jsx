@@ -181,7 +181,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                 }`}
               >
                 <div className="flex items-center">
-                  <img src={WomenIcon} width="70px" alt="" className="" />
+                  <img src={WomenIcon} alt="" className="" />
                 </div>
                 <div>
                   <img src={Question} width="40px" className="concrn-icn" />
