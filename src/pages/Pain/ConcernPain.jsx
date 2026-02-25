@@ -26,7 +26,7 @@ function ConcernPain() {
       () => {},
       () => {},
       () => {},
-      () => {}
+      () => {},
     );
   }, []);
   return (
@@ -51,7 +51,7 @@ function ConcernPain() {
             </h2>
             <button></button>
           </div>
-          <div className="main-wrapper home-wrapper  items-center justify-center flex flex-col">
+          <div className="main-wrapper home-wrapper  items-center justify-center flex flex-col cmmn-pdnng-70">
             <div className="grid grid-cols-2 md:gap-20 gap-5 items-center">
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">
