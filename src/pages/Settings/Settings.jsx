@@ -30,7 +30,7 @@ export default function Settings() {
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
-      setLoader
+      setLoader,
     );
   }, []);
 
@@ -61,9 +61,9 @@ export default function Settings() {
             });
           });
       },
-      500 
+      500,
     ),
-    [licenses_id, token]
+    [licenses_id, token],
   );
   const handleIconCountChange = (count) => {
     setSelectedIconCount(count);
@@ -229,7 +229,7 @@ export default function Settings() {
             name={t("settings")}
           />
 
-          <div className="main-wrapper home-wrapper howoften-page pt-10">
+          <div className="main-wrapper home-wrapper howoften-page setting-page pt-10">
             <div className="flex items-center justify-center p-4 setting-cards px-0">
               <div className="w-full bg-gradient-to-b from-blue-50 to-white rounded-lg overflow-hidden">
                 <div className="p-3 px-0 sm:p-4 md:p-6">

@@ -417,7 +417,7 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  min-height: calc(100dvh - 120px);
+  /* min-height: calc(100dvh - 120px); */
   padding-bottom: 50px;
   /* padding-top: 80px; */
   overflow-x: hidden;
@@ -1579,8 +1579,8 @@ body,
   }
 
   .brthng-card {
-    height: 230px;
-    width: 230px;
+    height: 200px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1655,9 +1655,9 @@ body,
     width: 100%;
     padding: 5px 20px;
   }
-  .custom-wdth img {
+  /* .custom-wdth img {
     width: 40px;
-  }
+  } */
   .main-wrapper {
     padding-left: 15px;
     padding-right: 15px;
@@ -1699,9 +1699,9 @@ body,
   .common-scale {
     transform: scale(0.9);
   }
-  .brthng-card .dashboard-img img {
+  /* .brthng-card .dashboard-img img {
     object-fit: cover;
-  }
+  } */
   .innr-header {
     padding-left: 15px;
   }
@@ -1766,17 +1766,34 @@ body,
   .dash-triple-items .dashboard-cards p,
   .dash-hexuple-items .dashboard-cards p {
     font-size: 14px;
-    /* white-space: nowrap;
-    overflow: hidden; */
-    width: 100%;
-    display: -webkit-box;
-    -webkit-line-clamp: 1; /* number of lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
   .down-arrow {
-    right: 20px;
+    right: 0px;
     bottom: 70px;
+  }
+  .down-arrow img {
+    width: 40px;
+  }
+  .dash-single-items .dashboard-cards,
+  .dash-double-items .dashboard-cards,
+  .dash-triple-items .dashboard-cards,
+  .dash-hexuple-items .dashboard-cards {
+    overflow: hidden;
+  }
+  .cmmn-pdnng-70 {
+    padding-top: 70px;
+  }
+  .pain-wrapper {
+    min-height: auto;
+  }
+  .dash-hexuple-items .dashboard-cards.shirnk-card .dashboard-img img {
+    height: calc(50vh - 130px);
+  }
+  .dash-quadriple-items .dashboard-cards.shirnk-card .dashboard-img img {
+    height: calc(70vh - 120px);
+  }
+  .setting-page {
+    min-height: auto;
   }
 }
 .down-arrow.hide {
@@ -1784,24 +1801,11 @@ body,
   pointer-events: none;
 }
 
-/* .dashboard-cards.shirnk-card .dashboard-img img {
-  height: calc(50vh - 110px);
-} */
-
 .decision-cards-innr .custom-wdth {
   margin-left: auto;
   margin-right: auto;
 }
 
-.digram-cards {
-  height: 400px;
-}
-
-.digram-cards .digram-cards-img {
-  height: 100%;
-}
-
 .digram-cards img {
   height: 100%;
-  width: 100%;
 }
