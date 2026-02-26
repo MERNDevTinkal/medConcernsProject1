@@ -1809,3 +1809,126 @@ body,
 .digram-cards img {
   height: 100%;
 }
+/* print screen css */
+
+
+@media print {
+  /* Hide all navigation and buttons when printing */
+  header,
+  footer,
+  .flex.justify-end.space-x-2,
+  .flex.justify-center.mb-2,
+  button,
+  nav,
+  .navbar,
+  .footer {
+    display: none !important;
+  }
+
+  /* Show only the summary content */
+  body * {
+    visibility: hidden;
+  }
+  
+  .main-wrapper,
+  .main-wrapper *,
+  .summary-main,
+  .summary-main *,
+  .dashboard-cards,
+  .dashboard-cards * {
+    visibility: visible !important;
+  }
+
+  /* Fix card layout for printing */
+  .summary-main {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin: 20px 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  /* Fix right side cards grid */
+  .summary-list-right {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* Prevent text from being cut off */
+  .dashboard-cards {
+    background: white !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    height: auto !important;
+    min-height: 140px !important;
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Fix image size - make them larger */
+  .dashboard-img {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 10px !important;
+  }
+
+  .dashboard-img img {
+    max-width: 80px !important;  /* Increased from 40px */
+    max-height: 80px !important; /* Increased from 40px */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* Left card specific image size */
+  .summary-left-cards .dashboard-img img {
+    max-width: 100px !important;  /* Even larger for left card */
+    max-height: 100px !important;
+  }
+
+  .dashboard-cards p {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow: visible !important;
+    font-size: 11pt !important;
+    line-height: 1.3 !important;
+    margin: 5px 0 !important;
+    color: black !important;
+    text-align: center !important;
+  }
+
+  /* Fix arrow positioning */
+  .arrow-right {
+    align-self: center !important;
+    margin: 0 15px !important;
+  }
+
+  .arrow-right img {
+    max-width: 30px !important;
+    height: auto !important;
+  }
+
+  /* Decision badge styling */
+  .decision-badge {
+    display: inline-block !important;
+    margin-bottom: 8px !important;
+    font-size: 10pt !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 1cm;
+  }
+
+  /* Fix for last card being cut off */
+  .summary-main:last-child {
+    margin-bottom: 0 !important;
+  }
+}
