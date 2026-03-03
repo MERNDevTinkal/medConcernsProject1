@@ -307,7 +307,7 @@ const NeedBoard = () => {
                               (selectedLanguage === "Spanish"
                                 ? item?.nameEs
                                 : item?.name
-                              )?.length > 18
+                              )?.length > 26
                                 ? "shirnk-card"
                                 : ""
                             }`}
