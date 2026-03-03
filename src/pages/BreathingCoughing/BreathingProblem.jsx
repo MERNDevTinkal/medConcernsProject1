@@ -34,18 +34,19 @@ const BreathingProblem = () => {
         selectedLanguage === "" && selectedGender === ""
           ? value?.maleEnglish
           : selectedLanguage === "Spanish" && selectedGender === "Male"
-          ? value?.maleSpanish
-          : selectedLanguage === "Spanish" && selectedGender === "Female"
-          ? value?.femaleSpanish
-          : selectedLanguage === "" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : selectedLanguage === "" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Male"
-          ? value?.maleEnglish
-          : selectedLanguage === "English" && selectedGender === "Female"
-          ? value?.femaleEnglish
-          : value?.maleEnglish
+            ? value?.maleSpanish
+            : selectedLanguage === "Spanish" && selectedGender === "Female"
+              ? value?.femaleSpanish
+              : selectedLanguage === "" && selectedGender === "Female"
+                ? value?.femaleEnglish
+                : selectedLanguage === "" && selectedGender === "Male"
+                  ? value?.maleEnglish
+                  : selectedLanguage === "English" && selectedGender === "Male"
+                    ? value?.maleEnglish
+                    : selectedLanguage === "English" &&
+                        selectedGender === "Female"
+                      ? value?.femaleEnglish
+                      : value?.maleEnglish,
       );
       const isConcern = Cookies.get("is_concern");
       const prefix =
@@ -75,7 +76,7 @@ const BreathingProblem = () => {
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
-      setLoader
+      setLoader,
     );
   }, []);
 
@@ -174,8 +175,8 @@ const BreathingProblem = () => {
 
   const name = !selectedLanguage
     ? translations[Mainpath]?.default
-    : translations[Mainpath]?.[selectedLanguage] ??
-      translations?.default[selectedLanguage];
+    : (translations[Mainpath]?.[selectedLanguage] ??
+      translations?.default[selectedLanguage]);
 
   return (
     <>
@@ -189,8 +190,8 @@ const BreathingProblem = () => {
             calendarOn={CalendarOn}
             name={
               selectedLanguage === "Spanish"
-                ? headerName?.nameEs ?? headerName?.name
-                : headerName?.name ?? name
+                ? (headerName?.nameEs ?? headerName?.name)
+                : (headerName?.name ?? name)
             }
           />
           <div className="main-wrapper home-wrapper pt-20">
@@ -212,14 +213,14 @@ const BreathingProblem = () => {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                        ? "dash-double-items"
-                        : selectedIconCount === 3
-                        ? "dash-triple-items"
-                        : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                          ? "dash-double-items"
+                          : selectedIconCount === 3
+                            ? "dash-triple-items"
+                            : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                                ? "dash-hexuple-items"
+                                : ""
                     }
                     style={{ cursor: "pointer" }}
                     onClick={() => {
@@ -227,7 +228,7 @@ const BreathingProblem = () => {
                         data,
                         data?.secPath?.includes("/confrm-step-yesno")
                           ? `${Mainpath}${data?.secPath}/${data?.id}`
-                          : `${data?.secPath}`
+                          : `${data?.secPath}`,
                       );
                     }}
                     key={data?.id + "-" + index}
@@ -237,7 +238,7 @@ const BreathingProblem = () => {
                         (selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name
-                        )?.length > 18
+                        )?.length > 26
                           ? "shirnk-card"
                           : ""
                       }`}
