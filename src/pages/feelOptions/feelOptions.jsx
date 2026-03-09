@@ -84,7 +84,7 @@ function EmotionScreen() {
           : mainPath;
       addOrUpdateSummary(prefix, [item]);
       navigate(
-        parseInt(id) === 5 ? "/summary" : `/feelOptions/${parseInt(id) + 1}`,
+        parseInt(id) === 6 ? "/summary" : `/feelOptions/${parseInt(id) + 1}`,
       );
       isSpeakingRef.current = false;
     }

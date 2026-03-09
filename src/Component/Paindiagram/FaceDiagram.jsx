@@ -96,32 +96,32 @@ const earFaceRegionsSpanish = [
 
 // female
 const femaleFaceRegions = [
-  makeRegion("Left Ear", 297, 532, 357, 672, ear),
-  makeRegion("Right Ear", 629, 545, 697, 645, ear),
-  makeRegion("Forehead", 385, 329, 663, 487, forehead),
-  makeRegion("Left Eye", 355, 505, 483, 575, eye),
-  makeRegion("Right Eye", 535, 509, 633, 565, eye),
-  makeRegion("Nose", 473, 563, 539, 657, nose),
-  makeRegion("Mouth", 427, 674, 587, 757, mouth),
-  makeRegion("Right Cheek", 549, 599, 615, 719, cheek),
-  makeRegion("Left Cheek", 287, 539, 379, 657, cheek),
-  makeRegion("Chin", 447, 774, 578, 820, chin),
-  makeRegion("Neck", 359, 787, 619, 943, Neck),
+  makeRegion("Left Ear", 11, 358, 88, 518, ear),
+  makeRegion("Right Ear", 476, 362, 540, 522, ear),
+  makeRegion("Forehead", 123, 78, 471, 324, forehead),
+  makeRegion("Left Eye",103, 317, 254, 430, eye),
+  makeRegion("Right Eye", 320, 324, 466, 424, eye),
+  makeRegion("Nose",241, 398, 332, 547, nose),
+  makeRegion("Mouth",188, 558, 361, 639, mouth),
+  makeRegion("Right Cheek", 358, 474, 451, 601, cheek),
+  makeRegion("Left Cheek", 105, 451, 222, 564, cheek),
+  makeRegion("Chin", 210, 652, 349, 712, chin),
+  makeRegion("Neck", 125, 715, 462, 882, Neck),
 ];
 
 // female (Spanish)
 const femaleFaceRegionsSpanish = [
-  makeRegion("Oreja Izquierdo", 297, 532, 357, 672, orejaFemaleSpanish),
-  makeRegion("Oreja Derecho", 629, 545, 697, 645, orejaFemaleSpanish),
-  makeRegion("Frente", 385, 329, 663, 487, frenteFemaleSpanish),
-  makeRegion("Ojo Izquierdo", 355, 505, 483, 575, ojoFemaleSpanish),
-  makeRegion("Ojo Derecho", 535, 509, 633, 565, ojoFemaleSpanish),
-  makeRegion("Nariz", 473, 563, 539, 657, narizFemaleSpanish),
-  makeRegion("Boca", 427, 674, 587, 757, bocaFemaleSpanish),
+  makeRegion("Oreja Izquierdo", 109, 322, 257, 444, orejaFemaleSpanish),
+  makeRegion("Oreja Derecho",  318, 319, 474, 442, orejaFemaleSpanish),
+  makeRegion("Frente", 123, 78, 471, 324, frenteFemaleSpanish),
+  makeRegion("Ojo Izquierdo",13, 367, 103, 522, ojoFemaleSpanish),
+  makeRegion("Ojo Derecho", 473, 357, 546, 523, ojoFemaleSpanish),
+  makeRegion("Nariz",241, 398, 332, 547, narizFemaleSpanish),
+  makeRegion("Boca",188, 558, 361, 639, bocaFemaleSpanish),
   makeRegion("Mejilla Derecho", 549, 599, 615, 719, mejillaFemaleSpanish),
   makeRegion("Mejilla Izquierdo", 287, 539, 379, 657, mejillaFemaleSpanish),
-  makeRegion("Barbilla", 447, 774, 578, 820, barbillaFemaleSpanish),
-  makeRegion("Cuello", 359, 787, 619, 943, cuelloFemaleSpanish),
+  makeRegion("Barbilla", 210, 652, 349, 712, barbillaFemaleSpanish),
+  makeRegion("Cuello", 125, 715, 462, 882, cuelloFemaleSpanish),
 ];
 
 /* =========================
@@ -307,3 +307,152 @@ const EarDiagram = () => {
 };
 
 export default EarDiagram;
+// import React, { useState, useRef } from "react";
+// import { Femalebodyback } from "../../Component/DiseasesData/images.jsx";
+// import {
+//   maleCompleteFace,
+//   femaleCompleteFace,
+// } from "../../Component/DiseasesData/images";
+// function makeRegion(name, x1, y1, x2, y2) {
+//   return {
+//     name,
+//     x1: Math.min(x1, x2),
+//     y1: Math.min(y1, y2),
+//     x2: Math.max(x1, x2),
+//     y2: Math.max(y1, y2),
+//   };
+// }
+
+// const PainDiagramGenerator = () => {
+//   const [region, setRegion] = useState(null);
+//   const [drawing, setDrawing] = useState(false);
+//   const [start, setStart] = useState(null);
+
+//   const svgRef = useRef(null);
+//   const imgRef = useRef(null);
+
+//   const getMousePos = (e) => {
+//     const rect = svgRef.current.getBoundingClientRect();
+//     return {
+//       x: e.clientX - rect.left,
+//       y: e.clientY - rect.top,
+//     };
+//   };
+
+//   const handleMouseDown = (e) => {
+//     const pos = getMousePos(e);
+//     setStart(pos);
+//     setDrawing(true);
+//     setRegion(null);
+//   };
+
+//   const handleMouseMove = (e) => {
+//     if (!drawing || !start) return;
+
+//     const pos = getMousePos(e);
+
+//     setRegion({
+//       x1: Math.min(start.x, pos.x),
+//       y1: Math.min(start.y, pos.y),
+//       x2: Math.max(start.x, pos.x),
+//       y2: Math.max(start.y, pos.y),
+//     });
+//   };
+
+//   const handleMouseUp = () => {
+//     setDrawing(false);
+//     setStart(null);
+
+//     if (region && imgRef.current) {
+//       const img = imgRef.current;
+
+//       const scaleX = img.naturalWidth / img.width;
+//       const scaleY = img.naturalHeight / img.height;
+
+//       const realRegion = makeRegion(
+//         "Body Part",
+//         Math.round(region.x1 * scaleX),
+//         Math.round(region.y1 * scaleY),
+//         Math.round(region.x2 * scaleX),
+//         Math.round(region.y2 * scaleY)
+//       );
+
+//       console.log(
+//         `makeRegion(\`${realRegion.name}\`, ${realRegion.x1}, ${realRegion.y1}, ${realRegion.x2}, ${realRegion.y2}, audioFile),`
+//       );
+//     }
+//   };
+
+//   const clearRegion = () => {
+//     setRegion(null);
+//   };
+
+//   return (
+//     <div className="flex flex-col items-center p-6">
+
+//       <h2 className="text-lg font-bold mb-4">
+//         Drag to Create Region
+//       </h2>
+
+//       <div className="relative w-[350px] md:w-[500px]">
+
+//         <img
+//           ref={imgRef}
+//           src={femaleCompleteFace}
+//           alt="body diagram"
+//           className="w-full h-auto select-none"
+//           draggable={false}
+//         />
+
+//         <svg
+//           ref={svgRef}
+//           className="absolute top-0 left-0 w-full h-full cursor-crosshair"
+//           onMouseDown={handleMouseDown}
+//           onMouseMove={handleMouseMove}
+//           onMouseUp={handleMouseUp}
+//         >
+//           {region && (
+//             <g onDoubleClick={clearRegion}>
+
+//               <rect
+//                 x={region.x1}
+//                 y={region.y1}
+//                 width={region.x2 - region.x1}
+//                 height={region.y2 - region.y1}
+//                 fill="rgba(255,0,0,0.25)"
+//                 stroke="red"
+//                 strokeWidth={2}
+//               />
+
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 15}
+//                 fontSize="12"
+//                 fill="black"
+//               >
+//                 Selected Area
+//               </text>
+
+//               <text
+//                 x={region.x1 + 5}
+//                 y={region.y1 + 30}
+//                 fontSize="10"
+//                 fill="gray"
+//               >
+//                 ({Math.round(region.x1)}, {Math.round(region.y1)}) →
+//                 ({Math.round(region.x2)}, {Math.round(region.y2)})
+//               </text>
+
+//             </g>
+//           )}
+//         </svg>
+//       </div>
+
+//       <p className="mt-4 text-sm text-gray-600">
+//         Drag mouse to create region • Double click box to clear
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default PainDiagramGenerator;

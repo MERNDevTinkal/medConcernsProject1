@@ -21,7 +21,7 @@ function page() {
               MedConcerns is a communication support tool. It does not diagnose
               or provide medical advice and does not replace clinical judgment.
               For emergencies, call 911 or follow your facility’s emergency
-              protocol
+              protocol.
             </p>
           </div>
           {/* Button */}

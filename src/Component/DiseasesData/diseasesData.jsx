@@ -2922,6 +2922,13 @@ const getEmotionQuestion = [
     name: "Do you feel hopeless?",
     nameEs: "¿Se siente desesperanzado/a?",
     image: HopelessImg,
+    secPath: "/feelOptions/5",
+  },
+  {
+    id: 6,
+    name: "Are you thinking about ending your life?",
+    nameEs: "¿Está pensando en terminar su vida?",
+    image: HopelessImg,
     secPath: "/summary",
   },
 ];
