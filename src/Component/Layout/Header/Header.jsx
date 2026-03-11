@@ -53,7 +53,7 @@ const Header = ({
   calendarOn,
   name,
   isSummary = false,
-  setIsPopupOpen = () => { },
+  setIsPopupOpen = () => {},
   whiteboardname,
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -388,15 +388,15 @@ const Header = ({
             </h2>
             <div style={{ cursor: "pointer" }}>
               {location.pathname === "/introduction" ||
-                location.pathname === "/howoften" ||
-                location.pathname === "/new-problem" ||
-                // location.pathname === "/emotions" ||
-                location.pathname === "/how-are-you" ||
-                location.pathname === "/when" ||
-                location.pathname === "/feeling-body" ||
-                location.pathname === "/emotions" ||
-                location.pathname === "/mood-scale" ||
-                location.pathname === "/pain-concern" ? (
+              location.pathname === "/howoften" ||
+              location.pathname === "/new-problem" ||
+              // location.pathname === "/emotions" ||
+              location.pathname === "/how-are-you" ||
+              location.pathname === "/when" ||
+              location.pathname === "/feeling-body" ||
+              location.pathname === "/emotions" ||
+              location.pathname === "/mood-scale" ||
+              location.pathname === "/pain-concern" ? (
                 <div
                   onClick={() => {
                     navigate(
@@ -443,10 +443,11 @@ const Header = ({
           {/* Sidebar */}
           <aside
             ref={sidebarRef}
-            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-              }`}
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
+              isSidebarOpen
+                ? "translate-x-0"
+                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+            }`}
           >
             <button
               className="close-btn absolute top-5 right-5"
@@ -472,10 +473,11 @@ const Header = ({
                       }}
                       key={index}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
-                     ${location.pathname === item.path
-                          ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
-                          : "text-black hover:bg-gray-100"
-                        }`}
+                     ${
+                       location.pathname === item.path
+                         ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                         : "text-black hover:bg-gray-100"
+                     }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path} onClick={item.fun}>

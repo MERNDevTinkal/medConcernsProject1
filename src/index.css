@@ -1811,7 +1811,6 @@ body,
 }
 /* print screen css */
 
-
 @media print {
   /* Hide all navigation and buttons when printing */
   header,
@@ -1829,7 +1828,7 @@ body,
   body * {
     visibility: hidden;
   }
-  
+
   .main-wrapper,
   .main-wrapper *,
   .summary-main,
@@ -1878,7 +1877,7 @@ body,
   }
 
   .dashboard-img img {
-    max-width: 80px !important;  /* Increased from 40px */
+    max-width: 80px !important; /* Increased from 40px */
     max-height: 80px !important; /* Increased from 40px */
     width: auto !important;
     height: auto !important;
@@ -1887,7 +1886,7 @@ body,
 
   /* Left card specific image size */
   .summary-left-cards .dashboard-img img {
-    max-width: 100px !important;  /* Even larger for left card */
+    max-width: 100px !important; /* Even larger for left card */
     max-height: 100px !important;
   }
 
@@ -1931,4 +1930,8 @@ body,
   .summary-main:last-child {
     margin-bottom: 0 !important;
   }
+}
+.font-cls .main-header,
+.font-cls .sidebar {
+  font-family: "DM Sans", sans-serif !important;
 }
