@@ -100,7 +100,7 @@ export default function Introduction() {
         }
       })
       .catch(({ response }) => {
-        toast.error(response?.data?.msg || "Error fetching intro", {
+        toast.error(response?.data?.msg, {
           autoClose: 1500,
         });
       });
