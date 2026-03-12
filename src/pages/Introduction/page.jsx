@@ -62,14 +62,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
     );
   }, [loader]);
   useEffect(() => {
