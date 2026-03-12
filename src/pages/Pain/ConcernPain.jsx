@@ -46,13 +46,13 @@ function ConcernPain() {
             >
               <img src={BackArrow} />
             </Link>
-            <h2 className="text-[30px] font-normal text-black text-center">
+            <h2 className="Header-text text-[30px] font-medium text-black text-center py-2">
               {partName || "Pain"}
             </h2>
             <button></button>
           </div>
-          <div className="main-wrapper home-wrapper  items-center justify-center flex flex-col cmmn-pdnng-70">
-            <div className="grid grid-cols-2 md:gap-20 gap-5 items-center">
+          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
+            <div className="grid grid-cols-2 gap-18 my-5 items-center common-scale mt-12">
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">
                   <div className="h-full w-full">
