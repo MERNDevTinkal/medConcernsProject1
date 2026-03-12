@@ -247,7 +247,7 @@ function EmotionScreen() {
                         </p>
                       </div>
                       <div>
-                        <img width="35" height="35" src={dashimghow25} />
+                        <img width="31" height="31" src={dashimghow25} />
                       </div>
                     </div>
                     <div

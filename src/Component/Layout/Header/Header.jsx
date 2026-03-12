@@ -73,6 +73,15 @@ const Header = ({
   useEffect(() => {
     setIsSidebarOpen(false);
   }, [name]);
+
+  useEffect(() => {
+    const body = document.getElementById("font-check");
+    if (body && selectedLanguage === "Spanish") {
+      body.classList.add("font-cls");
+    } else if (body) {
+      body.classList.remove("font-cls");
+    }
+  }, [selectedLanguage]);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -84,14 +93,6 @@ const Header = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  useEffect(() => {
-    const body = document.getElementById("font-check");
-    if (body && selectedLanguage === "Spanish") {
-      body.classList.add("font-cls");
-    } else if (body) {
-      body.classList.remove("font-cls");
-    }
-  }, [selectedLanguage]);
   const menuItems = [
     {
       icon: MenuIcon1 ? MenuIcon1 : gifLoader,
