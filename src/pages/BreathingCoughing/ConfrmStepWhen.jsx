@@ -35,12 +35,12 @@ function ConfrmStepWhen() {
       await getTextToSpeech(
         value,
         selectedLanguage === "Spanish" ? "es-ES" : "",
-        audio
+        audio,
       );
       updateDisease(pathprimary, value);
 
       if (confirmData?.name === "Something Else") {
-        return navigate("/Whiteboard")
+        return navigate("/Whiteboard");
       }
       if (calendarOn && path === "/howoften") {
         return navigate("/new-problem");
@@ -56,16 +56,16 @@ function ConfrmStepWhen() {
   }, [id]);
   useEffect(() => {
     getSetting(
-      () => { },
+      () => {},
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => { },
+      () => {},
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
   return (
@@ -83,7 +83,7 @@ function ConfrmStepWhen() {
             >
               <img src={BackArrow} />
             </div>
-            <h2 className="text-[30px] font-medium text-black text-center">
+            <h2 className="Header-text text-[30px] font-medium text-black text-center py-2">
               {selectedLanguage === "Spanish"
                 ? confirmData.nameEs
                 : confirmData.name}
@@ -113,23 +113,24 @@ function ConfrmStepWhen() {
                         selectedLanguage === "" && selectedGender === ""
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
+                              selectedGender === "Male"
                             ? YesSpanishMale
                             : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
+                                selectedGender === "Female"
                               ? YesFemaleSpanish
                               : selectedLanguage === "" &&
-                                selectedGender === "Female"
+                                  selectedGender === "Female"
                                 ? YesFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
+                                : selectedLanguage === "" &&
+                                    selectedGender === "Male"
                                   ? YesMale
                                   : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
+                                      selectedGender === "Male"
                                     ? YesMale
                                     : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
+                                        selectedGender === "Female"
                                       ? YesFemale
-                                      : YesMale
+                                      : YesMale,
                       );
                     }}
                   >
@@ -154,23 +155,24 @@ function ConfrmStepWhen() {
                         selectedLanguage === "" && selectedGender === ""
                           ? No_male
                           : selectedLanguage === "Spanish" &&
-                            selectedGender === "Male"
+                              selectedGender === "Male"
                             ? No_no_maleSpanish
                             : selectedLanguage === "Spanish" &&
-                              selectedGender === "Female"
+                                selectedGender === "Female"
                               ? femaleNoSpanish
                               : selectedLanguage === "" &&
-                                selectedGender === "Female"
+                                  selectedGender === "Female"
                                 ? NoFemale
-                                : selectedLanguage === "" && selectedGender === "Male"
+                                : selectedLanguage === "" &&
+                                    selectedGender === "Male"
                                   ? No_male
                                   : selectedLanguage === "English" &&
-                                    selectedGender === "Male"
+                                      selectedGender === "Male"
                                     ? No_male
                                     : selectedLanguage === "English" &&
-                                      selectedGender === "Female"
+                                        selectedGender === "Female"
                                       ? NoFemale
-                                      : No_male
+                                      : No_male,
                       );
                     }}
                   >

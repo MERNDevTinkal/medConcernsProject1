@@ -141,14 +141,14 @@ function ConfrmStepYesNo() {
             <div onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
               <img src={BackArrow} alt="Back" />
             </div>
-            <h2 className="text-[30px] font-medium text-black text-center">
+            <h2 className="Header-text text-[30px] font-medium text-black text-center py-2">
               {displayText ?? value?.name}
             </h2>
             <button className="opacity-0">Medconcern</button>
           </div>
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
             <div
-              className={`grid grid-cols-2 gap-18 gap-5 my-5 items-center common-scale mt-12`}
+              className={`grid grid-cols-2 gap-18 my-5 items-center common-scale mt-12`}
             >
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">
