@@ -16,7 +16,7 @@ import { gifLoader, BackArrow } from "../../Component/DiseasesData/images";
 function BreathingYesNo() {
   const navigate = useNavigate();
   const location = useLocation();
-  const getneedboard = location.state.value || {};
+  const getneedboard = location?.state?.value || {};
   const { id } = useParams();
   const [concernValues, setConcernValues] = useState({});
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
