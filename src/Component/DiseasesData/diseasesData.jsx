@@ -8665,7 +8665,7 @@ export const diseasesData = {
       image: dashimg03,
       secPath: "/confrm-step-yesno",
       path: "/when",
-      maleEnglish: ChestPainMale,    
+      maleEnglish: ChestPainMale,
       femaleEnglish: chestPainFemale,
       femaleSpanish: femalechestpainSpanish,
       maleSpanish: DolorDePechoChestPainSpanishMale,
@@ -9075,7 +9075,20 @@ export const diseasesData = {
       maleSpanish: TosCoughingSpanishMale,
     },
     {
-      id: "5",
+
+      id: 5,
+      name: "Medication",
+      nameEs: "Medicación",
+      image: BoardImg6,
+      secPath: "/confrm-step-yesno",
+      path: "/swallowingwithMedication-problem",
+      maleEnglish: MedicationEnglishMale,
+      femaleEnglish: medicationEnglishFemale,
+      femaleSpanish: MedicacionMedicationSpanishFemale,
+      maleSpanish: MedicacionSpanishMale,
+    },
+    {
+      id: "6",
       name: "Reflux",
       nameEs: "Reflujo",
       image: refluxImg,
@@ -9087,7 +9100,7 @@ export const diseasesData = {
       maleSpanish: ReflujoMaleSpanish,
     },
     {
-      id: "6",
+      id: "7",
       name: "Nausea",
       nameEs: "Náuseas",
       image: nausea04,
@@ -9099,7 +9112,7 @@ export const diseasesData = {
       maleSpanish: NauseasNauseaSpanishMale,
     },
     {
-      id: "7",
+      id: "8",
       name: "Pain with Swallowing",
       nameEs: "Dolor al Tragar",
       image: Painwithswallowing,
@@ -9111,7 +9124,7 @@ export const diseasesData = {
       maleSpanish: DolorAlTragarSpanishMale,
     },
     {
-      id: "8",
+      id: "9",
       name: "Fear of Swallowing",
       nameEs: "Miedo a Tragar",
       image: Fearwithswallowing,
@@ -9123,7 +9136,7 @@ export const diseasesData = {
       maleSpanish: MiedoDeTragarSpanishMale,
     },
     {
-      id: "9",
+      id: "10",
       name: "Lost Weight Without Trying",
       nameEs: "Bajé de Peso sin Intentarlo",
       image: LostWeightWithoutTrying,
@@ -9135,7 +9148,7 @@ export const diseasesData = {
       maleSpanish: BajePesoSinIntentarloMaleSpanish,
     },
     {
-      id: "10",
+      id: "11",
       name: "Dry Mouth",
       nameEs: "Boca Seca",
       image: DrymouthImg,
@@ -9147,7 +9160,7 @@ export const diseasesData = {
       maleSpanish: BocaSecaSpanishMale,
     },
     {
-      id: "11",
+      id: "12",
       name: "Too Much",
       nameEs: "Demasiado",
       image: swallowingimg11,
@@ -9159,7 +9172,7 @@ export const diseasesData = {
       maleSpanish: DemasiadoTooMuchSpanishMale,
     },
     {
-      id: "12",
+      id: "13",
       name: "No Appetite",
       nameEs: "Sin Apetito",
       image: Noappetite,
@@ -9171,7 +9184,7 @@ export const diseasesData = {
       maleSpanish: SinApetitoNoAppetiteSpanishMale,
     },
     {
-      id: "13",
+      id: "14",
       name: "Trach",
       nameEs: "Traqueotomía",
       image: swallowingimg13,
@@ -9183,7 +9196,7 @@ export const diseasesData = {
       maleSpanish: TraqueotomiaSpanishMale,
     },
     {
-      id: "14",
+      id: "15",
       name: "Feeding Tube",
       nameEs: "Tubo de Alimentación",
       image: PainImg13,
@@ -9195,7 +9208,7 @@ export const diseasesData = {
       maleSpanish: TuboAlimentacionMaleSpanish,
     },
     {
-      id: "15",
+      id: "16",
       name: "Something Else",
       nameEs: "Algo Mas",
       image: dashimg11,
@@ -9421,6 +9434,7 @@ export const diseasesData = {
   "/feelOptions": getEmotionQuestion,
   "/withTransfer-problem": withTransfer,
   "/trachPainwithSwallowing-problem": TrachPainwithSwallowing,
+  "/swallowingwithMedication-problem": medicationHardtoSwallow,
   "/nausea-problem": [
     {
       id: "1",
