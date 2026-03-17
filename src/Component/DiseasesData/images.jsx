@@ -362,8 +362,11 @@ import maleface from "/assets/images/men/male-face.png?url";
 
 import maleCompleteFace from "/assets/images/Male Head.jpg";
 import femaleCompleteFace from "/assets/images/Female Head.jpg";
-
+import suicideImg from "/assets/images/Suicidal Ideation - English.png?url";
+import suicideSpanishImg from "/assets/images/Suicidal Ideation - Spanish.png?url";
 export {
+  suicideImg,
+  suicideSpanishImg,
   femaleCompleteFace,
   maleCompleteFace,
   femaleFace,

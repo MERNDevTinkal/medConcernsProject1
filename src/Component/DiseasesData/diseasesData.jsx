@@ -1,4 +1,6 @@
 import {
+  suicideImg,
+  suicideSpanishImg,
   PEG_FeedingPainImg,
   LostHearingAidsImg,
   BrainTiredImg,
@@ -2928,7 +2930,7 @@ const getEmotionQuestion = [
     id: 6,
     name: "Are you thinking about ending your life?",
     nameEs: "¿Está pensando en terminar su vida?",
-    image: HopelessImg,
+    image: suicideImg,
     secPath: "/summary",
   },
 ];

@@ -7,6 +7,7 @@ import getSetting from "../../Component/settingApi/settings";
 import { diseasesData } from "../../Component/DiseasesData/diseasesData";
 import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import { GlobalContext } from "../../context/DiseaseContext";
+import suicideSpanishImg from "/assets/images/Suicidal Ideation - Spanish.png";
 import Cookies from "js-cookie";
 import {
   dashimghow25,
@@ -92,8 +93,8 @@ function EmotionScreen() {
 
   const handleSkip = () => {
     navigate("/summary");
-  };
-
+  }; 
+  console.log("getQuestions", mainPath);
   return (
     <>
       {loader ? (
@@ -121,7 +122,7 @@ function EmotionScreen() {
               <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3 depressed-cards">
                 <div className="dashboard-img rounded-2xl">
                   <img
-                    src={getQuestions?.image || ""}
+                    src={(selectedLanguage === "Spanish" && mainPath === "/feelOptions/6")  ? suicideSpanishImg : getQuestions?.image || ""}
                     alt={getQuestions?.name || "alt"}
                     className="mx-auto rounded-xl "
                   />

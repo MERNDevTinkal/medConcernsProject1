@@ -26,7 +26,7 @@ import MenuIcon23 from "/assets/images/sidebar-icon-27.svg";
 import MenuIcon24 from "/assets/images/sidebar-icon-28.svg";
 import MenuIcon25 from "/assets/images/sidebar-icon-30.svg";
 import MenuIcon26 from "/assets/images/sidebar-icon-32.svg";
-import MenuIcon27 from "/assets/images/sidebar-icon-33.svg";
+import MenuIcon27 from "/assets/images/Mental Health Resource.png";
 import CloseIcon from "/assets/images/close2.svg";
 import BackArrow from "/assets/images/back-arrow.svg";
 import appetite from "/assets/images/no_appetite.png";
@@ -238,7 +238,7 @@ const Header = ({
       es: "Mucosidad / Secreciones",
     },
     {
-      icon: thickmucusImg ? thickmucusImg : gifLoader,
+      icon: MenuIcon27 ? MenuIcon27 : gifLoader,
       path: "/mentalhealth-resources",
       en: "Mental Health Resources",
       es: "Recursos de salud mental",
