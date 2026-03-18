@@ -901,7 +901,7 @@ export default function TabsCalendar() {
                       {/* Text */}
                       <span>
                         {selectedLanguage === "Spanish"
-                          ? "NO SÉ?"
+                          ? "NO SÉ"
                           : "I don’t know"}
                       </span>
 

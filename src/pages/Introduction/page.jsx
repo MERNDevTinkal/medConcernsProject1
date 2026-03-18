@@ -39,12 +39,14 @@ export default function Introduction() {
       if (data?.status) {
         if (field === "name") setPrevName(value);
         if (field === "role") setPrevRole(value);
-        // toast.success(data?.msg, { autoClose: 1500 });
+        toast.success(data?.msg, { autoClose: 1500 });
       } else {
-        toast.error(data.msg, { autoClose: 1500 });
+        console.error("Failed to save introduction data:", data?.msg);
+        // toast.error(data.msg, { autoClose: 1500 });
       }
     } catch (error) {
-      toast.error(error?.message || "Error updating", { autoClose: 1500 });
+      console.error("Error saving introduction data:", error?.response?.data?.msg || error.message);
+      // toast.error(error?.message || "Error updating", { autoClose: 1500 });
     }
   };
 
@@ -96,13 +98,15 @@ export default function Introduction() {
           setPrevName(data?.data?.name ?? "");
           setPrevRole(data?.data?.role ?? "");
         } else {
-          toast.error(data.msg, { autoClose: 1500 });
+          console.error("Failed to fetch introduction data:", data?.msg);
+          // toast.error(data.msg, { autoClose: 1500 });
         }
       })
       .catch(({ response }) => {
-        toast.error(response?.data?.msg, {
-          autoClose: 1500,
-        });
+        console.error("Error fetching introduction data:", response?.data?.msg);
+        // toast.error(response?.data?.msg, {
+        //   autoClose: 1500,
+        // });
       });
   }, []);
   const NaviagtionButton = () => {

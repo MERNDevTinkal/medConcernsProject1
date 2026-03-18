@@ -94,7 +94,6 @@ function EmotionScreen() {
   const handleSkip = () => {
     navigate("/summary");
   }; 
-  console.log("getQuestions", mainPath);
   return (
     <>
       {loader ? (
