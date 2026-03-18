@@ -2931,6 +2931,7 @@ const getEmotionQuestion = [
     name: "Are you thinking about ending your life?",
     nameEs: "¿Está pensando en terminar su vida?",
     image: suicideImg,
+    imageSp: suicideSpanishImg,
     secPath: "/summary",
   },
 ];
