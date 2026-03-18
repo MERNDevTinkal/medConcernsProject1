@@ -270,7 +270,7 @@ const frontRegions = [
   makeRegion(`Right Ear`, 50, 70, 70, 80, EarMale),
   makeRegion(`Left Ear`, 50, 125, 70, 135, EarMale),
   makeRegion(`Neck`, 90, 80, 110, 120, neckMale),
-  makeRegion(`Chest & Breast`, 120, 50, 185, 150, chestOrBreastsMale),
+  makeRegion(`Chest / Breast`, 120, 50, 185, 150, chestOrBreastsMale),
   makeRegion(`Abdomen`, 220, 145, 265, 60, Abdomen_comMale),
   makeRegion(`Pelvis / Genitals`, 290, 88, 330, 110, PelvisOrGenitals_comMale),
   makeRegion(`Right Hip`, 280, 45, 320, 70, HipMale),
@@ -388,7 +388,7 @@ const frontRegionsSpanish = [
 // female
 
 const femalefrontRegions = [
-  makeRegion(`Chest & Breast`, 385, 192, 602, 444, ChestOrBreasts),
+  makeRegion(`Chest / Breast`, 385, 192, 602, 444, ChestOrBreasts),
   makeRegion(`Abdomen`, 623, 211, 844, 413, Abdomen),
   makeRegion(`Left Shoulder`, 353, 441, 518, 494, Shoulder),
   makeRegion(`Left Upper Arm`, 497, 441, 644, 514, UpperArm),
