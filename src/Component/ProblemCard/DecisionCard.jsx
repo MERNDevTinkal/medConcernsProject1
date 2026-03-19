@@ -162,7 +162,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                 </p>
               </div>
               <div>
-                <img src={Close} width="50px" className="concrn-icn" />
+                <img src={Close} width="40px" className="concrn-icn" />
               </div>
             </div>
           </div>

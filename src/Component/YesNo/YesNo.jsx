@@ -100,7 +100,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
               <p className="text-[40px] font-medium text-red-600">NO</p>
             </div>
             <div>
-              <img src={Close} width="50" />
+              <img src={Close} width="40" />
             </div>
           </div>
         </div>

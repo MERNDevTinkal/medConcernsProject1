@@ -206,7 +206,12 @@ function ConfrmStepYesNo() {
                       <p className="text-[40px] font-medium text-green-600">
                         {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
                       </p>
-                      <img src={Checked} width="50px" alt="yes" />
+                      <img
+                        src={Checked}
+                        className="w-10 h-10"
+                        width="50px"
+                        alt="yes"
+                      />
                     </div>
                   </div>
                   <div
@@ -242,7 +247,12 @@ function ConfrmStepYesNo() {
                   >
                     <div className="custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <p className="text-[40px] font-medium text-red-600">NO</p>
-                      <img src={Close} width="50px" alt="no" />
+                      <img
+                        src={Close}
+                        width="50px"
+                        className="w-8 h-8"
+                        alt="no"
+                      />
                     </div>
                   </div>
                 </div>

@@ -45,7 +45,10 @@ export default function Introduction() {
         // toast.error(data.msg, { autoClose: 1500 });
       }
     } catch (error) {
-      console.error("Error saving introduction data:", error?.response?.data?.msg || error.message);
+      console.error(
+        "Error saving introduction data:",
+        error?.response?.data?.msg || error.message,
+      );
       // toast.error(error?.message || "Error updating", { autoClose: 1500 });
     }
   };
@@ -64,14 +67,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
+      () => {},
+      () => {},
     );
   }, [loader]);
   useEffect(() => {
@@ -127,7 +130,7 @@ export default function Introduction() {
             }
           />
           <div className="main-wrapper home-wrapper introduction_page">
-            <div className="Intro_box max-w-2xl mx-auto">
+            <div className="Intro_box max-w-2xl mx-auto ">
               <div className="py-2">
                 {/* <img src={"/newlogo.png"} className="m-auto w-full mb-2" /> */}
                 <div className="w-full m-auto mt-3 ">
