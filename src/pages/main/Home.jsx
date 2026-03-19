@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { logo } from "../../Component/DiseasesData/images";
 import { download } from "../../Component/DiseasesData/images";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ const Home = () => {
     return () =>
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt
+        handleBeforeInstallPrompt,
       );
   }, [navigate]);
 
@@ -61,12 +61,12 @@ const Home = () => {
               />
             </div>
 
-            {isIOS && (
+            {/* {isIOS && (
               <div className="install-hint bg-[#CCE5FF] text-[#004C99] py-2 px-4 rounded mt-3 mb-3 text-center border border-[#0077CC]">
                 Tap <strong>Share → Add to Home Screen</strong> to install this
                 app on your iPhone.
               </div>
-            )}
+            )} */}
             {/* User Login Button */}
             <div className="">
               <Link

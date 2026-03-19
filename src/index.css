@@ -223,7 +223,9 @@ body {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
-
+body {
+  -webkit-overflow-scrolling: touch;
+}
 html,
 body {
   touch-action: manipulation;
@@ -503,9 +505,9 @@ input[type="number"]::-webkit-outer-spin-button {
   position: relative;
 }
 
-.dashboard-wrapper {
+/* .dashboard-wrapper {
   overflow-y: auto;
-}
+} */
 
 .dashboard-cards a {
   display: block;
@@ -516,8 +518,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .thm-footer li a img {
-  height: 25px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
 }
 
 .thm-footer-innr {
@@ -700,8 +702,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .dash-single-items .dashboard-cards p,
 .dash-double-items .dashboard-cards p,
 .dash-triple-items .dashboard-cards p,
+.dash-quadriple-items .dashboard-cards p,
 .dash-hexuple-items .dashboard-cards p {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 @media (max-width: 799px) {
@@ -1006,7 +1009,7 @@ font-size: 22px;
 }
 .down-arrow {
   position: fixed;
-  right: 40px;
+  right: 10px;
   bottom: 40px;
   width: 50px;
   transform: rotate(270deg);
@@ -1674,6 +1677,17 @@ body,
   .dash-quadriple-items .dashboard-cards.shirnk-card .dashboard-img img {
     height: calc(70vh - 120px);
   }
+  .dash-hexuple-items .dashboard-cards.shirnk-card p {
+    font-size: 18px;
+  }
+  .dash-hexuple-items .dashboard-cards.shirnk-card {
+    height: calc(70vh - 120px);
+  }
+
+  .dash-hexuple-items .dashboard-cards {
+    box-shadow: none;
+    border: 0;
+  }
 
   .depressed-cards {
     height: 180px;
@@ -1722,10 +1736,19 @@ body,
     width: 169px;
   }
   .dash-hexuple-items {
-    width: 180px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: 0.3s;
   }
+  .dash-hexuple-items:hover {
+    border-color: #155dfc;
+  }
+
   .main-wrapper {
     padding-top: 0px;
   }
@@ -1758,10 +1781,10 @@ body,
     max-width: 300px;
   }
   .dash-hexuple-items .dashboard-cards {
-    height: calc(70vh - 148px);
+    height: calc(70vh - 140px);
   }
   .dash-hexuple-items .dashboard-cards .dashboard-img img {
-    height: calc(50vh - 110px);
+    height: calc(50vh - 120px);
     object-fit: contain;
   }
   .pain-wrapper {
@@ -1807,12 +1830,7 @@ body,
   .down-arrow img {
     width: 40px;
   }
-  .dash-single-items .dashboard-cards,
-  .dash-double-items .dashboard-cards,
-  .dash-triple-items .dashboard-cards,
-  .dash-hexuple-items .dashboard-cards {
-    overflow: hidden;
-  }
+
   .cmmn-pdnng-70 {
     padding-top: 70px;
   }
@@ -1967,4 +1985,25 @@ body,
 .font-cls .main-header,
 .font-cls .sidebar {
   font-family: "DM Sans", sans-serif !important;
+}
+
+/* iPad-css-start */
+
+@media (min-width: 768px) and (max-width: 1366px) {
+  .introduction_page,
+  .pain-wrapper,
+  .howoften-page,
+  .pain-scale-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90dvh;
+    padding-bottom: 60px;
+    padding-top: 0;
+  }
+  .Intro_box,
+  .pain-wrapper .pain-tablet-view,
+  .calendar-main {
+    width: 100%;
+  }
 }

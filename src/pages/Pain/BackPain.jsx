@@ -42,7 +42,7 @@ const BackPain = () => {
           />
 
           <div className="main-wrapper home-wrapper pain-wrapper">
-            <div className="my-5 flex justify-center items-center">
+            <div className="my-5 flex justify-center items-center pain-tablet-view">
               <div className="w-full max-w-4xl p-0 bg-white shadow-sm rounded-xl pain-digram-box relative">
                 <PainDiagramBack
                   selectedGender={selectedGender}

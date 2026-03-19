@@ -206,7 +206,7 @@ const TopicBoard = ({
                 key={index}
                 className={`dashboard-cards relative rounded-2xl bg-white h-[140px] flex flex-col items-center justify-center text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 p-3 ${
                   (selectedLanguage === "Spanish" ? item?.nameEs : item?.name)
-                    ?.length > 26
+                    ?.length > 20
                     ? "shirnk-card"
                     : ""
                 }`}
