@@ -368,7 +368,9 @@ const Header = ({
               {location.pathname !== "/introduction" && (
                 <img
                   onClick={() => {
-                    if (isSummary === true) {
+                    if (location.pathname === "/white-board-list") {
+                      navigate("/whiteboard");
+                    } else if (isSummary === true) {
                       navigate(-1);
                       // setIsPopupOpen(true);
                     } else {
@@ -454,8 +456,8 @@ const Header = ({
           <aside
             ref={sidebarRef}
             className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
-                ? "translate-x-0"
-                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+              ? "translate-x-0"
+              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
               }`}
           >
             <button

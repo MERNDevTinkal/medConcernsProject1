@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import { howareyou } from "../../../public/assets/ImagesImports";
-
+import Header from "../../Component/Layout/Header/Header";
 function YesAndNo() {
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -15,16 +15,16 @@ function YesAndNo() {
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
+      () => { },
     );
   }, []);
 
@@ -36,7 +36,7 @@ function YesAndNo() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          {/* <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
             <div
               onClick={() => {
                 navigate(-1);
@@ -51,7 +51,18 @@ function YesAndNo() {
                 : option?.name || "Pain"}
             </h2>
             <button className="opacity-0">Medconcern</button>
-          </div>
+          </div> */}
+
+          <Header
+            selectedLanguage={selectedLanguage}
+            introductionOn={''}
+            calendarOn={''}
+            name={
+              (selectedLanguage === "Spanish")
+                ? option?.nameEs || "Dolor"
+                : option?.name || "Pain"
+            }
+          />
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col  ">
             <div className="grid grid-cols-2 gap-18  my-5 items-center common-scale mt-12">
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">

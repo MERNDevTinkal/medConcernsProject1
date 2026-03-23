@@ -7,7 +7,7 @@ import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Pagination from "../../Component/pagination/pagination";
 import getSetting from "../../Component/settingApi/settings";
-
+import Header from "../../Component/Layout/Header/Header";
 const WhiteBoardList = () => {
   const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
@@ -131,16 +131,26 @@ const WhiteBoardList = () => {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header">
+          {/* <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header">
             <Link to="/whiteboard">
               <img src={BackArrow} alt="Back" />
             </Link>
             <h1 className="text-[25px] font-normal text-black">
               {selectedLanguage === "Spanish" ? "Pizarra" : "Whiteboard"}
-            </h1>
-            <Link to="#">{/* <img src={NextArrow} alt="Next" /> */}</Link>
-          </div>
+            </h1> */}
+          {/* <Link to="#">{/* <img src={NextArrow} alt="Next" /> */}
 
+          <Header
+            selectedLanguage={selectedLanguage}
+            introductionOn={''}
+            calendarOn={''}
+            name={
+              (location.pathname === "/whiteboard"
+                && selectedLanguage === "Spanish")
+                ? "Pizarra"
+                : "Whiteboard"
+            }
+          />
           <div className="main-wrapper home-wrapper pt-20">
             <div className="px-4">
               {savedDrawings.length > 0 ? (
