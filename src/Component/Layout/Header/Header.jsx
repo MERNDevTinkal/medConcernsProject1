@@ -44,6 +44,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
+import scaleRating from "/assets/images/emo-06.svg";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
 
@@ -55,6 +56,8 @@ const Header = ({
   isSummary = false,
   setIsPopupOpen = () => { },
   whiteboardname,
+  scaleTitle,
+  setScaleTitle
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { updateDisease, deleteLastFlowItem, resetDiseases } =
@@ -269,6 +272,12 @@ const Header = ({
       es: "Ubicación del Dolor",
     },
     {
+      icon: scaleRating ? scaleRating : gifLoader,
+      path: "/rating-scale",
+      en: "Rating Scale",
+      es: "Escala de calificación",
+    },
+    {
       icon: MenuIcon21 ? MenuIcon21 : gifLoader,
       path: "/swallowing-problem",
       en: "Swallowing",
@@ -385,19 +394,32 @@ const Header = ({
                 <img src={hamburger} alt="menu" />
               </button>
             </div>
-            <h2
-              className={`Header-text text-[30px] font-medium text-black ${location.pathname === "/introduction" ? "intro-text" : ""}`}
-            >
-              {location.pathname === "/introduction" && (
-                <img src={"/favicon.png"} className="w-6" />
-              )}
-              {name ??
-                (selectedLanguage === "Spanish"
-                  ? "Preocupaciones"
-                  : location.pathname === "/depression-screener"
-                    ? ""
-                    : "Concerns")}
-            </h2>
+            {name === "reviewScale" ? (
+              <div className="text-center mb-8">
+                <input
+                  type="text"
+                  value={scaleTitle}
+                  onChange={(e) => setScaleTitle(e.target.value)}
+                  className="text-3xl font-bold text-center border-2 border-gray-300 rounded-lg px-4 py-2 w-full max-w-md mx-auto focus:outline-none focus:border-blue-500"
+                  placeholder="Enter scale title"
+                />
+              </div>
+            ) : (
+              <h2
+                className={`Header-text text-[30px] font-medium text-black ${location.pathname === "/introduction" ? "intro-text" : ""}`}
+              >
+                {location.pathname === "/introduction" && (
+                  <img src={"/favicon.png"} className="w-6" />
+                )}
+                {name ??
+                  (selectedLanguage === "Spanish"
+                    ? "Preocupaciones"
+                    : location.pathname === "/depression-screener"
+                      ? ""
+                      : "Concerns")}
+              </h2>
+            )}
+
             <div style={{ cursor: "pointer" }}>
               {location.pathname === "/introduction" ||
                 location.pathname === "/howoften" ||

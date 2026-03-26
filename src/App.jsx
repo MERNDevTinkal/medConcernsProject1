@@ -61,6 +61,7 @@ import LicenseContact from "./pages/NeedLicense/LicenseContact";
 import FaceDiagram from "./Component/Paindiagram/FaceDiagram";
 import Openingpage from "./pages/Openingpage/page";
 import MentalHealthResources from "./pages/mental-health-resources/page";
+import ReviewScale from "./pages/reviewScale/page";
 
 function App() {
   const location = useLocation();
@@ -195,6 +196,8 @@ function App() {
           <Route path="/mood-scale" element={<Feel />} />
           <Route path="/faceDigram" element={<FaceDiagram />} />
           <Route path="/mentalhealth-resources" element={<MentalHealthResources />} />
+          <Route path="/rating-scale" element={<ReviewScale />} />
+          <Route path="/summary/:name/:id" element={<ReviewScale />} />
         </Route>
       </Routes>
     </>
