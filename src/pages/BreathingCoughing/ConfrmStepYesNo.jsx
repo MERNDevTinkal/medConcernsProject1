@@ -11,6 +11,7 @@ import { getTextToSpeech } from "../../Component/TextToSpeech/TextToSpeech";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
 import Cookies from "js-cookie";
+import Header from "../../Component/Layout/Header/Header";
 import {
   YesFemale,
   femaleNoSpanish,
@@ -47,16 +48,16 @@ function ConfrmStepYesNo() {
   }, [name, id]);
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
-      () => {},
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
+      () => { },
     );
   }, []);
 
@@ -137,7 +138,7 @@ function ConfrmStepYesNo() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between py-4 fixed left-0 right-0 bg-white innr-header">
+          {/* <div className="flex items-center justify-between py-4 fixed left-0 right-0 bg-white innr-header">
             <div onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
               <img src={BackArrow} alt="Back" />
             </div>
@@ -145,7 +146,13 @@ function ConfrmStepYesNo() {
               {displayText ?? value?.name}
             </h2>
             <button className="opacity-0">Medconcern</button>
-          </div>
+          </div> */}
+          <Header
+            selectedLanguage={selectedLanguage}
+            introductionOn={''}
+            calendarOn={''}
+            name={displayText ?? value?.name}
+          />
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
             <div
               className={`grid grid-cols-2 gap-18 my-5 items-center common-scale mt-12`}
@@ -156,15 +163,14 @@ function ConfrmStepYesNo() {
                     <img
                       src={selectedConcers?.image ?? value?.image}
                       alt={selectedConcers?.name || "img"}
-                      className={`rounded-xl w-full h-full ${
-                        pathprimary.includes(
-                          "/feeling-list-pain/confrm-step-yesno",
-                        ) ||
-                        pathprimary.includes("/feeling/confrm-step-yesno") ||
-                        pathprimary.includes("/feel/confrm-step-yesno")
+                      className={`rounded-xl w-full h-full ${pathprimary.includes(
+                        "/feeling-list-pain/confrm-step-yesno",
+                      ) ||
+                          pathprimary.includes("/feeling/confrm-step-yesno") ||
+                          pathprimary.includes("/feel/confrm-step-yesno")
                           ? "objct-cls"
                           : "object-cover"
-                      } `}
+                        } `}
                     />
                   </div>
                 </div>
@@ -181,22 +187,22 @@ function ConfrmStepYesNo() {
                         selectedLanguage === "" && selectedGender === ""
                           ? YesMale
                           : selectedLanguage === "Spanish" &&
-                              selectedGender === "Male"
+                            selectedGender === "Male"
                             ? YesSpanishMale
                             : selectedLanguage === "Spanish" &&
-                                selectedGender === "Female"
+                              selectedGender === "Female"
                               ? YesFemaleSpanish
                               : selectedLanguage === "" &&
-                                  selectedGender === "Female"
+                                selectedGender === "Female"
                                 ? YesFemale
                                 : selectedLanguage === "" &&
-                                    selectedGender === "Male"
+                                  selectedGender === "Male"
                                   ? YesMale
                                   : selectedLanguage === "English" &&
-                                      selectedGender === "Male"
+                                    selectedGender === "Male"
                                     ? YesMale
                                     : selectedLanguage === "English" &&
-                                        selectedGender === "Female"
+                                      selectedGender === "Female"
                                       ? YesFemale
                                       : YesMale,
                       )
@@ -224,22 +230,22 @@ function ConfrmStepYesNo() {
                         selectedLanguage === "" && selectedGender === ""
                           ? No_male
                           : selectedLanguage === "Spanish" &&
-                              selectedGender === "Male"
+                            selectedGender === "Male"
                             ? No_no_maleSpanish
                             : selectedLanguage === "Spanish" &&
-                                selectedGender === "Female"
+                              selectedGender === "Female"
                               ? femaleNoSpanish
                               : selectedLanguage === "" &&
-                                  selectedGender === "Female"
+                                selectedGender === "Female"
                                 ? NoFemale
                                 : selectedLanguage === "" &&
-                                    selectedGender === "Male"
+                                  selectedGender === "Male"
                                   ? No_male
                                   : selectedLanguage === "English" &&
-                                      selectedGender === "Male"
+                                    selectedGender === "Male"
                                     ? No_male
                                     : selectedLanguage === "English" &&
-                                        selectedGender === "Female"
+                                      selectedGender === "Female"
                                       ? NoFemale
                                       : No_male,
                       )

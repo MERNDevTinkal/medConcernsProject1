@@ -11,7 +11,7 @@ import {
 import { useParams } from "react-router-dom";
 import Loader from "../../Component/webLoader/loader";
 import getSetting from "../../Component/settingApi/settings";
-
+import Header from "../../Component/Layout/Header/Header";
 import { gifLoader, BackArrow } from "../../Component/DiseasesData/images";
 function BreathingYesNo() {
   const navigate = useNavigate();
@@ -35,16 +35,16 @@ function BreathingYesNo() {
 
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
+      () => { },
     );
   }, []);
   return (
@@ -53,7 +53,7 @@ function BreathingYesNo() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          {/* <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
             <div
               style={{ cursor: "pointer" }}
               onClick={() => {
@@ -68,7 +68,17 @@ function BreathingYesNo() {
                 : concernValues.name || ""}
             </h2>
             <button className="opacity-0">Medconcern</button>
-          </div>
+          </div> */}
+          <Header
+            selectedLanguage={selectedLanguage}
+            introductionOn={''}
+            calendarOn={''}
+            name={
+              (selectedLanguage === "Spanish")
+                ? concernValues.nameEs
+                : concernValues.name || ""
+            }
+          />
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
             <div className="grid grid-cols-2 gap-18 my-5 items-center common-scale mt-12">
               <div
@@ -76,11 +86,10 @@ function BreathingYesNo() {
   `}
               >
                 <div
-                  className={`  ${
-                    location.pathname.includes("/topicboard/")
-                      ? "h-[300px] flex justify-center items-center relative"
-                      : ""
-                  } dashboard-img rounded-2xl w-full h-full`}
+                  className={`  ${location.pathname.includes("/topicboard/")
+                    ? "h-[300px] flex justify-center items-center relative"
+                    : ""
+                    } dashboard-img rounded-2xl w-full h-full`}
                 >
                   {location.pathname.includes("/topicboard/") ? (
                     <>

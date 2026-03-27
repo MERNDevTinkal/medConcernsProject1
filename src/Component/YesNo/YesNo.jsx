@@ -14,9 +14,11 @@ import {
   No_no_maleSpanish,
   femaleNoSpanish,
 } from "../../../src/Component/DiseasesData/audio";
-const YesNo = ({ selectedGender, selectedLanguage }) => {
+
+const YesNo = ({ id, fatigueValue, selectedGender, selectedLanguage }) => {
   const navigate = useNavigate();
   const { updateDisease } = useContext(GlobalContext);
+  console.log("===>",)
   const handleYesNo = async (value, path, audio) => {
     if (value && path) {
       await getTextToSpeech(
@@ -25,7 +27,7 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
         audio,
       );
       updateDisease("yesno", value);
-      navigate(path);
+      navigate(fatigueValue && fatigueValue !== null ? `/summary` : path);
     }
   };
   return (
@@ -41,17 +43,17 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
                   ? YesSpanishMale
                   : selectedLanguage === "Spanish" &&
-                      selectedGender === "Female"
+                    selectedGender === "Female"
                     ? YesFemaleSpanish
                     : selectedLanguage === "" && selectedGender === "Female"
                       ? YesFemale
                       : selectedLanguage === "" && selectedGender === "Male"
                         ? YesMale
                         : selectedLanguage === "English" &&
-                            selectedGender === "Male"
+                          selectedGender === "Male"
                           ? YesMale
                           : selectedLanguage === "English" &&
-                              selectedGender === "Female"
+                            selectedGender === "Female"
                             ? YesFemale
                             : YesMale,
             );
@@ -79,17 +81,17 @@ const YesNo = ({ selectedGender, selectedLanguage }) => {
                 : selectedLanguage === "Spanish" && selectedGender === "Male"
                   ? No_no_maleSpanish
                   : selectedLanguage === "Spanish" &&
-                      selectedGender === "Female"
+                    selectedGender === "Female"
                     ? femaleNoSpanish
                     : selectedLanguage === "" && selectedGender === "Female"
                       ? NoFemale
                       : selectedLanguage === "" && selectedGender === "Male"
                         ? No_male
                         : selectedLanguage === "English" &&
-                            selectedGender === "Male"
+                          selectedGender === "Male"
                           ? No_male
                           : selectedLanguage === "English" &&
-                              selectedGender === "Female"
+                            selectedGender === "Female"
                             ? NoFemale
                             : No_male,
             );

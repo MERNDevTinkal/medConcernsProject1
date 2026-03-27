@@ -44,6 +44,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
+import scaleRating from "/assets/images/emo-06.svg";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
 
@@ -53,8 +54,10 @@ const Header = ({
   calendarOn,
   name,
   isSummary = false,
-  setIsPopupOpen = () => {},
+  setIsPopupOpen = () => { },
   whiteboardname,
+  scaleTitle,
+  setScaleTitle
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { updateDisease, deleteLastFlowItem, resetDiseases } =
@@ -105,6 +108,12 @@ const Header = ({
       path: "/patient-education",
       en: "Patient Education",
       es: "Educación del Paciente",
+    },
+    {
+      icon: MenuIcon27 ? MenuIcon27 : gifLoader,
+      path: "/mentalhealth-resources",
+      en: "Mental Health Resources",
+      es: "Recursos de salud mental",
     },
     {
       icon: MenuIcon3 ? MenuIcon3 : gifLoader,
@@ -237,12 +246,7 @@ const Header = ({
       en: "Mucus / Secretions",
       es: "Mucosidad / Secreciones",
     },
-    {
-      icon: MenuIcon27 ? MenuIcon27 : gifLoader,
-      path: "/mentalhealth-resources",
-      en: "Mental Health Resources",
-      es: "Recursos de salud mental",
-    },
+
     {
       icon: MenuIcon17 ? MenuIcon17 : gifLoader,
       path: "/nausea-problem",
@@ -266,6 +270,12 @@ const Header = ({
       path: "/pain-concern",
       en: "Pain Location",
       es: "Ubicación del Dolor",
+    },
+    {
+      icon: scaleRating ? scaleRating : gifLoader,
+      path: "/rating-scale",
+      en: "Rating Scale",
+      es: "Escala de calificación",
     },
     {
       icon: MenuIcon21 ? MenuIcon21 : gifLoader,
@@ -367,7 +377,9 @@ const Header = ({
               {location.pathname !== "/introduction" && (
                 <img
                   onClick={() => {
-                    if (isSummary === true) {
+                    if (location.pathname === "/white-board-list") {
+                      navigate("/whiteboard");
+                    } else if (isSummary === true) {
                       navigate(-1);
                       // setIsPopupOpen(true);
                     } else {
@@ -382,30 +394,43 @@ const Header = ({
                 <img src={hamburger} alt="menu" />
               </button>
             </div>
-            <h2
-              className={`Header-text text-[30px] font-medium text-black ${location.pathname === "/introduction" ? "intro-text" : ""}`}
-            >
-              {location.pathname === "/introduction" && (
-                <img src={"/favicon.png"} className="w-6" />
-              )}
-              {name ??
-                (selectedLanguage === "Spanish"
-                  ? "Preocupaciones"
-                  : location.pathname === "/depression-screener"
-                    ? ""
-                    : "Concerns")}
-            </h2>
+            {name === "reviewScale" ? (
+              <div className="text-center mb-8">
+                <input
+                  type="text"
+                  value={scaleTitle}
+                  onChange={(e) => setScaleTitle(e.target.value)}
+                  className="text-3xl font-bold text-center border-2 border-gray-300 rounded-lg px-4 py-2 w-full max-w-md mx-auto focus:outline-none focus:border-blue-500"
+                  placeholder="Enter scale title"
+                />
+              </div>
+            ) : (
+              <h2
+                className={`Header-text text-[30px] font-medium text-black ${location.pathname === "/introduction" ? "intro-text" : ""}`}
+              >
+                {location.pathname === "/introduction" && (
+                  <img src={"/favicon.png"} className="w-6" />
+                )}
+                {name ??
+                  (selectedLanguage === "Spanish"
+                    ? "Preocupaciones"
+                    : location.pathname === "/depression-screener"
+                      ? ""
+                      : "Concerns")}
+              </h2>
+            )}
+
             <div style={{ cursor: "pointer" }}>
               {location.pathname === "/introduction" ||
-              location.pathname === "/howoften" ||
-              location.pathname === "/new-problem" ||
-              // location.pathname === "/emotions" ||
-              location.pathname === "/how-are-you" ||
-              location.pathname === "/when" ||
-              location.pathname === "/feeling-body" ||
-              location.pathname === "/emotions" ||
-              location.pathname === "/mood-scale" ||
-              location.pathname === "/pain-concern" ? (
+                location.pathname === "/howoften" ||
+                location.pathname === "/new-problem" ||
+                // location.pathname === "/emotions" ||
+                location.pathname === "/how-are-you" ||
+                location.pathname === "/when" ||
+                location.pathname === "/feeling-body" ||
+                location.pathname === "/emotions" ||
+                location.pathname === "/mood-scale" ||
+                location.pathname === "/pain-concern" ? (
                 <div
                   onClick={() => {
                     navigate(
@@ -452,11 +477,10 @@ const Header = ({
           {/* Sidebar */}
           <aside
             ref={sidebarRef}
-            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${
-              isSidebarOpen
-                ? "translate-x-0"
-                : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
-            }`}
+            className={`sidebar fixed top-0 left-0 h-full w-80 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 overflow-y-auto min-h-screen ${isSidebarOpen
+              ? "translate-x-0"
+              : "-translate-x-full rounded-tr-[10px] rounded-br-[10px]"
+              }`}
           >
             <button
               className="close-btn absolute top-5 right-5"
@@ -482,11 +506,10 @@ const Header = ({
                       }}
                       key={index}
                       className={`text-[20px] font-normal flex items-center space-x-3 p-2 rounded-lg cursor-pointer
-                     ${
-                       location.pathname === item.path
-                         ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
-                         : "text-black hover:bg-gray-100"
-                     }`}
+                     ${location.pathname === item.path
+                          ? "bg-blue-100 text-blue-600 font-semibold" // Active styles
+                          : "text-black hover:bg-gray-100"
+                        }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
                       <Link to={item.path} onClick={item.fun}>

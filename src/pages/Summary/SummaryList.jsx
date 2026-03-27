@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import ConcernPopUp from "../../Component/concernPopUp/ConcernPop";
 import Cookies from "js-cookie";
 import SaveWarningPopup from "../../Component/SaveWarningPopup/SaveWarningPopup";
+import { useSearchParams } from "react-router-dom";
+
 const SummaryList = () => {
   const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] = React.useState("");
@@ -25,6 +27,9 @@ const SummaryList = () => {
   const [calendarOn, setCalendarOn] = useState(false);
   const [introductionOn, setIntroductionOn] = useState(false);
   const [saveAs, setSaveAs] = useState("");
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+  const name = searchParams.get("name");
   const saveData = () => {
     const licenses_id = localStorage.getItem("license_key");
     const token = localStorage.getItem("token");
@@ -59,16 +64,16 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
+      () => { },
     );
   }, []);
   const confirmFun = (value) => {

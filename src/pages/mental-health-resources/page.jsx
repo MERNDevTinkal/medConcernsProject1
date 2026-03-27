@@ -32,14 +32,14 @@ export default function MentalHealthResources() {
                         calendarOn={CalendarOn}
                         name={
                             selectedLanguage === "Spanish"
-                                ? "Recursos de salud mental"
-                                : "Mental Health Resources"
+                                ? ""
+                                : ""
                         }
                     />
                     <div className="main-wrapper home-wrapper">
                         {selectedLanguage === "Spanish" ? (
                             <>
-                                 <img src="/assets/health-resourse-images/Mental Health Resource1.png" className="w-full" />
+                                <img src="/assets/health-resourse-images/Mental Health Resource1.png" className="w-full" />
                                 <img src="/assets/health-resourse-images/Mental Health Resource2.png" className="w-full" />
                                 <img src="/assets/health-resourse-images/Mental Health Resource3.png" className="w-full" />
                                 <img src="/assets/health-resourse-images/Mental Health Resource4.png" className="w-full" />
