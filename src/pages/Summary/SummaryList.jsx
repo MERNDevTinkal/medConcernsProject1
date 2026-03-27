@@ -64,16 +64,16 @@ const SummaryList = () => {
   };
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { },
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
   const confirmFun = (value) => {
@@ -107,7 +107,7 @@ const SummaryList = () => {
     setIsPopupOpen(false);
     setShowSaveModal(true);
   };
-
+  console.log("diseases?.summaryList", diseases?.summaryList);
   return (
     <>
       {loader ? (
@@ -154,7 +154,12 @@ const SummaryList = () => {
                   return (
                     <div
                       key={index}
-                      className="flex flex-row items-start w-full my-5 summary-main common-scale justify-between"
+                      className={
+                        "flex flex-row items-start w-full my-5 summary-main common-scale " +
+                        (item?.flow[0]?.route === "/rating-scale"
+                          ? ""
+                          : "justify-between")
+                      }
                     >
                       <div className="md:w-1/4 sm:w-1/2 w-full">
                         <SummaryLeftCard
@@ -167,7 +172,9 @@ const SummaryList = () => {
                       <div className="arrow-right mx-4 self-center">
                         <img src={Arrow} alt="arrow" />
                       </div>
-                      <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
+                      <div
+                        className={` ${item?.flow[0]?.route === "/rating-scale" ? "" : "grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2"} summary-list-right`}
+                      >
                         <SummaryRightCard
                           selectedLanguage={selectedLanguage}
                           SummaryDetail={item?.flow}
