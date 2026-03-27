@@ -36,12 +36,16 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   return (
     <>
       {SummaryDetail?.flat()?.map((item, index) => {
-        console.log("SummaryDetail", item);
+        const imageValue =
+          item.route === "/feelOptions/6" && selectedLanguage === "Spanish"
+            ? item?.data[0]?.imageSp
+            : (item?.image ?? item?.data[0]?.image);
         return (
           <div key={index}>
             <div
-              className={`dashboard-cards ${item?.data[0].decision ? "decision-card" : ""
-                } rounded-2xl bg-white text-center px-5 py-4 h-full border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300`}
+              className={`dashboard-cards  ${typeof imageValue === "number" ? "number-card" : ""} ${
+                item?.data[0].decision ? "decision-card" : ""
+              } rounded-2xl bg-white text-center px-5 py-4 h-full border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300`}
             >
               <span
                 className={
@@ -58,12 +62,16 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
               </span>
               <div className="dashboard-img">
                 {(() => {
-                  const imageValue = (item.route === "/feelOptions/6" && selectedLanguage === "Spanish")
-                    ? item?.data[0]?.imageSp
-                    : item?.image ?? item?.data[0]?.image;
+                  const imageValue =
+                    item.route === "/feelOptions/6" &&
+                    selectedLanguage === "Spanish"
+                      ? item?.data[0]?.imageSp
+                      : (item?.image ?? item?.data[0]?.image);
 
                   return typeof imageValue === "number" ? (
-                    <div className="w-full h-full flex items-center justify-center ">
+                    <div
+                      className={`w-full h-full flex items-center justify-center ${typeof imageValue === "number" ? "number-card-innr" : ""}`}
+                    >
                       <span className=" font-bold text-3xl md:text-4xl lg:text-5xl">
                         {imageValue}
                       </span>
