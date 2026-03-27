@@ -27,7 +27,7 @@ const YesNo = ({ id, fatigueValue, selectedGender, selectedLanguage }) => {
         audio,
       );
       updateDisease("yesno", value);
-      navigate(fatigueValue && fatigueValue !== null ? `/summary?name=fatigueValue&id=${id}` : path);
+      navigate(fatigueValue && fatigueValue !== null ? `/summary` : path);
     }
   };
   return (

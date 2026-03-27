@@ -122,7 +122,7 @@ const SummaryList = () => {
             introductionOn={introductionOn}
             name={selectedLanguage === "Spanish" ? "Resumen" : "Summary"}
           />
-          {(diseases?.summaryList?.length > 0 || (name && id && name !== null && id !== null)) ? (
+          {diseases?.summaryList?.length > 0 ? (
             <div className="main-wrapper home-wrapper">
               <div className="flex justify-end space-x-2 ">
                 <button

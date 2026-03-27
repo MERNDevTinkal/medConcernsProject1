@@ -36,7 +36,7 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
   return (
     <>
       {SummaryDetail?.flat()?.map((item, index) => {
-        console.log("SummaryDetail",);
+        console.log("SummaryDetail", item);
         return (
           <div key={index}>
             <div
@@ -57,7 +57,27 @@ const SummaryRightCard = ({ selectedLanguage, SummaryDetail }) => {
                 {item?.data[0].decision ?? ""}
               </span>
               <div className="dashboard-img">
-                <img src={(item.route === "/feelOptions/6" && selectedLanguage === "Spanish") ? item?.data[0]?.imageSp : item?.image ?? item?.data[0]?.image} />
+                {(() => {
+                  const imageValue = (item.route === "/feelOptions/6" && selectedLanguage === "Spanish")
+                    ? item?.data[0]?.imageSp
+                    : item?.image ?? item?.data[0]?.image;
+
+                  return typeof imageValue === "number" ? (
+                    <div className="w-full h-full flex items-center justify-center ">
+                      <span className=" font-bold text-3xl md:text-4xl lg:text-5xl">
+                        {imageValue}
+                      </span>
+                    </div>
+                  ) : (
+                    imageValue && (
+                      <img
+                        src={imageValue}
+                        alt=""
+                        className="w-full h-full object-cover"
+                      />
+                    )
+                  );
+                })()}
               </div>
               <p className="text-lg sm:text-base mt-3 color-black">
                 {getTranslatedText(item, selectedLanguage)}

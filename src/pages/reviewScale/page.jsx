@@ -33,7 +33,7 @@ const FeelingListPain = () => {
     }, []);
 
     const handleBynumber = async (id) => {
-        let value = { "image": id, "icon": id, "path": pathprimary, "en": scaleTitle, "es": scaleTitle, type: "Review Scale", value: scaleTitle };
+        let value = { "image": id, "icon": id,"name":scaleTitle,"nameEs":scaleTitle, "path": pathprimary, "en": scaleTitle, "es": scaleTitle, type: "Review Scale", value: scaleTitle };
 
         if (value) {
             const isConcern = Cookies.get("is_concern");
@@ -68,7 +68,7 @@ const FeelingListPain = () => {
                         setScaleTitle={setScaleTitle}
                     />
 
-                    <div className="main-wrapper home-wrapper pain-scale-page-wrapper">
+                    <div className="main-wrapper ">
                         <div className="w-full max-w-4xl mx-auto pb-6 pt-0 px-0 common-scale">
                             <div className="space-y-0">
                                 <div className="relative h-4 gradient-bar mt-0 mb-8">

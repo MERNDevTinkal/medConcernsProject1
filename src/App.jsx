@@ -197,7 +197,6 @@ function App() {
           <Route path="/faceDigram" element={<FaceDiagram />} />
           <Route path="/mentalhealth-resources" element={<MentalHealthResources />} />
           <Route path="/rating-scale" element={<ReviewScale />} />
-          <Route path="/summary/:name/:id" element={<ReviewScale />} />
         </Route>
       </Routes>
     </>
