@@ -79,14 +79,14 @@ const DecisionCardFeeling = ({
             );
           }}
         >
-          <div className="custom-wdth flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+          <div className="custom-wdth flex items-center justify-between p-4 px-16 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <p className="text-[32px] font-medium text-green-600">
+              <p className="text-[40px] font-medium text-green-600">
                 {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
               </p>
             </div>
             <div>
-              <img src={Checked} alt="" />
+              <img src={Checked} width="50px" alt="" />
             </div>
           </div>
         </div>
@@ -114,9 +114,9 @@ const DecisionCardFeeling = ({
             );
           }}
         >
-          <div className="custom-wdth flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
-            <p className="text-[32px] font-medium text-red-600">NO</p>
-            <img src={Close} alt="no" />
+          <div className="custom-wdth flex items-center justify-between p-4 px-16 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+            <p className="text-[40px] font-medium text-red-600">NO</p>
+            <img src={Close} width="35px" alt="no" />
           </div>
         </div>
       </div>

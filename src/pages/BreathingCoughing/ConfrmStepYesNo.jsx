@@ -214,7 +214,6 @@ function ConfrmStepYesNo() {
                       </p>
                       <img
                         src={Checked}
-                        className="w-10 h-10"
                         width="50px"
                         alt="yes"
                       />

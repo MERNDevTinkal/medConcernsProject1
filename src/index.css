@@ -228,7 +228,7 @@ body {
 }
 html,
 body {
-  touch-action: manipulation;
+  /* touch-action: manipulation; */
 
   font-family:
     "Navigo",
@@ -2080,15 +2080,9 @@ body,
   font-family: "DM Sans", sans-serif !important;
 }
 
-/* iPad-css-start */
 
-@media (min-width: 768px) and (max-width: 1366px) {
-}
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
- 
- 
-}
+
 .rating-scale-input{
       position: absolute;
     left: 50%;
