@@ -1618,6 +1618,30 @@ body,
   font-size: 50px;
   font-weight: 700;
 }
+ .calendar-main .calendar-options{
+  height: 320px;
+ }
+  .introduction_page,
+  .pain-wrapper,
+  .howoften-page,
+  .pain-scale-page-wrapper,
+  .rating-scale-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90dvh;
+    padding-bottom: 60px;
+    padding-top: 0;
+  }
+  .Intro_box,
+  .pain-wrapper .pain-tablet-view,
+  .calendar-main,
+  .setting-cards {
+    width: 100%;
+  }
+  .howoften-page {
+    align-items: flex-start;
+  }
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .topicSetting-single-items {
     height: calc(100vh - 16px);
@@ -1901,6 +1925,20 @@ body,
   .dash-hexuple-items .card-img-h img {
     border-radius: 16px;
   }
+   .calendar-main .calendar-options{
+  height: auto;
+ }
+  .introduction_page,
+  .pain-wrapper,
+  .howoften-page,
+  .pain-scale-page-wrapper,
+  .rating-scale-wrapper {
+    display: block ;
+    min-height: auto ;
+    padding-bottom: 0px;
+    padding-top: 0;
+  }
+
 }
 .down-arrow.hide {
   opacity: 0;
@@ -2048,23 +2086,15 @@ body,
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
-  .introduction_page,
-  .pain-wrapper,
-  .howoften-page,
-  .pain-scale-page-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 90dvh;
-    padding-bottom: 60px;
-    padding-top: 0;
-  }
-  .Intro_box,
-  .pain-wrapper .pain-tablet-view,
-  .calendar-main {
-    width: 100%;
-  }
-  .howoften-page {
-    align-items: flex-start;
-  }
+ 
+ 
 }
+.rating-scale-input{
+      position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+
+}
+
+ 

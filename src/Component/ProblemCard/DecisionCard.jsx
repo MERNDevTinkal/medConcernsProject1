@@ -162,7 +162,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                 </p>
               </div>
               <div>
-                <img src={Close} width="40px" className="concrn-icn" />
+                <img src={Close} width="35px" className="concrn-icn" />
               </div>
             </div>
           </div>
@@ -184,7 +184,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                   <img src={WomenIcon} alt="" className="" />
                 </div>
                 <div>
-                  <img src={Question} width="40px" className="concrn-icn" />
+                  <img src={Question} width="30px" className="concrn-icn" />
                 </div>
               </div>
             )}
