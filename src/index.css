@@ -705,6 +705,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .dash-quadriple-items .dashboard-cards p,
 .dash-hexuple-items .dashboard-cards p {
   font-size: 20px;
+  margin: 0;
 }
 .dashboard-cards {
   display: flex;
@@ -1723,9 +1724,9 @@ body,
   /* .dashboard-cards.shirnk-card p {
     font-size: 18px;
   } */
-  .dashboard-cards.shirnk-card {
+  /* .dashboard-cards.shirnk-card {
     height: calc(70vh - 120px);
-  }
+  } */
 
   .dash-hexuple-items .dashboard-cards {
     box-shadow: none;
@@ -1775,6 +1776,13 @@ body,
     width: 230px;
     margin-bottom: 15px;
   }
+  .dash-triple-items .dashboard-cards p{
+  
+    padding-bottom: 5px;
+  }
+  .dash-triple-items .dashboard-cards{
+    height: 230px;
+  }
   .dash-quadriple-items .dashboard-cards {
     background-color: #fff;
     box-shadow: none;
@@ -1786,7 +1794,7 @@ body,
     border-color: #155dfc;
   }
   .dash-quadriple-items {
-    height: 100%;
+    height: 212px;
     width: 170px;
     background-color: transparent;
     border: 0;
@@ -1802,6 +1810,7 @@ body,
     border-radius: 10px;
     border: 2px solid transparent;
     transition: 0.3s;
+
   }
   .dash-hexuple-items:hover {
     border-color: #155dfc;
@@ -1845,6 +1854,9 @@ body,
     height: calc(50vh - 130px);
     object-fit: contain;
   }
+  .dash-hexuple-items .dashboard-cards{
+        justify-content: space-around;
+  }
   .pain-wrapper {
     padding-bottom: 0;
     min-height: auto;
@@ -1865,7 +1877,8 @@ body,
     min-height: auto;
   }
   .whiteboard-wrapper .whiteboard-card {
-    height: 300px;
+    height:100%;
+    
   }
   .summary-main.my-5 {
     margin: 0;
@@ -1895,8 +1908,11 @@ body,
   .pain-wrapper {
     min-height: auto;
   }
+  .dash-double-items .dashboard-cards.shirnk-card .dashboard-img img{
+            height: calc(90vh - 155px);
+  }
   .dash-hexuple-items .dashboard-cards.shirnk-card .dashboard-img img {
-    height: calc(50vh - 140px);
+    height: calc(50vh - 130px);
   }
   .dash-quadriple-items .dashboard-cards.shirnk-card .dashboard-img img {
     height: calc(70vh - 150px);
@@ -1914,6 +1930,7 @@ body,
   }
   .dash-quadriple-items .card-img-h img {
     border-radius: 16px;
+    height: calc(80vh - 160px);
   }
   .dash-quadriple-items .dashboard-cards.shirnk-card {
     height: calc(70vh - 50px);
@@ -1966,115 +1983,8 @@ body,
   .navbar,
   .footer {
     display: none !important;
-  }
+  }}
 
-  /* Show only the summary content */
-  body * {
-    visibility: hidden;
-  }
-
-  .main-wrapper,
-  .main-wrapper *,
-  .summary-main,
-  .summary-main *,
-  .dashboard-cards,
-  .dashboard-cards * {
-    visibility: visible !important;
-  }
-
-  /* Fix card layout for printing */
-  .summary-main {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    margin: 20px 0 !important;
-    display: flex !important;
-    flex-direction: row !important;
-  }
-
-  /* Fix right side cards grid */
-  .summary-list-right {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 10px !important;
-  }
-
-  /* Prevent text from being cut off */
-  .dashboard-cards {
-    background: white !important;
-    border: 1px solid #ddd !important;
-    box-shadow: none !important;
-    page-break-inside: avoid !important;
-    height: auto !important;
-    min-height: 140px !important;
-    padding: 15px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
-  /* Fix image size - make them larger */
-  .dashboard-img {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin-bottom: 10px !important;
-  }
-
-  .dashboard-img img {
-    max-width: 80px !important; /* Increased from 40px */
-    max-height: 80px !important; /* Increased from 40px */
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-  }
-
-  /* Left card specific image size */
-  .summary-left-cards .dashboard-img img {
-    max-width: 100px !important; /* Even larger for left card */
-    max-height: 100px !important;
-  }
-
-  .dashboard-cards p {
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    overflow: visible !important;
-    font-size: 11pt !important;
-    line-height: 1.3 !important;
-    margin: 5px 0 !important;
-    color: black !important;
-    text-align: center !important;
-  }
-
-  /* Fix arrow positioning */
-  .arrow-right {
-    align-self: center !important;
-    margin: 0 15px !important;
-  }
-
-  .arrow-right img {
-    max-width: 30px !important;
-    height: auto !important;
-  }
-
-  /* Decision badge styling */
-  .decision-badge {
-    display: inline-block !important;
-    margin-bottom: 8px !important;
-    font-size: 10pt !important;
-    padding: 2px 8px !important;
-    border-radius: 4px !important;
-  }
-
-  /* Page margins */
-  @page {
-    margin: 1cm;
-  }
-
-  /* Fix for last card being cut off */
-  .summary-main:last-child {
-    margin-bottom: 0 !important;
-  }
-}
 .font-cls .main-header,
 .font-cls .sidebar {
   font-family: "DM Sans", sans-serif !important;
@@ -2083,12 +1993,5 @@ body,
 
 
 
-.rating-scale-input{
-      position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-
-}
 
  

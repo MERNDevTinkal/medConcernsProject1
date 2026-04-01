@@ -97,7 +97,7 @@ const ConcernCard = ({
               className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2 ${(selectedLanguage === "Spanish"
                   ? item?.nameEs
                   : item?.name
-                )?.split(" ").length > 15
+                )?.split(" ").length > 18
                   ? "shirnk-card"
                   : ""
                 }`}

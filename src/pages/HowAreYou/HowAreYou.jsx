@@ -125,14 +125,14 @@ export default function HowAreYou() {
                     key={item?.id}
                   >
                     <div
-                      className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${(selectedLanguage === "Spanish"
-                        ? item?.nameEs
-                        : item?.name
-                      )?.length > 15
-                        ? "shirnk-card"
-                        : ""
-                        }`}
-                    >
+                      className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${
+                        (selectedLanguage === "Spanish"
+                          ? item?.nameEs
+                          : item?.name
+                        )?.length > 18
+                          ? "shirnk-card"
+                          : ""
+                      }`}                  >
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{

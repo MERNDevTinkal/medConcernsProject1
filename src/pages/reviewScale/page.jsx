@@ -227,17 +227,17 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(10);
                                         }}
-                                        className="text-3xl font-bold text-gray-800 cursor-pointer last-bar"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer "
                                     >
                                         10
                                     </div>
                                 </div>
                                 {/* Editable Left and Right Labels */}
                                 <div className="flex justify-between items-center text-sm font-normal text-gray-700 bttm-txt-bar flex-wrap mt-2">
-                                    <div className="text-2xl font-bold font-medium border-2 border-gray-300 rounded-lg px-3 py-2 text-left">
+                                    <div className="text-xl font-bold border-2 border-gray-300 rounded-lg px-3 py-2 text-left">
                                         {"No " + scaleTitle}
                                     </div>
-                                    <div className="text-2xl font-bold font-medium border-2 border-gray-300 rounded-lg px-3 py-2 text-right">
+                                    <div className="text-xl font-bold border-2 border-gray-300 rounded-lg px-3 py-2 text-right">
                                         {"Severe " + scaleTitle}
                                     </div>
                                 </div>
