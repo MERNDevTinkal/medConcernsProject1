@@ -11,11 +11,11 @@ export default function AddImagePopup({
   open,
 }) {
   const navigate = useNavigate();
+
   const handleUploadClick = () => {
     const input = document.createElement("input");
     input.type = "file";
-    input.accept =
-      "image/*,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp";
+    input.accept = "image/*,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp";
     input.multiple = true;
     input.onchange = (e) => {
       handleImageUpload(Array.from(e.target.files));
@@ -26,26 +26,22 @@ export default function AddImagePopup({
 
   const handleChooseFromLibrary = (e) => {
     e.preventDefault();
-    // Map current uploaded images to just their strings (URLs) 
-    // so the Library can compare them with its list
-    const currentSelectedUrls = uploadedImages.map(img => img.src);
-
     navigate("/images-library", {
       state: {
-        oldImages, // This contains the full objects (x, y, etc)
-        selectedImages: currentSelectedUrls, // This is for the library's "checked" state
-        pathname,
+        oldImages,
+        paths,
         textBlocks,
-        paths
-      }
+        selectedImages: uploadedImages,
+        pathname,
+      },
     });
   };
+
   return (
     <div className="flex justify-center">
       {open && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl shadow-xl w-[90%] max-w-md p-6 relative">
-            {/* Close button */}
             <button
               onClick={() => setOpen(false)}
               className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold"
@@ -58,7 +54,6 @@ export default function AddImagePopup({
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Upload Option */}
               <button
                 onClick={handleUploadClick}
                 className="flex flex-col items-center justify-center border rounded-xl p-5 hover:bg-gray-50 transition"
@@ -72,11 +67,8 @@ export default function AddImagePopup({
                 </span>
               </button>
 
-              {/* Choose from Library Option */}
               <button
-                onClick={(e) => {
-                  handleChooseFromLibrary(e);
-                }}
+                onClick={(e) => handleChooseFromLibrary(e)}
                 className="flex flex-col items-center justify-center border rounded-xl p-5 hover:bg-gray-50 transition"
               >
                 🖼️

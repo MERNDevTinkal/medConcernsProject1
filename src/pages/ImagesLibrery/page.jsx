@@ -11,15 +11,22 @@ export default function ImagesLibrery() {
   );
   const navigate = useNavigate();
   const location = useLocation();
-  const uploadedImages = location.state?.uploadedImages ?? [];
-  const pathname = location.state?.pathname ?? [];
+  const {
+    oldImages,
+    paths,
+    textBlocks,
+    selectedImages: initialSelected,
+    pathname,
+  } = location.state || {};
+
   const imageList = Object.values(Images).map((img) => img.default);
   const [selectedIconCount, setSelectedIconCount] = useState(0);
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [CalendarOn, setCalendarOn] = useState("");
   const [IntroductionOn, setIntroductionOn] = useState("");
   const [loader, setLoader] = useState(true);
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState(initialSelected || []);
+
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
@@ -33,7 +40,6 @@ export default function ImagesLibrery() {
       () => {},
       () => {}
     );
-    setSelectedImages(uploadedImages);
   }, []);
 
   const handleImageClick = (src) => {
@@ -41,8 +47,16 @@ export default function ImagesLibrery() {
       prev.includes(src) ? prev.filter((img) => img !== src) : [...prev, src]
     );
   };
+
   const handleDone = () => {
-    navigate(pathname, { state: { selectedImages } });
+    navigate(pathname, {
+      state: {
+        selectedImages,
+        oldImages,
+        paths,
+        textBlocks,
+      },
+    });
   };
 
   return (

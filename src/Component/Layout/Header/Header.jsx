@@ -97,6 +97,7 @@ const Header = ({
     };
   }, []);
   const getItemColor = (index, isLogout) => {
+    return
     if (isLogout === "Logout") return "#B6D7A8";
 
     if (index >= 0 && index <= 4) return "#B6D7A8";
