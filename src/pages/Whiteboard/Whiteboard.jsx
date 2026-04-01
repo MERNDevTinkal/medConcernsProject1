@@ -108,7 +108,7 @@ export default function Whiteboard() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [imageCache, setImageCache] = useState(new Map());
   const [isInitialized, setIsInitialized] = useState(false);
-
+  const nativeInputRef = useRef(null);
   const CANVAS_WIDTH = 985;
   const CANVAS_HEIGHT = 600;
   const TOOLBAR_HEIGHT = 80;
@@ -125,7 +125,7 @@ export default function Whiteboard() {
     const maxX = CANVAS_WIDTH - width;
     const minY = 0;
     const maxY = Math.max(0, SAFE_AREA_BOTTOM - height);
-    
+
     return {
       x: Math.min(Math.max(x, minX), maxX),
       y: Math.min(Math.max(y, minY), maxY)
@@ -135,20 +135,20 @@ export default function Whiteboard() {
   const findNonOverlappingImagePosition = useCallback((width, height, currentImages = uploadedImages) => {
     const margin = 20;
     let y = 20;
-    
+
     if (currentImages.length > 0) {
       const lastImage = currentImages[currentImages.length - 1];
       y = lastImage.y + lastImage.height + margin;
     }
-    
+
     if (textBlocks.length > 0) {
       const lastTextBlock = textBlocks[textBlocks.length - 1];
       y = Math.max(y, lastTextBlock.y + 60);
     }
-    
+
     const maxY = SAFE_AREA_BOTTOM - height;
     y = Math.min(y, maxY);
-    
+
     return {
       x: 20,
       y: Math.max(20, y)
@@ -158,7 +158,7 @@ export default function Whiteboard() {
   const drawPathsAndText = useCallback(() => {
     const ctx = getCanvasContext();
     if (!ctx) return;
-    
+
     // Draw paths
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
@@ -177,7 +177,7 @@ export default function Whiteboard() {
       ctx.closePath();
       ctx.globalCompositeOperation = "source-over";
     });
-    
+
     // Draw text blocks
     textBlocks.forEach((block) => {
       if (activeTextBlock && block.id === activeTextBlock.id) return;
@@ -218,10 +218,10 @@ export default function Whiteboard() {
 
   const drawActiveTextIfNeeded = useCallback(() => {
     if (!textToolActive || !activeTextBlock) return;
-    
+
     const ctx = getCanvasContext();
     if (!ctx) return;
-    
+
     const font = "20px Arial";
     const lineHeight = 24;
     const maxWidth = CANVAS_WIDTH - activeTextBlock.x - 20;
@@ -233,7 +233,7 @@ export default function Whiteboard() {
     let cursorY = activeTextBlock.y;
     let allVisibleLines = [];
     let foundCursor = false;
-    
+
     textLines.forEach((manualLine, manualLineIndex) => {
       if (manualLine === "") {
         allVisibleLines.push({
@@ -283,11 +283,11 @@ export default function Whiteboard() {
         currentY += lineHeight;
       }
     });
-    
+
     allVisibleLines.forEach((line) => {
       ctx.fillText(line.text, line.x, line.y);
     });
-    
+
     for (let i = 0; i < allVisibleLines.length; i++) {
       const line = allVisibleLines[i];
       if (line.manualLineIndex === cursorPosition.line) {
@@ -306,7 +306,7 @@ export default function Whiteboard() {
         }
       }
     }
-    
+
     if (!foundCursor) {
       const targetManualLine = cursorPosition.line;
       let lastLineForManualLine = null;
@@ -323,7 +323,7 @@ export default function Whiteboard() {
         cursorY = lastLineForManualLine.y;
       }
     }
-    
+
     if (showCursor) {
       ctx.beginPath();
       ctx.moveTo(cursorX, cursorY);
@@ -338,14 +338,14 @@ export default function Whiteboard() {
   const drawSingleImage = (imgObj, img) => {
     const ctx = getCanvasContext();
     if (!ctx || !img) return;
-    
+
     try {
       ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
-      
+
       ctx.save();
       const iconX = imgObj.x + imgObj.width - 15;
       const iconY = imgObj.y + 15;
-      
+
       ctx.beginPath();
       ctx.arc(iconX, iconY, 12, 0, Math.PI * 2);
       ctx.fillStyle = "white";
@@ -353,7 +353,7 @@ export default function Whiteboard() {
       ctx.lineWidth = 1;
       ctx.strokeStyle = "#ccc";
       ctx.stroke();
-      
+
       ctx.font = "bold 18px Arial";
       ctx.fillStyle = "red";
       ctx.textAlign = "center";
@@ -369,21 +369,21 @@ export default function Whiteboard() {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
-    
+
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    
+
     if (uploadedImages.length === 0) {
       drawPathsAndText();
       drawActiveTextIfNeeded();
       return;
     }
-    
+
     let loadedCount = 0;
     const totalImages = uploadedImages.length;
-    
+
     uploadedImages.forEach((imgObj) => {
       let img = imageCache.get(imgObj.src);
-      
+
       if (img && img.complete) {
         drawSingleImage(imgObj, img);
         loadedCount++;
@@ -425,36 +425,36 @@ export default function Whiteboard() {
   // Handle library image selection - MERGE correctly
   useEffect(() => {
     if (!location?.state?.selectedImages) return;
-    
+
     console.log("Received images from library:", location.state.selectedImages);
     console.log("Current paths:", paths);
     console.log("Current textBlocks:", textBlocks);
-    
+
     const incomingUrls = location.state.selectedImages;
     const oldImageObjects = location.state.oldImages || [];
-    
+
     // Create a map of existing images
     const existingImagesMap = new Map();
-    
+
     // First add current uploadedImages
     uploadedImages.forEach(img => {
       existingImagesMap.set(img.src, img);
     });
-    
+
     // Then add oldImageObjects (these have positions)
     oldImageObjects.forEach(img => {
       if (!existingImagesMap.has(img.src)) {
         existingImagesMap.set(img.src, img);
       }
     });
-    
+
     const mergedImages = [];
     const newSelectedImages = [...SelectedImages];
-    
+
     // Process incoming images
     incomingUrls.forEach((src, index) => {
       const existingImage = existingImagesMap.get(src);
-      
+
       if (existingImage) {
         // Keep existing image with its position
         mergedImages.push({
@@ -474,23 +474,23 @@ export default function Whiteboard() {
           id: Date.now() + index
         });
       }
-      
+
       if (!newSelectedImages.includes(src)) {
         newSelectedImages.push(src);
       }
     });
-    
+
     // Keep images that were not in incoming list
     existingImagesMap.forEach((img, src) => {
       if (!incomingUrls.includes(src)) {
         mergedImages.push(img);
       }
     });
-    
+
     // Update states - preserve existing paths and textBlocks
     setUploadedImages(uniqueImages(mergedImages));
     setSelectedImages(newSelectedImages);
-    
+
     // Don't clear paths and textBlocks - preserve them
     if (location.state.textBlocks && location.state.textBlocks.length > 0) {
       setTextBlocks(prev => {
@@ -505,45 +505,45 @@ export default function Whiteboard() {
         return Array.from(existingTextMap.values());
       });
     }
-    
+
     if (location.state.paths && location.state.paths.length > 0) {
       setPaths(prev => [...prev, ...location.state.paths]);
     }
-    
+
     // Clear location state
     setTimeout(() => {
       window.history.replaceState({}, document.title);
     }, 100);
-    
+
   }, [location.state?.selectedImages]);
 
   const handleImageUpload = useCallback((files) => {
     if (!files || files.length === 0) return;
-    
+
     const filesArray = Array.from(files);
     const newImages = [];
     const newImageFiles = [...imageFiles];
     const newSelectedImages = [...SelectedImages];
-    
+
     filesArray.forEach((file, idx) => {
       const src = URL.createObjectURL(file);
       newImageFiles.push(file);
-      
+
       const img = new Image();
       img.onload = () => {
         let { width, height } = img;
         const maxSize = 200;
-        
+
         if (width > maxSize || height > maxSize) {
           const scale = Math.min(maxSize / width, maxSize / height);
           width *= scale;
           height *= scale;
         }
-        
+
         const currentAllImages = [...uploadedImages, ...newImages];
         const pos = findNonOverlappingImagePosition(width, height, currentAllImages);
         const constrainedPos = constrainImagePosition(pos.x, pos.y, width, height);
-        
+
         const newImage = {
           src,
           x: constrainedPos.x,
@@ -552,13 +552,13 @@ export default function Whiteboard() {
           height,
           id: Date.now() + idx + Math.random()
         };
-        
+
         newImages.push(newImage);
-        
+
         if (!newSelectedImages.includes(src)) {
           newSelectedImages.push(src);
         }
-        
+
         if (newImages.length === filesArray.length) {
           setUploadedImages(prev => uniqueImages([...prev, ...newImages]));
           setImageFiles(newImageFiles);
@@ -572,20 +572,20 @@ export default function Whiteboard() {
   const handleDeleteImage = useCallback((index) => {
     const removedImage = uploadedImages[index];
     if (!removedImage) return;
-    
+
     const removedSrc = removedImage.src;
-    
+
     setUploadedImages(prev => prev.filter((_, i) => i !== index));
     setSelectedImages(prev => prev.filter(url => url !== removedSrc));
     setUpdateImage(prev => [...prev, removedSrc]);
     setImageFiles(prev => prev.filter((_, i) => i !== index));
-    
+
     setImageCache(prev => {
       const newCache = new Map(prev);
       newCache.delete(removedSrc);
       return newCache;
     });
-    
+
     if (removedSrc.startsWith('blob:')) {
       URL.revokeObjectURL(removedSrc);
     }
@@ -615,7 +615,7 @@ export default function Whiteboard() {
   const startDrawing = useCallback((e) => {
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
-    
+
     for (let i = uploadedImages.length - 1; i >= 0; i--) {
       const img = uploadedImages[i];
       if (
@@ -638,7 +638,7 @@ export default function Whiteboard() {
         return;
       }
     }
-    
+
     if (tool !== "pencil" && tool !== "eraser") return;
     setIsDrawing(true);
     setPaths((prev) => [
@@ -659,7 +659,7 @@ export default function Whiteboard() {
   const draw = useCallback((e) => {
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
-    
+
     if (draggingImage !== null) {
       setUploadedImages((prev) =>
         prev.map((img, i) => {
@@ -674,9 +674,9 @@ export default function Whiteboard() {
       );
       return;
     }
-    
+
     if (!isDrawing || tool === "text") return;
-    
+
     setPaths((prev) => {
       if (prev.length === 0) return prev;
       const newPaths = [...prev];
@@ -779,7 +779,7 @@ export default function Whiteboard() {
         ];
       }
     }
-    
+
     const state = {
       name: drawingName.trim(),
       paths,
@@ -806,7 +806,7 @@ export default function Whiteboard() {
     if (id && id !== "null") {
       payload.append("white_id", id);
     }
-    
+
     if (updateImage.length > 0) {
       payload.append("imageFileRemove", JSON.stringify(updateImage));
     }
@@ -869,10 +869,34 @@ export default function Whiteboard() {
     return { x: bestX, y: bestY };
   }, [textBlocks, activeTextBlock, typedText]);
 
+  // const activateTextTool = () => {
+  //   setTool("text");
+  //   setTextToolActive(true);
+  //   setShowKeyboard(true);
+  //   if (textPosition.x === 0 && textPosition.y === 0) {
+  //     setTextPosition({ x: 20, y: 20 });
+  //     const newTextBlock = {
+  //       id: Date.now(),
+  //       x: 20,
+  //       y: 20,
+  //       text: "",
+  //       color: drawingColor,
+  //       font: "20px Arial",
+  //     };
+  //     setActiveTextBlock(newTextBlock);
+  //   }
+  // };
+
   const activateTextTool = () => {
     setTool("text");
     setTextToolActive(true);
-    setShowKeyboard(true);
+    setShowKeyboard(false); // Ensure virtual keyboard is hidden
+
+    // Focus the hidden input to trigger the device's default keyboard
+    if (nativeInputRef.current) {
+      nativeInputRef.current.focus();
+    }
+
     if (textPosition.x === 0 && textPosition.y === 0) {
       setTextPosition({ x: 20, y: 20 });
       const newTextBlock = {
@@ -886,13 +910,21 @@ export default function Whiteboard() {
       setActiveTextBlock(newTextBlock);
     }
   };
-
+  const handleNativeInputChange = (e) => {
+    const value = e.target.value;
+    if (value.length > 0) {
+      // Insert the character typed
+      insertTextAtCursor(value);
+      // Clear the input so it's ready for the next character
+      e.target.value = "";
+    }
+  };
   const handleClick = (e) => {
     if (tool !== "text") return;
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
     let clickedOnExisting = false;
-    
+
     for (const block of textBlocks) {
       const blockRight = block.x + 300;
       const blockBottom = block.y + 100;
@@ -1009,7 +1041,7 @@ export default function Whiteboard() {
 
   const handleKeyboardKeyPress = (button) => {
     if (!button) return;
-    
+
     switch (button) {
       case "{enter}":
       case "{return}":
@@ -1109,9 +1141,9 @@ export default function Whiteboard() {
     if (!textToolActive) return;
     const onKeyDown = (e) => {
       if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
-      
+
       if (e.ctrlKey || e.metaKey || e.altKey) return;
-      
+
       e.preventDefault();
 
       switch (e.key) {
@@ -1241,7 +1273,7 @@ export default function Whiteboard() {
         width: drawingWidth,
       },
     };
-    
+
     return !(
       state.paths?.length === 0 &&
       state.texts?.length === 0 &&
@@ -1269,12 +1301,12 @@ export default function Whiteboard() {
       setLoader(false);
       return;
     }
-    
+
     if (location.state?.selectedImages) {
       setLoader(false);
       return;
     }
-    
+
     const fetchBoard = async () => {
       const payload = new FormData();
       payload.append("white_id", id);
@@ -1301,10 +1333,10 @@ export default function Whiteboard() {
             setDrawingWidth(savedState.toolSettings.width || 2);
           }
           const imagesArray = savedState?.images ?? [];
-          
+
           const restoredImages = [];
           const imageUrls = [];
-          
+
           imagesArray.forEach((img, index) => {
             const constrainedPos = constrainImagePosition(img.x, img.y, img.width, img.height);
             restoredImages.push({
@@ -1317,7 +1349,7 @@ export default function Whiteboard() {
             });
             imageUrls.push(img.src);
           });
-          
+
           setUploadedImages(restoredImages);
           setSelectedImages(imageUrls);
         }
@@ -1401,13 +1433,12 @@ export default function Whiteboard() {
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${
-                      tool === "text"
+                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
                         ? "cursor-text"
                         : tool === "eraser"
-                        ? "cursor-eraser"
-                        : "cursor-crosshair"
-                    }`}
+                          ? "cursor-eraser"
+                          : "cursor-crosshair"
+                      }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1435,13 +1466,38 @@ export default function Whiteboard() {
                   >
                     <img src={PencilIcon} className="icon-size-add" alt="Pencil Icon" />
                   </Button>
-                  <Button
+                  {/* <Button
                     variant="ghost"
                     size="icon"
                     onClick={activateTextTool}
                     title="Virtual Keyboard"
+                  > */}
+                  {/* Add this hidden input anywhere inside your main div */}
+                  <input
+                    ref={nativeInputRef}
+                    type="text"
+                    style={{ position: 'absolute', opacity: 0, pointerEvents: 'none', zIndex: -1 }}
+                    onChange={handleNativeInputChange}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Backspace') handleBackspace();
+                      if (e.key === 'Enter') handleKeyboardKeyPress('{enter}');
+                    }}
+                  />
+
+                  {/* Update your Toolbar Button */}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={activateTextTool}
+                    title="Keyboard"
                   >
                     <img
+                      src={TextIcon} // Changed to KeyBoardIcon as per your requirement
+                      className="icon-size-add"
+                      alt="Keyboard Icon"
+                    />
+                  </Button>
+                  {/* <img
                       src={TextIcon}
                       className="icon-size-add"
                       alt="Text Icon"
@@ -1449,7 +1505,7 @@ export default function Whiteboard() {
                       onContextMenu={(e) => e.preventDefault()}
                       onDragStart={(e) => e.preventDefault()}
                     />
-                  </Button>
+                  </Button> */}
                   <Button
                     variant="ghost"
                     size="icon"
@@ -1539,7 +1595,7 @@ export default function Whiteboard() {
                   </div>
                 </CardContent>
               </Card>
-              {showKeyboard && (
+              {/* {showKeyboard && (
                 <div className="w-full max-w-4xl mt-4">
                   <Keyboard
                     onChange={handleKeyboardChange}
@@ -1560,7 +1616,7 @@ export default function Whiteboard() {
                     }}
                   />
                 </div>
-              )}
+              )} */}
 
               {showSaveModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
