@@ -123,7 +123,7 @@ const BreathingWhen = () => {
                         (selectedLanguage === "Spanish"
                           ? item?.nameEs
                           : item?.name
-                        )?.length > 15
+                        )?.length > 18
                           ? "shirnk-card"
                           : ""
                       }`}

@@ -98,7 +98,7 @@ const ConcernCard = ({
                 (selectedLanguage === "Spanish"
                   ? item?.nameEs
                   : item?.name
-                )?.split(" ").length > 15
+                )?.split(" ").length > 18
                   ? "shirnk-card"
                   : ""
               }`}

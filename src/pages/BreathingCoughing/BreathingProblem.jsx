@@ -238,7 +238,7 @@ const BreathingProblem = () => {
                         (selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name
-                        )?.length > 15
+                        )?.length > 18
                           ? "shirnk-card"
                           : ""
                       }`}
