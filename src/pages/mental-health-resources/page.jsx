@@ -39,25 +39,57 @@ export default function MentalHealthResources() {
                     <div className="main-wrapper home-wrapper">
                         {selectedLanguage === "Spanish" ? (
                             <>
-                                <img src="/assets/health-resourse-images/Mental Health Resource1.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource2.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource3.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource4.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource5.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource6.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource7.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" />
+                                <img src="/assets/health-resourse-images/Mental Health Resource1.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource2.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource3.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource4.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource5.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource6.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource7.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
                             </>
                         ) : (
                             <>
-                                <img src="/assets/health-resourse-images/Mental Health Resource1.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource2.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource3.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource4.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource5.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource6.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource7.png" className="w-full" />
-                                <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" />
+                                <img src="/assets/health-resourse-images/Mental Health Resource1.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource2.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource3.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource4.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource5.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource6.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource7.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
+                                <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                    onDragStart={(e) => e.preventDefault()} />
                             </>
                         )}
                     </div>

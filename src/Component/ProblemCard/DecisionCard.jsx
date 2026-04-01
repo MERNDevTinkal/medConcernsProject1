@@ -181,10 +181,14 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                 }`}
               >
                 <div className="flex items-center">
-                  <img src={WomenIcon} alt="" className="" />
+                  <img src={WomenIcon} alt="" className=""            draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}/>
                 </div>
                 <div>
-                  <img src={Question} width="30px" className="concrn-icn" />
+                  <img src={Question} width="30px" className="concrn-icn"           draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()} />
                 </div>
               </div>
             )}

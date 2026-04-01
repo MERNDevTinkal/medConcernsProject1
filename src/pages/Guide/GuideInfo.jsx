@@ -53,7 +53,9 @@ const GuideInfo = () => {
                     key={`${index}_p`}
                     className="text-[14px] text-black font-normal mb-3.5 flex items-start gap-3.5"
                   >
-                    <img src={doublearrow} />
+                    <img src={doublearrow}   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
                     {selectedLanguage === "Spanish" ? item.nameEs : item.name}
                   </p>
                 )

@@ -803,7 +803,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
         {
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-              value
+            value
             ],
           name: replaceString(clickedRegion?.name),
         },
@@ -814,7 +814,7 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           partName: replaceString(clickedRegion?.name),
           image:
             bodyImages?.[selectedGender === "Female" ? "women" : "men"]?.[
-              value
+            value
             ],
         },
       });
@@ -844,7 +844,9 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
           onClick={handleRefresh}
           className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
         >
-          <img src={Refresh} alt="refresh" className="w-6 h-6" />
+          <img src={Refresh} alt="refresh" className="w-6 h-6" draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()} />
         </button>
       </div>
 
@@ -856,6 +858,9 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
               alt="body diagram"
               className="w-full h-auto"
               onClick={handleImageClick}
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
             />
           )}
 
@@ -875,6 +880,9 @@ const PainDiagram = ({ selectedGender, selectedLanguage }) => {
               src={croppedPart}
               alt="Selected Part"
               className="w-24 h-24 object-contain"
+                         draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}
             />
           </div>
         )}

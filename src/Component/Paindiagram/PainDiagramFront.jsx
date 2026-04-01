@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import {DigramFront} from "../../Component/DiseasesData/images";
+import { DigramFront } from "../../Component/DiseasesData/images";
 import { GlobalContext } from "../../context/DiseaseContext";
 import { useNavigate } from "react-router-dom";
 const PainDiagram = () => {
@@ -31,6 +31,9 @@ const PainDiagram = () => {
               const y = e.clientY - rect.top;
               handlePainClick(x, y);
             }}
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()}
           />
 
           {/* Pain Point Marker */}

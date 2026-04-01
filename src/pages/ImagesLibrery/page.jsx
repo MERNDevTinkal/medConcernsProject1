@@ -12,12 +12,7 @@ export default function ImagesLibrery() {
   const navigate = useNavigate();
   const location = useLocation();
   const uploadedImages = location.state?.uploadedImages ?? [];
-  const oldImages = location.state?.oldImages ?? [];
   const pathname = location.state?.pathname ?? [];
-
-  const textBlocks = location.state?.textBlocks ?? [];
-  const paths = location.state?.paths ?? [];
-
   const imageList = Object.values(Images).map((img) => img.default);
   const [selectedIconCount, setSelectedIconCount] = useState(0);
   const [selectedLanguage, setSelectedLanguage] = useState("");
@@ -28,31 +23,26 @@ export default function ImagesLibrery() {
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      () => { },
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {}
     );
-
+    setSelectedImages(uploadedImages);
   }, []);
-  useEffect(() => {
-    const mergedImages = [...new Set([...oldImages, ...uploadedImages])];
-    setSelectedImages(mergedImages);
-  }, [oldImages, uploadedImages]);
+
   const handleImageClick = (src) => {
     setSelectedImages((prev) =>
-      prev.includes(src)
-        ? prev.filter((img) => img !== src)
-        : [...prev, src]
+      prev.includes(src) ? prev.filter((img) => img !== src) : [...prev, src]
     );
   };
   const handleDone = () => {
-    navigate(pathname, { state: { selectedImages, textBlocks, paths } });
+    navigate(pathname, { state: { selectedImages } });
   };
 
   return (
@@ -92,21 +82,22 @@ export default function ImagesLibrery() {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                          ? "dash-double-items"
-                          : selectedIconCount === 3
-                            ? "dash-triple-items"
-                            : selectedIconCount === 4
-                              ? "dash-quadriple-items"
-                              : selectedIconCount === 6
-                                ? "dash-hexuple-items"
-                                : ""
+                        ? "dash-double-items"
+                        : selectedIconCount === 3
+                        ? "dash-triple-items"
+                        : selectedIconCount === 4
+                        ? "dash-quadriple-items"
+                        : selectedIconCount === 6
+                        ? "dash-hexuple-items"
+                        : ""
                     }
                   >
                     <div
-                      className={`dashboard-cards rounded-2xl bg-white text-center border-4 transition-colors duration-300 shadow-sm ${isSelected
-                        ? "border-blue-500"
-                        : "border-white hover:border-gray-300"
-                        }`}
+                      className={`dashboard-cards rounded-2xl bg-white text-center border-4 transition-colors duration-300 shadow-sm ${
+                        isSelected
+                          ? "border-blue-500"
+                          : "border-white hover:border-gray-300"
+                      }`}
                     >
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img

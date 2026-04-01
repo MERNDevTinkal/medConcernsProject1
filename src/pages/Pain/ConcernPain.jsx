@@ -64,7 +64,9 @@ function ConcernPain() {
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">
                   <div className="h-full w-full">
-                    <img src={image || ConcernImg1} className="w-full" />
+                    <img src={image || ConcernImg1} className="w-full"            draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}/>
                   </div>
                 </div>
               </div>

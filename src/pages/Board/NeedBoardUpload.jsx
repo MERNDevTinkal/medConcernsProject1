@@ -171,7 +171,7 @@ const NeedBoardUpload = () => {
       setMediaRecorder(recorder);
       setRecordedChunks(chunks);
       setIsRecording(true);
-      const maxDuration = isIos ? 180000 : 300000; 
+      const maxDuration = isIos ? 180000 : 300000;
       setTimeout(() => {
         if (recorder.state === 'recording') {
           stopRecording();
@@ -451,6 +451,9 @@ const NeedBoardUpload = () => {
                               src={imagePreview}
                               alt="Preview"
                               className="w-[120px] h-[120px] object-cover rounded-lg border"
+                              draggable={false}
+                              onContextMenu={(e) => e.preventDefault()}
+                              onDragStart={(e) => e.preventDefault()}
                             />
                             <button
                               type="button"

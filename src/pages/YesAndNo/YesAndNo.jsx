@@ -70,6 +70,9 @@ function YesAndNo() {
                         src={option.image || HowAreYou1}
                         alt={option.name || "alt"}
                         className="mx-auto rounded-xl w-full content-cls"
+                          draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                       />
                     )}
                   </div>

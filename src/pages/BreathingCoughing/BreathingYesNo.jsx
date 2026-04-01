@@ -109,6 +109,9 @@ function BreathingYesNo() {
                       <img
                         src={concernValues?.image ?? gifLoader}
                         className="mx-auto rounded-xl w-full "
+                          draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                       />
                     </div>
                   )}

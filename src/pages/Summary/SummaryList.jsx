@@ -134,7 +134,9 @@ const SummaryList = () => {
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
                   {/* {selectedLanguage === "Spanish" ? "Imprimir" : "Print"} */}
-                  <img src={printicon} alt="Print" className="w-5 h-5" />
+                  <img src={printicon} alt="Print" className="w-5 h-5"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
                 </button>
                 <button
                   onClick={() => {
@@ -144,7 +146,9 @@ const SummaryList = () => {
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
                   {/* {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"} */}
-                  <img src={floppydisk} alt="Save" className="w-5 h-5" />
+                  <img src={floppydisk} alt="Save" className="w-5 h-5"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
                 </button>
                 <button
                   onClick={handleSummaryListRoute}
@@ -152,7 +156,9 @@ const SummaryList = () => {
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
                   {/* {selectedLanguage === "Spanish" ? "Lista" : "List"} */}
-                  <img src={folder} alt="Folder" className="w-5 h-5" />
+                  <img src={folder} alt="Folder" className="w-5 h-5"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
                 </button>
               </div>
               {diseases?.summaryList?.length > 0 &&
