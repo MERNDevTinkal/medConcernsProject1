@@ -40,10 +40,10 @@ export default function HowAreYou() {
                   : selectedLanguage === "" && selectedGender === "Male"
                     ? item?.maleEnglish
                     : selectedLanguage === "English" &&
-                        selectedGender === "Male"
+                      selectedGender === "Male"
                       ? item?.maleEnglish
                       : selectedLanguage === "English" &&
-                          selectedGender === "Female"
+                        selectedGender === "Female"
                         ? item?.femaleEnglish
                         : item?.maleEnglish;
         await getTextToSpeech(
@@ -69,10 +69,10 @@ export default function HowAreYou() {
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
+      () => { },
     );
   }, []);
   return (
@@ -132,8 +132,7 @@ export default function HowAreYou() {
                         )?.length > 18
                           ? "shirnk-card"
                           : ""
-                      }`}
-                    >
+                      }`}                  >
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
                           style={{
@@ -142,6 +141,9 @@ export default function HowAreYou() {
                           src={item?.image ? item?.image : gifLoader}
                           className="w-full"
                           alt={item?.name}
+                          draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}
                         />
                       </div>
                       <p className={`text-[16px] mt-3 mb-2 text-black `}>

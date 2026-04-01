@@ -133,6 +133,9 @@ function EmotionScreen() {
                     src={(selectedLanguage === "Spanish" && mainPath === "/feelOptions/6") ? suicideSpanishImg : getQuestions?.image || ""}
                     alt={getQuestions?.name || "alt"}
                     className="mx-auto rounded-xl "
+                      draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                   />
                 </div>
               </div>
@@ -256,7 +259,9 @@ function EmotionScreen() {
                         </p>
                       </div>
                       <div>
-                        <img width="31" height="31" src={dashimghow25} />
+                        <img width="31" height="31" src={dashimghow25}   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
                       </div>
                     </div>
                     <div

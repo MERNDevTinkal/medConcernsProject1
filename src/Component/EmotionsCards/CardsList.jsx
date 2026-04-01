@@ -87,6 +87,9 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
                 src={item.image}
                 className="w-full "
                 alt={item.name}
+                  draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
               />
             </div>
             <p className="text-[16px] mt-3 mb-2 color-black">

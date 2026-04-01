@@ -46,7 +46,7 @@ const ConcernCard = ({
                   : selectedLanguage === "English" && selectedGender === "Male"
                     ? value?.maleEnglish
                     : selectedLanguage === "English" &&
-                        selectedGender === "Female"
+                      selectedGender === "Female"
                       ? value?.femaleEnglish
                       : value?.maleEnglish;
 
@@ -94,14 +94,13 @@ const ConcernCard = ({
             onClick={() => handleConcern(item, item.path)}
           >
             <div
-              className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2 ${
-                (selectedLanguage === "Spanish"
+              className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 w-full flex flex-col items-center p-2 ${(selectedLanguage === "Spanish"
                   ? item?.nameEs
                   : item?.name
                 )?.split(" ").length > 18
                   ? "shirnk-card"
                   : ""
-              }`}
+                }`}
             >
               <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
                 <img
@@ -109,6 +108,9 @@ const ConcernCard = ({
                   src={item?.image ?? gifLoader}
                   alt={item?.name}
                   className="w-full h-full object-contain"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                 />
               </div>
               <p className="text-[16px] mt-1 mb-1 text-black">

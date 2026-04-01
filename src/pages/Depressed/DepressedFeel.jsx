@@ -21,7 +21,9 @@ const DepressedFeel = () => {
         <div className="md:px-10 my-5 sm:px-5 px-5">
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:gap-20 gap-5 items-center">
             <div className="w-full p-4 bg-white shadow-lg rounded-[20px]">
-              <img src={DepressedImg} className="w-full h-auto" />
+              <img src={DepressedImg} className="w-full h-auto"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
             </div>
             <div>
               <DecisionCard />

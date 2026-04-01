@@ -98,6 +98,9 @@ function ConfrmStepWhen() {
                     <img
                       src={confirmData.image}
                       className="mx-auto rounded-xl w-full"
+                        draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                   </div>
                 </div>

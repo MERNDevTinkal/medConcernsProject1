@@ -99,10 +99,10 @@ const femaleFaceRegions = [
   makeRegion("Left Ear", 11, 358, 88, 518, ear),
   makeRegion("Right Ear", 476, 362, 540, 522, ear),
   makeRegion("Forehead", 123, 78, 471, 324, forehead),
-  makeRegion("Left Eye",103, 317, 254, 430, eye),
+  makeRegion("Left Eye", 103, 317, 254, 430, eye),
   makeRegion("Right Eye", 320, 324, 466, 424, eye),
-  makeRegion("Nose",241, 398, 332, 547, nose),
-  makeRegion("Mouth",188, 558, 361, 639, mouth),
+  makeRegion("Nose", 241, 398, 332, 547, nose),
+  makeRegion("Mouth", 188, 558, 361, 639, mouth),
   makeRegion("Right Cheek", 358, 474, 451, 601, cheek),
   makeRegion("Left Cheek", 105, 451, 222, 564, cheek),
   makeRegion("Chin", 210, 652, 349, 712, chin),
@@ -112,12 +112,12 @@ const femaleFaceRegions = [
 // female (Spanish)
 const femaleFaceRegionsSpanish = [
   makeRegion("Oreja Izquierdo", 109, 322, 257, 444, orejaFemaleSpanish),
-  makeRegion("Oreja Derecho",  318, 319, 474, 442, orejaFemaleSpanish),
+  makeRegion("Oreja Derecho", 318, 319, 474, 442, orejaFemaleSpanish),
   makeRegion("Frente", 123, 78, 471, 324, frenteFemaleSpanish),
-  makeRegion("Ojo Izquierdo",13, 367, 103, 522, ojoFemaleSpanish),
+  makeRegion("Ojo Izquierdo", 13, 367, 103, 522, ojoFemaleSpanish),
   makeRegion("Ojo Derecho", 473, 357, 546, 523, ojoFemaleSpanish),
-  makeRegion("Nariz",241, 398, 332, 547, narizFemaleSpanish),
-  makeRegion("Boca",188, 558, 361, 639, bocaFemaleSpanish),
+  makeRegion("Nariz", 241, 398, 332, 547, narizFemaleSpanish),
+  makeRegion("Boca", 188, 558, 361, 639, bocaFemaleSpanish),
   makeRegion("Mejilla Derecho", 549, 599, 615, 719, mejillaFemaleSpanish),
   makeRegion("Mejilla Izquierdo", 287, 539, 379, 657, mejillaFemaleSpanish),
   makeRegion("Barbilla", 210, 652, 349, 712, barbillaFemaleSpanish),
@@ -155,16 +155,16 @@ const EarDiagram = () => {
   };
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
+      () => { },
     );
   }, []);
 
@@ -282,8 +282,11 @@ const EarDiagram = () => {
                       }
                       alt="Face Diagram"
                       onClick={handleClick}
-                      draggable={false}
+
                       className="digram-cards-img cursor-pointer absolute left-1/2 bottom-0 transform -translate-x-1/2"
+                      draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                     {marker && (
                       <div

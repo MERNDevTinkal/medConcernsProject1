@@ -341,6 +341,9 @@ const NeedBoard = () => {
                                 className="w-full"
                                 src={item.image}
                                 alt={item.name}
+                                  draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                               />
                             </div>
 

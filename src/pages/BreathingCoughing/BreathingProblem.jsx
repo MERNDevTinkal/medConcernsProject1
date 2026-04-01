@@ -44,7 +44,7 @@ const BreathingProblem = () => {
                   : selectedLanguage === "English" && selectedGender === "Male"
                     ? value?.maleEnglish
                     : selectedLanguage === "English" &&
-                        selectedGender === "Female"
+                      selectedGender === "Female"
                       ? value?.femaleEnglish
                       : value?.maleEnglish,
       );
@@ -234,14 +234,13 @@ const BreathingProblem = () => {
                     key={data?.id + "-" + index}
                   >
                     <div
-                      className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${
-                        (selectedLanguage === "Spanish"
+                      className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${(selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name
                         )?.length > 18
                           ? "shirnk-card"
                           : ""
-                      }`}
+                        }`}
                     >
                       <div className="dashboard-img card-img-h rounded-2xl">
                         <img
@@ -251,6 +250,9 @@ const BreathingProblem = () => {
                           src={data?.image ?? gifLoader}
                           className="w-full"
                           alt={data?.name}
+                          draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}
                         />
                       </div>
                       <p className={`text-[16px] mt-3 mb-2 text-black `}>

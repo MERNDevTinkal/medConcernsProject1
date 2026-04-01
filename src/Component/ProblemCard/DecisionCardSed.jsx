@@ -1,11 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import {Checked,Close,Question,WomenIcon} from "../../Component/DiseasesData/images"
+import { Checked, Close, Question, WomenIcon } from "../../Component/DiseasesData/images"
 const DecisionCardSed = () => {
   const location = useLocation();
   return (
     <>
       <div className="w-full overflow-hidden decision-cards">
-        
+
         <Link to="/emotions">
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
@@ -30,10 +30,14 @@ const DecisionCardSed = () => {
         {!["/concern-pain", "/face-pain"].includes(location.pathname) && (
           <div className="flex items-center justify-between p-4 border-3 border-white bg-white rounded-[10px] mb-3 cursor-pointer hover:border-blue-600 transition-colors duration-300">
             <div className="flex items-center">
-              <img src={WomenIcon} alt="" className="w-15 h-15" />
+              <img src={WomenIcon} alt="" className="w-15 h-15" draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()} />
             </div>
             <div>
-              <img src={Question} />
+              <img src={Question}   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
             </div>
           </div>
         )}

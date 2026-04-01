@@ -49,7 +49,7 @@ const Feel = () => {
                 : selectedLanguage === "English" && selectedGender === "Male"
                   ? item?.maleEnglish
                   : selectedLanguage === "English" &&
-                      selectedGender === "Female"
+                    selectedGender === "Female"
                     ? item?.femaleEnglish
                     : item?.maleEnglish,
     );
@@ -66,16 +66,16 @@ const Feel = () => {
   };
   useEffect(() => {
     getSetting(
-      () => {},
+      () => { },
       setSelectedGender,
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {},
+      () => { },
+      () => { },
+      () => { },
+      () => { },
     );
   }, []);
   return (
@@ -127,7 +127,9 @@ const Feel = () => {
                         handleRoutes(item, item.secPath);
                       }}
                     >
-                      <img src={item?.image} alt="" />
+                      <img src={item?.image} alt="" draggable={false}
+                        onContextMenu={(e) => e.preventDefault()}
+                        onDragStart={(e) => e.preventDefault()} />
                       <span>
                         {selectedLanguage === "Spanish"
                           ? item?.nameEs

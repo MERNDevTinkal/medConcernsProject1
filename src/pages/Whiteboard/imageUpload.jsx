@@ -26,7 +26,19 @@ export default function AddImagePopup({
 
   const handleChooseFromLibrary = (e) => {
     e.preventDefault();
-    navigate("/images-library", { state: { oldImages, uploadedImages, pathname, textBlocks, paths } });
+    // Map current uploaded images to just their strings (URLs) 
+    // so the Library can compare them with its list
+    const currentSelectedUrls = uploadedImages.map(img => img.src);
+
+    navigate("/images-library", {
+      state: {
+        oldImages, // This contains the full objects (x, y, etc)
+        selectedImages: currentSelectedUrls, // This is for the library's "checked" state
+        pathname,
+        textBlocks,
+        paths
+      }
+    });
   };
   return (
     <div className="flex justify-center">

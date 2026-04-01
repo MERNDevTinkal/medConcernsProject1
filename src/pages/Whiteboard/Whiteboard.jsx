@@ -22,7 +22,7 @@ import {
   KeyBoardIcon,
   imageUploadIcon
 } from "../../Component/DiseasesData/images.jsx"
-/* -------------------- Minimal helpers & UI -------------------- */
+
 function cn(...a) {
   return a.filter(Boolean).join(" ");
 }
@@ -63,34 +63,16 @@ const Card = ({ className = "", ...props }) => (
   />
 );
 
-const CardHeader = ({ className = "", ...props }) => (
-  <div className={cn("border-b border-gray-200", className)} {...props} />
-);
-
 const CardContent = ({ className = "", ...props }) => (
   <div className={cn("p-4 sm:p-5", className)} {...props} />
 );
 
-const Icon = {
-  Pencil: (p) => (
-    <SlPencil {...p} />
-  ),
-  Image: (p) => (
-    <img src={imageUploadIcon} alt="img upload" {...p} />
-  ),
-  Trash: (p) => (
-    <RiEraserFill {...p} />
-  ),
-  Keyword: (p) => <img src={KeyBoardIcon} alt="keyboard icon" {...p} />,
-  FileSave: (p) => <FaSave {...p} />,
-};
 export default function Whiteboard() {
   const location = useLocation();
   const pathname = location?.pathname ?? "";
   const navigate = useNavigate();
   const { id } = useParams();
   const canvasRef = useRef(null);
-  const stripRef = useRef(null);
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [paths, setPaths] = useState([]);
   const [cursorPosition, setCursorPosition] = useState({ line: 0, column: 0 });
@@ -105,15 +87,15 @@ export default function Whiteboard() {
   const [textToolActive, setTextToolActive] = useState(false);
   const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
   const [typedText, setTypedText] = useState("");
-  const [IntroductionOn, setIntroductionOn] = React.useState("");
-  const [CalendarOn, setCalendarOn] = React.useState("");
+  const [IntroductionOn, setIntroductionOn] = useState("");
+  const [CalendarOn, setCalendarOn] = useState("");
   const [draggingImage, setDraggingImage] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(true);
   const [FileUpload, setFileUpload] = useState(false);
   const token = localStorage.getItem("token");
   const licenses_id = localStorage.getItem("license_key");
-  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("");
   const [loader, setLoader] = useState(true);
   const [imageFiles, setImageFiles] = useState([]);
   const wrapperRef = useRef(null);
@@ -124,259 +106,60 @@ export default function Whiteboard() {
   const [updateImage, setUpdateImage] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const [imageCache, setImageCache] = useState(new Map());
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  const CANVAS_WIDTH = 985;
+  const CANVAS_HEIGHT = 600;
+  const TOOLBAR_HEIGHT = 80;
+  const SAFE_AREA_BOTTOM = CANVAS_HEIGHT - TOOLBAR_HEIGHT;
+
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
-  useEffect(() => {
-    console.log("dddd11111")
-    if (!location?.state?.selectedImages) return;
-    const incoming = location.state.selectedImages;
-    setUploadedImages(prev => {
-      const newItems = [];
-      incoming.forEach((src, index) => {
-        if (!prev.some(img => img.src === src)) {
-          const pos = findNonOverlappingImagePosition(200, 200);
-          newItems.push({
-            src,
-            x: pos.x + index * 15,
-            y: pos.y,
-            width: 200,
-            height: 200,
-          });
-        }
-      });
-      return uniqueImages([...prev, ...newItems]);
-    });
 
-  }, [location.state?.selectedImages]);
-  const discardChanges = () => {
-    setIsPopupOpen(false);
-    navigate(-1);
-  };
-
-  const saveFunction = () => {
-    setIsPopupOpen(false);
-    setShowSaveModal(true);
-  };
-  const pointerPos = (e, rect) => {
-    let clientX, clientY;
-    if (e.touches && e.touches[0]) {
-      clientX = e.touches[0].clientX;
-      clientY = e.touches[0].clientY;
-    } else {
-      clientX = e.clientX;
-      clientY = e.clientY;
-    }
-    return { x: clientX - rect.left, y: clientY - rect.top };
-  };
-
-  const findNonOverlappingPosition = useCallback(
-    (clickX, clickY) => {
-      const canvas = canvasRef.current;
-      if (!canvas) return { x: clickX, y: clickY };
-      const rect = canvas.getBoundingClientRect();
-      const padding = 10;
-      const lineHeight = 24;
-      const canvasWidth = rect.width || 985;
-      const canvasHeight = rect.height;
-      let bestX = Math.max(
-        padding,
-        Math.min(clickX, canvasWidth - padding - 100)
-      );
-      let bestY = Math.max(
-        padding,
-        Math.min(clickY, canvasHeight - padding - 50)
-      );
-      const allBlocks = [...textBlocks];
-      if (activeTextBlock && typedText.trim()) {
-        allBlocks.push(activeTextBlock);
-      }
-      const sortedBlocks = [...allBlocks].sort((a, b) => a.y - b.y);
-      for (let i = 0; i < sortedBlocks.length; i++) {
-        const block = sortedBlocks[i];
-        const blockBottom = block.y + (block.height || lineHeight) + padding;
-        if (bestY < blockBottom && Math.abs(bestX - block.x) < 200) {
-          bestY = blockBottom;
-        }
-      }
-      bestY = Math.min(bestY, canvasHeight - lineHeight * 3 - padding);
-      bestX = Math.min(bestX, canvasWidth - 100);
-      return { x: bestX, y: bestY };
-    },
-    [textBlocks, activeTextBlock, typedText]
-  );
-
-  useEffect(() => {
-    console.log("dddd22222")
-    if (!textToolActive) return;
-    const blink = setInterval(() => setShowCursor((c) => !c), 500);
-    return () => clearInterval(blink);
-  }, [textToolActive]);
-
-  /* -------------------- Canvas setup -------------------- */
-  const setCanvasSize = useCallback((node) => {
-    if (!node) return;
-    const dpr = window.devicePixelRatio || 1;
-    const width = 985;
-    const height = 600;
-    node.width = Math.round(width * dpr);
-    node.height = Math.round(height * dpr);
-    node.style.width = `${width}px`;
-    node.style.height = `${height}px`;
-    const ctx = node.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
-    canvasRef.current = node;
+  const constrainImagePosition = useCallback((x, y, width, height) => {
+    const minX = 0;
+    const maxX = CANVAS_WIDTH - width;
+    const minY = 0;
+    const maxY = Math.max(0, SAFE_AREA_BOTTOM - height);
+    
+    return {
+      x: Math.min(Math.max(x, minX), maxX),
+      y: Math.min(Math.max(y, minY), maxY)
+    };
   }, []);
-
-  /* -------------------- Drawing -------------------- */
-  const startDrawing = (e) => {
-    const rect = canvasRef.current.getBoundingClientRect();
-    const pos = pointerPos(e, rect);
-    for (let i = uploadedImages.length - 1; i >= 0; i--) {
-      const img = uploadedImages[i];
-      if (
-        pos.x >= img.x &&
-        pos.x <= img.x + img.width &&
-        pos.y >= img.y &&
-        pos.y <= img.y + img.height
-      ) {
-        // Check if click was on delete icon (top right corner circle area)
-        const iconX = img.x + img.width - 15;
-        const iconY = img.y + 15;
-        const dist = Math.sqrt((pos.x - iconX) ** 2 + (pos.y - iconY) ** 2);
-
-        if (dist <= 15) {
-          handleDeleteImage(i);
-          return;
-        }
-
-        setDraggingImage(i);
-        setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
-        return;
-      }
-    }
-    if (tool !== "pencil" && tool !== "eraser") return;
-    setIsDrawing(true);
-    setPaths((prev) => [
-      ...prev,
-      { tool, color: drawingColor, width: drawingWidth, points: [pos] },
-    ]);
-    const ctx = getCanvasContext();
-    if (ctx) {
-      ctx.beginPath();
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.lineWidth = drawingWidth;
-      ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
-      ctx.moveTo(pos.x, pos.y);
-    }
-  };
 
   const findNonOverlappingImagePosition = useCallback((width, height, currentImages = uploadedImages) => {
     const margin = 20;
     let y = 20;
+    
     if (currentImages.length > 0) {
       const lastImage = currentImages[currentImages.length - 1];
       y = lastImage.y + lastImage.height + margin;
     }
-    // Also consider existing text blocks
+    
     if (textBlocks.length > 0) {
       const lastTextBlock = textBlocks[textBlocks.length - 1];
       y = Math.max(y, lastTextBlock.y + 60);
     }
+    
+    const maxY = SAFE_AREA_BOTTOM - height;
+    y = Math.min(y, maxY);
+    
     return {
       x: 20,
-      y,
+      y: Math.max(20, y)
     };
   }, [uploadedImages, textBlocks]);
 
-  const draw = useCallback(
-    (e) => {
-      const rect = canvasRef.current.getBoundingClientRect();
-      const pos = pointerPos(e, rect);
-      if (draggingImage !== null) {
-        setUploadedImages((prev) =>
-          prev.map((img, i) =>
-            i === draggingImage
-              ? { ...img, x: pos.x - dragOffset.x, y: pos.y - dragOffset.y }
-              : img
-          )
-        );
-        return;
-      }
-      if (!isDrawing || tool === "text") return;
-      setPaths((prev) => {
-        if (prev.length === 0) return prev;
-        const newPaths = [...prev];
-        const lastPath = newPaths[newPaths.length - 1];
-        newPaths[newPaths.length - 1] = {
-          ...lastPath,
-          points: [...lastPath.points, pos],
-        };
-        return newPaths;
-      });
-    },
-    [
-      isDrawing,
-      drawingColor,
-      drawingWidth,
-      tool,
-      getCanvasContext,
-      draggingImage,
-      dragOffset,
-    ]
-  );
-
-
-  const stopDrawing = useCallback(() => {
-    setIsDrawing(false);
-    setDraggingImage(null);
+  const drawPathsAndText = useCallback(() => {
     const ctx = getCanvasContext();
-    if (ctx) {
-      try {
-        ctx.closePath();
-      } catch (err) { }
-      ctx.globalCompositeOperation = "source-over";
-    }
-  }, [getCanvasContext]);
-  /* -------------------- Text helpers -------------------- */
-  useEffect(() => {
-    const ctx = getCanvasContext();
-    const canvas = canvasRef.current;
-    if (!ctx || !canvas) return;
-    const canvasWidth = 985;
-    const canvasHeight = 600;
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    uploadedImages.forEach((imgObj) => {
-      const img = new Image();
-      img.src = imgObj.src;
-      ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
-
-      // Draw delete icon (×) with background circle
-      ctx.save();
-      const iconX = imgObj.x + imgObj.width - 15;
-      const iconY = imgObj.y + 15;
-
-      // Circle background
-      ctx.beginPath();
-      ctx.arc(iconX, iconY, 12, 0, Math.PI * 2);
-      ctx.fillStyle = "white";
-      ctx.fill();
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = "#ccc";
-      ctx.stroke();
-
-      // Red X
-      ctx.font = "bold 18px Arial";
-      ctx.fillStyle = "red";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("×", iconX, iconY);
-      ctx.restore();
-    });
-    console.log("dddd3333")
+    if (!ctx) return;
+    
+    // Draw paths
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
       ctx.beginPath();
@@ -394,11 +177,13 @@ export default function Whiteboard() {
       ctx.closePath();
       ctx.globalCompositeOperation = "source-over";
     });
+    
+    // Draw text blocks
     textBlocks.forEach((block) => {
       if (activeTextBlock && block.id === activeTextBlock.id) return;
       const font = block.font || "20px Arial";
       const lineHeight = 24;
-      const maxWidth = canvasWidth - block.x - 20;
+      const maxWidth = CANVAS_WIDTH - block.x - 20;
       ctx.font = font;
       ctx.fillStyle = block.color || "#000";
       ctx.textBaseline = "top";
@@ -429,56 +214,47 @@ export default function Whiteboard() {
         }
       });
     });
-    if (textToolActive && activeTextBlock) {
-      const font = "20px Arial";
-      const lineHeight = 24;
-      const maxWidth = canvasWidth - activeTextBlock.x - 20;
-      ctx.font = font;
-      ctx.fillStyle = drawingColor;
-      ctx.textBaseline = "top";
-      let currentY = activeTextBlock.y;
-      let cursorX = activeTextBlock.x;
-      let cursorY = activeTextBlock.y;
-      let allVisibleLines = [];
-      let foundCursor = false;
-      textLines.forEach((manualLine, manualLineIndex) => {
-        if (manualLine === "") {
-          allVisibleLines.push({
-            text: "",
-            x: activeTextBlock.x,
-            y: currentY,
-            manualLineIndex: manualLineIndex,
-            startCharIndex: 0,
-            endCharIndex: 0,
-          });
-          currentY += lineHeight;
-          return;
-        }
-        const words = manualLine.split(" ");
-        let currentLine = "";
-        let charCount = 0;
-        for (let i = 0; i < words.length; i++) {
-          const word = words[i];
-          const testLine = currentLine ? currentLine + " " + word : word;
-          const testWidth = ctx.measureText(testLine).width;
-          if (testWidth > maxWidth && currentLine) {
-            allVisibleLines.push({
-              text: currentLine,
-              x: activeTextBlock.x,
-              y: currentY,
-              manualLineIndex: manualLineIndex,
-              startCharIndex: charCount - currentLine.length,
-              endCharIndex: charCount,
-            });
-            currentLine = word;
-            charCount += word.length;
-            currentY += lineHeight;
-          } else {
-            currentLine = testLine;
-            charCount += i === 0 ? word.length : word.length + 1;
-          }
-        }
-        if (currentLine) {
+  }, [paths, textBlocks, activeTextBlock, getCanvasContext]);
+
+  const drawActiveTextIfNeeded = useCallback(() => {
+    if (!textToolActive || !activeTextBlock) return;
+    
+    const ctx = getCanvasContext();
+    if (!ctx) return;
+    
+    const font = "20px Arial";
+    const lineHeight = 24;
+    const maxWidth = CANVAS_WIDTH - activeTextBlock.x - 20;
+    ctx.font = font;
+    ctx.fillStyle = drawingColor;
+    ctx.textBaseline = "top";
+    let currentY = activeTextBlock.y;
+    let cursorX = activeTextBlock.x;
+    let cursorY = activeTextBlock.y;
+    let allVisibleLines = [];
+    let foundCursor = false;
+    
+    textLines.forEach((manualLine, manualLineIndex) => {
+      if (manualLine === "") {
+        allVisibleLines.push({
+          text: "",
+          x: activeTextBlock.x,
+          y: currentY,
+          manualLineIndex: manualLineIndex,
+          startCharIndex: 0,
+          endCharIndex: 0,
+        });
+        currentY += lineHeight;
+        return;
+      }
+      const words = manualLine.split(" ");
+      let currentLine = "";
+      let charCount = 0;
+      for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        const testLine = currentLine ? currentLine + " " + word : word;
+        const testWidth = ctx.measureText(testLine).width;
+        if (testWidth > maxWidth && currentLine) {
           allVisibleLines.push({
             text: currentLine,
             x: activeTextBlock.x,
@@ -487,144 +263,473 @@ export default function Whiteboard() {
             startCharIndex: charCount - currentLine.length,
             endCharIndex: charCount,
           });
+          currentLine = word;
+          charCount += word.length;
           currentY += lineHeight;
-        }
-      });
-      allVisibleLines.forEach((line) => {
-        ctx.fillText(line.text, line.x, line.y);
-      });
-      for (let i = 0; i < allVisibleLines.length; i++) {
-        const line = allVisibleLines[i];
-        if (line.manualLineIndex === cursorPosition.line) {
-          const lineText = line.text;
-          if (
-            cursorPosition.column >= line.startCharIndex &&
-            cursorPosition.column <= line.endCharIndex
-          ) {
-            const relativeColumn = cursorPosition.column - line.startCharIndex;
-            const textBeforeCursor = lineText.slice(0, relativeColumn);
-            cursorX =
-              activeTextBlock.x + ctx.measureText(textBeforeCursor).width;
-            cursorY = line.y;
-            foundCursor = true;
-            break;
-          }
+        } else {
+          currentLine = testLine;
+          charCount += i === 0 ? word.length : word.length + 1;
         }
       }
-      if (!foundCursor) {
-        const targetManualLine = cursorPosition.line;
-        let lastLineForManualLine = null;
-        for (let i = allVisibleLines.length - 1; i >= 0; i--) {
-          if (allVisibleLines[i].manualLineIndex === targetManualLine) {
-            lastLineForManualLine = allVisibleLines[i];
-            break;
-          }
-        }
-
-        if (lastLineForManualLine) {
+      if (currentLine) {
+        allVisibleLines.push({
+          text: currentLine,
+          x: activeTextBlock.x,
+          y: currentY,
+          manualLineIndex: manualLineIndex,
+          startCharIndex: charCount - currentLine.length,
+          endCharIndex: charCount,
+        });
+        currentY += lineHeight;
+      }
+    });
+    
+    allVisibleLines.forEach((line) => {
+      ctx.fillText(line.text, line.x, line.y);
+    });
+    
+    for (let i = 0; i < allVisibleLines.length; i++) {
+      const line = allVisibleLines[i];
+      if (line.manualLineIndex === cursorPosition.line) {
+        const lineText = line.text;
+        if (
+          cursorPosition.column >= line.startCharIndex &&
+          cursorPosition.column <= line.endCharIndex
+        ) {
+          const relativeColumn = cursorPosition.column - line.startCharIndex;
+          const textBeforeCursor = lineText.slice(0, relativeColumn);
           cursorX =
-            activeTextBlock.x +
-            ctx.measureText(lastLineForManualLine.text).width;
-          cursorY = lastLineForManualLine.y;
+            activeTextBlock.x + ctx.measureText(textBeforeCursor).width;
+          cursorY = line.y;
+          foundCursor = true;
+          break;
         }
       }
-
-      // Draw cursor
-      if (showCursor) {
-        ctx.beginPath();
-        ctx.moveTo(cursorX, cursorY);
-        ctx.lineTo(cursorX, cursorY + lineHeight);
-        ctx.strokeStyle = drawingColor;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-      }
-
-      setCaretY(cursorY + lineHeight);
     }
-  }, [
-    paths, textBlocks, activeTextBlock, textLines, textToolActive,
-    drawingColor, cursorPosition, showCursor, getCanvasContext, uploadedImages
-  ]);
-  /* -------------------- Fetch board -------------------- */
-  useEffect(() => {
-    if (!id) {
-      setLoader(false);
+    
+    if (!foundCursor) {
+      const targetManualLine = cursorPosition.line;
+      let lastLineForManualLine = null;
+      for (let i = allVisibleLines.length - 1; i >= 0; i--) {
+        if (allVisibleLines[i].manualLineIndex === targetManualLine) {
+          lastLineForManualLine = allVisibleLines[i];
+          break;
+        }
+      }
+      if (lastLineForManualLine) {
+        cursorX =
+          activeTextBlock.x +
+          ctx.measureText(lastLineForManualLine.text).width;
+        cursorY = lastLineForManualLine.y;
+      }
+    }
+    
+    if (showCursor) {
+      ctx.beginPath();
+      ctx.moveTo(cursorX, cursorY);
+      ctx.lineTo(cursorX, cursorY + lineHeight);
+      ctx.strokeStyle = drawingColor;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+    setCaretY(cursorY + lineHeight);
+  }, [textToolActive, activeTextBlock, textLines, cursorPosition, drawingColor, showCursor, getCanvasContext]);
+
+  const drawSingleImage = (imgObj, img) => {
+    const ctx = getCanvasContext();
+    if (!ctx || !img) return;
+    
+    try {
+      ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
+      
+      ctx.save();
+      const iconX = imgObj.x + imgObj.width - 15;
+      const iconY = imgObj.y + 15;
+      
+      ctx.beginPath();
+      ctx.arc(iconX, iconY, 12, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.fill();
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "#ccc";
+      ctx.stroke();
+      
+      ctx.font = "bold 18px Arial";
+      ctx.fillStyle = "red";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("×", iconX, iconY);
+      ctx.restore();
+    } catch (error) {
+      console.error("Error drawing image:", error);
+    }
+  };
+
+  const redrawCanvas = useCallback(() => {
+    const ctx = getCanvasContext();
+    const canvas = canvasRef.current;
+    if (!ctx || !canvas) return;
+    
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    
+    if (uploadedImages.length === 0) {
+      drawPathsAndText();
+      drawActiveTextIfNeeded();
       return;
     }
-    console.log("dddd44444")
-    const fetchBoard = async () => {
-      const payload = new FormData();
-      payload.append("white_id", id);
-      payload.append("licenses_id", licenses_id);
-
-      try {
-        const { data } = await api.post("whiteBoardEdit", payload, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        if (data.status) {
-          const savedObj = data?.data || {};
-          console.log("Ddddddd55555", savedObj)
-          setDrawingName(savedObj?.name_key || "");
-
-          const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
-          if (savedState.paths) {
-            setPaths(savedState.paths);
-          }
-          if (Array.isArray(savedState.texts)) {
-            setTextBlocks(savedState.texts);
-          }
-          if (savedState.toolSettings) {
-            setDrawingColor(savedState.toolSettings.color || "#000000");
-            setDrawingWidth(savedState.toolSettings.width || 2);
-          }
-          const imagesArray = savedState?.images ?? [];
-
-          setUploadedImages(prev => {
-            const newItems = [];
-            imagesArray.forEach((src, index) => {
-              newItems.push({
-                src: src?.src,
-                x: src.x,
-                y: src.y,
-                width: src.width,
-                height: src.height,
-              });
-
-            });
-            return uniqueImages([...prev, ...newItems]);
-          });
+    
+    let loadedCount = 0;
+    const totalImages = uploadedImages.length;
+    
+    uploadedImages.forEach((imgObj) => {
+      let img = imageCache.get(imgObj.src);
+      
+      if (img && img.complete) {
+        drawSingleImage(imgObj, img);
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          drawPathsAndText();
+          drawActiveTextIfNeeded();
         }
-      } catch (err) {
-        console.error("Failed to fetch whiteboard:", err);
+      } else {
+        const newImg = new Image();
+        newImg.onload = () => {
+          setImageCache(prev => {
+            const newCache = new Map(prev);
+            newCache.set(imgObj.src, newImg);
+            return newCache;
+          });
+          drawSingleImage(imgObj, newImg);
+          loadedCount++;
+          if (loadedCount === totalImages) {
+            drawPathsAndText();
+            drawActiveTextIfNeeded();
+          }
+        };
+        newImg.onerror = () => {
+          loadedCount++;
+          if (loadedCount === totalImages) {
+            drawPathsAndText();
+            drawActiveTextIfNeeded();
+          }
+        };
+        newImg.src = imgObj.src;
       }
-    };
+    });
+  }, [uploadedImages, imageCache, getCanvasContext, drawPathsAndText, drawActiveTextIfNeeded]);
 
-    fetchBoard();
-  }, [id, licenses_id, token]);
+  useEffect(() => {
+    redrawCanvas();
+  }, [uploadedImages, paths, textBlocks, textToolActive, activeTextBlock, textLines, cursorPosition, redrawCanvas]);
 
-  // Helper function to calculate image position without using state
-  const calculateImagePosition = (currentImages, width, height) => {
-    const margin = 20;
-    let y = 20;
-
-    if (currentImages.length > 0) {
-      const lastImage = currentImages[currentImages.length - 1];
-      y = lastImage.y + lastImage.height + margin;
+  // Handle library image selection - MERGE correctly
+  useEffect(() => {
+    if (!location?.state?.selectedImages) return;
+    
+    console.log("Received images from library:", location.state.selectedImages);
+    console.log("Current paths:", paths);
+    console.log("Current textBlocks:", textBlocks);
+    
+    const incomingUrls = location.state.selectedImages;
+    const oldImageObjects = location.state.oldImages || [];
+    
+    // Create a map of existing images
+    const existingImagesMap = new Map();
+    
+    // First add current uploadedImages
+    uploadedImages.forEach(img => {
+      existingImagesMap.set(img.src, img);
+    });
+    
+    // Then add oldImageObjects (these have positions)
+    oldImageObjects.forEach(img => {
+      if (!existingImagesMap.has(img.src)) {
+        existingImagesMap.set(img.src, img);
+      }
+    });
+    
+    const mergedImages = [];
+    const newSelectedImages = [...SelectedImages];
+    
+    // Process incoming images
+    incomingUrls.forEach((src, index) => {
+      const existingImage = existingImagesMap.get(src);
+      
+      if (existingImage) {
+        // Keep existing image with its position
+        mergedImages.push({
+          ...existingImage,
+          id: existingImage.id || Date.now() + index
+        });
+      } else {
+        // New image
+        const pos = findNonOverlappingImagePosition(200, 200, mergedImages);
+        const constrainedPos = constrainImagePosition(pos.x, pos.y, 200, 200);
+        mergedImages.push({
+          src,
+          x: constrainedPos.x,
+          y: constrainedPos.y,
+          width: 200,
+          height: 200,
+          id: Date.now() + index
+        });
+      }
+      
+      if (!newSelectedImages.includes(src)) {
+        newSelectedImages.push(src);
+      }
+    });
+    
+    // Keep images that were not in incoming list
+    existingImagesMap.forEach((img, src) => {
+      if (!incomingUrls.includes(src)) {
+        mergedImages.push(img);
+      }
+    });
+    
+    // Update states - preserve existing paths and textBlocks
+    setUploadedImages(uniqueImages(mergedImages));
+    setSelectedImages(newSelectedImages);
+    
+    // Don't clear paths and textBlocks - preserve them
+    if (location.state.textBlocks && location.state.textBlocks.length > 0) {
+      setTextBlocks(prev => {
+        // Merge existing text blocks with new ones
+        const existingTextMap = new Map();
+        prev.forEach(block => existingTextMap.set(block.id, block));
+        location.state.textBlocks.forEach(block => {
+          if (!existingTextMap.has(block.id)) {
+            existingTextMap.set(block.id, block);
+          }
+        });
+        return Array.from(existingTextMap.values());
+      });
     }
-
-    // Also consider existing text blocks
-    if (textBlocks.length > 0) {
-      const lastTextBlock = textBlocks[textBlocks.length - 1];
-      y = Math.max(y, lastTextBlock.y + 60);
+    
+    if (location.state.paths && location.state.paths.length > 0) {
+      setPaths(prev => [...prev, ...location.state.paths]);
     }
+    
+    // Clear location state
+    setTimeout(() => {
+      window.history.replaceState({}, document.title);
+    }, 100);
+    
+  }, [location.state?.selectedImages]);
 
-    return {
-      x: 20,
-      y,
-    };
+  const handleImageUpload = useCallback((files) => {
+    if (!files || files.length === 0) return;
+    
+    const filesArray = Array.from(files);
+    const newImages = [];
+    const newImageFiles = [...imageFiles];
+    const newSelectedImages = [...SelectedImages];
+    
+    filesArray.forEach((file, idx) => {
+      const src = URL.createObjectURL(file);
+      newImageFiles.push(file);
+      
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        const maxSize = 200;
+        
+        if (width > maxSize || height > maxSize) {
+          const scale = Math.min(maxSize / width, maxSize / height);
+          width *= scale;
+          height *= scale;
+        }
+        
+        const currentAllImages = [...uploadedImages, ...newImages];
+        const pos = findNonOverlappingImagePosition(width, height, currentAllImages);
+        const constrainedPos = constrainImagePosition(pos.x, pos.y, width, height);
+        
+        const newImage = {
+          src,
+          x: constrainedPos.x,
+          y: constrainedPos.y,
+          width,
+          height,
+          id: Date.now() + idx + Math.random()
+        };
+        
+        newImages.push(newImage);
+        
+        if (!newSelectedImages.includes(src)) {
+          newSelectedImages.push(src);
+        }
+        
+        if (newImages.length === filesArray.length) {
+          setUploadedImages(prev => uniqueImages([...prev, ...newImages]));
+          setImageFiles(newImageFiles);
+          setSelectedImages(newSelectedImages);
+        }
+      };
+      img.src = src;
+    });
+  }, [uploadedImages, imageFiles, SelectedImages, findNonOverlappingImagePosition, constrainImagePosition]);
+
+  const handleDeleteImage = useCallback((index) => {
+    const removedImage = uploadedImages[index];
+    if (!removedImage) return;
+    
+    const removedSrc = removedImage.src;
+    
+    setUploadedImages(prev => prev.filter((_, i) => i !== index));
+    setSelectedImages(prev => prev.filter(url => url !== removedSrc));
+    setUpdateImage(prev => [...prev, removedSrc]);
+    setImageFiles(prev => prev.filter((_, i) => i !== index));
+    
+    setImageCache(prev => {
+      const newCache = new Map(prev);
+      newCache.delete(removedSrc);
+      return newCache;
+    });
+    
+    if (removedSrc.startsWith('blob:')) {
+      URL.revokeObjectURL(removedSrc);
+    }
+  }, [uploadedImages]);
+
+  const uniqueImages = (images) => {
+    const seen = new Map();
+    return images.filter(img => {
+      if (seen.has(img.src)) return false;
+      seen.set(img.src, true);
+      return true;
+    });
   };
-  /* -------------------- Save Drawing -------------------- */
+
+  const pointerPos = (e, rect) => {
+    let clientX, clientY;
+    if (e.touches && e.touches[0]) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  };
+
+  const startDrawing = useCallback((e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const pos = pointerPos(e, rect);
+    
+    for (let i = uploadedImages.length - 1; i >= 0; i--) {
+      const img = uploadedImages[i];
+      if (
+        pos.x >= img.x &&
+        pos.x <= img.x + img.width &&
+        pos.y >= img.y &&
+        pos.y <= img.y + img.height
+      ) {
+        const iconX = img.x + img.width - 15;
+        const iconY = img.y + 15;
+        const dist = Math.sqrt((pos.x - iconX) ** 2 + (pos.y - iconY) ** 2);
+
+        if (dist <= 15) {
+          handleDeleteImage(i);
+          return;
+        }
+
+        setDraggingImage(i);
+        setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
+        return;
+      }
+    }
+    
+    if (tool !== "pencil" && tool !== "eraser") return;
+    setIsDrawing(true);
+    setPaths((prev) => [
+      ...prev,
+      { tool, color: drawingColor, width: drawingWidth, points: [pos] },
+    ]);
+    const ctx = getCanvasContext();
+    if (ctx) {
+      ctx.beginPath();
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.lineWidth = drawingWidth;
+      ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
+      ctx.moveTo(pos.x, pos.y);
+    }
+  }, [tool, drawingColor, drawingWidth, uploadedImages, getCanvasContext, handleDeleteImage]);
+
+  const draw = useCallback((e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const pos = pointerPos(e, rect);
+    
+    if (draggingImage !== null) {
+      setUploadedImages((prev) =>
+        prev.map((img, i) => {
+          if (i === draggingImage) {
+            let newX = pos.x - dragOffset.x;
+            let newY = pos.y - dragOffset.y;
+            const constrained = constrainImagePosition(newX, newY, img.width, img.height);
+            return { ...img, x: constrained.x, y: constrained.y };
+          }
+          return img;
+        })
+      );
+      return;
+    }
+    
+    if (!isDrawing || tool === "text") return;
+    
+    setPaths((prev) => {
+      if (prev.length === 0) return prev;
+      const newPaths = [...prev];
+      const lastPath = newPaths[newPaths.length - 1];
+      newPaths[newPaths.length - 1] = {
+        ...lastPath,
+        points: [...lastPath.points, pos],
+      };
+      return newPaths;
+    });
+  }, [isDrawing, tool, draggingImage, dragOffset, constrainImagePosition]);
+
+  const stopDrawing = useCallback(() => {
+    setIsDrawing(false);
+    setDraggingImage(null);
+    const ctx = getCanvasContext();
+    if (ctx) {
+      try {
+        ctx.closePath();
+      } catch (err) { }
+      ctx.globalCompositeOperation = "source-over";
+    }
+  }, [getCanvasContext]);
+
+  const setCanvasSize = useCallback((node) => {
+    if (!node) return;
+    const dpr = window.devicePixelRatio || 1;
+    node.width = Math.round(CANVAS_WIDTH * dpr);
+    node.height = Math.round(CANVAS_HEIGHT * dpr);
+    node.style.width = `${CANVAS_WIDTH}px`;
+    node.style.height = `${CANVAS_HEIGHT}px`;
+    const ctx = node.getContext("2d");
+    if (ctx) ctx.scale(dpr, dpr);
+    canvasRef.current = node;
+    setIsInitialized(true);
+  }, []);
+
+  const handleClear = () => {
+    setActiveTextBlock(null);
+    setTextLines([""]);
+    setTypedText("");
+    setCursorPosition({ line: 0, column: 0 });
+    setTextToolActive(false);
+    setShowKeyboard(false);
+    setPaths([]);
+    setUploadedImages([]);
+    setImageFiles([]);
+    setTextBlocks([]);
+    setSelectedImages([]);
+    setImageCache(new Map());
+    setUpdateImage([]);
+  };
+
   const commitTypedText = useCallback(() => {
     if (!activeTextBlock) return;
     const textContent = textLines.join("\n");
@@ -660,7 +765,7 @@ export default function Whiteboard() {
 
   const handleSaveDrawing = async () => {
     if (!drawingName.trim()) {
-      alert("Please enter a drawing name");
+      toast.error("Please enter a drawing name");
       return;
     }
 
@@ -674,6 +779,7 @@ export default function Whiteboard() {
         ];
       }
     }
+    
     const state = {
       name: drawingName.trim(),
       paths,
@@ -694,11 +800,15 @@ export default function Whiteboard() {
     const payload = new FormData();
     payload.append("licenses_id", licenses_id);
     payload.append("name_key", drawingName);
-    payload.append("images_url", SelectedImages);
+    payload.append("images_url", JSON.stringify(SelectedImages));
     payload.append("data", JSON.stringify(state));
 
-    if (id) {
-      payload.append("imageFileRemove", updateImage);
+    if (id && id !== "null") {
+      payload.append("white_id", id);
+    }
+    
+    if (updateImage.length > 0) {
+      payload.append("imageFileRemove", JSON.stringify(updateImage));
     }
 
     if (imageFiles && imageFiles.length > 0) {
@@ -707,11 +817,8 @@ export default function Whiteboard() {
       });
     }
 
-    if (id && id !== "null") {
-      payload.append("white_id", id);
-    }
     try {
-      const urlPath = id ? "whiteBoardUpdate" : "whiteBoardCreate";
+      const urlPath = id && id !== "null" ? "whiteBoardUpdate" : "whiteBoardCreate";
       const { data } = await api.post(urlPath, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -719,23 +826,190 @@ export default function Whiteboard() {
         },
       });
       if (data.status) {
-        toast.success(data.msg, {
-          replace: true, state: {},
-          autoClose: 1500,
-          onclose: navigate("/white-board-list"),
-        });
+        toast.success(data.msg);
+        setTimeout(() => navigate("/white-board-list"), 1500);
       } else {
-        toast.error(data.msg, { autoClose: 1500 });
+        toast.error(data.msg);
       }
     } catch (err) {
-      toast.error(err?.response?.data?.msg, { autoClose: 1500 });
+      toast.error(err?.response?.data?.msg || "Error saving drawing");
     }
   };
+
+  const findNonOverlappingPosition = useCallback((clickX, clickY) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return { x: clickX, y: clickY };
+    const rect = canvas.getBoundingClientRect();
+    const padding = 10;
+    const lineHeight = 24;
+    const canvasWidth = rect.width || CANVAS_WIDTH;
+    const canvasHeight = rect.height;
+    let bestX = Math.max(
+      padding,
+      Math.min(clickX, canvasWidth - padding - 100)
+    );
+    let bestY = Math.max(
+      padding,
+      Math.min(clickY, canvasHeight - padding - 50)
+    );
+    const allBlocks = [...textBlocks];
+    if (activeTextBlock && typedText.trim()) {
+      allBlocks.push(activeTextBlock);
+    }
+    const sortedBlocks = [...allBlocks].sort((a, b) => a.y - b.y);
+    for (let i = 0; i < sortedBlocks.length; i++) {
+      const block = sortedBlocks[i];
+      const blockBottom = block.y + (block.height || lineHeight) + padding;
+      if (bestY < blockBottom && Math.abs(bestX - block.x) < 200) {
+        bestY = blockBottom;
+      }
+    }
+    bestY = Math.min(bestY, canvasHeight - lineHeight * 3 - padding);
+    bestX = Math.min(bestX, canvasWidth - 100);
+    return { x: bestX, y: bestY };
+  }, [textBlocks, activeTextBlock, typedText]);
+
+  const activateTextTool = () => {
+    setTool("text");
+    setTextToolActive(true);
+    setShowKeyboard(true);
+    if (textPosition.x === 0 && textPosition.y === 0) {
+      setTextPosition({ x: 20, y: 20 });
+      const newTextBlock = {
+        id: Date.now(),
+        x: 20,
+        y: 20,
+        text: "",
+        color: drawingColor,
+        font: "20px Arial",
+      };
+      setActiveTextBlock(newTextBlock);
+    }
+  };
+
+  const handleClick = (e) => {
+    if (tool !== "text") return;
+    const rect = canvasRef.current.getBoundingClientRect();
+    const pos = pointerPos(e, rect);
+    let clickedOnExisting = false;
+    
+    for (const block of textBlocks) {
+      const blockRight = block.x + 300;
+      const blockBottom = block.y + 100;
+      if (
+        pos.x >= block.x - 10 &&
+        pos.x <= blockRight + 10 &&
+        pos.y >= block.y - 5 &&
+        pos.y <= blockBottom + 5
+      ) {
+        if (activeTextBlock && activeTextBlock.id === block.id) {
+          updateCursorPosition(pos, block);
+          clickedOnExisting = true;
+          break;
+        }
+
+        if (activeTextBlock && typedText.trim()) {
+          commitTypedText();
+        }
+        setActiveTextBlock(block);
+        const lines = block.text.split("\n");
+        setTextLines(lines);
+        setTypedText(block.text);
+        const lineHeight = 24;
+        const relativeY = pos.y - block.y;
+        const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
+        const actualLine = Math.min(clickedLine, lines.length - 1);
+
+        const ctx = canvasRef.current.getContext("2d");
+        ctx.font = "20px Arial";
+        const lineText = lines[actualLine] || "";
+        const relativeX = pos.x - block.x;
+
+        let charPosition = 0;
+        let currentWidth = 0;
+
+        for (let i = 0; i < lineText.length; i++) {
+          const charWidth = ctx.measureText(lineText[i]).width;
+          if (currentWidth + charWidth / 2 > relativeX) break;
+          currentWidth += charWidth;
+          charPosition = i + 1;
+        }
+
+        setCursorPosition({ line: actualLine, column: charPosition });
+        setTextToolActive(true);
+        setShowKeyboard(true);
+        clickedOnExisting = true;
+        break;
+      }
+    }
+
+    if (!clickedOnExisting) {
+      if (activeTextBlock && typedText.trim()) {
+        commitTypedText();
+      } else if (activeTextBlock && !typedText.trim()) {
+        setActiveTextBlock(null);
+        setTextLines([""]);
+        setTypedText("");
+        setCursorPosition({ line: 0, column: 0 });
+        setTextToolActive(false);
+        setShowKeyboard(false);
+        return;
+      }
+
+      const newPosition = findNonOverlappingPosition(pos.x, pos.y);
+      const newTextBlock = {
+        id: Date.now(),
+        x: newPosition.x,
+        y: newPosition.y,
+        text: "",
+        color: drawingColor,
+        font: "20px Arial",
+      };
+
+      setActiveTextBlock(newTextBlock);
+      setTextLines([""]);
+      setTypedText("");
+      setCursorPosition({ line: 0, column: 0 });
+      setTextToolActive(true);
+      setShowKeyboard(true);
+    }
+  };
+
+  const updateCursorPosition = (pos, block) => {
+    const ctx = canvasRef.current.getContext("2d");
+    ctx.font = "20px Arial";
+    const lineHeight = 24;
+    const relativeX = pos.x - block.x;
+    const relativeY = pos.y - block.y;
+    const lines = block.text.split("\n");
+    const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
+    const actualLine = Math.min(clickedLine, lines.length - 1);
+    let charPosition = 0;
+    let currentWidth = 0;
+    const lineText = lines[actualLine] || "";
+    for (let i = 0; i < lineText.length; i++) {
+      const charWidth = ctx.measureText(lineText[i]).width;
+      if (currentWidth + charWidth / 2 > relativeX) {
+        break;
+      }
+      currentWidth += charWidth;
+      charPosition = i + 1;
+    }
+    setCursorPosition({
+      line: actualLine,
+      column: charPosition,
+    });
+  };
+
   const handleKeyboardChange = (input) => {
     setTypedText(input);
+    const lines = input.split("\n");
+    setTextLines(lines);
   };
+
   const handleKeyboardKeyPress = (button) => {
     if (!button) return;
+    
     switch (button) {
       case "{enter}":
       case "{return}":
@@ -754,7 +1028,6 @@ export default function Whiteboard() {
           const afterCursor = currentLine.slice(cursorPosition.column);
           newLines[cursorPosition.line] = beforeCursor;
           newLines.splice(cursorPosition.line + 1, 0, afterCursor);
-
           setTextLines(newLines);
           setCursorPosition({
             line: cursorPosition.line + 1,
@@ -815,28 +1088,36 @@ export default function Whiteboard() {
     } else if (cursorPosition.line > 0) {
       const prevLine = newLines[cursorPosition.line - 1];
       const currentLine = newLines[cursorPosition.line];
+      newLines[cursorPosition.line - 1] = prevLine + currentLine;
+      newLines.splice(cursorPosition.line, 1);
+      setTextLines(newLines);
       setCursorPosition({
         line: cursorPosition.line - 1,
         column: prevLine.length,
       });
+      setTypedText(newLines.join("\n"));
     }
   };
+
   useEffect(() => {
     if (!textToolActive) return;
-    console.log("dddd66666")
+    const blink = setInterval(() => setShowCursor((c) => !c), 500);
+    return () => clearInterval(blink);
+  }, [textToolActive]);
+
+  useEffect(() => {
+    if (!textToolActive) return;
     const onKeyDown = (e) => {
       if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
+      
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      
       e.preventDefault();
 
       switch (e.key) {
         case "Backspace":
           handleBackspace();
           break;
-
-        case "Delete":
-          handleDelete();
-          break;
-
         case "Enter":
           const newLines = [...textLines];
           if (cursorPosition.column === newLines[cursorPosition.line].length) {
@@ -923,7 +1204,7 @@ export default function Whiteboard() {
           }));
           break;
         default:
-          if (e.key.length === 1) {
+          if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
             insertTextAtCursor(e.key);
           }
           break;
@@ -933,287 +1214,7 @@ export default function Whiteboard() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [textToolActive, textLines, cursorPosition]);
 
-  const handleDelete = () => {
-    const newLines = [...textLines];
-    const currentLine = newLines[cursorPosition.line] || "";
-    if (cursorPosition.column < currentLine.length) {
-      newLines[cursorPosition.line] =
-        currentLine.slice(0, cursorPosition.column) +
-        currentLine.slice(cursorPosition.column + 1);
-      setTextLines(newLines);
-      setTypedText(newLines.join("\n"));
-    } else if (cursorPosition.line < textLines.length - 1) {
-      const nextLine = newLines[cursorPosition.line + 1];
-      newLines[cursorPosition.line] = currentLine + nextLine;
-      newLines.splice(cursorPosition.line + 1, 1);
-      setTextLines(newLines);
-      setTypedText(newLines.join("\n"));
-    }
-  };
-  /* -------------------- Image Upload -------------------- */
-
-  const handleImageUpload = (files) => {
-    if (!files || files.length === 0) return;
-
-    Array.from(files).forEach((file) => {
-      setImageFiles((prev) => [...prev, file]);
-
-      const src = URL.createObjectURL(file);
-      const img = new Image();
-
-      img.onload = () => {
-        let { width, height } = img;
-        const maxSize = 200;
-
-        if (width > maxSize || height > maxSize) {
-          const scale = Math.min(maxSize / width, maxSize / height);
-          width *= scale;
-          height *= scale;
-        }
-
-        // Pass current uploadedImages for calculation
-        const pos = findNonOverlappingImagePosition(width, height, uploadedImages);
-
-        setUploadedImages((prev) => [
-          ...prev,
-          {
-            src,
-            x: pos.x,
-            y: pos.y,
-            width,
-            height,
-          },
-        ]);
-
-        if (src.startsWith('blob:')) {
-          return;
-        }
-
-        setSelectedImages(prev => {
-          if (prev.includes(src)) return prev;
-          return [...prev, src];
-        });
-      };
-
-      img.src = src;
-    });
-  };
-  /* -------------------- Misc: settings loader -------------------- */
-  useEffect(() => {
-    getSetting(
-      () => { },
-      () => { },
-      setSelectedLanguage,
-      setCalendarOn,
-      setIntroductionOn,
-      setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
-    );
-  }, []);
-
-  useEffect(() => {
-    if (!wrapperRef.current) return;
-    const { scrollTop, clientHeight } = wrapperRef.current;
-
-    if (caretY > scrollTop + clientHeight - 30) {
-      wrapperRef.current.scrollTop = caretY - clientHeight + 30;
-    }
-    console.log("dddd777777")
-    if (caretY < scrollTop) {
-      wrapperRef.current.scrollTop = caretY - 10;
-    }
-  }, [caretY]);
-
-  const handleClick = (e) => {
-    if (tool !== "text") return;
-    const rect = canvasRef.current.getBoundingClientRect();
-    const pos = pointerPos(e, rect);
-    let clickedOnExisting = false;
-    for (const block of textBlocks) {
-      const blockRight = block.x + 300;
-      const blockBottom = block.y + 100;
-      if (
-        pos.x >= block.x - 10 &&
-        pos.x <= blockRight + 10 &&
-        pos.y >= block.y - 5 &&
-        pos.y <= blockBottom + 5
-      ) {
-        if (activeTextBlock && activeTextBlock.id === block.id) {
-          updateCursorPosition(pos, block);
-          clickedOnExisting = true;
-          break;
-        }
-
-        if (activeTextBlock && typedText.trim()) {
-          commitTypedText();
-        }
-        setActiveTextBlock(block);
-        const lines = block.text.split("\n");
-        setTextLines(lines);
-        setTypedText(block.text);
-        const lineHeight = 24;
-        const relativeY = pos.y - block.y;
-        const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
-        const actualLine = Math.min(clickedLine, lines.length - 1);
-
-        const ctx = canvasRef.current.getContext("2d");
-        ctx.font = "20px Arial";
-        const lineText = lines[actualLine] || "";
-        const relativeX = pos.x - block.x;
-
-        let charPosition = 0;
-        let currentWidth = 0;
-
-        for (let i = 0; i < lineText.length; i++) {
-          const charWidth = ctx.measureText(lineText[i]).width;
-          if (currentWidth + charWidth / 2 > relativeX) break;
-          currentWidth += charWidth;
-          charPosition = i + 1;
-        }
-
-        setCursorPosition({ line: actualLine, column: charPosition });
-        setTextToolActive(true);
-        setShowKeyboard(true);
-        clickedOnExisting = true;
-        break;
-      }
-    }
-
-    if (!clickedOnExisting) {
-      if (activeTextBlock && typedText.trim()) {
-        commitTypedText();
-      } else if (activeTextBlock && !typedText.trim()) {
-        setActiveTextBlock(null);
-        setTextLines([""]);
-        setTypedText("");
-        setCursorPosition({ line: 0, column: 0 });
-        setTextToolActive(false);
-        setShowKeyboard(false);
-        return;
-      }
-
-      const newPosition = findNonOverlappingPosition(pos.x, pos.y);
-      const newTextBlock = {
-        id: Date.now(),
-        x: newPosition.x,
-        y: newPosition.y,
-        text: "",
-        color: drawingColor,
-        font: "20px Arial",
-      };
-
-      setActiveTextBlock(newTextBlock);
-      setTextLines([""]);
-      setTypedText("");
-      setCursorPosition({ line: 0, column: 0 });
-      setTextToolActive(true);
-      setShowKeyboard(true);
-    }
-  };
-  const activateTextTool = () => {
-    setTool("text");
-    setTextToolActive(true);
-    setShowKeyboard(true);
-    if (textPosition.x === 0 && textPosition.y === 0) {
-      const rect = canvasRef.current?.getBoundingClientRect();
-      if (rect) {
-        setTextPosition({ x: 20, y: 20 });
-        const newTextBlock = {
-          id: Date.now(),
-          x: 20,
-          y: 20,
-          text: "",
-          color: drawingColor,
-          font: "20px Arial",
-        };
-        setActiveTextBlock(newTextBlock);
-      }
-    }
-  };
-
-  const handleClear = () => {
-    setActiveTextBlock(null);
-    setTextLines([""]);
-    setTypedText("");
-    setCursorPosition({ line: 0, column: 0 });
-    setTextToolActive(false);
-    setShowKeyboard(false);
-    setPaths([]);
-    setUploadedImages([]);
-    setImageFiles([]);
-    setTextBlocks([]);
-    setSelectedImages([]);
-  };
-
-  const updateCursorPosition = (pos, block) => {
-    const ctx = canvasRef.current.getContext("2d");
-    ctx.font = "20px Arial";
-    const lineHeight = 24;
-    const relativeX = pos.x - block.x;
-    const relativeY = pos.y - block.y;
-    const lines = block.text.split("\n");
-    const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
-    const actualLine = Math.min(clickedLine, lines.length - 1);
-    let charPosition = 0;
-    let currentWidth = 0;
-    const lineText = lines[actualLine] || "";
-    for (let i = 0; i < lineText.length; i++) {
-      const charWidth = ctx.measureText(lineText[i]).width;
-      if (currentWidth + charWidth / 2 > relativeX) {
-        break;
-      }
-      currentWidth += charWidth;
-      charPosition = i + 1;
-    }
-    setCursorPosition({
-      line: actualLine,
-      column: charPosition,
-    });
-  };
-
-  const handleFileUpload = (e) => {
-    e.preventDefault();
-    setFileUpload(true);
-  };
-  const handleDeleteImage = (index) => {
-    const removedImage = uploadedImages[index]?.src;
-    if (SelectedImages.includes(removedImage)) {
-      setSelectedImages((prev) => prev.filter((url) => url !== removedImage));
-    }
-    setUpdateImage((prev) => [...prev, removedImage]);
-    setUploadedImages((prev) => prev.filter((_, i) => i !== index));
-    setImageFiles((prev) => prev.filter((_, i) => i !== index));
-  };
-
-
-  const uniqueImages = (images) => {
-    const seen = new Set();
-    return images.filter(img => {
-      if (seen.has(img.src)) return false;
-      seen.add(img.src);
-      return true;
-    });
-  };
-  const t = (params) => {
-    const transtext = selectedLanguage === "Spanish" ? "sp" : "en";
-    const trans = {
-      en: {
-        name: "Whiteboard",
-        title: "Saved WhiteBoards List",
-        text: "View List"
-      },
-      sp: {
-        name: "Pizarron",
-        title: "Lista de Pizarras Guardadas",
-        text: "Ver Lista"
-      }
-    }
-    return trans[transtext][params];
-  }
-    const checkDataExits = () => {
+  const checkDataExits = () => {
     let committedTexts = [...textBlocks];
     if (activeTextBlock) {
       const textContent = textLines.join("\n");
@@ -1240,17 +1241,124 @@ export default function Whiteboard() {
         width: drawingWidth,
       },
     };
-    let isEmptyDrawing = false;
-    if (
-      (!state.paths || state.paths.length === 0) &&
-      (!state.texts || state.texts.length === 0) &&
-      (!state.images || state.images.length === 0)
-    ) {
-      isEmptyDrawing = true;
-    }
-    return isEmptyDrawing;
+    
+    return !(
+      state.paths?.length === 0 &&
+      state.texts?.length === 0 &&
+      state.images?.length === 0
+    );
   };
-   return (
+
+  useEffect(() => {
+    getSetting(
+      () => { },
+      () => { },
+      setSelectedLanguage,
+      setCalendarOn,
+      setIntroductionOn,
+      setLoader,
+      () => { },
+      () => { },
+      () => { },
+      () => { }
+    );
+  }, []);
+
+  useEffect(() => {
+    if (!id || id === "null") {
+      setLoader(false);
+      return;
+    }
+    
+    if (location.state?.selectedImages) {
+      setLoader(false);
+      return;
+    }
+    
+    const fetchBoard = async () => {
+      const payload = new FormData();
+      payload.append("white_id", id);
+      payload.append("licenses_id", licenses_id);
+
+      try {
+        const { data } = await api.post("whiteBoardEdit", payload, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (data.status) {
+          const savedObj = data?.data || {};
+          setDrawingName(savedObj?.name_key || "");
+
+          const savedState = savedObj.data ? JSON.parse(savedObj.data) : {};
+          if (savedState.paths) {
+            setPaths(savedState.paths);
+          }
+          if (Array.isArray(savedState.texts)) {
+            setTextBlocks(savedState.texts);
+          }
+          if (savedState.toolSettings) {
+            setDrawingColor(savedState.toolSettings.color || "#000000");
+            setDrawingWidth(savedState.toolSettings.width || 2);
+          }
+          const imagesArray = savedState?.images ?? [];
+          
+          const restoredImages = [];
+          const imageUrls = [];
+          
+          imagesArray.forEach((img, index) => {
+            const constrainedPos = constrainImagePosition(img.x, img.y, img.width, img.height);
+            restoredImages.push({
+              src: img.src,
+              x: constrainedPos.x,
+              y: constrainedPos.y,
+              width: img.width,
+              height: img.height,
+              id: Date.now() + index
+            });
+            imageUrls.push(img.src);
+          });
+          
+          setUploadedImages(restoredImages);
+          setSelectedImages(imageUrls);
+        }
+      } catch (err) {
+        console.error("Failed to fetch whiteboard:", err);
+      } finally {
+        setLoader(false);
+      }
+    };
+
+    fetchBoard();
+  }, [id, licenses_id, token]);
+
+  const discardChanges = () => {
+    setIsPopupOpen(false);
+    navigate(-1);
+  };
+
+  const saveFunction = () => {
+    setIsPopupOpen(false);
+    setShowSaveModal(true);
+  };
+
+  const t = (params) => {
+    const transtext = selectedLanguage === "Spanish" ? "sp" : "en";
+    const trans = {
+      en: {
+        name: "Whiteboard",
+        title: "Saved WhiteBoards List",
+        text: "View List"
+      },
+      sp: {
+        name: "Pizarron",
+        title: "Lista de Pizarras Guardadas",
+        text: "Ver Lista"
+      }
+    }
+    return trans[transtext][params];
+  }
+
+  return (
     <>
       {FileUpload && (
         <ImageUpload
@@ -1276,7 +1384,7 @@ export default function Whiteboard() {
       ) : (
         <>
           <Header
-            isSummary={!checkDataExits() ? true : false}
+            isSummary={checkDataExits()}
             setIsPopupOpen={setIsPopupOpen}
             selectedLanguage={selectedLanguage}
             introductionOn={IntroductionOn}
@@ -1289,16 +1397,17 @@ export default function Whiteboard() {
               <Card className="w-full flex flex-col relative">
                 <div
                   ref={wrapperRef}
-                  className="relative w-auto  overflow-y-auto overflow-x-hidden mx-auto"
+                  className="relative w-auto overflow-y-auto overflow-x-hidden mx-auto"
                 >
                   <canvas
                     ref={setCanvasSize}
-                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
-                      ? "cursor-text"
-                      : tool === "eraser"
+                    className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${
+                      tool === "text"
+                        ? "cursor-text"
+                        : tool === "eraser"
                         ? "cursor-eraser"
                         : "cursor-crosshair"
-                      }`}
+                    }`}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1309,14 +1418,14 @@ export default function Whiteboard() {
                     onClick={handleClick}
                   />
                 </div>
-                <CardContent className=" flex flex-wrap items-center justify-center gap-5 whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1">
+                <CardContent className="flex flex-wrap items-center justify-center gap-5 whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1">
                   <Button
                     variant="ghost"
                     size="icon"
                     className={cn(tool === "pencil" && "bg-gray-100")}
                     onClick={() => {
                       if (activeTextBlock && typedText.trim()) {
-                        commitTypedText(true);
+                        commitTypedText();
                       }
                       setTool("pencil");
                       setShowKeyboard(false);
@@ -1336,6 +1445,9 @@ export default function Whiteboard() {
                       src={TextIcon}
                       className="icon-size-add"
                       alt="Text Icon"
+                      draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
                     />
                   </Button>
                   <Button
@@ -1372,7 +1484,7 @@ export default function Whiteboard() {
                     className={cn(tool === "eraser" && "bg-gray-100")}
                     onClick={() => {
                       if (activeTextBlock && typedText.trim()) {
-                        commitTypedText(true);
+                        commitTypedText();
                       }
                       setTool("eraser");
                       setShowKeyboard(false);
@@ -1382,22 +1494,6 @@ export default function Whiteboard() {
                     title="Eraser"
                   >
                     <img src={EraserIcon} className="icon-size-add" alt="Eraser Icon" />
-                  </Button>
-
-                  {/* Delete Selected Image Button */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className={cn(selectedImageIndex !== null && "bg-red-100")}
-                    onClick={() => {
-                      if (selectedImageIndex !== null) {
-                        handleDeleteImage(selectedImageIndex);
-                      }
-                    }}
-                    title="Delete Selected Image"
-                    disabled={selectedImageIndex === null}
-                  >
-                    <Icon.Trash className="icon-size-add" />
                   </Button>
 
                   <Button
@@ -1526,269 +1622,4 @@ export default function Whiteboard() {
       <Footer />
     </>
   );
-  // return (
-  //   <>
-  //     {FileUpload && (
-  //       <ImageUpload
-  //         pathname={pathname}
-  //         uploadedImages={SelectedImages}
-  //         handleImageUpload={handleImageUpload}
-  //         setOpen={setFileUpload}
-  //         open={FileUpload}
-  //       />
-  //     )}
-  //     {loader ? (
-  //       <Loader />
-  //     ) : (
-  //       <>
-  //         <Header
-  //           selectedLanguage={selectedLanguage}
-  //           introductionOn={IntroductionOn}
-  //           calendarOn={CalendarOn}
-  //           name={t('name')}
-  //         />
-  //         <div className="main-wrapper home-wrapper">
-  //           <div className="flex justify-end mb-2">
-  //             <Button
-  //               className="thm-btn"
-  //               onClick={() => navigate("/white-board-list")}
-  //             >
-  //               {t('title')}
-  //             </Button>
-  //           </div>
-  //           <div className="flex flex-col items-center whiteboard-card">
-  //             <Card className="w-full flex flex-col ">
-  //               <div className="absolute top-3 right-3">
-  //                 <Button
-  //                   className="thm-btn"
-  //                   onClick={() => navigate("/white-board-list")}
-  //                 >
-  //                   {t('text')}
-  //                 </Button>
-  //               </div>
-
-
-  //               <div
-  //                 ref={wrapperRef}
-  //                 className="relative w-auto overflow-y-auto overflow-x-hidden mx-auto pt-5"
-  //               >
-  //                 <canvas
-  //                   ref={setCanvasSize}
-  //                   className={`w-auto touch-none z-0 mx-auto ${tool === "text"
-  //                     ? "cursor-text"
-  //                     : tool === "eraser"
-  //                       ? "cursor-eraser"
-  //                       : "cursor-crosshair"
-  //                     }`}
-  //                   onMouseDown={startDrawing}
-  //                   onMouseMove={draw}
-  //                   onMouseUp={stopDrawing}
-  //                   onMouseLeave={stopDrawing}
-  //                   onTouchStart={startDrawing}
-  //                   onTouchMove={draw}
-  //                   onTouchEnd={stopDrawing}
-  //                   onClick={handleClick}
-  //                 />
-  //               </div>
-  //               <CardContent className="relative flex flex-wrap items-center justify-center gap-5 whiteboard-toolbar p-0 bg-white">
-  //                 <Button
-  //                   variant="ghost"
-  //                   size="icon"
-  //                   className={cn(tool === "pencil" && "bg-gray-100")}
-  //                   onClick={() => {
-  //                     setTool("pencil");
-  //                     setShowKeyboard(false);
-  //                   }}
-  //                   title="Pencil"
-  //                 >
-  //                   {/* <Icon.Pencil className="icon-size-add" /> */}
-  //                   <img
-  //                     src={PencilIcon}
-  //                     className="icon-size-add"
-  //                     alt="Pencil Icon"
-  //                   />
-  //                 </Button>
-  //                 <Button
-  //                   variant="ghost"
-  //                   size="icon"
-  //                   onClick={activateTextTool}
-  //                   title="Virtual Keyboard"
-  //                 >
-  //                   {/* <Icon.Keyword className="icon-size-add" /> */}
-  //                   <img
-  //                     src={TextIcon}
-  //                     className="icon-size-add"
-  //                     alt="Pencil Icon"
-  //                   />
-  //                 </Button>
-  //                 <Button
-  //                   variant="ghost"
-  //                   size="icon"
-  //                   title="Upload image"
-  //                   onClick={(e) => {
-  //                     handleFileUpload(e);
-  //                   }}
-  //                 >
-  //                   <img
-  //                     src={ImgIcon}
-  //                     className="icon-size-add"
-  //                     alt="Pencil Icon"
-  //                   />
-  //                 </Button>
-  //                 <input
-  //                   type="file"
-  //                   id="imageUpload"
-  //                   accept="image/*"
-  //                   multiple
-  //                   className="hidden"
-  //                   onChange={(e) => {
-  //                     setTool("");
-  //                     handleImageUpload(Array.from(e.target.files));
-  //                   }}
-  //                 />
-  //                 <Button
-  //                   variant="ghost"
-  //                   size="icon"
-  //                   className={cn(tool === "eraser" && "bg-gray-100")}
-  //                   onClick={() => {
-  //                     setTool("eraser");
-  //                     // setTextToolActive(false);
-  //                     setShowKeyboard(false);
-  //                     setDrawingWidth(20);
-  //                   }}
-  //                   title="Eraser"
-  //                 >
-  //                   <img
-  //                     src={EraserIcon}
-  //                     className="icon-size-add"
-  //                     alt="Pencil Icon"
-  //                   />
-  //                 </Button>
-
-  //                 <Button
-  //                   variant="ghost"
-  //                   size="icon"
-  //                   className="bg-gray-100"
-  //                   onClick={handleClear}
-  //                   title="Clear"
-  //                 >
-  //                   <img
-  //                     src={DeleteIcon}
-  //                     className="icon-size-add"
-  //                     alt="Pencil Icon"
-  //                   />
-  //                 </Button>
-  //                 <Button
-  //                   variant="ghost"
-  //                   size="icon"
-  //                   onClick={() => setShowSaveModal(true)}
-  //                   title="File Save"
-  //                 >
-  //                   <img
-  //                     src={SaveIcon}
-  //                     className="icon-size-add"
-  //                     alt="Pencil Icon"
-  //                   />
-  //                 </Button>
-  //                 <div className="flex items-center gap-2">
-  //                   <label className="text-sm text-gray-600">
-  //                     {selectedLanguage === "Spanish" ? "Ancho" : "Width"}
-  //                   </label>
-  //                   <input
-  //                     type="range"
-  //                     min="1"
-  //                     max="24"
-  //                     value={drawingWidth}
-  //                     onChange={(e) => setDrawingWidth(Number(e.target.value))}
-  //                     className="w-32"
-  //                   />
-  //                   <span className="text-sm text-gray-700 w-6 text-center">
-  //                     {drawingWidth}
-  //                   </span>
-  //                 </div>
-  //               </CardContent>
-  //             </Card>
-  //             {showKeyboard && (
-  //               <div className="w-full max-w-4xl mt-4">
-  //                 <Keyboard
-  //                   onChange={handleKeyboardChange}
-  //                   onKeyPress={handleKeyboardKeyPress}
-  //                   theme="hg-theme-default hg-layout-default myTheme"
-  //                   layout={{
-  //                     default: [
-  //                       "q w e r t y u i o p",
-  //                       "a s d f g h j k l",
-  //                       "z x c v b n m",
-  //                       "{bksp} {space} {enter}",
-  //                     ],
-  //                   }}
-  //                   display={{
-  //                     "{bksp}": "⌫",
-  //                     "{enter}": "⏎",
-  //                     "{space}": "Space",
-  //                   }}
-  //                 />
-  //               </div>
-  //             )}
-
-  //             {showSaveModal && (
-  //               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-  //                 <div className="relative w-[800px] rounded-lg bg-white p-8 shadow-lg">
-  //                   <div className="mb-4">
-  //                     <h2 className="text-[32px] font-semibold">
-  //                       {selectedLanguage === "Spanish"
-  //                         ? "Guardar como"
-  //                         : "Save As"}
-  //                     </h2>
-  //                   </div>
-  //                   <div className="grid gap-4">
-  //                     <div className="grid grid-cols-4 items-center gap-3">
-  //                       <input
-  //                         id="drawingName"
-  //                         type="text"
-  //                         value={drawingName}
-  //                         onKeyDown={(e) => {
-  //                           if (e.code === "Enter" && e.key === "Enter") {
-  //                             handleSaveDrawing();
-  //                             setShowSaveModal(false);
-  //                           }
-  //                         }}
-  //                         onChange={(e) => setDrawingName(e.target.value)}
-  //                         className="col-span-5 h-12 rounded-lg border border-gray-200 bg-white px-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-  //                         placeholder={
-  //                           selectedLanguage === "Spanish"
-  //                             ? "Introduzca el nombre del dibujo"
-  //                             : "Enter drawing name"
-  //                         }
-  //                       />
-  //                     </div>
-  //                   </div>
-  //                   <div className="mt-6 flex justify-end gap-4">
-  //                     <Button
-  //                       variant="outline"
-  //                       className="h-12 rounded-lg px-6 text-base"
-  //                       onClick={() => setShowSaveModal(false)}
-  //                     >
-  //                       {selectedLanguage === "Spanish" ? "Cancelar" : "Cancel"}
-  //                     </Button>
-  //                     <Button
-  //                       className="h-12 rounded-lg bg-blue-600 px-6 text-base text-white hover:bg-blue-700"
-  //                       onClick={() => {
-  //                         handleSaveDrawing();
-  //                         setShowSaveModal(false);
-  //                       }}
-  //                     >
-  //                       {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
-  //                     </Button>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             )}
-  //           </div>
-  //         </div>
-  //       </>
-  //     )}
-  //     <Footer />
-  //   </>
-  // );
 }

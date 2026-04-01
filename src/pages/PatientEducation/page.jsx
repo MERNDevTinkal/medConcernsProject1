@@ -10,14 +10,14 @@ export default function PatientEducation() {
 
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {}
+      () => { },
+      () => { }
     );
   }, [loader]);
   return (
@@ -39,17 +39,33 @@ export default function PatientEducation() {
           <div className="main-wrapper home-wrapper">
             {selectedLanguage === "Spanish" ? (
               <>
-                <img src="/patient_education_sp_1.png" className="w-full" />
-                <img src="/patient_education_sp_2.png" className="w-full" />
-                <img src="/patient_education_sp_3.png" className="w-full" />
-                <img src="/patient_education_sp_4.png" className="w-full" />
+                <img src="/patient_education_sp_1.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
+                <img src="/patient_education_sp_2.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
+                <img src="/patient_education_sp_3.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
+                <img src="/patient_education_sp_4.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
               </>
             ) : (
               <>
-                <img src="/patient_education_1.png" className="w-full" />
-                <img src="/patient_education_2.png" className="w-full" />
-                <img src="/patient_education_3.png" className="w-full" />
-                <img src="/patient_education_4.png" className="w-full" />
+                <img src="/patient_education_1.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
+                <img src="/patient_education_2.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
+                <img src="/patient_education_3.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
+                <img src="/patient_education_4.png" className="w-full" draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()} />
               </>
             )}
           </div>

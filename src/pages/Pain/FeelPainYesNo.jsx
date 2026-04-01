@@ -17,7 +17,9 @@ function FeelPainYesNo() {
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:px-10 sm:px-5 px-5 md:gap-20 gap-5 my-5 items-center">
           <div className="dashboard-cards rounded-2xl bg-white text-center shadow-sm p-3">
             <div className="dashboard-img rounded-2xl">
-              <img src={PainImg1} className="w-full" />
+              <img src={PainImg1} className="w-full"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
             </div>
           </div>
           <div>

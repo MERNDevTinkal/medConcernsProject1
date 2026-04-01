@@ -361,7 +361,9 @@ const FeelingListPain = () => {
                         }}
                         className="flex flex-col items-center "
                       >
-                        <img src={data.image} alt="" />
+                        <img src={data.image} alt=""   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
                         <span className="pt-1.5 px-5 bg-white rounded shadow-2xl text-[20px] leading-normal mt-4 border-2 border-white cursor-pointer hover:border-blue-600 transition-colors duration-300">
                           {data.params ?? "0"}
                         </span>

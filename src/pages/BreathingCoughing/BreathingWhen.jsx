@@ -135,6 +135,9 @@ const BreathingWhen = () => {
                           }}
                           src={item.image}
                           className="w-full"
+                                     draggable={false}
+                          onContextMenu={(e) => e.preventDefault()}
+                          onDragStart={(e) => e.preventDefault()}
                         />
                       </div>
 

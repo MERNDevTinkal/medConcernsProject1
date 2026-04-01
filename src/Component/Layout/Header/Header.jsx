@@ -96,7 +96,270 @@ const Header = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const getItemColor = (index, isLogout) => {
+    if (isLogout === "Logout") return "#B6D7A8";
+
+    if (index >= 0 && index <= 4) return "#B6D7A8";
+    if (index >= 5 && index <= 7) return "#D9D2E9";
+    if (index >= 8 && index <= 15) return "#F4CCCC";
+    if (index >= 16 && index <= 35) return "#C9DAF8";
+
+    return "#f3f4f6";
+  };
+  // const menuItems = [
+  //   {
+  //     icon: MenuIcon1 ? MenuIcon1 : gifLoader,
+  //     path: "/settings",
+  //     en: "Settings",
+  //     es: "Adjustes",
+  //   },
+  //   {
+  //     icon: MenuIcon2 ? MenuIcon2 : gifLoader,
+  //     path: "/patient-education",
+  //     en: "Patient Education",
+  //     es: "Educación del Paciente",
+  //   },
+  //   {
+  //     icon: MenuIcon27 ? MenuIcon27 : gifLoader,
+  //     path: "/mentalhealth-resources",
+  //     en: "Mental Health Resources",
+  //     es: "Recursos de salud mental",
+  //   },
+  //   {
+  //     icon: MenuIcon3 ? MenuIcon3 : gifLoader,
+  //     path: "/introduction",
+  //     en: "Introduction",
+  //     es: "Introducción",
+  //     // hide: introductionOn,
+  //   },
+  //   {
+  //     icon: MenuIcon4 ? MenuIcon4 : gifLoader,
+  //     path: "/how-are-you",
+  //     en: "How are you?",
+  //     es: "¿Cómo estás?",
+  //     // hide: introductionOn,
+  //   },
+  //   {
+  //     icon: MenuIcon19 ? MenuIcon19 : gifLoader,
+  //     path: "/feeling",
+  //     en: "Pain Scale",
+  //     es: "Escala del Dolor",
+  //   },
+  //   {
+  //     icon: feelicon ? feelicon : gifLoader,
+  //     path: "/mood-scale",
+  //     en: "Mood Scale",
+  //     es: "Escala de Humor",
+  //   },
+  //   {
+  //     icon: scaleRating ? scaleRating : gifLoader,
+  //     path: "/rating-scale",
+  //     en: "Rating Scale",
+  //     es: "Escala de calificación",
+  //   },
+  //   {
+  //     icon: icon03 ? icon03 : gifLoader,
+  //     path: "/concern",
+  //     en: "Concerns",
+  //     es: "Preocupaciones",
+  //   },
+  //   {
+  //     icon: MenuIcon6 ? MenuIcon6 : gifLoader,
+  //     path: "/whiteboard",
+  //     en: "White Board",
+  //     es: "Pizarron",
+  //   },
+  //   {
+  //     icon: MenuIcon7 ? MenuIcon7 : gifLoader,
+  //     path: "/yes-no",
+  //     en: "Yes / No / ? Board",
+  //     es: "Sí / No / ? Tablero",
+  //   },
+  //   {
+  //     icon: MenuIcon8 ? MenuIcon8 : gifLoader,
+  //     path: "/board",
+  //     en: "Needs Board",
+  //     es: "Tablero de Necesidades",
+  //   },
+  //   {
+  //     icon: MenuIcon9 ? MenuIcon9 : gifLoader,
+  //     path: "/topic-board",
+  //     en: "Topic Board",
+  //     es: "Tablero Temático",
+  //   },
+  //   {
+  //     path: "/when",
+  //     en: "When?",
+  //     es: "¿Cuando?",
+  //     // hide: calendarOn,
+  //     icon: MenuIcon10 ? MenuIcon10 : gifLoader,
+  //   },
+  //   {
+  //     icon: MenuIcon11 ? MenuIcon11 : gifLoader,
+  //     path: "/howoften",
+  //     en: "Calendar",
+  //     es: "Calendario",
+  //     // hide: calendarOn,
+  //   },
+  //   // {
+  //   //   icon: appetite ? appetite : gifLoader,
+  //   //   path: "/noappetite-problem",
+  //   //   en: "Appetite",
+  //   //   es: "Apetito",
+  //   // },
+  //   {
+  //     icon: MenuIcon13 ? MenuIcon13 : gifLoader,
+  //     path: "/bowels-problem",
+  //     en: "Bowels",
+  //     es: "Intestinos",
+  //   },
+  //   {
+  //     icon: MenuIcon5 ? MenuIcon5 : gifLoader,
+  //     path: "/breathing-problem",
+  //     en: "Breathing / Coughing",
+  //     es: "Respiración / Tos",
+  //   },
+  //   {
+  //     icon: with_food_and_drinksImg ? with_food_and_drinksImg : gifLoader,
+  //     path: "/eating-problem",
+  //     en: "Eating / Drinking",
+  //     es: "Comer / Beber",
+  //   },
+  //   {
+  //     icon: EmotionsImg2 ? EmotionsImg2 : gifLoader,
+  //     path: "/emotions",
+  //     en: "Emotions / Feelings",
+  //     es: "Emociones / Sentimientos",
+  //   },
+  //   {
+  //     icon: MenuIcon15 ? MenuIcon15 : gifLoader,
+  //     path: "/fatigue-problem",
+  //     en: "Fatigue",
+  //     es: "Fatiga",
+  //   },
+  //   {
+  //     icon: PEGImg ? PEGImg : gifLoader,
+  //     path: "/feeding-problem",
+  //     en: "Feeding Tube",
+  //     es: "Tubo de Alimentación",
+  //   },
+  //   {
+  //     icon: hearingImg ? hearingImg : gifLoader,
+  //     path: "/hearing-problem",
+  //     en: "Hearing",
+  //     es: "Oido",
+  //   },
+  //   {
+  //     icon: IllnessImg ? IllnessImg : gifLoader,
+  //     path: "/illness-problem",
+  //     en: "Illness",
+  //     es: "Enfermedad",
+  //   },
+
+  //   {
+  //     icon: MenuIcon16 ? MenuIcon16 : gifLoader,
+  //     path: "/medication-problem",
+  //     en: "Medication",
+  //     es: "Medicación",
+  //   },
+
+  //   {
+  //     icon: thickmucusImg ? thickmucusImg : gifLoader,
+  //     path: "/illnessMucus-problem",
+  //     en: "Mucus / Secretions",
+  //     es: "Mucosidad / Secreciones",
+  //   },
+
+  //   {
+  //     icon: MenuIcon17 ? MenuIcon17 : gifLoader,
+  //     path: "/nausea-problem",
+  //     en: "Nausea",
+  //     es: "Náuseas",
+  //   },
+  //   {
+  //     icon: MenuIcon18 ? MenuIcon18 : gifLoader,
+  //     path: "/pain-feel",
+  //     en: "Pain Description",
+  //     es: "Descripción del Dolor",
+  //   },
+
+  //   {
+  //     icon: MenuIcon20 ? MenuIcon20 : gifLoader,
+  //     path: "/pain-concern",
+  //     en: "Pain Location",
+  //     es: "Ubicación del Dolor",
+  //   },
+
+  //   {
+  //     icon: MenuIcon21 ? MenuIcon21 : gifLoader,
+  //     path: "/swallowing-problem",
+  //     en: "Swallowing",
+  //     es: "Tragar",
+  //   },
+  //   {
+  //     icon: somethinghappenedImg ? somethinghappenedImg : gifLoader,
+  //     path: "/something-problem",
+  //     en: "Something Happened",
+  //     es: "Algo Pasó",
+  //   },
+  //   {
+  //     icon: MenuIcon22 ? MenuIcon22 : gifLoader,
+  //     path: "/trach-problem",
+  //     en: "Trach",
+  //     es: "Traqueotomía",
+  //   },
+  //   {
+  //     icon: MenuIcon23 ? MenuIcon23 : gifLoader,
+  //     path: "/urination-problem",
+  //     en: "Urination",
+  //     es: "Micción",
+  //   },
+  //   {
+  //     icon: MenuIcon24 ? MenuIcon24 : gifLoader,
+  //     path: "/vision-problem",
+  //     en: "Vision Problems",
+  //     es: "Problemas de la Vista",
+  //   },
+  //   {
+  //     icon: woundImg ? woundImg : gifLoader,
+  //     path: "/wound-problem",
+  //     en: "Wound / Incision",
+  //     es: "Herida / Incisión",
+  //   },
+  //   // {
+  //   //   icon: MenuIcon25 ? MenuIcon25 : gifLoader,
+  //   //   path: "/contact-us",
+  //   //   en: "Contact Us",
+  //   //   es: "Contacta con Nosotros",
+  //   // },
+  //   {
+  //     icon: MenuIcon6 ? MenuIcon6 : gifLoader,
+  //     path: "/white-board-list",
+  //     en: "Saved Whiteboard",
+  //     es: "Pizarra Guardada",
+  //   },
+  //   {
+  //     icon: MenuIcon26 ? MenuIcon26 : gifLoader,
+  //     path: "/summary-list",
+  //     en: "Saved Summary",
+  //     es: "Resumen Guardado",
+  //   },
+  //   // {
+  //   //   icon: MenuIcon27 ? MenuIcon27 : gifLoader,
+  //   //   path: "/about-us",
+  //   //   en: "About Us",
+  //   //   es: "Sobre Nosotros",
+  //   // },
+  //   {
+  //     icon: logoutImg ? logoutImg : gifLoader,
+  //     path: "#",
+  //     en: "Logout",
+  //     es: "Cerrar Sesión",
+  //     fun: () => setOpenPopup(true),
+  //   },
+  // ];
   const menuItems = [
+    // Settings (all green stay as they are)
     {
       icon: MenuIcon1 ? MenuIcon1 : gifLoader,
       path: "/settings",
@@ -120,20 +383,30 @@ const Header = ({
       path: "/introduction",
       en: "Introduction",
       es: "Introducción",
-      // hide: introductionOn,
     },
     {
       icon: MenuIcon4 ? MenuIcon4 : gifLoader,
       path: "/how-are-you",
       en: "How are you?",
       es: "¿Cómo estás?",
-      // hide: introductionOn,
     },
     {
-      icon: icon03 ? icon03 : gifLoader,
-      path: "/concern",
-      en: "Concerns",
-      es: "Preocupaciones",
+      icon: MenuIcon19 ? MenuIcon19 : gifLoader,
+      path: "/feeling",
+      en: "Pain Scale",
+      es: "Escala del Dolor",
+    },
+    {
+      icon: feelicon ? feelicon : gifLoader,
+      path: "/mood-scale",
+      en: "Mood Scale",
+      es: "Escala de Humor",
+    },
+    {
+      icon: scaleRating ? scaleRating : gifLoader,
+      path: "/rating-scale",
+      en: "Rating Scale",
+      es: "Escala de calificación",
     },
     {
       icon: MenuIcon6 ? MenuIcon6 : gifLoader,
@@ -163,7 +436,6 @@ const Header = ({
       path: "/when",
       en: "When?",
       es: "¿Cuando?",
-      // hide: calendarOn,
       icon: MenuIcon10 ? MenuIcon10 : gifLoader,
     },
     {
@@ -171,14 +443,26 @@ const Header = ({
       path: "/howoften",
       en: "Calendar",
       es: "Calendario",
-      // hide: calendarOn,
     },
-    // {
-    //   icon: appetite ? appetite : gifLoader,
-    //   path: "/noappetite-problem",
-    //   en: "Appetite",
-    //   es: "Apetito",
-    // },
+    {
+      icon: MenuIcon6 ? MenuIcon6 : gifLoader,
+      path: "/white-board-list",
+      en: "Saved Whiteboards",
+      es: "Pizarra Guardada",
+    },
+    {
+      icon: MenuIcon26 ? MenuIcon26 : gifLoader,
+      path: "/summary-list",
+      en: "Saved Summaries",
+      es: "Resumen Guardado",
+    },
+    // Concerns section (alphabetical order)
+    {
+      icon: icon03 ? icon03 : gifLoader,
+      path: "/concern",
+      en: "Concerns",
+      es: "Preocupaciones",
+    },
     {
       icon: MenuIcon13 ? MenuIcon13 : gifLoader,
       path: "/bowels-problem",
@@ -227,7 +511,6 @@ const Header = ({
       en: "Illness",
       es: "Enfermedad",
     },
-
     {
       icon: MenuIcon16 ? MenuIcon16 : gifLoader,
       path: "/medication-problem",
@@ -235,18 +518,11 @@ const Header = ({
       es: "Medicación",
     },
     {
-      icon: feelicon ? feelicon : gifLoader,
-      path: "/mood-scale",
-      en: "Mood Scale",
-      es: "Escala de Humor",
-    },
-    {
       icon: thickmucusImg ? thickmucusImg : gifLoader,
       path: "/illnessMucus-problem",
       en: "Mucus / Secretions",
       es: "Mucosidad / Secreciones",
     },
-
     {
       icon: MenuIcon17 ? MenuIcon17 : gifLoader,
       path: "/nausea-problem",
@@ -260,22 +536,10 @@ const Header = ({
       es: "Descripción del Dolor",
     },
     {
-      icon: MenuIcon19 ? MenuIcon19 : gifLoader,
-      path: "/feeling",
-      en: "Pain Scale",
-      es: "Escala del Dolor",
-    },
-    {
       icon: MenuIcon20 ? MenuIcon20 : gifLoader,
       path: "/pain-concern",
       en: "Pain Location",
       es: "Ubicación del Dolor",
-    },
-    {
-      icon: scaleRating ? scaleRating : gifLoader,
-      path: "/rating-scale",
-      en: "Rating Scale",
-      es: "Escala de calificación",
     },
     {
       icon: MenuIcon21 ? MenuIcon21 : gifLoader,
@@ -313,30 +577,7 @@ const Header = ({
       en: "Wound / Incision",
       es: "Herida / Incisión",
     },
-    // {
-    //   icon: MenuIcon25 ? MenuIcon25 : gifLoader,
-    //   path: "/contact-us",
-    //   en: "Contact Us",
-    //   es: "Contacta con Nosotros",
-    // },
-    {
-      icon: MenuIcon6 ? MenuIcon6 : gifLoader,
-      path: "/white-board-list",
-      en: "Saved Whiteboard",
-      es: "Pizarra Guardada",
-    },
-    {
-      icon: MenuIcon26 ? MenuIcon26 : gifLoader,
-      path: "/summary-list",
-      en: "Saved Summary",
-      es: "Resumen Guardado",
-    },
-    // {
-    //   icon: MenuIcon27 ? MenuIcon27 : gifLoader,
-    //   path: "/about-us",
-    //   en: "About Us",
-    //   es: "Sobre Nosotros",
-    // },
+    // Logout
     {
       icon: logoutImg ? logoutImg : gifLoader,
       path: "#",
@@ -345,7 +586,6 @@ const Header = ({
       fun: () => setOpenPopup(true),
     },
   ];
-
   const handlelastObj = () => {
     const getdata = deleteLastFlowItem(location.pathname);
     navigate(-1);
@@ -512,7 +752,11 @@ const Header = ({
                         }`}
                     >
                       <img className="header-img" src={item.icon} alt="" />
-                      <Link to={item.path} onClick={item.fun}>
+                      <Link to={item.path} onClick={item.fun}
+                        style={{
+                          backgroundColor: getItemColor(index, item.en)
+                        }}
+                      >
                         {selectedLanguage === "Spanish" ? item.es : item.en}
                       </Link>
                     </li>
