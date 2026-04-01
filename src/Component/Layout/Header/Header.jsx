@@ -635,12 +635,12 @@ const Header = ({
               </button>
             </div>
             {name === "reviewScale" ? (
-              <div className="text-center mb-8">
+              <div className="text-center">
                 <input
                   type="text"
                   value={scaleTitle}
                   onChange={(e) => setScaleTitle(e.target.value)}
-                  className="text-3xl font-bold text-center border-2 border-gray-300 rounded-lg px-4 py-2 w-full max-w-md mx-auto focus:outline-none focus:border-blue-500"
+                  className="text-3xl font-bold text-center border-2 border-gray-300 rounded-lg px-2 py-1 w-full max-w-md mx-auto focus:outline-none focus:border-blue-500"
                   placeholder="Enter scale title"
                 />
               </div>
