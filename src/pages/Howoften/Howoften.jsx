@@ -807,7 +807,7 @@ export default function TabsCalendar() {
                         {["morning", "afternoon", "evening"].map((item) => (
                           <button
                             key={item}
-                            className={`flex items-center justify-center p-4 sm:p-6 border-r border-gray-200 cursor-pointer transition-all duration-200
+                            className={`flex items-center justify-center p-4 sm:p-6 border-r border-gray-200 cursor-pointer transition-all duration-200 calendar-options
                           ${
                             selectedDayItem === item
                               ? "bg-blue-50"
@@ -837,7 +837,7 @@ export default function TabsCalendar() {
                           <div
                             onClick={() => handleWeekSelect(index)}
                             key={dayName + index}
-                            className="flex items-center justify-center p-3 sm:p-2 border-b border-r border-gray-200 bg-white"
+                            className="flex items-center justify-center p-3 sm:p-2 border-b border-r border-gray-200 bg-white "
                           >
                             <span className="font-bold text-[24px] text-gray-800">
                               {dayName}
@@ -847,7 +847,7 @@ export default function TabsCalendar() {
                         {currentDaysOfWeek.map((dayName, index) => (
                           <button
                             key={dayName + index + "-check"}
-                            className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200
+                            className={`flex items-center justify-center p-3 sm:p-4 border-b border-r border-gray-200 cursor-pointer transition-all duration-200 calendar-options
                           ${
                             selectedWeekDay === index
                               ? "bg-blue-50"

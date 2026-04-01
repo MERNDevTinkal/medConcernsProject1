@@ -174,7 +174,7 @@ function EmotionScreen() {
                         </p>
                       </div>
                       <div>
-                        <img src={Checked} alt="" className="w-6" />
+                        <img src={Checked} width="50px"  alt="" />
                       </div>
                     </div>
                   </div>

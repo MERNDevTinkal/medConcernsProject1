@@ -43,6 +43,7 @@ const Footer = () => {
     "/yes-no",
     "/feeling-list-pain",
      "/concern-pain",
+     "/rating-scale",
     // dynamic routes
     "/concern/:name/:id",
     "/confrm-step-when/:id",

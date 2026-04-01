@@ -68,8 +68,8 @@ const FeelingListPain = () => {
                         setScaleTitle={setScaleTitle}
                     />
 
-                    <div className="main-wrapper ">
-                        <div className="w-full max-w-4xl mx-auto pb-6 pt-0 px-0 common-scale">
+                    <div className="main-wrapper rating-scale-wrapper ">
+                        <div className="w-full  mx-auto pb-6 pt-0 px-0 common-scale">
                             <div className="space-y-0">
                                 <div className="relative h-4 gradient-bar mt-0 mb-8">
                                     {/* Scale markers */}
@@ -147,7 +147,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(0);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         0
                                     </div>
@@ -155,7 +155,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(1);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         1
                                     </div>
@@ -163,7 +163,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(2);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         2
                                     </div>
@@ -171,7 +171,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(3);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         3
                                     </div>
@@ -179,7 +179,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(4);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         4
                                     </div>
@@ -187,7 +187,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(5);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         5
                                     </div>
@@ -195,7 +195,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(6);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         6
                                     </div>
@@ -203,7 +203,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(7);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         7
                                     </div>
@@ -211,7 +211,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(8);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         8
                                     </div>
@@ -219,7 +219,7 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(9);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer"
                                     >
                                         9
                                     </div>
@@ -227,17 +227,17 @@ const FeelingListPain = () => {
                                         onClick={() => {
                                             handleBynumber(10);
                                         }}
-                                        className="text-4xl font-bold text-gray-800 cursor-pointer last-bar"
+                                        className="text-3xl font-bold text-gray-800 cursor-pointer last-bar"
                                     >
                                         10
                                     </div>
                                 </div>
                                 {/* Editable Left and Right Labels */}
-                                <div className="flex justify-between items-center text-sm font-normal text-gray-700 bttm-txt-bar flex-wrap">
-                                    <div className="text-[16px] font-medium border-2 border-gray-300 rounded-lg px-3 py-2 text-left">
+                                <div className="flex justify-between items-center text-sm font-normal text-gray-700 bttm-txt-bar flex-wrap mt-2">
+                                    <div className="text-2xl font-bold font-medium border-2 border-gray-300 rounded-lg px-3 py-2 text-left">
                                         {"No " + scaleTitle}
                                     </div>
-                                    <div className="text-[16px] font-medium border-2 border-gray-300 rounded-lg px-3 py-2 text-right">
+                                    <div className="text-2xl font-bold font-medium border-2 border-gray-300 rounded-lg px-3 py-2 text-right">
                                         {"Severe " + scaleTitle}
                                     </div>
                                 </div>

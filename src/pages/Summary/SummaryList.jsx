@@ -15,6 +15,9 @@ import ConcernPopUp from "../../Component/concernPopUp/ConcernPop";
 import Cookies from "js-cookie";
 import SaveWarningPopup from "../../Component/SaveWarningPopup/SaveWarningPopup";
 import { useSearchParams } from "react-router-dom";
+import printicon from "/assets/images/printer.svg";
+import floppydisk from "/assets/images/floppy-disk.svg";
+import folder from "/assets/images/folder.svg";
 
 const SummaryList = () => {
   const navigate = useNavigate();
@@ -127,26 +130,29 @@ const SummaryList = () => {
               <div className="flex justify-end space-x-2 ">
                 <button
                   onClick={() => window.print()}
-                  style={{ border: "2px solid black" }}
+               
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
-                  {selectedLanguage === "Spanish" ? "Imprimir" : "Print"}
+                  {/* {selectedLanguage === "Spanish" ? "Imprimir" : "Print"} */}
+                  <img src={printicon} alt="Print" className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => {
                     setShowSaveModal(true);
                   }}
-                  style={{ border: "2px solid black" }}
+                  
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
-                  {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"}
+                  {/* {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"} */}
+                  <img src={floppydisk} alt="Save" className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleSummaryListRoute}
-                  style={{ border: "2px solid black" }}
+                  
                   className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
                 >
-                  {selectedLanguage === "Spanish" ? "Lista" : "List"}
+                  {/* {selectedLanguage === "Spanish" ? "Lista" : "List"} */}
+                  <img src={folder} alt="Folder" className="w-5 h-5" />
                 </button>
               </div>
               {diseases?.summaryList?.length > 0 &&

@@ -102,7 +102,7 @@ const YesNo = ({ id, fatigueValue, selectedGender, selectedLanguage }) => {
               <p className="text-[40px] font-medium text-red-600">NO</p>
             </div>
             <div>
-              <img src={Close} width="40" />
+              <img src={Close} width="35" />
             </div>
           </div>
         </div>
