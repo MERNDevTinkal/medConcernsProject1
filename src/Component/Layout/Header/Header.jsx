@@ -44,10 +44,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
-import scaleRating from "/assets/images/emo-06.svg";
+import scaleRating from "/assets/images/Rating Scale.png";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
-import saveicon from "/assets/images/open-folder.svg";
 
 const Header = ({
   selectedLanguage,
@@ -327,7 +326,7 @@ const Header = ({
       es: "Pizarra Guardada",
     },
     {
-      icon: saveicon ? saveicon : gifLoader,
+      icon: MenuIcon26 ? MenuIcon26 : gifLoader,
       path: "/summary-list",
       en: "Saved Summary",
       es: "Resumen Guardado",
@@ -396,12 +395,12 @@ const Header = ({
               </button>
             </div>
             {name === "reviewScale" ? (
-              <div className="text-center rating-scale-input">
+              <div className="text-center mb-8">
                 <input
                   type="text"
                   value={scaleTitle}
                   onChange={(e) => setScaleTitle(e.target.value)}
-                  className="text-2xl font-bold text-center border-2 border-gray-300 rounded-lg px-2 py-1 mx-auto focus:outline-none focus:border-blue-500"
+                  className="text-3xl font-bold text-center border-2 border-gray-300 rounded-lg px-4 py-2 w-full max-w-md mx-auto focus:outline-none focus:border-blue-500"
                   placeholder="Enter scale title"
                 />
               </div>
