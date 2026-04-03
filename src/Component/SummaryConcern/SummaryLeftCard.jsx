@@ -11,7 +11,7 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData, headerNames
     setData(SummaryConcernData);
   }, [SummaryConcernData]);
   const imageSrc =
-    headerNames.path === "/rating-scale" ? scaleRating :
+    headerNames?.path === "/rating-scale" ? scaleRating :
       board === "board"
         ? boardImg
         : board === "/emotions"
