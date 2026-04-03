@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { boardImg, EmotionsImg2 } from "../../Component/DiseasesData/images";
-
+import scaleRating from "/assets/images/Rating Scale.png";
 const SummaryCards = ({ board, selectedLanguage, SummaryConcernData, headerNames }) => {
   const [getData, setData] = useState({});
   useEffect(() => {
@@ -11,11 +11,12 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData, headerNames
     setData(SummaryConcernData);
   }, [SummaryConcernData]);
   const imageSrc =
-    board === "board"
-      ? boardImg
-      : board === "/emotions"
-        ? EmotionsImg2
-        : getData?.image || headerNames?.icon;
+    headerNames.path === "/rating-scale" ? scaleRating :
+      board === "board"
+        ? boardImg
+        : board === "/emotions"
+          ? EmotionsImg2
+          : getData?.image || headerNames?.icon;
   return (
     <>
       <div className="dashboard-cards rounded-2xl bg-white text-center py-4 px-3 shadow-sm cursor-pointer summary-left-cards">

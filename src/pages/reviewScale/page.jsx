@@ -33,7 +33,7 @@ const FeelingListPain = () => {
     }, []);
 
     const handleBynumber = async (id) => {
-        let value = { "image": id, "icon": id,"name":scaleTitle,"nameEs":scaleTitle, "path": pathprimary, "en": scaleTitle, "es": scaleTitle, type: "Review Scale", value: scaleTitle };
+        let value = { "image": id, "icon": id, "name": scaleTitle, "nameEs": scaleTitle, "path": pathprimary, "en": scaleTitle, "es": scaleTitle, type: "Review Scale", value: scaleTitle };
 
         if (value) {
             const isConcern = Cookies.get("is_concern");

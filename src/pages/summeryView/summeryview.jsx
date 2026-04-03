@@ -62,7 +62,6 @@ const SummaryList = () => {
   const handleSummaryListRoute = () => {
     navigate("/summary-list");
   };
-  console.log("ddddddsummaryData", summaryData)
   return (
     <>
       {loader ? (
