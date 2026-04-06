@@ -312,7 +312,7 @@ export default function Settings() {
                   </div>
 
                   {/* Introduction */}
-                  <div className="flex items-center justify-between py-4">
+                  {/* <div className="flex items-center justify-between py-4">
                     <span className="text-lg text-black-900">
                       {t("introduction")}
                     </span>
@@ -322,7 +322,7 @@ export default function Settings() {
                       labelOff={t("off")}
                       labelOn={t("on")}
                     />
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Bottom Buttons */}

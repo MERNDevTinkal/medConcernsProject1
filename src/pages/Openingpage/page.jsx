@@ -28,7 +28,7 @@ function page() {
 
           <button
             use
-            onClick={() => navigate("/introduction")}
+            onClick={() => navigate("/how-are-you")}
             className="w-full max-w-xs bg-[#289ae2] text-white font-semibold text-base h-[44px] rounded-lg hover:bg-blue-700 inline-block mx-auto"
           >
             Start

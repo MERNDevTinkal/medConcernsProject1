@@ -67,14 +67,14 @@ export default function Introduction() {
 
   useEffect(() => {
     getSetting(
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
     );
   }, [loader]);
   useEffect(() => {
@@ -113,7 +113,7 @@ export default function Introduction() {
       });
   }, []);
   const NaviagtionButton = () => {
-    navigate("/concern");
+    navigate("/how-are-you");
   };
   return (
     <>
