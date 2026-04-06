@@ -99,7 +99,7 @@ function DepressionScreener() {
                   </p>
                 </div>
                 <div>
-                  <img src={Checked} width="50px"  alt="check"  />
+                  <img src={Checked} width="45px"  alt="check"  />
 
                 </div>
                 {/* <div>

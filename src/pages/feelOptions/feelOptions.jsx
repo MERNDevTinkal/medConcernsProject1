@@ -170,14 +170,14 @@ function EmotionScreen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300 h-[60px]">
                       <div className="flex items-center">
                         <p className="text-[26px] font-medium text-green-600 leading-none">
                           {selectedLanguage === "Spanish" ? "SÍ" : "YES"}
                         </p>
                       </div>
                       <div>
-                        <img src={Checked} width="50px"  alt="" />
+                        <img src={Checked} width="30px" alt="" />
                       </div>
                     </div>
                   </div>
@@ -210,7 +210,7 @@ function EmotionScreen() {
                       );
                     }}
                   >
-                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300">
+                    <div className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300 h-[60px]">
                       <div className="flex items-center">
                         <p className="text-[26px] font-medium text-red-600 leading-none">
                           NO
@@ -251,15 +251,15 @@ function EmotionScreen() {
                                         : MaybeMale,
                         );
                       }}
-                      className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300"
+                      className="flex items-center justify-between p-3 border-3 border-white bg-white rounded-[5px] mb-2 cursor-pointer hover:border-blue-600 transition-colors duration-300 h-[60px]"
                     >
                       <div className="flex items-center">
                         <p className="maybe-text text-[26px] font-medium leading-none">
-                          {selectedLanguage === "Spanish" ? "TAL VEZ" : "MAYBE"}
+                         {selectedLanguage === "Spanish" ? "TAL VEZ ?" : "MAYBE ?"}
                         </p>
                       </div>
                       <div>
-                        <img width="31" height="31" src={dashimghow25}   draggable={false}
+                        <img width="30" height="30" src={dashimghow25}   draggable={false}
                       onContextMenu={(e) => e.preventDefault()}
                       onDragStart={(e) => e.preventDefault()}/>
                       </div>

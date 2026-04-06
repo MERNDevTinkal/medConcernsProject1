@@ -647,18 +647,30 @@ const Header = ({
               </div>
             ) : (
               <h2
-                className={`Header-text text-[30px] font-medium text-black ${location.pathname === "/introduction" ? "intro-text" : ""}`}
-              >
-                {location.pathname === "/introduction" && (
-                  <img src={"/favicon.png"} className="w-6" />
-                )}
-                {name ??
-                  (selectedLanguage === "Spanish"
-                    ? "Preocupaciones"
-                    : location.pathname === "/depression-screener"
-                      ? ""
-                      : "Concerns")}
-              </h2>
+  className={`Header-text text-[30px] font-medium text-black
+  ${location.pathname === "/introduction" ? "intro-text" : ""}
+  ${
+    (name ??
+      (selectedLanguage === "Spanish"
+        ? "Preocupaciones"
+        : location.pathname === "/depression-screener"
+          ? ""
+          : "Concerns")
+    ).length >= 40
+      ? "long-text"
+      : ""
+  }`}
+>
+  {location.pathname === "/introduction" && (
+    <img src={"/favicon.png"} className="w-6" />
+  )}
+  {name ??
+    (selectedLanguage === "Spanish"
+      ? "Preocupaciones"
+      : location.pathname === "/depression-screener"
+        ? ""
+        : "Concerns")}
+</h2>
             )}
 
             <div style={{ cursor: "pointer" }}>
