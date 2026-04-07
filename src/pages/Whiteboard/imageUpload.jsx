@@ -15,7 +15,8 @@ export default function AddImagePopup({
   const handleUploadClick = () => {
     const input = document.createElement("input");
     input.type = "file";
-    input.accept = "image/*,image/heic,image/heif,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp";
+    input.accept = "image/*";
+    // ,image/heic,image/heif,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp";
     input.multiple = true;
     input.onchange = (e) => {
       handleImageUpload(Array.from(e.target.files));
