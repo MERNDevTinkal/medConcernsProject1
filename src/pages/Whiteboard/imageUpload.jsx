@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 export default function AddImagePopup({
   textBlocks,
@@ -11,17 +12,20 @@ export default function AddImagePopup({
   open,
 }) {
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
 
   const handleUploadClick = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*,image/heic,image/heif,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp";
-    input.multiple = true;
-    input.onchange = (e) => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
       handleImageUpload(Array.from(e.target.files));
       setOpen(false);
-    };
-    input.click();
+      e.target.value = '';
+    }
   };
 
   const handleChooseFromLibrary = (e) => {
@@ -39,6 +43,14 @@ export default function AddImagePopup({
 
   return (
     <div className="flex justify-center">
+      <input
+        type="file"
+        accept="image/*,image/heic,image/heif,.heic,.heif,.jpg,.jpeg,.png,.webp,.gif,.bmp"
+        multiple
+        className="hidden"
+        ref={fileInputRef}
+        onChange={handleFileChange}
+      />
       {open && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl shadow-xl w-[90%] max-w-md p-6 relative">
