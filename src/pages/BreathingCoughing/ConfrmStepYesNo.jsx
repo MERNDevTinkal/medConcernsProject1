@@ -257,7 +257,7 @@ function ConfrmStepYesNo() {
                       <p className="text-[40px] font-medium text-red-600">NO</p>
                       <img
                         src={Close}
-                        width="35px"
+                        className="w-8"
 
                         alt="no"
                       />

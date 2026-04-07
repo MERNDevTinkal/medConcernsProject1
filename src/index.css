@@ -707,6 +707,10 @@ input[type="number"]::-webkit-outer-spin-button {
 .dash-hexuple-items .dashboard-cards p {
   font-size: 20px;
   margin: 0;
+  
+}
+.dash-hexuple-items .dashboard-cards p{
+line-height: normal;
 }
 .dashboard-cards {
   display: flex;
@@ -1007,6 +1011,7 @@ font-size: 22px;
 .dash-hexuple-items .dashboard-cards .dashboard-img img {
   height: calc(50vh - 130px);
   object-fit: contain;
+        
 }
 .decision-cards .custom-wdth {
   border-radius: 10px;
@@ -1852,7 +1857,9 @@ body,
     height: calc(70vh - 140px);
   }
   .dash-hexuple-items .dashboard-cards .dashboard-img img {
-    height: calc(50vh - 130px);
+    /* height: calc(50vh - 130px); */
+      height: 100%;
+        width: 100%;
     object-fit: contain;
   }
   .dash-hexuple-items .dashboard-cards{
@@ -1873,6 +1880,7 @@ body,
   .howoften-page .calendar-main {
     max-width: 45rem;
     margin: 0 auto;
+    padding-bottom: 60px;
   }
   .whiteboard-wrapper {
     min-height: auto;
@@ -1912,8 +1920,12 @@ body,
   .dash-double-items .dashboard-cards.shirnk-card .dashboard-img img{
             height: calc(90vh - 155px);
   }
-  .dash-hexuple-items .dashboard-cards.shirnk-card .dashboard-img img {
-    height: calc(50vh - 130px);
+  .dash-hexuple-items .dashboard-cards.shirnk-card .dashboard-img.card-img-h {
+    height: calc(50vh - 110px);
+  }
+  .dash-hexuple-items .dashboard-cards.shirnk-card .dashboard-img.card-img-h  img{
+    height: 100%;
+    width: 100%;
   }
   .dash-quadriple-items .dashboard-cards.shirnk-card .dashboard-img img {
     height: calc(70vh - 150px);
@@ -1939,6 +1951,7 @@ body,
   .dash-hexuple-items .card-img-h {
     overflow: visible;
     border-radius: 16px;
+    height: calc(50vh - 120px);
   }
   .dash-hexuple-items .card-img-h img {
     border-radius: 16px;
@@ -1949,8 +1962,9 @@ body,
   .introduction_page,
   .pain-wrapper,
   .howoften-page,
-  .pain-scale-page-wrapper,
-  .rating-scale-wrapper {
+  .pain-scale-page-wrapper
+  /* .rating-scale-wrapper  */
+  {
     display: block ;
     min-height: auto ;
     padding-bottom: 0px;
@@ -2007,3 +2021,9 @@ body.font-cls {
    font-family: "DM Sans", sans-serif !important;
 }
  
+.whiteboard-wrapper .whiteboard-card{
+  overflow: hidden;
+}
+.rating-bar-tp .line-bar{
+  top: 0;
+}

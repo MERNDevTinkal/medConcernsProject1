@@ -71,74 +71,74 @@ const FeelingListPain = () => {
                     <div className="main-wrapper rating-scale-wrapper ">
                         <div className="w-full  mx-auto pb-6 pt-0 px-0 common-scale">
                             <div className="space-y-0">
-                                <div className="relative h-4 gradient-bar mt-0 mb-8">
+                                <div className="relative h-4 gradient-bar mt-0 mb-5 rating-bar-tp">
                                     {/* Scale markers */}
                                     <div className="absolute inset-0 top-7.5 flex justify-between items-center px-1 left-0 line-bar">
                                         <div
                                             onClick={() => {
                                                 handleBynumber(0);
                                             }}
-                                            className="w-2 h-[30px] line-1 cursor-pointer"
+                                            className="w-2 h-[45px] line-1 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(1);
                                             }}
-                                            className="w-2 h-[30px] line-2 cursor-pointer"
+                                            className="w-2 h-[45px] line-2 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(2);
                                             }}
-                                            className="w-2 h-[30px] line-3 cursor-pointer"
+                                            className="w-2 h-[45px] line-3 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(3);
                                             }}
-                                            className="w-2 h-[30px] line-4 cursor-pointer"
+                                            className="w-2 h-[45px] line-4 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(4);
                                             }}
-                                            className="w-2 h-[30px] line-5 cursor-pointer"
+                                            className="w-2 h-[45px] line-5 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(5);
                                             }}
-                                            className="w-2 h-[30px] line-6 cursor-pointer"
+                                            className="w-2 h-[45px] line-6 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(6);
                                             }}
-                                            className="w-2 h-[30px] line-7 cursor-pointer"
+                                            className="w-2 h-[45px] line-7 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(7);
                                             }}
-                                            className="w-2 h-[30px] line-8 cursor-pointer"
+                                            className="w-2 h-[45px] line-8 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(8);
                                             }}
-                                            className="w-2 h-[30px] line-9 cursor-pointer"
+                                            className="w-2 h-[45px] line-9 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(9);
                                             }}
-                                            className="w-2 h-[30px] line-10 cursor-pointer"
+                                            className="w-2 h-[45px] line-10 cursor-pointer"
                                         ></div>
                                         <div
                                             onClick={() => {
                                                 handleBynumber(10);
                                             }}
-                                            className="w-2 h-[30px] line-11 cursor-pointer"
+                                            className="w-2 h-[45px] line-11 cursor-pointer"
                                         ></div>
                                     </div>
                                 </div>

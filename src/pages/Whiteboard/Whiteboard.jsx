@@ -1426,7 +1426,7 @@ export default function Whiteboard() {
           />
           <div className="main-wrapper home-wrapper whiteboard-wrapper">
             <div className="flex flex-col items-center whiteboard-card ">
-              <Card className="w-full flex flex-col relative">
+              <Card className="w-2xl flex flex-col relative overflow-hidden">
                 <div
                   ref={wrapperRef}
                   className="relative w-auto overflow-y-auto overflow-x-hidden mx-auto"
