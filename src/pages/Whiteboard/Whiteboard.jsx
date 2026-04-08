@@ -108,6 +108,7 @@ export default function Whiteboard() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [imageCache, setImageCache] = useState(new Map());
   const [isInitialized, setIsInitialized] = useState(false);
+  const [Scoller, setScoller] = useState(true);
   const nativeInputRef = useRef(null);
   const CANVAS_WIDTH = 985;
   const CANVAS_HEIGHT = 600;
@@ -407,8 +408,8 @@ export default function Whiteboard() {
   const redrawCanvas = useCallback(() => {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
-     const currentWidth = canvasSize.width;
-         const currentHeight = canvasSize.height;
+    const currentWidth = canvasSize.width;
+    const currentHeight = canvasSize.height;
     if (!ctx || !canvas) return;
 
     ctx.clearRect(0, 0, currentWidth, currentHeight);
@@ -1066,7 +1067,7 @@ export default function Whiteboard() {
     return Math.max(totalHeight, lineHeight);
   }, [canvasSize.width, getCanvasContext]);
 
-  const updateCursorPosition = (pos, block) => { 
+  const updateCursorPosition = (pos, block) => {
     const ctx = canvasRef.current.getContext("2d");
     ctx.font = "20px Arial";
     const lineHeight = 24;
@@ -1448,6 +1449,19 @@ export default function Whiteboard() {
     }
     return trans[transtext][params];
   }
+
+useEffect(() => {
+  if(Scoller){
+    setScoller(false);
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 100);
+  }
+}, [Scoller]);
+
 
   return (
     <>
