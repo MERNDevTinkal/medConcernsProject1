@@ -112,7 +112,9 @@ export default function Whiteboard() {
   const CANVAS_WIDTH = 985;
   const CANVAS_HEIGHT = 600;
   const TOOLBAR_HEIGHT = 80;
-  const SAFE_AREA_BOTTOM = CANVAS_HEIGHT - TOOLBAR_HEIGHT;
+  const [canvasSize, setCanvasDimensions] = useState({ width: CANVAS_WIDTH, height: CANVAS_HEIGHT });
+
+  const SAFE_AREA_BOTTOM = canvasSize.height - TOOLBAR_HEIGHT;
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
@@ -120,9 +122,81 @@ export default function Whiteboard() {
     return canvas.getContext("2d");
   }, []);
 
+  const wrapTextLines = (paragraph, maxWidth, ctx, manualLineIndex = 0) => {
+    const lines = [];
+    const words = paragraph.split(" ");
+    let currentLine = "";
+    let currentLineStart = 0;
+
+    const pushLine = (text) => {
+      if (text === "" && lines.length === 0) {
+        lines.push({ text: "", startCharIndex: currentLineStart, endCharIndex: currentLineStart, manualLineIndex });
+        return;
+      }
+      lines.push({
+        text,
+        startCharIndex: currentLineStart,
+        endCharIndex: currentLineStart + text.length,
+        manualLineIndex,
+      });
+      currentLineStart += text.length;
+    };
+
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      const prefix = currentLine ? " " : "";
+      const testLine = currentLine + prefix + word;
+      const testWidth = ctx.measureText(testLine).width;
+
+      if (testWidth <= maxWidth) {
+        currentLine = testLine;
+        continue;
+      }
+
+      if (currentLine) {
+        pushLine(currentLine);
+        currentLine = "";
+      }
+
+      if (ctx.measureText(word).width <= maxWidth) {
+        currentLine = word;
+      } else {
+        let segment = "";
+        let segmentStart = currentLineStart;
+
+        for (let j = 0; j < word.length; j++) {
+          const nextSegment = segment + word[j];
+          if (ctx.measureText(nextSegment).width > maxWidth) {
+            if (segment) {
+              lines.push({
+                text: segment,
+                startCharIndex: segmentStart,
+                endCharIndex: segmentStart + segment.length,
+                manualLineIndex,
+              });
+              segmentStart += segment.length;
+            }
+            segment = word[j];
+          } else {
+            segment = nextSegment;
+          }
+        }
+
+        currentLine = segment;
+        currentLineStart = segmentStart;
+      }
+    }
+
+    if (currentLine) {
+      pushLine(currentLine);
+    }
+
+    return lines;
+  };
+
   const constrainImagePosition = useCallback((x, y, width, height) => {
     const minX = 0;
-    const maxX = CANVAS_WIDTH - width;
+    const maxX = canvasSize.width - width;
     const minY = 0;
     const maxY = Math.max(0, SAFE_AREA_BOTTOM - height);
 
@@ -130,7 +204,7 @@ export default function Whiteboard() {
       x: Math.min(Math.max(x, minX), maxX),
       y: Math.min(Math.max(y, minY), maxY)
     };
-  }, []);
+  }, [canvasSize.width, SAFE_AREA_BOTTOM]);
 
   const findNonOverlappingImagePosition = useCallback((width, height, currentImages = uploadedImages) => {
     const margin = 20;
@@ -159,6 +233,9 @@ export default function Whiteboard() {
     const ctx = getCanvasContext();
     if (!ctx) return;
 
+    const currentWidth = canvasSize.width;
+    const currentHeight = canvasSize.height;
+
     // Draw paths
     paths.forEach((path) => {
       if (!path.points || path.points.length === 0) return;
@@ -183,7 +260,7 @@ export default function Whiteboard() {
       if (activeTextBlock && block.id === activeTextBlock.id) return;
       const font = block.font || "20px Arial";
       const lineHeight = 24;
-      const maxWidth = CANVAS_WIDTH - block.x - 20;
+      const maxWidth = currentWidth - block.x - 20;
       ctx.font = font;
       ctx.fillStyle = block.color || "#000";
       ctx.textBaseline = "top";
@@ -194,27 +271,14 @@ export default function Whiteboard() {
           currentY += lineHeight;
           return;
         }
-        const words = paragraph.split(" ");
-        let currentLine = "";
-        for (let i = 0; i < words.length; i++) {
-          const word = words[i];
-          const testLine = currentLine ? currentLine + " " + word : word;
-          const testWidth = ctx.measureText(testLine).width;
-          if (testWidth > maxWidth && currentLine) {
-            ctx.fillText(currentLine, block.x, currentY);
-            currentY += lineHeight;
-            currentLine = word;
-          } else {
-            currentLine = testLine;
-          }
-        }
-        if (currentLine) {
-          ctx.fillText(currentLine, block.x, currentY);
+        const wrappedLines = wrapTextLines(paragraph, maxWidth, ctx);
+        wrappedLines.forEach((line) => {
+          ctx.fillText(line.text, block.x, currentY);
           currentY += lineHeight;
-        }
+        });
       });
     });
-  }, [paths, textBlocks, activeTextBlock, getCanvasContext]);
+  }, [paths, textBlocks, activeTextBlock, getCanvasContext, canvasSize.width]);
 
   const drawActiveTextIfNeeded = useCallback(() => {
     if (!textToolActive || !activeTextBlock) return;
@@ -222,9 +286,10 @@ export default function Whiteboard() {
     const ctx = getCanvasContext();
     if (!ctx) return;
 
+    const currentWidth = canvasSize.width;
     const font = "20px Arial";
     const lineHeight = 24;
-    const maxWidth = CANVAS_WIDTH - activeTextBlock.x - 20;
+    const maxWidth = currentWidth - activeTextBlock.x - 20;
     ctx.font = font;
     ctx.fillStyle = drawingColor;
     ctx.textBaseline = "top";
@@ -247,41 +312,15 @@ export default function Whiteboard() {
         currentY += lineHeight;
         return;
       }
-      const words = manualLine.split(" ");
-      let currentLine = "";
-      let charCount = 0;
-      for (let i = 0; i < words.length; i++) {
-        const word = words[i];
-        const testLine = currentLine ? currentLine + " " + word : word;
-        const testWidth = ctx.measureText(testLine).width;
-        if (testWidth > maxWidth && currentLine) {
-          allVisibleLines.push({
-            text: currentLine,
-            x: activeTextBlock.x,
-            y: currentY,
-            manualLineIndex: manualLineIndex,
-            startCharIndex: charCount - currentLine.length,
-            endCharIndex: charCount,
-          });
-          currentLine = word;
-          charCount += word.length;
-          currentY += lineHeight;
-        } else {
-          currentLine = testLine;
-          charCount += i === 0 ? word.length : word.length + 1;
-        }
-      }
-      if (currentLine) {
+      const wrappedLines = wrapTextLines(manualLine, maxWidth, ctx, manualLineIndex);
+      wrappedLines.forEach((line) => {
         allVisibleLines.push({
-          text: currentLine,
+          ...line,
           x: activeTextBlock.x,
           y: currentY,
-          manualLineIndex: manualLineIndex,
-          startCharIndex: charCount - currentLine.length,
-          endCharIndex: charCount,
         });
         currentY += lineHeight;
-      }
+      });
     });
 
     allVisibleLines.forEach((line) => {
@@ -333,7 +372,7 @@ export default function Whiteboard() {
       ctx.stroke();
     }
     setCaretY(cursorY + lineHeight);
-  }, [textToolActive, activeTextBlock, textLines, cursorPosition, drawingColor, showCursor, getCanvasContext]);
+  }, [textToolActive, activeTextBlock, textLines, cursorPosition, drawingColor, showCursor, getCanvasContext, canvasSize.width]);
 
   const drawSingleImage = (imgObj, img) => {
     const ctx = getCanvasContext();
@@ -368,9 +407,11 @@ export default function Whiteboard() {
   const redrawCanvas = useCallback(() => {
     const ctx = getCanvasContext();
     const canvas = canvasRef.current;
+     const currentWidth = canvasSize.width;
+         const currentHeight = canvasSize.height;
     if (!ctx || !canvas) return;
 
-    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.clearRect(0, 0, currentWidth, currentHeight);
 
     if (uploadedImages.length === 0) {
       drawPathsAndText();
@@ -703,16 +744,46 @@ export default function Whiteboard() {
 
   const setCanvasSize = useCallback((node) => {
     if (!node) return;
+
+    const container = wrapperRef.current || node.parentElement;
+    const displayWidth = container ? Math.min(container.clientWidth, CANVAS_WIDTH) : CANVAS_WIDTH;
+    const displayHeight = Math.round((displayWidth * CANVAS_HEIGHT) / CANVAS_WIDTH);
     const dpr = window.devicePixelRatio || 1;
-    node.width = Math.round(CANVAS_WIDTH * dpr);
-    node.height = Math.round(CANVAS_HEIGHT * dpr);
-    node.style.width = `${CANVAS_WIDTH}px`;
-    node.style.height = `${CANVAS_HEIGHT}px`;
+
+    node.width = Math.round(displayWidth * dpr);
+    node.height = Math.round(displayHeight * dpr);
+    node.style.width = `${displayWidth}px`;
+    node.style.height = `${displayHeight}px`;
+
     const ctx = node.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
+    if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
     canvasRef.current = node;
+    setCanvasDimensions({ width: displayWidth, height: displayHeight });
     setIsInitialized(true);
   }, []);
+
+  useEffect(() => {
+    const resizeCanvas = () => {
+      if (!canvasRef.current) return;
+      setCanvasSize(canvasRef.current);
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const container = wrapperRef.current;
+    let observer;
+    if (container && typeof ResizeObserver !== "undefined") {
+      observer = new ResizeObserver(resizeCanvas);
+      observer.observe(container);
+    }
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      if (observer) observer.disconnect();
+    };
+  }, [setCanvasSize]);
 
   const handleClear = () => {
     setActiveTextBlock(null);
@@ -890,9 +961,7 @@ export default function Whiteboard() {
   const activateTextTool = () => {
     setTool("text");
     setTextToolActive(true);
-    setShowKeyboard(false); // Ensure virtual keyboard is hidden
 
-    // Focus the hidden input to trigger the device's default keyboard
     if (nativeInputRef.current) {
       nativeInputRef.current.focus();
     }
@@ -923,91 +992,81 @@ export default function Whiteboard() {
     if (tool !== "text") return;
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
-    let clickedOnExisting = false;
 
-    for (const block of textBlocks) {
-      const blockRight = block.x + 300;
-      const blockBottom = block.y + 100;
-      if (
+    const clickedBlock = textBlocks.find((block) => {
+      const blockWidth = Math.min(300, canvasSize.width - block.x - 20);
+      const blockRight = block.x + blockWidth;
+      const blockBottom = block.y + calculateBlockHeight(block);
+      return (
         pos.x >= block.x - 10 &&
         pos.x <= blockRight + 10 &&
         pos.y >= block.y - 5 &&
         pos.y <= blockBottom + 5
-      ) {
-        if (activeTextBlock && activeTextBlock.id === block.id) {
-          updateCursorPosition(pos, block);
-          clickedOnExisting = true;
-          break;
-        }
+      );
+    });
 
-        if (activeTextBlock && typedText.trim()) {
-          commitTypedText();
-        }
-        setActiveTextBlock(block);
-        const lines = block.text.split("\n");
-        setTextLines(lines);
-        setTypedText(block.text);
-        const lineHeight = 24;
-        const relativeY = pos.y - block.y;
-        const clickedLine = Math.max(0, Math.floor(relativeY / lineHeight));
-        const actualLine = Math.min(clickedLine, lines.length - 1);
-
-        const ctx = canvasRef.current.getContext("2d");
-        ctx.font = "20px Arial";
-        const lineText = lines[actualLine] || "";
-        const relativeX = pos.x - block.x;
-
-        let charPosition = 0;
-        let currentWidth = 0;
-
-        for (let i = 0; i < lineText.length; i++) {
-          const charWidth = ctx.measureText(lineText[i]).width;
-          if (currentWidth + charWidth / 2 > relativeX) break;
-          currentWidth += charWidth;
-          charPosition = i + 1;
-        }
-
-        setCursorPosition({ line: actualLine, column: charPosition });
-        setTextToolActive(true);
-        setShowKeyboard(true);
-        clickedOnExisting = true;
-        break;
+    if (clickedBlock) {
+      if (activeTextBlock && activeTextBlock.id !== clickedBlock.id) {
+        commitTypedText();
       }
+
+      setActiveTextBlock(clickedBlock);
+      const lines = clickedBlock.text.split("\n");
+      setTextLines(lines);
+      setTypedText(clickedBlock.text);
+      updateCursorPosition(pos, clickedBlock);
+      setTextToolActive(true);
+      if (nativeInputRef.current) {
+        nativeInputRef.current.focus();
+      }
+      return;
     }
 
-    if (!clickedOnExisting) {
-      if (activeTextBlock && typedText.trim()) {
-        commitTypedText();
-      } else if (activeTextBlock && !typedText.trim()) {
-        setActiveTextBlock(null);
-        setTextLines([""]);
-        setTypedText("");
-        setCursorPosition({ line: 0, column: 0 });
-        setTextToolActive(false);
-        setShowKeyboard(false);
-        return;
-      }
+    if (activeTextBlock) {
+      commitTypedText();
+    }
 
-      const newPosition = findNonOverlappingPosition(pos.x, pos.y);
-      const newTextBlock = {
-        id: Date.now(),
-        x: newPosition.x,
-        y: newPosition.y,
-        text: "",
-        color: drawingColor,
-        font: "20px Arial",
-      };
+    const newPosition = findNonOverlappingPosition(pos.x, pos.y);
+    const newTextBlock = {
+      id: Date.now(),
+      x: newPosition.x,
+      y: newPosition.y,
+      text: "",
+      color: drawingColor,
+      font: "20px Arial",
+    };
 
-      setActiveTextBlock(newTextBlock);
-      setTextLines([""]);
-      setTypedText("");
-      setCursorPosition({ line: 0, column: 0 });
-      setTextToolActive(true);
-      setShowKeyboard(true);
+    setActiveTextBlock(newTextBlock);
+    setTextLines([""]);
+    setTypedText("");
+    setCursorPosition({ line: 0, column: 0 });
+    setTextToolActive(true);
+    if (nativeInputRef.current) {
+      nativeInputRef.current.focus();
     }
   };
 
-  const updateCursorPosition = (pos, block) => {
+  const calculateBlockHeight = useCallback((block) => {
+    const ctx = getCanvasContext();
+    if (!ctx) return 100;
+    const font = block.font || "20px Arial";
+    ctx.font = font;
+    const lineHeight = 24;
+    const maxWidth = canvasSize.width - block.x - 20;
+    const paragraphs = block.text.split("\n");
+    let totalHeight = 0;
+    paragraphs.forEach((paragraph) => {
+      if (paragraph === "") {
+        totalHeight += lineHeight;
+        return;
+      }
+      const wrappedLines = wrapTextLines(paragraph, maxWidth, ctx);
+      totalHeight += wrappedLines.length * lineHeight;
+    });
+    return Math.max(totalHeight, lineHeight);
+  }, [canvasSize.width, getCanvasContext]);
+
+  const updateCursorPosition = (pos, block) => { 
     const ctx = canvasRef.current.getContext("2d");
     ctx.font = "20px Arial";
     const lineHeight = 24;
@@ -1426,19 +1485,21 @@ export default function Whiteboard() {
           />
           <div className="main-wrapper home-wrapper whiteboard-wrapper">
             <div className="flex flex-col items-center whiteboard-card ">
-              <Card className="w-2xl flex flex-col relative overflow-hidden">
+              <Card className="w-full max-w-[985px] flex flex-col relative overflow-hidden">
                 <div
                   ref={wrapperRef}
-                  className="relative w-auto overflow-y-auto overflow-x-hidden mx-auto"
+                  className="relative w-full overflow-hidden mx-auto"
+                  style={{ touchAction: 'none' }}
                 >
                   <canvas
                     ref={setCanvasSize}
                     className={`w-auto whiteboard-canvas touch-none pt-0 z-0 mx-auto ${tool === "text"
-                        ? "cursor-text"
-                        : tool === "eraser"
-                          ? "cursor-eraser"
-                          : "cursor-crosshair"
+                      ? "cursor-text"
+                      : tool === "eraser"
+                        ? "cursor-eraser"
+                        : "cursor-crosshair"
                       }`}
+                    style={{ touchAction: 'none' }}
                     onMouseDown={startDrawing}
                     onMouseMove={draw}
                     onMouseUp={stopDrawing}
@@ -1476,7 +1537,24 @@ export default function Whiteboard() {
                   <input
                     ref={nativeInputRef}
                     type="text"
-                    style={{ position: 'absolute', opacity: 0, pointerEvents: 'none', zIndex: -1 }}
+                    inputMode="text"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    spellCheck="false"
+                    style={{
+                      position: 'fixed',
+                      top: '100vh',
+                      left: 0,
+                      width: 0,
+                      height: 0,
+                      opacity: 0,
+                      pointerEvents: 'none',
+                      border: 'none',
+                      padding: 0,
+                      margin: 0,
+                      zIndex: -1,
+                    }}
                     onChange={handleNativeInputChange}
                     onKeyDown={(e) => {
                       if (e.key === 'Backspace') handleBackspace();
