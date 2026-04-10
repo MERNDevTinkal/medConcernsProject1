@@ -707,7 +707,7 @@ export default function Whiteboard() {
 
   const decreaseImageSize = useCallback(() => {
     if (selectedImageIndex === null || uploadedImages[selectedImageIndex] === undefined) {
-      toast.info(selectedLanguage === "Spanish" ? "Seleccione una imagen primero" : "Please select an image first");
+      // toast.info(selectedLanguage === "Spanish" ? "Seleccione una imagen primero" : "Please select an image first");
       return;
     }
 
@@ -727,7 +727,7 @@ export default function Whiteboard() {
 
   const increaseImageSize = useCallback(() => {
     if (selectedImageIndex === null || uploadedImages[selectedImageIndex] === undefined) {
-      toast.info(selectedLanguage === "Spanish" ? "Seleccione una imagen primero" : "Please select an image first");
+      // toast.info(selectedLanguage === "Spanish" ? "Seleccione una imagen primero" : "Please select an image first");
       return;
     }
 
@@ -1606,7 +1606,7 @@ useEffect(() => {
                       setShowKeyboard(false);
                       setSelectedImageIndex(null);
                     }}
-                    title="Pencil"
+                    title={selectedLanguage === "Spanish" ? "Lápiz" : "Pencil"}
                   >
                     <img src={PencilIcon} className="icon-size-add" alt="Pencil Icon" />
                   </Button>
@@ -1650,7 +1650,7 @@ useEffect(() => {
                     variant="ghost"
                     size="icon"
                     onClick={activateTextTool}
-                    title="Keyboard"
+                    title={selectedLanguage === "Spanish" ? "Teclado" : "Keyboard"}
                   >
                     <img
                       src={TextIcon} // Changed to KeyBoardIcon as per your requirement
@@ -1670,7 +1670,7 @@ useEffect(() => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    title="Upload image"
+                    title={selectedLanguage === "Spanish" ? "Subir imagen" : "Upload image"}
                     onClick={(e) => {
                       e.stopPropagation();
                       setFileUpload(true);
@@ -1708,7 +1708,7 @@ useEffect(() => {
                       setDrawingWidth(20);
                       setSelectedImageIndex(null);
                     }}
-                    title="Eraser"
+                    title={selectedLanguage === "Spanish" ? "Borrador" : "Eraser"}
                   >
                     <img src={EraserIcon} className="icon-size-add" alt="Eraser Icon" />
                   </Button>
@@ -1718,7 +1718,7 @@ useEffect(() => {
                     size="icon"
                     className="bg-gray-100"
                     onClick={handleClear}
-                    title="Clear All"
+                    title={selectedLanguage === "Spanish" ? "Borrar todo" : "Clear All"}
                   >
                     <img
                       src={DeleteIcon}
@@ -1730,7 +1730,7 @@ useEffect(() => {
                     variant="ghost"
                     size="icon"
                     onClick={() => setShowSaveModal(true)}
-                    title="File Save"
+                    title={selectedLanguage === "Spanish" ? "Guardar archivo" : "File Save"}
                   >
                     <img
                       src={SaveIcon}
@@ -1765,7 +1765,7 @@ useEffect(() => {
                       <span className="text-lg font-bold">−</span>
                     </Button>
                     <span className="text-xs text-gray-600">
-                      {selectedLanguage === "Spanish" ? "Img" : "Img"}
+                      {selectedLanguage === "Spanish" ? "Imagen" : "Image"}
                     </span>
                     <Button
                       variant="ghost"
