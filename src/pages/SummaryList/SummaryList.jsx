@@ -112,7 +112,7 @@ const SummaryList = () => {
           selectedLanguage === "Spanish" ? "Lista resumida" : "Summary List"
         }
       />
-      <DeletePopUp deleteId={deleteId} setShowDeleteModal={setShowDeleteModal} confirmDelete={confirmDelete} showDeleteModal={showDeleteModal} />
+      <DeletePopUp selectedLanguage={selectedLanguage} deleteId={deleteId} setShowDeleteModal={setShowDeleteModal} confirmDelete={confirmDelete} showDeleteModal={showDeleteModal} />
       {loader ? (
         <Loader />
       ) : (

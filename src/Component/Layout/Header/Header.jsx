@@ -348,6 +348,7 @@ const Header = ({
   return (
     <>
       <LogoutPopup
+        selectedLanguage={selectedLanguage}
         isOpen={openPopup}
         onClose={() => setOpenPopup(false)}
         onConfirm={handleLogout}

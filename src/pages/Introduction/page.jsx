@@ -190,7 +190,7 @@ export default function Introduction() {
     transition
   "
                   >
-                    Continue
+                    {selectedLanguage === "Spanish" ? "Continuar" : "Continue"}
                   </button>
                 </div>
               </div>
