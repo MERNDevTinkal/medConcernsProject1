@@ -234,6 +234,7 @@ const SummaryList = () => {
           )}
           {isPopupOpen && (
             <SaveWarningPopup
+             selectedLanguage={selectedLanguage}
               open={isPopupOpen}
               onConfirm={discardChanges}
               onCancel={keepEditing}
