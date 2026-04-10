@@ -91,6 +91,9 @@ export default function Whiteboard() {
   const [CalendarOn, setCalendarOn] = useState("");
   const [draggingImage, setDraggingImage] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [resizingImage, setResizingImage] = useState(null);
+  const [resizeHandle, setResizeHandle] = useState(null);
+  const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const [showCursor, setShowCursor] = useState(true);
   const [FileUpload, setFileUpload] = useState(false);
   const token = localStorage.getItem("token");
@@ -375,13 +378,23 @@ export default function Whiteboard() {
     setCaretY(cursorY + lineHeight);
   }, [textToolActive, activeTextBlock, textLines, cursorPosition, drawingColor, showCursor, getCanvasContext, canvasSize.width]);
 
-  const drawSingleImage = (imgObj, img) => {
+  const drawSingleImage = (imgObj, img, index) => {
     const ctx = getCanvasContext();
     if (!ctx || !img) return;
 
     try {
       ctx.drawImage(img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
 
+      // Draw selection highlight border
+      if (selectedImageIndex === index) {
+        ctx.save();
+        ctx.strokeStyle = "#4299e1";
+        ctx.lineWidth = 3;
+        ctx.strokeRect(imgObj.x, imgObj.y, imgObj.width, imgObj.height);
+        ctx.restore();
+      }
+
+      // Draw delete button
       ctx.save();
       const iconX = imgObj.x + imgObj.width - 15;
       const iconY = imgObj.y + 15;
@@ -424,11 +437,11 @@ export default function Whiteboard() {
     let loadedCount = 0;
     const totalImages = uploadedImages.length;
 
-    uploadedImages.forEach((imgObj) => {
+    uploadedImages.forEach((imgObj, index) => {
       let img = imageCache.get(imgObj.src);
 
       if (img && img.complete) {
-        drawSingleImage(imgObj, img);
+        drawSingleImage(imgObj, img, index);
         loadedCount++;
       } else {
         const newImg = new Image();
@@ -438,7 +451,7 @@ export default function Whiteboard() {
             newCache.set(imgObj.src, newImg);
             return newCache;
           });
-          drawSingleImage(imgObj, newImg);
+          drawSingleImage(imgObj, newImg, index);
           loadedCount++;
         };
         newImg.onerror = () => {
@@ -447,11 +460,11 @@ export default function Whiteboard() {
         newImg.src = imgObj.src;
       }
     });
-  }, [uploadedImages, imageCache, getCanvasContext, drawPathsAndText, drawActiveTextIfNeeded]);
+  }, [uploadedImages, imageCache, getCanvasContext, drawPathsAndText, drawActiveTextIfNeeded, selectedImageIndex]);
 
   useEffect(() => {
     redrawCanvas();
-  }, [uploadedImages, paths, textBlocks, textToolActive, activeTextBlock, textLines, cursorPosition, redrawCanvas]);
+  }, [uploadedImages, paths, textBlocks, textToolActive, activeTextBlock, textLines, cursorPosition, redrawCanvas, selectedImageIndex]);
 
   // Handle library image selection - MERGE correctly
   useEffect(() => {
@@ -664,11 +677,15 @@ export default function Whiteboard() {
           return;
         }
 
+        setSelectedImageIndex(i);
         setDraggingImage(i);
         setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
         return;
       }
     }
+
+    // Clicked on empty canvas - deselect image
+    setSelectedImageIndex(null);
 
     if (tool !== "pencil" && tool !== "eraser") return;
     setIsDrawing(true);
@@ -686,11 +703,73 @@ export default function Whiteboard() {
       ctx.globalCompositeOperation = tool === "pencil" ? "source-over" : "destination-out";
       ctx.moveTo(pos.x, pos.y);
     }
-  }, [tool, drawingColor, drawingWidth, uploadedImages, getCanvasContext, handleDeleteImage]);
+  }, [tool, drawingColor, drawingWidth, uploadedImages, getCanvasContext, handleDeleteImage, setSelectedImageIndex]);
+
+  const decreaseImageSize = useCallback(() => {
+    if (selectedImageIndex === null || uploadedImages[selectedImageIndex] === undefined) {
+      toast.info(selectedLanguage === "Spanish" ? "Seleccione una imagen primero" : "Please select an image first");
+      return;
+    }
+
+    const resizeFactor = 0.85;
+    setUploadedImages(prev => {
+      const newImages = [...prev];
+      const img = newImages[selectedImageIndex];
+      const newWidth = Math.max(50, img.width * resizeFactor);
+      const newHeight = newWidth / (img.width / img.height);
+      const newX = img.x + (img.width - newWidth) / 2;
+      const newY = img.y + (img.height - newHeight) / 2;
+      const constrained = constrainImagePosition(newX, newY, newWidth, newHeight);
+      newImages[selectedImageIndex] = { ...img, x: constrained.x, y: constrained.y, width: newWidth, height: newHeight };
+      return newImages;
+    });
+  }, [selectedImageIndex, uploadedImages, constrainImagePosition, selectedLanguage]);
+
+  const increaseImageSize = useCallback(() => {
+    if (selectedImageIndex === null || uploadedImages[selectedImageIndex] === undefined) {
+      toast.info(selectedLanguage === "Spanish" ? "Seleccione una imagen primero" : "Please select an image first");
+      return;
+    }
+
+    const resizeFactor = 1.15;
+    setUploadedImages(prev => {
+      const newImages = [...prev];
+      const img = newImages[selectedImageIndex];
+      const maxSize = Math.max(canvasSize.width, canvasSize.height) * 0.8;
+      const newWidth = Math.min(maxSize, img.width * resizeFactor);
+      const newHeight = newWidth / (img.width / img.height);
+      const newX = img.x + (img.width - newWidth) / 2;
+      const newY = img.y + (img.height - newHeight) / 2;
+      const constrained = constrainImagePosition(newX, newY, newWidth, newHeight);
+      newImages[selectedImageIndex] = { ...img, x: constrained.x, y: constrained.y, width: newWidth, height: newHeight };
+      return newImages;
+    });
+  }, [selectedImageIndex, uploadedImages, constrainImagePosition, canvasSize, selectedLanguage]);
 
   const draw = useCallback((e) => {
     const rect = canvasRef.current.getBoundingClientRect();
     const pos = pointerPos(e, rect);
+
+    // Check if hovering over an image to select it (but not while dragging)
+    if (draggingImage === null) {
+      let isHoveringImage = null;
+      for (let i = 0; i < uploadedImages.length; i++) {
+        const img = uploadedImages[i];
+        if (
+          pos.x >= img.x &&
+          pos.x <= img.x + img.width &&
+          pos.y >= img.y &&
+          pos.y <= img.y + img.height
+        ) {
+          isHoveringImage = i;
+          break;
+        }
+      }
+      // Only update if hovering over an image - don't deselect on mouse move away
+      if (isHoveringImage !== null && isHoveringImage !== selectedImageIndex) {
+        setSelectedImageIndex(isHoveringImage);
+      }
+    }
 
     if (draggingImage !== null) {
       setUploadedImages((prev) =>
@@ -719,7 +798,7 @@ export default function Whiteboard() {
       };
       return newPaths;
     });
-  }, [isDrawing, tool, draggingImage, dragOffset, constrainImagePosition]);
+  }, [isDrawing, tool, draggingImage, dragOffset, constrainImagePosition, uploadedImages, setSelectedImageIndex]);
 
   const stopDrawing = useCallback(() => {
     setIsDrawing(false);
@@ -1674,6 +1753,29 @@ useEffect(() => {
                     <span className="text-sm text-gray-700 w-6 text-center">
                       {drawingWidth}
                     </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className={cn(selectedImageIndex !== null && "bg-blue-100 border border-blue-400")}
+                      onClick={decreaseImageSize}
+                      title={selectedLanguage === "Spanish" ? "Hacer más pequeño" : "Make Smaller"}
+                    >
+                      <span className="text-lg font-bold">−</span>
+                    </Button>
+                    <span className="text-xs text-gray-600">
+                      {selectedLanguage === "Spanish" ? "Img" : "Img"}
+                    </span>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className={cn(selectedImageIndex !== null && "bg-blue-100 border border-blue-400")}
+                      onClick={increaseImageSize}
+                      title={selectedLanguage === "Spanish" ? "Hacer más grande" : "Make Larger"}
+                    >
+                      <span className="text-lg font-bold">+</span>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
