@@ -44,6 +44,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
+import saveFoldericon from "/assets/images/open-folder.svg";
 import scaleRating from "/assets/images/Rating Scale.png";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
@@ -201,7 +202,7 @@ const Header = ({
       es: "Pizarra Guardada",
     },
     {
-      icon: MenuIcon26 ? MenuIcon26 : gifLoader,
+      icon: saveFoldericon ? saveFoldericon : gifLoader,
       path: "/summary-list",
       en: "Saved Summaries",
       es: "Resumen Guardado",
