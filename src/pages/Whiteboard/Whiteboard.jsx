@@ -413,12 +413,13 @@ export default function Whiteboard() {
     if (!ctx || !canvas) return;
 
     ctx.clearRect(0, 0, currentWidth, currentHeight);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, currentWidth, currentHeight);
 
-    if (uploadedImages.length === 0) {
-      drawPathsAndText();
-      drawActiveTextIfNeeded();
-      return;
-    }
+    drawPathsAndText();
+    drawActiveTextIfNeeded();
+
+    if (uploadedImages.length === 0) return;
 
     let loadedCount = 0;
     const totalImages = uploadedImages.length;
@@ -429,10 +430,6 @@ export default function Whiteboard() {
       if (img && img.complete) {
         drawSingleImage(imgObj, img);
         loadedCount++;
-        if (loadedCount === totalImages) {
-          drawPathsAndText();
-          drawActiveTextIfNeeded();
-        }
       } else {
         const newImg = new Image();
         newImg.onload = () => {
@@ -443,17 +440,9 @@ export default function Whiteboard() {
           });
           drawSingleImage(imgObj, newImg);
           loadedCount++;
-          if (loadedCount === totalImages) {
-            drawPathsAndText();
-            drawActiveTextIfNeeded();
-          }
         };
         newImg.onerror = () => {
           loadedCount++;
-          if (loadedCount === totalImages) {
-            drawPathsAndText();
-            drawActiveTextIfNeeded();
-          }
         };
         newImg.src = imgObj.src;
       }
@@ -694,6 +683,7 @@ export default function Whiteboard() {
       ctx.lineJoin = "round";
       ctx.lineWidth = drawingWidth;
       ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
+      ctx.globalCompositeOperation = tool === "pencil" ? "source-over" : "destination-out";
       ctx.moveTo(pos.x, pos.y);
     }
   }, [tool, drawingColor, drawingWidth, uploadedImages, getCanvasContext, handleDeleteImage]);
