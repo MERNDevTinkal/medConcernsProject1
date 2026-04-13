@@ -62,9 +62,9 @@ export default function MentalHealthResources() {
                                 <img src="/assets/health-resourse-images/Mental Health Resource7.png" className="w-full" draggable={false}
                                     onContextMenu={(e) => e.preventDefault()}
                                     onDragStart={(e) => e.preventDefault()} />
-                                <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" draggable={false}
+                                {/* <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" draggable={false}
                                     onContextMenu={(e) => e.preventDefault()}
-                                    onDragStart={(e) => e.preventDefault()} />
+                                    onDragStart={(e) => e.preventDefault()} /> */}
                             </>
                         ) : (
                             <>
@@ -89,9 +89,9 @@ export default function MentalHealthResources() {
                                 <img src="/assets/health-resourse-images/Mental Health Resource7.png" className="w-full" draggable={false}
                                     onContextMenu={(e) => e.preventDefault()}
                                     onDragStart={(e) => e.preventDefault()} />
-                                <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" draggable={false}
+                                {/* <img src="/assets/health-resourse-images/Mental Health Resource8.png" className="w-full" draggable={false}
                                     onContextMenu={(e) => e.preventDefault()}
-                                    onDragStart={(e) => e.preventDefault()} />
+                                    onDragStart={(e) => e.preventDefault()} /> */}
                             </>
                         )}
                         <div className="flex justify-center py-6">
