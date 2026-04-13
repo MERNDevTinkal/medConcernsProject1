@@ -441,7 +441,6 @@ const NeedBoardUpload = () => {
                             className="hidden"
                             onChange={handleImageUpload}
                             accept="image/png, image/jpeg"
-                            capture={isIos ? "environment" : undefined} // iOS camera access
                           />
                           <p className="text-sm text-[#0009]">
                             {selectedLanguage === "Spanish" ? "Elegir Archivo" : "Choose File"}

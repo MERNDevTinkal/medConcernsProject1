@@ -51,8 +51,8 @@ const SaveModel = ({
               }`}
               placeholder={
                 selectedLanguage === "Spanish"
-                  ? "Introduce un nombre"
-                  : "Enter a name"
+                  ? "Número de habitación (sin PHI)"
+                  : "Room Number (no PHI)"
               }
             />
             {error && (

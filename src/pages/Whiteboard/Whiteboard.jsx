@@ -1828,8 +1828,8 @@ useEffect(() => {
                           className="col-span-5 h-12 rounded-lg border border-gray-200 bg-white px-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                           placeholder={
                             selectedLanguage === "Spanish"
-                              ? "Introduzca el nombre del dibujo"
-                              : "Enter drawing name"
+                              ? "Número de habitación (sin PHI)"
+                              : "Room Number (no PHI)"
                           }
                         />
                       </div>

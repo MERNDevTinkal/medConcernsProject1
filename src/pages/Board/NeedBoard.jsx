@@ -221,10 +221,9 @@ const NeedBoard = () => {
           ? isConcern + "/" + path
           : path;
       addOrUpdateSummary(prefix, [value]);
-      navigate(
-        `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,
-        { state: { value } },
-      );
+      navigate(mainpath || `/board/confrm-step-yesno/custom`, {
+        state: { value },
+      });
       isSpeakingRef.current = false;
     }
   };
