@@ -143,7 +143,7 @@ const FeelingListPain = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper pain-scale-page-wrapper">
+          <div className="main-wrapper home-wrapper pain-scale-page-wrapper ">
             <div className="w-full max-w-4xl mx-auto pb-6 pt-0 px-0 common-scale">
               <div className="space-y-0">
                 {/* <!-- Scale Numbers --> */}

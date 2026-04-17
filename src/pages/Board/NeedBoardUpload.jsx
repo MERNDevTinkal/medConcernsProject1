@@ -325,7 +325,7 @@ const NeedBoardUpload = () => {
                     {/* NAME */}
                     <div className="w-[266px]">
                       <label className="block text-[16px] mb-4 font-medium text-black">
-                        Name
+                       {selectedLanguage === "Spanish" ? "Nombre" : "Name"}
                       </label>
                       <input
                         id="firstname"
@@ -341,7 +341,9 @@ const NeedBoardUpload = () => {
                     </div>
                     {/* AUDIO */}
                     <div className="text-center">
-                      <label className="block text-[16px] mb-6 font-medium text-black">Audio</label>
+                      <label className="block text-[16px] mb-6 font-medium text-black">
+                        {selectedLanguage === "Spanish" ? "Audio" : "Audio"}
+                      </label>
                       <div className="flex flex-col items-center">
                         <input
                           type="file"
@@ -356,14 +358,14 @@ const NeedBoardUpload = () => {
                           className="cursor-pointer flex justify-center items-center mb-3"
                         >
                           <img src={VoiceIcon} alt="Voice Icon" />
-                          <span className="ml-2">Upload Audio File</span>
+                          <span className="ml-2">{selectedLanguage === "Spanish" ? "Subir archivo de audio" : "Upload Audio File"}</span>
                         </label>
 
                         {/* iOS-specific note */}
                         {isIos && !permissionGranted && (
                           <div className="mb-3 p-2 bg-yellow-50 border border-yellow-200 rounded text-sm">
                             <p className="text-yellow-700">
-                              <strong>iOS Note:</strong> First recording attempt will ask for microphone permission.
+                              <strong>{selectedLanguage === "Spanish" ? "Nota de iOS:" : "iOS Note:"}</strong> {selectedLanguage === "Spanish" ? "El primer intento de grabación pedirá permiso para usar el micrófono." : "First recording attempt will ask for microphone permission."}
                             </p>
                           </div>
                         )}
@@ -375,7 +377,7 @@ const NeedBoardUpload = () => {
                             className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
                             disabled={loader}
                           >
-                            🎙 Start Recording
+                            {selectedLanguage === "Spanish" ? "🎙 Iniciar grabación" : "🎙 Start Recording"}
                           </button>
                         ) : (
                           <button
@@ -383,14 +385,14 @@ const NeedBoardUpload = () => {
                             onClick={stopRecording}
                             className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
                           >
-                            ⏹ Stop Recording
+                            {selectedLanguage === "Spanish" ? "⏹ Detener grabación" : "⏹ Stop Recording"}
                           </button>
                         )}
 
                         {isRecording && (
                           <div className="mt-2 flex items-center">
                             <div className="h-2 w-2 bg-red-500 rounded-full animate-pulse mr-2"></div>
-                            <span className="text-sm text-gray-600">Recording...</span>
+                            <span className="text-sm text-gray-600">{selectedLanguage === "Spanish" ? "Grabando..." : "Recording..."}</span>
                           </div>
                         )}
                       </div>
@@ -412,13 +414,13 @@ const NeedBoardUpload = () => {
                             }}
                             className="text-sm text-red-500 mt-2 hover:text-red-700"
                           >
-                            Remove Audio
+                            {selectedLanguage === "Spanish" ? "Eliminar Audio" : "Remove Audio"}
                           </button>
                         </div>
                       )}
 
                       {isSubmitted && isAudioError && (
-                        <div className="text-red-500 text-sm mt-2">Audio is required.</div>
+                        <div className="text-red-500 text-sm mt-2">{selectedLanguage === "Spanish" ? "El audio es obligatorio." : "Audio is required."}</div>
                       )}
                     </div>
 
@@ -426,7 +428,7 @@ const NeedBoardUpload = () => {
                     {hideImage !== "boardside" && (
                       <div className="w-[266px]">
                         <label className="block text-[16px] mb-4 font-medium text-black">
-                          Upload Image
+                          {selectedLanguage === "Spanish" ? "Subir Imagen" : "Upload Image"}
                         </label>
 
                         <label
@@ -439,9 +441,10 @@ const NeedBoardUpload = () => {
                             className="hidden"
                             onChange={handleImageUpload}
                             accept="image/png, image/jpeg"
-                            capture={isIos ? "environment" : undefined} // iOS camera access
                           />
-                          <p className="text-sm text-[#0009]">Choose File</p>
+                          <p className="text-sm text-[#0009]">
+                            {selectedLanguage === "Spanish" ? "Elegir Archivo" : "Choose File"}
+                          </p>
                           <img src={UploadIcon} alt="Upload Icon" />
                         </label>
 
@@ -464,13 +467,15 @@ const NeedBoardUpload = () => {
                               }}
                               className="text-sm text-red-500 mt-1 hover:text-red-700"
                             >
-                              Remove Image
+                              {selectedLanguage === "Spanish" ? "Eliminar Imagen" : "Remove Image"}
                             </button>
                           </div>
                         )}
 
                         {isSubmitted && imageError && (
-                          <div className="text-red-500 text-sm mt-2">Image is required.</div>
+                          <div className="text-red-500 text-sm mt-2">
+                            {selectedLanguage === "Spanish" ? "La imagen es obligatoria." : "Image is required."}
+                          </div>
                         )}
                       </div>
                     )}
@@ -484,9 +489,9 @@ const NeedBoardUpload = () => {
                     {loader ? (
                       <>
                         <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
-                        Submitting...
+                        {selectedLanguage === "Spanish" ? "Enviando..." : "Submitting..."}
                       </>
-                    ) : id ? "Update" : "Save"}
+                    ) : id ? (selectedLanguage === "Spanish" ? "Actualizar" : "Update") : (selectedLanguage === "Spanish" ? "Guardar" : "Save")}
                   </button>
                 </form>
               </div>

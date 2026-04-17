@@ -79,7 +79,7 @@ function BreathingYesNo() {
                 : concernValues.name || ""
             }
           />
-          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col">
+          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col vrtical-cntr">
             <div className="grid grid-cols-2 gap-18 my-5 items-center common-scale mt-12">
               <div
                 className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3

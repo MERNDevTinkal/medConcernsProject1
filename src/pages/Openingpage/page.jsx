@@ -34,9 +34,11 @@ function page() {
             Start
           </button>
           {/* Footer */}
+          
           <div className="mt-12 text-sm text-black">
-            © 2022–2026 Communication Rescue LLC. All rights reserved. Patent pending.
-            App content, icons, and visual assets are proprietary and may not be reproduced or reused without written permission.
+            © 2021–2026 Communication Rescue Services, LLC. All rights reserved. Patent pending.
+            {/* © 2026 MedConcerns Pro · Communication Rescue Services LLC · All rights reserved.Patent pending.
+            App content, icons, and visual assets are proprietary and may not be reproduced or reused without written permission. */}
           </div>
         </div>
       </div>

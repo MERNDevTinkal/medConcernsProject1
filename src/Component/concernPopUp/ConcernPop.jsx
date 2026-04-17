@@ -27,7 +27,6 @@ export default function Popup({ selectedLanguage, confirmFun }) {
                     </button>
                 </div>
             </div>
-
         </>
     );
 }

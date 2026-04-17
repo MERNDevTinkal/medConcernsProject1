@@ -44,6 +44,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import LogoutPopup from "../../../Component/logoutPop/logoutPop";
 import icon03 from "/assets/images/link-icon-03.svg";
 import feelicon from "/assets/images/feel-icon-02.svg";
+import saveFoldericon from "/assets/images/open-folder.svg";
 import scaleRating from "/assets/images/Rating Scale.png";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
 import Cookies from "js-cookie";
@@ -201,7 +202,7 @@ const Header = ({
       es: "Pizarra Guardada",
     },
     {
-      icon: MenuIcon26 ? MenuIcon26 : gifLoader,
+      icon: saveFoldericon ? saveFoldericon : gifLoader,
       path: "/summary-list",
       en: "Saved Summaries",
       es: "Resumen Guardado",
@@ -348,6 +349,7 @@ const Header = ({
   return (
     <>
       <LogoutPopup
+        selectedLanguage={selectedLanguage}
         isOpen={openPopup}
         onClose={() => setOpenPopup(false)}
         onConfirm={handleLogout}
@@ -385,7 +387,7 @@ const Header = ({
               </button>
             </div>
             {name === "reviewScale" ? (
-              <div className="text-center">
+              <div className="text-center rating-scale-header">
                 <input
                   type="text"
                   value={scaleTitle}
@@ -396,30 +398,29 @@ const Header = ({
               </div>
             ) : (
               <h2
-  className={`Header-text text-[30px] font-medium text-black
+                className={`Header-text text-[30px] font-medium text-black
   ${location.pathname === "/introduction" ? "intro-text" : ""}
-  ${
-    (name ??
-      (selectedLanguage === "Spanish"
-        ? "Preocupaciones"
-        : location.pathname === "/depression-screener"
-          ? ""
-          : "Concerns")
-    ).length >= 40
-      ? "long-text"
-      : ""
-  }`}
->
-  {location.pathname === "/introduction" && (
-    <img src={"/favicon.png"} className="w-6" />
-  )}
-  {name ??
-    (selectedLanguage === "Spanish"
-      ? "Preocupaciones"
-      : location.pathname === "/depression-screener"
-        ? ""
-        : "Concerns")}
-</h2>
+  ${(name ??
+                    (selectedLanguage === "Spanish"
+                      ? "Preocupaciones"
+                      : (location.pathname === "/depression-screener")
+                        ? ""
+                        : "Concerns")
+                  ).length >= 40
+                    ? "long-text"
+                    : ""
+                  }`}
+              >
+                {location.pathname === "/introduction" && (
+                  <img src={"/favicon.png"} className="w-6" />
+                )}
+                {location.pathname === "/patient-education" ? "" : name ??
+                  (selectedLanguage === "Spanish"
+                    ? "Preocupaciones"
+                    : location.pathname === "/depression-screener"
+                      ? ""
+                      : "Concerns")}
+              </h2>
             )}
 
             <div style={{ cursor: "pointer" }}>

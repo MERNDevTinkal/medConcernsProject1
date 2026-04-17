@@ -221,10 +221,9 @@ const NeedBoard = () => {
           ? isConcern + "/" + path
           : path;
       addOrUpdateSummary(prefix, [value]);
-      navigate(
-        `${value?.audio ? "/board/confrm-step-yesno/custom" : mainpath}`,
-        { state: { value } },
-      );
+      navigate(mainpath || `/board/confrm-step-yesno/custom`, {
+        state: { value },
+      });
       isSpeakingRef.current = false;
     }
   };
@@ -256,7 +255,7 @@ const NeedBoard = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper pt-20 relative">
+          <div className="main-wrapper home-wrapper pt-20 relative ">
             <div className="flex justify-end">
               <button
                 onClick={() => navigate("/icon-upload")}
@@ -307,7 +306,7 @@ const NeedBoard = () => {
                               (selectedLanguage === "Spanish"
                                 ? item?.nameEs
                                 : item?.name
-                              )?.length > 18
+                              )?.length > 20
                                 ? "shirnk-card"
                                 : ""
                             }`}

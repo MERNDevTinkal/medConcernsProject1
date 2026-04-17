@@ -237,7 +237,7 @@ const BreathingProblem = () => {
                       className={`dashboard-cards rounded-2xl bg-white text-center border-2 border-white hover:border-blue-600 shadow-sm transition-colors duration-300 ${(selectedLanguage === "Spanish"
                           ? data?.nameEs
                           : data?.name
-                        )?.length > 18
+                        )?.length > 20
                           ? "shirnk-card"
                           : ""
                         }`}

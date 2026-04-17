@@ -243,7 +243,7 @@ const TopicBoard = ({
 
                 {/* English text positioned near bottom */}
                 {!item.audio && selectedLanguage === "Spanish" && (
-                  <p className="absolute bottom-0 break-words">{item?.name}</p>
+                  <p className="absolute bottom-0 break-words text-[20px] mt-1 mb-1 text-black">{item?.name}</p>
                 )}
               </div>
             </div>
