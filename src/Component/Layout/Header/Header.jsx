@@ -47,6 +47,8 @@ import feelicon from "/assets/images/feel-icon-02.svg";
 import saveFoldericon from "/assets/images/open-folder.svg";
 import scaleRating from "/assets/images/Rating Scale.png";
 import gifLoader from "/assets/loaderGif/Spinner.gif";
+import Communication_ThinkingImg from "/assets/images/Communication _ Thinking.png";
+import MovementImg from "/assets/images/Movement.png";
 import Cookies from "js-cookie";
 
 const Header = ({
@@ -227,6 +229,12 @@ const Header = ({
       es: "Respiración / Tos",
     },
     {
+      icon: Communication_ThinkingImg ? Communication_ThinkingImg : gifLoader,
+      path: "/communication-problem",
+      en: "Communication / Thinking",
+      es: "Comunicación / Pensamiento",
+    },
+    {
       icon: with_food_and_drinksImg ? with_food_and_drinksImg : gifLoader,
       path: "/eating-problem",
       en: "Eating / Drinking",
@@ -267,6 +275,12 @@ const Header = ({
       path: "/medication-problem",
       en: "Medication",
       es: "Medicación",
+    },
+    {
+      icon: MovementImg ? MovementImg : gifLoader,
+      path: "/movement-problem",
+      en: "Movement",
+      es: "Movimiento",
     },
     {
       icon: thickmucusImg ? thickmucusImg : gifLoader,
@@ -414,7 +428,7 @@ const Header = ({
                 {location.pathname === "/introduction" && (
                   <img src={"/favicon.png"} className="w-6" />
                 )}
-                {location.pathname === "/patient-education" ? "" : name ??
+                {(location.pathname === "/communication-problem" && selectedLanguage === "Spanish") ? "Comunicación / Pensamiento":(location.pathname === "/communication-problem" && selectedLanguage !== "Spanish") ? "Communication / Thinking" : (location.pathname === "/movement-problem" && selectedLanguage === "Spanish") ? "Movimiento" :(location.pathname === "/movement-problem" && selectedLanguage !== "Spanish") ? "Movement" :location.pathname === "/patient-education" ? "" : name ??
                   (selectedLanguage === "Spanish"
                     ? "Preocupaciones"
                     : location.pathname === "/depression-screener"
