@@ -100,7 +100,7 @@ const Home = () => {
               {promptEvent && (
                <button
                   onClick={handleInstallClick}
-                  className="flex justify-center gap-2 bg-[#008CFF] text-white py-3 px-8 rounded-lg text-xl font-normal mx-auto"
+                  className="flex justify-center gap-2 bg-[#008CFF] text-white py-3 px-8 rounded-lg text-xl font-normal mx-auto w-100"
                 >
                   Download Now <img src={download} alt="" />
                 </button>
