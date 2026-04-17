@@ -2067,3 +2067,10 @@ body.font-cls {
 .rating-bar-tp .line-bar{
   top: 0;
 }
+
+img {
+  -webkit-touch-callout: none; /* disables long-press menu */
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none; /* optional: fully disables interaction */
+}
