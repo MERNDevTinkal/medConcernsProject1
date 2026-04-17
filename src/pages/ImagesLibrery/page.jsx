@@ -65,10 +65,10 @@ export default function ImagesLibrery() {
         <Loader />
       ) : (
         <div className="main-wrapper home-wrapper">
-          <div className="flex justify-end mt-6">
+          <div className="imagelibarary-header ">
             <button
               onClick={handleDone}
-              className="thm-btn px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+              className="thm-btn px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700  "
             >
               Done
             </button>

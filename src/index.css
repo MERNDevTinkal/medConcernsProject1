@@ -2015,6 +2015,9 @@ body,
   height: 100%;
   justify-content: space-between;
 }
+.setting-page{
+  padding-bottom: 30px;
+}
 }
 .down-arrow.hide {
   opacity: 0;
@@ -2066,4 +2069,31 @@ body.font-cls {
 }
 .rating-bar-tp .line-bar{
   top: 0;
+}
+
+.imagelibarary-header{
+      width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+    top: 10px;
+    max-width: 1024px;
+    position: fixed;
+}
+.dashboard-img .w-full.h-full,
+.dashboard-img.card-img-h.rounded-2xl{
+  position: relative;
+}
+.dashboard-img .w-full.h-full::after,
+.dashboard-img.card-img-h.rounded-2xl::after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.0); 
+  z-index: 9999;
 }
