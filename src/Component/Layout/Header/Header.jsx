@@ -401,7 +401,7 @@ const Header = ({
               </button>
             </div>
             {name === "reviewScale" ? (
-              <div className="text-center">
+              <div className="text-center rating-scale-header">
                 <input
                   type="text"
                   value={scaleTitle}

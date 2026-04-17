@@ -255,13 +255,16 @@ function EmotionScreen() {
                     >
                       <div className="flex items-center">
                         <p className="maybe-text text-[26px] font-medium leading-none">
-                         {selectedLanguage === "Spanish" ? "TAL VEZ ?" : "MAYBE ?"}
+                         {selectedLanguage === "Spanish" ? "TAL VEZ " : "MAYBE "}
                         </p>
                       </div>
                       <div>
-                        <img width="30" height="30" src={dashimghow25}   draggable={false}
+                        <span className="maybe-text text-[26px] font-medium leading-none">
+                        ?
+                        </span>
+                        {/* <img width="30" height="30" src={dashimghow25}   draggable={false}
                       onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}/>
+                      onDragStart={(e) => e.preventDefault()}/> */}
                       </div>
                     </div>
                     <div

@@ -122,7 +122,7 @@ const DecisionCardFeeling = ({
             <div className="flex items-center">
               <p className="text-[40px] font-medium text-red-600">NO</p>
             </div>
-            <div>
+            <div className="mr-1.5">
               <img src={Close} width="35px" className="concrn-icn" />
             </div>
           </div>

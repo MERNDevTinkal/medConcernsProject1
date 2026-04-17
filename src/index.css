@@ -495,6 +495,13 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: translateX(-50%);
   white-space: pre;
 }
+.rating-scale-header{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: -1;
+  transform: translateX(-50%);
+}
 
 
 .innr-header {
@@ -710,7 +717,7 @@ input[type="number"]::-webkit-outer-spin-button {
   
 }
 .dash-hexuple-items .dashboard-cards p{
-line-height: normal;
+line-height: 1.1;
 }
 .dashboard-cards {
   display: flex;
@@ -1080,7 +1087,7 @@ font-size: 22px;
 
 @media only screen and (max-height: 844px) and (orientation: landscape) {
   .dash-triple-items .dashboard-cards .dashboard-img img {
-    height: calc(90vh - 160px);
+    height: calc(90vh - 130px);
   }
 
   .dash-hexuple-items .dashboard-cards {
@@ -1562,6 +1569,7 @@ body,
 .topicSetting-triple-items .dashboard-cards,
 .topicSetting-quadriple-items .dashboard-cards {
   height: 80%;
+  justify-content: center;
 }
 
 .topicSetting-hexuple-items .dashboard-cards {
@@ -1649,6 +1657,9 @@ body,
   .howoften-page {
     align-items: flex-start;
   }
+  .vrtical-cntr{
+  min-height: 100vh;
+}
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .topicSetting-single-items {
     height: calc(100vh - 16px);
@@ -1712,7 +1723,7 @@ body,
 
   .thm-footer {
     z-index: 9;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
   }
 
   aside.sidebar {
@@ -1951,8 +1962,10 @@ body,
   .dash-hexuple-items .card-img-h {
     overflow: visible;
     border-radius: 16px;
-    height: calc(50vh - 120px);
+    height: calc(50vh - 115px);
   }
+ 
+  
   .dash-hexuple-items .card-img-h img {
     border-radius: 16px;
   }
@@ -1974,7 +1987,34 @@ body,
   .font-cls .Header-text{
   font-size: 20px;
 }
-
+.pain-scale-page-wrapper{
+  padding-bottom: 30px;
+}
+.rating-scale-wrapper {
+  min-height: 100vh;
+}
+.vrtical-cntr{
+  min-height: auto;
+}
+.dash-single-items .dashboard-cards.shirnk-card .dashboard-img img{
+  height: calc(90vh - 160px);
+}
+.topicSetting-single-items .dashboard-cards{
+  width: 300px;
+  height: 65%;
+}
+.topicSetting-double-items .dashboard-cards{
+  width: 280px;
+  height: 100%;
+}
+.topicSetting-double-items .dashboard-cards{
+  width: 280px;
+  height: 100%;
+}
+.topicSetting-quadriple-items .dashboard-cards{
+  height: 100%;
+  justify-content: space-between;
+}
 }
 .down-arrow.hide {
   opacity: 0;

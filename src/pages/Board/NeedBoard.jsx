@@ -255,7 +255,7 @@ const NeedBoard = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper pt-20 relative">
+          <div className="main-wrapper home-wrapper pt-20 relative ">
             <div className="flex justify-end">
               <button
                 onClick={() => navigate("/icon-upload")}
@@ -306,7 +306,7 @@ const NeedBoard = () => {
                               (selectedLanguage === "Spanish"
                                 ? item?.nameEs
                                 : item?.name
-                              )?.length > 18
+                              )?.length > 20
                                 ? "shirnk-card"
                                 : ""
                             }`}
