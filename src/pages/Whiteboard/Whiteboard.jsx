@@ -115,7 +115,7 @@ export default function Whiteboard() {
   const nativeInputRef = useRef(null);
   const CANVAS_WIDTH = 985;
   const CANVAS_HEIGHT = 600;
-  const TOOLBAR_HEIGHT = 80;
+  const TOOLBAR_HEIGHT = 110;
   const TEXT_LINE_HEIGHT = 24;
   const [canvasSize, setCanvasDimensions] = useState({ width: CANVAS_WIDTH, height: CANVAS_HEIGHT });
 
@@ -506,7 +506,6 @@ export default function Whiteboard() {
     });
 
     const mergedImages = [];
-    const newSelectedImages = [...SelectedImages];
 
     // Process incoming images
     incomingUrls.forEach((src, index) => {
@@ -531,22 +530,11 @@ export default function Whiteboard() {
           id: Date.now() + index
         });
       }
-
-      if (!newSelectedImages.includes(src)) {
-        newSelectedImages.push(src);
-      }
-    });
-
-    // Keep images that were not in incoming list
-    existingImagesMap.forEach((img, src) => {
-      if (!incomingUrls.includes(src)) {
-        mergedImages.push(img);
-      }
     });
 
     // Update states - preserve existing paths and textBlocks
     setUploadedImages(uniqueImages(mergedImages));
-    setSelectedImages(newSelectedImages);
+    setSelectedImages([...incomingUrls]);
 
     // Don't clear paths and textBlocks - preserve them
     if (location.state.textBlocks && location.state.textBlocks.length > 0) {
@@ -569,10 +557,10 @@ export default function Whiteboard() {
 
     // Clear location state
     setTimeout(() => {
-      window.history.replaceState({}, document.title);
+      navigate(location.pathname, { replace: true, state: {} });
     }, 100);
 
-  }, [location.state?.selectedImages]);
+  }, [location.state?.selectedImages, navigate, location.pathname]);
 
   const getCurrentTextBlocks = useCallback(() => {
     if (!activeTextBlock) {

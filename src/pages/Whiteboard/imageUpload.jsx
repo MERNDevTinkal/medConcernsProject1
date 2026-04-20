@@ -39,6 +39,7 @@ export default function AddImagePopup({
           textBlocks,
           selectedImages: uploadedImages,
           pathname,
+          returnPath: pathname || "/whiteboard",
         };
 
     navigate("/images-library", {

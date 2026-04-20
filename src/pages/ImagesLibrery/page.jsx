@@ -107,16 +107,26 @@ export default function ImagesLibrery() {
                     }
                   >
                     <div
-                      className={`dashboard-cards rounded-2xl bg-white text-center border-4 transition-colors duration-300 shadow-sm ${
+                      className={`dashboard-cards rounded-2xl bg-white text-center border-4 transition-all duration-300 shadow-sm relative ${
                         isSelected
-                          ? "border-blue-500"
-                          : "border-white hover:border-gray-300"
+                          ? "border-blue-500 scale-95"
+                          : "border-transparent hover:border-gray-300"
                       }`}
                     >
-                      <div className="dashboard-img card-img-h rounded-2xl">
+                      {isSelected && (
+                        <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-1 z-10 shadow-md">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      )}
+                      <div className="dashboard-img card-img-h rounded-2xl overflow-hidden relative">
+                        {isSelected && (
+                          <div className="absolute inset-0 bg-blue-500/10 z-0"></div>
+                        )}
                         <img
                           src={src}
-                          className="w-full rounded-2xl"
+                          className="w-full h-full object-contain rounded-2xl relative z-10"
                           alt={`image-${index}`}
                         />
                       </div>
