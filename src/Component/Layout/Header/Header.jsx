@@ -380,22 +380,22 @@ const Header = ({
               className="flex items-center space-x-3"
               style={{ cursor: "pointer" }}
             >
-              {location.pathname !== "/introduction" && (
-                <img
-                  onClick={() => {
-                    if (location.pathname === "/white-board-list") {
-                      navigate("/whiteboard");
-                    } else if (isSummary === true) {
-                      navigate(-1);
-                      // setIsPopupOpen(true);
-                    } else {
-                      handlelastObj();
-                    }
-                  }}
-                  src={BackArrow}
-                  alt="back"
-                />
-              )}
+              <button
+                onClick={() => {
+                  console.log("Current Path:", location.pathname);
+                  if (location.pathname === "/white-board-list") {
+                    navigate("/whiteboard");
+                  } else if (isSummary === true) {
+                    navigate(-1);
+                  } else {
+                    handlelastObj();
+                  }
+                }}
+              >
+                {location.pathname !== "/introduction" && (
+                  <img src={BackArrow} alt="back" />
+                )}
+              </button>
               <button type="button" onClick={toggleSidebar}>
                 <img src={hamburger} alt="menu" />
               </button>
@@ -428,7 +428,7 @@ const Header = ({
                 {location.pathname === "/introduction" && (
                   <img src={"/favicon.png"} className="w-6" />
                 )}
-                {(location.pathname === "/communication-problem" && selectedLanguage === "Spanish") ? "Comunicación / Pensamiento":(location.pathname === "/communication-problem" && selectedLanguage !== "Spanish") ? "Communication / Thinking" : (location.pathname === "/movement-problem" && selectedLanguage === "Spanish") ? "Movimiento" :(location.pathname === "/movement-problem" && selectedLanguage !== "Spanish") ? "Movement" :location.pathname === "/patient-education" ? "" : name ??
+                {(location.pathname === "/communication-problem" && selectedLanguage === "Spanish") ? "Comunicación / Pensamiento" : (location.pathname === "/communication-problem" && selectedLanguage !== "Spanish") ? "Communication / Thinking" : (location.pathname === "/movement-problem" && selectedLanguage === "Spanish") ? "Movimiento" : (location.pathname === "/movement-problem" && selectedLanguage !== "Spanish") ? "Movement" : location.pathname === "/patient-education" ? "" : name ??
                   (selectedLanguage === "Spanish"
                     ? "Preocupaciones"
                     : location.pathname === "/depression-screener"

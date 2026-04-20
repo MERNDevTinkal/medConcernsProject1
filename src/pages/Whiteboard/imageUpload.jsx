@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 export default function AddImagePopup({
+  getWhiteboardSnapshot,
   textBlocks,
   paths,
   oldImages,
@@ -30,14 +31,18 @@ export default function AddImagePopup({
 
   const handleChooseFromLibrary = (e) => {
     e.preventDefault();
+    const snapshot = getWhiteboardSnapshot
+      ? getWhiteboardSnapshot()
+      : {
+          oldImages,
+          paths,
+          textBlocks,
+          selectedImages: uploadedImages,
+          pathname,
+        };
+
     navigate("/images-library", {
-      state: {
-        oldImages,
-        paths,
-        textBlocks,
-        selectedImages: uploadedImages,
-        pathname,
-      },
+      state: snapshot,
     });
   };
 

@@ -43,7 +43,7 @@ const Button = ({
   };
   const sizes = {
     md: "h-10 px-4 text-sm",
-    icon: "h-10 w-10 p-0",
+    icon: "h-9 w-9 p-0 sm:h-10 sm:w-10 shrink-0",
   };
   return (
     <button
@@ -116,15 +116,28 @@ export default function Whiteboard() {
   const CANVAS_WIDTH = 985;
   const CANVAS_HEIGHT = 600;
   const TOOLBAR_HEIGHT = 80;
+  const TEXT_LINE_HEIGHT = 24;
   const [canvasSize, setCanvasDimensions] = useState({ width: CANVAS_WIDTH, height: CANVAS_HEIGHT });
 
   const SAFE_AREA_BOTTOM = canvasSize.height - TOOLBAR_HEIGHT;
+  const SAFE_TEXT_BOTTOM = SAFE_AREA_BOTTOM - TEXT_LINE_HEIGHT;
 
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
     return canvas.getContext("2d");
   }, []);
+
+  const clampPointToDrawableArea = useCallback((point) => {
+    return {
+      x: Math.min(Math.max(point.x, 0), canvasSize.width),
+      y: Math.min(Math.max(point.y, 0), SAFE_AREA_BOTTOM),
+    };
+  }, [canvasSize.width, SAFE_AREA_BOTTOM]);
+
+  const isInToolbarZone = useCallback((point) => {
+    return point.y >= SAFE_AREA_BOTTOM;
+  }, [SAFE_AREA_BOTTOM]);
 
   const wrapTextLines = (paragraph, maxWidth, ctx, manualLineIndex = 0) => {
     const lines = [];
@@ -263,7 +276,7 @@ export default function Whiteboard() {
     textBlocks.forEach((block) => {
       if (activeTextBlock && block.id === activeTextBlock.id) return;
       const font = block.font || "20px Arial";
-      const lineHeight = 24;
+      const lineHeight = TEXT_LINE_HEIGHT;
       const maxWidth = currentWidth - block.x - 20;
       ctx.font = font;
       ctx.fillStyle = block.color || "#000";
@@ -292,7 +305,7 @@ export default function Whiteboard() {
 
     const currentWidth = canvasSize.width;
     const font = "20px Arial";
-    const lineHeight = 24;
+    const lineHeight = TEXT_LINE_HEIGHT;
     const maxWidth = currentWidth - activeTextBlock.x - 20;
     ctx.font = font;
     ctx.fillStyle = drawingColor;
@@ -561,6 +574,44 @@ export default function Whiteboard() {
 
   }, [location.state?.selectedImages]);
 
+  const getCurrentTextBlocks = useCallback(() => {
+    if (!activeTextBlock) {
+      return textBlocks;
+    }
+
+    const textContent = textLines.join("\n");
+    const snapshotBlock = {
+      ...activeTextBlock,
+      text: textContent,
+      timestamp: Date.now(),
+    };
+    const existingIndex = textBlocks.findIndex(
+      (block) => block.id === activeTextBlock.id
+    );
+
+    if (existingIndex >= 0) {
+      const nextBlocks = [...textBlocks];
+      nextBlocks[existingIndex] = snapshotBlock;
+      return nextBlocks;
+    }
+
+    if (textContent.trim()) {
+      return [...textBlocks, snapshotBlock];
+    }
+
+    return textBlocks;
+  }, [activeTextBlock, textBlocks, textLines]);
+
+  const getWhiteboardSnapshot = useCallback(() => {
+    return {
+      pathname,
+      paths: [...paths],
+      oldImages: [...uploadedImages],
+      selectedImages: [...SelectedImages],
+      textBlocks: getCurrentTextBlocks(),
+    };
+  }, [pathname, paths, uploadedImages, SelectedImages, getCurrentTextBlocks]);
+
   const handleImageUpload = useCallback((files) => {
     if (!files || files.length === 0) return;
 
@@ -658,7 +709,12 @@ export default function Whiteboard() {
 
   const startDrawing = useCallback((e) => {
     const rect = canvasRef.current.getBoundingClientRect();
-    const pos = pointerPos(e, rect);
+    const rawPos = pointerPos(e, rect);
+    const pos = clampPointToDrawableArea(rawPos);
+
+    if (tool !== "text" && isInToolbarZone(rawPos)) {
+      return;
+    }
 
     for (let i = uploadedImages.length - 1; i >= 0; i--) {
       const img = uploadedImages[i];
@@ -703,7 +759,7 @@ export default function Whiteboard() {
       ctx.globalCompositeOperation = tool === "pencil" ? "source-over" : "destination-out";
       ctx.moveTo(pos.x, pos.y);
     }
-  }, [tool, drawingColor, drawingWidth, uploadedImages, getCanvasContext, handleDeleteImage, setSelectedImageIndex]);
+  }, [tool, drawingColor, drawingWidth, uploadedImages, getCanvasContext, handleDeleteImage, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
 
   const decreaseImageSize = useCallback(() => {
     if (selectedImageIndex === null || uploadedImages[selectedImageIndex] === undefined) {
@@ -748,7 +804,8 @@ export default function Whiteboard() {
 
   const draw = useCallback((e) => {
     const rect = canvasRef.current.getBoundingClientRect();
-    const pos = pointerPos(e, rect);
+    const rawPos = pointerPos(e, rect);
+    const pos = clampPointToDrawableArea(rawPos);
 
     // Check if hovering over an image to select it (but not while dragging)
     if (draggingImage === null) {
@@ -786,7 +843,7 @@ export default function Whiteboard() {
       return;
     }
 
-    if (!isDrawing || tool === "text") return;
+    if (!isDrawing || tool === "text" || isInToolbarZone(rawPos)) return;
 
     setPaths((prev) => {
       if (prev.length === 0) return prev;
@@ -798,7 +855,7 @@ export default function Whiteboard() {
       };
       return newPaths;
     });
-  }, [isDrawing, tool, draggingImage, dragOffset, constrainImagePosition, uploadedImages, setSelectedImageIndex]);
+  }, [isDrawing, tool, draggingImage, dragOffset, constrainImagePosition, uploadedImages, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
 
   const stopDrawing = useCallback(() => {
     setIsDrawing(false);
@@ -982,7 +1039,7 @@ export default function Whiteboard() {
     if (!canvas) return { x: clickX, y: clickY };
     const rect = canvas.getBoundingClientRect();
     const padding = 10;
-    const lineHeight = 24;
+    const lineHeight = TEXT_LINE_HEIGHT;
     const canvasWidth = rect.width || CANVAS_WIDTH;
     const canvasHeight = rect.height;
     let bestX = Math.max(
@@ -991,7 +1048,7 @@ export default function Whiteboard() {
     );
     let bestY = Math.max(
       padding,
-      Math.min(clickY, canvasHeight - padding - 50)
+      Math.min(clickY, SAFE_TEXT_BOTTOM - padding)
     );
     const allBlocks = [...textBlocks];
     if (activeTextBlock && typedText.trim()) {
@@ -1005,10 +1062,10 @@ export default function Whiteboard() {
         bestY = blockBottom;
       }
     }
-    bestY = Math.min(bestY, canvasHeight - lineHeight * 3 - padding);
+    bestY = Math.min(bestY, SAFE_TEXT_BOTTOM - lineHeight - padding);
     bestX = Math.min(bestX, canvasWidth - 100);
     return { x: bestX, y: bestY };
-  }, [textBlocks, activeTextBlock, typedText]);
+  }, [textBlocks, activeTextBlock, typedText, SAFE_TEXT_BOTTOM]);
 
   // const activateTextTool = () => {
   //   setTool("text");
@@ -1061,7 +1118,15 @@ export default function Whiteboard() {
   const handleClick = (e) => {
     if (tool !== "text") return;
     const rect = canvasRef.current.getBoundingClientRect();
-    const pos = pointerPos(e, rect);
+    const rawPos = pointerPos(e, rect);
+    const pos = clampPointToDrawableArea(rawPos);
+
+    if (isInToolbarZone(rawPos)) {
+      if (activeTextBlock) {
+        commitTypedText();
+      }
+      return;
+    }
 
     const clickedBlock = textBlocks.find((block) => {
       const blockWidth = Math.min(300, canvasSize.width - block.x - 20);
@@ -1121,7 +1186,7 @@ export default function Whiteboard() {
     if (!ctx) return 100;
     const font = block.font || "20px Arial";
     ctx.font = font;
-    const lineHeight = 24;
+      const lineHeight = TEXT_LINE_HEIGHT;
     const maxWidth = canvasSize.width - block.x - 20;
     const paragraphs = block.text.split("\n");
     let totalHeight = 0;
@@ -1139,7 +1204,7 @@ export default function Whiteboard() {
   const updateCursorPosition = (pos, block) => {
     const ctx = canvasRef.current.getContext("2d");
     ctx.font = "20px Arial";
-    const lineHeight = 24;
+    const lineHeight = TEXT_LINE_HEIGHT;
     const relativeX = pos.x - block.x;
     const relativeY = pos.y - block.y;
     const lines = block.text.split("\n");
@@ -1175,6 +1240,9 @@ export default function Whiteboard() {
       case "{enter}":
       case "{return}":
       case "Enter":
+        if (caretY + TEXT_LINE_HEIGHT > SAFE_AREA_BOTTOM) {
+          return;
+        }
         const newLines = [...textLines];
         if (cursorPosition.column === newLines[cursorPosition.line].length) {
           newLines.splice(cursorPosition.line + 1, 0, "");
@@ -1216,6 +1284,10 @@ export default function Whiteboard() {
   };
 
   const insertTextAtCursor = (text) => {
+    if (caretY > SAFE_TEXT_BOTTOM) {
+      return;
+    }
+
     const newLines = [...textLines];
     const currentLine = newLines[cursorPosition.line] || "";
 
@@ -1536,6 +1608,7 @@ useEffect(() => {
     <>
       {FileUpload && (
         <ImageUpload
+          getWhiteboardSnapshot={getWhiteboardSnapshot}
           textBlocks={textBlocks}
           paths={paths}
           oldImages={uploadedImages}
@@ -1593,7 +1666,8 @@ useEffect(() => {
                     onClick={handleClick}
                   />
                 </div>
-                <CardContent className="flex flex-wrap items-center justify-center gap-5 whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1">
+                <CardContent className="whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1 overflow-x-auto px-2 py-2 sm:px-4">
+                  <div className="flex min-w-max flex-nowrap items-center justify-start gap-2 sm:justify-center sm:gap-3">
                   <Button
                     variant="ghost"
                     size="icon"
@@ -1716,7 +1790,7 @@ useEffect(() => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="bg-gray-100"
+                    className="shrink-0 bg-gray-100"
                     onClick={handleClear}
                     title={selectedLanguage === "Spanish" ? "Borrar todo" : "Clear All"}
                   >
@@ -1729,6 +1803,7 @@ useEffect(() => {
                   <Button
                     variant="ghost"
                     size="icon"
+                    className="shrink-0"
                     onClick={() => setShowSaveModal(true)}
                     title={selectedLanguage === "Spanish" ? "Guardar archivo" : "File Save"}
                   >
@@ -1738,8 +1813,8 @@ useEffect(() => {
                       alt="Save Icon"
                     />
                   </Button>
-                  <div className="flex items-center gap-2">
-                    <label className="text-sm text-gray-600">
+                  <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+                    <label className="hidden text-xs text-gray-600 sm:block sm:text-sm">
                       {selectedLanguage === "Spanish" ? "Ancho" : "Width"}
                     </label>
                     <input
@@ -1748,13 +1823,13 @@ useEffect(() => {
                       max="24"
                       value={drawingWidth}
                       onChange={(e) => setDrawingWidth(Number(e.target.value))}
-                      className="w-32"
+                      className="w-20 sm:w-28 md:w-32"
                     />
-                    <span className="text-sm text-gray-700 w-6 text-center">
+                    <span className="w-6 text-center text-xs text-gray-700 sm:text-sm">
                       {drawingWidth}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex shrink-0 items-center gap-1 sm:gap-2">
                     <Button
                       variant="ghost"
                       size="icon"
@@ -1764,7 +1839,7 @@ useEffect(() => {
                     >
                       <span className="text-lg font-bold">−</span>
                     </Button>
-                    <span className="text-xs text-gray-600">
+                    <span className="hidden text-xs text-gray-600 sm:inline">
                       {selectedLanguage === "Spanish" ? "Imagen" : "Image"}
                     </span>
                     <Button
@@ -1776,6 +1851,7 @@ useEffect(() => {
                     >
                       <span className="text-lg font-bold">+</span>
                     </Button>
+                  </div>
                   </div>
                 </CardContent>
               </Card>
