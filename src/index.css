@@ -2088,6 +2088,7 @@ img {
     top: 10px;
     max-width: 1024px;
     position: fixed;
+    z-index: 9999;
 }
 .dashboard-img .w-full.h-full,
 .dashboard-img.card-img-h.rounded-2xl{
