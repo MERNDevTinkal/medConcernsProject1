@@ -7992,6 +7992,18 @@ const movementconcerns = [
   },
   {
     id: "5",
+    name: "Spasming",
+    nameEs: "Espasmos",
+    image: PainImg6,
+    path: "/howoften",
+    secPath: "/confrm-step-yesno",
+    maleEnglish: SpasmingMale,
+    femaleEnglish: spasmingFemale,
+    femaleSpanish: EspasmosSpanishFemale,
+    maleSpanish: SpasmingEspasmosSpanishMale,
+  },
+  {
+    id: "6",
     name: "Dizzy",
     nameEs: "Mareado/a",
     image: DizzyImg,
@@ -8003,7 +8015,7 @@ const movementconcerns = [
     maleSpanish: MareadoADizzySpanishMale,
   },
   {
-    id: "6",
+    id: "7",
     name: "Trouble Walking",
     nameEs: "Problemas al Caminar",
     image: TroubleWalkingImg,
@@ -8015,7 +8027,7 @@ const movementconcerns = [
     maleSpanish: ProblemasCaminarMaleSpanish,
   },
   {
-    id: "7",
+    id: "8",
     image: dashimghow34,
     secPath: "/confrm-step-yesno",
     path: "/withTransfer-problem",
@@ -8027,7 +8039,7 @@ const movementconcerns = [
     maleSpanish: AlTransferirReposicionarMaleSpanish,
   },
   {
-    id: "8",
+    id: "9",
     name: "Something Else",
     nameEs: "Algo Mas",
     image: dashimg11,
