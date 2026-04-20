@@ -30,15 +30,15 @@ export default function ImagesLibrery() {
   useEffect(() => {
     getSetting(
       setSelectedIconCount,
-      () => {},
+      () => { },
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => {},
-      () => {},
-      () => {},
-      () => {}
+      () => { },
+      () => { },
+      () => { },
+      () => { }
     );
   }, []);
 
@@ -64,7 +64,7 @@ export default function ImagesLibrery() {
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper">
+        <div className="main-wrapper home-wrapper images-library-wrapper">
           <div className="imagelibarary-header ">
             <button
               onClick={handleDone}
@@ -96,29 +96,28 @@ export default function ImagesLibrery() {
                       selectedIconCount === 1
                         ? "dash-single-items"
                         : selectedIconCount === 2
-                        ? "dash-double-items"
-                        : selectedIconCount === 3
-                        ? "dash-triple-items"
-                        : selectedIconCount === 4
-                        ? "dash-quadriple-items"
-                        : selectedIconCount === 6
-                        ? "dash-hexuple-items"
-                        : ""
+                          ? "dash-double-items"
+                          : selectedIconCount === 3
+                            ? "dash-triple-items"
+                            : selectedIconCount === 4
+                              ? "dash-quadriple-items"
+                              : selectedIconCount === 6
+                                ? "dash-hexuple-items"
+                                : ""
                     }
                   >
                     <div
-                      className={`dashboard-cards rounded-2xl bg-white text-center border-4 transition-all duration-300 shadow-sm relative ${
-                        isSelected
-                          ? "border-blue-500 scale-95"
-                          : "border-transparent hover:border-gray-300"
-                      }`}
+                      className={`dashboard-cards rounded-2xl bg-white text-center border-4 transition-all duration-300 shadow-sm relative ${isSelected
+                        ? "border-blue-500 scale-95"
+                        : "border-transparent hover:border-[#0088dc]"
+                        }`}
                     >
                       {isSelected && (
-                        <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-1 z-10 shadow-md">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <span className="library-selected-check">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
-                        </div>
+                        </span>
                       )}
                       <div className="dashboard-img card-img-h rounded-2xl overflow-hidden relative">
                         {isSelected && (

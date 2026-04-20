@@ -2105,3 +2105,24 @@ img {
   background: rgba(0, 0, 0, 0.0); 
   z-index: 9999;
 }
+
+.images-library-wrapper .dashboard-cards{
+  position: relative;
+}
+.images-library-wrapper .dashboard-cards .library-selected-check{
+         height: 30px;
+    width: 30px;
+    background-color: #0088dc;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    z-index: 99999;
+    border-radius: 50%;
+}
+.images-library-wrapper .dashboard-cards .library-selected-check svg{
+  width: 22px;
+}
