@@ -12,6 +12,8 @@ import { SlPencil } from "react-icons/sl";
 import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
 import ImageUpload from "./imageUpload.jsx";
+import { GiResize } from "react-icons/gi";
+
 import {
   PencilIcon,
   TextIcon,
@@ -118,10 +120,45 @@ export default function Whiteboard() {
   const TOOLBAR_HEIGHT = 110;
   const TEXT_LINE_HEIGHT = 24;
   const [canvasSize, setCanvasDimensions] = useState({ width: CANVAS_WIDTH, height: CANVAS_HEIGHT });
-
+  const [showResizePopup, setShowResizePopup] = useState(false);
+  const [tempImageSize, setTempImageSize] = useState({ width: 0, height: 0 });
   const SAFE_AREA_BOTTOM = canvasSize.height - TOOLBAR_HEIGHT;
   const SAFE_TEXT_BOTTOM = SAFE_AREA_BOTTOM - TEXT_LINE_HEIGHT;
 
+  const handleResizeButtonClick = () => {
+    if (selectedImageIndex === null || uploadedImages[selectedImageIndex] === undefined) {
+      // toast.info(selectedLanguage === "Spanish" ? "Seleccione una imagen primero" : "Please select an image first");
+      return;
+    }
+    setShowResizePopup(true);
+  };
+  const handleResizeConfirm = () => {
+    setShowResizePopup(false);
+  };
+  const handleResizeCancel = () => {
+    setShowResizePopup(false);
+  };
+  const updateTempSize = (newWidth, newHeight) => {
+    // Maintain aspect ratio
+    const originalImage = uploadedImages[selectedImageIndex];
+    if (!originalImage) return;
+
+    const aspectRatio = originalImage.width / originalImage.height;
+
+    if (newWidth) {
+      const calculatedHeight = newWidth / aspectRatio;
+      setTempImageSize({
+        width: newWidth,
+        height: calculatedHeight
+      });
+    } else if (newHeight) {
+      const calculatedWidth = newHeight * aspectRatio;
+      setTempImageSize({
+        width: calculatedWidth,
+        height: newHeight
+      });
+    }
+  };
   const getCanvasContext = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return null;
@@ -1174,7 +1211,7 @@ export default function Whiteboard() {
     if (!ctx) return 100;
     const font = block.font || "20px Arial";
     ctx.font = font;
-      const lineHeight = TEXT_LINE_HEIGHT;
+    const lineHeight = TEXT_LINE_HEIGHT;
     const maxWidth = canvasSize.width - block.x - 20;
     const paragraphs = block.text.split("\n");
     let totalHeight = 0;
@@ -1579,17 +1616,17 @@ export default function Whiteboard() {
     return trans[transtext][params];
   }
 
-useEffect(() => {
-  if(Scoller){
-    setScoller(false);
-    setTimeout(() => {
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: "smooth",
-      });
-    }, 100);
-  }
-}, [Scoller]);
+  useEffect(() => {
+    if (Scoller) {
+      setScoller(false);
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 100);
+    }
+  }, [Scoller]);
 
 
   return (
@@ -1656,215 +1693,217 @@ useEffect(() => {
                 </div>
                 <CardContent className="whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1 overflow-x-auto px-2 py-2 sm:px-4">
                   <div className="flex min-w-max flex-nowrap items-center justify-start gap-2 sm:justify-center sm:gap-3">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className={cn(tool === "pencil" && "bg-gray-100")}
-                    onClick={() => {
-                      if (activeTextBlock && typedText.trim()) {
-                        commitTypedText();
-                      }
-                      setTool("pencil");
-                      setShowKeyboard(false);
-                      setSelectedImageIndex(null);
-                    }}
-                    title={selectedLanguage === "Spanish" ? "Lápiz" : "Pencil"}
-                  >
-                    <img src={PencilIcon} className="icon-size-add" alt="Pencil Icon" />
-                  </Button>
-                  {/* <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={activateTextTool}
-                    title="Virtual Keyboard"
-                  > */}
-                  {/* Add this hidden input anywhere inside your main div */}
-                  <input
-                    ref={nativeInputRef}
-                    type="text"
-                    inputMode="text"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    autoCapitalize="off"
-                    spellCheck="false"
-                    style={{
-                      position: 'fixed',
-                      top: '100vh',
-                      left: 0,
-                      width: 0,
-                      height: 0,
-                      opacity: 0,
-                      pointerEvents: 'none',
-                      border: 'none',
-                      padding: 0,
-                      margin: 0,
-                      zIndex: -1,
-                    }}
-                    onChange={handleNativeInputChange}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Backspace') handleBackspace();
-                      if (e.key === 'Enter') handleKeyboardKeyPress('{enter}');
-                    }}
-                  />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className={cn(tool === "pencil" && "bg-gray-100")}
+                      onClick={() => {
+                        if (activeTextBlock && typedText.trim()) {
+                          commitTypedText();
+                        }
+                        setTool("pencil");
+                        setShowKeyboard(false);
+                        setSelectedImageIndex(null);
+                      }}
+                      title={selectedLanguage === "Spanish" ? "Lápiz" : "Pencil"}
+                    >
+                      <img src={PencilIcon} className="icon-size-add" alt="Pencil Icon" />
+                    </Button>
 
-                  {/* Update your Toolbar Button */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={activateTextTool}
-                    title={selectedLanguage === "Spanish" ? "Teclado" : "Keyboard"}
-                  >
-                    <img
-                      src={TextIcon} // Changed to KeyBoardIcon as per your requirement
-                      className="icon-size-add"
-                      alt="Keyboard Icon"
-                    />
-                  </Button>
-                  {/* <img
-                      src={TextIcon}
-                      className="icon-size-add"
-                      alt="Text Icon"
-                      draggable={false}
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                    />
-                  </Button> */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    title={selectedLanguage === "Spanish" ? "Subir imagen" : "Upload image"}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setFileUpload(true);
-                    }}
-                  >
-                    <img
-                      src={ImgIcon}
-                      className="icon-size-add"
-                      alt="Upload Image"
-                    />
-                  </Button>
-
-                  <input
-                    type="file"
-                    id="imageUpload"
-                    accept="image/*"
-                    multiple
-                    className="hidden"
-                    onChange={(e) => {
-                      setTool("");
-                      setSelectedImageIndex(null);
-                      handleImageUpload(Array.from(e.target.files));
-                    }}
-                  />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className={cn(tool === "eraser" && "bg-gray-100")}
-                    onClick={() => {
-                      if (activeTextBlock && typedText.trim()) {
-                        commitTypedText();
-                      }
-                      setTool("eraser");
-                      setShowKeyboard(false);
-                      setDrawingWidth(20);
-                      setSelectedImageIndex(null);
-                    }}
-                    title={selectedLanguage === "Spanish" ? "Borrador" : "Eraser"}
-                  >
-                    <img src={EraserIcon} className="icon-size-add" alt="Eraser Icon" />
-                  </Button>
-
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="shrink-0 bg-gray-100"
-                    onClick={handleClear}
-                    title={selectedLanguage === "Spanish" ? "Borrar todo" : "Clear All"}
-                  >
-                    <img
-                      src={DeleteIcon}
-                      className="icon-size-add"
-                      alt="Clear All"
-                    />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="shrink-0"
-                    onClick={() => setShowSaveModal(true)}
-                    title={selectedLanguage === "Spanish" ? "Guardar archivo" : "File Save"}
-                  >
-                    <img
-                      src={SaveIcon}
-                      className="icon-size-add"
-                      alt="Save Icon"
-                    />
-                  </Button>
-                  <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-                    <label className="hidden text-xs text-gray-600 sm:block sm:text-sm">
-                      {selectedLanguage === "Spanish" ? "Ancho" : "Width"}
-                    </label>
                     <input
-                      type="range"
-                      min="1"
-                      max="24"
-                      value={drawingWidth}
-                      onChange={(e) => setDrawingWidth(Number(e.target.value))}
-                      className="w-20 sm:w-28 md:w-32"
+                      ref={nativeInputRef}
+                      type="text"
+                      inputMode="text"
+                      autoComplete="off"
+                      autoCorrect="off"
+                      autoCapitalize="off"
+                      spellCheck="false"
+                      style={{
+                        position: 'fixed',
+                        top: '100vh',
+                        left: 0,
+                        width: 0,
+                        height: 0,
+                        opacity: 0,
+                        pointerEvents: 'none',
+                        border: 'none',
+                        padding: 0,
+                        margin: 0,
+                        zIndex: -1,
+                      }}
+                      onChange={handleNativeInputChange}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Backspace') handleBackspace();
+                        if (e.key === 'Enter') handleKeyboardKeyPress('{enter}');
+                      }}
                     />
-                    <span className="w-6 text-center text-xs text-gray-700 sm:text-sm">
-                      {drawingWidth}
-                    </span>
-                  </div>
-                  <div className="flex shrink-0 items-center gap-1 sm:gap-2">
                     <Button
                       variant="ghost"
                       size="icon"
-                      className={cn(selectedImageIndex !== null && "bg-blue-100 border border-blue-400")}
-                      onClick={decreaseImageSize}
-                      title={selectedLanguage === "Spanish" ? "Hacer más pequeño" : "Make Smaller"}
+                      onClick={activateTextTool}
+                      title={selectedLanguage === "Spanish" ? "Teclado" : "Keyboard"}
                     >
-                      <span className="text-lg font-bold">−</span>
+                      <img
+                        src={TextIcon}
+                        className="icon-size-add"
+                        alt="Keyboard Icon"
+                      />
                     </Button>
-                    <span className="hidden text-xs text-gray-600 sm:inline">
-                      {selectedLanguage === "Spanish" ? "Imagen" : "Image"}
-                    </span>
+
                     <Button
                       variant="ghost"
                       size="icon"
-                      className={cn(selectedImageIndex !== null && "bg-blue-100 border border-blue-400")}
-                      onClick={increaseImageSize}
-                      title={selectedLanguage === "Spanish" ? "Hacer más grande" : "Make Larger"}
+                      title={selectedLanguage === "Spanish" ? "Subir imagen" : "Upload image"}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setFileUpload(true);
+                      }}
                     >
-                      <span className="text-lg font-bold">+</span>
+                      <img
+                        src={ImgIcon}
+                        className="icon-size-add"
+                        alt="Upload Image"
+                      />
                     </Button>
-                  </div>
+                    <div className="flex shrink-0 items-center gap-1 sm:gap-2" style={{ color: " #364153" }}>
+                      <Button
+                        variant=""
+                        size="sm"
+                        className={cn(
+                          "h-8 w-8 p-0 transition-all duration-200",
+                          selectedImageIndex !== null && "bg-blue-50 border-blue-400 hover:bg-blue-100"
+                        )}
+                        onClick={handleResizeButtonClick}
+                        title={selectedLanguage === "Spanish" ? "Cambiar tamaño" : "Resize"}
+                      >
+                        <GiResize className="w-5 h-5" />
+                      </Button>
+                    </div>
+
+                    <input
+                      type="file"
+                      id="imageUpload"
+                      accept="image/*"
+                      multiple
+                      className="hidden"
+                      onChange={(e) => {
+                        setTool("");
+                        setSelectedImageIndex(null);
+                        handleImageUpload(Array.from(e.target.files));
+                      }}
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className={cn(tool === "eraser" && "bg-gray-100")}
+                      onClick={() => {
+                        if (activeTextBlock && typedText.trim()) {
+                          commitTypedText();
+                        }
+                        setTool("eraser");
+                        setShowKeyboard(false);
+                        setDrawingWidth(20);
+                        setSelectedImageIndex(null);
+                      }}
+                      title={selectedLanguage === "Spanish" ? "Borrador" : "Eraser"}
+                    >
+                      <img src={EraserIcon} className="icon-size-add" alt="Eraser Icon" />
+                    </Button>
+
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="shrink-0 bg-gray-100"
+                      onClick={handleClear}
+                      title={selectedLanguage === "Spanish" ? "Borrar todo" : "Clear All"}
+                    >
+                      <img
+                        src={DeleteIcon}
+                        className="icon-size-add"
+                        alt="Clear All"
+                      />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="shrink-0"
+                      onClick={() => setShowSaveModal(true)}
+                      title={selectedLanguage === "Spanish" ? "Guardar archivo" : "File Save"}
+                    >
+                      <img
+                        src={SaveIcon}
+                        className="icon-size-add"
+                        alt="Save Icon"
+                      />
+                    </Button>
+                    <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+                      <label className="hidden text-xs text-gray-600 sm:block sm:text-sm">
+                        {selectedLanguage === "Spanish" ? "Ancho" : "Width"}
+                      </label>
+                      <input
+                        type="range"
+                        min="1"
+                        max="24"
+                        value={drawingWidth}
+                        onChange={(e) => setDrawingWidth(Number(e.target.value))}
+                        className="w-20 sm:w-28 md:w-32"
+                      />
+                      <span className="w-6 text-center text-xs text-gray-700 sm:text-sm">
+                        {drawingWidth}
+                      </span>
+                    </div>
+
                   </div>
                 </CardContent>
               </Card>
-              {/* {showKeyboard && (
-                <div className="w-full max-w-4xl mt-4">
-                  <Keyboard
-                    onChange={handleKeyboardChange}
-                    onKeyPress={handleKeyboardKeyPress}
-                    theme="hg-theme-default hg-layout-default myTheme"
-                    layout={{
-                      default: [
-                        "q w e r t y u i o p",
-                        "a s d f g h j k l",
-                        "z x c v b n m",
-                        "{bksp} {space} {enter}",
-                      ],
-                    }}
-                    display={{
-                      "{bksp}": "⌫",
-                      "{enter}": "⏎",
-                      "{space}": "Space",
-                    }}
-                  />
+              {showResizePopup && selectedImageIndex !== null && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+                  <div className="relative w-[300px] rounded-lg bg-white p-6 shadow-lg">
+                    <div className="mb-4 text-center">
+                      <h2 className="text-xl font-semibold">
+                        {selectedLanguage === "Spanish" ? "Cambiar tamaño" : "Resize Image"}
+                      </h2>
+                    </div>
+
+                    <div className="flex items-center justify-center gap-6">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="h-16 w-16 rounded-xl text-3xl font-bold hover:bg-blue-50"
+                        onClick={decreaseImageSize}
+                      >
+                        −
+                      </Button>
+
+                      <div className="flex flex-col items-center">
+                        <GiResize className="h-8 w-8 text-gray-600" />
+                        <span className="mt-1 text-xs text-gray-500">
+                          {selectedLanguage === "Spanish" ? "Tamaño" : "Size"}
+                        </span>
+                      </div>
+
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="h-16 w-16 rounded-xl text-3xl font-bold hover:bg-blue-50"
+                        onClick={increaseImageSize}
+                      >
+                        +
+                      </Button>
+                    </div>
+
+                    <div className="mt-6 flex justify-center gap-3">
+                      <Button
+                        variant="outline"
+                        className="h-10 rounded-lg px-6"
+                        onClick={handleResizeCancel}
+                      >
+                        {selectedLanguage === "Spanish" ? "Cerrar" : "Close"}
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-              )} */}
+              )}
 
               {showSaveModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
