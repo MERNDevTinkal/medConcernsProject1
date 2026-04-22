@@ -163,6 +163,7 @@ const SummaryList = () => {
               </div>
               {diseases?.summaryList?.length > 0 &&
                 diseases?.summaryList.map((item, index) => {
+                  console.log("item?.flow[0]?.route", item?.flow[0]?.route);
                   return (
                     <div
                       key={index}

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { boardImg, EmotionsImg2 } from "../../Component/DiseasesData/images";
 import scaleRating from "/assets/images/Rating Scale.png";
+import NeedBoardIMg from "/assets/images/sidebar-icon-08.svg";
+
 const SummaryCards = ({ board, selectedLanguage, SummaryConcernData, headerNames }) => {
   const [getData, setData] = useState({});
   useEffect(() => {
@@ -12,9 +14,9 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData, headerNames
   }, [SummaryConcernData]);
   const imageSrc =
     headerNames?.path === "/rating-scale" ? scaleRating :
-      board === "board"
+      board === "/board"
         ? boardImg
-        : board === "/emotions"
+        : board === "/board" ? NeedBoardIMg : board === "/emotions"
           ? EmotionsImg2
           : getData?.image || headerNames?.icon;
   return (

@@ -86,6 +86,7 @@ const NeedBoard = () => {
       })
       .then(({ data }) => {
         if (data.status) {
+          
           toast.success(
             editData?.id
               ? "Icon updated successfully"
@@ -143,8 +144,8 @@ const NeedBoard = () => {
       setEditData(null);
     },
   });
-
-  const mergedData = [...getAllDiseases, ...apiData];
+ console.log("selectedLanguagegetAllDiseases", getAllDiseases);
+  const mergedData = [...apiData, ...getAllDiseases];
 
   const handleDelete = (id) => {
     setIsDelete(true);
