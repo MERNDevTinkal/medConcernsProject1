@@ -961,7 +961,7 @@ font-size: 22px;
 .dash-double-items .dashboard-cards {
   width: 100%;
   margin: 0 auto;
-  height: calc(100vh - 150px);
+  height: calc(60vh - 0px);
 }
 
 .dash-double-items .dashboard-cards .dashboard-img img {
@@ -989,7 +989,7 @@ font-size: 22px;
 .dash-quadriple-items {
   width: 100%;
   margin: 0 auto;
-  height: calc(70vh - 0px);
+  /* height: calc(58vh - 0px); */
   display: flex;
   align-items: flex-end;
   background-color: #fff;
@@ -1003,9 +1003,10 @@ font-size: 22px;
 }
 
 .dash-quadriple-items .dashboard-img img {
-  height: calc(80vh - 210px);
+  height: calc(80vh - 290px);
   object-fit: contain;
 }
+
 
 .dash-quadriple-items .dashboard-cards {
   background-color: transparent;
@@ -1057,7 +1058,7 @@ font-size: 22px;
   }
 
   .dash-quadriple-items {
-    height: calc(90vh - 100px);
+    /* height: calc(90vh - 100px); */
     display: block;
   }
 
@@ -1085,7 +1086,7 @@ font-size: 22px;
   }
 
   .dash-hexuple-items .dashboard-cards .dashboard-img img {
-    height: calc(52vh - 65px);
+    height: calc(45vh - 70px);
     object-fit: contain;
   }
 }
@@ -1110,13 +1111,14 @@ font-size: 22px;
 }
 
 @media only screen and (max-height: 812px) and (orientation: landscape) {
-  .dash-hexuple-items .dashboard-cards {
+  /* .dash-hexuple-items .dashboard-cards {
     height: calc(67vh - 140px);
-  }
+  } */
 
   .dash-hexuple-items .dashboard-cards {
-    height: calc(69vh - 140px);
+    height: calc(69vh - 250px);
   }
+  
 
   /* 
   .decision-cards div.flex.items-center p.font-medium {
@@ -1756,7 +1758,7 @@ body,
   }
 
   .thm-footer {
-    z-index: 999;
+    z-index: 99999;
     padding-bottom: 20px;
   }
 
@@ -2056,6 +2058,8 @@ body,
 }
 .dash-hexuple-items .dashboard-cards p{
 line-height: 1.1;
+padding-top: 2px;
+padding-bottom: 4px;
 }
 .library-selected-check {
     height: 20px;
@@ -2114,10 +2118,16 @@ body.font-cls {
   top: 0; 
 }
 .needboard-btn-h{
-  position: fixed;
-  top: 54px;
-  right: 20px;
-  z-index: 9999;
+top: 54px;
+    right: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1024px;
+    position: fixed;
+    z-index: 9999;
 }
 
 

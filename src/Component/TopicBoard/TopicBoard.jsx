@@ -62,7 +62,7 @@ const TopicBoard = ({
   }, []);
 
   useEffect(() => {
-    const merged = [...topicBoard, ...apiItems];
+    const merged = [ ...apiItems,...topicBoard];
     setMargedData(merged);
   }, [topicBoard, apiItems]);
   const validationSchema = Yup.object({
