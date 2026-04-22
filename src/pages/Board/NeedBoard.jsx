@@ -255,8 +255,8 @@ const NeedBoard = () => {
             }
           />
 
-          <div className="main-wrapper home-wrapper pt-20 relative ">
-            <div className="flex justify-end">
+          <div className="main-wrapper home-wrapper pt-20 relative needboard-wrapper">
+            <div className="flex justify-end needboard-btn-h">
               <button
                 onClick={() => navigate("/icon-upload")}
                 className="thm-btn z-10"

@@ -1666,6 +1666,34 @@ body,
   .vrtical-cntr{
   min-height: 100vh;
 }
+.imagelibarary-header{
+      width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+    top: 10px;
+    max-width: 1024px;
+    position: fixed;
+    z-index: 9999;
+}
+.library-selected-check{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 30px;
+  width: 30px;
+  background-color: #155dfc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.library-selected-check svg{
+  fill: #fff;
+}
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .topicSetting-single-items {
     height: calc(100vh - 16px);
@@ -1728,7 +1756,7 @@ body,
   }
 
   .thm-footer {
-    z-index: 9;
+    z-index: 999;
     padding-bottom: 20px;
   }
 
@@ -1938,7 +1966,7 @@ body,
             height: calc(90vh - 155px);
   }
   .dash-hexuple-items .dashboard-cards.shirnk-card .dashboard-img.card-img-h {
-    height: calc(50vh - 110px);
+    height: calc(50vh - 112px);
   }
   .dash-hexuple-items .dashboard-cards.shirnk-card .dashboard-img.card-img-h  img{
     height: 100%;
@@ -1969,6 +1997,9 @@ body,
     overflow: visible;
     border-radius: 16px;
     height: calc(50vh - 115px);
+  }
+  .needboard-wrapper .dash-hexuple-items .card-img-h{
+    height: calc(48vh - 90px);
   }
  
   
@@ -2026,6 +2057,10 @@ body,
 .dash-hexuple-items .dashboard-cards p{
 line-height: 1.1;
 }
+.library-selected-check {
+    height: 20px;
+    width: 20px;
+}
 }
 .down-arrow.hide {
   opacity: 0;
@@ -2078,20 +2113,17 @@ body.font-cls {
 .rating-bar-tp .line-bar{
   top: 0; 
 }
-
-.imagelibarary-header{
-      width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 30px;
-    top: 10px;
-    max-width: 1024px;
-    position: fixed;
-    z-index: 9999;
+.needboard-btn-h{
+  position: fixed;
+  top: 54px;
+  right: 20px;
+  z-index: 9999;
 }
-.dashboard-img .w-full.h-full,
+
+
+ 
+
+/* .dashboard-img .w-full.h-full,
 .dashboard-img.card-img-h.rounded-2xl{
   position: relative;
 }
@@ -2105,8 +2137,5 @@ body.font-cls {
   height: 100%;
   background: rgba(0, 0, 0, 0.0); 
   z-index: 9999;
-}
-
-
-
+} */
 
