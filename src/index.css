@@ -2072,12 +2072,7 @@ body.font-cls {
 }
 
 
-img {
-  -webkit-touch-callout: none; /* disables long-press menu */
-  -webkit-user-select: none;
-  user-select: none;
-  pointer-events: none; /* optional: fully disables interaction */
-}
+ 
 .imagelibarary-header{
       width: 100%;
     left: 50%;
