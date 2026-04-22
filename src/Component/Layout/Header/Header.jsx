@@ -370,9 +370,9 @@ const Header = ({
       />
       {/* <div className="main-header-top bg-[#dceaf7] sticky left-0 right-0 top-0 z-10"> */}
       <div
-        className="main-header-top sticky top-0 z-40
+        className="main-header-top 
          bg-[#dceaf7]
-         transform-gpu"
+         "
       >
         <header className=" py-3  main-header">
           <div className="flex items-center justify-between">
