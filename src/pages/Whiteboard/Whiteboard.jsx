@@ -1992,7 +1992,7 @@ const handleClick = (e) => {
                   />
                 </div>
                 <CardContent className="whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1 overflow-x-auto px-2 py-2 sm:px-4">
-                  <div className="flex min-w-max flex-nowrap items-center justify-start gap-2 sm:justify-center sm:gap-3">
+                  <div className="flex min-w-max flex-nowrap items-center justify-start gap-2 sm:justify-center sm:gap-3 bg-white">
                     <Button
                       variant="ghost"
                       size="icon"
@@ -2070,8 +2070,8 @@ const handleClick = (e) => {
                         variant=""
                         size="sm"
                         className={cn(
-                          "h-8 w-8 p-0 transition-all duration-200",
-                          selectedImageIndex !== null && "bg-blue-50 border-blue-400 hover:bg-blue-100"
+                          "h-8 w-8 p-0 ",
+                          selectedImageIndex !== null && ""
                         )}
                         onClick={handleResizeButtonClick}
                         title={selectedLanguage === "Spanish" ? "Cambiar tamaño" : "Resize"}
