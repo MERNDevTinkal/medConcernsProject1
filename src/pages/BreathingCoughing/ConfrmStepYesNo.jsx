@@ -153,9 +153,9 @@ function ConfrmStepYesNo() {
             calendarOn={''}
             name={displayText ?? value?.name}
           />
-          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col vrtical-cntr">
+          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col min-h-[90vh]">
             <div
-              className={`grid grid-cols-2 gap-18 my-5 items-center common-scale mt-12`}
+              className={`grid grid-cols-2 gap-18 my-0 items-center common-scale mt-5`}
             >
               <div className="dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3">
                 <div className="dashboard-img rounded-2xl h-full w-full">
