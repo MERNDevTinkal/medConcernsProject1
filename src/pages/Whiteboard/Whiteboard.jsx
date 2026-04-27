@@ -282,11 +282,9 @@ export default function Whiteboard() {
       y: Math.max(20, y)
     };
   }, [uploadedImages, textBlocks]);
-const drawPaths = useCallback(() => {
-  const ctx = getCanvasContext();
+const renderPathsToContext = useCallback((ctx) => {
   if (!ctx) return;
 
-  // Draw only paths (drawings)
   paths.forEach((path) => {
     if (!path.points || path.points.length === 0) return;
     ctx.beginPath();
@@ -304,7 +302,13 @@ const drawPaths = useCallback(() => {
     ctx.closePath();
     ctx.globalCompositeOperation = "source-over";
   });
-}, [paths, getCanvasContext]);
+}, [paths]);
+
+const drawPaths = useCallback(() => {
+  const ctx = getCanvasContext();
+  if (!ctx) return;
+  renderPathsToContext(ctx);
+}, [getCanvasContext, renderPathsToContext]);
 
 const drawAllTextBlocks = useCallback(() => {
   const ctx = getCanvasContext();
@@ -531,10 +535,7 @@ const redrawCanvas = useCallback(() => {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, currentWidth, currentHeight);
 
-  // 1. Draw paths (drawings) - bottom layer
-  drawPaths();
-  
-  // 2. Draw images - middle layer
+  // 1. Draw images first so drawing appears on top of the image
   if (uploadedImages.length > 0) {
     uploadedImages.forEach((imgObj, index) => {
       let img = imageCache.get(imgObj.src);
@@ -558,13 +559,23 @@ const redrawCanvas = useCallback(() => {
       }
     });
   }
-  
+
+  // 2. Draw paths on a separate transparent layer so erasing only affects drawings
+  const drawingLayer = document.createElement("canvas");
+  drawingLayer.width = currentWidth;
+  drawingLayer.height = currentHeight;
+  const drawingLayerCtx = drawingLayer.getContext("2d");
+  if (drawingLayerCtx) {
+    renderPathsToContext(drawingLayerCtx);
+    ctx.drawImage(drawingLayer, 0, 0);
+  }
+
   // 3. Draw ALL text blocks (committed) - top layer
   drawAllTextBlocks();
-  
+
   // 4. Draw active text (currently being typed) - very top layer
   drawActiveTextIfNeeded();
-}, [uploadedImages, imageCache, getCanvasContext, drawPaths, drawAllTextBlocks, drawActiveTextIfNeeded, selectedImageIndex]);
+}, [uploadedImages, imageCache, getCanvasContext, renderPathsToContext, drawAllTextBlocks, drawActiveTextIfNeeded, selectedImageIndex]);
   // const redrawCanvas = useCallback(() => {
   //   const ctx = getCanvasContext();
   //   const canvas = canvasRef.current;
@@ -848,12 +859,13 @@ const startDrawing = useCallback((e) => {
   const rect = canvasRef.current.getBoundingClientRect();
   const rawPos = pointerPos(e, rect);
   const pos = clampPointToDrawableArea(rawPos);
+  const isDrawingTool = tool === "pencil" || tool === "eraser";
 
   if (isInToolbarZone(rawPos)) {
     return;
   }
 
-  // Check for image click (for dragging) - ALWAYS check, even in text mode
+  // While using pencil/eraser, keep image fixed so the user can draw on top of it.
   for (let i = uploadedImages.length - 1; i >= 0; i--) {
     const img = uploadedImages[i];
     if (
@@ -871,44 +883,30 @@ const startDrawing = useCallback((e) => {
         return;
       }
 
-      // If in text mode and clicking on image, still allow selection but don't start drawing
-      if (tool === "text") {
+      if (!isDrawingTool) {
         setSelectedImageIndex(i);
         setDraggingImage(i);
         setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
         return;
       }
-
-      setSelectedImageIndex(i);
-      setDraggingImage(i);
-      setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
-      return;
     }
   }
 
   // Clicked on empty canvas - deselect image
-  setSelectedImageIndex(null);
+  if (!isDrawingTool) {
+    setSelectedImageIndex(null);
+  }
 
   // Don't start drawing if text tool is active
   if (tool === "text") return;
   
-  if (tool !== "pencil" && tool !== "eraser") return;
+  if (!isDrawingTool) return;
   setIsDrawing(true);
   setPaths((prev) => [
     ...prev,
     { tool, color: drawingColor, width: drawingWidth, points: [pos] },
   ]);
-  const ctx = getCanvasContext();
-  if (ctx) {
-    ctx.beginPath();
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.lineWidth = drawingWidth;
-    ctx.strokeStyle = tool === "pencil" ? drawingColor : "#ffffff";
-    ctx.globalCompositeOperation = tool === "pencil" ? "source-over" : "destination-out";
-    ctx.moveTo(pos.x, pos.y);
-  }
-}, [tool, drawingColor, drawingWidth, uploadedImages, getCanvasContext, handleDeleteImage, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
+}, [tool, drawingColor, drawingWidth, uploadedImages, handleDeleteImage, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
   // const startDrawing = useCallback((e) => {
   //   const rect = canvasRef.current.getBoundingClientRect();
   //   const rawPos = pointerPos(e, rect);
@@ -1008,9 +1006,10 @@ const draw = useCallback((e) => {
   const rect = canvasRef.current.getBoundingClientRect();
   const rawPos = pointerPos(e, rect);
   const pos = clampPointToDrawableArea(rawPos);
+  const isDrawingTool = tool === "pencil" || tool === "eraser";
 
-  // Handle image dragging - ALWAYS allow, regardless of tool
-  if (draggingImage !== null) {
+  // Allow image dragging only when not using drawing tools.
+  if (draggingImage !== null && !isDrawingTool) {
     setUploadedImages((prev) =>
       prev.map((img, i) => {
         if (i === draggingImage) {
@@ -1026,7 +1025,7 @@ const draw = useCallback((e) => {
   }
 
   // Check if hovering over an image to select it
-  if (draggingImage === null && !isDrawing) {
+  if (!isDrawingTool && draggingImage === null && !isDrawing) {
     let isHoveringImage = null;
     for (let i = 0; i < uploadedImages.length; i++) {
       const img = uploadedImages[i];
