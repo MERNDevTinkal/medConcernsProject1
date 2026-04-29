@@ -124,6 +124,9 @@ export default function Whiteboard() {
   const [tempImageSize, setTempImageSize] = useState({ width: 0, height: 0 });
   const SAFE_AREA_BOTTOM = canvasSize.height - TOOLBAR_HEIGHT;
   const SAFE_TEXT_BOTTOM = SAFE_AREA_BOTTOM - TEXT_LINE_HEIGHT;
+  const [isLandscape, setIsLandscape] = useState(
+    window.innerWidth > window.innerHeight
+  );
 
   const handleResizeButtonClick = () => {
     if (selectedImageIndex === null || uploadedImages[selectedImageIndex] === undefined) {
@@ -282,64 +285,64 @@ export default function Whiteboard() {
       y: Math.max(20, y)
     };
   }, [uploadedImages, textBlocks]);
-const renderPathsToContext = useCallback((ctx) => {
-  if (!ctx) return;
+  const renderPathsToContext = useCallback((ctx) => {
+    if (!ctx) return;
 
-  paths.forEach((path) => {
-    if (!path.points || path.points.length === 0) return;
-    ctx.beginPath();
-    ctx.lineWidth = path.width;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.strokeStyle = path.tool === "pencil" ? path.color : "#ffffff";
-    ctx.globalCompositeOperation =
-      path.tool === "pencil" ? "source-over" : "destination-out";
-    ctx.moveTo(path.points[0].x, path.points[0].y);
-    for (let i = 1; i < path.points.length; i++) {
-      ctx.lineTo(path.points[i].x, path.points[i].y);
-    }
-    ctx.stroke();
-    ctx.closePath();
-    ctx.globalCompositeOperation = "source-over";
-  });
-}, [paths]);
-
-const drawPaths = useCallback(() => {
-  const ctx = getCanvasContext();
-  if (!ctx) return;
-  renderPathsToContext(ctx);
-}, [getCanvasContext, renderPathsToContext]);
-
-const drawAllTextBlocks = useCallback(() => {
-  const ctx = getCanvasContext();
-  if (!ctx) return;
-
-  const currentWidth = canvasSize.width;
-
-  // Draw committed text blocks (on top of images)
-  textBlocks.forEach((block) => {
-    if (activeTextBlock && block.id === activeTextBlock.id) return;
-    const font = block.font || "20px Arial";
-    const lineHeight = TEXT_LINE_HEIGHT;
-    const maxWidth = currentWidth - block.x - 20;
-    ctx.font = font;
-    ctx.fillStyle = block.color || "#000";
-    ctx.textBaseline = "top";
-    let currentY = block.y;
-    const paragraphs = block.text.split("\n");
-    paragraphs.forEach((paragraph) => {
-      if (paragraph === "") {
-        currentY += lineHeight;
-        return;
+    paths.forEach((path) => {
+      if (!path.points || path.points.length === 0) return;
+      ctx.beginPath();
+      ctx.lineWidth = path.width;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.strokeStyle = path.tool === "pencil" ? path.color : "#ffffff";
+      ctx.globalCompositeOperation =
+        path.tool === "pencil" ? "source-over" : "destination-out";
+      ctx.moveTo(path.points[0].x, path.points[0].y);
+      for (let i = 1; i < path.points.length; i++) {
+        ctx.lineTo(path.points[i].x, path.points[i].y);
       }
-      const wrappedLines = wrapTextLines(paragraph, maxWidth, ctx);
-      wrappedLines.forEach((line) => {
-        ctx.fillText(line.text, block.x, currentY);
-        currentY += lineHeight;
+      ctx.stroke();
+      ctx.closePath();
+      ctx.globalCompositeOperation = "source-over";
+    });
+  }, [paths]);
+
+  const drawPaths = useCallback(() => {
+    const ctx = getCanvasContext();
+    if (!ctx) return;
+    renderPathsToContext(ctx);
+  }, [getCanvasContext, renderPathsToContext]);
+
+  const drawAllTextBlocks = useCallback(() => {
+    const ctx = getCanvasContext();
+    if (!ctx) return;
+
+    const currentWidth = canvasSize.width;
+
+    // Draw committed text blocks (on top of images)
+    textBlocks.forEach((block) => {
+      if (activeTextBlock && block.id === activeTextBlock.id) return;
+      const font = block.font || "20px Arial";
+      const lineHeight = TEXT_LINE_HEIGHT;
+      const maxWidth = currentWidth - block.x - 20;
+      ctx.font = font;
+      ctx.fillStyle = block.color || "#000";
+      ctx.textBaseline = "top";
+      let currentY = block.y;
+      const paragraphs = block.text.split("\n");
+      paragraphs.forEach((paragraph) => {
+        if (paragraph === "") {
+          currentY += lineHeight;
+          return;
+        }
+        const wrappedLines = wrapTextLines(paragraph, maxWidth, ctx);
+        wrappedLines.forEach((line) => {
+          ctx.fillText(line.text, block.x, currentY);
+          currentY += lineHeight;
+        });
       });
     });
-  });
-}, [textBlocks, activeTextBlock, getCanvasContext, canvasSize.width]);
+  }, [textBlocks, activeTextBlock, getCanvasContext, canvasSize.width]);
   const drawPathsAndText = useCallback(() => {
     const ctx = getCanvasContext();
     if (!ctx) return;
@@ -391,99 +394,99 @@ const drawAllTextBlocks = useCallback(() => {
     });
   }, [paths, textBlocks, activeTextBlock, getCanvasContext, canvasSize.width]);
 
-const drawActiveTextIfNeeded = useCallback(() => {
-  if (!textToolActive || !activeTextBlock) return;
+  const drawActiveTextIfNeeded = useCallback(() => {
+    if (!textToolActive || !activeTextBlock) return;
 
-  const ctx = getCanvasContext();
-  if (!ctx) return;
+    const ctx = getCanvasContext();
+    if (!ctx) return;
 
-  const currentWidth = canvasSize.width;
-  const font = "20px Arial";
-  const lineHeight = TEXT_LINE_HEIGHT;
-  const maxWidth = currentWidth - activeTextBlock.x - 20;
-  ctx.font = font;
-  ctx.fillStyle = drawingColor;
-  ctx.textBaseline = "top";
-  let currentY = activeTextBlock.y;
-  let cursorX = activeTextBlock.x;
-  let cursorY = activeTextBlock.y;
-  let allVisibleLines = [];
-  let foundCursor = false;
+    const currentWidth = canvasSize.width;
+    const font = "20px Arial";
+    const lineHeight = TEXT_LINE_HEIGHT;
+    const maxWidth = currentWidth - activeTextBlock.x - 20;
+    ctx.font = font;
+    ctx.fillStyle = drawingColor;
+    ctx.textBaseline = "top";
+    let currentY = activeTextBlock.y;
+    let cursorX = activeTextBlock.x;
+    let cursorY = activeTextBlock.y;
+    let allVisibleLines = [];
+    let foundCursor = false;
 
-  textLines.forEach((manualLine, manualLineIndex) => {
-    if (manualLine === "") {
-      allVisibleLines.push({
-        text: "",
-        x: activeTextBlock.x,
-        y: currentY,
-        manualLineIndex: manualLineIndex,
-        startCharIndex: 0,
-        endCharIndex: 0,
+    textLines.forEach((manualLine, manualLineIndex) => {
+      if (manualLine === "") {
+        allVisibleLines.push({
+          text: "",
+          x: activeTextBlock.x,
+          y: currentY,
+          manualLineIndex: manualLineIndex,
+          startCharIndex: 0,
+          endCharIndex: 0,
+        });
+        currentY += lineHeight;
+        return;
+      }
+      const wrappedLines = wrapTextLines(manualLine, maxWidth, ctx, manualLineIndex);
+      wrappedLines.forEach((line) => {
+        allVisibleLines.push({
+          ...line,
+          x: activeTextBlock.x,
+          y: currentY,
+        });
+        currentY += lineHeight;
       });
-      currentY += lineHeight;
-      return;
-    }
-    const wrappedLines = wrapTextLines(manualLine, maxWidth, ctx, manualLineIndex);
-    wrappedLines.forEach((line) => {
-      allVisibleLines.push({
-        ...line,
-        x: activeTextBlock.x,
-        y: currentY,
-      });
-      currentY += lineHeight;
     });
-  });
 
-  allVisibleLines.forEach((line) => {
-    ctx.fillText(line.text, line.x, line.y);
-  });
+    allVisibleLines.forEach((line) => {
+      ctx.fillText(line.text, line.x, line.y);
+    });
 
-  for (let i = 0; i < allVisibleLines.length; i++) {
-    const line = allVisibleLines[i];
-    if (line.manualLineIndex === cursorPosition.line) {
-      const lineText = line.text;
-      if (
-        cursorPosition.column >= line.startCharIndex &&
-        cursorPosition.column <= line.endCharIndex
-      ) {
-        const relativeColumn = cursorPosition.column - line.startCharIndex;
-        const textBeforeCursor = lineText.slice(0, relativeColumn);
+    for (let i = 0; i < allVisibleLines.length; i++) {
+      const line = allVisibleLines[i];
+      if (line.manualLineIndex === cursorPosition.line) {
+        const lineText = line.text;
+        if (
+          cursorPosition.column >= line.startCharIndex &&
+          cursorPosition.column <= line.endCharIndex
+        ) {
+          const relativeColumn = cursorPosition.column - line.startCharIndex;
+          const textBeforeCursor = lineText.slice(0, relativeColumn);
+          cursorX =
+            activeTextBlock.x + ctx.measureText(textBeforeCursor).width;
+          cursorY = line.y;
+          foundCursor = true;
+          break;
+        }
+      }
+    }
+
+    if (!foundCursor) {
+      const targetManualLine = cursorPosition.line;
+      let lastLineForManualLine = null;
+      for (let i = allVisibleLines.length - 1; i >= 0; i--) {
+        if (allVisibleLines[i].manualLineIndex === targetManualLine) {
+          lastLineForManualLine = allVisibleLines[i];
+          break;
+        }
+      }
+      if (lastLineForManualLine) {
         cursorX =
-          activeTextBlock.x + ctx.measureText(textBeforeCursor).width;
-        cursorY = line.y;
-        foundCursor = true;
-        break;
+          activeTextBlock.x +
+          ctx.measureText(lastLineForManualLine.text).width;
+        cursorY = lastLineForManualLine.y;
       }
     }
-  }
 
-  if (!foundCursor) {
-    const targetManualLine = cursorPosition.line;
-    let lastLineForManualLine = null;
-    for (let i = allVisibleLines.length - 1; i >= 0; i--) {
-      if (allVisibleLines[i].manualLineIndex === targetManualLine) {
-        lastLineForManualLine = allVisibleLines[i];
-        break;
-      }
+    if (showCursor) {
+      ctx.beginPath();
+      ctx.moveTo(cursorX, cursorY);
+      ctx.lineTo(cursorX, cursorY + lineHeight);
+      ctx.strokeStyle = drawingColor;
+      ctx.lineWidth = 2;
+      ctx.stroke();
     }
-    if (lastLineForManualLine) {
-      cursorX =
-        activeTextBlock.x +
-        ctx.measureText(lastLineForManualLine.text).width;
-      cursorY = lastLineForManualLine.y;
-    }
-  }
-
-  if (showCursor) {
-    ctx.beginPath();
-    ctx.moveTo(cursorX, cursorY);
-    ctx.lineTo(cursorX, cursorY + lineHeight);
-    ctx.strokeStyle = drawingColor;
-    ctx.lineWidth = 2;
-    ctx.stroke();
-  }
-  setCaretY(cursorY + lineHeight);
-}, [textToolActive, activeTextBlock, textLines, cursorPosition, drawingColor, showCursor, getCanvasContext, canvasSize.width]);
+    setCaretY(cursorY + lineHeight);
+  }, [textToolActive, activeTextBlock, textLines, cursorPosition, drawingColor, showCursor, getCanvasContext, canvasSize.width]);
 
   const drawSingleImage = (imgObj, img, index) => {
     const ctx = getCanvasContext();
@@ -524,58 +527,58 @@ const drawActiveTextIfNeeded = useCallback(() => {
       console.error("Error drawing image:", error);
     }
   };
-const redrawCanvas = useCallback(() => {
-  const ctx = getCanvasContext();
-  const canvas = canvasRef.current;
-  const currentWidth = canvasSize.width;
-  const currentHeight = canvasSize.height;
-  if (!ctx || !canvas) return;
+  const redrawCanvas = useCallback(() => {
+    const ctx = getCanvasContext();
+    const canvas = canvasRef.current;
+    const currentWidth = canvasSize.width;
+    const currentHeight = canvasSize.height;
+    if (!ctx || !canvas) return;
 
-  ctx.clearRect(0, 0, currentWidth, currentHeight);
-  ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, currentWidth, currentHeight);
+    ctx.clearRect(0, 0, currentWidth, currentHeight);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, currentWidth, currentHeight);
 
-  // 1. Draw images first so drawing appears on top of the image
-  if (uploadedImages.length > 0) {
-    uploadedImages.forEach((imgObj, index) => {
-      let img = imageCache.get(imgObj.src);
+    // 1. Draw images first so drawing appears on top of the image
+    if (uploadedImages.length > 0) {
+      uploadedImages.forEach((imgObj, index) => {
+        let img = imageCache.get(imgObj.src);
 
-      if (img && img.complete) {
-        drawSingleImage(imgObj, img, index);
-      } else {
-        const newImg = new Image();
-        newImg.onload = () => {
-          setImageCache(prev => {
-            const newCache = new Map(prev);
-            newCache.set(imgObj.src, newImg);
-            return newCache;
-          });
-          drawSingleImage(imgObj, newImg, index);
-        };
-        newImg.onerror = () => {
-          console.error("Failed to load image:", imgObj.src);
-        };
-        newImg.src = imgObj.src;
-      }
-    });
-  }
+        if (img && img.complete) {
+          drawSingleImage(imgObj, img, index);
+        } else {
+          const newImg = new Image();
+          newImg.onload = () => {
+            setImageCache(prev => {
+              const newCache = new Map(prev);
+              newCache.set(imgObj.src, newImg);
+              return newCache;
+            });
+            drawSingleImage(imgObj, newImg, index);
+          };
+          newImg.onerror = () => {
+            console.error("Failed to load image:", imgObj.src);
+          };
+          newImg.src = imgObj.src;
+        }
+      });
+    }
 
-  // 2. Draw paths on a separate transparent layer so erasing only affects drawings
-  const drawingLayer = document.createElement("canvas");
-  drawingLayer.width = currentWidth;
-  drawingLayer.height = currentHeight;
-  const drawingLayerCtx = drawingLayer.getContext("2d");
-  if (drawingLayerCtx) {
-    renderPathsToContext(drawingLayerCtx);
-    ctx.drawImage(drawingLayer, 0, 0);
-  }
+    // 2. Draw paths on a separate transparent layer so erasing only affects drawings
+    const drawingLayer = document.createElement("canvas");
+    drawingLayer.width = currentWidth;
+    drawingLayer.height = currentHeight;
+    const drawingLayerCtx = drawingLayer.getContext("2d");
+    if (drawingLayerCtx) {
+      renderPathsToContext(drawingLayerCtx);
+      ctx.drawImage(drawingLayer, 0, 0);
+    }
 
-  // 3. Draw ALL text blocks (committed) - top layer
-  drawAllTextBlocks();
+    // 3. Draw ALL text blocks (committed) - top layer
+    drawAllTextBlocks();
 
-  // 4. Draw active text (currently being typed) - very top layer
-  drawActiveTextIfNeeded();
-}, [uploadedImages, imageCache, getCanvasContext, renderPathsToContext, drawAllTextBlocks, drawActiveTextIfNeeded, selectedImageIndex]);
+    // 4. Draw active text (currently being typed) - very top layer
+    drawActiveTextIfNeeded();
+  }, [uploadedImages, imageCache, getCanvasContext, renderPathsToContext, drawAllTextBlocks, drawActiveTextIfNeeded, selectedImageIndex]);
   // const redrawCanvas = useCallback(() => {
   //   const ctx = getCanvasContext();
   //   const canvas = canvasRef.current;
@@ -619,23 +622,23 @@ const redrawCanvas = useCallback(() => {
   //     }
   //   });
   // }, [uploadedImages, imageCache, getCanvasContext, drawPathsAndText, drawActiveTextIfNeeded, selectedImageIndex]);
-const moveTextWithImage = useCallback((imageIndex, deltaX, deltaY) => {
-  const image = uploadedImages[imageIndex];
-  if (!image) return;
-  
-  setTextBlocks(prev => prev.map(block => {
-    // Check if this text block is on this image
-    // You can add a property like `parentImageId` when creating text on image
-    if (block.parentImageId === image.id) {
-      return {
-        ...block,
-        x: block.x + deltaX,
-        y: block.y + deltaY
-      };
-    }
-    return block;
-  }));
-}, [uploadedImages]);
+  const moveTextWithImage = useCallback((imageIndex, deltaX, deltaY) => {
+    const image = uploadedImages[imageIndex];
+    if (!image) return;
+
+    setTextBlocks(prev => prev.map(block => {
+      // Check if this text block is on this image
+      // You can add a property like `parentImageId` when creating text on image
+      if (block.parentImageId === image.id) {
+        return {
+          ...block,
+          x: block.x + deltaX,
+          y: block.y + deltaY
+        };
+      }
+      return block;
+    }));
+  }, [uploadedImages]);
   useEffect(() => {
     redrawCanvas();
   }, [uploadedImages, paths, textBlocks, textToolActive, activeTextBlock, textLines, cursorPosition, redrawCanvas, selectedImageIndex]);
@@ -855,58 +858,58 @@ const moveTextWithImage = useCallback((imageIndex, deltaX, deltaY) => {
     }
     return { x: clientX - rect.left, y: clientY - rect.top };
   };
-const startDrawing = useCallback((e) => {
-  const rect = canvasRef.current.getBoundingClientRect();
-  const rawPos = pointerPos(e, rect);
-  const pos = clampPointToDrawableArea(rawPos);
-  const isDrawingTool = tool === "pencil" || tool === "eraser";
+  const startDrawing = useCallback((e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const rawPos = pointerPos(e, rect);
+    const pos = clampPointToDrawableArea(rawPos);
+    const isDrawingTool = tool === "pencil" || tool === "eraser";
 
-  if (isInToolbarZone(rawPos)) {
-    return;
-  }
+    if (isInToolbarZone(rawPos)) {
+      return;
+    }
 
-  // While using pencil/eraser, keep image fixed so the user can draw on top of it.
-  for (let i = uploadedImages.length - 1; i >= 0; i--) {
-    const img = uploadedImages[i];
-    if (
-      pos.x >= img.x &&
-      pos.x <= img.x + img.width &&
-      pos.y >= img.y &&
-      pos.y <= img.y + img.height
-    ) {
-      const iconX = img.x + img.width - 15;
-      const iconY = img.y + 15;
-      const dist = Math.sqrt((pos.x - iconX) ** 2 + (pos.y - iconY) ** 2);
+    // While using pencil/eraser, keep image fixed so the user can draw on top of it.
+    for (let i = uploadedImages.length - 1; i >= 0; i--) {
+      const img = uploadedImages[i];
+      if (
+        pos.x >= img.x &&
+        pos.x <= img.x + img.width &&
+        pos.y >= img.y &&
+        pos.y <= img.y + img.height
+      ) {
+        const iconX = img.x + img.width - 15;
+        const iconY = img.y + 15;
+        const dist = Math.sqrt((pos.x - iconX) ** 2 + (pos.y - iconY) ** 2);
 
-      if (dist <= 15) {
-        handleDeleteImage(i);
-        return;
-      }
+        if (dist <= 15) {
+          handleDeleteImage(i);
+          return;
+        }
 
-      if (!isDrawingTool) {
-        setSelectedImageIndex(i);
-        setDraggingImage(i);
-        setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
-        return;
+        if (!isDrawingTool) {
+          setSelectedImageIndex(i);
+          setDraggingImage(i);
+          setDragOffset({ x: pos.x - img.x, y: pos.y - img.y });
+          return;
+        }
       }
     }
-  }
 
-  // Clicked on empty canvas - deselect image
-  if (!isDrawingTool) {
-    setSelectedImageIndex(null);
-  }
+    // Clicked on empty canvas - deselect image
+    if (!isDrawingTool) {
+      setSelectedImageIndex(null);
+    }
 
-  // Don't start drawing if text tool is active
-  if (tool === "text") return;
-  
-  if (!isDrawingTool) return;
-  setIsDrawing(true);
-  setPaths((prev) => [
-    ...prev,
-    { tool, color: drawingColor, width: drawingWidth, points: [pos] },
-  ]);
-}, [tool, drawingColor, drawingWidth, uploadedImages, handleDeleteImage, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
+    // Don't start drawing if text tool is active
+    if (tool === "text") return;
+
+    if (!isDrawingTool) return;
+    setIsDrawing(true);
+    setPaths((prev) => [
+      ...prev,
+      { tool, color: drawingColor, width: drawingWidth, points: [pos] },
+    ]);
+  }, [tool, drawingColor, drawingWidth, uploadedImages, handleDeleteImage, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
   // const startDrawing = useCallback((e) => {
   //   const rect = canvasRef.current.getBoundingClientRect();
   //   const rawPos = pointerPos(e, rect);
@@ -1002,62 +1005,62 @@ const startDrawing = useCallback((e) => {
     });
   }, [selectedImageIndex, uploadedImages, constrainImagePosition, canvasSize, selectedLanguage]);
 
-const draw = useCallback((e) => {
-  const rect = canvasRef.current.getBoundingClientRect();
-  const rawPos = pointerPos(e, rect);
-  const pos = clampPointToDrawableArea(rawPos);
-  const isDrawingTool = tool === "pencil" || tool === "eraser";
+  const draw = useCallback((e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const rawPos = pointerPos(e, rect);
+    const pos = clampPointToDrawableArea(rawPos);
+    const isDrawingTool = tool === "pencil" || tool === "eraser";
 
-  // Allow image dragging only when not using drawing tools.
-  if (draggingImage !== null && !isDrawingTool) {
-    setUploadedImages((prev) =>
-      prev.map((img, i) => {
-        if (i === draggingImage) {
-          let newX = pos.x - dragOffset.x;
-          let newY = pos.y - dragOffset.y;
-          const constrained = constrainImagePosition(newX, newY, img.width, img.height);
-          return { ...img, x: constrained.x, y: constrained.y };
+    // Allow image dragging only when not using drawing tools.
+    if (draggingImage !== null && !isDrawingTool) {
+      setUploadedImages((prev) =>
+        prev.map((img, i) => {
+          if (i === draggingImage) {
+            let newX = pos.x - dragOffset.x;
+            let newY = pos.y - dragOffset.y;
+            const constrained = constrainImagePosition(newX, newY, img.width, img.height);
+            return { ...img, x: constrained.x, y: constrained.y };
+          }
+          return img;
+        })
+      );
+      return;
+    }
+
+    // Check if hovering over an image to select it
+    if (!isDrawingTool && draggingImage === null && !isDrawing) {
+      let isHoveringImage = null;
+      for (let i = 0; i < uploadedImages.length; i++) {
+        const img = uploadedImages[i];
+        if (
+          pos.x >= img.x &&
+          pos.x <= img.x + img.width &&
+          pos.y >= img.y &&
+          pos.y <= img.y + img.height
+        ) {
+          isHoveringImage = i;
+          break;
         }
-        return img;
-      })
-    );
-    return;
-  }
-
-  // Check if hovering over an image to select it
-  if (!isDrawingTool && draggingImage === null && !isDrawing) {
-    let isHoveringImage = null;
-    for (let i = 0; i < uploadedImages.length; i++) {
-      const img = uploadedImages[i];
-      if (
-        pos.x >= img.x &&
-        pos.x <= img.x + img.width &&
-        pos.y >= img.y &&
-        pos.y <= img.y + img.height
-      ) {
-        isHoveringImage = i;
-        break;
+      }
+      if (isHoveringImage !== null && isHoveringImage !== selectedImageIndex) {
+        setSelectedImageIndex(isHoveringImage);
       }
     }
-    if (isHoveringImage !== null && isHoveringImage !== selectedImageIndex) {
-      setSelectedImageIndex(isHoveringImage);
-    }
-  }
 
-  // Handle drawing with pencil/eraser
-  if (!isDrawing || tool === "text" || isInToolbarZone(rawPos)) return;
+    // Handle drawing with pencil/eraser
+    if (!isDrawing || tool === "text" || isInToolbarZone(rawPos)) return;
 
-  setPaths((prev) => {
-    if (prev.length === 0) return prev;
-    const newPaths = [...prev];
-    const lastPath = newPaths[newPaths.length - 1];
-    newPaths[newPaths.length - 1] = {
-      ...lastPath,
-      points: [...lastPath.points, pos],
-    };
-    return newPaths;
-  });
-}, [isDrawing, tool, draggingImage, dragOffset, constrainImagePosition, uploadedImages, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
+    setPaths((prev) => {
+      if (prev.length === 0) return prev;
+      const newPaths = [...prev];
+      const lastPath = newPaths[newPaths.length - 1];
+      newPaths[newPaths.length - 1] = {
+        ...lastPath,
+        points: [...lastPath.points, pos],
+      };
+      return newPaths;
+    });
+  }, [isDrawing, tool, draggingImage, dragOffset, constrainImagePosition, uploadedImages, setSelectedImageIndex, clampPointToDrawableArea, isInToolbarZone]);
   // const draw = useCallback((e) => {
   //   const rect = canvasRef.current.getBoundingClientRect();
   //   const rawPos = pointerPos(e, rect);
@@ -1371,74 +1374,74 @@ const draw = useCallback((e) => {
       e.target.value = "";
     }
   };
-const handleClick = (e) => {
-  if (tool !== "text") return;
-  
-  const rect = canvasRef.current.getBoundingClientRect();
-  const rawPos = pointerPos(e, rect);
-  const pos = clampPointToDrawableArea(rawPos);
+  const handleClick = (e) => {
+    if (tool !== "text") return;
 
-  if (isInToolbarZone(rawPos)) {
+    const rect = canvasRef.current.getBoundingClientRect();
+    const rawPos = pointerPos(e, rect);
+    const pos = clampPointToDrawableArea(rawPos);
+
+    if (isInToolbarZone(rawPos)) {
+      if (activeTextBlock) {
+        commitTypedText();
+      }
+      return;
+    }
+
+    // Check if clicking on existing text block first
+    const clickedBlock = textBlocks.find((block) => {
+      const blockWidth = Math.min(300, canvasSize.width - block.x - 20);
+      const blockRight = block.x + blockWidth;
+      const blockBottom = block.y + calculateBlockHeight(block);
+      return (
+        pos.x >= block.x - 10 &&
+        pos.x <= blockRight + 10 &&
+        pos.y >= block.y - 5 &&
+        pos.y <= blockBottom + 5
+      );
+    });
+
+    if (clickedBlock) {
+      if (activeTextBlock && activeTextBlock.id !== clickedBlock.id) {
+        commitTypedText();
+      }
+
+      setActiveTextBlock(clickedBlock);
+      const lines = clickedBlock.text.split("\n");
+      setTextLines(lines);
+      setTypedText(clickedBlock.text);
+      updateCursorPosition(pos, clickedBlock);
+      setTextToolActive(true);
+      if (nativeInputRef.current) {
+        nativeInputRef.current.focus();
+      }
+      return;
+    }
+
+    // Commit any active text block before creating new one
     if (activeTextBlock) {
       commitTypedText();
     }
-    return;
-  }
 
-  // Check if clicking on existing text block first
-  const clickedBlock = textBlocks.find((block) => {
-    const blockWidth = Math.min(300, canvasSize.width - block.x - 20);
-    const blockRight = block.x + blockWidth;
-    const blockBottom = block.y + calculateBlockHeight(block);
-    return (
-      pos.x >= block.x - 10 &&
-      pos.x <= blockRight + 10 &&
-      pos.y >= block.y - 5 &&
-      pos.y <= blockBottom + 5
-    );
-  });
+    // Create text at click position (can be on image or empty area)
+    const newTextBlock = {
+      id: Date.now(),
+      x: pos.x,
+      y: pos.y,
+      text: "",
+      color: drawingColor,
+      font: "20px Arial",
+    };
 
-  if (clickedBlock) {
-    if (activeTextBlock && activeTextBlock.id !== clickedBlock.id) {
-      commitTypedText();
-    }
-
-    setActiveTextBlock(clickedBlock);
-    const lines = clickedBlock.text.split("\n");
-    setTextLines(lines);
-    setTypedText(clickedBlock.text);
-    updateCursorPosition(pos, clickedBlock);
+    setActiveTextBlock(newTextBlock);
+    setTextLines([""]);
+    setTypedText("");
+    setCursorPosition({ line: 0, column: 0 });
     setTextToolActive(true);
     if (nativeInputRef.current) {
       nativeInputRef.current.focus();
     }
-    return;
-  }
-
-  // Commit any active text block before creating new one
-  if (activeTextBlock) {
-    commitTypedText();
-  }
-
-  // Create text at click position (can be on image or empty area)
-  const newTextBlock = {
-    id: Date.now(),
-    x: pos.x,
-    y: pos.y,
-    text: "",
-    color: drawingColor,
-    font: "20px Arial",
   };
-
-  setActiveTextBlock(newTextBlock);
-  setTextLines([""]);
-  setTypedText("");
-  setCursorPosition({ line: 0, column: 0 });
-  setTextToolActive(true);
-  if (nativeInputRef.current) {
-    nativeInputRef.current.focus();
-  }
-};
   // const handleClick = (e) => {
   //   if (tool !== "text") return;
   //   const rect = canvasRef.current.getBoundingClientRect();
@@ -1916,16 +1919,31 @@ const handleClick = (e) => {
   }
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsLandscape(window.innerWidth > window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     if (Scoller) {
       setScoller(false);
+
+      const delay = isLandscape ? 300 : 100;
+
       setTimeout(() => {
         window.scrollTo({
           top: document.documentElement.scrollHeight,
           behavior: "smooth",
         });
-      }, 100);
+      }, delay);
     }
-  }, [Scoller]);
+  }, [Scoller, isLandscape]);
 
 
   return (
