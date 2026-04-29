@@ -732,7 +732,9 @@ input[type="number"]::-webkit-outer-spin-button {
   flex-direction: column;
   justify-content: space-between;
 }
-
+.cmmin-mrgn{
+      margin-right: 18px;
+}
 @media (max-width: 799px) {
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;
@@ -1091,10 +1093,10 @@ font-size: 22px;
     height: calc(70vh - 145px);
   }
 
-  .dash-hexuple-items .dashboard-cards .dashboard-img img {
+  /* .dash-hexuple-items .dashboard-cards .dashboard-img img {
     height: calc(45vh - 70px);
     object-fit: contain;
-  }
+  } */
 }
 
 @media only screen and (max-height: 844px) and (orientation: landscape) {
