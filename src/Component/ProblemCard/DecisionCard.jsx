@@ -186,7 +186,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                           onDragStart={(e) => e.preventDefault()}/>
                 </div>
                 <div>
-                  <img src={Question} width="30px" className="concrn-icn"           draggable={false}
+                  <img src={Question} width="30px" className="concrn-icn cmmin-mrgn"           draggable={false}
                           onContextMenu={(e) => e.preventDefault()}
                           onDragStart={(e) => e.preventDefault()} />
                 </div>
