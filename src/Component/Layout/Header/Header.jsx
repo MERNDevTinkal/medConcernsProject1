@@ -70,7 +70,7 @@ const Header = ({
   const [openPopup, setOpenPopup] = useState(false);
   const navigate = useNavigate();
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  const handleSummary = () => resetDiseases();
+  const handleSummary = () => { console.log("zdasdasd "); resetDiseases(); }
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("license_key");
@@ -357,6 +357,10 @@ const Header = ({
   };
 
   const handleRoutes = (name, item) => {
+    if (name === "Settings" || name === "Patient Education" || name === "Mental Health Resources" || name === "Introduction") {
+      navigate(item.path);
+      return;
+    }
     updateDisease("headerNames", item);
     navigate(item.path);
   };
@@ -388,7 +392,11 @@ const Header = ({
                   } else if (isSummary === true) {
                     navigate(-1);
                   } else {
-                    handlelastObj();
+                    if (name !== "Settings" && name !== "Patient Education" && name !== "Mental Health Resources" && name !== "Introduction") {
+                      handlelastObj();
+                    } else {
+                      navigate(-1);
+                    }
                   }
                 }}
               >
@@ -513,7 +521,10 @@ const Header = ({
                       onClick={() => {
                         Cookies.remove("is_concern");
                         Cookies.remove("is_pain_flow");
-                        handleSummary();
+                        if (item.en !== "Settings" && item.en !== "Patient Education" && item.en !== "Mental Health Resources" && item.en !== "Introduction") {
+                          console.log("Calling handleSummary before navigating to:", item.en);
+                          handleSummary();
+                        }
                         if (item.fun) item.fun();
                         handleRoutes(
                           selectedLanguage === "Spanish" ? item.es : item.en,
