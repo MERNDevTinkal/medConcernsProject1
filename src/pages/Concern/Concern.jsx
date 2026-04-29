@@ -59,7 +59,7 @@ const Concern = () => {
             className={`main-wrapper home-wrapper pt-20 topic-board-page ${location.pathname === "/topic-board" ? "relative" : ""} `}
           >
             {location.pathname === "/topic-board" && (
-              <div className="flex justify-end">
+              <div className="flex justify-end needboard-btn-h">
                 <button
                   onClick={() => {
                     navigate("/icon-upload", {

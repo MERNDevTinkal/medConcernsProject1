@@ -161,7 +161,7 @@ const DecisionCard = ({ selectedLanguage, partName, selectedGender }) => {
                   {selectedLanguage === "Spanish" ? "NO" : "NO"}
                 </p>
               </div>
-              <div className="mr-1.5">
+              <div className="mr-2">
                 <img src={Close} width="35px" className="concrn-icn" />
               </div>
             </div>

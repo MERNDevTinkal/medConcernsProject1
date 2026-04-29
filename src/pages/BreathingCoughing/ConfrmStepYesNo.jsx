@@ -153,7 +153,7 @@ function ConfrmStepYesNo() {
             calendarOn={''}
             name={displayText ?? value?.name}
           />
-          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col min-h-[90vh]">
+          <div className="main-wrapper home-wrapper items-center justify-center flex flex-col ">
             <div
               className={`grid grid-cols-2 gap-18 my-0 items-center common-scale mt-5`}
             >
@@ -255,7 +255,7 @@ function ConfrmStepYesNo() {
                   >
                     <div className="custom-wdth flex items-center justify-between p-4 px-10 border-3 border-white bg-white rounded-[10px] mt-5 cursor-pointer hover:border-blue-600 transition-colors duration-300">
                       <p className="text-[40px] font-medium text-red-600">NO</p>
-                      <div className="mr-1.5">
+                      <div className="mr-2">
                         <img
                         src={Close}
                         className="w-8"
