@@ -332,7 +332,7 @@ const NeedBoard = () => {
                             )}
 
                             <div
-                              className="dashboard-img card-img-h rounded-2xl"
+                              className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full"
                               onClick={() =>
                                 handleNeedBoard(item, item.secPath)
                               }

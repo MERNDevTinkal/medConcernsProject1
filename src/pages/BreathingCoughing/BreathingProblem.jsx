@@ -242,7 +242,7 @@ const BreathingProblem = () => {
                           : ""
                         }`}
                     >
-                      <div className="dashboard-img card-img-h rounded-2xl">
+                      <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
                         <img
                           style={{
                             height: selectedIconCount === 6 ? "" : "",
