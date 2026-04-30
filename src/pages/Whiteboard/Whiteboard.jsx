@@ -82,7 +82,7 @@ export default function Whiteboard() {
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawingColor, setDrawingColor] = useState("#000000");
   const [drawingWidth, setDrawingWidth] = useState(2);
-  const [tool, setTool] = useState("pencil");
+  const [tool, setTool] = useState("");
   const [drawingName, setDrawingName] = useState("");
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [uploadedImages, setUploadedImages] = useState([]);
