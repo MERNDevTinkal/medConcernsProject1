@@ -13,6 +13,7 @@ import { RiEraserFill } from "react-icons/ri";
 import { FaSave } from "react-icons/fa";
 import ImageUpload from "./imageUpload.jsx";
 import { GiResize } from "react-icons/gi";
+import { MdOutlineClear } from "react-icons/md";
 
 import {
   PencilIcon,
@@ -82,7 +83,7 @@ export default function Whiteboard() {
   const [isDrawing, setIsDrawing] = useState(false);
   const [drawingColor, setDrawingColor] = useState("#000000");
   const [drawingWidth, setDrawingWidth] = useState(2);
-  const [tool, setTool] = useState("pencil");
+  const [tool, setTool] = useState("");
   const [drawingName, setDrawingName] = useState("");
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [uploadedImages, setUploadedImages] = useState([]);
@@ -2010,6 +2011,19 @@ export default function Whiteboard() {
                 </div>
                 <CardContent className="whiteboard-toolbar absolute bottom-3 left-0 right-0 z-1 overflow-x-auto px-2 py-2 sm:px-4">
                   <div className="flex min-w-max flex-nowrap items-center justify-start gap-2 sm:justify-center sm:gap-3 bg-white">
+
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className={cn(tool === "pencil" && "bg-gray-100")}
+                      onClick={() => {
+                        setTool("");
+                      }}
+                      title={selectedLanguage === "Spanish" ? "Claro" : "Clear"}
+                    >
+                      <MdOutlineClear className="w-5 h-5" alt="Clear Icon" />
+                    </Button>
+
                     <Button
                       variant="ghost"
                       size="icon"
