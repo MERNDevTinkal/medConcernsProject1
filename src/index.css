@@ -1626,7 +1626,8 @@ top: 54px;
   }
 
   .topicSetting-double-items {
-    height: 50vh;
+    height: 159px;
+        width: 280px;
   }
    .dash-triple-items .dashboard-cards .dashboard-img img {
     height: calc(90vh - 130px);
@@ -1967,7 +1968,7 @@ top: 54px;
 }
 .topicSetting-single-items .dashboard-cards{
   width: 300px;
-  height: 65%;
+  height: 199px;
 }
 .topicSetting-double-items .dashboard-cards{
   width: 280px;
@@ -1998,6 +1999,9 @@ padding-bottom: 4px;
 }
 .imagelibarary-header{
       padding-right: 50px;
+}
+.truncates-text{
+  font-size: 16px;
 }
 }
 .down-arrow.hide {
@@ -2043,7 +2047,7 @@ body.font-cls {
 .font-cls .Header-text{
   font-weight: 600 !important;
    font-family: "DM Sans", sans-serif !important;
-   font-size: 30px;
+ 
 }
  
 
