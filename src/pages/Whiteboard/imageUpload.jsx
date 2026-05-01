@@ -28,7 +28,7 @@ export default function AddImagePopup({
       e.target.value = '';
     }
   };
-
+// new changes
   const handleChooseFromLibrary = (e) => {
     e.preventDefault();
     const snapshot = getWhiteboardSnapshot
