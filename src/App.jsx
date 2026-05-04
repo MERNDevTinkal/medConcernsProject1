@@ -63,7 +63,9 @@ import Openingpage from "./pages/Openingpage/page";
 import MentalHealthResources from "./pages/mental-health-resources/page";
 import ReviewScale from "./pages/reviewScale/page";
 
+
 function App() {
+
   // nothing
   const location = useLocation();
   useEffect(() => {
