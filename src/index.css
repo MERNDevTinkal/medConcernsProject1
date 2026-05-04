@@ -474,11 +474,14 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: #dceaf7;
 }
 .main-header-top{
-  padding-top: 20px;
-  position: sticky;
-  top: -30px;
-  z-index: 50;
-  left: 0;
+    padding-top: 30px;
+    position: fixed;
+    top: -30px;
+    z-index: 50;
+    left: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 .main-header {
   z-index: 9;
@@ -735,6 +738,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .cmmin-mrgn{
       margin-right: 18px;
 }
+
+
 @media (max-width: 799px) {
   .sidebar .font-normal.text-black.flex {
     font-size: 15px;
@@ -760,7 +765,7 @@ input[type="number"]::-webkit-outer-spin-button {
 @media (orientation: landscape) {
   .main-wrapper {
     padding-bottom: 60px;
-    padding-top: 25px;
+    padding-top: 45px;
   }
 
   .pain-wrapper,
@@ -1214,6 +1219,7 @@ font-size: 22px;
   border-radius: 0 0 0.75rem 1.75rem;
 }
 
+
 .whiteboard-wrapper .whiteboard-card {
   height: 100%;
 }
@@ -1449,9 +1455,7 @@ font-size: 22px;
   /* Tailwind blue-600 */
 }
 
-.topic-board-page .dashboard-cards {
-  width: 100%;
-}
+
 
 .topicSetting-single-items,
 .topicSetting-double-items,
@@ -1468,6 +1472,7 @@ font-size: 22px;
 .topicSetting-quadriple-items .dashboard-cards {
   height: 100%;
   justify-content: center;
+  width: 100%;
 }
 
 .topicSetting-hexuple-items .dashboard-cards {
@@ -1483,8 +1488,8 @@ font-size: 22px;
 }
 
 .topicSetting-double-items {
-     margin: 0 auto;
-    height: calc(60vh - 0px);
+       margin: 50px auto;
+    height: calc(50vh - 0px);
     width: 350px;
 }
 
@@ -1628,6 +1633,7 @@ top: 54px;
   .topicSetting-double-items {
     height: 159px;
         width: 280px;
+        margin: 0 auto;
   }
    .dash-triple-items .dashboard-cards .dashboard-img img {
     height: calc(90vh - 130px);
@@ -1642,13 +1648,22 @@ top: 54px;
   
   
   .topicSetting-hexuple-items {
-    height: 26vh;
+           height: 116px;
+        width: 230px;
+        margin-left: auto;
+        margin-right: auto;
   }
   .topicSetting-quadriple-items{
-    height: 47vh;
+           height: 184px;
+        width: 170px;
+        margin-left: auto;
+        margin-right: auto;
   }
   .topicSetting-triple-items{
-    height: 47vh;
+    height: 245px;
+    width: 230px;
+      margin-left: auto;
+        margin-right: auto;
   }
 
   .brthng-card {
@@ -1696,7 +1711,7 @@ top: 54px;
 
   .thm-footer {
     z-index: 99999;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
 
   aside.sidebar {
@@ -1709,7 +1724,7 @@ top: 54px;
   }
 
   .dashboard-cards.shirnk-card .dashboard-img img {
-    height: calc(70vh - 120px);
+    height: calc(70vh - 80px);
   }
   /* .dashboard-cards.shirnk-card p {
     font-size: 18px;
@@ -1767,12 +1782,10 @@ top: 54px;
     margin-bottom: 15px;
     margin: 0 auto 15px auto; 
   }
-  .dash-triple-items .dashboard-cards p{
-  
-    padding-bottom: 5px;
-  }
+ 
   .dash-triple-items .dashboard-cards{
-    height: 230px;
+    height: 100%;
+    padding-bottom: 5px;
   }
   .dash-quadriple-items .dashboard-cards {
     background-color: #fff;
@@ -1921,7 +1934,7 @@ top: 54px;
     height: calc(80vh - 160px);
   }
   .dash-quadriple-items .dashboard-cards.shirnk-card {
-    height: calc(70vh - 50px);
+    height: 100%;
   }
   .dash-hexuple-items .card-img-h {
     overflow: visible;
@@ -2003,6 +2016,19 @@ padding-bottom: 4px;
 .truncates-text{
   font-size: 16px;
 }
+.whiteboard-wrapper .whiteboard-toolbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    max-width: 100%;
+    width: 1000px;
+    margin: 0 auto;
+}
+.main-header-top{
+      position: sticky;
+      padding-top: 20px;
+}
 }
 .down-arrow.hide {
   opacity: 0;
@@ -2034,26 +2060,20 @@ padding-bottom: 4px;
 
 .font-cls .main-header,
 .font-cls .sidebar {
-  font-family: "DM Sans", sans-serif !important;
   font-weight: 500 !important;
 }
 
 body.font-cls {
    font-weight: 400 !important;
 }
-
-
-
-.font-cls .Header-text{
-  font-weight: 600 !important;
-   font-family: "DM Sans", sans-serif !important;
- 
+.dashboard-img .w-full.h-full,
+.dashboard-img.card-img-h.rounded-2xl{
+  position: relative;
+    -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* disable selection */
+  user-select: none;
+  pointer-events: none; /* optional (click bhi disable ho jayega) */
 }
- 
-
-
-
- 
 
 /* .dashboard-img .w-full.h-full,
 .dashboard-img.card-img-h.rounded-2xl{
