@@ -74,7 +74,7 @@ function ConfrmStepWhen() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+          <div className="flex items-center justify-between py-4 fixed left-0 right-0 top-0 bg-white innr-header">
             <div
               onClick={() => {
                 navigate(-1);

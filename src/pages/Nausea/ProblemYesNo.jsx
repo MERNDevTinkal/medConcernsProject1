@@ -12,7 +12,7 @@ import dashimg02 from "../../assets/images/constipation.jpg";
 function ProblemYesNo() {
   return (
     <>
-      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header">
         <Link to="/">
           <img src={BackArrow} />
         </Link>
