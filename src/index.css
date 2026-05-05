@@ -740,6 +740,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .cmmin-mrgn{
       margin-right: 18px;
 }
+.main-wrapper{
+  min-height: 100vh;
+}
 
 
 @media (max-width: 799px) {
@@ -978,8 +981,8 @@ font-size: 22px;
 }
 
  .dash-double-items{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
 
 .dash-double-items .dashboard-cards .dashboard-img img {
@@ -1618,6 +1621,9 @@ top: 54px;
   height: 100% !important;
 }
 @media screen and (max-width: 1024px) and (orientation: landscape) {
+  .main-wrapper {
+    min-height: auto;
+}
   .dash-double-items .dashboard-cards .dashboard-img img {
     height: calc(90vh - 200px);
   }
