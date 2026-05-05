@@ -7,7 +7,7 @@ import { BackArrow, ConcernImg3 } from "../../Component/DiseasesData/images";
 function SwallowingYesNo() {
   return (
     <>
-      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header">
+      <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header">
         <Link to="/">
           <img src={BackArrow} />
         </Link>

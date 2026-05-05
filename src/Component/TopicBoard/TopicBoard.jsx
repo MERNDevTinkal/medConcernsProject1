@@ -239,7 +239,7 @@ const TopicBoard = ({
         ? item?.name
         : item?.nameEs
       : item?.name
-    )?.length > 20
+    )?.length > 23
       ? "truncates-text"
       : ""
   }`}

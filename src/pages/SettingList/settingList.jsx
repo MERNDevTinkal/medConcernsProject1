@@ -389,7 +389,7 @@ export default function ConcernsSettings() {
         <Loader />
       ) : (
         <>
-          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 to-0 bg-white innr-header z-40">
+          <div className="flex items-center justify-between px-4 py-4 fixed left-0 right-0 top-0 bg-white innr-header z-40">
             <div style={{ cursor: "pointer" }} onClick={() => navigate(-1)}>
               <img src={BackArrow} alt="Back" />
             </div>
