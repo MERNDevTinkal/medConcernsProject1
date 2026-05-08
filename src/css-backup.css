@@ -212,12 +212,6 @@
   font-display: swap;
 }
 
-:root {
-  --safe-area-left: env(safe-area-inset-left, 0px);
-  --safe-area-right: env(safe-area-inset-right, 0px);
-  --mobile-page-gutter: 15px;
-}
-
 body {
   /* background: -webkit-linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
   /* background: linear-gradient(180deg, #feffff 0%, #dceaf7 100%); */
@@ -226,18 +220,8 @@ body {
   font-size: 16px;
   font-family: "Navigo" !important;
   scroll-behavior: smooth;
-  /* overflow-x: clip prevents horizontal scroll without breaking position: fixed
-     on iOS Safari (overflow-x: hidden creates a scroll context that detaches
-     fixed children on iPad/iPadOS, especially in PWA mode). */
-  overflow-x: clip;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-
-}
-
-@supports not (overflow-x: clip) {
-  body {
-    overflow-x: hidden;
-  }
 }
 body {
   -webkit-overflow-scrolling: touch;
@@ -461,8 +445,6 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--safe-area-left);
-  padding-right: var(--safe-area-right);
   /* min-height: calc(100dvh - 120px); */
   padding-bottom: 50px;
   /* padding-top: 80px; */
@@ -495,28 +477,21 @@ input[type="number"]::-webkit-outer-spin-button {
   --header-safe-top: env(safe-area-inset-top, 0px);
   --header-height: calc(56px + var(--header-safe-top));
   padding-top: var(--header-safe-top);
-  /* Use sticky instead of fixed: avoids the iOS Safari / iPadOS PWA bug where
-     position: fixed scrolls with content when an ancestor has overflow set.
-     Sticky is in flow, so no padding-top compensation is needed below. */
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 50;
   left: 0;
   right: 0;
   width: 100%;
   background-color: #dceaf7;
-  /* isolation creates a stacking context without the side-effects of
-     transform: translateZ(0), which broke fixed positioning on iPadOS PWA. */
-  isolation: isolate;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 .main-header {
   z-index: 9;
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--safe-area-left);
-  padding-right: var(--safe-area-right);
 
 }
 
@@ -549,8 +524,6 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-right: auto;
   z-index: 1020;
   background-color: #dceaf7;
-  padding-left: max(var(--mobile-page-gutter), var(--safe-area-left));
-  padding-right: max(var(--mobile-page-gutter), var(--safe-area-right));
   position: relative;
 }
 
@@ -1645,7 +1618,6 @@ top: 54px;
     max-width: 1024px;
     position: fixed;
     z-index: 9999;
-        padding: 0 15px;
 }
 .images-library-wrapper .card-img-h{
   height: 100% !important;
@@ -1794,12 +1766,12 @@ top: 54px;
     width: 40px;
   } */
   .main-wrapper {
-    padding-left: max(var(--mobile-page-gutter), var(--safe-area-left));
-    padding-right: max(var(--mobile-page-gutter), var(--safe-area-right));
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .main-header {
-    padding-left: max(var(--mobile-page-gutter), var(--safe-area-left));
-    padding-right: max(var(--mobile-page-gutter), var(--safe-area-right));
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .dash-single-items {
     /* height: calc(90vh - 100px); */
@@ -1868,8 +1840,7 @@ top: 54px;
   }
   
   .innr-header {
-    padding-left: max(var(--mobile-page-gutter), var(--safe-area-left));
-    padding-right: max(var(--mobile-page-gutter), var(--safe-area-right));
+    padding-left: 15px;
   }
   .depression-screener-wrapper
     .feel-overall-card
@@ -2060,13 +2031,12 @@ padding-bottom: 4px;
     right: 0;
     bottom: 40px;
     max-width: 100%;
-    width: fit-content;
+    width: 1000px;
     margin: 0 auto;
 }
   .main-header-top {
     --header-height: calc(52px + var(--header-safe-top));
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: 0;
     padding-top: var(--header-safe-top);
     background-color: #dceaf7;
@@ -2077,11 +2047,24 @@ padding-bottom: 4px;
   pointer-events: none;
 }
 
-/* Sticky header is in flow and naturally pushes content down,
-   so no padding-top compensation is needed on the wrapper below it. */
-.main-header-top + .main-wrapper,
+.main-header-top + .main-wrapper {
+  padding-top: calc(76px + env(safe-area-inset-top, 0px));
+}
+
+@media (orientation: landscape) {
+  .main-header-top + .main-wrapper {
+    padding-top: calc(64px + env(safe-area-inset-top, 0px));
+  }
+}
+
 .main-wrapper.home-wrapper {
-  padding-top: 0;
+  padding-top: calc(76px + env(safe-area-inset-top, 0px));
+}
+
+@media (orientation: landscape) {
+  .main-wrapper.home-wrapper {
+    padding-top: calc(64px + env(safe-area-inset-top, 0px));
+  }
 }
 
 .decision-cards-innr .custom-wdth {
