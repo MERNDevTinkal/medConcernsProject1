@@ -127,7 +127,7 @@ const SummaryList = () => {
           />
           {diseases?.summaryList?.length > 0 ? (
             <div className="main-wrapper home-wrapper">
-              <div className="flex justify-end space-x-2 ">
+              <div className="flex justify-end space-x-2 mb-3">
                 <button
                   onClick={() => window.print()}
                
@@ -174,7 +174,7 @@ const SummaryList = () => {
                           : "justify-between")
                       }
                     >
-                      <div className="md:w-1/4 sm:w-1/2 w-full">
+                      <div className="md:w-1/2 sm:w-1/2 w-full">
                         <SummaryLeftCard
                           board={item?.flow[0]?.route}
                           selectedLanguage={selectedLanguage}

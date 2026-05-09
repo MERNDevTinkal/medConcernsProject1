@@ -313,7 +313,7 @@ const NeedBoard = () => {
                             }`}
                           >
                             {item?.audio && item.audio.trim() !== "" && (
-                              <div className="flex justify-end absolute top-4 right-4">
+                              <div className="flex justify-end absolute top-4 right-4 z-50">
                                 <span style={{ color: "blue" }}>
                                   <MdEdit
                                     onClick={() =>
