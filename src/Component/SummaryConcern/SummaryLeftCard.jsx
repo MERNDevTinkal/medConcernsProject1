@@ -22,7 +22,7 @@ const SummaryCards = ({ board, selectedLanguage, SummaryConcernData, headerNames
   return (
     <>
       <div className="dashboard-cards rounded-2xl bg-white text-center py-4 px-3 shadow-sm cursor-pointer summary-left-cards">
-        <div className="dashboard-img ">
+        <div className="dashboard-img rounded-2xl flex-1 flex items-center justify-center w-full ">
 
           {imageSrc && (
             <img
