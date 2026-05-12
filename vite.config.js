@@ -13,8 +13,8 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
 
         globPatterns: [
-          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}",
-          "assets/*.{png,svg,jpg,jpeg,webp}"
+          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp3,ogg,wav}",
+          "assets/*.{png,svg,jpg,jpeg,webp,mp3,ogg,wav}",
         ],
 
       runtimeCaching: [
