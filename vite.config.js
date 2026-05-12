@@ -11,77 +11,73 @@ export default defineConfig({
       registerType: "autoUpdate",
       workbox: {
         maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
-        clientsClaim: true,
-        skipWaiting: true,
-        navigateFallback: "index.html",
-        navigateFallbackDenylist: [/^\/api\//],
 
         globPatterns: [
-          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp3,ogg,wav}",
-          "assets/*.{png,svg,jpg,jpeg,webp,mp3,ogg,wav}",
+          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp3}",
+          "assets/*.{png,svg,jpg,jpeg,webp,mp3}",
         ],
 
-      runtimeCaching: [
-        {
-          urlPattern: ({ request }) => request.destination === "image",
-          handler: "CacheFirst",
-          options: {
-            cacheName: "images-cache",
-            expiration: {
-              maxEntries: 2000,
-              maxAgeSeconds: 365 * 24 * 60 * 60,
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === "image",
+            handler: "CacheFirst",
+            options: {
+              cacheName: "images-cache",
+              expiration: {
+                maxEntries: 2000,
+                maxAgeSeconds: 365 * 24 * 60 * 60,
+              },
             },
           },
-        },
-        {
-          urlPattern: ({ request }) => request.destination === "audio",
-          handler: "CacheFirst",
-          options: {
-            cacheName: "audio-cache",
-            expiration: {
-              maxEntries: 100,
-              maxAgeSeconds: 365 * 24 * 60 * 60,
+          {
+            urlPattern: ({ request }) => request.destination === "audio",
+            handler: "CacheFirst",
+            options: {
+              cacheName: "audio-cache",
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 365 * 24 * 60 * 60,
+              },
             },
           },
-        },
-      ],
-    },
+        ],
+      },
 
       // PWA MANIFEST
       manifest: {
-      name: "MedConcerns App",
-      short_name: "MedConcerns",
-      description: "MedConcerns App",
-      start_url: "/",
-      scope: "/",
-      display: "standalone",
-      orientation: "landscape",
-      background_color: "#ffffff",
-      theme_color: "#ffffff",
+        name: "MedConcerns App",
+        short_name: "MedConcerns",
+        description: "MedConcerns App",
+        start_url: "/",
+        scope: "/",
+        display: "standalone",
+        orientation: "landscape",
+        background_color: "#ffffff",
+        theme_color: "#ffffff",
 
-      icons: [
-        {
-          src: "/192.png",
-          sizes: "192x192",
-          type: "image/png",
-        },
-        {
-          src: "/512.png",
-          sizes: "512x512",
-          type: "image/png",
-        },
-        {
-          src: "/180.png",
-          sizes: "180x180",
-          type: "image/png",
-        }
-      ]
-    }
-    })
+        icons: [
+          {
+            src: "/192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "/512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "/180.png",
+            sizes: "180x180",
+            type: "image/png",
+          },
+        ],
+      },
+    }),
   ],
 
-server: {
-  host: true,
+  server: {
+    host: true,
     hmr: { overlay: false },
-},
+  },
 });
