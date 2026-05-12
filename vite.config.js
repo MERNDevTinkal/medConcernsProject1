@@ -11,6 +11,10 @@ export default defineConfig({
       registerType: "autoUpdate",
       workbox: {
         maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+        clientsClaim: true,
+        skipWaiting: true,
+        navigateFallback: "index.html",
+        navigateFallbackDenylist: [/^\/api\//],
 
         globPatterns: [
           "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp3,ogg,wav}",
