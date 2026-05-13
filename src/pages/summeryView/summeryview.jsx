@@ -75,7 +75,7 @@ const SummaryList = () => {
           />
           {summaryData?.summaryList?.length > 0 ? (
             <div className="main-wrapper home-wrapper">
-              <div className="flex justify-end space-x-2 mb-2">
+              <div className="flex justify-end space-x-2 mt-4 mb-2">
                 <button
                   onClick={() => window.print()}
                   style={{ border: "2px solid black" }}
@@ -98,7 +98,7 @@ const SummaryList = () => {
                       key={index}
                       className="flex flex-row items-center w-full my-5 summary-main"
                     >
-                      <div className="md:w-1/2 sm:w-1/2 w-full">
+                      <div className="md:w-1/3 sm:w-1/2 w-full summary-phone">
                         <SummaryLeftCard
                           board={item?.flow?.[0]?.route}
                           selectedLanguage={selectedLanguage}
@@ -109,7 +109,7 @@ const SummaryList = () => {
                       <div className="arrow-right mx-4">
                         <img src={Arrow} alt="arrow" />
                       </div>
-                      <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right">
+                      <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2 summary-list-right md:w-1/2 w-full">
                         <SummaryRightCard
                           selectedLanguage={selectedLanguage}
                           SummaryDetail={item?.flow}
