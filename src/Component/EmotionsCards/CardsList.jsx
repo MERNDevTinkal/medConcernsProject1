@@ -79,7 +79,7 @@ const CardsList = ({ selectedGender, selectedLanguage, selectedIconCount }) => {
           }
         >
           <div className="dashboard-cards rounded-2xl bg-white text-center pb-0.5">
-            <div className="dashboard-img card-img-h rounded-2xl">
+            <div className="dashboard-img card-img-h rounded-2xl flex-1 flex items-center justify-center w-full">
               <img
                 style={{
                   ...(selectedIconCount === 6 ? { height: "" } : ""),

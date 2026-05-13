@@ -1,165 +1,249 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Header from "../../Component/Layout/Header/Header";
+import SummaryLeftCard from "../../Component/SummaryConcern/SummaryLeftCard";
+import { Arrow } from "../../Component/DiseasesData/images";
 import Footer from "../../Component/Layout/Footer/Footer";
-import { useNavigate } from "react-router-dom";
+import SummaryRightCard from "../../Component/SummaryConcern/SummaryRightCard";
+import { GlobalContext } from "../../context/DiseaseContext";
+import SaveModel from "../../Component/saveASModel/saveModel";
 import api from "../../Component/apiCall/apiCall";
 import { toast } from "react-toastify";
 import Loader from "../../Component/webLoader/loader";
-import Pagination from "../../Component/pagination/pagination";
 import getSetting from "../../Component/settingApi/settings";
-import { FiEye, FiTrash2 } from "react-icons/fi";
-import DeletePopUp from "../../Component/DeleteSummaryPopup/DeletePop";
-const SummaryList = () => {
-  const [summaryList, setSummaryList] = useState([]);
-  const [loader, setLoader] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [calendarOn, setCalendarOn] = useState(1);
-  const [IntroductionOn, setIntroductionOn] = useState(1);
-  const [lastPage, setLastPage] = useState(1); // From API
-  const [selectedLanguage, setSelectedLanguage] = React.useState("");
-  const navigate = useNavigate();
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteId, setDeleteId] = useState(null);
+import { useNavigate } from "react-router-dom";
+import ConcernPopUp from "../../Component/concernPopUp/ConcernPop";
+import Cookies from "js-cookie";
+import SaveWarningPopup from "../../Component/SaveWarningPopup/SaveWarningPopup";
+import { useSearchParams } from "react-router-dom";
+import printicon from "/assets/images/printer.svg";
+import floppydisk from "/assets/images/floppy-disk.svg";
+import folder from "/assets/images/folder.svg";
 
-  const fetchApi = () => {
+const SummaryList = () => {
+  const navigate = useNavigate();
+  const [selectedLanguage, setSelectedLanguage] = React.useState("");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [loader, setLoader] = useState(true);
+  const { diseases, clearAllDiseases } = useContext(GlobalContext);
+  const [ShowSaveModal, setShowSaveModal] = useState(false);
+  const [showDonePopUp, setshowDonePopUp] = useState(false);
+  const [calendarOn, setCalendarOn] = useState(false);
+  const [introductionOn, setIntroductionOn] = useState(false);
+  const [saveAs, setSaveAs] = useState("");
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+  const name = searchParams.get("name");
+  const saveData = () => {
+    const licenses_id = localStorage.getItem("license_key");
     const token = localStorage.getItem("token");
-    const license_key = localStorage.getItem("license_key");
+    Cookies.remove("is_pain_flow");
     const payload = new FormData();
-    payload.append("licenses_id", license_key);
-    payload.append("page", currentPage);
-    setLoader(true);
+    payload.append("licenses_id", licenses_id);
+    payload.append("name_key", saveAs);
+    payload.append("summary_data", JSON.stringify(diseases));
     api
-      .post("summaries_all", payload, {
+      .post("summaries", payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then(({ data }) => {
         if (data.status) {
-          setSummaryList(data.data);
-          setCurrentPage(data.current_page);
-          setLastPage(data.last_page);
+          setShowSaveModal(false);
+          toast.success(data.msg, {
+            autoClose: 1500,
+            onClose: navigate("/summary-list"),
+          });
         }
-        setLoader(false);
       })
       .catch(({ response }) => {
         toast.error(response?.data?.message || response?.data?.msg, {
           autoClose: 1500,
         });
-        setLoader(false);
       });
-  }
-  useEffect(() => {
-    fetchApi();
-  }, [currentPage]);
-
-  const handleRoute = (name) => {
-    navigate(`/summary-view/${name}`);
+  };
+  const handleSummaryListRoute = () => {
+    navigate("/summary-list");
   };
   useEffect(() => {
     getSetting(
-      () => { },
-      () => { },
+      () => {},
+      () => {},
       setSelectedLanguage,
       setCalendarOn,
       setIntroductionOn,
       setLoader,
-      () => { },
-      () => { },
-      () => { },
-      () => { }
+      () => {},
+      () => {},
+      () => {},
+      () => {},
     );
   }, []);
-  const confirmDelete = (Summary_id) => {
-    const token = localStorage.getItem("token");
-    const license_key = localStorage.getItem("license_key");
-    const payload = new FormData();
-    payload.append("licenses_id", license_key);
-    payload.append("Summary_id", Summary_id);
-    setLoader(true);
-    api
-      .post("summariDelete", payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(({ data }) => {
-        if (data?.status) {
-          toast.success(data.msg, { autoClose: 1500 });
+  const confirmFun = (value) => {
+    setshowDonePopUp(false);
+    Cookies.remove("is_pain_flow");
+    if (value === "Yes") {
+      const lastValue = Cookies.get("is_concern");
+      let count = 1;
+      if (lastValue && lastValue.includes("_")) {
+        count = Number(lastValue.split("_")[1]) + 1;
+      }
+      Cookies.set("is_concern", `true_${count}`);
+      navigate("/concern");
+    } else if (value === "No") {
+      setIsPopupOpen(true);
+      Cookies.remove("is_concern");
+    }
+  };
 
-          setShowDeleteModal(false);
-          fetchApi(); // refresh list only on success
-        } else {
-          toast.error(data.msg || "Delete failed", { autoClose: 1500 });
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        toast.error("Something went wrong", { autoClose: 1500 });
-      })
-      .finally(() => {
-        setLoader(false);
-      });
+  const ConcernPopUpFun = () => {
+    setshowDonePopUp((pre) => !pre);
+  };
 
-  }
+  const discardChanges = () => {
+    setIsPopupOpen(false);
+    clearAllDiseases();
+    navigate("/concern");
+  };
+
+  const keepEditing = () => {
+    setIsPopupOpen(false);
+    setShowSaveModal(true);
+  };
+  console.log("diseases?.summaryList", diseases?.summaryList);
   return (
     <>
-      <Header
-        selectedLanguage={selectedLanguage}
-        calendarOn={calendarOn}
-        introductionOn={IntroductionOn}
-        name={
-          selectedLanguage === "Spanish" ? "Lista resumida" : "Summary List"
-        }
-      />
-      <DeletePopUp selectedLanguage={selectedLanguage} deleteId={deleteId} setShowDeleteModal={setShowDeleteModal} confirmDelete={confirmDelete} showDeleteModal={showDeleteModal} />
       {loader ? (
         <Loader />
       ) : (
-        <div className="main-wrapper home-wrapper py-6 px-4">
-          {summaryList.length > 0 ? (
-            <>
-              <ul className="space-y-3">
-                {summaryList.map((item, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleRoute(item.name_key)}
-
-                    className="flex justify-between items-center bg-[#ffff] hover:bg-[#ffff] px-4 py-3 rounded-full font-medium text-sm sm:text-base cursor-pointer transition-all duration-200"
-                  >
-                    <span>{item.name_key}</span>
-                    <div className="flex items-center gap-4">
-                      <FiEye
-                        className="text-[#008CFF] text-lg cursor-pointer"
-                        onClick={(e) => { e.stopPropagation(); handleRoute(item.name_key); }}
-                      />
-                      <FiTrash2
-                        className="text-red-500 text-lg cursor-pointer"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setDeleteId(item.id);
-                          setShowDeleteModal(true);
-                        }}
-                      />
+        <>
+          <Header
+            isSummary={diseases?.summaryList?.length > 0 ? true : false}
+            // setIsPopupOpen={setIsPopupOpen}
+            selectedLanguage={selectedLanguage}
+            calendarOn={calendarOn}
+            introductionOn={introductionOn}
+            name={selectedLanguage === "Spanish" ? "Resumen" : "Summary"}
+          />
+          {diseases?.summaryList?.length > 0 ? (
+            <div className="main-wrapper home-wrapper">
+              <div className="flex justify-end space-x-2 mt-4">
+                <button
+                  onClick={() => window.print()}
+               
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {/* {selectedLanguage === "Spanish" ? "Imprimir" : "Print"} */}
+                  <img src={printicon} alt="Print" className="w-5 h-5"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
+                </button>
+                <button
+                  onClick={() => {
+                    setShowSaveModal(true);
+                  }}
+                  
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {/* {selectedLanguage === "Spanish" ? "Ahorrar" : "Save"} */}
+                  <img src={floppydisk} alt="Save" className="w-5 h-5"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
+                </button>
+                <button
+                  onClick={handleSummaryListRoute}
+                  
+                  className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100"
+                >
+                  {/* {selectedLanguage === "Spanish" ? "Lista" : "List"} */}
+                  <img src={folder} alt="Folder" className="w-5 h-5"   draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}/>
+                </button>
+              </div>
+              {diseases?.summaryList?.length > 0 &&
+                diseases?.summaryList.map((item, index) => {
+                  console.log("item?.flow[0]?.route", item?.flow[0]?.route);
+                  return (
+                    <div
+                      key={index}
+                      className={
+                        "flex flex-row items-center w-full my-5 summary-main common-scale " +
+                        (item?.flow[0]?.route === "/rating-scale"
+                          ? ""
+                          : "justify-between")
+                      }
+                    >
+                      <div className="md:w-1/3 sm:w-1/2 w-full summary-phone">
+                        <SummaryLeftCard
+                          board={item?.flow[0]?.route}
+                          selectedLanguage={selectedLanguage}
+                          SummaryConcernData={item?.concern?.data?.[0]}
+                          headerNames={diseases?.headerNames}
+                        />
+                      </div>
+                      <div className="arrow-right mx-4 self-center">
+                        <img src={Arrow} alt="arrow" />
+                      </div>
+                      <div
+                        className={` ${item?.flow[0]?.route === "/rating-scale" ? "" : "grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-3 sm:gap-2"} summary-list-right md:w-1/2 w-full`}
+                      >
+                        <SummaryRightCard
+                          selectedLanguage={selectedLanguage}
+                          SummaryDetail={item?.flow}
+                        />
+                      </div>
                     </div>
-                  </li>
-                ))}
-              </ul>
-              <Pagination
-                selectedLanguage={selectedLanguage}
-                currentPage={currentPage}
-                lastPage={lastPage}
-                setCurrentPage={setCurrentPage}
-              />
-            </>
+                  );
+                })}
+              {diseases?.summaryList[0]?.concern && (
+                <div
+                  onClick={() => {
+                    ConcernPopUpFun();
+                  }}
+                  className="flex justify-center mb-2"
+                >
+                  <button className="bg-white text-black px-4 py-2 rounded-md border border-black hover:bg-gray-100">
+                    {selectedLanguage === "Spanish" ? "Hecho" : "Done"}
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
-            <div className="text-center text-gray-600 text-lg mt-10">
-              No summary available.
+            <div className="flex items-center justify-center h-[70vh]">
+              <h1 className="text-2xl font-semibold">
+                {selectedLanguage === "Spanish"
+                  ? "No hay resumen disponible"
+                  : "No Summary Available"}
+              </h1>
             </div>
           )}
-        </div>
+
+          {ShowSaveModal && (
+            <SaveModel
+              selectedLanguage={selectedLanguage}
+              saveData={saveData}
+              setSaveAs={setSaveAs}
+              setShowSaveModal={setShowSaveModal}
+            />
+          )}
+          {showDonePopUp && (
+            <ConcernPopUp
+              selectedLanguage={selectedLanguage}
+              confirmFun={confirmFun}
+            />
+          )}
+          {isPopupOpen && (
+            <SaveWarningPopup
+             selectedLanguage={selectedLanguage}
+              open={isPopupOpen}
+              onConfirm={discardChanges}
+              onCancel={keepEditing}
+            />
+          )}
+          <Footer />
+        </>
       )}
-      <Footer />
     </>
   );
 };

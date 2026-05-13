@@ -78,8 +78,7 @@ const Footer = () => {
   return (
     <div
       className="thm-footer fixed left-0 right-0 bottom-0 z-50
-      pb-[env(safe-area-inset-bottom)]
-      transform-gpu"
+      pb-[env(safe-area-inset-bottom)]"
     >
       <div className="py-2 px-5 mx-auto thm-footer-innr">
         <ul className="flex md:gap-30 sm:gap-5 justify-between">

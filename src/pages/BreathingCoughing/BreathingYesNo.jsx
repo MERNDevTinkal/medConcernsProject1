@@ -80,7 +80,7 @@ function BreathingYesNo() {
             }
           />
           <div className="main-wrapper home-wrapper items-center justify-center flex flex-col ">
-            <div className="grid grid-cols-2 gap-18 my-0 items-center common-scale mt-5">
+            <div className="grid grid-cols-2 gap-18 my-0 items-center common-scale mt-0">
               <div
                 className={`dashboard-cards brthng-card rounded-2xl bg-white text-center shadow-sm p-3
   `}
