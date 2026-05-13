@@ -15,9 +15,32 @@ const updateSW = registerSW({
     }
   },
   onOfflineReady() {
-    console.log("App is ready to work offline");
+    console.log("✅ App is ready to work offline - Images will work without internet");
+  },
+  onRegistered() {
+    console.log("✅ Service Worker registered successfully");
+  },
+  onRegisterError(error) {
+    console.error("❌ Service Worker registration failed:", error);
   },
 });
+
+// Handle offline/online status
+window.addEventListener("offline", () => {
+  console.log("📴 App is now offline - using cached assets");
+});
+
+window.addEventListener("online", () => {
+  console.log("📶 App is back online");
+});
+
+// Log cache status on app load
+if ("caches" in window) {
+  caches.keys().then((cacheNames) => {
+    console.log("📦 Available caches:", cacheNames);
+  });
+}
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <GlobalProvider>
