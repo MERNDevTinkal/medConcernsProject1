@@ -9,15 +9,35 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "autoUpdate",
+      includeAssets: ["favicon.png", "180.png", "192.png", "512.png"],
       workbox: {
-        maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+        skipWaiting: true,
+        clientsClaim: true,
+        cleanupOutdatedCaches: true,
+        navigateFallback: "/index.html",
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
 
         globPatterns: [
-          "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}",
-          "assets/*.{png,svg,jpg,jpeg,webp}",
+          "**/*.{js,css,html,ico,woff,woff2,json}",
         ],
+        globIgnores: ["**/*.{mp3,wav,ogg,m4a}", "**/audio/**"],
 
         runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === "navigate",
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "pages-cache",
+              networkTimeoutSeconds: 3,
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 365 * 24 * 60 * 60,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
           {
             urlPattern: ({ request }) => request.destination === "image",
             handler: "CacheFirst",
@@ -27,16 +47,25 @@ export default defineConfig({
                 maxEntries: 2000,
                 maxAgeSeconds: 365 * 24 * 60 * 60,
               },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
             },
           },
           {
-            urlPattern: ({ request }) => request.destination === "audio",
-            handler: "CacheFirst",
+            urlPattern: ({ request }) =>
+              request.destination === "script" ||
+              request.destination === "style" ||
+              request.destination === "worker",
+            handler: "StaleWhileRevalidate",
             options: {
-              cacheName: "audio-cache",
+              cacheName: "static-assets-cache",
               expiration: {
-                maxEntries: 100,
+                maxEntries: 300,
                 maxAgeSeconds: 365 * 24 * 60 * 60,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
               },
             },
           },
